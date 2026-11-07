@@ -1,0 +1,2322 @@
+[
+ {
+  "id": "t10-01",
+  "course": "t10",
+  "number": 1,
+  "title": [
+   "Logique",
+   "Logic"
+  ],
+  "slides": 14,
+  "kind": "extracted",
+  "languages": [
+   "fr"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/t10-01.json",
+    "bytes": 11198,
+    "sha256": "fbc3546b54a955d7c947a8c3f353bb752834fa5723042c4097185c3224f629b3",
+    "slides": 14
+   }
+  }
+ },
+ {
+  "id": "t10-02",
+  "course": "t10",
+  "number": 2,
+  "title": [
+   "Algorithmique",
+   "Algorithms"
+  ],
+  "slides": 11,
+  "kind": "extracted",
+  "languages": [
+   "fr"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/t10-02.json",
+    "bytes": 9491,
+    "sha256": "3b44a58a7e20eff5350a47ac6cb45af4053751b17ad8d46296c74724d0b6f19f",
+    "slides": 11
+   }
+  }
+ },
+ {
+  "id": "t10-03",
+  "course": "t10",
+  "number": 3,
+  "title": [
+   "Calcul dans ℝ",
+   "Calculation with real numbers"
+  ],
+  "slides": 17,
+  "kind": "extracted",
+  "languages": [
+   "fr"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/t10-03.json",
+    "bytes": 14580,
+    "sha256": "0b96cc8d68b89257b954b1c58c75dc045a7c7986403a62be5faa4480bd0e1a71",
+    "slides": 17
+   }
+  }
+ },
+ {
+  "id": "t10-04",
+  "course": "t10",
+  "number": 4,
+  "title": [
+   "Équations et inéquations",
+   "Equations and inequalities"
+  ],
+  "slides": 22,
+  "kind": "extracted",
+  "languages": [
+   "fr"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/t10-04.json",
+    "bytes": 15530,
+    "sha256": "a0e1e2b0c609c832c1aac8f2e472a5640e5a807e0d350e7fdbc6e124612650d4",
+    "slides": 22
+   }
+  }
+ },
+ {
+  "id": "t10-05",
+  "course": "t10",
+  "number": 5,
+  "title": [
+   "Vecteurs du plan",
+   "Vectors in the plane"
+  ],
+  "slides": 16,
+  "kind": "extracted",
+  "languages": [
+   "fr"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/t10-05.json",
+    "bytes": 11698,
+    "sha256": "a623ca956de9ae8a647df09fce05a56467f073b6649c85bb5530b2278a820a4f",
+    "slides": 16
+   }
+  }
+ },
+ {
+  "id": "t10-06",
+  "course": "t10",
+  "number": 6,
+  "title": [
+   "Droites et cercles",
+   "Lines and circles"
+  ],
+  "slides": 15,
+  "kind": "extracted",
+  "languages": [
+   "fr"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/t10-06.json",
+    "bytes": 12129,
+    "sha256": "1ad167409fa61e6285b76160d374f71323199dac5b93df5a4b36d5ebb297318d",
+    "slides": 15
+   }
+  }
+ },
+ {
+  "id": "t10-07",
+  "course": "t10",
+  "number": 7,
+  "title": [
+   "Fonctions numériques",
+   "Real functions"
+  ],
+  "slides": 15,
+  "kind": "extracted",
+  "languages": [
+   "fr"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/t10-07.json",
+    "bytes": 14469,
+    "sha256": "d95b76742defbe7e6c068f42a943d04b05a25921d26c4400e99c1e0fa4a54c20",
+    "slides": 15
+   }
+  }
+ },
+ {
+  "id": "t10-08",
+  "course": "t10",
+  "number": 8,
+  "title": [
+   "Trigonométrie",
+   "Trigonometry"
+  ],
+  "slides": 15,
+  "kind": "extracted",
+  "languages": [
+   "fr"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/t10-08.json",
+    "bytes": 13748,
+    "sha256": "477eed7d1b4c4aeb3071ed0d025328c9d75a1c2bcb1bf5172d1cd060963928ac",
+    "slides": 15
+   }
+  }
+ },
+ {
+  "id": "t10-09",
+  "course": "t10",
+  "number": 9,
+  "title": [
+   "Statistiques",
+   "Statistics"
+  ],
+  "slides": 12,
+  "kind": "extracted",
+  "languages": [
+   "fr"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/t10-09.json",
+    "bytes": 9960,
+    "sha256": "89d19fc5b2d509bfd61c4bf785674296f49af0c868846e26b0fe904a3ef2f7bb",
+    "slides": 12
+   }
+  }
+ },
+ {
+  "id": "t11s-01",
+  "course": "t11s",
+  "number": 1,
+  "title": [
+   "Généralités sur les fonctions numériques",
+   "Real functions: general properties"
+  ],
+  "slides": 29,
+  "kind": "extracted",
+  "languages": [
+   "fr"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/t11s-01.json",
+    "bytes": 38317,
+    "sha256": "1a160515d393b5adc793071538bb2211530ef1d2fa2efb29fe42332fc6265c36",
+    "slides": 29
+   }
+  }
+ },
+ {
+  "id": "t11s-02",
+  "course": "t11s",
+  "number": 2,
+  "title": [
+   "Limites et continuité",
+   "Limits and continuity"
+  ],
+  "slides": 18,
+  "kind": "extracted",
+  "languages": [
+   "fr"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/t11s-02.json",
+    "bytes": 13794,
+    "sha256": "413b16913a25b2aa9a5d18f27506cfc585accea50d2e6c020b5cade8c8f8dd69",
+    "slides": 18
+   }
+  }
+ },
+ {
+  "id": "t11s-03",
+  "course": "t11s",
+  "number": 3,
+  "title": [
+   "Branches infinies et asymptotes",
+   "Infinite branches and asymptotes"
+  ],
+  "slides": 14,
+  "kind": "extracted",
+  "languages": [
+   "fr"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/t11s-03.json",
+    "bytes": 10284,
+    "sha256": "c9c1d06cc4101ba5eace20e5f7e17bb31da1d6f2364828d6dde73f8ef813cccf",
+    "slides": 14
+   }
+  }
+ },
+ {
+  "id": "t11s-04",
+  "course": "t11s",
+  "number": 4,
+  "title": [
+   "Dérivation et tangentes",
+   "Differentiation and tangents"
+  ],
+  "slides": 19,
+  "kind": "extracted",
+  "languages": [
+   "fr"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/t11s-04.json",
+    "bytes": 13451,
+    "sha256": "993a4c5c54821dc502bc654412f5a5c0972ddc7d0b4ad82f7cabd257a0571493",
+    "slides": 19
+   }
+  }
+ },
+ {
+  "id": "t11s-05",
+  "course": "t11s",
+  "number": 5,
+  "title": [
+   "Étude complète et représentation graphique",
+   "Full study and graph of a function"
+  ],
+  "slides": 12,
+  "kind": "extracted",
+  "languages": [
+   "fr"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/t11s-05.json",
+    "bytes": 12190,
+    "sha256": "b8b54d83619f63a4c78e1080011feeb3f2842dd14fb02443f23f48e07c8ef597",
+    "slides": 12
+   }
+  }
+ },
+ {
+  "id": "t11s-06",
+  "course": "t11s",
+  "number": 6,
+  "title": [
+   "Logique et raisonnement",
+   "Logic and reasoning"
+  ],
+  "slides": 16,
+  "kind": "extracted",
+  "languages": [
+   "fr"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/t11s-06.json",
+    "bytes": 10977,
+    "sha256": "c3a335cc7f08c7fbcca193326e72e92aca897d9cb9b3c6a6a05aadafe47c1875",
+    "slides": 16
+   }
+  }
+ },
+ {
+  "id": "t11s-07",
+  "course": "t11s",
+  "number": 7,
+  "title": [
+   "Boucles et organigrammes",
+   "Loops and flowcharts"
+  ],
+  "slides": 13,
+  "kind": "extracted",
+  "languages": [
+   "fr"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/t11s-07.json",
+    "bytes": 10093,
+    "sha256": "3acde42e8e0f86764609883dd50603a867b3e2ba3da08f51d5b7ad0302ec962c",
+    "slides": 13
+   }
+  }
+ },
+ {
+  "id": "t11s-08",
+  "course": "t11s",
+  "number": 8,
+  "title": [
+   "Équations et inéquations",
+   "Equations and inequalities"
+  ],
+  "slides": 21,
+  "kind": "extracted",
+  "languages": [
+   "fr"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/t11s-08.json",
+    "bytes": 14103,
+    "sha256": "f82f94d0681932c95b26da59d64aaaccee21cacbb7bdd4049b368a886fec3a3b",
+    "slides": 21
+   }
+  }
+ },
+ {
+  "id": "t11s-09",
+  "course": "t11s",
+  "number": 9,
+  "title": [
+   "Systèmes linéaires et pivot de Gauss",
+   "Linear systems and Gaussian elimination"
+  ],
+  "slides": 14,
+  "kind": "extracted",
+  "languages": [
+   "fr"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/t11s-09.json",
+    "bytes": 10198,
+    "sha256": "961c768264738b24dc8fb8df8a365535168ebd3b3937588e820102feabd38bc1",
+    "slides": 14
+   }
+  }
+ },
+ {
+  "id": "t11s-10",
+  "course": "t11s",
+  "number": 10,
+  "title": [
+   "Divisibilité, nombres premiers, PGCD et PPCM",
+   "Divisibility, primes, GCD and LCM"
+  ],
+  "slides": 21,
+  "kind": "extracted",
+  "languages": [
+   "fr"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/t11s-10.json",
+    "bytes": 12690,
+    "sha256": "8ac1f1fd9a7e5807643322602cc1fe42c371273ae67b73b678137b0fed3359b0",
+    "slides": 21
+   }
+  }
+ },
+ {
+  "id": "t11s-11",
+  "course": "t11s",
+  "number": 11,
+  "title": [
+   "Systèmes de numération",
+   "Number bases"
+  ],
+  "slides": 13,
+  "kind": "extracted",
+  "languages": [
+   "fr"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/t11s-11.json",
+    "bytes": 8466,
+    "sha256": "fa81def236696e7a5d940a29d8f86b9fec7d9575c7910151a59f06d131f69f38",
+    "slides": 13
+   }
+  }
+ },
+ {
+  "id": "t11s-12",
+  "course": "t11s",
+  "number": 12,
+  "title": [
+   "Suites numériques",
+   "Sequences"
+  ],
+  "slides": 22,
+  "kind": "extracted",
+  "languages": [
+   "fr"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/t11s-12.json",
+    "bytes": 15097,
+    "sha256": "b2269a4e34e6e59c6545b479570d6909f8c5da8bf1123dbbcdcb044f6749d800",
+    "slides": 22
+   }
+  }
+ },
+ {
+  "id": "t11s-13",
+  "course": "t11s",
+  "number": 13,
+  "title": [
+   "Calcul vectoriel et produit scalaire",
+   "Vectors and the dot product"
+  ],
+  "slides": 17,
+  "kind": "extracted",
+  "languages": [
+   "fr"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/t11s-13.json",
+    "bytes": 13795,
+    "sha256": "d6955cd3b3f3635135442f930da860cc6da87b84bd71ce8ca7003ad07d8b66de",
+    "slides": 17
+   }
+  }
+ },
+ {
+  "id": "t11s-14",
+  "course": "t11s",
+  "number": 14,
+  "title": [
+   "Barycentres et lignes de niveau",
+   "Barycentres and level lines"
+  ],
+  "slides": 17,
+  "kind": "extracted",
+  "languages": [
+   "fr"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/t11s-14.json",
+    "bytes": 12954,
+    "sha256": "3f72ae307dbb25f5d824b74e3c7b681bbe947a7e671c9f246dbf44776e4d25ff",
+    "slides": 17
+   }
+  }
+ },
+ {
+  "id": "t11s-15",
+  "course": "t11s",
+  "number": 15,
+  "title": [
+   "Transformations et similitudes directes",
+   "Transformations and direct similarities"
+  ],
+  "slides": 20,
+  "kind": "extracted",
+  "languages": [
+   "fr"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/t11s-15.json",
+    "bytes": 14752,
+    "sha256": "123ea94ee56fcf7d336018a6d620ed66bf2a2da85ec4c8044c5e7df82667087e",
+    "slides": 20
+   }
+  }
+ },
+ {
+  "id": "t11s-16",
+  "course": "t11s",
+  "number": 16,
+  "title": [
+   "Trigonométrie",
+   "Trigonometry"
+  ],
+  "slides": 17,
+  "kind": "extracted",
+  "languages": [
+   "fr"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/t11s-16.json",
+    "bytes": 12396,
+    "sha256": "70413c583cee20c575c40be26266515398cf7e4644dba3f615c5674aa9db35a0",
+    "slides": 17
+   }
+  }
+ },
+ {
+  "id": "t11s-17",
+  "course": "t11s",
+  "number": 17,
+  "title": [
+   "Géométrie dans l’espace",
+   "Solid geometry"
+  ],
+  "slides": 20,
+  "kind": "extracted",
+  "languages": [
+   "fr"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/t11s-17.json",
+    "bytes": 15787,
+    "sha256": "ca22f8bd536887a3802105715330167183af96173258fd369fedb2f7699a648a",
+    "slides": 20
+   }
+  }
+ },
+ {
+  "id": "t11s-18",
+  "course": "t11s",
+  "number": 18,
+  "title": [
+   "Organisation des données et statistique",
+   "Organising data and statistics"
+  ],
+  "slides": 13,
+  "kind": "extracted",
+  "languages": [
+   "fr"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/t11s-18.json",
+    "bytes": 8404,
+    "sha256": "9756c8808d41ad3f9d5fd24c20787ccd02a5e95a674d156db18fa11e5287ffe0",
+    "slides": 13
+   }
+  }
+ },
+ {
+  "id": "t11s-19",
+  "course": "t11s",
+  "number": 19,
+  "title": [
+   "Ensembles, applications et dénombrement",
+   "Sets, maps and counting"
+  ],
+  "slides": 13,
+  "kind": "extracted",
+  "languages": [
+   "fr"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/t11s-19.json",
+    "bytes": 8165,
+    "sha256": "3efe77a4451f9f7e0a3bd0ef672fc5ba0158c12c007e0fb3f77c2f007913ce0d",
+    "slides": 13
+   }
+  }
+ },
+ {
+  "id": "t11s-20",
+  "course": "t11s",
+  "number": 20,
+  "title": [
+   "Probabilités sur un univers fini",
+   "Probability on a finite sample space"
+  ],
+  "slides": 12,
+  "kind": "extracted",
+  "languages": [
+   "fr"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/t11s-20.json",
+    "bytes": 8145,
+    "sha256": "b674646e243944baeb6b9a95059c369338abdd52e6d5fee8dcbb9ec2added818",
+    "slides": 12
+   }
+  }
+ },
+ {
+  "id": "seconde-01",
+  "course": "seconde",
+  "number": 1,
+  "title": [
+   "Arithmétique",
+   "Arithmetic"
+  ],
+  "slides": 34,
+  "kind": "authored",
+  "languages": [
+   "fr",
+   "en"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/seconde-01.json",
+    "bytes": 30506,
+    "sha256": "571240e0262441f81f4f65c1372ef4f4136a1b8904e4c7ad2f194f6abb7d8ffe",
+    "slides": 34
+   },
+   "en": {
+    "path": "slides/data/seconde-01.json",
+    "bytes": 30506,
+    "sha256": "571240e0262441f81f4f65c1372ef4f4136a1b8904e4c7ad2f194f6abb7d8ffe",
+    "slides": 34
+   }
+  }
+ },
+ {
+  "id": "seconde-02",
+  "course": "seconde",
+  "number": 2,
+  "title": [
+   "Vecteurs du plan",
+   "Vectors in the plane"
+  ],
+  "slides": 28,
+  "kind": "extracted",
+  "languages": [
+   "fr",
+   "en"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/seconde-02.json",
+    "bytes": 20866,
+    "sha256": "5b6ea4f5383ca7382be5aee4f7e3ee9ec040b6e77e4e22e35366e188fe7a42c5",
+    "slides": 28
+   },
+   "en": {
+    "path": "slides/data/seconde-02.json",
+    "bytes": 20866,
+    "sha256": "5b6ea4f5383ca7382be5aee4f7e3ee9ec040b6e77e4e22e35366e188fe7a42c5",
+    "slides": 28
+   }
+  }
+ },
+ {
+  "id": "seconde-03",
+  "course": "seconde",
+  "number": 3,
+  "title": [
+   "Droites du plan",
+   "Straight lines in the plane"
+  ],
+  "slides": 27,
+  "kind": "extracted",
+  "languages": [
+   "fr",
+   "en"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/seconde-03.json",
+    "bytes": 18422,
+    "sha256": "4e6869bc9cd240b6d2d20b3de4941dc8fc18506e0526e359aca9a84c6e1e7480",
+    "slides": 27
+   },
+   "en": {
+    "path": "slides/data/seconde-03.json",
+    "bytes": 18422,
+    "sha256": "4e6869bc9cd240b6d2d20b3de4941dc8fc18506e0526e359aca9a84c6e1e7480",
+    "slides": 27
+   }
+  }
+ },
+ {
+  "id": "seconde-04",
+  "course": "seconde",
+  "number": 4,
+  "title": [
+   "Nombres réels et intervalles",
+   "Real numbers and intervals"
+  ],
+  "slides": 23,
+  "kind": "extracted",
+  "languages": [
+   "fr",
+   "en"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/seconde-04.json",
+    "bytes": 14297,
+    "sha256": "e33e76fbd1b621b13a0707311f69a32e8e9fca9ad83891282ba7a8a024aadbcf",
+    "slides": 23
+   },
+   "en": {
+    "path": "slides/data/seconde-04.json",
+    "bytes": 14297,
+    "sha256": "e33e76fbd1b621b13a0707311f69a32e8e9fca9ad83891282ba7a8a024aadbcf",
+    "slides": 23
+   }
+  }
+ },
+ {
+  "id": "seconde-05",
+  "course": "seconde",
+  "number": 5,
+  "title": [
+   "Bilan de trimestre et remédiation",
+   "Term review and consolidation"
+  ],
+  "slides": 7,
+  "kind": "extracted",
+  "languages": [
+   "fr",
+   "en"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/seconde-05.json",
+    "bytes": 7246,
+    "sha256": "27489679b24974869628988dd65f1ada311c50d0c92f008f0438062de4a50e81",
+    "slides": 7
+   },
+   "en": {
+    "path": "slides/data/seconde-05.json",
+    "bytes": 7246,
+    "sha256": "27489679b24974869628988dd65f1ada311c50d0c92f008f0438062de4a50e81",
+    "slides": 7
+   }
+  }
+ },
+ {
+  "id": "seconde-06",
+  "course": "seconde",
+  "number": 6,
+  "title": [
+   "Fonctions : représentations et fonctions de référence",
+   "Functions: representations and reference functions"
+  ],
+  "slides": 31,
+  "kind": "extracted",
+  "languages": [
+   "fr",
+   "en"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/seconde-06.json",
+    "bytes": 20091,
+    "sha256": "fe59693be9f36166fcd6b23849046efa010694c1353a5ab353550f990bcc490c",
+    "slides": 31
+   },
+   "en": {
+    "path": "slides/data/seconde-06.json",
+    "bytes": 20091,
+    "sha256": "fe59693be9f36166fcd6b23849046efa010694c1353a5ab353550f990bcc490c",
+    "slides": 31
+   }
+  }
+ },
+ {
+  "id": "seconde-07",
+  "course": "seconde",
+  "number": 7,
+  "title": [
+   "Statistiques descriptives à une variable",
+   "Descriptive statistics"
+  ],
+  "slides": 29,
+  "kind": "extracted",
+  "languages": [
+   "fr",
+   "en"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/seconde-07.json",
+    "bytes": 21732,
+    "sha256": "30d0414e760a60270a1dac5a51dd76c8b8c07ee3b28af9a514ffe1f2b79a16ec",
+    "slides": 29
+   },
+   "en": {
+    "path": "slides/data/seconde-07.json",
+    "bytes": 21732,
+    "sha256": "30d0414e760a60270a1dac5a51dd76c8b8c07ee3b28af9a514ffe1f2b79a16ec",
+    "slides": 29
+   }
+  }
+ },
+ {
+  "id": "seconde-08",
+  "course": "seconde",
+  "number": 8,
+  "title": [
+   "Calcul algébrique, équations et inéquations",
+   "Algebra, equations and inequalities"
+  ],
+  "slides": 51,
+  "kind": "extracted",
+  "languages": [
+   "fr",
+   "en"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/seconde-08.json",
+    "bytes": 34266,
+    "sha256": "f4a42edd7867be40858f76f0598cebdf804bdfdfa3b4be51483e11a039ba1479",
+    "slides": 51
+   },
+   "en": {
+    "path": "slides/data/seconde-08.json",
+    "bytes": 34266,
+    "sha256": "f4a42edd7867be40858f76f0598cebdf804bdfdfa3b4be51483e11a039ba1479",
+    "slides": 51
+   }
+  }
+ },
+ {
+  "id": "seconde-09",
+  "course": "seconde",
+  "number": 9,
+  "title": [
+   "Proportions et évolutions",
+   "Proportions and percentage change"
+  ],
+  "slides": 17,
+  "kind": "extracted",
+  "languages": [
+   "fr",
+   "en"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/seconde-09.json",
+    "bytes": 11228,
+    "sha256": "a998d4dd7c8cf16cc3583371c9262afdb338f501e6fbd916ee6666f03760e771",
+    "slides": 17
+   },
+   "en": {
+    "path": "slides/data/seconde-09.json",
+    "bytes": 11228,
+    "sha256": "a998d4dd7c8cf16cc3583371c9262afdb338f501e6fbd916ee6666f03760e771",
+    "slides": 17
+   }
+  }
+ },
+ {
+  "id": "seconde-10",
+  "course": "seconde",
+  "number": 10,
+  "title": [
+   "Variations et extrémums d'une fonction",
+   "Variation and extrema"
+  ],
+  "slides": 31,
+  "kind": "extracted",
+  "languages": [
+   "fr",
+   "en"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/seconde-10.json",
+    "bytes": 21766,
+    "sha256": "544d910bada895d7fe36aae20de4d3121f7870a60c2f2dc730f3c45ca86d623f",
+    "slides": 31
+   },
+   "en": {
+    "path": "slides/data/seconde-10.json",
+    "bytes": 21766,
+    "sha256": "544d910bada895d7fe36aae20de4d3121f7870a60c2f2dc730f3c45ca86d623f",
+    "slides": 31
+   }
+  }
+ },
+ {
+  "id": "seconde-11",
+  "course": "seconde",
+  "number": 11,
+  "title": [
+   "Croisement de deux variables qualitatives",
+   "Two-way categorical tables"
+  ],
+  "slides": 15,
+  "kind": "extracted",
+  "languages": [
+   "fr",
+   "en"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/seconde-11.json",
+    "bytes": 13734,
+    "sha256": "fc655091cd65e5af28e59a3df757a36f44af5037ba2f1c673a46f6d2d50e6640",
+    "slides": 15
+   },
+   "en": {
+    "path": "slides/data/seconde-11.json",
+    "bytes": 13734,
+    "sha256": "fc655091cd65e5af28e59a3df757a36f44af5037ba2f1c673a46f6d2d50e6640",
+    "slides": 15
+   }
+  }
+ },
+ {
+  "id": "seconde-12",
+  "course": "seconde",
+  "number": 12,
+  "title": [
+   "Géométrie repérée : synthèse vecteurs et droites",
+   "Coordinate geometry: vectors and lines"
+  ],
+  "slides": 6,
+  "kind": "extracted",
+  "languages": [
+   "fr",
+   "en"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/seconde-12.json",
+    "bytes": 7110,
+    "sha256": "12970e532b30d1f378a0c2eb3f634aecf41e99616ae73c49da8326511132aba5",
+    "slides": 6
+   },
+   "en": {
+    "path": "slides/data/seconde-12.json",
+    "bytes": 7110,
+    "sha256": "12970e532b30d1f378a0c2eb3f634aecf41e99616ae73c49da8326511132aba5",
+    "slides": 6
+   }
+  }
+ },
+ {
+  "id": "seconde-13",
+  "course": "seconde",
+  "number": 13,
+  "title": [
+   "Problèmes de synthèse, raisonnement et automatismes",
+   "Synthesis, reasoning and fluency"
+  ],
+  "slides": 10,
+  "kind": "extracted",
+  "languages": [
+   "fr",
+   "en"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/seconde-13.json",
+    "bytes": 8776,
+    "sha256": "456c30e745592098ceaa4932d968b3d3692cb3e75c276d377a103f0b23b002f6",
+    "slides": 10
+   },
+   "en": {
+    "path": "slides/data/seconde-13.json",
+    "bytes": 8776,
+    "sha256": "456c30e745592098ceaa4932d968b3d3692cb3e75c276d377a103f0b23b002f6",
+    "slides": 10
+   }
+  }
+ },
+ {
+  "id": "seconde-14",
+  "course": "seconde",
+  "number": 14,
+  "title": [
+   "Probabilités : conditionnement et arbres pondérés",
+   "Probability: conditioning and trees"
+  ],
+  "slides": 25,
+  "kind": "extracted",
+  "languages": [
+   "fr",
+   "en"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/seconde-14.json",
+    "bytes": 22616,
+    "sha256": "8770ee6acc9e6e1ff9e30910f7f66853baec76524f77ce58fd49b599cf151d97",
+    "slides": 25
+   },
+   "en": {
+    "path": "slides/data/seconde-14.json",
+    "bytes": 22616,
+    "sha256": "8770ee6acc9e6e1ff9e30910f7f66853baec76524f77ce58fd49b599cf151d97",
+    "slides": 25
+   }
+  }
+ },
+ {
+  "id": "seconde-15",
+  "course": "seconde",
+  "number": 15,
+  "title": [
+   "Consolidation et transition vers la Première",
+   "Consolidation and transition"
+  ],
+  "slides": 7,
+  "kind": "extracted",
+  "languages": [
+   "fr",
+   "en"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/seconde-15.json",
+    "bytes": 8433,
+    "sha256": "d95321fe603b3ee6b718bda123d034c420791afca86c825c28581e46959b81c1",
+    "slides": 7
+   },
+   "en": {
+    "path": "slides/data/seconde-15.json",
+    "bytes": 8433,
+    "sha256": "d95321fe603b3ee6b718bda123d034c420791afca86c825c28581e46959b81c1",
+    "slides": 7
+   }
+  }
+ },
+ {
+  "id": "premiere-01",
+  "course": "premiere",
+  "number": 1,
+  "title": [
+   "Suites numériques et modèles discrets",
+   "Sequences and discrete models"
+  ],
+  "slides": 25,
+  "kind": "extracted",
+  "languages": [
+   "fr",
+   "en"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/premiere-01.json",
+    "bytes": 12275,
+    "sha256": "bc9c2546a39bb7d5ecf9ff2dde1327580718e4c415cf5ffaefb6386dca7608bb",
+    "slides": 25
+   },
+   "en": {
+    "path": "slides/data/premiere-01.json",
+    "bytes": 12275,
+    "sha256": "bc9c2546a39bb7d5ecf9ff2dde1327580718e4c415cf5ffaefb6386dca7608bb",
+    "slides": 25
+   }
+  }
+ },
+ {
+  "id": "premiere-02",
+  "course": "premiere",
+  "number": 2,
+  "title": [
+   "Second degré : formes et choix de méthode",
+   "Quadratics: forms and methods"
+  ],
+  "slides": 27,
+  "kind": "authored",
+  "languages": [
+   "fr",
+   "en"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/premiere-02.json",
+    "bytes": 23252,
+    "sha256": "4f7958375c9db5095b0aa9ce8b0322c575d6acac03b3d92695e36fcf9a533f5f",
+    "slides": 27
+   },
+   "en": {
+    "path": "slides/data/premiere-02.json",
+    "bytes": 23252,
+    "sha256": "4f7958375c9db5095b0aa9ce8b0322c575d6acac03b3d92695e36fcf9a533f5f",
+    "slides": 27
+   }
+  }
+ },
+ {
+  "id": "premiere-03",
+  "course": "premiere",
+  "number": 3,
+  "title": [
+   "Calcul vectoriel et produit scalaire",
+   "Vectors and the scalar product"
+  ],
+  "slides": 23,
+  "kind": "extracted",
+  "languages": [
+   "fr",
+   "en"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/premiere-03.json",
+    "bytes": 10980,
+    "sha256": "c4d7f8cfbd84df5655c825e79960fa0c0d4b3850ee1a1f370e45eff2024c259b",
+    "slides": 23
+   },
+   "en": {
+    "path": "slides/data/premiere-03.json",
+    "bytes": 10980,
+    "sha256": "c4d7f8cfbd84df5655c825e79960fa0c0d4b3850ee1a1f370e45eff2024c259b",
+    "slides": 23
+   }
+  }
+ },
+ {
+  "id": "premiere-04",
+  "course": "premiere",
+  "number": 4,
+  "title": [
+   "Dérivation : du taux à la tangente",
+   "Differentiation: rates and tangents"
+  ],
+  "slides": 20,
+  "kind": "extracted",
+  "languages": [
+   "fr",
+   "en"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/premiere-04.json",
+    "bytes": 9222,
+    "sha256": "a1121cc68855ee44ce6716140e38e8b28698fedcdd73f360bcf9681186366ec6",
+    "slides": 20
+   },
+   "en": {
+    "path": "slides/data/premiere-04.json",
+    "bytes": 9222,
+    "sha256": "a1121cc68855ee44ce6716140e38e8b28698fedcdd73f360bcf9681186366ec6",
+    "slides": 20
+   }
+  }
+ },
+ {
+  "id": "premiere-05",
+  "course": "premiere",
+  "number": 5,
+  "title": [
+   "Probabilités conditionnelles et indépendance",
+   "Conditional probability and independence"
+  ],
+  "slides": 24,
+  "kind": "extracted",
+  "languages": [
+   "fr",
+   "en"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/premiere-05.json",
+    "bytes": 11991,
+    "sha256": "6237d7ee5d5db559c82b31a1aea73bac437d80005e2c8d3e0a43ef22a61fee8b",
+    "slides": 24
+   },
+   "en": {
+    "path": "slides/data/premiere-05.json",
+    "bytes": 11991,
+    "sha256": "6237d7ee5d5db559c82b31a1aea73bac437d80005e2c8d3e0a43ef22a61fee8b",
+    "slides": 24
+   }
+  }
+ },
+ {
+  "id": "premiere-06",
+  "course": "premiere",
+  "number": 6,
+  "title": [
+   "Dérivation, variations et optimisation",
+   "Differentiation, variation and optimisation"
+  ],
+  "slides": 24,
+  "kind": "extracted",
+  "languages": [
+   "fr",
+   "en"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/premiere-06.json",
+    "bytes": 12055,
+    "sha256": "cdec6db0c5bc95e568a6fd6c1df9e1851815e9fcc64cf27e73b1b58c700a6d5a",
+    "slides": 24
+   },
+   "en": {
+    "path": "slides/data/premiere-06.json",
+    "bytes": 12055,
+    "sha256": "cdec6db0c5bc95e568a6fd6c1df9e1851815e9fcc64cf27e73b1b58c700a6d5a",
+    "slides": 24
+   }
+  }
+ },
+ {
+  "id": "premiere-07",
+  "course": "premiere",
+  "number": 7,
+  "title": [
+   "Géométrie repérée : droites, projections et cercles",
+   "Coordinate geometry: lines, projections and circles"
+  ],
+  "slides": 19,
+  "kind": "extracted",
+  "languages": [
+   "fr",
+   "en"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/premiere-07.json",
+    "bytes": 8546,
+    "sha256": "fbe8ae8a4520830972da3ac0fad78e1077627e263b4ac17c06cb27c604b62b8a",
+    "slides": 19
+   },
+   "en": {
+    "path": "slides/data/premiere-07.json",
+    "bytes": 8546,
+    "sha256": "fbe8ae8a4520830972da3ac0fad78e1077627e263b4ac17c06cb27c604b62b8a",
+    "slides": 19
+   }
+  }
+ },
+ {
+  "id": "premiere-08",
+  "course": "premiere",
+  "number": 8,
+  "title": [
+   "Variables aléatoires et dispersion",
+   "Random variables and dispersion"
+  ],
+  "slides": 24,
+  "kind": "extracted",
+  "languages": [
+   "fr",
+   "en"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/premiere-08.json",
+    "bytes": 11653,
+    "sha256": "37c775428d6b0eb7e1ec2dc8cec822af2ef5b53e0ff534506270679b5eaef430",
+    "slides": 24
+   },
+   "en": {
+    "path": "slides/data/premiere-08.json",
+    "bytes": 11653,
+    "sha256": "37c775428d6b0eb7e1ec2dc8cec822af2ef5b53e0ff534506270679b5eaef430",
+    "slides": 24
+   }
+  }
+ },
+ {
+  "id": "premiere-09",
+  "course": "premiere",
+  "number": 9,
+  "title": [
+   "Fonction exponentielle et modèles continus",
+   "The exponential function and continuous models"
+  ],
+  "slides": 24,
+  "kind": "extracted",
+  "languages": [
+   "fr",
+   "en"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/premiere-09.json",
+    "bytes": 10545,
+    "sha256": "a175efa197f0d2d9a23f0f46d7a392a561b9026aa13972009d3611e635b8c9a3",
+    "slides": 24
+   },
+   "en": {
+    "path": "slides/data/premiere-09.json",
+    "bytes": 10545,
+    "sha256": "a175efa197f0d2d9a23f0f46d7a392a561b9026aa13972009d3611e635b8c9a3",
+    "slides": 24
+   }
+  }
+ },
+ {
+  "id": "premiere-10",
+  "course": "premiere",
+  "number": 10,
+  "title": [
+   "Trigonométrie : cercle, radians et angles associés",
+   "Trigonometry: circle, radians and related angles"
+  ],
+  "slides": 25,
+  "kind": "extracted",
+  "languages": [
+   "fr",
+   "en"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/premiere-10.json",
+    "bytes": 12350,
+    "sha256": "87affd46580c2d196bc1960706fc3978261d72e200525d3b04feee68e7b4c6cb",
+    "slides": 25
+   },
+   "en": {
+    "path": "slides/data/premiere-10.json",
+    "bytes": 12350,
+    "sha256": "87affd46580c2d196bc1960706fc3978261d72e200525d3b04feee68e7b4c6cb",
+    "slides": 25
+   }
+  }
+ },
+ {
+  "id": "expertes-01",
+  "course": "expertes",
+  "number": 1,
+  "title": [
+   "Nombres complexes : point de vue algébrique",
+   "Complex numbers: the algebraic point of view"
+  ],
+  "slides": 22,
+  "kind": "extracted",
+  "languages": [
+   "fr",
+   "en"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/expertes-01.json",
+    "bytes": 17168,
+    "sha256": "f345636c084b08efb8d06553cb0884d6fff417ded9dba2f667f3f40cccc3cd61",
+    "slides": 22
+   },
+   "en": {
+    "path": "slides/data/expertes-01.json",
+    "bytes": 17168,
+    "sha256": "f345636c084b08efb8d06553cb0884d6fff417ded9dba2f667f3f40cccc3cd61",
+    "slides": 22
+   }
+  }
+ },
+ {
+  "id": "expertes-02",
+  "course": "expertes",
+  "number": 2,
+  "title": [
+   "Nombres complexes : point de vue géométrique",
+   "Complex numbers: the geometric point of view"
+  ],
+  "slides": 24,
+  "kind": "extracted",
+  "languages": [
+   "fr",
+   "en"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/expertes-02.json",
+    "bytes": 17203,
+    "sha256": "52e9bf5afe142e5e88d73de367dc04846f12ffb11c73445f1b6a6c5f460f9e9e",
+    "slides": 24
+   },
+   "en": {
+    "path": "slides/data/expertes-02.json",
+    "bytes": 17203,
+    "sha256": "52e9bf5afe142e5e88d73de367dc04846f12ffb11c73445f1b6a6c5f460f9e9e",
+    "slides": 24
+   }
+  }
+ },
+ {
+  "id": "expertes-03",
+  "course": "expertes",
+  "number": 3,
+  "title": [
+   "Nombres complexes et trigonométrie",
+   "Complex numbers and trigonometry"
+  ],
+  "slides": 22,
+  "kind": "extracted",
+  "languages": [
+   "fr",
+   "en"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/expertes-03.json",
+    "bytes": 17142,
+    "sha256": "852d2350eb93436f573b27553c3d7e626ceb3f153360934800c7c40ddd3c9de4",
+    "slides": 22
+   },
+   "en": {
+    "path": "slides/data/expertes-03.json",
+    "bytes": 17142,
+    "sha256": "852d2350eb93436f573b27553c3d7e626ceb3f153360934800c7c40ddd3c9de4",
+    "slides": 22
+   }
+  }
+ },
+ {
+  "id": "expertes-04",
+  "course": "expertes",
+  "number": 4,
+  "title": [
+   "Équations polynomiales",
+   "Polynomial equations"
+  ],
+  "slides": 19,
+  "kind": "extracted",
+  "languages": [
+   "fr",
+   "en"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/expertes-04.json",
+    "bytes": 14123,
+    "sha256": "a84ccf75c83ce8293a41f198a75bb3320213e654d0360c4914ec8d0e27e1aecb",
+    "slides": 19
+   },
+   "en": {
+    "path": "slides/data/expertes-04.json",
+    "bytes": 14123,
+    "sha256": "a84ccf75c83ce8293a41f198a75bb3320213e654d0360c4914ec8d0e27e1aecb",
+    "slides": 19
+   }
+  }
+ },
+ {
+  "id": "expertes-05",
+  "course": "expertes",
+  "number": 5,
+  "title": [
+   "Nombres complexes et géométrie",
+   "Complex numbers and geometry"
+  ],
+  "slides": 15,
+  "kind": "extracted",
+  "languages": [
+   "fr",
+   "en"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/expertes-05.json",
+    "bytes": 13165,
+    "sha256": "83db7d998a571626b8e5d94700dd95153739995c102d014d6d3b19b81b3dc9cb",
+    "slides": 15
+   },
+   "en": {
+    "path": "slides/data/expertes-05.json",
+    "bytes": 13165,
+    "sha256": "83db7d998a571626b8e5d94700dd95153739995c102d014d6d3b19b81b3dc9cb",
+    "slides": 15
+   }
+  }
+ },
+ {
+  "id": "expertes-06",
+  "course": "expertes",
+  "number": 6,
+  "title": [
+   "Divisibilité et congruences",
+   "Divisibility and congruences"
+  ],
+  "slides": 19,
+  "kind": "extracted",
+  "languages": [
+   "fr",
+   "en"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/expertes-06.json",
+    "bytes": 12413,
+    "sha256": "6a91ca28bd5b1a2b79a9aad058723cc5db8721c09e9f8b2c1c379a72c19c9a7e",
+    "slides": 19
+   },
+   "en": {
+    "path": "slides/data/expertes-06.json",
+    "bytes": 12413,
+    "sha256": "6a91ca28bd5b1a2b79a9aad058723cc5db8721c09e9f8b2c1c379a72c19c9a7e",
+    "slides": 19
+   }
+  }
+ },
+ {
+  "id": "expertes-07",
+  "course": "expertes",
+  "number": 7,
+  "title": [
+   "PGCD, théorèmes de Bézout et de Gauss",
+   "GCD, Bézout's and Gauss's theorems"
+  ],
+  "slides": 21,
+  "kind": "extracted",
+  "languages": [
+   "fr",
+   "en"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/expertes-07.json",
+    "bytes": 15220,
+    "sha256": "dfafe07809fd789bcf7237d6a4598a22feffb31097e3bcfc9bedf7086d4f10c6",
+    "slides": 21
+   },
+   "en": {
+    "path": "slides/data/expertes-07.json",
+    "bytes": 15220,
+    "sha256": "dfafe07809fd789bcf7237d6a4598a22feffb31097e3bcfc9bedf7086d4f10c6",
+    "slides": 21
+   }
+  }
+ },
+ {
+  "id": "expertes-08",
+  "course": "expertes",
+  "number": 8,
+  "title": [
+   "Nombres premiers et petit théorème de Fermat",
+   "Prime numbers and Fermat's little theorem"
+  ],
+  "slides": 22,
+  "kind": "extracted",
+  "languages": [
+   "fr",
+   "en"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/expertes-08.json",
+    "bytes": 16812,
+    "sha256": "deb5bac344adb23fad5847ab172b15cd16cb26e9a23d1d9bbca2b81770ab4592",
+    "slides": 22
+   },
+   "en": {
+    "path": "slides/data/expertes-08.json",
+    "bytes": 16812,
+    "sha256": "deb5bac344adb23fad5847ab172b15cd16cb26e9a23d1d9bbca2b81770ab4592",
+    "slides": 22
+   }
+  }
+ },
+ {
+  "id": "expertes-09",
+  "course": "expertes",
+  "number": 9,
+  "title": [
+   "Matrices",
+   "Matrices"
+  ],
+  "slides": 22,
+  "kind": "extracted",
+  "languages": [
+   "fr",
+   "en"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/expertes-09.json",
+    "bytes": 16096,
+    "sha256": "85df1a665d0b52a93ecc0838eaede0c26bc6097b6abd6594adc495b23bcd786e",
+    "slides": 22
+   },
+   "en": {
+    "path": "slides/data/expertes-09.json",
+    "bytes": 16096,
+    "sha256": "85df1a665d0b52a93ecc0838eaede0c26bc6097b6abd6594adc495b23bcd786e",
+    "slides": 22
+   }
+  }
+ },
+ {
+  "id": "expertes-10",
+  "course": "expertes",
+  "number": 10,
+  "title": [
+   "Graphes",
+   "Graphs"
+  ],
+  "slides": 14,
+  "kind": "extracted",
+  "languages": [
+   "fr",
+   "en"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/expertes-10.json",
+    "bytes": 11267,
+    "sha256": "8c6bccf51f79be02f87dbf4cdcace9345b085e473aedd3700ef027d7e399a816",
+    "slides": 14
+   },
+   "en": {
+    "path": "slides/data/expertes-10.json",
+    "bytes": 11267,
+    "sha256": "8c6bccf51f79be02f87dbf4cdcace9345b085e473aedd3700ef027d7e399a816",
+    "slides": 14
+   }
+  }
+ },
+ {
+  "id": "expertes-11",
+  "course": "expertes",
+  "number": 11,
+  "title": [
+   "Suites de matrices et chaînes de Markov",
+   "Matrix sequences and Markov chains"
+  ],
+  "slides": 19,
+  "kind": "extracted",
+  "languages": [
+   "fr",
+   "en"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/expertes-11.json",
+    "bytes": 14359,
+    "sha256": "c50fb7c1d7eb09523fd644c91bbf68f463461ba359351b0323febc749dc3adad",
+    "slides": 19
+   },
+   "en": {
+    "path": "slides/data/expertes-11.json",
+    "bytes": 14359,
+    "sha256": "c50fb7c1d7eb09523fd644c91bbf68f463461ba359351b0323febc749dc3adad",
+    "slides": 19
+   }
+  }
+ },
+ {
+  "id": "stmg-01",
+  "course": "stmg",
+  "number": 1,
+  "title": [
+   "Suites numériques",
+   "Sequences"
+  ],
+  "slides": 39,
+  "kind": "extracted",
+  "languages": [
+   "fr",
+   "en"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/stmg-01.json",
+    "bytes": 24692,
+    "sha256": "25d1e0038a1bbe6522f109b06a466afdd1d561e675a1c4015202aa0ff95731eb",
+    "slides": 39
+   },
+   "en": {
+    "path": "slides/data/stmg-01.json",
+    "bytes": 24692,
+    "sha256": "25d1e0038a1bbe6522f109b06a466afdd1d561e675a1c4015202aa0ff95731eb",
+    "slides": 39
+   }
+  }
+ },
+ {
+  "id": "stmg-02",
+  "course": "stmg",
+  "number": 2,
+  "title": [
+   "Fonctions exponentielles",
+   "Exponential functions"
+  ],
+  "slides": 46,
+  "kind": "extracted",
+  "languages": [
+   "fr",
+   "en"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/stmg-02.json",
+    "bytes": 28083,
+    "sha256": "977e465a7bf2b8dce45daf367808c6bfc80b7e77db4e518c019ee1f0313ec628",
+    "slides": 46
+   },
+   "en": {
+    "path": "slides/data/stmg-02.json",
+    "bytes": 28083,
+    "sha256": "977e465a7bf2b8dce45daf367808c6bfc80b7e77db4e518c019ee1f0313ec628",
+    "slides": 46
+   }
+  }
+ },
+ {
+  "id": "stmg-03",
+  "course": "stmg",
+  "number": 3,
+  "title": [
+   "Fonction logarithme décimal",
+   "The common logarithm"
+  ],
+  "slides": 46,
+  "kind": "extracted",
+  "languages": [
+   "fr",
+   "en"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/stmg-03.json",
+    "bytes": 24915,
+    "sha256": "4fcf52b9235b14fd643c790bcd994bfb3ae58566093df21a37283d6d9e1c8dc2",
+    "slides": 46
+   },
+   "en": {
+    "path": "slides/data/stmg-03.json",
+    "bytes": 24915,
+    "sha256": "4fcf52b9235b14fd643c790bcd994bfb3ae58566093df21a37283d6d9e1c8dc2",
+    "slides": 46
+   }
+  }
+ },
+ {
+  "id": "stmg-04",
+  "course": "stmg",
+  "number": 4,
+  "title": [
+   "Fonction inverse",
+   "The reciprocal function"
+  ],
+  "slides": 46,
+  "kind": "extracted",
+  "languages": [
+   "fr",
+   "en"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/stmg-04.json",
+    "bytes": 25879,
+    "sha256": "6eefc32890fbda0fd1105701dd0f07cad0c75548b0b0e89e25250f6b3ccc7345",
+    "slides": 46
+   },
+   "en": {
+    "path": "slides/data/stmg-04.json",
+    "bytes": 25879,
+    "sha256": "6eefc32890fbda0fd1105701dd0f07cad0c75548b0b0e89e25250f6b3ccc7345",
+    "slides": 46
+   }
+  }
+ },
+ {
+  "id": "stmg-05",
+  "course": "stmg",
+  "number": 5,
+  "title": [
+   "Statistiques à deux variables quantitatives",
+   "Bivariate statistics"
+  ],
+  "slides": 44,
+  "kind": "extracted",
+  "languages": [
+   "fr",
+   "en"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/stmg-05.json",
+    "bytes": 24249,
+    "sha256": "9028d5ef2f7561c070284cfc54768b02b4f893c9477847284def73a4b064f616",
+    "slides": 44
+   },
+   "en": {
+    "path": "slides/data/stmg-05.json",
+    "bytes": 24249,
+    "sha256": "9028d5ef2f7561c070284cfc54768b02b4f893c9477847284def73a4b064f616",
+    "slides": 44
+   }
+  }
+ },
+ {
+  "id": "stmg-06",
+  "course": "stmg",
+  "number": 6,
+  "title": [
+   "Probabilités conditionnelles",
+   "Conditional probability"
+  ],
+  "slides": 46,
+  "kind": "extracted",
+  "languages": [
+   "fr",
+   "en"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/stmg-06.json",
+    "bytes": 24860,
+    "sha256": "8b9b7b4e4303b915331096e1f20804ca406c37680af2e6df60ad6e59b0b2d11e",
+    "slides": 46
+   },
+   "en": {
+    "path": "slides/data/stmg-06.json",
+    "bytes": 24860,
+    "sha256": "8b9b7b4e4303b915331096e1f20804ca406c37680af2e6df60ad6e59b0b2d11e",
+    "slides": 46
+   }
+  }
+ },
+ {
+  "id": "stmg-07",
+  "course": "stmg",
+  "number": 7,
+  "title": [
+   "Variables aléatoires discrètes et loi binomiale",
+   "Discrete random variables and the binomial distribution"
+  ],
+  "slides": 30,
+  "kind": "extracted",
+  "languages": [
+   "fr",
+   "en"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/stmg-07.json",
+    "bytes": 18120,
+    "sha256": "f6bc37f3f27b2c82efcd1ee3d917819afffbbe9850585ed2d8689c722a75e3e3",
+    "slides": 30
+   },
+   "en": {
+    "path": "slides/data/stmg-07.json",
+    "bytes": 18120,
+    "sha256": "f6bc37f3f27b2c82efcd1ee3d917819afffbbe9850585ed2d8689c722a75e3e3",
+    "slides": 30
+   }
+  }
+ },
+ {
+  "id": "stmg-08",
+  "course": "stmg",
+  "number": 8,
+  "title": [
+   "Révisions et consolidation",
+   "Revision and consolidation"
+  ],
+  "slides": 23,
+  "kind": "extracted",
+  "languages": [
+   "fr",
+   "en"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/stmg-08.json",
+    "bytes": 16325,
+    "sha256": "c8af61918681afd58505cf945de4d565f75e1cfc25f4837ab278043d9a63cd72",
+    "slides": 23
+   },
+   "en": {
+    "path": "slides/data/stmg-08.json",
+    "bytes": 16325,
+    "sha256": "c8af61918681afd58505cf945de4d565f75e1cfc25f4837ab278043d9a63cd72",
+    "slides": 23
+   }
+  }
+ },
+ {
+  "id": "terminale-01",
+  "course": "terminale",
+  "number": 1,
+  "title": [
+   "Suites numériques et récurrence",
+   "Sequences and induction"
+  ],
+  "slides": 13,
+  "kind": "authored",
+  "languages": [
+   "fr",
+   "en"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/terminale-01.json",
+    "bytes": 10745,
+    "sha256": "d5e1a402f81530309fff8444c87305a95d8a4c286a063c47ac5577030d8f38a6",
+    "slides": 13
+   },
+   "en": {
+    "path": "slides/data/terminale-01.json",
+    "bytes": 10745,
+    "sha256": "d5e1a402f81530309fff8444c87305a95d8a4c286a063c47ac5577030d8f38a6",
+    "slides": 13
+   }
+  }
+ },
+ {
+  "id": "terminale-02",
+  "course": "terminale",
+  "number": 2,
+  "title": [
+   "Vecteurs, droites et plans de l'espace",
+   "Vectors, lines and planes in space"
+  ],
+  "slides": 12,
+  "kind": "authored",
+  "languages": [
+   "fr",
+   "en"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/terminale-02.json",
+    "bytes": 9114,
+    "sha256": "5d7a9efa8224b2d8f6b305f0de9d98a9a587966c0afef1ddce64ed9abc4d03ae",
+    "slides": 12
+   },
+   "en": {
+    "path": "slides/data/terminale-02.json",
+    "bytes": 9114,
+    "sha256": "5d7a9efa8224b2d8f6b305f0de9d98a9a587966c0afef1ddce64ed9abc4d03ae",
+    "slides": 12
+   }
+  }
+ },
+ {
+  "id": "terminale-03",
+  "course": "terminale",
+  "number": 3,
+  "title": [
+   "Limites de suites",
+   "Limits of sequences"
+  ],
+  "slides": 15,
+  "kind": "authored",
+  "languages": [
+   "fr",
+   "en"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/terminale-03.json",
+    "bytes": 10334,
+    "sha256": "8fad9e7ffb8a72ccba354b06d354596d7f408a6ee34646f2833d96533f7af639",
+    "slides": 15
+   },
+   "en": {
+    "path": "slides/data/terminale-03.json",
+    "bytes": 10334,
+    "sha256": "8fad9e7ffb8a72ccba354b06d354596d7f408a6ee34646f2833d96533f7af639",
+    "slides": 15
+   }
+  }
+ },
+ {
+  "id": "terminale-04",
+  "course": "terminale",
+  "number": 4,
+  "title": [
+   "Limites de fonctions",
+   "Limits of functions"
+  ],
+  "slides": 14,
+  "kind": "authored",
+  "languages": [
+   "fr",
+   "en"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/terminale-04.json",
+    "bytes": 10537,
+    "sha256": "e0e5bb4a177f0a85dbfbb6bfae3a2ac064fdc6abb643019d8f34da8c9e708b97",
+    "slides": 14
+   },
+   "en": {
+    "path": "slides/data/terminale-04.json",
+    "bytes": 10537,
+    "sha256": "e0e5bb4a177f0a85dbfbb6bfae3a2ac064fdc6abb643019d8f34da8c9e708b97",
+    "slides": 14
+   }
+  }
+ },
+ {
+  "id": "terminale-05",
+  "course": "terminale",
+  "number": 5,
+  "title": [
+   "Combinatoire et dénombrement",
+   "Combinatorics and counting"
+  ],
+  "slides": 14,
+  "kind": "authored",
+  "languages": [
+   "fr",
+   "en"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/terminale-05.json",
+    "bytes": 9319,
+    "sha256": "b4a12930cd1d50150a8f56b6fea2888eb299528ebc515e76f8a7682c6ddcd91f",
+    "slides": 14
+   },
+   "en": {
+    "path": "slides/data/terminale-05.json",
+    "bytes": 9319,
+    "sha256": "b4a12930cd1d50150a8f56b6fea2888eb299528ebc515e76f8a7682c6ddcd91f",
+    "slides": 14
+   }
+  }
+ },
+ {
+  "id": "terminale-06",
+  "course": "terminale",
+  "number": 6,
+  "title": [
+   "Dérivation, convexité et continuité",
+   "Differentiation, convexity and continuity"
+  ],
+  "slides": 14,
+  "kind": "authored",
+  "languages": [
+   "fr",
+   "en"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/terminale-06.json",
+    "bytes": 10126,
+    "sha256": "6e98ab419163141aba8c7baffe8c1cc6f22b5a8e2fb7e08f4f5d043e44e030cc",
+    "slides": 14
+   },
+   "en": {
+    "path": "slides/data/terminale-06.json",
+    "bytes": 10126,
+    "sha256": "6e98ab419163141aba8c7baffe8c1cc6f22b5a8e2fb7e08f4f5d043e44e030cc",
+    "slides": 14
+   }
+  }
+ },
+ {
+  "id": "terminale-07",
+  "course": "terminale",
+  "number": 7,
+  "title": [
+   "Probabilités conditionnelles et loi binomiale",
+   "Conditional probability and the binomial distribution"
+  ],
+  "slides": 13,
+  "kind": "authored",
+  "languages": [
+   "fr",
+   "en"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/terminale-07.json",
+    "bytes": 10484,
+    "sha256": "2a06090d09c2d0effaf47272831cd69f01153707e0fd9402dfd04326e5e17811",
+    "slides": 13
+   },
+   "en": {
+    "path": "slides/data/terminale-07.json",
+    "bytes": 10484,
+    "sha256": "2a06090d09c2d0effaf47272831cd69f01153707e0fd9402dfd04326e5e17811",
+    "slides": 13
+   }
+  }
+ },
+ {
+  "id": "terminale-08",
+  "course": "terminale",
+  "number": 8,
+  "title": [
+   "Fonction logarithme",
+   "The logarithm function"
+  ],
+  "slides": 12,
+  "kind": "authored",
+  "languages": [
+   "fr",
+   "en"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/terminale-08.json",
+    "bytes": 7806,
+    "sha256": "6c90c144f625509203bec4d3fb8d6f9cd52fc478f6367b2227518cc3b22605a9",
+    "slides": 12
+   },
+   "en": {
+    "path": "slides/data/terminale-08.json",
+    "bytes": 7806,
+    "sha256": "6c90c144f625509203bec4d3fb8d6f9cd52fc478f6367b2227518cc3b22605a9",
+    "slides": 12
+   }
+  }
+ },
+ {
+  "id": "terminale-09",
+  "course": "terminale",
+  "number": 9,
+  "title": [
+   "Orthogonalité et distances",
+   "Orthogonality and distances"
+  ],
+  "slides": 15,
+  "kind": "authored",
+  "languages": [
+   "fr",
+   "en"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/terminale-09.json",
+    "bytes": 11020,
+    "sha256": "94372d937a4abed45c009bc97303bc087ff8a34d2544d562269624ad4eab6ecc",
+    "slides": 15
+   },
+   "en": {
+    "path": "slides/data/terminale-09.json",
+    "bytes": 11020,
+    "sha256": "94372d937a4abed45c009bc97303bc087ff8a34d2544d562269624ad4eab6ecc",
+    "slides": 15
+   }
+  }
+ },
+ {
+  "id": "terminale-10",
+  "course": "terminale",
+  "number": 10,
+  "title": [
+   "Primitives et équations différentielles",
+   "Antiderivatives and differential equations"
+  ],
+  "slides": 13,
+  "kind": "authored",
+  "languages": [
+   "fr",
+   "en"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/terminale-10.json",
+    "bytes": 9715,
+    "sha256": "5a0b7c2ba43028d8b63e3b892c35ba9475d88d47b658d9c292f593c4be9677aa",
+    "slides": 13
+   },
+   "en": {
+    "path": "slides/data/terminale-10.json",
+    "bytes": 9715,
+    "sha256": "5a0b7c2ba43028d8b63e3b892c35ba9475d88d47b658d9c292f593c4be9677aa",
+    "slides": 13
+   }
+  }
+ },
+ {
+  "id": "terminale-11",
+  "course": "terminale",
+  "number": 11,
+  "title": [
+   "Calcul intégral",
+   "Integration"
+  ],
+  "slides": 15,
+  "kind": "authored",
+  "languages": [
+   "fr",
+   "en"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/terminale-11.json",
+    "bytes": 10901,
+    "sha256": "dafa12331b01c8ce62081b021c46aef6bd1558f87b3e08ecb99b1d4fa2a91476",
+    "slides": 15
+   },
+   "en": {
+    "path": "slides/data/terminale-11.json",
+    "bytes": 10901,
+    "sha256": "dafa12331b01c8ce62081b021c46aef6bd1558f87b3e08ecb99b1d4fa2a91476",
+    "slides": 15
+   }
+  }
+ },
+ {
+  "id": "terminale-12",
+  "course": "terminale",
+  "number": 12,
+  "title": [
+   "Variables aléatoires, concentration et loi des grands nombres",
+   "Random variables, concentration and the law of large numbers"
+  ],
+  "slides": 15,
+  "kind": "authored",
+  "languages": [
+   "fr",
+   "en"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/terminale-12.json",
+    "bytes": 9870,
+    "sha256": "a809850460269e5cd59f97a51cbb8848346cc01d55abbed8422a7386e0535d68",
+    "slides": 15
+   },
+   "en": {
+    "path": "slides/data/terminale-12.json",
+    "bytes": 9870,
+    "sha256": "a809850460269e5cd59f97a51cbb8848346cc01d55abbed8422a7386e0535d68",
+    "slides": 15
+   }
+  }
+ },
+ {
+  "id": "terminale-13",
+  "course": "terminale",
+  "number": 13,
+  "title": [
+   "Représentations paramétriques et équations cartésiennes",
+   "Parametric representations and Cartesian equations"
+  ],
+  "slides": 14,
+  "kind": "authored",
+  "languages": [
+   "fr",
+   "en"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/terminale-13.json",
+    "bytes": 9194,
+    "sha256": "5db0b99e8b47f87cb3bbe4640c62e3805558deee0cd33d611b17f53d5bced2bc",
+    "slides": 14
+   },
+   "en": {
+    "path": "slides/data/terminale-13.json",
+    "bytes": 9194,
+    "sha256": "5db0b99e8b47f87cb3bbe4640c62e3805558deee0cd33d611b17f53d5bced2bc",
+    "slides": 14
+   }
+  }
+ },
+ {
+  "id": "terminale-14",
+  "course": "terminale",
+  "number": 14,
+  "title": [
+   "Fonctions trigonométriques",
+   "Trigonometric functions"
+  ],
+  "slides": 13,
+  "kind": "authored",
+  "languages": [
+   "fr",
+   "en"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/terminale-14.json",
+    "bytes": 10121,
+    "sha256": "04fe03e993c0faebcb595c82e2098f6a7682cbaba3cebde3e73af65e21248601",
+    "slides": 13
+   },
+   "en": {
+    "path": "slides/data/terminale-14.json",
+    "bytes": 10121,
+    "sha256": "04fe03e993c0faebcb595c82e2098f6a7682cbaba3cebde3e73af65e21248601",
+    "slides": 13
+   }
+  }
+ }
+]

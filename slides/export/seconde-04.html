@@ -1,0 +1,1473 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Nombres réels et intervalles</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']],packages:{'[+]':['ams']},macros:{/*mx-math*/"N":"\\mathbb{N}","Z":"\\mathbb{Z}","D":"\\mathbb{D}","Q":"\\mathbb{Q}","R":"\\mathbb{R}","C":"\\mathbb{C}","vect":["\\overrightarrow{#1}",1],"vi":"\\vec{\\imath}","vj":"\\vec{\\jmath}","vk":"\\vec{k}","norm":["\\left\\lVert #1\\right\\rVert",1],"vc":["\\begin{pmatrix}#1\\\\#2\\end{pmatrix}",2],"deter":["\\det\\left(#1,#2\\right)",2],"abs":["\\left\\lvert #1\\right\\rvert",1],"dd":"\\,\\mathrm{d}","e":"\\mathrm{e}","Card":"\\operatorname{Card}","E":"\\operatorname{E}","V":"\\operatorname{V}","degre":"^{\\circ}","un":["\\,\\mathrm{#1}",1],"sci":["#1\\times10^{#2}",2],"llbracket":"\\mathopen{[\\mkern-3mu[}","rrbracket":"\\mathclose{]\\mkern-3mu]}"/*end mx-math*/}},
+svg:{fontCache:'none'},options:{enableAssistiveMml:false},startup:{typeset:false}};</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg.js"></script>
+<style>
+/* Classroom slide player, modelled on the interactive maths slide skill: fixed 1280x720 stage scaled to the window,
+   flow column of step blocks on the left (x 40-560), live figure and controls on the right (x 600-1240),
+   step buttons bottom left. Colour carries meaning: amber = focus, green = true / valid, red = warning, blue-grey = secondary. */
+
+:root{--bg:#0f1b2d;--panel:#13243b;--panel-2:#24364f;--line:#5d7699;--ink:#f4f1ea;--muted:#8fa6c4;--amber:#e8a33d;--green:#5fd0a0;--red:#ff7a7a;color-scheme:dark}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;background:var(--bg);color:var(--ink)}
+body{display:flex;align-items:center;justify-content:center;overflow:hidden}
+#wrap{position:relative}
+#stage{position:absolute;left:0;top:0;width:1280px;height:720px;transform-origin:0 0;background:var(--bg);overflow:hidden;color:var(--ink);font-family:"STIX Two Text","Latin Modern Roman",Georgia,serif}
+mjx-assistive-mml{display:none!important}
+[hidden]{display:none!important}
+
+/* left: flow column */
+#col{position:absolute;left:40px;top:24px;width:520px;height:636px;display:flex;flex-direction:column;gap:10px;min-height:0}
+#col.wide{width:1200px}
+#col.wide #flow{font-size:28px}
+#col.wide .steps,#col.wide .answer{max-width:1180px}
+#flow{flex:1 1 auto;min-height:0;overflow-y:auto;overflow-x:hidden;display:flex;flex-direction:column;gap:12px;font-size:25px;scrollbar-width:none;outline:0}
+#flow::-webkit-scrollbar{display:none}
+.hd{display:flex;gap:12px;align-items:baseline;color:var(--amber);font-weight:600;font-size:21px}
+.hd.red{color:var(--red)}.hd.green{color:var(--green);margin-bottom:3px}
+.hd .deckname{color:var(--muted);font-weight:400;font-size:16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+h1,h2{margin:0;font-weight:700;line-height:1.2}
+h2.tt{font-size:32px}
+.sub{color:var(--muted);font-size:20px;margin-top:-6px}
+.text{line-height:1.45;overflow-wrap:anywhere}
+.text.s3{line-height:1.4}.text.s4{font-size:23px}
+.text ul,.text ol{padding-left:1.2em;margin:.3em 0}.text li{margin:.2em 0}
+.text code,pre{font-family:ui-monospace,Consolas,monospace}
+.reveal-block{margin-bottom:12px;animation:fd .6s}
+@keyframes fd{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.reveal-block mjx-container[display="true"]{max-width:100%;overflow-x:auto;overflow-y:hidden;margin:.5em 0!important}
+.answer{border-left:4px solid var(--green);padding:6px 0 6px 16px;background:linear-gradient(90deg,#13243b,transparent)}
+pre{background:var(--panel);border:1px solid var(--panel-2);border-radius:12px;padding:18px 22px;font-size:22px;line-height:1.45;overflow:auto;max-height:520px;margin:0}
+.title-slide{display:grid;align-content:center;justify-items:start;gap:18px;min-height:560px}
+.title-slide h1{font-size:68px;max-width:16ch}
+.chip{font:600 16px system-ui,sans-serif;color:var(--bg);background:var(--amber);padding:6px 14px;border-radius:999px}
+.title-slide .meta{color:var(--muted);font-size:24px}
+.title-slide .hint{color:var(--muted);font-size:18px;margin-top:30px}
+#live{flex:none;max-height:340px;overflow:auto;border-top:2px solid var(--panel-2);padding-top:8px;font-size:21px;line-height:1.4}
+#live .hd{font-size:17px;margin-bottom:2px}
+#readout{overflow-wrap:anywhere}
+
+/* A table wider than the text column scrolls inside it instead of widening the column (a table that fits looks the same). */
+.sg{border-collapse:collapse;margin:8px 0;max-width:100%;display:block;overflow-x:auto}
+.sg td{padding:4px 14px;min-width:28px;height:40px;text-align:center;vertical-align:middle}
+/* Dense lists of observations keep each value intact inside the text column. */
+.sg:has(tr > td:nth-child(12)) td{padding-inline:4px;white-space:nowrap}
+.sg tr.rule td{border-top:2px solid var(--muted)}
+.sg td.l{border-left:2px solid var(--muted)}.sg td.r{border-right:2px solid var(--muted)}
+mjx-container[jax="SVG"]{max-width:none}
+
+/* right: live figure, controls */
+#rt{position:absolute;left:600px;top:24px;width:640px;height:636px;display:flex;flex-direction:column;gap:8px;min-height:0}
+.hint-line{font:600 16px system-ui,sans-serif;color:var(--amber);height:22px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.canvas-wrap{position:relative;flex:none;height:400px;background:var(--panel);border:1px solid var(--panel-2);border-radius:12px;overflow:hidden}
+canvas{display:block;width:100%;height:100%;touch-action:none}
+.explore-label{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:16px;color:var(--muted)}
+.explore-label select,.canvas-keyboard select{font:600 17px system-ui,sans-serif;max-width:70%;height:38px;border-radius:9px;padding:0 8px;background:var(--panel-2);color:var(--ink);border:1px solid var(--line)}
+.note{font-size:14px;color:var(--muted);margin:0}
+.wctl{display:flex;flex-wrap:wrap;gap:6px 18px;align-items:center;font-size:18px;color:var(--ink);overflow:auto;min-height:0}
+.wctl label{display:flex;gap:8px;align-items:center}
+.wctl input[type=range]{width:150px;height:30px;accent-color:var(--amber);touch-action:pan-y}
+.canvas-keyboard{display:flex;gap:6px;align-items:center;flex-wrap:wrap;width:100%}
+.wctl button,.canvas-keyboard button{font:600 18px system-ui,sans-serif;height:38px;min-width:40px;padding:0 10px;border:0;border-radius:9px;background:#e6edf3;color:#0d1117;cursor:pointer}
+.wctl button[aria-pressed=true]{background:var(--amber)}
+.wctl>div{display:flex;flex-wrap:wrap;gap:8px}
+.canvas-wrap:focus-within,.canvas-keyboard:focus-within{outline:3px solid var(--amber);outline-offset:2px}
+.figcol{display:grid;gap:14px;align-content:start;overflow:auto;max-height:100%}
+.fig{margin:0;background:#f4f7f6;border-radius:12px;padding:14px;display:grid;place-items:center}
+.fig img{width:100%;max-height:420px;height:auto;display:block}
+
+/* bottom rows, skill buttons */
+.b{font:600 19px system-ui,sans-serif;height:40px;min-width:40px;padding:0 14px;border-radius:9px;border:0;background:#e6edf3;color:#0d1117;cursor:pointer;touch-action:manipulation;display:inline-flex;align-items:center;justify-content:center;text-decoration:none;white-space:nowrap}
+.b.on,.b[aria-pressed=true]{background:var(--amber)}
+.b:disabled{opacity:.4;cursor:default}
+.b:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,canvas:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
+#r1{position:absolute;left:40px;top:672px;display:flex;gap:8px;align-items:center}
+#r1 .gap{width:14px}
+#step-count{font:600 18px system-ui,sans-serif;min-width:96px;text-align:center}
+.count{font:600 18px system-ui,sans-serif;min-width:64px;text-align:center;color:var(--muted)}
+#r2{position:absolute;left:600px;top:672px;width:640px;display:flex;gap:8px;align-items:center;justify-content:flex-end}
+#prog{position:absolute;left:0;right:0;bottom:0;height:4px;background:var(--panel-2)}
+#prog i{display:block;height:100%;background:var(--amber);transition:width .25s}
+#drawer{position:absolute;left:600px;top:24px;width:640px;height:636px;overflow:auto;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:10px;z-index:5}
+#drawer button{display:block;width:100%;text-align:left;margin:3px 0;padding:8px 12px;font:600 17px system-ui,sans-serif;color:var(--ink);background:transparent;border:1px solid var(--panel-2);border-radius:8px;cursor:pointer;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#drawer button[aria-current]{border-color:var(--amber);color:var(--amber)}
+#toast{position:absolute;left:600px;top:4px;width:640px;text-align:center;font:600 16px system-ui,sans-serif;color:#0d1117;background:var(--amber);border-radius:8px;padding:6px 10px;z-index:8}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+/* phones in portrait: the stage becomes a normal scrolling page (the slide is designed for landscape) */
+@media (max-width:760px) and (orientation:portrait){
+  html,body{height:auto;min-height:100%}body{display:block;overflow:auto}
+  #wrap{width:auto!important;height:auto!important}
+  #stage{position:relative;width:100%;height:auto;transform:none!important;overflow:visible;display:flex;flex-direction:column;gap:14px;padding:16px}
+  #col,#col.wide,#rt,#r1,#r2,#drawer{position:static;width:auto;height:auto}
+  #col{display:block}#flow{overflow:visible;font-size:20px}
+  .sg:has(tr > td:nth-child(12)) td{min-width:0;padding-inline:1px;font-size:16px}
+  #col.wide #flow{min-height:0}
+  h2.tt{font-size:26px}.title-slide h1{font-size:38px}.title-slide{min-height:0}
+  #rt{order:-1}.canvas-wrap{height:280px}
+  #r1,#r2{flex-wrap:wrap;justify-content:flex-start}
+  #drawer{position:fixed;inset:0;z-index:10;border-radius:0}
+  #prog{position:fixed}
+  #live{max-height:none}
+}
+.canvas-navigation{display:flex;align-items:center;gap:5px;flex-wrap:wrap;margin-top:6px;font:16px system-ui}.canvas-navigation button{min-width:44px;min-height:44px;padding:4px 8px;font-size:20px;border:1px solid var(--line);border-radius:6px;color:var(--ink);background:var(--panel);cursor:pointer}.canvas-navigation output{color:var(--muted);margin-left:6px}
+
+/* laboratory experiments in a slide ({type:"lab"}, site/js/lab/shell.js mode "slide"): the canvas fills the widget host, the
+   controls, the answer area and the mission stepper sit in #wctl, the formula and the readout in #readout, the prompt in the hint line */
+.canvas-wrap.lab2-canvas-host{height:340px}
+.lab2-stage{position:absolute;inset:0}
+.lab2-canvas{position:absolute;inset:0;display:block;width:100%;height:100%;touch-action:none}
+.lab2-handle{position:absolute;left:0;top:0;width:44px;height:44px;padding:0;border:0;border-radius:50%;background:transparent;pointer-events:none}
+.lab2-handle:focus-visible{outline:3px solid var(--amber);outline-offset:-3px}
+.hint-line.lab2-hint{height:auto;min-height:22px;max-height:84px;overflow:auto;white-space:normal;font-size:18px;line-height:1.3;outline:0}
+.lab2-slide{width:100%}
+.lab2-slide .lab2-card{display:flex;flex-direction:column;gap:8px;width:100%}
+.lab2-stepper{display:flex;align-items:center;gap:10px}
+.lab2-step-label{font:600 18px system-ui,sans-serif;color:var(--muted)}
+.lab2-kind{color:var(--amber);margin-left:4px}
+.lab2-controls{display:grid;gap:8px}
+.lab2-ctl{display:grid;gap:4px}
+.lab2-ctl.is-locked{opacity:.45}
+.lab2-ctl-label{display:flex;justify-content:space-between;gap:8px;font-weight:600}
+.lab2-ctl input[type=range]{width:100%}
+.lab2-segments,.lab2-variants{display:flex;flex-wrap:wrap;gap:6px}
+.lab2-segment.is-on,.lab2-variant[aria-pressed=true]{background:var(--amber)!important}
+.lab2-options,.lab2-answer{display:grid;gap:6px}
+.wctl .lab2-option,.wctl .lab2-variant{height:auto;min-height:38px;padding:6px 12px;text-align:left;white-space:normal;font-size:17px}
+.lab2-option[aria-pressed=true]{background:var(--amber)!important}
+.lab2-check{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.lab2-check input[type=text]{height:38px;width:130px;border-radius:9px;border:1px solid var(--line);background:var(--panel-2);color:var(--ink);padding:0 8px;font:600 17px system-ui,sans-serif}
+.lab2-check label{font-size:17px}
+.lab2-feedback{margin:0;font:600 17px/1.3 system-ui,sans-serif}.lab2-feedback:empty{display:none}
+.lab2-feedback[data-tone=good]{color:var(--green)}.lab2-feedback[data-tone=warn]{color:var(--red)}
+.lab2-reveal{border-left:4px solid var(--green);padding:4px 0 4px 12px;font-size:17px;line-height:1.35}
+.lab2-recall,.lab2-note{margin:0;color:var(--muted);font-size:16px}
+.lab2-hintbox summary{cursor:pointer;color:var(--amber);font:600 16px system-ui,sans-serif}.lab2-hintbox p{margin:4px 0 0;font-size:16px}
+.wctl .lab2-restart{height:30px;background:transparent;color:var(--muted);text-decoration:underline;font-size:15px}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.lab2-formula{margin:0 0 6px;font-size:21px;line-height:1.35;overflow-wrap:anywhere}
+.lab2-readout{display:grid;gap:3px;margin:0}
+.lab2-readout>div{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+.lab2-readout dt{color:var(--muted);font-size:16px}
+.lab2-readout dd{margin:0;font-size:21px}
+
+/* Keep the complete mission readable while the parameter controls scroll below the fixed figure. */
+.hint-line.lab2-hint{flex:0 0 auto;max-height:none;overflow:visible}
+.lab2-slide[data-experiment="quadratic"] .lab2-controls{grid-template-columns:repeat(2,minmax(0,1fr));align-items:start}
+.lab2-slide[data-experiment="quadratic"] [data-control="form"]{grid-column:1 / -1}
+@media(max-width:760px) and (orientation:portrait){
+  .lab2-slide[data-experiment="quadratic"] .lab2-controls{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<div id="wrap"><main id="stage"></main></div>
+<script>window.__MX_EXPORT__={"deck":{"language":"fr","courseTitle":["Seconde","Seconde · French curriculum"],"id":"seconde-04","course":"seconde","number":4,"title":["Nombres réels et intervalles","Real numbers and intervals"],"slides":[{"k":"title","t":["Nombres réels et intervalles","Real numbers and intervals"],"b":["",""]},{"k":"concept","t":["Les ensembles de nombres","Sets of numbers"],"b":["<ul>\n<li>\\(\\N\\) : entiers naturels ; \\(\\Z\\) : entiers relatifs.\n<li>\\(\\D\\) : nombres décimaux, de la forme \\(a/10^n\\) avec \\(a\\in\\Z\\), \\(n\\in\\N\\).\n<li>\\(\\Q\\) : nombres rationnels, de la forme \\(a/b\\) avec \\(a,b\\in\\Z\\), \\(b\\ne0\\).\n<li>\\(\\R\\) : nombres réels, représentés par les abscisses des points d'une droite graduée. Un réel non rationnel est <b>irrationnel<\/b>.\n<\/ul>\n\\[\\N\\subsetneq\\Z\\subsetneq\\D\\subsetneq\\Q\\subsetneq\\R.\\]","<ul>\n<li>\\(\\N\\): natural numbers; \\(\\Z\\): integers.\n<li>\\(\\D\\): decimal numbers, of the form \\(a/10^n\\) with \\(a\\in\\Z\\), \\(n\\in\\N\\).\n<li>\\(\\Q\\): rational numbers, of the form \\(a/b\\) with \\(a,b\\in\\Z\\), \\(b\\ne0\\).\n<li>\\(\\R\\): real numbers, represented by the abscissae of the points of a graduated line. A real number that is not rational is <b>irrational<\/b>.\n<\/ul>\n\\[\\N\\subsetneq\\Z\\subsetneq\\D\\subsetneq\\Q\\subsetneq\\R.\\]"],"h":["Définitions","Definitions"],"f":[[1,1]]},{"k":"example","t":["Les ensembles de nombres","Sets of numbers"],"b":["Donner le plus petit des cinq ensembles contenant chacun des nombres : \\(-95\\) ; \\(7{,}29\\) ; \\(5/3\\) ; \\(\\sqrt{25}\\) ; \\(\\sqrt2\\) ; \\(\\pi\\) ; \\(0{,}0002\\).","Give the smallest of the five sets containing each of the numbers: \\(-95\\); \\(7.29\\); \\(5/3\\); \\(\\sqrt{25}\\); \\(\\sqrt2\\); \\(\\pi\\); \\(0.0002\\)."],"a":["\\(-95\\in\\Z\\) ; \\(7{,}29\\in\\D\\) ; \\(5/3\\in\\Q\\) ; \\(\\sqrt{25}=5\\in\\N\\) ; \\(\\sqrt2,\\pi\\in\\R\\setminus\\Q\\) ; \\(0{,}0002=2/10^4\\in\\D\\). L'irrationalité de \\(\\pi\\) est admise ici.","\\(-95\\in\\Z\\); \\(7.29\\in\\D\\); \\(5/3\\in\\Q\\); \\(\\sqrt{25}=5\\in\\N\\); \\(\\sqrt2,\\pi\\in\\R\\setminus\\Q\\); \\(0.0002=2/10^4\\in\\D\\). The irrationality of \\(\\pi\\) is accepted here."]},{"k":"method","t":["Deux démonstrations par l'absurde","Two proofs by contradiction"],"b":["Pour prouver une proposition, supposer sa négation, en déduire une contradiction, puis conclure que la proposition est vraie.","To prove a statement, assume its negation, deduce a contradiction, then conclude that the statement is true."],"h":["Raisonnement par l'absurde","Proof by contradiction"]},{"k":"concept","t":["Deux démonstrations par l'absurde","Two proofs by contradiction"],"b":["\\(\\dfrac13\\) n'est pas un nombre décimal.","\\(\\dfrac13\\) is not a decimal number."],"h":["Propriété","Property"]},{"k":"proof","t":["Deux démonstrations par l'absurde","Two proofs by contradiction"],"b":["Supposons \\(1/3=a/10^n\\) avec \\(a\\in\\Z\\), \\(n\\in\\N\\). Alors \\(10^n=3a\\) serait multiple de \\(3\\). Pourtant \\(10\\equiv1\\) modulo \\(3\\), donc \\(10^n\\) a un reste de \\(1\\) dans la division par \\(3\\) (on peut aussi utiliser le critère de divisibilité par \\(3\\)). Contradiction. Donc \\(1/3\\notin\\D\\).","Suppose \\(1/3=a/10^n\\) with \\(a\\in\\Z\\), \\(n\\in\\N\\). Then \\(10^n=3a\\) would be a multiple of \\(3\\). Yet \\(10\\equiv1\\) modulo \\(3\\), so \\(10^n\\) leaves remainder \\(1\\) on division by \\(3\\) (the divisibility rule for \\(3\\) can also be used). Contradiction. Hence \\(1/3\\notin\\D\\)."]},{"k":"concept","t":["Deux démonstrations par l'absurde","Two proofs by contradiction"],"b":["\\(\\sqrt2\\) est irrationnel.","\\(\\sqrt2\\) is irrational."],"h":["Propriété","Property"]},{"k":"proof","t":["Deux démonstrations par l'absurde","Two proofs by contradiction"],"b":["Supposons \\(\\sqrt2=p/q\\) avec \\(p,q\\in\\N\\), \\(q\\ne0\\), et \\(p/q\\) irréductible. Alors \\(p^2=2q^2\\), donc \\(p^2\\) est pair. Si \\(p\\) était impair, son carré le serait aussi : ainsi \\(p\\) est pair. Écrivons \\(p=2k\\). On obtient \\(4k^2=2q^2\\), puis \\(q^2=2k^2\\) ; \\(q\\) est donc pair à son tour. Ainsi \\(2\\) divise \\(p\\) et \\(q\\), contrairement à l'irréductibilité. Donc \\(\\sqrt2\\notin\\Q\\).","Suppose \\(\\sqrt2=p/q\\) with \\(p,q\\in\\N\\), \\(q\\ne0\\), and \\(p/q\\) in lowest terms. Then \\(p^2=2q^2\\), so \\(p^2\\) is even. If \\(p\\) were odd, its square would be odd: so \\(p\\) is even. Write \\(p=2k\\). We get \\(4k^2=2q^2\\), then \\(q^2=2k^2\\); so \\(q\\) is even in turn. Thus \\(2\\) divides \\(p\\) and \\(q\\), contradicting irreducibility. Hence \\(\\sqrt2\\notin\\Q\\)."]},{"k":"concept","t":["Intervalles de la droite réelle","Intervals of the real line"],"b":["Pour deux réels \\(a&lt;b\\), les intervalles décrivent les réels compris entre deux bornes, avec ou sans les bornes. Un crochet fermé inclut la borne, un crochet ouvert l'exclut. Les symboles \\(-\\infty,+\\infty\\) ne sont pas des réels et sont toujours accompagnés d'un crochet ouvert.","For two real numbers \\(a&lt;b\\), intervals describe the real numbers lying between two endpoints, with or without the endpoints. A square bracket includes the endpoint, a parenthesis excludes it. The symbols \\(-\\infty,+\\infty\\) are not real numbers and always take a parenthesis."],"h":["Notations","Notation"]},{"k":"error","t":["Intervalles de la droite réelle","Intervals of the real line"],"b":["Les réels strictement négatifs forment \\(]-\\infty;0[\\) : \\(0\\) est exclu. \\([a;a]=\\{a\\}\\) ; \\(]a;a[=\\varnothing\\).","The strictly negative real numbers form \\((-\\infty,0)\\): \\(0\\) is excluded. \\([a,a]=\\{a\\}\\); \\((a,a)=\\varnothing\\)."]},{"k":"example","t":["Intervalles de la droite réelle","Intervals of the real line"],"b":["Écrire sous forme d'intervalle puis représenter : \\(2\\leq x\\leq5\\) ; \\(x&gt;4\\) ; \\(-6&lt;x\\leq2\\) ; \\(x&lt;0\\).","Write as an interval then represent: \\(2\\leq x\\leq5\\); \\(x&gt;4\\); \\(-6&lt;x\\leq2\\); \\(x&lt;0\\)."],"a":["\\([2;5]\\) ; \\(]4;+\\infty[\\) ; \\(]-6;2]\\) ; \\(]-\\infty;0[\\). Sur la droite graduée, indiquer les bornes, puis matérialiser chacune comme incluse ou exclue.","\\([2,5]\\); \\((4,+\\infty)\\); \\((-6,2]\\); \\((-\\infty,0)\\). On the number line, mark the endpoints, then show each one as included or excluded."]},{"k":"widget","t":["Intervalles","Intervals"],"b":["Déplacez les bornes de I et J : intersection et réunion.","Drag the ends of I and J: intersection and union."],"w":{"type":"interval"}},{"k":"concept","t":["Intersection et réunion d'intervalles","Intersection and union of intervals"],"b":["\\(\\,I\\cap J\\) correspond à la condition « appartenir à \\(I\\) <b>et<\/b> à \\(J\\) » ; \\(I\\cup J\\) correspond à « appartenir à \\(I\\) <b>ou<\/b> à \\(J\\) ». Une réunion d'intervalles n'est pas toujours un intervalle.","\\(\\,I\\cap J\\) corresponds to the condition “belonging to \\(I\\) <b>and<\/b> to \\(J\\)”; \\(I\\cup J\\) corresponds to “belonging to \\(I\\) <b>or<\/b> to \\(J\\)”. A union of intervals is not always an interval."],"h":["Définition","Definition"]},{"k":"example","t":["Intersection et réunion d'intervalles","Intersection and union of intervals"],"b":["Avec \\(I=[0;12]\\) et \\(J=[3;20]\\), déterminer \\(I\\cap J\\) et \\(I\\cup J\\).","With \\(I=[0,12]\\) and \\(J=[3,20]\\), determine \\(I\\cap J\\) and \\(I\\cup J\\)."],"a":["\\(I\\cap J=[3;12]\\) et \\(I\\cup J=[0;20]\\).","\\(I\\cap J=[3,12]\\) and \\(I\\cup J=[0,20]\\)."]},{"k":"example","t":["Intersection et réunion d'intervalles","Intersection and union of intervals"],"b":["Compléter, en justifiant par des représentations sur une droite graduée.","Complete, justifying with representations on a number line."],"a":["Pour chaque intersection, conserver les points communs aux deux représentations ; pour chaque réunion, conserver tous les points de l'une au moins. Dans la dernière ligne, \\(0\\) n'appartient à aucun intervalle : on ne peut pas remplacer la réunion par \\(]-2;3]\\).","For each intersection, keep the points common to both representations; for each union, keep all the points of at least one. In the last row, \\(0\\) belongs to neither interval: the union cannot be replaced by \\((-2,3]\\)."]},{"k":"concept","t":["Valeur absolue et distance","Absolute value and distance"],"b":["\\(|x|\\) est la distance du réel \\(x\\) à \\(0\\) ; \\(|x|\\geq0\\) et\n\\[|x|=\\begin{cases}x&amp;\\text{si }x\\geq0,\\\\-x&amp;\\text{si }x&lt;0.\\end{cases}\\]\nLa distance entre \\(a\\) et \\(b\\) est \\(|b-a|\\). Pour \\(a\\in\\R\\) et \\(r\\geq0\\) :\n\\[|x-a|\\leq r\\iff x\\in[a-r;a+r],\\qquad |x-a|&lt;r\\iff x\\in]a-r;a+r[.\\]","\\(|x|\\) is the distance from the real number \\(x\\) to \\(0\\); \\(|x|\\geq0\\) and\n\\[|x|=\\begin{cases}x&amp;\\text{if }x\\geq0,\\\\-x&amp;\\text{if }x&lt;0.\\end{cases}\\]\nThe distance between \\(a\\) and \\(b\\) is \\(|b-a|\\). For \\(a\\in\\R\\) and \\(r\\geq0\\):\n\\[|x-a|\\leq r\\iff x\\in[a-r,a+r],\\qquad |x-a|&lt;r\\iff x\\in(a-r,a+r).\\]"],"h":["Définition et propriétés","Definition and properties"]},{"k":"example","t":["Valeur absolue et distance","Absolute value and distance"],"b":["Calculer \\(|3{,}2|\\), \\(|-1{,}6|\\), \\(|\\sqrt3-2|\\), puis les distances entre \\(2\\) et \\(5\\), \\(2\\) et \\(-5\\), \\(-2\\) et \\(-5\\).","Calculate \\(|3.2|\\), \\(|-1.6|\\), \\(|\\sqrt3-2|\\), then the distances between \\(2\\) and \\(5\\), \\(2\\) and \\(-5\\), \\(-2\\) and \\(-5\\)."],"a":["\\(3{,}2\\) ; \\(1{,}6\\) ; \\(2-\\sqrt3\\) puisque \\(\\sqrt3&lt;2\\). Les distances sont \\(3\\), \\(7\\) et \\(3\\).","\\(3.2\\); \\(1.6\\); \\(2-\\sqrt3\\) since \\(\\sqrt3&lt;2\\). The distances are \\(3\\), \\(7\\) and \\(3\\)."]},{"k":"example","t":["Valeur absolue et distance","Absolute value and distance"],"b":["Résoudre : \\(|x-7/3|=14\\) ; \\(|x-2|\\leq3\\) ; \\(|x+3|&lt;5\\).","Solve: \\(|x-7/3|=14\\); \\(|x-2|\\leq3\\); \\(|x+3|&lt;5\\)."],"a":["Pour la première équation, \\(x-7/3=14\\) ou \\(x-7/3=-14\\), donc \\(S=\\{-35/3;49/3\\}\\). Puis \\(|x-2|\\leq3\\iff x\\in[-1;5]\\). Enfin \\(|x+3|=|x-(-3)|&lt;5\\iff x\\in]-8;2[\\).","For the first equation, \\(x-7/3=14\\) or \\(x-7/3=-14\\), so \\(S=\\{-35/3,49/3\\}\\). Then \\(|x-2|\\leq3\\iff x\\in[-1,5]\\). Finally \\(|x+3|=|x-(-3)|&lt;5\\iff x\\in(-8,2)\\)."]},{"k":"example","t":["Valeur absolue et distance","Absolute value and distance"],"b":["Écrire \\(x\\in[4;10]\\) sous forme d'une inégalité avec valeur absolue.","Write \\(x\\in[4,10]\\) as an inequality with an absolute value."],"a":["Le centre est \\((4+10)/2=7\\) et le rayon \\((10-4)/2=3\\) : \\(|x-7|\\leq3\\).","The centre is \\((4+10)/2=7\\) and the radius \\((10-4)/2=3\\): \\(|x-7|\\leq3\\)."]},{"k":"concept","t":["Encadrements et approximations","Bounds and approximations"],"b":["Encadrer \\(x\\), c'est donner \\(a\\leq x\\leq b\\) ; l'amplitude est \\(b-a\\). Une valeur approchée par défaut est inférieure ou égale à \\(x\\) ; une valeur approchée par excès lui est supérieure ou égale. L'arrondi choisit la valeur la plus proche à la précision demandée.\nLes chiffres significatifs se comptent à partir du premier chiffre non nul ; la précision affichée doit convenir au contexte.","To bound \\(x\\) is to give \\(a\\leq x\\leq b\\); the width is \\(b-a\\). An approximation from below is less than or equal to \\(x\\); an approximation from above is greater than or equal to it. Rounding chooses the nearest value at the required precision.\nSignificant figures are counted from the first nonzero digit; the displayed precision must suit the context."],"h":["Vocabulaire","Vocabulary"]},{"k":"example","t":["Encadrements et approximations","Bounds and approximations"],"b":["Encadrer \\(\\sqrt2\\) par deux centièmes consécutifs. Donner son arrondi au centième. Arrondir \\(0{,}004567\\) à trois chiffres significatifs, puis \\(12345\\) à trois chiffres significatifs en écriture scientifique.","Bound \\(\\sqrt2\\) between two consecutive hundredths. Give its rounding to the nearest hundredth. Round \\(0.004567\\) to three significant figures, then \\(12345\\) to three significant figures in scientific notation."],"a":["\\(1{,}41^2=1{,}9881&lt;2&lt;2{,}0164=1{,}42^2\\), donc \\(1{,}41&lt;\\sqrt2&lt;1{,}42\\) (amplitude \\(0{,}01\\)). L'arrondi au centième est \\(1{,}41\\). Les autres arrondis sont \\(0{,}00457\\) et \\(1{,}23\\times10^4\\).","\\(1.41^2=1.9881&lt;2&lt;2.0164=1.42^2\\), so \\(1.41&lt;\\sqrt2&lt;1.42\\) (width \\(0.01\\)). The rounding to the nearest hundredth is \\(1.41\\). The other roundings are \\(0.00457\\) and \\(1.23\\times10^4\\)."]},{"k":"code","t":["Python","Python"],"b":["def encadre_racine2(p):\n    # p entier naturel ; calculs entiers exacts\n    q = 10**p\n    k = 0\n    while (k+1)**2 &lt;= 2*q*q:\n        k = k+1\n    return k/q, (k+1)/q","def encadre_racine2(p):\n    # p entier naturel ; calculs entiers exacts\n    q = 10**p\n    k = 0\n    while (k+1)**2 &lt;= 2*q*q:\n        k = k+1\n    return k/q, (k+1)/q"]},{"k":"example","t":["Encadrements et approximations","Bounds and approximations"],"b":["Expliquer pourquoi cette fonction encadre \\(\\sqrt2\\). Que renvoie-t-elle pour \\(p=2\\) ? Pourquoi termine-t-elle ?","Explain why this function bounds \\(\\sqrt2\\). What does it return for \\(p=2\\)? Why does it terminate?"],"a":["La boucle cherche le plus grand entier \\(k\\) tel que \\(k^2\\leq2q^2\\). À la sortie, \\(k^2\\leq2q^2&lt;(k+1)^2\\), donc \\(k/q\\leq\\sqrt2&lt;(k+1)/q\\). Pour \\(p=2\\), elle renvoie \\((1{,}41;1{,}42)\\). Comme \\((2q)^2&gt;2q^2\\), le compteur finit par atteindre une valeur qui rend le test faux. Les divisions finales sont des approximations flottantes ; les tests de carrés sont exacts.","The loop looks for the largest integer \\(k\\) such that \\(k^2\\leq2q^2\\). On exit, \\(k^2\\leq2q^2&lt;(k+1)^2\\), so \\(k/q\\leq\\sqrt2&lt;(k+1)/q\\). For \\(p=2\\), it returns \\((1.41,1.42)\\). Since \\((2q)^2&gt;2q^2\\), the counter eventually reaches a value that makes the test false. The final divisions are floating-point approximations; the square tests are exact."]}],"editions":{"fr":{},"en":{}},"languages":["fr","en"],"figureVersion":"b8aff1b1f99bac18"},"figs":{"seconde-04-1.svg":"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4bWxuczppbmtzY2FwZT0iaHR0cDovL3d3dy5pbmtzY2FwZS5vcmcvbmFtZXNwYWNlcy9pbmtzY2FwZSIgdmVyc2lvbj0iMS4xIiB3aWR0aD0iMjQyLjc3NCIgaGVpZ2h0PSIxMDcuMjE5IiB2aWV3Qm94PSIwIDAgMjQyLjc3NCAxMDcuMjE5Ij4KPGRlZnM+CjxwYXRoIGlkPSJmb250XzFfNCIgZD0iTS4wMjE5ODc5MTUgLjY2MjM2ODggLjA2NTk5NDI2IC42NTkzNzgwOEMuMTA2OTk0NjMgLjY1NjM3MjEgLjExNjk4OTEzOSAuNjQ4Mzc2NDkgLjExNjk4OTEzOSAuNTY5MzM1OTZWLjEyMDEwMTkzQy4xMTY5ODkxMzkgLjA0MTA3NjY2IC4xMDY5OTQ2MyAuMDMyMDU4NzE3IC4wNjU5OTQyNiAuMDMwMDU5ODE1TC4wMjE5ODc5MTUgLjAyNzA2OTA5MlYtLjAwMjkyOTY4NzZDLjA4MDk5MzY1LS4wMDEwMDcwODAxIC4xNzI5ODg4OSAwIC4yMjQ5OTA4NSAwIC4yNzY5OTI4IC4wMDAwNjEwMzUxNTkgLjM3Mjk4NTg1LS4wMDA5MzA3ODYxNiAuNDMxOTkxNTktLjAwMjkyOTY4NzZWLjAyNzA2OTA5MkwuMzgzOTg3NDQgLjAzMDA1OTgxNUMuMzM4OTg5MjcgLjAzMzA2NTc5NyAuMzMyOTkyNTYgLjA0MTA3NjY2IC4zMzI5OTI1NiAuMTE0MTA1MjI4Vi42NDIzNjQ1Qy4zNjc5OTYyMyAuNjUxMzY3MiAuMzk2OTg3OTIgLjY1NDM3MzE5IC40MzA5OTk3NyAuNjU0MzczMTkgLjUzNDk4ODQgLjY1NDM3MzE5IC41OTI5ODcwOSAuNjA2MzUzNzggLjU5Mjk4NzA5IC41MjEzMDEyOSAuNTkyOTg3MDkgLjQyOTI2MDI2IC41MTk5ODkgLjM3MTIzMTA5IC40MDM5OTE3IC4zNzEyMzEwOSAuMzk3OTk1IC4zNzEyMzEwOSAuMzg4MDAwNSAuMzcxMjMxMDkgLjM3NSAuMzcyMjM4MTdMLjM2ODk4ODA1IC4zNjAyMjk1Qy4zNzk5ODk2MyAuMzQ3MjEzNzYgLjM4Mjk5NTYgLjM0MzIxNTk1IC4zOTQ5ODkgLjMzMDIxNTQ2IC40MDg5OTY1OSAuMzE0MjA4OTkgLjQxMTk4NzMgLjMxMDE5NTkzIC40MjA5OSAuMjk4MjAyNUwuNjA0OTk1NyAuMDUxMDcxMTY4Qy42MTA5OTI0NiAuMDQzMDc1NTYgLjYxNjk4OTE2IC4wMzUwNjQ2OTkgLjYyMzAwMTEgLjAyODA2MDkxNEwuNjQ1OTk2MS0uMDAyOTI5Njg3NkMuNjg2OTk2NDgtLjAwMTAwNzA4MDEgLjcwMTk5NTg3IDAgLjcxMzk4OTI4IDAgLjcyNDk5MDg3IC4wMDAwNjEwMzUxNTkgLjczNzk5MTM2LS4wMDA5MzA3ODYxNiAuNzg1OTk1NS0uMDAyOTI5Njg3NlYuMDI3MDY5MDkyQy43NTM5OTc4IC4wMzAwNTk4MTUgLjczNzk5MTM2IC4wMzYwNzE3NzkgLjcyNDk5MDg3IC4wNTMwNzAwN0wuNDk3OTg1ODUgLjM0OTIyNzlDLjU1Mjk5MzggLjM2MjIyODQgLjU3Nzk4NzcgLjM3MzIyOTk5IC42MTAwMDA2IC4zOTUyNDg0IC42NjQ5OTMzIC40MzMyNTgwNyAuNjkyOTkzMTkgLjQ4MzI5MTY0IC42OTI5OTMxOSAuNTQyMzEyNiAuNjkyOTkzMTkgLjYzOTM1ODUgLjYyMzk5MjkgLjY5MjM4MjggLjQ5Njk5NDAzIC42OTIzODI4SC40ODI5ODY0NkMuNDYyOTk3NDUgLjY5MTM3NTc2IC40NDU5OTkxNiAuNjkxMzc1NzYgLjQzMTk5MTU5IC42OTAzNjg2OCAuNDAxOTkyOCAuNjg5Mzc2ODYgLjM2Mzk5ODQgLjY4OTM3Njg2IC4zMjU5ODg3OCAuNjg5Mzc2ODZILjIyNDk5MDg1Qy4xNzI5ODg4OSAuNjg5Mzc2ODYgLjA4MDk5MzY1IC42OTAzNjg2OCAuMDIxOTg3OTE1IC42OTIzODI4Vi42NjIzNjg4TS4yMzc5OTEzNCAuNTY5MzM1OTZWLjEyMDEwMTkzQy4yMzc5OTEzNCAuMDQxMDc2NjYgLjIzMjk4NjQ1IC4wMzMwNjU3OTcgLjIwMDk4ODc3IC4wMzAwNTk4MTUgLjE2ODk5MTA5IC4wMzMwNjU3OTcgLjE2Mjk5NDM5IC4wNDEwNzY2NiAuMTYyOTk0MzkgLjEyMDEwMTkzVi41NjkzMzU5NkMuMTYyOTk0MzkgLjY0ODM3NjQ5IC4xNjg5OTEwOSAuNjU2MzcyMSAuMjAwOTg4NzcgLjY1OTM3ODA4IC4yMzI5ODY0NSAuNjU3Mzc5MTggLjIzNzk5MTM0IC42NDgzNzY0OSAuMjM3OTkxMzQgLjU2OTMzNTk2WiIvPgo8cGF0aCBpZD0iZm9udF8xXzMiIGQ9Ik0uMzg4MDAwNS0uMDE5MDI3NzEgLjM3MTk5NDAzLS4wMjUwMjQ0MTRDLjM1Mzk4ODY2LS4wMzEwMjExMTkgLjMxOTAwMDI1LS4wNTQwMzEzNzMgLjI2MzAwMDUtLjA5NzAzMDY0TC4yNjA5ODYzNC0uMTI5MDI4MzIgLjMxOTk5MjA4LS4wOTcwMzA2NEMuMzMxOTg1NDgtLjA5MTAxODY4IC4zMzY5OTAzNy0uMDg5MDE5Nzc5IC4zNDc5OTE5NS0uMDg5MDE5Nzc5IC4zNjc5OTYyMy0uMDg5MDE5Nzc5IC4zOTM5OTcyLS4wOTQwMjQ2NiAuNDI1OTk0ODgtLjEwNDAxOTE2OEwuNTczOTg5ODktLjE1MDAyNDQyQy42MTAwMDA2LS4xNjEwMjYgLjYzOTk5OTQtLjE2ODAyOTc5IC42Nzk5OTI3LS4xNzYwMjUzOUwuNzYzOTkyMy0uMTIwMDI1NjM4Vi0uMDk5MDI5NTRDLjcyODk4ODY3LS4xMDQwMTkxNjggLjcxNTk4ODE4LS4xMDUwMjYyNDggLjcwNDk4NjYtLjEwNTAyNjI0OCAuNjU2OTk3Ny0uMTA1MDI2MjQ4IC42MDE5ODk3Ny0uMDkwMDI2ODU5IC41MjE5ODc5LS4wNTYwMzAyNzUgLjQ1OTk5MTQ2LS4wMjkwMjIyMTcgLjQ0Mjk5MzE3LS4wMjQwMTczMzQgLjQwMDk4NTczLS4wMTkwMjc3MSAuNDc3OTk2ODQtLjAxMjAyMzkyNiAuNTEzOTkyMy0uMDAyMDI5NDE5IC41NjM5OTUzOSAuMDI0OTc4NjM4IC42ODc5ODgzIC4wOTM5Nzg4OCAuNzYzOTkyMyAuMjI0OTc1NTkgLjc2Mzk5MjMgLjM3MDk3MTY5IC43NjM5OTIzIC41Nzc5NzI0IC42MjE5OTQgLjcwODk4NDQgLjM5Nzk5NSAuNzA4OTg0NCAuMTcyOTg4ODkgLjcwODk4NDQgLjAyMTk4NzkxNSAuNTYxOTgxMiAuMDIxOTg3OTE1IC4zNDI5NzE4IC4wMjE5ODc5MTUgLjEyMzk3NzY2IC4xNjE5ODczLS4wMTkwMjc3MSAuMzc2OTk4OS0uMDE5MDI3NzFILjM4ODAwMDVNLjM3OTk4OTYzIC42NjY5NzY5Qy41NTc5OTg2OCAuNjY2OTc2OSAuNjU2OTk3NyAuNTQ3OTczNjYgLjY1Njk5NzcgLjMzNDk3NjIgLjY1Njk5NzcgLjEzNDk3OTI1IC41NjkwMDAyNyAuMDIyOTc5NzM3IC40MTE5ODczIC4wMjI5Nzk3MzcgLjM0MDk4ODE3IC4wMjI5Nzk3MzcgLjI4MTk5NzY5IC4wNDM5NzU4MyAuMjM1OTkyNDMgLjA4Njk3NTFWLjYyNjk4MzY3Qy4yNzM5ODY4MyAuNjUyOTY5MzkgLjMyMjk5ODA2IC42NjY5NzY5IC4zNzk5ODk2MyAuNjY2OTc2OU0uMTI4OTk3OCAuMzc1OTc2NTdDLjEyODk5NzggLjQ3NDk3NTYgLjE1NDk5ODc4IC41NTE5NzE0NiAuMjA0OTg2NTcgLjYwMDk4MjY5Vi4xMjE5Nzg3NkMuMTU2OTk3NjggLjE4NDk4MjMgLjEyODk5NzggLjI3Njk3NzU1IC4xMjg5OTc4IC4zNzU5NzY1N1oiLz4KPHBhdGggaWQ9ImZvbnRfMV8xIiBkPSJNLjAyMTk4NzkxNSAuMDI3MDY5MDkyVi0uMDAyOTI5Njg3NkMuMDgwOTkzNjUtLjAwMTAwNzA4MDEgLjE3Mjk4ODg5IDAgLjIyNDk5MDg1IDAgLjI4Mjk4OTUtLjAwMDkzMDc4NjE2IC40Mjk5OTI2OS0uMDAyOTI5Njg3NiAuNDY1OTg4MTctLjAwMjkyOTY4NzYgLjU5Mzk5NDE3LS4wMDI5Mjk2ODc2IC42ODk5ODcyIC4wMzAwNTk4MTUgLjc1OTk5NDUgLjA5OTA5MDU3OSAuODMyMDAwNzYgLjE3MDEzNTUgLjg3NTk5MTggLjI3ODE4Mjk5IC44NzU5OTE4IC4zODUyMzg2NiAuODc1OTkxOCAuNTcxMzM0ODYgLjczNzk5MTM2IC42OTIzODI4IC41MjY5OTI4IC42OTIzODI4IC41MTk5ODkgLjY5MjM4MjggLjUwNjk4ODUgLjY5MjM4MjggLjQ4ODk5ODQgLjY5MTM3NTc2IC40Mzg5OTUzNyAuNjkwMzY4NjggLjM5ODk4NjgzIC42OTAzNjg2OCAuMzU1OTg3NTYgLjY5MDM2ODY4IC4zMTkwMDAyNSAuNjkwMzM4MTYgLjI3Nzk5OTg5IC42ODkzMzEwOCAuMjI0OTkwODUgLjY4OTMzMTA4IC4xNzI5ODg4OSAuNjg5Mzc2ODYgLjA4MDk5MzY1IC42OTAzNjg2OCAuMDIxOTg3OTE1IC42OTIzODI4Vi42NjIzNjg4TC4wNjU5OTQyNiAuNjU5Mzc4MDhDLjEwNjk5NDYzIC42NTYzNzIxIC4xMTY5ODkxMzkgLjY0ODM2MTIgLjExNjk4OTEzOSAuNTY5MzIwN1YuMTIwMDU2MTVDLjExNjk4OTEzOSAuMDQxMDAwMzY4IC4xMDY5OTQ2MyAuMDMxOTk3NjggLjA2NTk5NDI2IC4wMjk5OTg3OEwuMDIxOTg3OTE1IC4wMjcwNjkwOTJNLjMzMjk5MjU2IC42NDQzNjM0Qy4zNTg5OTM1NCAuNjQ5MzM3NzkgLjM5Mzk5NzIgLjY1MjM0Mzc3IC40NDQwMDAyNSAuNjUyMzQzNzcgLjUxNjk5ODMgLjY1MjM0Mzc3IC41OTcwMDAxIC42MzkzMjggLjYzODk5MjMgLjYyMDMxNTU4IC42NjA5OTU1IC42MTEzMTI4OSAuNjc5OTkyNyAuNTk3MzA1MyAuNjk3OTk4MDcgLjU3OTI5OTkgLjc0NTk4Njk2IC41MzEyODA1IC43Njg5OTcyIC40NTkyNDM3OCAuNzY4OTk3MiAuMzU5MjA3MTYgLjc2ODk5NzIgLjI0NzE2MTg3IC43MzUwMDA2IC4xNjExMTc1NiAuNjY4OTkxMSAuMTA3MDg2MTggLjYwODk5MzU2IC4wNTgwNzQ5NSAuNTQ4OTk2IC4wNDEwNjE0IC40MzU5ODkzOSAuMDQxMDYxNCAuMzg5OTk5NCAuMDQxMDYxNCAuMzU4OTkzNTQgLjA0MzA2MDMwNCAuMzMyOTkyNTYgLjA0OTA3MjI2N1YuNjQ0MzYzNE0uMjM3OTkxMzQgLjU2OTMyMDdWLjEyMDA1NjE1Qy4yMzc5OTEzNCAuMDQxMDAwMzY4IC4yMzI5ODY0NSAuMDMzMDA0NzYgLjIwMDk4ODc3IC4wMjk5OTg3OCAuMTY4OTkxMDkgLjAzMzAwNDc2IC4xNjI5OTQzOSAuMDQxMDAwMzY4IC4xNjI5OTQzOSAuMTIwMDU2MTVWLjU2OTMyMDdDLjE2Mjk5NDM5IC42NDgzNjEyIC4xNjg5OTEwOSAuNjU2MzcyMSAuMjAwOTg4NzcgLjY1OTM3ODA4IC4yMzI5ODY0NSAuNjU3Mzc5MTggLjIzNzk5MTM0IC42NDgzNjEyIC4yMzc5OTEzNCAuNTY5MzIwN1oiLz4KPHBhdGggaWQ9ImZvbnRfMV81IiBkPSJNLjczOTk5MDI2IC4xNzMwNjUxOSAuNzMzOTkzNTYgLjExNjA0MzA5Qy43MjY5ODk3NyAuMDUwMDAzMDUgLjcxMjk5NzQ2IC4wNDM5OTEwOSAuNTU5OTk3NTggLjA0Mzk5MTA5SC4yODY5ODczTC43NzI5OTUgLjY2MzM3NTg4IC43Njg5OTcyIC42OTIzODI4Qy43Mjk5OTU3IC42OTI0Mjg2IC42MzU5ODYzIC42ODk0MjI2IC41ODg5ODkyOCAuNjg5NDIyNkguNDMwOTk5NzdDLjM3MDk4Njk1IC42ODk0MjI2IC4zMDU5OTk3NyAuNjkwNDI5NyAuMjQ0OTk1MTIgLjY5MTQzNjc5IC4yMTI5OTc0NCAuNjkyMzgyOCAuMTUyOTk5ODggLjY5MjM4MjggLjA3OTk4NjU3IC42OTIzODI4IC4wODE5ODU0NyAuNjU1MzY1IC4wODI5OTI1NSAuNjM3MzU5NiAuMDgyOTkyNTUgLjYxMTM0MzQgLjA4Mjk5MjU1IC41ODUzMjcxNyAuMDgxOTg1NDcgLjU2NzMyMTggLjA3OTk4NjU3IC41MzAzMDM5OEguMTEzOTk4NDFMLjExOTk5NTEyIC42MDEzNDg5Qy4xMjI5ODU4NCAuNjQwNDI2NjYgLjE0OTk5MzkgLjY0ODQzNzUgLjI3MTk4NzkyIC42NDg0Mzc1SC41Qy40ODc5OTEzNCAuNjI4NDE3OTkgLjQ3Nzk5Njg0IC42MTM0MDMzIC40NjU5ODgxNyAuNTk2NDA1IC40NDc5OTgwNiAuNTc0Mzg2NiAuNDMwOTk5NzcgLjU1MjM2ODE5IC40MTM5ODYyIC41MzAzNjVMLjExMTk5OTUxIC4xNDIxMzU2MkMuMDk3OTkxOTQgLjEyNDEzMDI1IC4wNzg5OTQ3NSAuMTAxMTA0NzQgLjAxNDk5OTM5IC4wMjUwNzAxOVYtLjAwMjkyOTY4NzZDLjA1Mzk4NTU5Ny0uMDAzMDA1OTgxNSAuMTY4OTkxMDkgMCAuMjE1OTg4MTYgMEguNDE2OTkyMkMuNDc2OTg5NzYgMCAuNTQxOTkyMi0uMDAxMDA3MDgwMSAuNjAyOTk2OC0uMDAyMDE0MTYwMiAuNjM0OTk0NS0uMDAyOTI5Njg3NiAuNjk0OTkyMDktLjAwMjkyOTY4NzYgLjc2Nzk5MDEtLjAwMjkyOTY4NzYgLjc2Nzk5MDEgLjA4MzA5OTM2OCAuNzY4OTk3MiAuMTE5MTEwMTEgLjc3Mzk4NjggLjE3MzE0MTQ4TC43Mzk5OTAyNiAuMTczMDY1MTlNLjU4MDk5MzY4IC41NTQzMjEzIC4yMTU5ODgxNiAuMDk1MDkyNzdDLjE5Njk5MDk3IC4wNjcwMDEzNCAuMTg2OTk2NDYgLjA1NDAwMDg1NiAuMTcyOTg4ODkgLjA0Mzk5MTA5SC4xMzQ5OTQ1Qy4xMjUgLjA1Mjk5Mzc3NiAuMTE5OTk1MTIgLjA2MTAwNDY0IC4xMTk5OTUxMiAuMDcwMDA3MzI3IC4xMTk5OTUxMiAuMDg0MDE0ODkgLjEzMDk5NjcgLjEwMTAyODQ0IC4xNTk5ODg0IC4xMzkwNTMzNUwuNTIxOTg3OSAuNjAwMzg3NkMuNTQxMDAwMzkgLjYyNDQwNDkgLjU1NDAwMDg4IC42Mzk0MTk1OCAuNTYzOTk1MzkgLjY0ODQzNzVILjYwNjk5NDZDLjYxNjk4OTE2IC42Mzk0MTk1OCAuNjIxOTk0IC42MzI0MTU4IC42MjE5OTQgLjYyMzQxMzEgLjYyMTk5NCAuNjA5MzkwMjggLjYxMDAwMDYgLjU5MTM4NDkgLjU4MDk5MzY4IC41NTQzNTE4Vi41NTQzMjEzWiIvPgo8cGF0aCBpZD0iZm9udF8xXzIiIGQ9Ik0uMDE2OTk4MjkxIC42NjIzNjg4IC4wNjA5ODkzOCAuNjU5Mzc4MDhDLjEwMTk4OTc0OSAuNjU2MzcyMSAuMTExOTk5NTEgLjY0ODM3NjQ5IC4xMTE5OTk1MSAuNTY5MzM1OTZWLjEyMDEwMTkzQy4xMTE5OTk1MSAuMDQxMDc2NjYgLjEwMTk4OTc0OSAuMDMyMDU4NzE3IC4wNjA5ODkzOCAuMDMwMDU5ODE1TC4wMTY5OTgyOTEgLjAyNzA2OTA5MlYtLjAwMjkyOTY4NzZDLjA3NTk4ODc3LS4wMDEwMDcwODAxIC4xNTU5OTA2IDAgLjE5NTk5OTE1IDAgLjIzNTk5MjQzIC4wMDAwNjEwMzUxNTkgLjMxNzk5MzE3LS4wMDA5MzA3ODYxNiAuMzczOTkyOTMtLjAwMjkyOTY4NzZWLjAyNzA2OTA5MkwuMzI5OTg2NTggLjAzMDA1OTgxNUMuMjgzOTk2NTkgLjAzMzA2NTc5NyAuMjc4OTkxNyAuMDQyMDY4NDggLjI3ODk5MTcgLjEyMDEwMTkzVi41ODMzNDM1TC43NTE5OTg5LS4wMDM5MzY3Njc4IC44NDE5OTUyNi0uMDE5OTQzMjM4Qy44NDE5OTUyNi0uMDE1OTMwMTc2IC44NDE5OTUyNi0uMDE0OTM4MzU0OSAuODQwOTg4MTgtLjAwNzkzNDU3IC44Mzk5OTYzNiAuMDAzMDY3MDE2NyAuODM4OTg5MjggLjAxMTA2MjYyMiAuODM4OTg5MjggLjAxNzA1OTMyN1YuNTY5MzM1OTZDLjgzODk4OTI4IC42NDczNjk0IC44NDM5OTQxNyAuNjU2MzcyMSAuODg5OTk5NCAuNjU5Mzc4MDhMLjkzMzk5MDUgLjY2MjM2ODhWLjY5MjM4MjhDLjg2Mjk5MTM2IC42OTAzNjg2OCAuODMyOTkyNTggLjY4OTM3Njg2IC44MTM5OTUzOSAuNjg5Mzc2ODYgLjc5Mzk5MTEgLjY4OTM3Njg2IC43NzA5OTYxIC42OTAzNjg2OCAuNjk3OTk4MDcgLjY5MjM4MjhWLjY2MjM2ODhMLjc0MTk4OTE2IC42NTkzNzgwOEMuNzg3OTk0NCAuNjU2MzcyMSAuNzkyOTk5MjkgLjY0NzM2OTQgLjc5Mjk5OTI5IC41NjkzMzU5NlYuMDk4MDk4NzU4TC4zMTE5OTY0NyAuNjkyMzgyOCAuMjU3OTk1NiAuNjg5Mzc2ODZILjE5NTk5OTE1Qy4xNTU5OTA2IC42ODkzNzY4NiAuMDc1OTg4NzcgLjY5MDM2ODY4IC4wMTY5OTgyOTEgLjY5MjM4MjhWLjY2MjM2ODhNLjIzMjk4NjQ1IC41NjkzMzU5NlYuMTIwMTAxOTNDLjIzMjk4NjQ1IC4wNDEwNzY2NiAuMjI3OTk2ODMgLjAzMzA2NTc5NyAuMTk1OTk5MTUgLjAzMDA1OTgxNSAuMTYzOTg2MiAuMDMzMDY1Nzk3IC4xNTc5ODk1IC4wNDEwNzY2NiAuMTU3OTg5NSAuMTIwMTAxOTNWLjU2OTMzNTk2Qy4xNTc5ODk1IC42NDgzNzY0OSAuMTYzOTg2MiAuNjU2MzcyMSAuMTk1OTk5MTUgLjY1OTM3ODA4IC4yMjc5OTY4MyAuNjU3Mzc5MTggLjIzMjk4NjQ1IC42NDgzNzY0OSAuMjMyOTg2NDUgLjU2OTMzNTk2WiIvPgo8cGF0aCBpZD0iZm9udF8yXzE3IiBkPSJNLjAxNTk5MTIxMSAuMDIzMDU2MDNWLS4wMDI5Mjk2ODc2Qy4yMDI5ODc2NyAwIC4yMDI5ODc2NyAwIC4yMzg5OTg0MiAwIC4yNzQ5OTM5IC4wMDAwNjEwMzUxNTkgLjI3NDk5MzkgLjAwMDA2MTAzNTE1OSAuNDY3OTg3MDctLjAwMjkyOTY4NzYgLjQ2NTk4ODE3IC4wMTgwNjY0MDcgLjQ2NTk4ODE3IC4wMjgwNjA5MTQgLjQ2NTk4ODE3IC4wNDIwNjg0OCAuNDY1OTg4MTcgLjA1NTA4NDIzIC40NjU5ODgxNyAuMDY1MDc4NzM5IC40Njc5ODcwNyAuMDg3MDk3MTcgLjM1Mjk5Njg0IC4wODIwOTIyODggLjMwNjk5MTU5IC4wODEwODUyMDggLjEyMTk5NDAyIC4wNzcwODc0TC4zMDM5ODU2IC4yNzAxNTY4N0MuNDAwOTg1NzMgLjM3MzE5OTQ3IC40MzA5OTk3NyAuNDI4MjIyNjcgLjQzMDk5OTc3IC41MDMyNTAxIC40MzA5OTk3NyAuNjE4MzAxNCAuMzUyOTk2ODQgLjY4OTMwMDU2IC4yMjU5OTc5MyAuNjg5MzAwNTYgLjE1Mzk5MTcgLjY4OTMwMDU2IC4xMDQ5OTU3MyAuNjY5Mjk2MjkgLjA1NTk5OTc1NyAuNjE5MjkzMkwuMDM4OTg2MjA3IC40ODMyNDU4NkguMDY3OTkzMTY3TC4wODA5OTM2NSAuNTI5MjY2MzhDLjA5NzAwMDEyIC41ODcyODAzIC4xMzI5OTU2IC42MTIzMDQ3IC4xOTk5OTY5NSAuNjEyMzA0NyAuMjg1OTk1NDkgLjYxMjMwNDcgLjM0MDk4ODE3IC41NTgyNzMzIC4zNDA5ODgxNyAuNDczMjM2MDkgLjM0MDk4ODE3IC4zOTgyMDg2MyAuMjk4OTk1OTggLjMyNDE4ODI0IC4xODU5ODkzOCAuMjA0MTMyMDhMLjAxNTk5MTIxMSAuMDIzMDU2MDNaIi8+CjxwYXRoIGlkPSJmb250XzNfMSIgZD0iTS42NTg5OTY2IC4yMzA0Njg3NUMuNjc1OTk0OSAuMjMwNDY4NzUgLjY5NDAwMDI3IC4yMzA0Njg3NSAuNjk0MDAwMjcgLjI1MDQ1Nzc3IC42OTQwMDAyNyAuMjcwNDYyMDUgLjY3NTk5NDkgLjI3MDQ2MjA1IC42NTg5OTY2IC4yNzA0NjIwNUguMTE3OTk2MjE5Qy4xMDA5OTc5MjggLjI3MDQ2MjA1IC4wODI5OTI1NSAuMjcwNDYyMDUgLjA4Mjk5MjU1IC4yNTA0NTc3NyAuMDgyOTkyNTUgLjIzMDQ2ODc1IC4xMDA5OTc5MjggLjIzMDQ2ODc1IC4xMTc5OTYyMTkgLjIzMDQ2ODc1SC42NTg5OTY2WiIvPgo8cGF0aCBpZD0iZm9udF8yXzE4IiBkPSJNLjA0Mjk5OTI2OSAuNDk4MzA2MjhILjA3Mzk4OTg3TC4wOTE5OTUyNCAuNTU0MzY3MDlDLjEwMjk5NjgyOSAuNTg4NDA5NCAuMTY1OTg1MSAuNjIyNDUxOCAuMjE3OTg3MDYgLjYyMjQ1MTggLjI4Mjk4OTUgLjYyMjQ1MTggLjMzNTk5ODU1IC41NjkzODE3IC4zMzU5OTg1NSAuNTA2MzE3MTYgLjMzNTk5ODU1IC40MzEyMjg2NSAuMjc2OTkyOCAuMzY4MTY0MDcgLjIwNTk5MzY1IC4zNjgxNjQwNyAuMTk3OTk4MDUgLjM2ODE2NDA3IC4xODY5OTY0NiAuMzY5MTU1ODkgLjE3Mzk5NTk3IC4zNzAxNjI5N0wuMTU4OTk2NTggLjM3MTE1NDggLjE0Njk4NzkyIC4zMTgxNzYyOCAuMTUzOTkxNyAuMzEyMTc5NThDLjE5MTk4NjA5IC4zMjkxNjI2IC4yMTA5OTg1NCAuMzM0MTUyMjMgLjIzNzk5MTM0IC4zMzQxNTIyMyAuMzIwOTk5MTYgLjMzNDE1MjIzIC4zNjg5ODgwNSAuMjgxMjA0MjMgLjM2ODk4ODA1IC4xOTAyOTIzNiAuMzY4OTg4MDUgLjA4ODM5NDE2OCAuMzA3OTk4NjcgLjAyMTQ1Mzg1OCAuMjE0OTk2MzQgLjAyMTQ1Mzg1OCAuMTY4OTkxMDkgLjAyMTQ1Mzg1OCAuMTI3OTkwNzMgLjAzNjQ1MzI0OCAuMDk3OTkxOTQgLjA2NDQyMjYxIC4wNzM5ODk4NyAuMDg2Mzk1MjYgLjA2MDk4OTM4IC4xMDkzNzUgLjA0MTk5MjE4OSAuMTYzMzMwMDhMLjAxNDk5OTM5IC4xNTMzMzU1N0MuMDM1OTk1NDg1IC4wOTIzOTE5NyAuMDQzOTkxMDkgLjA1NjQyNzAwMyAuMDQ5OTg3Nzk0IC4wMDY0NTQ0NjggLjEwMjk5NjgyOS0uMDExNTM1NjQ0OSAuMTQ2OTg3OTItLjAxOTUzMTI1IC4xODM5OTA0OC0uMDE5NTMxMjUgLjI2Mzk5MjMtLjAxOTUzMTI1IC4zNTU5ODc1NiAuMDI1NDUxNjYgLjQxMDk5NTQ5IC4wOTIzOTE5NyAuNDQ0OTkyMDggLjEzMzM0NjU2IC40NjE5OTAzNyAuMTc3MzA3MTMgLjQ2MTk5MDM3IC4yMjQyNTg0MyAuNDYxOTkwMzcgLjI3MjIxNjggLjQ0MTk4NjA5IC4zMTQxNzg0OCAuNDA1OTkwNiAuMzM5MTU3MSAuMzgwOTk2NyAuMzU3MTYyNDkgLjM1Nzk4NjQ2IC4zNjUxNTgwOSAuMzA3OTk4NjcgLjM3NDE2MDc4IC4zODgwMDA1IC40MzYyMzM1MyAuNDE3OTk5MjggLjQ4MjI4NDU2IC40MTc5OTkyOCAuNTQxMzUxMyAuNDE3OTk5MjggLjYzMDQ0NzQgLjM0Mzk5NDE1IC42ODk0NTMxIC4yMzI5ODY0NSAuNjg5NDUzMSAuMTY0OTkzMjkgLjY4OTQ1MzEgLjExOTk5NTEyIC42NzA0NDA3IC4wNzE5OTA5NyAuNjIyNDUxOEwuMDQyOTk5MjY5IC40OTgzMDYyOFoiLz4KPHBhdGggaWQ9ImZvbnRfMl8yNSIgZD0iTS4yNjMwMDA1IC42ODk0NTMxQy4xMDc5ODY0NSAuNjg5NDUzMSAuMDI4OTkxNyAuNTY2NDUyIC4wMjg5OTE3IC4zMjQ0NDc2NCAuMDI4OTkxNyAuMjA3NDU4NSAuMDQ5OTg3Nzk0IC4xMDY0NjA1NyAuMDg0OTkxNDU4IC4wNTc0NjQ2IC4xMTk5OTUxMiAuMDA4NDY4NjI4IC4xNzU5OTQ4OC0uMDE5NTMxMjUgLjIzNzk5MTM0LS4wMTk1MzEyNSAuMzg4OTkyMy0uMDE5NTMxMjUgLjQ2NDk5NjM1IC4xMTA0NTgzNzcgLjQ2NDk5NjM1IC4zNjY0NTUwOSAuNDY0OTk2MzUgLjU4NTQ0OTIgLjM5OTk5MzkgLjY4OTQ1MzEgLjI2MzAwMDUgLjY4OTQ1MzFNLjI0NDk5NTEyIC42NTQ0NDk0OUMuMzQxOTk1MjUgLjY1NDQ0OTQ5IC4zODA5OTY3IC41NTY0NDIyOSAuMzgwOTk2NyAuMzE2NDUyMDQgLjM4MDk5NjcgLjEwMzQ1NDU5IC4zNDI5ODcwNyAuMDE1NDU3MTUzIC4yNTA5OTE4MyAuMDE1NDU3MTUzIC4xNTM5OTE3IC4wMTU0NTcxNTMgLjExMjk5MTMzIC4xMTY0NTUwOCAuMTEyOTkxMzMgLjM2MDQ1ODM4IC4xMTI5OTEzMyAuNTcxNDQxNjggLjE0OTk5MzkgLjY1NDQ0OTQ5IC4yNDQ5OTUxMiAuNjU0NDQ5NDlaIi8+CjxwYXRoIGlkPSJmb250XzJfMjYiIGQ9Ik0uMjAzOTk0NzUgLjEyMjk4NTg0Qy4xNzY5ODY3IC4xMTM5OTg0MSAuMTU4OTk2NTggLjEwNzk4NjQ1IC4xMDU5ODc1NSAuMDkyOTg3MDYgLjA5ODk5OTAyIC4wMTY5OTgyOTEgLjA3Mzk4OTg3LS4wNDgwMDQxNSAuMDE1OTkxMjExLS4xNDQwMTI0NUwuMDI5OTk4NzgtLjE1NTAxNDA0IC4wNzA5OTkxNDktLjEzNjAwMTU5Qy4xNTE5OTI4LS4wMzEwMDU4NiAuMTg5OTg3MTkgLjAzMTk5NzY4IC4yMTc5ODcwNiAuMTA4OTkzNTNMLjIwMzk5NDc1IC4xMjI5ODU4NFoiLz4KPHBhdGggaWQ9ImZvbnRfMl8xNiIgZD0iTS4wNjY5ODYwODcgLjU1NTA2ODk5SC4wNzY5OTU4NUwuMjA1OTkzNjUgLjYxMzA2NzZDLjIwNjk4NTQ4IC42MTQwNTk0NyAuMjA3OTkyNTYgLjYxNDA1OTQ3IC4yMDg5OTk2NCAuNjE0MDU5NDcgLjIxNDk5NjM0IC42MTQwNTk0NyAuMjE2OTk1MjQgLjYwNTA1Njc5IC4yMTY5OTUyNCAuNTgxMDY5OTdWLjA5NjA2OTMzOUMuMjE2OTk1MjQgLjA0NDA2NzM4NCAuMjA1OTkzNjUgLjAzMzA2NTc5NyAuMTUxOTkyOCAuMDMwMDU5ODE1TC4wOTU5OTMwNCAuMDI3MDY5MDkyVi0uMDAyOTI5Njg3NkMuMjUgMCAuMjUgMCAuMjYwOTg2MzQgMCAuMjczOTg2ODMgMCAuMjk1OTkgMCAuMzI5OTg2NTgtLjAwMTAwNzA4MDEgLjM0MTk5NTI1LS4wMDE5Mzc4NjYyIC4zNzY5OTg5LS4wMDE5Mzc4NjYyIC40MTc5OTkyOC0uMDAyOTI5Njg3NlYuMDI3MDY5MDkyTC4zNjU5OTczIC4wMzAwNTk4MTVDLjMxMDk4OTM5IC4wMzMwNjU3OTcgLjMwMDk5NDg4IC4wNDQwNjczODQgLjMwMDk5NDg4IC4wOTYwODQ1OThWLjY4OTMzMTA4TC4yODY5ODczIC42OTQzMzU5NkMuMjIyMDAwMTIgLjY2MDMyNDEgLjE1MDk4NTcyIC42MzAzMTAwOCAuMDU5OTk3NTYgLjU5ODI5NzFMLjA2Njk4NjA4NyAuNTU1MDY4OTlaIi8+CjxwYXRoIGlkPSJmb250XzJfMjciIGQ9Ik0uNTE4OTk3MiAuNzI1OTk3OUguNDU4OTk5NjRMLjA4Njk5MDM2LS4xMTkwMDMyOTlILjE0Njk4NzkyTC41MTg5OTcyIC43MjU5OTc5WiIvPgo8cGF0aCBpZD0iZm9udF8zXzYiIGQ9Ik0uMzg4OTkyMy0uODU0OTY1MiAuMjEyOTk3NDQtLjQ2NTk3MjlDLjIwNTk5MzY1LS40NDk5NjY0NCAuMjAwOTg4NzctLjQ0OTk2NjQ0IC4xOTc5OTgwNS0uNDQ5OTY2NDQgLjE5Njk5MDk3LS40NDk5NjY0NCAuMTkxOTg2MDktLjQ0OTk2NjQ0IC4xODA5OTk3Ni0uNDU3OTYyMDVMLjA4NTk5ODUzOC0uNTI5OTY4MjlDLjA3Mjk5ODA1LS41Mzk5NjI3OSAuMDcyOTk4MDUtLjU0Mjk2ODc3IC4wNzI5OTgwNS0uNTQ1OTc0NzYgLjA3Mjk5ODA1LS41NTA5NjQzOCAuMDc1OTg4NzctLjU1Njk2MTA4IC4wODI5OTI1NS0uNTU2OTYxMDggLjA4ODk4OTI2LS41NTY5NjEwOCAuMTA1OTg3NTUtLjU0Mjk2ODc3IC4xMTY5ODkxMzktLjUzNDk3MzE3IC4xMjI5ODU4NC0uNTI5OTY4MjkgLjEzNzk4NTIzLS41MTg5NjY3IC4xNDg5ODY4Mi0uNTEwOTcxMDlMLjM0NTk5MzA1LS45NDM5Njk3Qy4zNTI5OTY4NC0uOTU5OTYwOTYgLjM1Nzk4NjQ2LS45NTk5NjA5NiAuMzY2OTg5MTUtLjk1OTk2MDk2IC4zODE5ODg1NC0uOTU5OTYwOTYgLjM4NDk5NDUtLjk1Mzk2NDI2IC4zOTE5OTgzLS45Mzk5NzE5TC44NDU5OTMwNyAuMDAwMDMwNTE3NTc5Qy44NTI5OTY4IC4wMTQwMzgwODYgLjg1Mjk5NjggLjAxODAzNTg4OSAuODUyOTk2OCAuMDIwMDM0NzkgLjg1Mjk5NjggLjAzMDAyOTI5NyAuODQ1MDAxMiAuMDQwMDM5MDY0IC44MzI5OTI1OCAuMDQwMDM5MDY0IC44MjQ5OTY5NyAuMDQwMDM5MDY0IC44MTc5OTMxOSAuMDM1MDM0MTggLjgwOTk5NzU4IC4wMTkwMjc3MUwuMzg4OTkyMy0uODU0OTY1MloiLz4KPC9kZWZzPgo8cGF0aCB0cmFuc2Zvcm09Im1hdHJpeCgxLDAsMCwtMSw1LjE4MSwxMDIuMDM4KSIgc3Ryb2tlLXdpZHRoPSIuMzk4NSIgc3Ryb2tlLWxpbmVjYXA9ImJ1dHQiIHN0cm9rZS1taXRlcmxpbWl0PSIxMCIgc3Ryb2tlLWxpbmVqb2luPSJtaXRlciIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMDAwMDAwIiBkPSJNMCAzLjk4NTFWOTIuMzkyOTlDMCA5NC41OTM5MyAxLjc4NDE2IDk2LjM3ODEgMy45ODUxIDk2LjM3ODFIMjI3LjMyMjM2QzIyOS41MjMzIDk2LjM3ODEgMjMxLjMwNzQ3IDk0LjU5MzkzIDIzMS4zMDc0NyA5Mi4zOTI5OVYzLjk4NTFDMjMxLjMwNzQ3IDEuNzg0MTYgMjI5LjUyMzMgMCAyMjcuMzIyMzYgMEgzLjk4NTFDMS43ODQxNiAwIDAgMS43ODQxNiAwIDMuOTg1MVpNMjMxLjMwNzQ3IDk2LjM3ODEiLz4KPHVzZSBkYXRhLXRleHQ9IlIiIHhsaW5rOmhyZWY9IiNmb250XzFfNCIgdHJhbnNmb3JtPSJtYXRyaXgoMTAuOTA5MSwwLDAsLTEwLjkwOTEsMjI1LjMyLDE2LjE2NikiLz4KPHBhdGggdHJhbnNmb3JtPSJtYXRyaXgoMSwwLDAsLTEsNS4xODEsMTAyLjAzOCkiIHN0cm9rZS13aWR0aD0iLjM5ODUiIHN0cm9rZS1saW5lY2FwPSJidXR0IiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIHN0cm9rZS1saW5lam9pbj0ibWl0ZXIiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzAwMDAwMCIgZD0iTTYuNzQ2NTcgOC43MDc1MlY4Ny42NzA1NUM2Ljc0NjU3IDg5Ljg3MTQ5IDguNTMwNzMgOTEuNjU1NjUgMTAuNzMxNjcgOTEuNjU1NjVIMTg2Ljg0MzQyQzE4OS4wNDQzNiA5MS42NTU2NSAxOTAuODI4NTIgODkuODcxNDkgMTkwLjgyODUyIDg3LjY3MDU1VjguNzA3NTJDMTkwLjgyODUyIDYuNTA2NTggMTg5LjA0NDM2IDQuNzIyNDEgMTg2Ljg0MzQyIDQuNzIyNDFIMTAuNzMxNjdDOC41MzA3MyA0LjcyMjQxIDYuNzQ2NTcgNi41MDY1OCA2Ljc0NjU3IDguNzA3NTJaTTE5MC44Mjg1MiA5MS42NTU2NSIvPgo8dXNlIGRhdGEtdGV4dD0iUSIgeGxpbms6aHJlZj0iI2ZvbnRfMV8zIiB0cmFuc2Zvcm09Im1hdHJpeCgxMC45MDkxLDAsMCwtMTAuOTA5MSwxODQuODM3LDIwLjAzODAwMikiLz4KPHBhdGggdHJhbnNmb3JtPSJtYXRyaXgoMSwwLDAsLTEsNS4xODEsMTAyLjAzOCkiIHN0cm9rZS13aWR0aD0iLjM5ODUiIHN0cm9rZS1saW5lY2FwPSJidXR0IiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIHN0cm9rZS1saW5lam9pbj0ibWl0ZXIiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzAwMDAwMCIgZD0iTTEzLjQ5Mjg2IDEzLjQyOTk1VjgyLjk0ODE0QzEzLjQ5Mjg2IDg1LjE0OTA2IDE1LjI3NzAyIDg2LjkzMzI0IDE3LjQ3Nzk3IDg2LjkzMzI0SDE0Ni4zNjQ3OUMxNDguNTY1NzQgODYuOTMzMjQgMTUwLjM0OTkgODUuMTQ5MDYgMTUwLjM0OTkgODIuOTQ4MTRWMTMuNDI5OTVDMTUwLjM0OTkgMTEuMjI5IDE0OC41NjU3NCA5LjQ0NDg0IDE0Ni4zNjQ3OSA5LjQ0NDg0SDE3LjQ3Nzk3QzE1LjI3NzAyIDkuNDQ0ODQgMTMuNDkyODYgMTEuMjI5IDEzLjQ5Mjg2IDEzLjQyOTk1Wk0xNTAuMzQ5OSA4Ni45MzMyNCIvPgo8dXNlIGRhdGEtdGV4dD0iRCIgeGxpbms6aHJlZj0iI2ZvbnRfMV8xIiB0cmFuc2Zvcm09Im1hdHJpeCgxMC45MDkxLDAsMCwtMTAuOTA5MSwxNDMuNzQyLDI1LjYxMSkiLz4KPHBhdGggdHJhbnNmb3JtPSJtYXRyaXgoMSwwLDAsLTEsNS4xODEsMTAyLjAzOCkiIHN0cm9rZS13aWR0aD0iLjM5ODUiIHN0cm9rZS1saW5lY2FwPSJidXR0IiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIHN0cm9rZS1saW5lam9pbj0ibWl0ZXIiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzAwMDAwMCIgZD0iTTIwLjIzOTQ0IDE4LjE1MjM5Vjc4LjIyNTdDMjAuMjM5NDQgODAuNDI2NjQgMjIuMDIzNiA4Mi4yMTA4IDI0LjIyNDU1IDgyLjIxMDhIMTA1Ljg4NTg2QzEwOC4wODY4IDgyLjIxMDggMTA5Ljg3MDk3IDgwLjQyNjY0IDEwOS44NzA5NyA3OC4yMjU3VjE4LjE1MjM5QzEwOS44NzA5NyAxNS45NTE0NSAxMDguMDg2OCAxNC4xNjcyOCAxMDUuODg1ODYgMTQuMTY3MjhIMjQuMjI0NTVDMjIuMDIzNiAxNC4xNjcyOCAyMC4yMzk0NCAxNS45NTE0NSAyMC4yMzk0NCAxOC4xNTIzOVpNMTA5Ljg3MDk3IDgyLjIxMDgiLz4KPHVzZSBkYXRhLXRleHQ9IloiIHhsaW5rOmhyZWY9IiNmb250XzFfNSIgdHJhbnNmb3JtPSJtYXRyaXgoMTAuOTA5MSwwLDAsLTEwLjkwOTEsMTAzLjc4NywzMC4zMzMpIi8+CjxwYXRoIHRyYW5zZm9ybT0ibWF0cml4KDEsMCwwLC0xLDUuMTgxLDEwMi4wMzgpIiBzdHJva2Utd2lkdGg9Ii4zOTg1IiBzdHJva2UtbGluZWNhcD0iYnV0dCIgc3Ryb2tlLW1pdGVybGltaXQ9IjEwIiBzdHJva2UtbGluZWpvaW49Im1pdGVyIiBmaWxsPSJub25lIiBzdHJva2U9IiMwMDAwMDAiIGQ9Ik0yNi45ODU3MyAyMi44NzQ4MlY3My41MDMyNUMyNi45ODU3MyA3NS43MDQyIDI4Ljc2OTkgNzcuNDg4MzYgMzAuOTcwODQgNzcuNDg4MzZINjUuNDA3MjNDNjcuNjA4MTcgNzcuNDg4MzYgNjkuMzkyMzMgNzUuNzA0MiA2OS4zOTIzMyA3My41MDMyNVYyMi44NzQ4MkM2OS4zOTIzMyAyMC42NzM4NyA2Ny42MDgxNyAxOC44ODk3MSA2NS40MDcyMyAxOC44ODk3MUgzMC45NzA4NEMyOC43Njk5IDE4Ljg4OTcxIDI2Ljk4NTczIDIwLjY3Mzg3IDI2Ljk4NTczIDIyLjg3NDgyWk02OS4zOTIzMyA3Ny40ODgzNiIvPgo8dXNlIGRhdGEtdGV4dD0iTiIgeGxpbms6aHJlZj0iI2ZvbnRfMV8yIiB0cmFuc2Zvcm09Im1hdHJpeCgxMC45MDkxLDAsMCwtMTAuOTA5MSw2Mi40OTYsMzQuOTYzMDA2KSIvPgo8dXNlIGRhdGEtdGV4dD0iMiIgeGxpbms6aHJlZj0iI2ZvbnRfMl8xNyIgdHJhbnNmb3JtPSJtYXRyaXgoMTAuOTA5MSwwLDAsLTEwLjkwOTEsNTAuNjQyLDU3LjU0MzAwNCkiLz4KPHVzZSBkYXRhLXRleHQ9IiYjeDIyMTI7IiB4bGluazpocmVmPSIjZm9udF8zXzEiIHRyYW5zZm9ybT0ibWF0cml4KDExLjM2NzMsMCwwLC0xMS4zNjczLDg2LjcwMiw1Ny4xMDYwMDQpIi8+Cjx1c2UgZGF0YS10ZXh0PSIzIiB4bGluazpocmVmPSIjZm9udF8yXzE4IiB0cmFuc2Zvcm09Im1hdHJpeCgxMC45MDkxLDAsMCwtMTAuOTA5MSw5NS42NzUsNTcuMTA2MDA0KSIvPgo8dXNlIGRhdGEtdGV4dD0iMCIgeGxpbms6aHJlZj0iI2ZvbnRfMl8yNSIgdHJhbnNmb3JtPSJtYXRyaXgoMTAuOTA5MSwwLDAsLTEwLjkwOTEsMTI3LjUwNjk5OSw1Ni43MzUpIi8+Cjx1c2UgZGF0YS10ZXh0PSIsIiB4bGluazpocmVmPSIjZm9udF8yXzI2IiB0cmFuc2Zvcm09Im1hdHJpeCgxMC45MDkxLDAsMCwtMTAuOTA5MSwxMzIuOTYxNTUsNTYuNzM1KSIvPgo8dXNlIGRhdGEtdGV4dD0iMiIgeGxpbms6aHJlZj0iI2ZvbnRfMl8xNyIgdHJhbnNmb3JtPSJtYXRyaXgoMTAuOTA5MSwwLDAsLTEwLjkwOTEsMTM1LjY4ODgxLDU2LjczNSkiLz4KPHVzZSBkYXRhLXRleHQ9IjEiIHhsaW5rOmhyZWY9IiNmb250XzJfMTYiIHRyYW5zZm9ybT0ibWF0cml4KDEwLjkwOTEsMCwwLC0xMC45MDkxLDE2NS45MDgsNTcuMTgzMDA0KSIvPgo8dXNlIGRhdGEtdGV4dD0iLyIgeGxpbms6aHJlZj0iI2ZvbnRfMl8yNyIgdHJhbnNmb3JtPSJtYXRyaXgoMTAuOTA5MSwwLDAsLTEwLjkwOTEsMTcxLjQ5MzQ2LDU3LjE4MzAwNCkiLz4KPHVzZSBkYXRhLXRleHQ9IjMiIHhsaW5rOmhyZWY9IiNmb250XzJfMTgiIHRyYW5zZm9ybT0ibWF0cml4KDEwLjkwOTEsMCwwLC0xMC45MDkxLDE3OC4yNDYxOSw1Ny4xODMwMDQpIi8+Cjx1c2UgZGF0YS10ZXh0PSImI3gyMjFhOyIgeGxpbms6aHJlZj0iI2ZvbnRfM182IiB0cmFuc2Zvcm09Im1hdHJpeCgxMS4zNjczLDAsMCwtMTEuMzY3MywyMDcuODIsNDguODQzMDA0KSIvPgo8cGF0aCB0cmFuc2Zvcm09Im1hdHJpeCgxLDAsMCwtMSwyMTcuNDI2LDQ4LjYxOTAwNSkiIHN0cm9rZS13aWR0aD0iLjQ0NyIgc3Ryb2tlLWxpbmVjYXA9ImJ1dHQiIHN0cm9rZS1taXRlcmxpbWl0PSIxMCIgc3Ryb2tlLWxpbmVqb2luPSJtaXRlciIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMDAwMDAwIiBkPSJNMCAwSDUuNDU1Ii8+Cjx1c2UgZGF0YS10ZXh0PSIyIiB4bGluazpocmVmPSIjZm9udF8yXzE3IiB0cmFuc2Zvcm09Im1hdHJpeCgxMC45MDkxLDAsMCwtMTAuOTA5MSwyMTcuNDI2LDU4LjI2MykiLz4KPC9zdmc+Cg==","seconde-04-1-en.svg":"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4bWxuczppbmtzY2FwZT0iaHR0cDovL3d3dy5pbmtzY2FwZS5vcmcvbmFtZXNwYWNlcy9pbmtzY2FwZSIgdmVyc2lvbj0iMS4xIiB3aWR0aD0iMjQyLjc3NCIgaGVpZ2h0PSIxMDcuMjE5IiB2aWV3Qm94PSIwIDAgMjQyLjc3NCAxMDcuMjE5Ij4KPGRlZnM+CjxwYXRoIGlkPSJmb250XzFfNCIgZD0iTS4wMjE5ODc5MTUgLjY2MjM2ODggLjA2NTk5NDI2IC42NTkzNzgwOEMuMTA2OTk0NjMgLjY1NjM3MjEgLjExNjk4OTEzOSAuNjQ4Mzc2NDkgLjExNjk4OTEzOSAuNTY5MzM1OTZWLjEyMDEwMTkzQy4xMTY5ODkxMzkgLjA0MTA3NjY2IC4xMDY5OTQ2MyAuMDMyMDU4NzE3IC4wNjU5OTQyNiAuMDMwMDU5ODE1TC4wMjE5ODc5MTUgLjAyNzA2OTA5MlYtLjAwMjkyOTY4NzZDLjA4MDk5MzY1LS4wMDEwMDcwODAxIC4xNzI5ODg4OSAwIC4yMjQ5OTA4NSAwIC4yNzY5OTI4IC4wMDAwNjEwMzUxNTkgLjM3Mjk4NTg1LS4wMDA5MzA3ODYxNiAuNDMxOTkxNTktLjAwMjkyOTY4NzZWLjAyNzA2OTA5MkwuMzgzOTg3NDQgLjAzMDA1OTgxNUMuMzM4OTg5MjcgLjAzMzA2NTc5NyAuMzMyOTkyNTYgLjA0MTA3NjY2IC4zMzI5OTI1NiAuMTE0MTA1MjI4Vi42NDIzNjQ1Qy4zNjc5OTYyMyAuNjUxMzY3MiAuMzk2OTg3OTIgLjY1NDM3MzE5IC40MzA5OTk3NyAuNjU0MzczMTkgLjUzNDk4ODQgLjY1NDM3MzE5IC41OTI5ODcwOSAuNjA2MzUzNzggLjU5Mjk4NzA5IC41MjEzMDEyOSAuNTkyOTg3MDkgLjQyOTI2MDI2IC41MTk5ODkgLjM3MTIzMTA5IC40MDM5OTE3IC4zNzEyMzEwOSAuMzk3OTk1IC4zNzEyMzEwOSAuMzg4MDAwNSAuMzcxMjMxMDkgLjM3NSAuMzcyMjM4MTdMLjM2ODk4ODA1IC4zNjAyMjk1Qy4zNzk5ODk2MyAuMzQ3MjEzNzYgLjM4Mjk5NTYgLjM0MzIxNTk1IC4zOTQ5ODkgLjMzMDIxNTQ2IC40MDg5OTY1OSAuMzE0MjA4OTkgLjQxMTk4NzMgLjMxMDE5NTkzIC40MjA5OSAuMjk4MjAyNUwuNjA0OTk1NyAuMDUxMDcxMTY4Qy42MTA5OTI0NiAuMDQzMDc1NTYgLjYxNjk4OTE2IC4wMzUwNjQ2OTkgLjYyMzAwMTEgLjAyODA2MDkxNEwuNjQ1OTk2MS0uMDAyOTI5Njg3NkMuNjg2OTk2NDgtLjAwMTAwNzA4MDEgLjcwMTk5NTg3IDAgLjcxMzk4OTI4IDAgLjcyNDk5MDg3IC4wMDAwNjEwMzUxNTkgLjczNzk5MTM2LS4wMDA5MzA3ODYxNiAuNzg1OTk1NS0uMDAyOTI5Njg3NlYuMDI3MDY5MDkyQy43NTM5OTc4IC4wMzAwNTk4MTUgLjczNzk5MTM2IC4wMzYwNzE3NzkgLjcyNDk5MDg3IC4wNTMwNzAwN0wuNDk3OTg1ODUgLjM0OTIyNzlDLjU1Mjk5MzggLjM2MjIyODQgLjU3Nzk4NzcgLjM3MzIyOTk5IC42MTAwMDA2IC4zOTUyNDg0IC42NjQ5OTMzIC40MzMyNTgwNyAuNjkyOTkzMTkgLjQ4MzI5MTY0IC42OTI5OTMxOSAuNTQyMzEyNiAuNjkyOTkzMTkgLjYzOTM1ODUgLjYyMzk5MjkgLjY5MjM4MjggLjQ5Njk5NDAzIC42OTIzODI4SC40ODI5ODY0NkMuNDYyOTk3NDUgLjY5MTM3NTc2IC40NDU5OTkxNiAuNjkxMzc1NzYgLjQzMTk5MTU5IC42OTAzNjg2OCAuNDAxOTkyOCAuNjg5Mzc2ODYgLjM2Mzk5ODQgLjY4OTM3Njg2IC4zMjU5ODg3OCAuNjg5Mzc2ODZILjIyNDk5MDg1Qy4xNzI5ODg4OSAuNjg5Mzc2ODYgLjA4MDk5MzY1IC42OTAzNjg2OCAuMDIxOTg3OTE1IC42OTIzODI4Vi42NjIzNjg4TS4yMzc5OTEzNCAuNTY5MzM1OTZWLjEyMDEwMTkzQy4yMzc5OTEzNCAuMDQxMDc2NjYgLjIzMjk4NjQ1IC4wMzMwNjU3OTcgLjIwMDk4ODc3IC4wMzAwNTk4MTUgLjE2ODk5MTA5IC4wMzMwNjU3OTcgLjE2Mjk5NDM5IC4wNDEwNzY2NiAuMTYyOTk0MzkgLjEyMDEwMTkzVi41NjkzMzU5NkMuMTYyOTk0MzkgLjY0ODM3NjQ5IC4xNjg5OTEwOSAuNjU2MzcyMSAuMjAwOTg4NzcgLjY1OTM3ODA4IC4yMzI5ODY0NSAuNjU3Mzc5MTggLjIzNzk5MTM0IC42NDgzNzY0OSAuMjM3OTkxMzQgLjU2OTMzNTk2WiIvPgo8cGF0aCBpZD0iZm9udF8xXzMiIGQ9Ik0uMzg4MDAwNS0uMDE5MDI3NzEgLjM3MTk5NDAzLS4wMjUwMjQ0MTRDLjM1Mzk4ODY2LS4wMzEwMjExMTkgLjMxOTAwMDI1LS4wNTQwMzEzNzMgLjI2MzAwMDUtLjA5NzAzMDY0TC4yNjA5ODYzNC0uMTI5MDI4MzIgLjMxOTk5MjA4LS4wOTcwMzA2NEMuMzMxOTg1NDgtLjA5MTAxODY4IC4zMzY5OTAzNy0uMDg5MDE5Nzc5IC4zNDc5OTE5NS0uMDg5MDE5Nzc5IC4zNjc5OTYyMy0uMDg5MDE5Nzc5IC4zOTM5OTcyLS4wOTQwMjQ2NiAuNDI1OTk0ODgtLjEwNDAxOTE2OEwuNTczOTg5ODktLjE1MDAyNDQyQy42MTAwMDA2LS4xNjEwMjYgLjYzOTk5OTQtLjE2ODAyOTc5IC42Nzk5OTI3LS4xNzYwMjUzOUwuNzYzOTkyMy0uMTIwMDI1NjM4Vi0uMDk5MDI5NTRDLjcyODk4ODY3LS4xMDQwMTkxNjggLjcxNTk4ODE4LS4xMDUwMjYyNDggLjcwNDk4NjYtLjEwNTAyNjI0OCAuNjU2OTk3Ny0uMTA1MDI2MjQ4IC42MDE5ODk3Ny0uMDkwMDI2ODU5IC41MjE5ODc5LS4wNTYwMzAyNzUgLjQ1OTk5MTQ2LS4wMjkwMjIyMTcgLjQ0Mjk5MzE3LS4wMjQwMTczMzQgLjQwMDk4NTczLS4wMTkwMjc3MSAuNDc3OTk2ODQtLjAxMjAyMzkyNiAuNTEzOTkyMy0uMDAyMDI5NDE5IC41NjM5OTUzOSAuMDI0OTc4NjM4IC42ODc5ODgzIC4wOTM5Nzg4OCAuNzYzOTkyMyAuMjI0OTc1NTkgLjc2Mzk5MjMgLjM3MDk3MTY5IC43NjM5OTIzIC41Nzc5NzI0IC42MjE5OTQgLjcwODk4NDQgLjM5Nzk5NSAuNzA4OTg0NCAuMTcyOTg4ODkgLjcwODk4NDQgLjAyMTk4NzkxNSAuNTYxOTgxMiAuMDIxOTg3OTE1IC4zNDI5NzE4IC4wMjE5ODc5MTUgLjEyMzk3NzY2IC4xNjE5ODczLS4wMTkwMjc3MSAuMzc2OTk4OS0uMDE5MDI3NzFILjM4ODAwMDVNLjM3OTk4OTYzIC42NjY5NzY5Qy41NTc5OTg2OCAuNjY2OTc2OSAuNjU2OTk3NyAuNTQ3OTczNjYgLjY1Njk5NzcgLjMzNDk3NjIgLjY1Njk5NzcgLjEzNDk3OTI1IC41NjkwMDAyNyAuMDIyOTc5NzM3IC40MTE5ODczIC4wMjI5Nzk3MzcgLjM0MDk4ODE3IC4wMjI5Nzk3MzcgLjI4MTk5NzY5IC4wNDM5NzU4MyAuMjM1OTkyNDMgLjA4Njk3NTFWLjYyNjk4MzY3Qy4yNzM5ODY4MyAuNjUyOTY5MzkgLjMyMjk5ODA2IC42NjY5NzY5IC4zNzk5ODk2MyAuNjY2OTc2OU0uMTI4OTk3OCAuMzc1OTc2NTdDLjEyODk5NzggLjQ3NDk3NTYgLjE1NDk5ODc4IC41NTE5NzE0NiAuMjA0OTg2NTcgLjYwMDk4MjY5Vi4xMjE5Nzg3NkMuMTU2OTk3NjggLjE4NDk4MjMgLjEyODk5NzggLjI3Njk3NzU1IC4xMjg5OTc4IC4zNzU5NzY1N1oiLz4KPHBhdGggaWQ9ImZvbnRfMV8xIiBkPSJNLjAyMTk4NzkxNSAuMDI3MDY5MDkyVi0uMDAyOTI5Njg3NkMuMDgwOTkzNjUtLjAwMTAwNzA4MDEgLjE3Mjk4ODg5IDAgLjIyNDk5MDg1IDAgLjI4Mjk4OTUtLjAwMDkzMDc4NjE2IC40Mjk5OTI2OS0uMDAyOTI5Njg3NiAuNDY1OTg4MTctLjAwMjkyOTY4NzYgLjU5Mzk5NDE3LS4wMDI5Mjk2ODc2IC42ODk5ODcyIC4wMzAwNTk4MTUgLjc1OTk5NDUgLjA5OTA5MDU3OSAuODMyMDAwNzYgLjE3MDEzNTUgLjg3NTk5MTggLjI3ODE4Mjk5IC44NzU5OTE4IC4zODUyMzg2NiAuODc1OTkxOCAuNTcxMzM0ODYgLjczNzk5MTM2IC42OTIzODI4IC41MjY5OTI4IC42OTIzODI4IC41MTk5ODkgLjY5MjM4MjggLjUwNjk4ODUgLjY5MjM4MjggLjQ4ODk5ODQgLjY5MTM3NTc2IC40Mzg5OTUzNyAuNjkwMzY4NjggLjM5ODk4NjgzIC42OTAzNjg2OCAuMzU1OTg3NTYgLjY5MDM2ODY4IC4zMTkwMDAyNSAuNjkwMzM4MTYgLjI3Nzk5OTg5IC42ODkzMzEwOCAuMjI0OTkwODUgLjY4OTMzMTA4IC4xNzI5ODg4OSAuNjg5Mzc2ODYgLjA4MDk5MzY1IC42OTAzNjg2OCAuMDIxOTg3OTE1IC42OTIzODI4Vi42NjIzNjg4TC4wNjU5OTQyNiAuNjU5Mzc4MDhDLjEwNjk5NDYzIC42NTYzNzIxIC4xMTY5ODkxMzkgLjY0ODM2MTIgLjExNjk4OTEzOSAuNTY5MzIwN1YuMTIwMDU2MTVDLjExNjk4OTEzOSAuMDQxMDAwMzY4IC4xMDY5OTQ2MyAuMDMxOTk3NjggLjA2NTk5NDI2IC4wMjk5OTg3OEwuMDIxOTg3OTE1IC4wMjcwNjkwOTJNLjMzMjk5MjU2IC42NDQzNjM0Qy4zNTg5OTM1NCAuNjQ5MzM3NzkgLjM5Mzk5NzIgLjY1MjM0Mzc3IC40NDQwMDAyNSAuNjUyMzQzNzcgLjUxNjk5ODMgLjY1MjM0Mzc3IC41OTcwMDAxIC42MzkzMjggLjYzODk5MjMgLjYyMDMxNTU4IC42NjA5OTU1IC42MTEzMTI4OSAuNjc5OTkyNyAuNTk3MzA1MyAuNjk3OTk4MDcgLjU3OTI5OTkgLjc0NTk4Njk2IC41MzEyODA1IC43Njg5OTcyIC40NTkyNDM3OCAuNzY4OTk3MiAuMzU5MjA3MTYgLjc2ODk5NzIgLjI0NzE2MTg3IC43MzUwMDA2IC4xNjExMTc1NiAuNjY4OTkxMSAuMTA3MDg2MTggLjYwODk5MzU2IC4wNTgwNzQ5NSAuNTQ4OTk2IC4wNDEwNjE0IC40MzU5ODkzOSAuMDQxMDYxNCAuMzg5OTk5NCAuMDQxMDYxNCAuMzU4OTkzNTQgLjA0MzA2MDMwNCAuMzMyOTkyNTYgLjA0OTA3MjI2N1YuNjQ0MzYzNE0uMjM3OTkxMzQgLjU2OTMyMDdWLjEyMDA1NjE1Qy4yMzc5OTEzNCAuMDQxMDAwMzY4IC4yMzI5ODY0NSAuMDMzMDA0NzYgLjIwMDk4ODc3IC4wMjk5OTg3OCAuMTY4OTkxMDkgLjAzMzAwNDc2IC4xNjI5OTQzOSAuMDQxMDAwMzY4IC4xNjI5OTQzOSAuMTIwMDU2MTVWLjU2OTMyMDdDLjE2Mjk5NDM5IC42NDgzNjEyIC4xNjg5OTEwOSAuNjU2MzcyMSAuMjAwOTg4NzcgLjY1OTM3ODA4IC4yMzI5ODY0NSAuNjU3Mzc5MTggLjIzNzk5MTM0IC42NDgzNjEyIC4yMzc5OTEzNCAuNTY5MzIwN1oiLz4KPHBhdGggaWQ9ImZvbnRfMV81IiBkPSJNLjczOTk5MDI2IC4xNzMwNjUxOSAuNzMzOTkzNTYgLjExNjA0MzA5Qy43MjY5ODk3NyAuMDUwMDAzMDUgLjcxMjk5NzQ2IC4wNDM5OTEwOSAuNTU5OTk3NTggLjA0Mzk5MTA5SC4yODY5ODczTC43NzI5OTUgLjY2MzM3NTg4IC43Njg5OTcyIC42OTIzODI4Qy43Mjk5OTU3IC42OTI0Mjg2IC42MzU5ODYzIC42ODk0MjI2IC41ODg5ODkyOCAuNjg5NDIyNkguNDMwOTk5NzdDLjM3MDk4Njk1IC42ODk0MjI2IC4zMDU5OTk3NyAuNjkwNDI5NyAuMjQ0OTk1MTIgLjY5MTQzNjc5IC4yMTI5OTc0NCAuNjkyMzgyOCAuMTUyOTk5ODggLjY5MjM4MjggLjA3OTk4NjU3IC42OTIzODI4IC4wODE5ODU0NyAuNjU1MzY1IC4wODI5OTI1NSAuNjM3MzU5NiAuMDgyOTkyNTUgLjYxMTM0MzQgLjA4Mjk5MjU1IC41ODUzMjcxNyAuMDgxOTg1NDcgLjU2NzMyMTggLjA3OTk4NjU3IC41MzAzMDM5OEguMTEzOTk4NDFMLjExOTk5NTEyIC42MDEzNDg5Qy4xMjI5ODU4NCAuNjQwNDI2NjYgLjE0OTk5MzkgLjY0ODQzNzUgLjI3MTk4NzkyIC42NDg0Mzc1SC41Qy40ODc5OTEzNCAuNjI4NDE3OTkgLjQ3Nzk5Njg0IC42MTM0MDMzIC40NjU5ODgxNyAuNTk2NDA1IC40NDc5OTgwNiAuNTc0Mzg2NiAuNDMwOTk5NzcgLjU1MjM2ODE5IC40MTM5ODYyIC41MzAzNjVMLjExMTk5OTUxIC4xNDIxMzU2MkMuMDk3OTkxOTQgLjEyNDEzMDI1IC4wNzg5OTQ3NSAuMTAxMTA0NzQgLjAxNDk5OTM5IC4wMjUwNzAxOVYtLjAwMjkyOTY4NzZDLjA1Mzk4NTU5Ny0uMDAzMDA1OTgxNSAuMTY4OTkxMDkgMCAuMjE1OTg4MTYgMEguNDE2OTkyMkMuNDc2OTg5NzYgMCAuNTQxOTkyMi0uMDAxMDA3MDgwMSAuNjAyOTk2OC0uMDAyMDE0MTYwMiAuNjM0OTk0NS0uMDAyOTI5Njg3NiAuNjk0OTkyMDktLjAwMjkyOTY4NzYgLjc2Nzk5MDEtLjAwMjkyOTY4NzYgLjc2Nzk5MDEgLjA4MzA5OTM2OCAuNzY4OTk3MiAuMTE5MTEwMTEgLjc3Mzk4NjggLjE3MzE0MTQ4TC43Mzk5OTAyNiAuMTczMDY1MTlNLjU4MDk5MzY4IC41NTQzMjEzIC4yMTU5ODgxNiAuMDk1MDkyNzdDLjE5Njk5MDk3IC4wNjcwMDEzNCAuMTg2OTk2NDYgLjA1NDAwMDg1NiAuMTcyOTg4ODkgLjA0Mzk5MTA5SC4xMzQ5OTQ1Qy4xMjUgLjA1Mjk5Mzc3NiAuMTE5OTk1MTIgLjA2MTAwNDY0IC4xMTk5OTUxMiAuMDcwMDA3MzI3IC4xMTk5OTUxMiAuMDg0MDE0ODkgLjEzMDk5NjcgLjEwMTAyODQ0IC4xNTk5ODg0IC4xMzkwNTMzNUwuNTIxOTg3OSAuNjAwMzg3NkMuNTQxMDAwMzkgLjYyNDQwNDkgLjU1NDAwMDg4IC42Mzk0MTk1OCAuNTYzOTk1MzkgLjY0ODQzNzVILjYwNjk5NDZDLjYxNjk4OTE2IC42Mzk0MTk1OCAuNjIxOTk0IC42MzI0MTU4IC42MjE5OTQgLjYyMzQxMzEgLjYyMTk5NCAuNjA5MzkwMjggLjYxMDAwMDYgLjU5MTM4NDkgLjU4MDk5MzY4IC41NTQzNTE4Vi41NTQzMjEzWiIvPgo8cGF0aCBpZD0iZm9udF8xXzIiIGQ9Ik0uMDE2OTk4MjkxIC42NjIzNjg4IC4wNjA5ODkzOCAuNjU5Mzc4MDhDLjEwMTk4OTc0OSAuNjU2MzcyMSAuMTExOTk5NTEgLjY0ODM3NjQ5IC4xMTE5OTk1MSAuNTY5MzM1OTZWLjEyMDEwMTkzQy4xMTE5OTk1MSAuMDQxMDc2NjYgLjEwMTk4OTc0OSAuMDMyMDU4NzE3IC4wNjA5ODkzOCAuMDMwMDU5ODE1TC4wMTY5OTgyOTEgLjAyNzA2OTA5MlYtLjAwMjkyOTY4NzZDLjA3NTk4ODc3LS4wMDEwMDcwODAxIC4xNTU5OTA2IDAgLjE5NTk5OTE1IDAgLjIzNTk5MjQzIC4wMDAwNjEwMzUxNTkgLjMxNzk5MzE3LS4wMDA5MzA3ODYxNiAuMzczOTkyOTMtLjAwMjkyOTY4NzZWLjAyNzA2OTA5MkwuMzI5OTg2NTggLjAzMDA1OTgxNUMuMjgzOTk2NTkgLjAzMzA2NTc5NyAuMjc4OTkxNyAuMDQyMDY4NDggLjI3ODk5MTcgLjEyMDEwMTkzVi41ODMzNDM1TC43NTE5OTg5LS4wMDM5MzY3Njc4IC44NDE5OTUyNi0uMDE5OTQzMjM4Qy44NDE5OTUyNi0uMDE1OTMwMTc2IC44NDE5OTUyNi0uMDE0OTM4MzU0OSAuODQwOTg4MTgtLjAwNzkzNDU3IC44Mzk5OTYzNiAuMDAzMDY3MDE2NyAuODM4OTg5MjggLjAxMTA2MjYyMiAuODM4OTg5MjggLjAxNzA1OTMyN1YuNTY5MzM1OTZDLjgzODk4OTI4IC42NDczNjk0IC44NDM5OTQxNyAuNjU2MzcyMSAuODg5OTk5NCAuNjU5Mzc4MDhMLjkzMzk5MDUgLjY2MjM2ODhWLjY5MjM4MjhDLjg2Mjk5MTM2IC42OTAzNjg2OCAuODMyOTkyNTggLjY4OTM3Njg2IC44MTM5OTUzOSAuNjg5Mzc2ODYgLjc5Mzk5MTEgLjY4OTM3Njg2IC43NzA5OTYxIC42OTAzNjg2OCAuNjk3OTk4MDcgLjY5MjM4MjhWLjY2MjM2ODhMLjc0MTk4OTE2IC42NTkzNzgwOEMuNzg3OTk0NCAuNjU2MzcyMSAuNzkyOTk5MjkgLjY0NzM2OTQgLjc5Mjk5OTI5IC41NjkzMzU5NlYuMDk4MDk4NzU4TC4zMTE5OTY0NyAuNjkyMzgyOCAuMjU3OTk1NiAuNjg5Mzc2ODZILjE5NTk5OTE1Qy4xNTU5OTA2IC42ODkzNzY4NiAuMDc1OTg4NzcgLjY5MDM2ODY4IC4wMTY5OTgyOTEgLjY5MjM4MjhWLjY2MjM2ODhNLjIzMjk4NjQ1IC41NjkzMzU5NlYuMTIwMTAxOTNDLjIzMjk4NjQ1IC4wNDEwNzY2NiAuMjI3OTk2ODMgLjAzMzA2NTc5NyAuMTk1OTk5MTUgLjAzMDA1OTgxNSAuMTYzOTg2MiAuMDMzMDY1Nzk3IC4xNTc5ODk1IC4wNDEwNzY2NiAuMTU3OTg5NSAuMTIwMTAxOTNWLjU2OTMzNTk2Qy4xNTc5ODk1IC42NDgzNzY0OSAuMTYzOTg2MiAuNjU2MzcyMSAuMTk1OTk5MTUgLjY1OTM3ODA4IC4yMjc5OTY4MyAuNjU3Mzc5MTggLjIzMjk4NjQ1IC42NDgzNzY0OSAuMjMyOTg2NDUgLjU2OTMzNTk2WiIvPgo8cGF0aCBpZD0iZm9udF8yXzIwIiBkPSJNLjAxNTk5MTIxMSAuMDIzMDU2MDNWLS4wMDI5Mjk2ODc2Qy4yMDI5ODc2NyAwIC4yMDI5ODc2NyAwIC4yMzg5OTg0MiAwIC4yNzQ5OTM5IC4wMDAwNjEwMzUxNTkgLjI3NDk5MzkgLjAwMDA2MTAzNTE1OSAuNDY3OTg3MDctLjAwMjkyOTY4NzYgLjQ2NTk4ODE3IC4wMTgwNjY0MDcgLjQ2NTk4ODE3IC4wMjgwNjA5MTQgLjQ2NTk4ODE3IC4wNDIwNjg0OCAuNDY1OTg4MTcgLjA1NTA4NDIzIC40NjU5ODgxNyAuMDY1MDc4NzM5IC40Njc5ODcwNyAuMDg3MDk3MTcgLjM1Mjk5Njg0IC4wODIwOTIyODggLjMwNjk5MTU5IC4wODEwODUyMDggLjEyMTk5NDAyIC4wNzcwODc0TC4zMDM5ODU2IC4yNzAxNTY4N0MuNDAwOTg1NzMgLjM3MzE5OTQ3IC40MzA5OTk3NyAuNDI4MjIyNjcgLjQzMDk5OTc3IC41MDMyNTAxIC40MzA5OTk3NyAuNjE4MzAxNCAuMzUyOTk2ODQgLjY4OTMwMDU2IC4yMjU5OTc5MyAuNjg5MzAwNTYgLjE1Mzk5MTcgLjY4OTMwMDU2IC4xMDQ5OTU3MyAuNjY5Mjk2MjkgLjA1NTk5OTc1NyAuNjE5MjkzMkwuMDM4OTg2MjA3IC40ODMyNDU4NkguMDY3OTkzMTY3TC4wODA5OTM2NSAuNTI5MjY2MzhDLjA5NzAwMDEyIC41ODcyODAzIC4xMzI5OTU2IC42MTIzMDQ3IC4xOTk5OTY5NSAuNjEyMzA0NyAuMjg1OTk1NDkgLjYxMjMwNDcgLjM0MDk4ODE3IC41NTgyNzMzIC4zNDA5ODgxNyAuNDczMjM2MDkgLjM0MDk4ODE3IC4zOTgyMDg2MyAuMjk4OTk1OTggLjMyNDE4ODI0IC4xODU5ODkzOCAuMjA0MTMyMDhMLjAxNTk5MTIxMSAuMDIzMDU2MDNaIi8+CjxwYXRoIGlkPSJmb250XzNfMSIgZD0iTS42NTg5OTY2IC4yMzA0Njg3NUMuNjc1OTk0OSAuMjMwNDY4NzUgLjY5NDAwMDI3IC4yMzA0Njg3NSAuNjk0MDAwMjcgLjI1MDQ1Nzc3IC42OTQwMDAyNyAuMjcwNDYyMDUgLjY3NTk5NDkgLjI3MDQ2MjA1IC42NTg5OTY2IC4yNzA0NjIwNUguMTE3OTk2MjE5Qy4xMDA5OTc5MjggLjI3MDQ2MjA1IC4wODI5OTI1NSAuMjcwNDYyMDUgLjA4Mjk5MjU1IC4yNTA0NTc3NyAuMDgyOTkyNTUgLjIzMDQ2ODc1IC4xMDA5OTc5MjggLjIzMDQ2ODc1IC4xMTc5OTYyMTkgLjIzMDQ2ODc1SC42NTg5OTY2WiIvPgo8cGF0aCBpZD0iZm9udF8yXzIxIiBkPSJNLjA0Mjk5OTI2OSAuNDk4MzA2MjhILjA3Mzk4OTg3TC4wOTE5OTUyNCAuNTU0MzY3MDlDLjEwMjk5NjgyOSAuNTg4NDA5NCAuMTY1OTg1MSAuNjIyNDUxOCAuMjE3OTg3MDYgLjYyMjQ1MTggLjI4Mjk4OTUgLjYyMjQ1MTggLjMzNTk5ODU1IC41NjkzODE3IC4zMzU5OTg1NSAuNTA2MzE3MTYgLjMzNTk5ODU1IC40MzEyMjg2NSAuMjc2OTkyOCAuMzY4MTY0MDcgLjIwNTk5MzY1IC4zNjgxNjQwNyAuMTk3OTk4MDUgLjM2ODE2NDA3IC4xODY5OTY0NiAuMzY5MTU1ODkgLjE3Mzk5NTk3IC4zNzAxNjI5N0wuMTU4OTk2NTggLjM3MTE1NDggLjE0Njk4NzkyIC4zMTgxNzYyOCAuMTUzOTkxNyAuMzEyMTc5NThDLjE5MTk4NjA5IC4zMjkxNjI2IC4yMTA5OTg1NCAuMzM0MTUyMjMgLjIzNzk5MTM0IC4zMzQxNTIyMyAuMzIwOTk5MTYgLjMzNDE1MjIzIC4zNjg5ODgwNSAuMjgxMjA0MjMgLjM2ODk4ODA1IC4xOTAyOTIzNiAuMzY4OTg4MDUgLjA4ODM5NDE2OCAuMzA3OTk4NjcgLjAyMTQ1Mzg1OCAuMjE0OTk2MzQgLjAyMTQ1Mzg1OCAuMTY4OTkxMDkgLjAyMTQ1Mzg1OCAuMTI3OTkwNzMgLjAzNjQ1MzI0OCAuMDk3OTkxOTQgLjA2NDQyMjYxIC4wNzM5ODk4NyAuMDg2Mzk1MjYgLjA2MDk4OTM4IC4xMDkzNzUgLjA0MTk5MjE4OSAuMTYzMzMwMDhMLjAxNDk5OTM5IC4xNTMzMzU1N0MuMDM1OTk1NDg1IC4wOTIzOTE5NyAuMDQzOTkxMDkgLjA1NjQyNzAwMyAuMDQ5OTg3Nzk0IC4wMDY0NTQ0NjggLjEwMjk5NjgyOS0uMDExNTM1NjQ0OSAuMTQ2OTg3OTItLjAxOTUzMTI1IC4xODM5OTA0OC0uMDE5NTMxMjUgLjI2Mzk5MjMtLjAxOTUzMTI1IC4zNTU5ODc1NiAuMDI1NDUxNjYgLjQxMDk5NTQ5IC4wOTIzOTE5NyAuNDQ0OTkyMDggLjEzMzM0NjU2IC40NjE5OTAzNyAuMTc3MzA3MTMgLjQ2MTk5MDM3IC4yMjQyNTg0MyAuNDYxOTkwMzcgLjI3MjIxNjggLjQ0MTk4NjA5IC4zMTQxNzg0OCAuNDA1OTkwNiAuMzM5MTU3MSAuMzgwOTk2NyAuMzU3MTYyNDkgLjM1Nzk4NjQ2IC4zNjUxNTgwOSAuMzA3OTk4NjcgLjM3NDE2MDc4IC4zODgwMDA1IC40MzYyMzM1MyAuNDE3OTk5MjggLjQ4MjI4NDU2IC40MTc5OTkyOCAuNTQxMzUxMyAuNDE3OTk5MjggLjYzMDQ0NzQgLjM0Mzk5NDE1IC42ODk0NTMxIC4yMzI5ODY0NSAuNjg5NDUzMSAuMTY0OTkzMjkgLjY4OTQ1MzEgLjExOTk5NTEyIC42NzA0NDA3IC4wNzE5OTA5NyAuNjIyNDUxOEwuMDQyOTk5MjY5IC40OTgzMDYyOFoiLz4KPHBhdGggaWQ9ImZvbnRfMl8yOCIgZD0iTS4yNjMwMDA1IC42ODk0NTMxQy4xMDc5ODY0NSAuNjg5NDUzMSAuMDI4OTkxNyAuNTY2NDUyIC4wMjg5OTE3IC4zMjQ0NDc2NCAuMDI4OTkxNyAuMjA3NDU4NSAuMDQ5OTg3Nzk0IC4xMDY0NjA1NyAuMDg0OTkxNDU4IC4wNTc0NjQ2IC4xMTk5OTUxMiAuMDA4NDY4NjI4IC4xNzU5OTQ4OC0uMDE5NTMxMjUgLjIzNzk5MTM0LS4wMTk1MzEyNSAuMzg4OTkyMy0uMDE5NTMxMjUgLjQ2NDk5NjM1IC4xMTA0NTgzNzcgLjQ2NDk5NjM1IC4zNjY0NTUwOSAuNDY0OTk2MzUgLjU4NTQ0OTIgLjM5OTk5MzkgLjY4OTQ1MzEgLjI2MzAwMDUgLjY4OTQ1MzFNLjI0NDk5NTEyIC42NTQ0NDk0OUMuMzQxOTk1MjUgLjY1NDQ0OTQ5IC4zODA5OTY3IC41NTY0NDIyOSAuMzgwOTk2NyAuMzE2NDUyMDQgLjM4MDk5NjcgLjEwMzQ1NDU5IC4zNDI5ODcwNyAuMDE1NDU3MTUzIC4yNTA5OTE4MyAuMDE1NDU3MTUzIC4xNTM5OTE3IC4wMTU0NTcxNTMgLjExMjk5MTMzIC4xMTY0NTUwOCAuMTEyOTkxMzMgLjM2MDQ1ODM4IC4xMTI5OTEzMyAuNTcxNDQxNjggLjE0OTk5MzkgLjY1NDQ0OTQ5IC4yNDQ5OTUxMiAuNjU0NDQ5NDlaIi8+CjxwYXRoIGlkPSJmb250XzJfMjkiIGQ9Ik0uMTIzOTkyOTIgLjExMTExNDVDLjA5Mzk5NDE0IC4xMTExMTQ1IC4wNjY5ODYwODcgLjA4MzExNDYyNyAuMDY2OTg2MDg3IC4wNTMxMTU4NDYgLjA2Njk4NjA4NyAuMDIzMTE3MDY2IC4wOTM5OTQxNC0uMDA0ODgyODEyNyAuMTIyOTg1ODQtLjAwNDg4MjgxMjcgLjE1NDk5ODc4LS4wMDQ4ODI4MTI3IC4xODI5OTg2NiAuMDIyMTA5OTg2IC4xODI5OTg2NiAuMDUzMTE1ODQ2IC4xODI5OTg2NiAuMDgzMTE0NjI3IC4xNTQ5OTg3OCAuMTExMTE0NSAuMTIzOTkyOTIgLjExMTExNDVaIi8+CjxwYXRoIGlkPSJmb250XzJfMTkiIGQ9Ik0uMDY2OTg2MDg3IC41NTUwNjg5OUguMDc2OTk1ODVMLjIwNTk5MzY1IC42MTMwNjc2Qy4yMDY5ODU0OCAuNjE0MDU5NDcgLjIwNzk5MjU2IC42MTQwNTk0NyAuMjA4OTk5NjQgLjYxNDA1OTQ3IC4yMTQ5OTYzNCAuNjE0MDU5NDcgLjIxNjk5NTI0IC42MDUwNTY3OSAuMjE2OTk1MjQgLjU4MTA2OTk3Vi4wOTYwNjkzMzlDLjIxNjk5NTI0IC4wNDQwNjczODQgLjIwNTk5MzY1IC4wMzMwNjU3OTcgLjE1MTk5MjggLjAzMDA1OTgxNUwuMDk1OTkzMDQgLjAyNzA2OTA5MlYtLjAwMjkyOTY4NzZDLjI1IDAgLjI1IDAgLjI2MDk4NjM0IDAgLjI3Mzk4NjgzIDAgLjI5NTk5IDAgLjMyOTk4NjU4LS4wMDEwMDcwODAxIC4zNDE5OTUyNS0uMDAxOTM3ODY2MiAuMzc2OTk4OS0uMDAxOTM3ODY2MiAuNDE3OTk5MjgtLjAwMjkyOTY4NzZWLjAyNzA2OTA5MkwuMzY1OTk3MyAuMDMwMDU5ODE1Qy4zMTA5ODkzOSAuMDMzMDY1Nzk3IC4zMDA5OTQ4OCAuMDQ0MDY3Mzg0IC4zMDA5OTQ4OCAuMDk2MDg0NTk4Vi42ODkzMzEwOEwuMjg2OTg3MyAuNjk0MzM1OTZDLjIyMjAwMDEyIC42NjAzMjQxIC4xNTA5ODU3MiAuNjMwMzEwMDggLjA1OTk5NzU2IC41OTgyOTcxTC4wNjY5ODYwODcgLjU1NTA2ODk5WiIvPgo8cGF0aCBpZD0iZm9udF8yXzMwIiBkPSJNLjUxODk5NzIgLjcyNTk5NzlILjQ1ODk5OTY0TC4wODY5OTAzNi0uMTE5MDAzMjk5SC4xNDY5ODc5MkwuNTE4OTk3MiAuNzI1OTk3OVoiLz4KPHBhdGggaWQ9ImZvbnRfM182IiBkPSJNLjM4ODk5MjMtLjg1NDk2NTIgLjIxMjk5NzQ0LS40NjU5NzI5Qy4yMDU5OTM2NS0uNDQ5OTY2NDQgLjIwMDk4ODc3LS40NDk5NjY0NCAuMTk3OTk4MDUtLjQ0OTk2NjQ0IC4xOTY5OTA5Ny0uNDQ5OTY2NDQgLjE5MTk4NjA5LS40NDk5NjY0NCAuMTgwOTk5NzYtLjQ1Nzk2MjA1TC4wODU5OTg1MzgtLjUyOTk2ODI5Qy4wNzI5OTgwNS0uNTM5OTYyNzkgLjA3Mjk5ODA1LS41NDI5Njg3NyAuMDcyOTk4MDUtLjU0NTk3NDc2IC4wNzI5OTgwNS0uNTUwOTY0MzggLjA3NTk4ODc3LS41NTY5NjEwOCAuMDgyOTkyNTUtLjU1Njk2MTA4IC4wODg5ODkyNi0uNTU2OTYxMDggLjEwNTk4NzU1LS41NDI5Njg3NyAuMTE2OTg5MTM5LS41MzQ5NzMxNyAuMTIyOTg1ODQtLjUyOTk2ODI5IC4xMzc5ODUyMy0uNTE4OTY2NyAuMTQ4OTg2ODItLjUxMDk3MTA5TC4zNDU5OTMwNS0uOTQzOTY5N0MuMzUyOTk2ODQtLjk1OTk2MDk2IC4zNTc5ODY0Ni0uOTU5OTYwOTYgLjM2Njk4OTE1LS45NTk5NjA5NiAuMzgxOTg4NTQtLjk1OTk2MDk2IC4zODQ5OTQ1LS45NTM5NjQyNiAuMzkxOTk4My0uOTM5OTcxOUwuODQ1OTkzMDcgLjAwMDAzMDUxNzU3OUMuODUyOTk2OCAuMDE0MDM4MDg2IC44NTI5OTY4IC4wMTgwMzU4ODkgLjg1Mjk5NjggLjAyMDAzNDc5IC44NTI5OTY4IC4wMzAwMjkyOTcgLjg0NTAwMTIgLjA0MDAzOTA2NCAuODMyOTkyNTggLjA0MDAzOTA2NCAuODI0OTk2OTcgLjA0MDAzOTA2NCAuODE3OTkzMTkgLjAzNTAzNDE4IC44MDk5OTc1OCAuMDE5MDI3NzFMLjM4ODk5MjMtLjg1NDk2NTJaIi8+CjwvZGVmcz4KPHBhdGggdHJhbnNmb3JtPSJtYXRyaXgoMSwwLDAsLTEsNS4xODEsMTAyLjAzOCkiIHN0cm9rZS13aWR0aD0iLjM5ODUiIHN0cm9rZS1saW5lY2FwPSJidXR0IiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIHN0cm9rZS1saW5lam9pbj0ibWl0ZXIiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzAwMDAwMCIgZD0iTTAgMy45ODUxVjkyLjM5Mjk5QzAgOTQuNTkzOTMgMS43ODQxNiA5Ni4zNzgxIDMuOTg1MSA5Ni4zNzgxSDIyNy4zMjIzNkMyMjkuNTIzMyA5Ni4zNzgxIDIzMS4zMDc0NyA5NC41OTM5MyAyMzEuMzA3NDcgOTIuMzkyOTlWMy45ODUxQzIzMS4zMDc0NyAxLjc4NDE2IDIyOS41MjMzIDAgMjI3LjMyMjM2IDBIMy45ODUxQzEuNzg0MTYgMCAwIDEuNzg0MTYgMCAzLjk4NTFaTTIzMS4zMDc0NyA5Ni4zNzgxIi8+Cjx1c2UgZGF0YS10ZXh0PSJSIiB4bGluazpocmVmPSIjZm9udF8xXzQiIHRyYW5zZm9ybT0ibWF0cml4KDEwLjkwOTEsMCwwLC0xMC45MDkxLDIyNS4zMiwxNi4xNjYpIi8+CjxwYXRoIHRyYW5zZm9ybT0ibWF0cml4KDEsMCwwLC0xLDUuMTgxLDEwMi4wMzgpIiBzdHJva2Utd2lkdGg9Ii4zOTg1IiBzdHJva2UtbGluZWNhcD0iYnV0dCIgc3Ryb2tlLW1pdGVybGltaXQ9IjEwIiBzdHJva2UtbGluZWpvaW49Im1pdGVyIiBmaWxsPSJub25lIiBzdHJva2U9IiMwMDAwMDAiIGQ9Ik02Ljc0NjU3IDguNzA3NTJWODcuNjcwNTVDNi43NDY1NyA4OS44NzE0OSA4LjUzMDczIDkxLjY1NTY1IDEwLjczMTY3IDkxLjY1NTY1SDE4Ni44NDM0MkMxODkuMDQ0MzYgOTEuNjU1NjUgMTkwLjgyODUyIDg5Ljg3MTQ5IDE5MC44Mjg1MiA4Ny42NzA1NVY4LjcwNzUyQzE5MC44Mjg1MiA2LjUwNjU4IDE4OS4wNDQzNiA0LjcyMjQxIDE4Ni44NDM0MiA0LjcyMjQxSDEwLjczMTY3QzguNTMwNzMgNC43MjI0MSA2Ljc0NjU3IDYuNTA2NTggNi43NDY1NyA4LjcwNzUyWk0xOTAuODI4NTIgOTEuNjU1NjUiLz4KPHVzZSBkYXRhLXRleHQ9IlEiIHhsaW5rOmhyZWY9IiNmb250XzFfMyIgdHJhbnNmb3JtPSJtYXRyaXgoMTAuOTA5MSwwLDAsLTEwLjkwOTEsMTg0LjgzNywyMC4wMzgwMDIpIi8+CjxwYXRoIHRyYW5zZm9ybT0ibWF0cml4KDEsMCwwLC0xLDUuMTgxLDEwMi4wMzgpIiBzdHJva2Utd2lkdGg9Ii4zOTg1IiBzdHJva2UtbGluZWNhcD0iYnV0dCIgc3Ryb2tlLW1pdGVybGltaXQ9IjEwIiBzdHJva2UtbGluZWpvaW49Im1pdGVyIiBmaWxsPSJub25lIiBzdHJva2U9IiMwMDAwMDAiIGQ9Ik0xMy40OTI4NiAxMy40Mjk5NVY4Mi45NDgxNEMxMy40OTI4NiA4NS4xNDkwNiAxNS4yNzcwMiA4Ni45MzMyNCAxNy40Nzc5NyA4Ni45MzMyNEgxNDYuMzY0NzlDMTQ4LjU2NTc0IDg2LjkzMzI0IDE1MC4zNDk5IDg1LjE0OTA2IDE1MC4zNDk5IDgyLjk0ODE0VjEzLjQyOTk1QzE1MC4zNDk5IDExLjIyOSAxNDguNTY1NzQgOS40NDQ4NCAxNDYuMzY0NzkgOS40NDQ4NEgxNy40Nzc5N0MxNS4yNzcwMiA5LjQ0NDg0IDEzLjQ5Mjg2IDExLjIyOSAxMy40OTI4NiAxMy40Mjk5NVpNMTUwLjM0OTkgODYuOTMzMjQiLz4KPHVzZSBkYXRhLXRleHQ9IkQiIHhsaW5rOmhyZWY9IiNmb250XzFfMSIgdHJhbnNmb3JtPSJtYXRyaXgoMTAuOTA5MSwwLDAsLTEwLjkwOTEsMTQzLjc0MiwyNS42MTEpIi8+CjxwYXRoIHRyYW5zZm9ybT0ibWF0cml4KDEsMCwwLC0xLDUuMTgxLDEwMi4wMzgpIiBzdHJva2Utd2lkdGg9Ii4zOTg1IiBzdHJva2UtbGluZWNhcD0iYnV0dCIgc3Ryb2tlLW1pdGVybGltaXQ9IjEwIiBzdHJva2UtbGluZWpvaW49Im1pdGVyIiBmaWxsPSJub25lIiBzdHJva2U9IiMwMDAwMDAiIGQ9Ik0yMC4yMzk0NCAxOC4xNTIzOVY3OC4yMjU3QzIwLjIzOTQ0IDgwLjQyNjY0IDIyLjAyMzYgODIuMjEwOCAyNC4yMjQ1NSA4Mi4yMTA4SDEwNS44ODU4NkMxMDguMDg2OCA4Mi4yMTA4IDEwOS44NzA5NyA4MC40MjY2NCAxMDkuODcwOTcgNzguMjI1N1YxOC4xNTIzOUMxMDkuODcwOTcgMTUuOTUxNDUgMTA4LjA4NjggMTQuMTY3MjggMTA1Ljg4NTg2IDE0LjE2NzI4SDI0LjIyNDU1QzIyLjAyMzYgMTQuMTY3MjggMjAuMjM5NDQgMTUuOTUxNDUgMjAuMjM5NDQgMTguMTUyMzlaTTEwOS44NzA5NyA4Mi4yMTA4Ii8+Cjx1c2UgZGF0YS10ZXh0PSJaIiB4bGluazpocmVmPSIjZm9udF8xXzUiIHRyYW5zZm9ybT0ibWF0cml4KDEwLjkwOTEsMCwwLC0xMC45MDkxLDEwMy43ODcsMzAuMzMzKSIvPgo8cGF0aCB0cmFuc2Zvcm09Im1hdHJpeCgxLDAsMCwtMSw1LjE4MSwxMDIuMDM4KSIgc3Ryb2tlLXdpZHRoPSIuMzk4NSIgc3Ryb2tlLWxpbmVjYXA9ImJ1dHQiIHN0cm9rZS1taXRlcmxpbWl0PSIxMCIgc3Ryb2tlLWxpbmVqb2luPSJtaXRlciIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMDAwMDAwIiBkPSJNMjYuOTg1NzMgMjIuODc0ODJWNzMuNTAzMjVDMjYuOTg1NzMgNzUuNzA0MiAyOC43Njk5IDc3LjQ4ODM2IDMwLjk3MDg0IDc3LjQ4ODM2SDY1LjQwNzIzQzY3LjYwODE3IDc3LjQ4ODM2IDY5LjM5MjMzIDc1LjcwNDIgNjkuMzkyMzMgNzMuNTAzMjVWMjIuODc0ODJDNjkuMzkyMzMgMjAuNjczODcgNjcuNjA4MTcgMTguODg5NzEgNjUuNDA3MjMgMTguODg5NzFIMzAuOTcwODRDMjguNzY5OSAxOC44ODk3MSAyNi45ODU3MyAyMC42NzM4NyAyNi45ODU3MyAyMi44NzQ4MlpNNjkuMzkyMzMgNzcuNDg4MzYiLz4KPHVzZSBkYXRhLXRleHQ9Ik4iIHhsaW5rOmhyZWY9IiNmb250XzFfMiIgdHJhbnNmb3JtPSJtYXRyaXgoMTAuOTA5MSwwLDAsLTEwLjkwOTEsNjIuNDk2LDM0Ljk2MzAwNikiLz4KPHVzZSBkYXRhLXRleHQ9IjIiIHhsaW5rOmhyZWY9IiNmb250XzJfMjAiIHRyYW5zZm9ybT0ibWF0cml4KDEwLjkwOTEsMCwwLC0xMC45MDkxLDUwLjY0Miw1Ny41NDMwMDQpIi8+Cjx1c2UgZGF0YS10ZXh0PSImI3gyMjEyOyIgeGxpbms6aHJlZj0iI2ZvbnRfM18xIiB0cmFuc2Zvcm09Im1hdHJpeCgxMS4zNjczLDAsMCwtMTEuMzY3Myw4Ni43MDIsNTcuMTA2MDA0KSIvPgo8dXNlIGRhdGEtdGV4dD0iMyIgeGxpbms6aHJlZj0iI2ZvbnRfMl8yMSIgdHJhbnNmb3JtPSJtYXRyaXgoMTAuOTA5MSwwLDAsLTEwLjkwOTEsOTUuNjc1LDU3LjEwNjAwNCkiLz4KPHVzZSBkYXRhLXRleHQ9IjAiIHhsaW5rOmhyZWY9IiNmb250XzJfMjgiIHRyYW5zZm9ybT0ibWF0cml4KDEwLjkwOTEsMCwwLC0xMC45MDkxLDEyNy41MDY5OTksNTcuNDg4MDA0KSIvPgo8dXNlIGRhdGEtdGV4dD0iLiIgeGxpbms6aHJlZj0iI2ZvbnRfMl8yOSIgdHJhbnNmb3JtPSJtYXRyaXgoMTAuOTA5MSwwLDAsLTEwLjkwOTEsMTMyLjk2MTU1LDU3LjQ4ODAwNCkiLz4KPHVzZSBkYXRhLXRleHQ9IjIiIHhsaW5rOmhyZWY9IiNmb250XzJfMjAiIHRyYW5zZm9ybT0ibWF0cml4KDEwLjkwOTEsMCwwLC0xMC45MDkxLDEzNS42ODg4MSw1Ny40ODgwMDQpIi8+Cjx1c2UgZGF0YS10ZXh0PSIxIiB4bGluazpocmVmPSIjZm9udF8yXzE5IiB0cmFuc2Zvcm09Im1hdHJpeCgxMC45MDkxLDAsMCwtMTAuOTA5MSwxNjUuOTA4LDU3LjE4MzAwNCkiLz4KPHVzZSBkYXRhLXRleHQ9Ii8iIHhsaW5rOmhyZWY9IiNmb250XzJfMzAiIHRyYW5zZm9ybT0ibWF0cml4KDEwLjkwOTEsMCwwLC0xMC45MDkxLDE3MS40OTM0Niw1Ny4xODMwMDQpIi8+Cjx1c2UgZGF0YS10ZXh0PSIzIiB4bGluazpocmVmPSIjZm9udF8yXzIxIiB0cmFuc2Zvcm09Im1hdHJpeCgxMC45MDkxLDAsMCwtMTAuOTA5MSwxNzguMjQ2MTksNTcuMTgzMDA0KSIvPgo8dXNlIGRhdGEtdGV4dD0iJiN4MjIxYTsiIHhsaW5rOmhyZWY9IiNmb250XzNfNiIgdHJhbnNmb3JtPSJtYXRyaXgoMTEuMzY3MywwLDAsLTExLjM2NzMsMjA3LjgyLDQ4Ljg0MzAwNCkiLz4KPHBhdGggdHJhbnNmb3JtPSJtYXRyaXgoMSwwLDAsLTEsMjE3LjQyNiw0OC42MTkwMDUpIiBzdHJva2Utd2lkdGg9Ii40NDciIHN0cm9rZS1saW5lY2FwPSJidXR0IiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIHN0cm9rZS1saW5lam9pbj0ibWl0ZXIiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzAwMDAwMCIgZD0iTTAgMEg1LjQ1NSIvPgo8dXNlIGRhdGEtdGV4dD0iMiIgeGxpbms6aHJlZj0iI2ZvbnRfMl8yMCIgdHJhbnNmb3JtPSJtYXRyaXgoMTAuOTA5MSwwLDAsLTEwLjkwOTEsMjE3LjQyNiw1OC4yNjMpIi8+Cjwvc3ZnPgo="}};</script>
+<script>
+(function(){
+"use strict";
+/* ---- module registry ---- */
+var __defs = {}, __cache = {};
+function __d(key, fn) { __defs[key] = fn; }
+function __r(key) {
+  if (!__cache[key]) { if (!__defs[key]) throw new Error("module " + key); const e = {}; __cache[key] = e; __defs[key](e, __r); }
+  return __cache[key];
+}
+
+/* ---- ../js/canvas-navigation.js ---- */
+// Keep native vertical scrolling on the background. Only a mathematical handle (or an
+// explicit two-finger camera gesture) owns a touch. touch-action on canvas subregions
+// cannot express this, so cancel touchstart selectively, as for the SVG editors.
+function canvasTouch(surface, hit = () => false) {
+  const previous = surface.style.touchAction;
+  surface.style.touchAction = 'pan-y pinch-zoom';
+  const start = e => {
+    const touches = e.touches || [];
+    if (touches.length > 1 || (touches.length === 1 && hit(touches[0], e))) e.preventDefault();
+  };
+  surface.addEventListener('touchstart', start, { passive: false });
+  return () => { surface.removeEventListener('touchstart', start); surface.style.touchAction = previous; };
+}
+// A camera is independent of the mathematical parameters. Moving an object never changes it.
+function camera2D() {
+  const c = { scale: 1, x: 0, y: 0 };
+  c.project = ([x,y]) => [c.x+c.scale*x,c.y+c.scale*y];
+  c.unproject = ([x,y]) => [(x-c.x)/c.scale,(y-c.y)/c.scale];
+  c.zoomAt = (factor,[x,y]) => { const p=c.unproject([x,y]); c.scale=Math.max(.2,Math.min(12,c.scale*factor)); c.x=x-p[0]*c.scale;c.y=y-p[1]*c.scale; };
+  c.reset=()=>{c.scale=1;c.x=c.y=0;};return c;
+}
+function navigationButtons(host,action,lang='fr') {
+  const bar=document.createElement('output');bar.className='canvas-navigation';bar.hidden=true;
+  bar.setAttribute('aria-live','polite');host.append(bar);
+  bar.update=scale=>{bar.textContent=`${Math.round(scale*100)} %`;};bar.update(1);return bar;
+}
+function canvasNavigation(c,g,size,redraw,{host=c.parentElement,lang=document.documentElement.lang,canPan=()=>false}={}) {
+  const camera=camera2D(),rawClear=g.clearRect.bind(g);let last=null,gesture=null;
+  const pointers=new Map(),point=e=>{const r=c.getBoundingClientRect(),[w,h]=size();return [(e.clientX-r.left)/r.width*w,(e.clientY-r.top)/r.height*h];};
+  const apply=()=>{const [w]=size(),d=c.width/w;g.setTransform(d*camera.scale,0,0,d*camera.scale,d*camera.x,d*camera.y);};
+  g.clearRect=()=>{g.save();g.setTransform(1,0,0,1,0,0);rawClear(0,0,c.width,c.height);g.restore();apply();};
+  const refresh=()=>{apply();bar.update(camera.scale);redraw();};
+  const action=id=>{const [w,h]=size();if(id==='reset')camera.reset();else if(id==='in'||id==='out')camera.zoomAt(id==='in'?1.25:.8,[w/2,h/2]);else{const d={left:[40,0],right:[-40,0],up:[0,40],down:[0,-40]}[id];camera.x+=d[0];camera.y+=d[1];}refresh();};
+  const bar=navigationButtons(host,action,lang);const stopTouch=canvasTouch(c, e=>c.touchHit?.(e));if(c.tabIndex<0)c.tabIndex=0;
+  const down=e=>{if(e.pointerType==='touch')pointers.set(e.pointerId,point(e));if(pointers.size===2){const a=[...pointers.values()];gesture={distance:Math.hypot(a[0][0]-a[1][0],a[0][1]-a[1][1]),mid:[(a[0][0]+a[1][0])/2,(a[0][1]+a[1][1])/2]};c.dispatchEvent(new CustomEvent('view-gesture'));}if(gesture||e.button===1||e.altKey||e.shiftKey||canPan(camera.unproject(point(e)))){if(!gesture)last=point(e);c.setPointerCapture?.(e.pointerId);e.preventDefault();e.stopImmediatePropagation();}};
+  const move=e=>{if(pointers.has(e.pointerId))pointers.set(e.pointerId,point(e));if(gesture&&pointers.size===2){const a=[...pointers.values()],mid=[(a[0][0]+a[1][0])/2,(a[0][1]+a[1][1])/2],d=Math.hypot(a[0][0]-a[1][0],a[0][1]-a[1][1]);camera.zoomAt(d/Math.max(1,gesture.distance),gesture.mid);camera.x+=mid[0]-gesture.mid[0];camera.y+=mid[1]-gesture.mid[1];gesture={distance:d,mid};refresh();e.preventDefault();e.stopImmediatePropagation();}else if(last){const q=point(e);camera.x+=q[0]-last[0];camera.y+=q[1]-last[1];last=q;refresh();e.preventDefault();e.stopImmediatePropagation();}};
+  const end=e=>{const handled=!!last||!!gesture;pointers.delete(e.pointerId);last=null;if(pointers.size<2)gesture=null;if(handled){e.preventDefault();e.stopImmediatePropagation();}};
+  const wheel=e=>{if(!(e.ctrlKey||e.metaKey))return;e.preventDefault();e.stopImmediatePropagation();camera.zoomAt(Math.exp(-e.deltaY*.005),point(e));refresh();};
+  const key=e=>{const arrows={ArrowLeft:'left',ArrowRight:'right',ArrowUp:'up',ArrowDown:'down'};if(e.shiftKey&&arrows[e.key]){e.preventDefault();e.stopImmediatePropagation();action(arrows[e.key]);return;}if(['+','=','-','0'].includes(e.key)){e.preventDefault();e.stopImmediatePropagation();action(e.key==='0'?'reset':e.key==='-'?'out':'in');}};
+  const events=[['pointerdown',down],['pointermove',move],['pointerup',end],['pointercancel',end],['wheel',wheel],['dblclick',()=>action('reset')],['keydown',key]];
+  for(const [name,fn] of events)c.addEventListener(name,fn,{capture:true,passive:false});
+  return {camera,point:e=>camera.unproject(point(e)),apply,destroy(){stopTouch();bar.remove();g.clearRect=rawClear;for(const[n,f]of events)c.removeEventListener(n,f,true);}};
+}
+// Changing viewBox preserves the inverse screen transform used by the SVG editors for picking.
+function svgNavigation(svg,{lang=document.documentElement.lang,host=svg.parentElement,state={},canPan=()=>false}={}) {
+  const original=state.original??=(svg.getAttribute('viewBox')||'0 0 640 400').split(/[ ,]+/).map(Number);let box=[...(state.box||original)],drag=null,pinch=null;const touches=new Map();
+  const paint=()=>{state.box=[...box];svg.setAttribute('viewBox',box.join(' '));bar.update(original[2]/box[2]);};
+  const zoom=(k,fx=.5,fy=.5)=>{const w=Math.max(original[2]/12,Math.min(original[2]*5,box[2]*k)),h=w*original[3]/original[2];box=[box[0]+(box[2]-w)*fx,box[1]+(box[3]-h)*fy,w,h];paint();};
+  const action=id=>{if(id==='reset'){box=[...original];paint();}else if(id==='in'||id==='out')zoom(id==='in'?.8:1.25);else{const d={left:[-1,0],right:[1,0],up:[0,-1],down:[0,1]}[id];box[0]+=d[0]*box[2]*.12;box[1]+=d[1]*box[3]*.12;paint();}};
+  const bar=navigationButtons(host,action,lang);const stopTouch=canvasTouch(svg,e=>{const target=svg.ownerDocument.elementFromPoint?.(e.clientX,e.clientY);return !!target?.closest?.('[data-handle],[data-drag],[draggable=true],.ag-vertex,.ag-guard,.hs-person');});if(svg.tabIndex<0)svg.tabIndex=0;
+  svg.setAttribute('aria-label',lang==='en'?'Interactive figure: Ctrl + wheel or pinch to zoom, Shift-drag to pan, + or - to zoom, 0 to reset':'Figure interactive : Ctrl + molette ou pincement pour zoomer, Maj-glisser pour déplacer la vue, + ou - pour zoomer, 0 pour réinitialiser');
+  const observer=new MutationObserver(()=>{if(svg.getAttribute('viewBox')!==box.join(' '))paint();});observer.observe(svg,{attributes:true,attributeFilter:['viewBox']});
+  const wheel=e=>{if(!(e.ctrlKey||e.metaKey))return;e.preventDefault();const r=svg.getBoundingClientRect();zoom(Math.exp(e.deltaY*.005),(e.clientX-r.left)/r.width,(e.clientY-r.top)/r.height);};
+  const down=e=>{
+    if(e.pointerType==='touch')touches.set(e.pointerId,[e.clientX,e.clientY]);
+    if(touches.size===2){const a=[...touches.values()];pinch={d:Math.hypot(a[0][0]-a[1][0],a[0][1]-a[1][1]),mid:[(a[0][0]+a[1][0])/2,(a[0][1]+a[1][1])/2]};drag=null;svg.dispatchEvent(new CustomEvent('view-gesture'));}
+    if(!pinch&&!(e.altKey||e.shiftKey||e.button===1)&&!canPan(e))return;
+    e.preventDefault();e.stopImmediatePropagation();if(!pinch)drag={x:e.clientX,y:e.clientY,box:[...box]};svg.setPointerCapture?.(e.pointerId);
+  };
+  const move=e=>{
+    if(touches.has(e.pointerId))touches.set(e.pointerId,[e.clientX,e.clientY]);
+    const r=svg.getBoundingClientRect();
+    if(pinch&&touches.size===2){const a=[...touches.values()],mid=[(a[0][0]+a[1][0])/2,(a[0][1]+a[1][1])/2],d=Math.hypot(a[0][0]-a[1][0],a[0][1]-a[1][1]);zoom(pinch.d/Math.max(1,d),(pinch.mid[0]-r.left)/r.width,(pinch.mid[1]-r.top)/r.height);box[0]-=(mid[0]-pinch.mid[0])/r.width*box[2];box[1]-=(mid[1]-pinch.mid[1])/r.height*box[3];pinch={d,mid};paint();}
+    else if(drag){box[0]=drag.box[0]-(e.clientX-drag.x)/r.width*box[2];box[1]=drag.box[1]-(e.clientY-drag.y)/r.height*box[3];paint();}
+    else return;e.preventDefault();e.stopImmediatePropagation();
+  };
+  const end=e=>{touches.delete(e.pointerId);drag=null;if(touches.size<2)pinch=null;};
+  const key=e=>{const arrows={ArrowLeft:'left',ArrowRight:'right',ArrowUp:'up',ArrowDown:'down'};const id=e.key==='0'?'reset':e.key==='-'?'out':['+','='].includes(e.key)?'in':e.shiftKey?arrows[e.key]:null;if(!id||e.target.closest('[data-handle],[data-drag]'))return;e.preventDefault();e.stopPropagation();action(id);};
+  const reset=()=>action('reset');
+  const events=[['wheel',wheel],['pointerdown',down],['pointermove',move],['pointerup',end],['pointercancel',end],['lostpointercapture',end],['keydown',key],['dblclick',reset]];
+  for(const [name,fn]of events)svg.addEventListener(name,fn,{capture:true,passive:false});
+  paint();
+  const stop=()=>{stopTouch();observer.disconnect();bar.remove();for(const [name,fn]of events)svg.removeEventListener(name,fn,true);};stop.bar=bar;return stop;
+}
+
+function observeSvgNavigation(root,selector,lang) {
+  const mounted=new Map(),states=new Map();let alive=true;
+  const scan=()=>{if(!alive)return;for(const [svg,stop]of mounted)if(!svg.isConnected||!stop.bar.isConnected){stop();mounted.delete(svg);}
+    if(!root.isConnected)return;
+    [...root.querySelectorAll(selector)].forEach((svg,i)=>{if(mounted.has(svg))return;const key=`${svg.closest('[id]')?.id||'figure'}-${i}`;if(!states.has(key))states.set(key,{});mounted.set(svg,svgNavigation(svg,{lang,state:states.get(key)}));});};
+  const observer=new MutationObserver(scan);observer.observe(root,{childList:true,subtree:true});scan();
+  return()=>{alive=false;observer.disconnect();for(const stop of mounted.values())stop();mounted.clear();};
+}
+
+__d("canvas-navigation.js", function (__e) { __e.canvasNavigation = canvasNavigation; __e.canvasTouch = canvasTouch; });
+
+/* ---- ../js/camera3d.js ---- */
+// The one orthographic 3D camera of the site: z up, a yaw (turn about the vertical) and a pitch (tilt, clamped), pure functions.
+// Used by the laboratory template `space` (js/lab/templates/space.js) and by the slide widgets in slides/widgets-3d.js, so both
+// project, unproject and turn the same way. The camera belongs to the view, never to the mathematical state.
+//
+//   cam3Project(yaw, pitch, x, y, z)       -> { u, v, d }  screen u (right), v (up), depth d (larger = farther from the viewer)
+//   cam3Unproject(yaw, pitch, u, v, z)     -> { x, y }     the point of the horizontal plane z that projects on (u, v)
+//   cam3Dir(yaw, pitch)                    -> [x, y, z]    unit vector along the view ray, pointing away from the viewer
+//   cam3Ray(yaw, pitch, u, v)              -> { p, w }     the view ray through screen (u, v): p + t w
+//   cam3HitPlane(ray, o, n)                -> point | null where the ray meets the plane through o with normal n
+//   cam3HitLine(ray, o, e)                 -> { s, point } | null the point o + s e of a line nearest to the ray
+//   cam3Turn(cam, dYaw, dPitch)            turns a { yaw, pitch } camera in place; the pitch stays in [PITCH_MIN, PITCH_MAX]
+//   cam3TurnFree(cam, dYaw, dPitch)        the same without a floor: the yaw is free and the pitch runs from straight below to
+//                                          straight above (±FREE_PITCH), so an object can be seen from every direction
+const PITCH_MIN = 0.12, PITCH_MAX = 1.45;
+const CAM3_DEFAULT = { yaw: -0.7, pitch: 0.55 };
+
+function cam3Project(yaw, pitch, x, y, z) {
+  const cy = Math.cos(yaw), sy = Math.sin(yaw), cp = Math.cos(pitch), sp = Math.sin(pitch), x1 = cy * x - sy * y, y1 = sy * x + cy * y;
+  return { u: x1, v: z * cp + y1 * sp, d: y1 * cp - z * sp };
+}
+function cam3Unproject(yaw, pitch, u, v, z) {
+  const cy = Math.cos(yaw), sy = Math.sin(yaw), cp = Math.cos(pitch), sp = Math.sin(pitch), y1 = (v - z * cp) / sp;
+  return { x: cy * u + sy * y1, y: -sy * u + cy * y1 };
+}
+function cam3Dir(yaw, pitch) {
+  const cy = Math.cos(yaw), sy = Math.sin(yaw), cp = Math.cos(pitch), sp = Math.sin(pitch);
+  return [sy * cp, cy * cp, -sp];
+}
+function cam3Ray(yaw, pitch, u, v) {
+  const p = cam3Unproject(yaw, pitch, u, v, 0);
+  return { p: [p.x, p.y, 0], w: cam3Dir(yaw, pitch) };
+}
+const v3dot = (a, b) => a[0] * b[0] + a[1] * b[1] + a[2] * b[2];
+const v3sub = (a, b) => [a[0] - b[0], a[1] - b[1], a[2] - b[2]];
+function cam3HitPlane(ray, o, n) {
+  const k = v3dot(n, ray.w);
+  if (Math.abs(k) < 1e-9) return null;
+  const t = v3dot(n, v3sub(o, ray.p)) / k;
+  return [ray.p[0] + t * ray.w[0], ray.p[1] + t * ray.w[1], ray.p[2] + t * ray.w[2]];
+}
+function cam3HitLine(ray, o, e) {
+  const a = v3dot(e, e), b = v3dot(e, ray.w), r0 = v3sub(o, ray.p), den = a - b * b;
+  if (a < 1e-12 || Math.abs(den) < 1e-9 * a) return null;
+  const s = (b * v3dot(ray.w, r0) - v3dot(e, r0)) / den;
+  return { s, point: [o[0] + s * e[0], o[1] + s * e[1], o[2] + s * e[2]] };
+}
+function cam3Turn(cam, dYaw, dPitch) {
+  cam.yaw += dYaw;
+  cam.pitch = Math.min(PITCH_MAX, Math.max(PITCH_MIN, cam.pitch + dPitch));
+  return cam;
+}
+const FREE_PITCH = Math.PI / 2 - 0.02;
+function cam3TurnFree(cam, dYaw, dPitch) {
+  cam.yaw += dYaw;
+  cam.pitch = Math.min(FREE_PITCH, Math.max(-FREE_PITCH, cam.pitch + dPitch));
+  return cam;
+}
+
+__d("camera3d.js", function (__e) { __e.PITCH_MIN = PITCH_MIN; __e.PITCH_MAX = PITCH_MAX; __e.CAM3_DEFAULT = CAM3_DEFAULT; __e.cam3Project = cam3Project; __e.cam3Unproject = cam3Unproject; __e.cam3Dir = cam3Dir; __e.cam3Ray = cam3Ray; __e.cam3HitPlane = cam3HitPlane; __e.cam3HitLine = cam3HitLine; __e.cam3Turn = cam3Turn; });
+
+/* ---- edition-policy.js ---- */
+// An explicit request never opens another language; curriculum language remains the default.
+function deckLanguages(deck) {
+  const editions = deck?.editions;
+  if (!editions || typeof editions !== 'object' || !Object.keys(editions).length) throw new Error('Missing slide editions');
+  const available = ['fr', 'en'].filter(lang => Object.hasOwn(editions, lang));
+  if (available.length !== Object.keys(editions).length) throw new Error('Unknown slide language');
+  return available;
+}
+function selectDeckEdition(deck, requested, preferred = 'fr') {
+  const available = deckLanguages(deck);
+  if (requested && !available.includes(requested)) return null;
+  const language = requested || (available.includes(deck.language) ? deck.language : available.includes(preferred) ? preferred : available[0]);
+  const edition = deck.editions[language], index = language === 'en' ? 1 : 0;
+  const title = [...deck.title];
+  if (edition.title) title[index] = Array.isArray(edition.title) ? edition.title[index] : edition.title;
+  return {...deck, title, slides: edition.slides || deck.slides, selectedLanguage: language};
+}
+
+/* ---- widgets.js ---- */
+// Interactive canvases for the slide player. Every canvas has draggable handles, keyboard movement and explicit controls.
+// The same quantities are mirrored by the readout; space scenes use true 3D.
+
+const C = { bg: "#13243b", grid: "#24364f", axis: "#8fa6c4", ink: "#f4f1ea", muted: "#8fa6c4", acc: "#e8a33d", warn: "#ff7a7a", blue: "#8fb7ff" };
+const SERIF = '"STIX Two Text","Latin Modern Roman",Georgia,serif';
+
+// ---- mathematics: every formula is TeX, typeset by MathJax (tex-svg), never Unicode look-alikes.
+// Readouts are HTML strings whose formulas sit between \( and \); canvas labels may be a whole \( ... \) string.
+const inl = t => "\\(" + t + "\\)";
+const mj = () => (typeof MathJax !== "undefined" && MathJax.tex2svg && MathJax.startup && MathJax.startup.document ? MathJax : null);
+const svgCache = new Map();
+function mathSvg(tex) {
+  let n = svgCache.get(tex);
+  if (!n) {
+    n = mj().tex2svg(tex, { display: false });
+    n.querySelectorAll("mjx-assistive-mml").forEach(e => e.remove());
+    if (svgCache.size > 600) svgCache.clear();
+    svgCache.set(tex, n);
+  }
+  return n;
+}
+const MATH_RE = /\\\((.*?)\\\)/g;
+const stripTeX = h => h.replace(MATH_RE, (_, t) => t);
+function paint(el, html) {
+  if (!mj()) { el.innerHTML = stripTeX(html); return; }
+  const tpl = document.createElement("template"); tpl.innerHTML = html;
+  const w = document.createTreeWalker(tpl.content, NodeFilter.SHOW_TEXT), texts = [];
+  while (w.nextNode()) texts.push(w.currentNode);
+  for (const t of texts) {
+    if (!t.nodeValue.includes("\\(")) continue;
+    const frag = document.createDocumentFragment(); let last = 0, m; MATH_RE.lastIndex = 0;
+    while ((m = MATH_RE.exec(t.nodeValue))) {
+      if (m.index > last) frag.append(t.nodeValue.slice(last, m.index));
+      frag.append(mathSvg(m[1]).cloneNode(true)); last = m.index + m[0].length;
+    }
+    if (last < t.nodeValue.length) frag.append(t.nodeValue.slice(last));
+    t.replaceWith(frag);
+  }
+  el.replaceChildren(...tpl.content.childNodes);
+}
+// Cached by string, and throttled while a handle is dragged: the formulas are rebuilt only when the text changes.
+function rich(el, html) {
+  if (el._html === html) return;
+  el._html = html;
+  const now = performance.now();
+  if (!el._t0 || now - el._t0 > 110) { el._t0 = now; paint(el, html); return; }
+  if (!el._timer) el._timer = setTimeout(() => { el._timer = 0; el._t0 = performance.now(); paint(el, el._html); }, 110);
+}
+// Formula as an image for canvas labels: TeX -> MathJax SVG -> Image, colour and size fixed at creation.
+const EX = .431;   // MathJax ex-height in em
+const imgs = new Map();
+let repaint = () => {};
+function mathImage(tex, color, size) {
+  const key = tex + "|" + color + "|" + size; let e = imgs.get(key);
+  if (e) return e.ok ? e : null;
+  if (!mj()) return null;
+  const svg = mathSvg(tex).querySelector("svg").cloneNode(true);
+  const ex = a => parseFloat(svg.getAttribute(a)), va = parseFloat((svg.getAttribute("style") || "").replace(/.*vertical-align:\s*([-\d.]+)ex.*/, "$1")) || 0;
+  e = { w: ex("width") * EX * size, h: ex("height") * EX * size, va: va * EX * size, ok: false, img: new Image() };
+  svg.setAttribute("width", e.w + "px"); svg.setAttribute("height", e.h + "px"); svg.removeAttribute("style"); svg.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+  const xml = new XMLSerializer().serializeToString(svg).replace(/currentColor/g, color);
+  e.img.onload = () => { e.ok = true; repaint(); };
+  e.img.src = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(xml);
+  imgs.set(key, e); return null;
+}
+const isMath = s => /^\\\(.*\\\)$/.test(s);
+function drawMath(g, s, x, y, color, size, align) {
+  const e = mathImage(s.slice(2, -2), color, size);
+  if (!e) return;
+  const left = align === "right" ? x - e.w : align === "center" ? x - e.w / 2 : x;
+  g.drawImage(e.img, left, y - e.h - e.va, e.w, e.h);
+}
+// ---- TeX builders for the numbers and objects the readouts show
+const tnum = (n, lang, d = 2) => { if (!Number.isFinite(n)) return "?"; const s = fmt(n, lang, d); return lang ? s : s.replace(",", "{,}"); };
+const tpar = (N, x) => (x < 0 ? `(${N(x)})` : N(x));
+const tpt = (o, ...c) => "(" + c.map(v => (typeof v === "number" ? o.tn(v) : v)).join(o.L ? "," : "\\,;") + ")";
+const tiv = (o, a, b, closedA = true, closedB = true) => {
+  const f = v => (typeof v === "number" ? o.tn(v) : v);
+  return o.L ? `${closedA ? "[" : "("}${f(a)},${f(b)}${closedB ? "]" : ")"}` : `${closedA ? "[" : "]"}${f(a)}\\,;${f(b)}${closedB ? "]" : "["}`;
+};
+// "x^2-2x-1": coefficients 1 and -1 are implicit, zero terms are dropped, signs are written as operators.
+const tpoly = (parts, N) => { let s = ""; for (const [c, v] of parts) { if (Math.abs(c) < 1e-9) continue; const ab = Math.abs(c), body = ab === 1 && v ? v : N(ab) + v; s += s ? (c < 0 ? "-" : "+") + body : (c < 0 ? "-" : "") + body; } return s || "0"; };
+const tshift = (x, al, N) => (Math.abs(al) < 1e-9 ? x : `(${x}${al < 0 ? "+" : "-"}${N(Math.abs(al))})`);
+const tlin = (n, N) => { let s = ""; n.forEach((c, i) => { if (!c) return; const v = "xyz"[i], body = (Math.abs(c) === 1 ? "" : N(Math.abs(c))) + v; s += s ? (c < 0 ? "-" : "+") + body : (c < 0 ? "-" : "") + body; }); return s || "0"; };
+const sgn = c => (c < 0 ? "-" : "+");
+
+// ---- laboratory experiments in a slide: { type: "lab", ref: "quadratic/vertex" } (docs/LAB_DESIGN.md section 6). The experiment
+// draws in the widget host with the player's dark palette, its unlocked controls and mission stepper go to the controls area,
+// the formula and readout to the readout area and the mission prompt to the hint line. Loaded on demand (an export bundles it
+// only for the decks that use it).
+const LAB_PALETTE = { bg: C.bg, surface: C.bg, sunken: "#0f1b2d", ink: C.ink, muted: C.muted, line: C.axis, grid: C.grid,
+  accent: C.acc, obj2: C.blue, obj3: "#c9a0ff", pos: "#5fd0a0", neg: C.warn, c: [C.acc, C.blue, "#5fd0a0", "#c9a0ff", C.warn, "#7fd6e8", "#f2c94c", "#ff9ec7"] };
+const loadLab = () => Promise.resolve(__r("lab/mount.js"));
+// The laboratory writes its numbers with Unicode (x², uₙ, ≈, √3/2, 35°); the player typesets every formula with MathJax, so the
+// text of an experiment is turned into the same \( ... \) markup before it is shown (words and plain numbers stay text).
+const SUBS = { "₀": "0", "₁": "1", "₂": "2", "₃": "3", "₄": "4", "₅": "5", "₆": "6", "₇": "7", "₈": "8", "₉": "9", "ₙ": "n", "₊": "+", "₋": "-" };
+const SUPS = { "⁰": "0", "¹": "1", "²": "2", "³": "3", "⁴": "4", "⁵": "5", "⁶": "6", "⁷": "7", "⁸": "8", "⁹": "9", "ⁿ": "n", "ˣ": "x" };
+const GREEK = { "Δ": "\\Delta", "α": "\\alpha", "β": "\\beta", "θ": "\\theta", "π": "\\pi" };
+const decimal = n => n.replace(/[−-]/, "-").replace(",", "{,}");
+const UNI_RE = /(\d*)π(?:\/(\d+))?|(\d*)√(\d+)(?:\/(\d+))?|([A-Za-z])\u0304|([A-Za-zΔαβθπ)]|\d+(?:[.,]\d+)?)([₀-₉ₙ₊₋]+|[⁰¹²³⁴-⁹ⁿˣ]+)|(\d+(?:[.,]\d+)?)°|−(\d+(?:,\d+)?)|(\d+(?:[.,]\d+)?)|[≈≤≥≠×…Δαβθπ]/g;
+function uniHTML(text) {
+  const esc = String(text).replace(/&/g, "&amp;").replace(/</g, "&lt;");
+  return esc.replace(UNI_RE, (m, pn, pd, rc, rn, rd, bar, base, script, deg, neg, plain) => {
+    const g = c => GREEK[c] || (/^\d/.test(c) ? decimal(c) : c);
+    if (m.includes("π") && base === undefined) return inl(pd ? `\\dfrac{${pn || ""}\\pi}{${pd}}` : `${pn || ""}\\pi`);
+    if (rn !== undefined) return inl(rd ? `\\dfrac{${rc || ""}\\sqrt{${rn}}}{${rd}}` : `${rc || ""}\\sqrt{${rn}}`);
+    if (bar) return inl(`\\bar{${bar}}`);
+    if (base) { const sub = SUBS[script[0]] !== undefined; return inl(`${g(base)}${sub ? "_" : "^"}{${[...script].map(c => (sub ? SUBS : SUPS)[c]).join("")}}`); }
+    if (deg !== undefined) return inl(`${decimal(deg)}^{\\circ}`);
+    if (neg !== undefined) return inl(`-${decimal(neg)}`);
+    if (plain !== undefined) return inl(decimal(plain));
+    return inl({ "≈": "\\approx", "≤": "\\leq", "≥": "\\geq", "≠": "\\neq", "×": "\\times", "…": "\\ldots" }[m] || g(m));
+  });
+}
+const renderLab = (el, text) => rich(el, uniHTML(text));
+function mountLab(spec, ctx) {
+  let api = null, dead = false;
+  loadLab().then(m => {
+    if (dead) return;
+    api = m.mountExperiment(ctx.host, spec.ref, { mode: "slide", lang: ctx.lang ? "en" : "fr", palette: LAB_PALETTE, render: renderLab, controls: ctx.controls, readout: ctx.readout, hint: ctx.hint });
+  }).catch(e => { ctx.host.textContent = "?"; console.error(e); });
+  return { destroy() { dead = true; api?.destroy(); api = null; ctx.controls.innerHTML = ""; ctx.readout.innerHTML = ""; } };
+}
+
+function mount(spec, ctx) {
+  if (spec.type === "lab") return mountLab(spec, ctx);
+  const f = W2[spec.type] || W3[spec.type];
+  if (!f) { ctx.host.textContent = "?"; return { destroy() {} }; }
+  const cv = canvas(ctx.host,ctx); repaint = () => cv.redraw();
+  const api = Object.assign(cv, { ...ctx, spec, L: ctx.lang, num: n => fmt(n, ctx.lang), tn: (n, d) => tnum(n, ctx.lang, d), pair: (fr, en) => (ctx.lang ? en : fr) });
+  ctx.hint.textContent = api.pair(spec.hintFr || "Interactif : glissez les points.", spec.hintEn || "Interactive: drag the points.");
+  const inst = f(api) || {};
+  cv.start(inst);
+  const handles=()=>cv.handles();
+  if(handles().length){
+    let selected=0,cursor=null;
+    cv.c.addEventListener("pointerdown",()=>{cursor=null;});
+    const move=(dx,dy)=>{const h=handles()[selected];if(!h)return;if(!cursor)cursor=[h.x,h.y];cursor[0]+=dx;cursor[1]+=dy;h.move(...cursor);cv.redraw();};
+    cv.c.tabIndex=0;cv.c.setAttribute('role','group');cv.c.setAttribute('aria-label',api.pair('Figure interactive : H pour choisir un point, flèches pour le déplacer ; pincement ou Ctrl + molette pour zoomer, glisser le fond pour déplacer la vue, 0 pour réinitialiser','Interactive figure: H selects a point, arrows move it; pinch or Ctrl + wheel to zoom, drag background to pan, 0 to reset'));
+    cv.c.onkeydown=e=>{if(e.key.toLowerCase()==='h'){selected=(selected+1)%handles().length;cursor=null;e.preventDefault();e.stopPropagation();cv.c.setAttribute('aria-label',api.pair('Point ','Point ')+(selected+1));return;}const deltas={ArrowLeft:[-14,0],ArrowRight:[14,0],ArrowUp:[0,-14],ArrowDown:[0,14]};if(deltas[e.key]){e.preventDefault();e.stopPropagation();const d=deltas[e.key],k=e.shiftKey?3:1;move(d[0]*k,d[1]*k);}};
+
+  }
+  return { destroy() { cv.stop(); ctx.controls.innerHTML = ""; ctx.readout.innerHTML = ""; } };
+}
+
+// Coordinates and intervals follow the language convention, as the TeX class does: (x ; y) and [a ; b[ in French,
+// (x, y) and [a, b) in English. Values are already formatted strings or numbers formatted with o.num.
+function pt(o, ...c) { return "(" + c.map(v => (typeof v === "number" ? o.num(v) : v)).join(o.L ? ", " : " ; ") + ")"; }
+function iv(o, a, b, closedA = true, closedB = true) {
+  const f = v => (typeof v === "number" ? o.num(v) : v);
+  return o.L ? `${closedA ? "[" : "("}${f(a)}, ${f(b)}${closedB ? "]" : ")"}` : `${closedA ? "[" : "]"}${f(a)} ; ${f(b)}${closedB ? "]" : "["}`;
+}
+
+function fmt(n, lang, d = 2) {
+  if (!Number.isFinite(n)) return "∞";
+  let s = (Math.round(n * 10 ** d) / 10 ** d).toFixed(d);
+  if (s.includes(".")) s = s.replace(/\.?0+$/, ""); // strip only decimal zeros: with d = 0, "60" must stay "60"
+  if (s === "-0") s = "0";
+  return lang ? s : s.replace(".", ",");
+}
+
+function canvas(host,ctx) {
+  const c = document.createElement("canvas"); host.appendChild(c);
+  const g = c.getContext("2d");
+  const o = { c, g, W: 0, H: 0, handles: () => [], draw() {}, drag: null };
+  const resize = () => {
+    const r = host.getBoundingClientRect(), d = devicePixelRatio || 1;
+    // The stage is scaled by CSS transform: use layout size (offsetWidth), not the scaled rect.
+    o.W = host.clientWidth || r.width; o.H = host.clientHeight || r.height;
+    c.width = Math.round(o.W * d); c.height = Math.round(o.H * d); g.setTransform(d, 0, 0, d, 0, 0); o.redraw();
+  };
+  o.redraw = () => { g.clearRect(0, 0, o.W, o.H); g.fillStyle = C.bg; g.fillRect(0, 0, o.W, o.H); o.draw(g); };
+  const navigation=canvasNavigation(c,g,()=>[o.W||640,o.H||420],()=>o.redraw(),{host:ctx.controls,lang:ctx.lang?'en':'fr',canPan:([x,y])=>!o.rotate&&!o.handles().some(h=>Math.hypot(h.x-x,h.y-y)<(h.r||22))});
+  const pt=navigation.point;
+  c.addEventListener('view-gesture',()=>{o.drag=null;o.rotate?.end();});
+  const hit = (x, y) => { let best = null, bd = 1e9; for (const h of o.handles()) { const d = Math.hypot(h.x - x, h.y - y); if (d < (h.r || 22) && d < bd) { best = h; bd = d; } } return best; };
+  c.touchHit = e => { const [x, y] = pt(e); return !!hit(x, y); };
+  let t0 = 0, raf = 0;
+  const pulse = () => { o.t = performance.now() / 1000; if (!matchMedia("(prefers-reduced-motion: reduce)").matches) o.redraw(); raf = requestAnimationFrame(pulse); };
+  c.addEventListener("pointerdown", e => { const [x, y] = pt(e), h = hit(x, y); if (!h) { if(o.rotate){c.setPointerCapture(e.pointerId);o.rotate.start(e, pt);} return; } o.drag = h; c.setPointerCapture(e.pointerId); c.style.cursor = "grabbing"; e.preventDefault(); h.move(x, y); o.redraw(); });
+  c.addEventListener("pointermove", e => { const [x, y] = pt(e); if (o.drag) { o.drag.move(x, y); o.redraw(); } else if (o.rotate?.active) o.rotate.move(e, pt); else c.style.cursor = hit(x, y)?.cur || "default"; });
+  const end = () => { o.drag = null; o.rotate?.end(); c.style.cursor = "default"; o.redraw(); };
+  c.addEventListener("pointerup", end); c.addEventListener("pointercancel", end); c.addEventListener("lostpointercapture", end);
+  const ro = new ResizeObserver(resize);
+  o.start = inst => { Object.assign(o, inst); ro.observe(host); resize(); if (matchMedia("(prefers-reduced-motion: no-preference)").matches) raf = requestAnimationFrame(pulse); };
+  o.stop = () => { navigation.destroy();ro.disconnect(); cancelAnimationFrame(raf); };
+  return o;
+}
+
+// ---- drawing helpers shared by widgets
+function view(o, x0, x1, y0, y1, pad = 36) {
+  const w = o.W - 2 * pad, h = o.H - 2 * pad;
+  const v = { x0, x1, y0, y1, X: x => pad + (x - x0) / (x1 - x0) * w, Y: y => o.H - pad - (y - y0) / (y1 - y0) * h, iX: X => x0 + (X - pad) / w * (x1 - x0), iY: Y => y0 + (o.H - pad - Y) / h * (y1 - y0), pad };
+  return v;
+}
+function axes(g, v, o = {}) {
+  const sx = o.sx || 1, sy = o.sy || 1;
+  g.save(); g.lineWidth = 1; g.strokeStyle = C.grid; g.fillStyle = C.muted; g.font = `400 16px ${SERIF}`; g.textAlign = "center";
+  for (let x = Math.ceil(v.x0 / sx) * sx; x <= v.x1 + 1e-9; x += sx) { g.beginPath(); g.moveTo(v.X(x), v.Y(v.y0)); g.lineTo(v.X(x), v.Y(v.y1)); g.stroke(); if (!o.noLabels && Math.abs(x) > 1e-9) g.fillText(lab(x, o.lang), v.X(x), Math.min(v.Y(0), v.Y(v.y0)) + 16 > v.Y(v.y0) ? v.Y(v.y0) - 6 : v.Y(0) + 16); }
+  g.textAlign = "right";
+  for (let y = Math.ceil(v.y0 / sy) * sy; y <= v.y1 + 1e-9; y += sy) { g.beginPath(); g.moveTo(v.X(v.x0), v.Y(y)); g.lineTo(v.X(v.x1), v.Y(y)); g.stroke(); if (!o.noLabels && Math.abs(y) > 1e-9) g.fillText(lab(y, o.lang), v.X(0) - 6 < v.X(v.x0) + 24 ? v.X(v.x0) + 24 : v.X(0) - 6, v.Y(y) + 5); }
+  g.strokeStyle = C.axis; g.lineWidth = 1.6;
+  if (v.y0 <= 0 && v.y1 >= 0) { g.beginPath(); g.moveTo(v.X(v.x0), v.Y(0)); g.lineTo(v.X(v.x1), v.Y(0)); g.stroke(); }
+  if (v.x0 <= 0 && v.x1 >= 0) { g.beginPath(); g.moveTo(v.X(0), v.Y(v.y0)); g.lineTo(v.X(0), v.Y(v.y1)); g.stroke(); }
+  g.restore();
+}
+const lab = (x, lang) => fmt(x, lang, 2).replace("-", "\u2212");
+function curve(g, v, f, a, b, color = C.acc, w = 3) {
+  g.save(); g.strokeStyle = color; g.lineWidth = w; g.lineJoin = "round"; g.beginPath(); let pen = false;
+  const n = 400;
+  for (let i = 0; i <= n; i++) {
+    const x = a + (b - a) * i / n, y = f(x);
+    if (!Number.isFinite(y) || y > v.y1 * 4 || y < v.y0 * 4 && v.y0 < 0 || y < -1e6) { pen = false; continue; }
+    const X = v.X(x), Y = v.Y(y);
+    if (!pen) { g.moveTo(X, Y); pen = true; } else g.lineTo(X, Y);
+  }
+  g.stroke(); g.restore();
+}
+function dot(o, x, y, color = C.acc, label = "", cur = "grab", draggable = true, side = 1) {
+  const g = o.g; g.save();
+  if (draggable) { g.strokeStyle = color; g.lineWidth = 1.5; g.setLineDash([4, 4]); g.lineDashOffset = -(o.t || 0) * 8; g.beginPath(); g.arc(x, y, 15 + 2 * Math.sin((o.t || 0) * 3), 0, 7); g.stroke(); g.setLineDash([]); }
+  g.fillStyle = color; g.beginPath(); g.arc(x, y, 7, 0, 7); g.fill();
+  // side = -1 writes the label to the left, so two nearby points keep readable labels.
+  if (label) { const x0 = x + 14 * side, al = side < 0 ? "right" : "left"; if (isMath(label)) drawMath(g, label, x0, y - 12, C.ink, 20, al); else { g.fillStyle = C.ink; g.font = `italic 600 20px ${SERIF}`; g.textAlign = al; g.fillText(label, x0, y - 12); } }
+  g.restore();
+}
+function text(g, s, x, y, color = C.ink, size = 18, align = "left") { if (isMath(s)) { drawMath(g, s, x, y, color, size + 2, align); return; } g.save(); g.fillStyle = color; g.font = `${size + 2}px ${SERIF}`; g.textAlign = align; g.fillText(s, x, y); g.restore(); }
+function slider(ctx, label, min, max, step, val, on, fmtv) {
+  const l = document.createElement("label"), i = document.createElement("input"), s = document.createElement("span");
+  i.type = "range"; i.min = min; i.max = max; i.step = step; i.value = val; s.textContent = fmtv ? fmtv(+val) : val;
+  i.addEventListener("input", () => { s.textContent = fmtv ? fmtv(+i.value) : i.value; on(+i.value); });
+  const lb = document.createElement("span"); rich(lb, label); lb._t0 = 0; l.append(lb, " ", i, s); ctx.controls.appendChild(l); return i;
+}
+function choice(ctx, options, cur, on) {
+  if (!options.length) return;
+  if (options.length === 1) {
+    const [id, fr, en] = options[0], label = document.createElement('span');
+    label.className = 'select-value'; rich(label, ctx.L ? en : fr); ctx.controls.appendChild(label);
+    if (cur !== id) on(id);
+    return;
+  }
+  const wrap = document.createElement("div"); wrap.style.display = "flex"; wrap.style.gap = "8px";
+  options.forEach(([id, fr, en]) => {
+    const b = document.createElement("button"); rich(b, ctx.L ? en : fr); b.setAttribute("aria-pressed", id === cur);
+    b.onclick = () => { wrap.querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", "false")); b.setAttribute("aria-pressed", "true"); on(id); };
+    wrap.appendChild(b);
+  });
+  ctx.controls.appendChild(wrap);
+}
+const snap = (v, s = .5) => Math.round(v / s) * s;
+const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
+
+/* ---- widgets-2d.js ---- */
+{
+
+const set = (o, html) => rich(o.readout, html);
+const lines = (...a) => a.filter(Boolean).join("<br>");
+// Complex plane with the same scale on both axes: half-height r, width from the canvas aspect.
+const iso = (o, r) => { const w = o.W - 72, h = o.H - 72, k = w / Math.max(h, 1); return view(o, -r * k, r * k, -r, r); };
+// An angle in TeX: an exact multiple of pi/12 as a fraction of pi, otherwise a decimal. Normalised to ]-pi ; pi].
+const angTeX = (t, N) => {
+  t = Math.atan2(Math.sin(t), Math.cos(t)); const k = Math.round(t / (Math.PI / 12));
+  if (Math.abs(t - k * Math.PI / 12) > 1e-9) return N(t);
+  if (k === 0) return "0";
+  const gcd = (a, b) => (b ? gcd(b, a % b) : a), d = gcd(Math.abs(k), 12), p = Math.abs(k) / d, q = 12 / d, body = (p === 1 ? "" : p) + "\\pi";
+  return (k < 0 ? "-" : "") + (q === 1 ? body : `\\dfrac{${body}}{${q}}`);
+};
+const cTeX = (a, b, N) => tpoly([[a, ""], [b, "i"]], N);   // a+ib with implicit 1 and dropped zeros
+const modTeX = (a, b, N) => { const s = a * a + b * b, r = Math.sqrt(s); return Math.abs(r - Math.round(r * 4) / 4) < 1e-9 ? N(r) : `\\sqrt{${N(s)}}\\approx${N(r)}`; };
+// Polar handle: modulus snapped to a quarter, argument to pi/12, so that the readouts stay exact.
+const polarSnap = (x, y, rmin, rmax) => { const r = clamp(snap(Math.hypot(x, y), .25), rmin, rmax), t = snap(Math.atan2(y, x), Math.PI / 12); return [r * Math.cos(t), r * Math.sin(t)]; };
+const arrowTo = (g, V, P, Q, col, w = 3) => { g.save(); g.strokeStyle = g.fillStyle = col; g.lineWidth = w; const a = [V.X(P[0]), V.Y(P[1])], b = [V.X(Q[0]), V.Y(Q[1])]; g.beginPath(); g.moveTo(...a); g.lineTo(...b); g.stroke(); const t = Math.atan2(b[1] - a[1], b[0] - a[0]); if (Math.hypot(b[0] - a[0], b[1] - a[1]) > 12) { g.beginPath(); g.moveTo(...b); g.lineTo(b[0] - 13 * Math.cos(t - .4), b[1] - 13 * Math.sin(t - .4)); g.lineTo(b[0] - 13 * Math.cos(t + .4), b[1] - 13 * Math.sin(t + .4)); g.fill(); } g.restore(); };
+const ring = (g, V, r, col, dash = true) => { g.save(); g.strokeStyle = col; g.lineWidth = 1.5; if (dash) g.setLineDash([5, 5]); g.beginPath(); g.arc(V.X(0), V.Y(0), r * (V.X(1) - V.X(0)), 0, 7); g.stroke(); g.restore(); };
+const powmod = (a, k, n) => { let r = 1 % n, b = ((a % n) + n) % n; while (k > 0) { if (k & 1) r = r * b % n; b = b * b % n; k >>= 1; } return r; };
+const igcd = (a, b) => (b ? igcd(b, a % b) : Math.abs(a));
+// Readouts are prose with TeX formulas between \( and \): inl() wraps one formula, tpoly/tshift/tpt/tiv build TeX.
+
+
+
+var W2 = {
+  // Exponential C*b^x, common logarithm and reciprocal function share one canvas with a mode switch.
+  fn(o) {
+    let mode = o.spec.mode || "exp", C0 = 1, b = 1.5, k = 2, tx = 1, tx2 = 2; const v = () => (mode === "exp" ? view(o, -4, 4, -1, 8) : mode === "log" ? view(o, -1, 12, -3, 3) : view(o, -6, 6, -6, 6));
+    choice(o, [["exp", "Exponentielle", "Exponential"], ["log", "Logarithme décimal", "Common logarithm"], ["inv", "Inverse", "Reciprocal"]].filter(m => !o.spec.modes || o.spec.modes.includes(m[0])), mode, m => { mode = m; o.redraw(); });
+    return {
+      handles() {
+        const V = v();
+        if (mode === "exp") return [{ x: V.X(0), y: V.Y(C0), cur: "ns-resize", move(X, Y) { C0 = clamp(snap(V.iY(Y), .25), .25, 6); } }, { x: V.X(1), y: V.Y(C0 * b), cur: "ns-resize", move(X, Y) { b = clamp(snap(V.iY(Y) / C0, .05), .1, 3); } }];
+        if (mode === "log") return [{ x: V.X(10 ** tx), y: V.Y(tx), cur: "ew-resize", move(X) { tx = clamp(Math.log10(Math.max(.1, V.iX(X))), -1, 1.08); } }];
+        return [{ x: V.X(1), y: V.Y(k), cur: "ns-resize", move(X, Y) { k = clamp(snap(V.iY(Y), .5), -5, 5) || .5; } }, { x: V.X(tx2), y: V.Y(k / tx2), cur: "ew-resize", move(X) { tx2 = clamp(snap(V.iX(X), .25), -5.5, 5.5) || .25; } }];
+      },
+      draw(g) {
+        const V = v(), N = o.tn; axes(g, V, { lang: o.L, sx: mode === "log" ? 2 : 1 });
+        if (mode === "exp") {
+          curve(g, V, x => C0 * b ** x, -4, 4); dot(o, V.X(0), V.Y(C0), C.acc, "A", "grab", true, -1); dot(o, V.X(1), V.Y(C0 * b), C.warn, "B");
+          set(o, lines(inl(`f(x)=${N(C0)}\\times ${tpar(N, b)}^x`), `${inl(`A${tpt(o, 0, C0)}`)} · ${inl(`B${tpt(o, 1, C0 * b)}`)}`, o.pair(`Raison ${inl(`b=${N(b)}`)} : ${b > 1 ? "croissante" : b < 1 ? "décroissante" : "constante"}`, `Base ${inl(`b=${N(b)}`)}: ${b > 1 ? "increasing" : b < 1 ? "decreasing" : "constant"}`), o.pair(`Taux d’évolution par unité : ${inl(`${N((b - 1) * 100)}\\,\\%`)}`, `Rate of change per unit: ${inl(`${N((b - 1) * 100)}\\,\\%`)}`)));
+        } else if (mode === "log") {
+          curve(g, V, x => Math.log10(x), .001, 12); const x = 10 ** tx;
+          g.save(); g.strokeStyle = C.warn; g.setLineDash([6, 5]); g.beginPath(); g.moveTo(V.X(x), V.Y(0)); g.lineTo(V.X(x), V.Y(tx)); g.lineTo(V.X(0), V.Y(tx)); g.stroke(); g.restore();
+          dot(o, V.X(x), V.Y(tx), C.acc, "M");
+          set(o, lines(inl(`x=${N(x)}`), inl(`\\log(x)=${N(tx)}`), inl(`10^{${N(tx)}}=${N(x)}`), o.pair(`${inl("\\log 10=1")}, ${inl("\\log 1=0")} : le logarithme croît lentement.`, `${inl("\\log 10=1")}, ${inl("\\log 1=0")}: the logarithm grows slowly.`)));
+        } else {
+          curve(g, V, x => (x < -.12 || x > .12 ? k / x : NaN), -6, -.12); curve(g, V, x => k / x, .12, 6);
+          dot(o, V.X(1), V.Y(k), C.warn, "k"); const y = k / tx2; dot(o, V.X(tx2), V.Y(y), C.acc, "M");
+          set(o, lines(inl(`f(x)=\\dfrac{${N(k)}}{x}`), `${inl(`M${tpt(o, tx2, y)}`)} : ${inl(`x\\times y=${N(tx2 * y)}`)}`, k > 0 ? o.pair(`Décroissante sur ${inl(tiv(o, "-\\infty", 0, false, false))} et sur ${inl(tiv(o, 0, "+\\infty", false, false))}.`, `Decreasing on ${inl(tiv(o, "-\\infty", 0, false, false))} and on ${inl(tiv(o, 0, "+\\infty", false, false))}.`) : o.pair("Croissante sur chaque intervalle.", "Increasing on each interval."), o.pair(`Asymptotes : ${inl("x=0")} et ${inl("y=0")}.`, `Asymptotes: ${inl("x=0")} and ${inl("y=0")}.`)));
+        }
+      },
+    };
+  },
+
+  // Vectors from three draggable points: components, norms, dot product, angle, determinant.
+  vec(o) {
+    let A = [-3, -1], B = [2, 1], Cc = [0, 4]; const v = () => view(o, -6, 6, -4, 6);
+    return {
+      handles() { const V = v(); return [A, B, Cc].map(p => ({ x: V.X(p[0]), y: V.Y(p[1]), cur: "grab", move(X, Y) { p[0] = clamp(snap(V.iX(X)), -6, 6); p[1] = clamp(snap(V.iY(Y)), -4, 6); } })); },
+      draw(g) {
+        const V = v(); axes(g, V, { lang: o.L });
+        const arrow = (P, Q, col) => { g.save(); g.strokeStyle = g.fillStyle = col; g.lineWidth = 3; const a = [V.X(P[0]), V.Y(P[1])], b = [V.X(Q[0]), V.Y(Q[1])]; g.beginPath(); g.moveTo(...a); g.lineTo(...b); g.stroke(); const t = Math.atan2(b[1] - a[1], b[0] - a[0]); g.beginPath(); g.moveTo(...b); g.lineTo(b[0] - 14 * Math.cos(t - .4), b[1] - 14 * Math.sin(t - .4)); g.lineTo(b[0] - 14 * Math.cos(t + .4), b[1] - 14 * Math.sin(t + .4)); g.fill(); g.restore(); };
+        arrow(A, B, C.acc); arrow(A, Cc, C.warn);
+        dot(o, V.X(A[0]), V.Y(A[1]), C.ink, "A"); dot(o, V.X(B[0]), V.Y(B[1]), C.acc, "B"); dot(o, V.X(Cc[0]), V.Y(Cc[1]), C.warn, "C");
+        const u = [B[0] - A[0], B[1] - A[1]], w = [Cc[0] - A[0], Cc[1] - A[1]], N = o.tn;
+        const dp = u[0] * w[0] + u[1] * w[1], det = u[0] * w[1] - u[1] * w[0], nu = Math.hypot(...u), nw = Math.hypot(...w);
+        const ang = nu && nw ? Math.acos(clamp(dp / (nu * nw), -1, 1)) * 180 / Math.PI : NaN;
+        const nd = o.spec.noDot;
+        const AB = "\\overrightarrow{AB}", AC = "\\overrightarrow{AC}";
+        set(o, lines(inl(`${AB}=${tpt(o, u[0], u[1])},\\ ${AC}=${tpt(o, w[0], w[1])}`), nd ? "" : o.pair(`${inl(`${AB}\\cdot${AC}=${N(dp)}`)} ${dp === 0 ? `${inl("\\Rightarrow")} orthogonaux` : ""}`, `${inl(`${AB}\\cdot${AC}=${N(dp)}`)} ${dp === 0 ? `${inl("\\Rightarrow")} orthogonal` : ""}`), o.pair(`Déterminant ${inl(`\\det(${AB},${AC})=${N(det)}`)} ${det === 0 ? `${inl("\\Rightarrow")} colinéaires` : ""}`, `Determinant ${inl(`\\det(${AB},${AC})=${N(det)}`)} ${det === 0 ? `${inl("\\Rightarrow")} collinear` : ""}`), inl(`\\lVert ${AB}\\rVert=${N(nu)},\\ \\lVert ${AC}\\rVert=${N(nw)}`), nd ? "" : o.pair(`Angle ${inl("\\widehat{BAC}")} : ${Number.isNaN(ang) ? "—" : inl(`${N(ang, 1)}^\\circ`)}`, `Angle ${inl("\\widehat{BAC}")}: ${Number.isNaN(ang) ? "—" : inl(`${N(ang, 1)}^\\circ`)}`)));
+      },
+    };
+  },
+
+  // Limit of a sequence: drag the band half-width ε, the limit ℓ and u0; the threshold rank N is read off the plot.
+  limit(o) {
+    let mode = "harm", l = 2, c = 4, eps = .5, A = 40; const M = 30;
+    const v = () => (mode === "inf" ? view(o, -.5, M + .5, -6, 100) : view(o, -.5, M + .5, -4, 8));
+    const u = n => (mode === "harm" ? l + c / (n + 1) : mode === "geo" ? l + c * (-.8) ** n : n * n / 10);
+    choice(o, [["harm", inl("\\ell+\\tfrac{c}{n+1}"), inl("\\ell+\\tfrac{c}{n+1}")], ["geo", inl("\\ell+c(-0{,}8)^n"), inl("\\ell+c(-0.8)^n")], ["inf", inl("\\tfrac{n^2}{10}"), inl("\\tfrac{n^2}{10}")]], mode, m => { mode = m; o.redraw(); });
+    // |u(n) − ℓ| decreases and n²/10 increases, so the first rank that works is valid for every later rank.
+    const rank = () => { for (let n = 0; n <= 400; n++) if (mode === "inf" ? u(n) > A : Math.abs(u(n) - l) < eps) return n; return null; };
+    return {
+      handles() {
+        const V = v();
+        if (mode === "inf") return [{ x: V.X(M - 1), y: V.Y(A), cur: "ns-resize", move(X, Y) { A = clamp(snap(V.iY(Y), 1), 0, 90); } }];
+        return [{ x: V.X(0), y: V.Y(l + c), cur: "ns-resize", move(X, Y) { c = clamp(snap(V.iY(Y) - l, .25), -5, 5); } },
+          { x: V.X(M - 1), y: V.Y(l), cur: "ns-resize", move(X, Y) { l = clamp(snap(V.iY(Y), .25), -2, 5); } },
+          { x: V.X(M - 4), y: V.Y(l + eps), cur: "ns-resize", move(X, Y) { eps = clamp(snap(V.iY(Y) - l, .05), .05, 3); } }];
+      },
+      draw(g) {
+        const V = v(), N = o.tn, r = rank(); axes(g, V, { lang: o.L, sx: 5, sy: mode === "inf" ? 20 : 2 }); const rk = r === null ? "?" : r;
+        g.save(); g.beginPath(); g.rect(V.pad, V.pad, o.W - 2 * V.pad, o.H - 2 * V.pad); g.clip();
+        if (mode === "inf") { g.fillStyle = "rgba(111,211,176,.12)"; g.fillRect(V.X(-.5), V.Y(100), V.X(M + .5) - V.X(-.5), V.Y(A) - V.Y(100)); curve(g, V, () => A, -.5, M + .5, C.acc, 2); }
+        else { g.fillStyle = "rgba(111,211,176,.14)"; g.fillRect(V.X(-.5), V.Y(l + eps), V.X(M + .5) - V.X(-.5), V.Y(l - eps) - V.Y(l + eps)); curve(g, V, () => l, -.5, M + .5, C.acc, 2); }
+        if (r !== null && r <= M) { g.strokeStyle = C.blue; g.setLineDash([6, 5]); g.lineWidth = 1.5; g.beginPath(); g.moveTo(V.X(r), V.Y(V.y0)); g.lineTo(V.X(r), V.Y(V.y1)); g.stroke(); g.setLineDash([]); text(g, inl("N"), V.X(r) + 6, V.pad + 18, C.blue, 16); }
+        for (let n = 0; n <= M; n++) { const y = u(n), inside = mode === "inf" ? y > A : Math.abs(y - l) < eps; g.fillStyle = inside ? C.acc : C.warn; g.beginPath(); g.arc(V.X(n), V.Y(y), 4.5, 0, 7); g.fill(); }
+        g.restore();
+        if (mode === "inf") { dot(o, V.X(M - 1), V.Y(A), C.acc, "A", "grab", true, -1); set(o, lines(inl("u_n=\\dfrac{n^2}{10}"), inl(`A=${N(A)}`), o.pair(`${inl("u_n>A")} pour tout ${inl(`n\\geqslant N=${rk}`)}.`, `${inl("u_n>A")} for every ${inl(`n\\geq N=${rk}`)}.`), o.pair(`Tout seuil ${inl("A")} est dépassé à partir d’un certain rang : ${inl("u_n\\to+\\infty")}.`, `Every threshold ${inl("A")} is exceeded from some rank on: ${inl("u_n\\to+\\infty")}.`))); return; }
+        dot(o, V.X(0), V.Y(l + c), C.warn, inl("u_0")); dot(o, V.X(M - 1), V.Y(l), C.acc, inl("\\ell"), "grab", true, -1); dot(o, V.X(M - 4), V.Y(l + eps), C.blue, inl("\\varepsilon"), "grab", true, -1);
+        set(o, lines(inl(mode === "harm" ? `u_n=${N(l)}${sgn(c)}\\dfrac{${N(Math.abs(c))}}{n+1}` : `u_n=${N(l)}${sgn(c)}${N(Math.abs(c))}\\times(${N(-.8)})^n`), inl(`\\varepsilon=${N(eps)}`),
+          o.pair(`Tous les termes sont dans ${inl(tiv(o, l - eps, l + eps, false, false))} dès ${inl(`n\\geqslant N=${rk}`)}.`, `All terms lie in ${inl(tiv(o, l - eps, l + eps, false, false))} for ${inl(`n\\geq N=${rk}`)}.`),
+          o.pair(`Réduisez ${inl("\\varepsilon")} : ${inl("N")} augmente, mais il existe toujours. C’est la définition de ${inl("u_n\\to\\ell")}.`, `Shrink ${inl("\\varepsilon")}: ${inl("N")} grows, but it always exists. This is the definition of ${inl("u_n\\to\\ell")}.`)));
+      },
+    };
+  },
+
+  // Convexity: tangent at M and chord AB on three model functions; the strip under the plot shows the sign of f″.
+  convex(o) {
+    let mode = "cubic", m = -1.5, xa = -3, xb = -.5;
+    const F = { cubic: [x => x ** 3 / 4 - x, x => 3 * x * x / 4 - 1, x => 1.5 * x, [-4, 4, -4, 4], "f(x)=\\dfrac{x^3}{4}-x"], exp: [Math.exp, Math.exp, Math.exp, [-3, 2.5, -1, 8], "f(x)=\\mathrm{e}^x"], ln: [Math.log, x => 1 / x, x => -1 / (x * x), [-.5, 8, -3, 3], "f(x)=\\ln x"] };
+    const reset = () => { [m, xa, xb] = mode === "cubic" ? [-1.5, -3, -.5] : mode === "exp" ? [0, -2, 1.5] : [2, .5, 6]; };
+    choice(o, [["cubic", inl("\\tfrac{x^3}{4}-x"), inl("\\tfrac{x^3}{4}-x")], ["exp", inl("\\exp"), inl("\\exp")], ["ln", inl("\\ln"), inl("\\ln")]], mode, k => { mode = k; reset(); o.redraw(); });
+    const lo = () => (mode === "ln" ? .2 : F[mode][3][0] + .25), hi = () => F[mode][3][1] - .25;
+    return {
+      handles() {
+        const [f] = F[mode], V = view(o, ...F[mode][3]), x = X => clamp(snap(V.iX(X), .1), lo(), hi());
+        return [{ x: V.X(m), y: V.Y(f(m)), cur: "ew-resize", move(X) { m = x(X); } }, { x: V.X(xa), y: V.Y(f(xa)), cur: "ew-resize", move(X) { xa = Math.min(x(X), xb - .2); } }, { x: V.X(xb), y: V.Y(f(xb)), cur: "ew-resize", move(X) { xb = Math.max(x(X), xa + .2); } }];
+      },
+      draw(g) {
+        const [f, df, d2f, box, name] = F[mode], V = view(o, ...box), N = o.tn; axes(g, V, { lang: o.L });
+        const a0 = mode === "ln" ? .02 : box[0];
+        for (let i = 0; i < 200; i++) { const x = a0 + (box[1] - a0) * (i + .5) / 200; g.fillStyle = d2f(x) > 1e-9 ? C.acc : d2f(x) < -1e-9 ? C.warn : C.muted; g.fillRect(V.X(x), o.H - V.pad + 8, (V.X(box[1]) - V.X(a0)) / 200 + .5, 6); }
+        g.save(); g.beginPath(); g.rect(V.pad, V.pad, o.W - 2 * V.pad, o.H - 2 * V.pad); g.clip();
+        curve(g, V, x => (mode === "ln" && x <= 0 ? NaN : f(x)), a0, box[1]);
+        curve(g, V, x => f(m) + df(m) * (x - m), box[0], box[1], C.blue, 2);
+        const slope = (f(xb) - f(xa)) / (xb - xa), chord = x => f(xa) + slope * (x - xa); curve(g, V, chord, xa, xb, C.warn, 2.5); g.restore();
+        if (mode === "cubic") { dot(o, V.X(0), V.Y(0), C.muted, "I", "default", false); }
+        dot(o, V.X(m), V.Y(f(m)), C.blue, "M"); dot(o, V.X(xa), V.Y(f(xa)), C.warn, "A", "grab", true, -1); dot(o, V.X(xb), V.Y(f(xb)), C.warn, "B");
+        let above = 0, below = 0; for (let i = 1; i < 100; i++) { const x = xa + (xb - xa) * i / 100, d = f(x) - chord(x); if (d > 1e-9) above++; else if (d < -1e-9) below++; }
+        const k = d2f(m);
+        const kk = inl(`f''(${N(m)})=${N(k)}`), MM = inl("M"), AA = inl("A"), BB = inl("B"), iv_ = inl(tiv(o, "x_A", "x_B")), ff = inl("f");
+        set(o, lines(inl(name), o.pair(`${kk} : ${k > 1e-9 ? `convexe près de ${MM}, courbe au-dessus de la tangente` : k < -1e-9 ? `concave près de ${MM}, courbe au-dessous de la tangente` : `${inl("f''")} s’annule en ${MM}`}.`, `${kk}: ${k > 1e-9 ? `convex near ${MM}, curve above the tangent` : k < -1e-9 ? `concave near ${MM}, curve below the tangent` : `${inl("f''")} vanishes at ${MM}`}.`),
+          above && below ? o.pair(`Entre ${AA} et ${BB}, la courbe traverse la corde : ${ff} change de convexité sur ${iv_}.`, `Between ${AA} and ${BB} the curve crosses the chord: the convexity of ${ff} changes on ${iv_}.`) : below ? o.pair(`Entre ${AA} et ${BB}, la courbe est au-dessous de la corde (convexe sur cet intervalle).`, `Between ${AA} and ${BB} the curve lies below the chord (convex on this interval).`) : o.pair(`Entre ${AA} et ${BB}, la courbe est au-dessus de la corde (concave sur cet intervalle).`, `Between ${AA} and ${BB} the curve lies above the chord (concave on this interval).`),
+          mode === "cubic" ? o.pair(`${inl(`I${tpt(o, 0, 0)}`)} : ${inl("f''")} s’annule en changeant de signe (point d’inflexion).`, `${inl(`I${tpt(o, 0, 0)}`)}: ${inl("f''")} vanishes and changes sign (inflection point).`) : "",
+          o.pair(`Bande : vert ${inl("f''>0")}, orange ${inl("f''<0")}.`, `Strip: green ${inl("f''>0")}, orange ${inl("f''<0")}.`)));
+      },
+    };
+  },
+
+  // Scatter plot with draggable points: least-squares line and correlation (STMG, Seconde stats).
+  scatter(o) {
+    const P = [[1, 2], [2, 3], [3, 3.5], [4, 5], [5, 5.5], [6, 7]]; const v = () => view(o, 0, 8, 0, 10);
+    return {
+      handles() { const V = v(); return P.map(p => ({ x: V.X(p[0]), y: V.Y(p[1]), cur: "move", move(X, Y) { p[0] = clamp(snap(V.iX(X), .25), .25, 7.75); p[1] = clamp(snap(V.iY(Y), .25), .25, 9.75); } })); },
+      draw(g) {
+        const V = v(); axes(g, V, { lang: o.L }); const n = P.length, mx = P.reduce((s, p) => s + p[0], 0) / n, my = P.reduce((s, p) => s + p[1], 0) / n;
+        const sxx = P.reduce((s, p) => s + (p[0] - mx) ** 2, 0), sxy = P.reduce((s, p) => s + (p[0] - mx) * (p[1] - my), 0), syy = P.reduce((s, p) => s + (p[1] - my) ** 2, 0);
+        const N = o.tn; let txt;
+        if (sxx > 1e-9) { const a = sxy / sxx, b = my - a * mx; curve(g, V, x => a * x + b, 0, 8, C.warn, 2.5); const r = syy > 1e-9 ? sxy / Math.sqrt(sxx * syy) : NaN; txt = lines(o.pair(`Droite de régression : ${inl(`y=${tpoly([[a, "x"], [b, ""]], N)}`)}`, `Regression line: ${inl(`y=${tpoly([[a, "x"], [b, ""]], N)}`)}`), o.pair(`Coefficient de corrélation ${inl(`r=${N(r, 3)}`)}`, `Correlation coefficient ${inl(`r=${N(r, 3)}`)}`), o.pair(`Point moyen ${inl(`G${tpt(o, mx, my)}`)}`, `Mean point ${inl(`G${tpt(o, mx, my)}`)}`)); }
+        else txt = o.pair("Tous les x sont égaux : pas de droite de régression.", "All x are equal: no regression line.");
+        P.forEach((p, i) => dot(o, V.X(p[0]), V.Y(p[1]), C.acc, "")); dot(o, V.X(mx), V.Y(my), C.ink, "G", "default", false); set(o, txt);
+      },
+    };
+  },
+
+  // Probability tree: draggable bars set P(A), P_A(B), P_notA(B).
+  tree(o) {
+    let pa = .6, pb1 = .7, pb2 = .2; const rows = () => [[60, "P(A)"], [200, "P_A(B)"], [340, "P_{\\overline{A}}(B)"]];
+    const bx = 60, bw = o.W - 120;
+    return {
+      handles() { const bw_ = o.W - 120; return rows().map(([y], i) => ({ x: bx + [pa, pb1, pb2][i] * bw_, y: y + 18, cur: "ew-resize", move(X) { const val = clamp(snap((X - bx) / bw_, .05), 0, 1); if (i === 0) pa = val; else if (i === 1) pb1 = val; else pb2 = val; } })); },
+      draw(g) {
+        const bw_ = o.W - 120, N = o.tn;
+        rows().forEach(([y, l], i) => { const val = [pa, pb1, pb2][i]; text(g, inl(`${l}=${N(val)}`), bx, y - 8, C.ink, 20); g.fillStyle = C.grid; g.fillRect(bx, y, bw_, 36); g.fillStyle = C.acc; g.fillRect(bx, y, val * bw_, 36); dot(o, bx + val * bw_, y + 18, C.warn); });
+        const p = [pa * pb1, pa * (1 - pb1), (1 - pa) * pb2, (1 - pa) * (1 - pb2)], y0 = 400;
+        p.forEach((q, i) => { const w = q * bw_; const x = bx + p.slice(0, i).reduce((s, z) => s + z, 0) * bw_; g.fillStyle = i % 2 ? C.warn : C.acc; g.globalAlpha = .55 + .1 * (i % 2); g.fillRect(x, y0, w, 30); g.globalAlpha = 1; });
+        text(g, o.pair("Aire = probabilité du chemin", "Area = probability of the path"), bx, y0 + 52, C.muted, 16);
+        const pB = p[0] + p[2];
+        set(o, lines(inl(`P(A\\cap B)=${N(p[0], 3)}`), inl(`P(A\\cap\\overline{B})=${N(p[1], 3)}`), inl(`P(\\overline{A}\\cap B)=${N(p[2], 3)}`), inl(`P(\\overline{A}\\cap\\overline{B})=${N(p[3], 3)}`), o.pair(`Probabilités totales : ${inl(`P(B)=${N(pB, 3)}`)}`, `Total probability: ${inl(`P(B)=${N(pB, 3)}`)}`), pB > 0 ? inl(`P_B(A)=${N(p[0] / pB, 3)}`) : ""));
+      },
+    };
+  },
+
+  // Distribution of a discrete random variable with four values: draggable bar tops, normalised.
+  rv(o) {
+    const xs = [0, 1, 2, 3]; const w = [1, 2, 2, 1]; const v = () => view(o, -.7, 3.7, 0, 1, 44);
+    return {
+      handles() { const V = v(), s = w.reduce((a, b) => a + b, 0); return w.map((q, i) => ({ x: V.X(xs[i]), y: V.Y(q / s), cur: "ns-resize", move(X, Y) { const others = s - q, t = clamp(V.iY(Y), .02, .9); w[i] = Math.max(.1, (t * others) / (1 - t)); } })); },
+      draw(g) {
+        const V = v(), s = w.reduce((a, b) => a + b, 0); axes(g, V, { lang: o.L, sx: 1, sy: .25 });
+        const p = w.map(q => q / s), E = p.reduce((a, q, i) => a + q * xs[i], 0), Vr = p.reduce((a, q, i) => a + q * (xs[i] - E) ** 2, 0);
+        p.forEach((q, i) => { g.fillStyle = C.acc; const bw = (V.X(1) - V.X(0)) * .5; g.fillRect(V.X(xs[i]) - bw / 2, V.Y(q), bw, V.Y(0) - V.Y(q)); dot(o, V.X(xs[i]), V.Y(q), C.warn); });
+        g.save(); g.strokeStyle = C.ink; g.setLineDash([6, 5]); g.beginPath(); g.moveTo(V.X(E), V.Y(0)); g.lineTo(V.X(E), V.Y(1)); g.stroke(); g.restore(); text(g, inl("E(X)"), V.X(E) + 6, V.Y(.95), C.ink, 16);
+        const N = o.tn; set(o, lines(p.map((q, i) => inl(`P(X=${xs[i]})=${N(q, 3)}`)).join("<br>"), inl(`E(X)=${N(E, 3)}`), inl(`V(X)=${N(Vr, 3)}`), inl(`\\sigma(X)=${N(Math.sqrt(Vr), 3)}`)));
+      },
+    };
+  },
+
+  // Percentage change: draggable rate handles on two successive changes.
+  pct(o) {
+    let t1 = .2, t2 = -.2; const bx = 60; const Y1 = () => o.H * .17, Y2 = () => o.H * .38;
+    return {
+      handles() { const s = (o.W - 120) / 1.0; return [{ x: bx + (t1 + .5) * s, y: Y1(), cur: "ew-resize", move(X) { t1 = clamp(snap((X - bx) / s - .5, .01), -.5, .5); } }, { x: bx + (t2 + .5) * s, y: Y2(), cur: "ew-resize", move(X) { t2 = clamp(snap((X - bx) / s - .5, .01), -.5, .5); } }]; },
+      draw(g) {
+        const s = o.W - 120, N = o.tn; [[t1, Y1(), "t_1"], [t2, Y2(), "t_2"]].forEach(([t, y, l]) => { g.fillStyle = C.grid; g.fillRect(bx, y - 4, s, 8); g.fillStyle = C.axis; g.fillRect(bx + s / 2 - 1, y - 14, 2, 28); dot(o, bx + (t + .5) * s, y, C.acc); text(g, inl(`${l}=${N(t * 100, 0)}\\,\\%`), bx, y - 26, C.ink, 20); });
+        const cm = (1 + t1) * (1 + t2); const y0 = o.H * .56, step = o.H * .1, bh = o.H * .07; [["100", 100], [o.num(100 * (1 + t1), 1), 100 * (1 + t1)], [o.num(100 * cm, 1), 100 * cm]].forEach(([l, v], i) => { const w = v / 150 * s; g.fillStyle = i === 2 ? C.warn : C.acc; g.globalAlpha = .8; g.fillRect(bx, y0 + i * step, w, bh); g.globalAlpha = 1; text(g, l, bx + w + 10, y0 + i * step + bh * .75, C.ink, 18); });
+        set(o, lines(inl(`CM_1=1${sgn(t1)}${N(Math.abs(t1), 2)}=${N(1 + t1, 3)}`), inl(`CM_2=1${sgn(t2)}${N(Math.abs(t2), 2)}=${N(1 + t2, 3)}`), o.pair(`Coefficient global : ${inl(N(cm, 4))}`, `Overall multiplier: ${inl(N(cm, 4))}`), o.pair(`Évolution globale : ${inl(`${N((cm - 1) * 100, 2)}\\,\\%`)}`, `Overall change: ${inl(`${N((cm - 1) * 100, 2)}\\,\\%`)}`), Math.abs(cm - 1) > 1e-9 ? o.pair(`Taux réciproque : ${inl(`${N((1 / cm - 1) * 100, 2)}\\,\\%`)}`, `Reverse rate: ${inl(`${N((1 / cm - 1) * 100, 2)}\\,\\%`)}`) : ""));
+      },
+    };
+  },
+
+  // Reference functions: draggable point on the curve; image, preimages.
+  ref(o) {
+    let kind = "square", x0 = 1.5; const F = { square: x => x * x, inverse: x => 1 / x, sqrt: x => Math.sqrt(x), cube: x => x ** 3, abs: x => Math.abs(x), affine: x => 0.5 * x + 1 }; const v = () => view(o, -5, 5, -5, 5);
+    choice(o, [["square", inl("x^2"), inl("x^2")], ["inverse", inl("\\tfrac{1}{x}"), inl("\\tfrac{1}{x}")], ["sqrt", inl("\\sqrt{x}"), inl("\\sqrt{x}")], ["cube", inl("x^3"), inl("x^3")], ["abs", inl("|x|"), inl("|x|")], ["affine", inl("ax+b"), inl("ax+b")]], kind, k => { kind = k; x0 = k === "sqrt" ? 2 : 1.5; o.redraw(); });
+    return {
+      handles() { const V = v(), y = F[kind](x0); return Number.isFinite(y) ? [{ x: V.X(x0), y: V.Y(clamp(y, -5, 5)), cur: "ew-resize", move(X) { let t = snap(V.iX(X), .25); if (kind === "inverse" && Math.abs(t) < .25) t = t < 0 ? -.25 : .25; if (kind === "sqrt") t = Math.max(0, t); x0 = clamp(t, -4.75, 4.75); } }] : []; },
+      draw(g) {
+        const V = v(), f = F[kind], N = o.tn; axes(g, V, { lang: o.L });
+        if (kind === "inverse") { curve(g, V, f, -5, -.1); curve(g, V, f, .1, 5); } else curve(g, V, f, kind === "sqrt" ? 0 : -5, 5);
+        const y = f(x0); g.save(); g.strokeStyle = C.warn; g.setLineDash([6, 5]); g.lineWidth = 2; g.beginPath(); g.moveTo(V.X(x0), V.Y(0)); g.lineTo(V.X(x0), V.Y(clamp(y, -5, 5))); g.lineTo(V.X(0), V.Y(clamp(y, -5, 5))); g.stroke(); g.restore(); dot(o, V.X(x0), V.Y(clamp(y, -5, 5)), C.acc, "M");
+        let pre; if (kind === "square") pre = y > 0 ? [-Math.sqrt(y), Math.sqrt(y)] : [0]; else if (kind === "abs") pre = y > 0 ? [-y, y] : [0]; else if (kind === "inverse") pre = [1 / y]; else if (kind === "sqrt") pre = [y * y]; else if (kind === "cube") pre = [Math.cbrt(y)]; else pre = [(y - 1) / .5];
+        set(o, lines(o.pair(`Image de ${inl(N(x0))} : ${inl(`f(${N(x0)})=${N(y, 3)}`)}`, `Image of ${inl(N(x0))}: ${inl(`f(${N(x0)})=${N(y, 3)}`)}`), o.pair(`Antécédent(s) de ${inl(N(y, 3))} : ${pre.map(q => inl(N(q, 3))).join(" ; ")}`, `Preimage(s) of ${inl(N(y, 3))}: ${pre.map(q => inl(N(q, 3))).join(", ")}`), kind === "square" ? o.pair(`Décroissante sur ${inl(tiv(o, "-\\infty", 0, false, true))}, croissante sur ${inl(tiv(o, 0, "+\\infty", true, false))}.`, `Decreasing on ${inl(tiv(o, "-\\infty", 0, false, true))}, increasing on ${inl(tiv(o, 0, "+\\infty", true, false))}.`) : kind === "inverse" ? o.pair(`Décroissante sur chaque intervalle, définie sur ${inl("\\mathbb{R}^*")}.`, `Decreasing on each interval, defined on ${inl("\\mathbb{R}\\setminus\\{0\\}")}.`) : ""));
+      },
+    };
+  },
+
+  // Intervals: two draggable intervals on a number line, with intersection and union.
+  interval(o) {
+    const I = [-3, 2], J = [0, 5]; const incl = [true, true, false, true]; const v = () => view(o, -8, 8, 0, 1, 40);
+    return {
+      handles() { const V = v(); return [[I, 0, .7], [I, 1, .7], [J, 0, .4], [J, 1, .4]].map(([a, k, y]) => ({ x: V.X(a[k]), y: V.Y(y), cur: "ew-resize", move(X) { a[k] = clamp(snap(V.iX(X), .5), -7.5, 7.5); } })); },
+      draw(g) {
+        const V = v(); axes(g, V, { lang: o.L, sx: 1, sy: 1e9 });
+        const [a, b] = [Math.min(...I), Math.max(...I)], [c, d] = [Math.min(...J), Math.max(...J)];
+        const seg = (x0, x1, y, col) => { g.save(); g.strokeStyle = col; g.lineWidth = 6; g.beginPath(); g.moveTo(V.X(x0), V.Y(y)); g.lineTo(V.X(x1), V.Y(y)); g.stroke(); g.restore(); };
+        seg(a, b, .7, C.acc); seg(c, d, .4, C.warn); const lo = Math.max(a, c), hi = Math.min(b, d); if (lo <= hi) seg(lo, hi, .15, C.ink);
+        [[I, .7, C.acc], [J, .4, C.warn]].forEach(([arr, y, col]) => arr.forEach(e => dot(o, V.X(e), V.Y(y), col)));
+        const N = o.tn, br = tiv(o, a, b), br2 = tiv(o, c, d), cx = (a + b) / 2, xc = Math.abs(cx) < 1e-9 ? "x" : `x${cx < 0 ? "+" : "-"}${N(Math.abs(cx))}`;
+        set(o, lines(inl(`I=${br}`), inl(`J=${br2}`), inl(`I\\cap J=${lo <= hi ? tiv(o, lo, hi) : "\\varnothing"}`), inl(lo <= hi ? `I\\cup J=${tiv(o, Math.min(a, c), Math.max(b, d))}` : `I\\cup J=${br}\\cup ${br2}`), o.pair(`${inl(`|${xc}|\\leqslant ${N((b - a) / 2)}`)} décrit ${inl("I")}`, `${inl(`|${xc}|\\leq ${N((b - a) / 2)}`)} describes ${inl("I")}`)));
+      },
+    };
+  },
+  // Complex plane, same scale on both axes. Modes: alg (drag z: parts, conjugate, z times its conjugate), polar (drag z:
+  // modulus, argument, trigonometric and exponential forms), product (drag z and w: moduli multiply, arguments add).
+  complex(o) {
+    const mode = o.spec.mode || "alg", R = 4.5, v = () => iso(o, R);
+    let z = mode === "alg" ? [2, 1.5] : mode === "polar" ? [1, Math.sqrt(3)] : [1.5 * Math.cos(Math.PI / 6), 1.5 * Math.sin(Math.PI / 6)];
+    let w = [Math.SQRT2, Math.SQRT2];
+    const place = (p, X, Y, rmax) => { const V = v(), x = V.iX(X), y = V.iY(Y); if (mode === "alg") { p[0] = clamp(snap(x), -4, 4); p[1] = clamp(snap(y), -4, 4); } else { const q = polarSnap(x, y, .5, rmax); p[0] = q[0]; p[1] = q[1]; } };
+    const rmax = mode === "product" ? 2 : 4;
+    return {
+      handles() { const V = v(), h = [{ x: V.X(z[0]), y: V.Y(z[1]), cur: "grab", move(X, Y) { place(z, X, Y, rmax); } }]; if (mode === "product") h.push({ x: V.X(w[0]), y: V.Y(w[1]), cur: "grab", move(X, Y) { place(w, X, Y, rmax); } }); return h; },
+      draw(g) {
+        const V = v(), N = o.tn, O = [0, 0], [a, b] = z, r = Math.hypot(a, b), t = Math.atan2(b, a); axes(g, V, { lang: o.L });
+        const exact = x => Math.abs(x * 4 - Math.round(x * 4)) < 1e-9, eq4 = x => (Math.abs(x * 1e4 - Math.round(x * 1e4)) < 1e-6 ? "=" : "\\approx"), eq = (x, y) => (exact(x) && exact(y) ? "=" : "\\approx");
+        const arc = (th, rad, col) => { g.save(); g.strokeStyle = col; g.lineWidth = 2.5; g.beginPath(); g.arc(V.X(0), V.Y(0), rad, 0, -th, th > 0); g.stroke(); g.restore(); };
+        const expo = (rr, th) => { const s = angTeX(th, N).replace(/\\dfrac/g, "\\tfrac"), k = Math.abs(rr - 1) < 1e-9 ? "" : N(rr) + "\\,"; return s === "0" ? N(rr) : `${k}\\mathrm{e}^{${s[0] === "-" ? "-i" + s.slice(1) : "i" + s}}`; };
+        if (mode === "alg") {
+          g.save(); g.setLineDash([5, 5]); g.strokeStyle = C.muted; g.lineWidth = 1.5; g.beginPath(); g.moveTo(V.X(a), V.Y(b)); g.lineTo(V.X(a), V.Y(-b)); g.moveTo(V.X(a), V.Y(b)); g.lineTo(V.X(0), V.Y(b)); g.stroke(); g.restore();
+          arrowTo(g, V, O, z, C.acc); dot(o, V.X(a), V.Y(-b), C.blue, inl("\\overline{z}"), "default", false); dot(o, V.X(a), V.Y(b), C.acc, inl("z"));
+          const kind = b === 0 ? o.pair(`${inl("z")} est réel : ${inl("z=\\overline{z}")}.`, `${inl("z")} is real: ${inl("z=\\overline{z}")}.`) : a === 0 ? o.pair(`${inl("z")} est imaginaire pur : ${inl("\\overline{z}=-z")}.`, `${inl("z")} is purely imaginary: ${inl("\\overline{z}=-z")}.`) : "";
+          set(o, lines(inl(`z=${cTeX(a, b, N)}`), o.pair(`Partie réelle ${inl(`\\operatorname{Re}(z)=${N(a)}`)}, partie imaginaire ${inl(`\\operatorname{Im}(z)=${N(b)}`)}`, `Real part ${inl(`\\operatorname{Re}(z)=${N(a)}`)}, imaginary part ${inl(`\\operatorname{Im}(z)=${N(b)}`)}`),
+            o.pair(`Conjugué ${inl(`\\overline{z}=${cTeX(a, -b, N)}`)}`, `Conjugate ${inl(`\\overline{z}=${cTeX(a, -b, N)}`)}`), inl(`z\\overline{z}=${tpar(N, a)}^2+${tpar(N, b)}^2=${N(a * a + b * b)}`), kind));
+        } else if (mode === "polar") {
+          ring(g, V, r, C.muted); arc(t, 34, C.warn); arrowTo(g, V, O, z, C.acc); dot(o, V.X(a), V.Y(b), C.acc, inl("z"));
+          const s = angTeX(t, N), par = s[0] === "-" ? `\\left(${s}\\right)` : s;
+          set(o, lines(inl(`z${eq(a, b)}${cTeX(a, b, N)}`), o.pair(`Module ${inl(`|z|=${modTeX(a, b, N)}`)}`, `Modulus ${inl(`|z|=${modTeX(a, b, N)}`)}`), o.pair(`Argument ${inl(`\\arg z\\equiv${s}\\pmod{2\\pi}`)}`, `Argument ${inl(`\\arg z\\equiv${s}\\pmod{2\\pi}`)}`),
+            inl(`z=${Math.abs(r - 1) < 1e-9 ? "" : N(r)}\\left(\\cos${par}+i\\sin${par}\\right)=${expo(r, t)}`)));
+        } else {
+          const p = [a * w[0] - b * w[1], a * w[1] + b * w[0]], rw = Math.hypot(...w), tw = Math.atan2(w[1], w[0]);
+          ring(g, V, 1, C.grid, false); arc(t, 30, C.acc); arc(tw, 44, C.blue); arc(Math.atan2(p[1], p[0]), 58, C.warn);
+          arrowTo(g, V, O, z, C.acc); arrowTo(g, V, O, w, C.blue); arrowTo(g, V, O, p, C.warn, 3.5);
+          dot(o, V.X(a), V.Y(b), C.acc, inl("z")); dot(o, V.X(w[0]), V.Y(w[1]), C.blue, inl("w")); dot(o, V.X(p[0]), V.Y(p[1]), C.warn, inl("zw"), "default", false);
+          const sz = angTeX(t, N), sw = angTeX(tw, N), add = sw[0] === "-" ? `\\left(${sw}\\right)` : sw;
+          set(o, lines(inl(`z=${expo(r, t)},\\ w=${expo(rw, tw)}`), inl(`|zw|=|z|\\times|w|=${N(r, 4)}\\times${N(rw, 4)}${eq4(r * rw)}${N(r * rw, 4)}`),
+            inl(`\\arg(zw)\\equiv${sz}+${add}\\equiv${angTeX(t + tw, N)}\\pmod{2\\pi}`), inl(`zw=${expo(r * rw, t + tw)}${eq(p[0], p[1])}${cTeX(p[0], p[1], N)}`)));
+        }
+      },
+    };
+  },
+
+  // Quadratic equation with real coefficients, built from its roots: drag z1; off the real axis its conjugate is the
+  // other root, on the axis a second real root z2 appears. Readout: equation, discriminant, roots, sum and product.
+  cquad(o) {
+    const z1 = [1, 2]; let x2 = -1; const v = () => iso(o, 4);
+    return {
+      handles() {
+        const V = v(), h = [{ x: V.X(z1[0]), y: V.Y(z1[1]), cur: "grab", move(X, Y) { z1[0] = clamp(snap(V.iX(X), .25), -3.5, 3.5); const y = clamp(snap(V.iY(Y), .25), -3.5, 3.5); z1[1] = Math.abs(y) < .15 ? 0 : y; } }];
+        if (z1[1] === 0) h.push({ x: V.X(x2), y: V.Y(0), cur: "ew-resize", move(X) { x2 = clamp(snap(V.iX(X), .25), -3.5, 3.5); } });
+        return h;
+      },
+      draw(g) {
+        // coordinates snap to 0.25, so P = x^2 + y^2 (or x*x2) needs 4 decimals to be printed exactly
+        const V = v(), N = (t, d = 4) => o.tn(t, d), [x, y] = z1; axes(g, V, { lang: o.L });
+        const S = y ? 2 * x : x + x2, P = y ? x * x + y * y : x * x2, D = S * S - 4 * P, eqn = inl(`z^2${tpoly([[-S, "z"], [P, ""]], N).replace(/^(?!-)/, "+").replace(/^\+0$/, "")}=0`);
+        if (y) { ring(g, V, Math.sqrt(P), C.muted); g.save(); g.setLineDash([5, 5]); g.strokeStyle = C.blue; g.lineWidth = 1.5; g.beginPath(); g.moveTo(V.X(x), V.Y(y)); g.lineTo(V.X(x), V.Y(-y)); g.stroke(); g.restore(); dot(o, V.X(x), V.Y(-y), C.blue, inl("z_2=\\overline{z_1}"), "default", false); }
+        else dot(o, V.X(x2), V.Y(0), C.blue, inl("z_2"), "ew-resize", true, x2 < x ? -1 : 1);
+        dot(o, V.X(x), V.Y(y), C.acc, inl("z_1"), "grab", true, y || x2 >= x ? 1 : -1);
+        // -D = 4y^2, so sqrt(-D) = 2|y| is exact: show the simplified step (sqrt(16) -> 4i) as a class would write it.
+        const k = 2 * Math.abs(y), sq = D < 0 ? `=\\dfrac{${N(S)}\\pm ${k === 1 ? "" : N(k)}i}{2}` : "";
+        const roots = D < 0 ? o.pair(`${inl("\\Delta<0")} : deux racines complexes conjuguées ${inl(`z_{1,2}=\\dfrac{${N(S)}\\pm i\\sqrt{${N(-D)}}}{2}${sq}=${cTeX(x, y, N)}\\ \\text{ou}\\ ${cTeX(x, -y, N)}`)}`, `${inl("\\Delta<0")}: two conjugate complex roots ${inl(`z_{1,2}=\\dfrac{${N(S)}\\pm i\\sqrt{${N(-D)}}}{2}${sq}=${cTeX(x, y, N)}\\ \\text{or}\\ ${cTeX(x, -y, N)}`)}`)
+          : D === 0 ? o.pair(`${inl("\\Delta=0")} : une racine réelle double ${inl(`z_0=${N(S / 2)}`)}`, `${inl("\\Delta=0")}: one double real root ${inl(`z_0=${N(S / 2)}`)}`)
+          : o.pair(`${inl("\\Delta>0")} : deux racines réelles ${inl(`${N(Math.min(x, x2))}`)} et ${inl(`${N(Math.max(x, x2))}`)}`, `${inl("\\Delta>0")}: two real roots ${inl(`${N(Math.min(x, x2))}`)} and ${inl(`${N(Math.max(x, x2))}`)}`);
+        set(o, lines(eqn, o.pair(`Discriminant ${inl(`\\Delta=${tpar(N, -S)}^2-4\\times${tpar(N, P)}=${N(D)}`)}`, `Discriminant ${inl(`\\Delta=${tpar(N, -S)}^2-4\\times${tpar(N, P)}=${N(D)}`)}`), roots,
+          o.pair(`Somme ${inl(`z_1+z_2=${N(S)}`)}, produit ${inl(`z_1z_2=${N(P)}`)}`, `Sum ${inl(`z_1+z_2=${N(S)}`)}, product ${inl(`z_1z_2=${N(P)}`)}`)));
+      },
+    };
+  },
+
+  // n-th roots of a complex number a: drag a (modulus and argument snap), choose n. The roots form a regular polygon
+  // on the circle of radius |a|^(1/n); their sum is zero.
+  roots(o) {
+    const a = [1, 0]; let n = o.spec.n || 6; const v = () => iso(o, 4.4);
+    slider(o, inl("n"), 2, 12, 1, n, q => { n = q; o.redraw(); });
+    return {
+      handles() { const V = v(); return [{ x: V.X(a[0]), y: V.Y(a[1]), cur: "grab", move(X, Y) { const q = polarSnap(V.iX(X), V.iY(Y), .25, 4); a[0] = q[0]; a[1] = q[1]; } }]; },
+      draw(g) {
+        const V = v(), N = o.tn, r = Math.hypot(...a), t = Math.atan2(a[1], a[0]), rho = r ** (1 / n); axes(g, V, { lang: o.L });
+        const z = Array.from({ length: n }, (_, k) => [rho * Math.cos((t + 2 * k * Math.PI) / n), rho * Math.sin((t + 2 * k * Math.PI) / n)]);
+        ring(g, V, rho, C.muted); g.save(); g.strokeStyle = C.blue; g.fillStyle = "rgba(143,183,255,.14)"; g.lineWidth = 2; g.beginPath(); z.forEach((p, k) => (k ? g.lineTo(V.X(p[0]), V.Y(p[1])) : g.moveTo(V.X(p[0]), V.Y(p[1])))); g.closePath(); g.fill(); g.stroke(); g.restore();
+        z.forEach((p, k) => dot(o, V.X(p[0]), V.Y(p[1]), C.blue, k ? "" : inl("z_0"), "default", false));
+        arrowTo(g, V, [0, 0], a, C.acc); dot(o, V.X(a[0]), V.Y(a[1]), C.acc, inl("a"));
+        const s = angTeX(t, N), ks = o.L ? `k\\in\\{0,\\ldots,${n - 1}\\}` : `k\\in\\llbracket 0\\,;${n - 1}\\rrbracket`;
+        set(o, lines(o.pair(`${inl(`a=${Math.abs(r - 1) < 1e-9 ? "" : N(r) + "\\,"}\\mathrm{e}^{i\\theta}`)} avec ${inl(`\\theta=${s}`)}`, `${inl(`a=${Math.abs(r - 1) < 1e-9 ? "" : N(r) + "\\,"}\\mathrm{e}^{i\\theta}`)} with ${inl(`\\theta=${s}`)}`),
+          o.pair(`Solutions de ${inl(`z^{${n}}=a`)} : ${inl(`z_k=\\sqrt[${n}]{${N(r)}}\\,\\mathrm{e}^{i\\frac{\\theta+2k\\pi}{${n}}}`)}, ${inl(ks)}`, `Solutions of ${inl(`z^{${n}}=a`)}: ${inl(`z_k=\\sqrt[${n}]{${N(r)}}\\,\\mathrm{e}^{i\\frac{\\theta+2k\\pi}{${n}}}`)}, ${inl(ks)}`),
+          o.pair(`Module commun ${inl(`|z_k|\\approx${N(rho, 3)}`)} ; polygone régulier à ${inl(String(n))} sommets`, `Common modulus ${inl(`|z_k|\\approx${N(rho, 3)}`)}; regular polygon with ${inl(String(n))} vertices`),
+          inl(`z_0+z_1+\\cdots+z_{${n - 1}}=0`)));
+      },
+    };
+  },
+
+  // Residues modulo n on a clock: drag a around the clock, set n. Mode powers: the successive powers of a (period, and
+  // Fermat's little theorem when n is prime). Mode inverse: multiplication by a, inverse of a when gcd(a, n) = 1.
+  modclock(o) {
+    const mode = o.spec.mode || "powers"; let n = o.spec.n || 7, a = o.spec.a || 3;
+    slider(o, inl("n"), 2, 30, 1, n, q => { n = q; a = Math.min(a, n - 1); o.redraw(); });
+    const geo = () => { const cx = o.W / 2, cy = o.H / 2 + 6, R = Math.min(o.W, o.H) / 2 - 46; return { cx, cy, R, at: k => [cx + R * Math.sin(2 * Math.PI * k / n), cy - R * Math.cos(2 * Math.PI * k / n)] }; };
+    return {
+      handles() { const G = geo(), [x, y] = G.at(a); return [{ x, y, cur: "grab", move(X, Y) { const t = Math.atan2(X - G.cx, -(Y - G.cy)); a = ((Math.round(t / (2 * Math.PI / n)) % n) + n) % n; } }]; },
+      draw(g) {
+        const G = geo(), N = o.tn, d = igcd(a, n), name = o.L ? "\\gcd" : "\\operatorname{PGCD}";
+        g.save(); g.strokeStyle = C.grid; g.lineWidth = 2; g.beginPath(); g.arc(G.cx, G.cy, G.R, 0, 7); g.stroke(); g.restore();
+        for (let k = 0; k < n; k++) { const [x, y] = G.at(k), [lx, ly] = [G.cx + (G.R + 24) * Math.sin(2 * Math.PI * k / n), G.cy - (G.R + 24) * Math.cos(2 * Math.PI * k / n)]; g.save(); g.fillStyle = C.muted; g.beginPath(); g.arc(x, y, 4, 0, 7); g.fill(); g.restore(); text(g, String(k), lx, ly + 6, C.muted, 14, "center"); }
+        const chord = (i, j, col) => { const P = G.at(i), Q = G.at(j); arrowTo(g, { X: s => s, Y: s => s }, P, Q, col, 2.5); };
+        if (mode === "powers") {
+          const seen = new Map(), seq = []; let x = 1 % n; while (!seen.has(x)) { seen.set(x, seq.length); seq.push(x); x = x * a % n; }
+          for (let k = 0; k + 1 < seq.length; k++) chord(seq[k], seq[k + 1], C.acc); if (seq.length > 1 || x !== seq[0]) chord(seq[seq.length - 1], x, C.acc);
+          seq.forEach(k => { const [px, py] = G.at(k); g.save(); g.fillStyle = C.acc; g.beginPath(); g.arc(px, py, 6, 0, 7); g.fill(); g.restore(); });
+          dot(o, ...G.at(a), C.warn, inl("a"));
+          const shown = seq.slice(0, 8).map((r, k) => `${a}^{${k}}\\equiv${r}`).join(",\\ ") + (seq.length > 8 ? ",\\ \\ldots" : "");
+          const isPrime = n > 1 && Array.from({ length: n - 2 }, (_, i) => i + 2).every(p => n % p);
+          const period = d === 1 ? o.pair(`Retour à 1 : plus petit ${inl("m\\geqslant1")} tel que ${inl(`${a}^m\\equiv1\\pmod{${n}}`)} : ${inl(`m=${seq.length}`)}`, `Back to 1: least ${inl("m\\geqslant1")} with ${inl(`${a}^m\\equiv1\\pmod{${n}}`)}: ${inl(`m=${seq.length}`)}`)
+            : o.pair(`${inl(`${name}(${a},${n})=${d}`)} : aucune puissance ${inl(`${a}^m`)}, ${inl("m\\geqslant1")}, n'est congrue à 1`, `${inl(`${name}(${a},${n})=${d}`)}: no power ${inl(`${a}^m`)}, ${inl("m\\geqslant1")}, is congruent to 1`);
+          const fermat = isPrime && a % n ? o.pair(`${inl(String(n))} est premier : ${inl(`${a}^{${n - 1}}\\equiv${powmod(a, n - 1, n)}\\pmod{${n}}`)} (petit théorème de Fermat)`, `${inl(String(n))} is prime: ${inl(`${a}^{${n - 1}}\\equiv${powmod(a, n - 1, n)}\\pmod{${n}}`)} (Fermat's little theorem)`) : "";
+          set(o, lines(o.pair(`Puissances de ${inl(String(a))} modulo ${inl(String(n))} :`, `Powers of ${inl(String(a))} modulo ${inl(String(n))}:`), inl(shown), period, fermat));
+        } else {
+          for (let k = 1; k < n; k++) if (k * a % n !== k) chord(k, k * a % n, d === 1 ? "rgba(232,163,61,.55)" : "rgba(255,122,122,.55)");
+          dot(o, ...G.at(a), C.warn, inl("a"));
+          let r0 = n, r1 = a, u0 = 0, u1 = 1; while (r1) { const q = Math.floor(r0 / r1); [r0, r1] = [r1, r0 - q * r1]; [u0, u1] = [u1, u0 - q * u1]; }
+          const u = ((u0 % n) + n) % n, vco = (1 - a * u) / n;
+          const inv = d === 1 ? lines(o.pair(`Bézout : ${inl(`${a}\\times${tpar(N, u)}${vco < 0 ? "-" : "+"}${n}\\times${Math.abs(vco)}=1`)}`, `Bézout: ${inl(`${a}\\times${tpar(N, u)}${vco < 0 ? "-" : "+"}${n}\\times${Math.abs(vco)}=1`)}`),
+            o.pair(`Inverse de ${inl(String(a))} modulo ${inl(String(n))} : ${inl(`${u}`)}, car ${inl(`${a}\\times${u}=${a * u}\\equiv1\\pmod{${n}}`)}`, `Inverse of ${inl(String(a))} modulo ${inl(String(n))}: ${inl(`${u}`)}, since ${inl(`${a}\\times${u}=${a * u}\\equiv1\\pmod{${n}}`)}`),
+            o.pair("La multiplication par a permute les restes.", "Multiplication by a permutes the remainders."))
+            : o.pair(`Pas d'inverse : ${inl(`${a}x\\equiv1\\pmod{${n}}`)} n'a pas de solution, ${inl(`${a}x`)} reste multiple de ${inl(String(d))}.`, `No inverse: ${inl(`${a}x\\equiv1\\pmod{${n}}`)} has no solution, since ${inl(`${a}x`)} stays a multiple of ${inl(String(d))}.`);
+          set(o, lines(inl(`${name}(${a},${n})=${d}`), inv));
+        }
+      },
+    };
+  },
+
+  // Walks in the bush-taxi graph of the activity (A-B, A-C, A-D, B-C, C-D, D-E): drag the start and end markers onto
+  // vertices and choose the length k; the entry of M^k counts the walks, as the adjacency-matrix theorem states.
+  walks(o) {
+    const names = ["A", "B", "C", "D", "E"], pos = [[.22, .3], [.5, .12], [.5, .55], [.22, .78], [.82, .78]], E = [[0, 1], [0, 2], [0, 3], [1, 2], [2, 3], [3, 4]];
+    let i = 0, j = 2, k = 2; slider(o, inl("k"), 1, 6, 1, k, q => { k = q; o.redraw(); });
+    const M = names.map((_, r) => names.map((_, c) => (E.some(([p, q]) => (p === r && q === c) || (p === c && q === r)) ? 1 : 0)));
+    const mul = (A, B) => A.map(row => B[0].map((_, c) => row.reduce((s, x, t) => s + x * B[t][c], 0)));
+    const at = q => [40 + pos[q][0] * (o.W - 80), 30 + pos[q][1] * (o.H - 60)];
+    const near = (X, Y) => pos.map((_, q) => [Math.hypot(at(q)[0] - X, at(q)[1] - Y), q]).sort((u, w) => u[0] - w[0])[0][1];
+    return {
+      handles() { const [xi, yi] = at(i), [xj, yj] = at(j); return [{ x: xi - 18, y: yi - 18, r: 24, cur: "grab", move(X, Y) { i = near(X + 18, Y + 18); } }, { x: xj + 18, y: yj + 18, r: 24, cur: "grab", move(X, Y) { j = near(X - 18, Y - 18); } }]; },
+      draw(g) {
+        let P = M; for (let t = 1; t < k; t++) P = mul(P, M);
+        g.save(); g.strokeStyle = C.axis; g.lineWidth = 3; E.forEach(([p, q]) => { g.beginPath(); g.moveTo(...at(p)); g.lineTo(...at(q)); g.stroke(); }); g.restore();
+        names.forEach((s, q) => { const [x, y] = at(q); g.save(); g.fillStyle = q === i || q === j ? C.ink : C.grid; g.strokeStyle = C.ink; g.lineWidth = 2; g.beginPath(); g.arc(x, y, 17, 0, 7); g.fill(); g.stroke(); g.restore(); text(g, inl(s), x, y + 8, q === i || q === j ? C.bg : C.ink, 18, "center"); });
+        const [xi, yi] = at(i), [xj, yj] = at(j); dot(o, xi - 18, yi - 18, C.acc, o.pair("départ", "start"), "grab", true, -1); dot(o, xj + 18, yj + 18, C.warn, o.pair("arrivée", "end"));
+        const row = P[i].map(x => String(x)).join("&"), I = names[i], J = names[j], n = P[i][j];
+        set(o, lines(o.pair(`Chaînes de longueur ${inl(String(k))} de ${inl(I)} à ${inl(J)} : ${inl(String(n))}`, `Walks of length ${inl(String(k))} from ${inl(I)} to ${inl(J)}: ${inl(String(n))}`),
+          o.pair(`C'est le coefficient ${inl(`\\left(M^{${k}}\\right)_{${I}${J}}=${n}`)} de la matrice d'adjacence.`, `It is the entry ${inl(`\\left(M^{${k}}\\right)_{${I}${J}}=${n}`)} of the adjacency matrix.`),
+          o.pair(`Ligne ${inl(I)} de ${inl(`M^{${k}}`)} : ${inl(`\\begin{pmatrix}${row}\\end{pmatrix}`)}`, `Row ${inl(I)} of ${inl(`M^{${k}}`)}: ${inl(`\\begin{pmatrix}${row}\\end{pmatrix}`)}`)));
+      },
+    };
+  },
+
+  // Two-state Markov chain: drag the initial probability a0 = P(X0 = 1) and the transition probabilities p (1 to 2) and
+  // q (2 to 1). The plot shows a_n = P(Xn = 1), which tends to q/(p+q) since a_n - l = (1-p-q)^n (a_0 - l).
+  markov(o) {
+    let a0 = .9, p = .3, q = .2; const bx = 70, rows = [[34, "a_0"], [86, "p"], [138, "q"]];
+    const vplot = () => ({ x0: 70, x1: o.W - 30, y0: 190, y1: o.H - 34 }), bw = () => o.W - 100;
+    return {
+      handles() { return rows.map(([y], k) => ({ x: bx + [a0, p, q][k] * bw(), y: y + 13, cur: "ew-resize", move(X) { const val = clamp(snap((X - bx) / bw(), .05), k ? .05 : 0, 1); if (k === 0) a0 = val; else if (k === 1) p = val; else q = val; } })); },
+      draw(g) {
+        const N = o.tn, l = q / (p + q), B = bw(), F = vplot(), n = 15, X = t => F.x0 + t / n * (F.x1 - F.x0), Y = y => F.y1 - y * (F.y1 - F.y0);
+        rows.forEach(([y, s], k) => { const val = [a0, p, q][k]; g.fillStyle = C.grid; g.fillRect(bx, y, B, 26); g.fillStyle = C.acc; g.fillRect(bx, y, val * B, 26); text(g, inl(`${s}=${N(val)}`), 12, y + 20, C.ink, 16); dot(o, bx + val * B, y + 13, C.warn); });
+        g.save(); g.strokeStyle = C.axis; g.lineWidth = 1.5; g.beginPath(); g.moveTo(F.x0, F.y0); g.lineTo(F.x0, F.y1); g.lineTo(F.x1, F.y1); g.stroke(); g.setLineDash([6, 5]); g.strokeStyle = C.blue; g.beginPath(); g.moveTo(F.x0, Y(l)); g.lineTo(F.x1, Y(l)); g.stroke(); g.restore();
+        text(g, "1", F.x0 - 8, Y(1) + 6, C.muted, 14, "right"); text(g, "0", F.x0 - 8, Y(0) + 6, C.muted, 14, "right"); text(g, inl("\\ell"), F.x1 - 4, Y(l) - 8, C.blue, 16, "right"); text(g, inl("n"), F.x1, F.y1 + 24, C.muted, 16, "right");
+        let a = a0; g.save(); g.fillStyle = C.acc; for (let t = 0; t <= n; t++) { g.beginPath(); g.arc(X(t), Y(a), 5, 0, 7); g.fill(); a = a * (1 - p) + (1 - a) * q; } g.restore();
+        const an = l + (1 - p - q) ** n * (a0 - l), osc = Math.abs(p + q - 2) < 1e-9; // p = q = 1: T swaps the states, no limit
+        set(o, lines(inl(`T=\\begin{pmatrix}${N(1 - p)}&${N(p)}\\\\${N(q)}&${N(1 - q)}\\end{pmatrix},\\quad \\pi_{n+1}=\\pi_nT`),
+          o.pair(`Avec ${inl("\\pi_n=\\begin{pmatrix}a_n&1-a_n\\end{pmatrix}")} : ${inl(`a_{n+1}=${N(1 - p - q)}\\,a_n+${N(q)}`)}`, `With ${inl("\\pi_n=\\begin{pmatrix}a_n&1-a_n\\end{pmatrix}")}: ${inl(`a_{n+1}=${N(1 - p - q)}\\,a_n+${N(q)}`)}`),
+          osc ? o.pair(`${inl("p+q=2")} : ${inl("(a_n)")} alterne entre ${inl(N(a0))} et ${inl(N(1 - a0))}, elle n'a pas de limite (sauf si ${inl("a_0=0{,}5")}). La loi ${inl("\\pi=\\begin{pmatrix}0{,}5&0{,}5\\end{pmatrix}")} reste invariante.`, `${inl("p+q=2")}: ${inl("(a_n)")} alternates between ${inl(N(a0))} and ${inl(N(1 - a0))}; it has no limit (unless ${inl("a_0=0.5")}). The distribution ${inl("\\pi=\\begin{pmatrix}0.5&0.5\\end{pmatrix}")} stays invariant.`) :
+          o.pair(`Limite ${inl(`\\ell=\\dfrac{q}{p+q}=${N(l, 3)}`)} ; état stable ${inl(`\\pi=\\begin{pmatrix}${N(l, 3)}&${N(1 - l, 3)}\\end{pmatrix}`)}`, `Limit ${inl(`\\ell=\\dfrac{q}{p+q}=${N(l, 3)}`)}; stable state ${inl(`\\pi=\\begin{pmatrix}${N(l, 3)}&${N(1 - l, 3)}\\end{pmatrix}`)}`),
+          inl(`a_{${n}}=\\ell+(${N(1 - p - q)})^{${n}}(a_0-\\ell)\\approx${N(an, 4)}`)));
+      },
+    };
+  },
+
+  // Two-way table as a mosaic: the width of each row band is its share of the total, the split inside a band is the
+  // conditional frequency of B in that row. Drag the row boundary and the two splits; the table, the marginal and the
+  // conditional frequencies (both directions) follow. Counts are whole numbers out of a total chosen with the slider.
+  twoway(o) {
+    let n = o.spec.n || 200, rA = .45, pA = .7, pN = .3;   // share of A, f(B | A), f(B | not A)
+    const lab = o.spec.labels || ["A", "\\overline{A}", "B", "\\overline{B}"];
+    slider(o, o.pair("Effectif total", "Total count"), 40, 600, 20, n, v => { n = v; o.redraw(); });
+    const box = () => ({ x: 70, y: 46, w: o.W - 140, h: o.H - 120 });
+    const counts = () => { const nA = Math.round(n * rA), nN = n - nA, a = Math.round(nA * pA), c = Math.round(nN * pN); return { a, b: nA - a, c, d: nN - c, nA, nN }; };
+    return {
+      handles() {
+        const B = box(), hA = B.h * rA;
+        return [
+          { x: B.x + B.w / 2, y: B.y + hA, cur: "ns-resize", move(_, Y) { rA = clamp(snap((Y - B.y) / B.h, .01), .1, .9); } },
+          { x: B.x + B.w * pA, y: B.y + hA / 2, cur: "ew-resize", move(X) { pA = clamp(snap((X - B.x) / B.w, .01), .02, .98); } },
+          { x: B.x + B.w * pN, y: B.y + hA + (B.h - hA) / 2, cur: "ew-resize", move(X) { pN = clamp(snap((X - B.x) / B.w, .01), .02, .98); } },
+        ];
+      },
+      draw(g) {
+        const B = box(), hA = B.h * rA, k = counts(), N = o.tn;
+        const cell = (x, y, w, h, col, val) => { g.fillStyle = col; g.globalAlpha = .78; g.fillRect(x, y, w, h); g.globalAlpha = 1; g.strokeStyle = C.bg; g.lineWidth = 3; g.strokeRect(x, y, w, h); if (w > 40 && h > 30) text(g, String(val), x + w / 2, y + h / 2 + 8, C.bg, 22, "center"); };
+        cell(B.x, B.y, B.w * pA, hA, C.acc, k.a); cell(B.x + B.w * pA, B.y, B.w * (1 - pA), hA, C.blue, k.b);
+        cell(B.x, B.y + hA, B.w * pN, B.h - hA, C.acc, k.c); cell(B.x + B.w * pN, B.y + hA, B.w * (1 - pN), B.h - hA, C.blue, k.d);
+        text(g, inl(lab[0]), B.x - 14, B.y + hA / 2 + 8, C.ink, 20, "right"); text(g, inl(lab[1]), B.x - 14, B.y + hA + (B.h - hA) / 2 + 8, C.ink, 20, "right");
+        text(g, inl(lab[2]), B.x + 8, B.y - 14, C.acc, 20); text(g, inl(lab[3]), B.x + B.w - 8, B.y - 14, C.blue, 20, "right");
+        // the overall share of B, as a dashed line: compare it with the two conditional splits
+        const fB = (k.a + k.c) / n; g.save(); g.setLineDash([6, 6]); g.strokeStyle = C.ink; g.lineWidth = 2; g.beginPath(); g.moveTo(B.x + B.w * fB, B.y - 6); g.lineTo(B.x + B.w * fB, B.y + B.h + 6); g.stroke(); g.restore();
+        text(g, inl(`f(${lab[2]})`), B.x + B.w * fB, B.y + B.h + 30, C.ink, 18, "center");
+        [[B.x + B.w / 2, B.y + hA, C.ink], [B.x + B.w * pA, B.y + hA / 2, C.ink], [B.x + B.w * pN, B.y + hA + (B.h - hA) / 2, C.ink]].forEach(([x, y, col]) => dot(o, x, y, col));
+        const fr = (p, q) => (q ? `\\tfrac{${p}}{${q}}\\approx ${N(p / q, 3)}` : "?");
+        const tab = `\\begin{array}{c|cc|c}&${lab[2]}&${lab[3]}&\\text{Total}\\\\\\hline ${lab[0]}&${k.a}&${k.b}&${k.nA}\\\\${lab[1]}&${k.c}&${k.d}&${k.nN}\\\\\\hline\\text{Total}&${k.a + k.c}&${k.b + k.d}&${n}\\end{array}`;
+        set(o, lines(inl(tab), o.pair("Fréquences marginales : ", "Marginal frequencies: ") + inl(`f(${lab[0]})=${fr(k.nA, n)}`) + " ; " + inl(`f(${lab[2]})=${fr(k.a + k.c, n)}`),
+          o.pair("Conditionnelles : ", "Conditional: ") + inl(`f_{${lab[0]}}(${lab[2]})=${fr(k.a, k.nA)}`) + " ; " + inl(`f_{${lab[1]}}(${lab[2]})=${fr(k.c, k.nN)}`),
+          o.pair("Dans l’autre sens : ", "The other way round: ") + inl(`f_{${lab[2]}}(${lab[0]})=${fr(k.a, k.a + k.c)}`),
+          Math.abs(k.a / (k.nA || 1) - k.c / (k.nN || 1)) < .015 ? o.pair("Les deux conditionnelles sont presque égales : les caractères semblent indépendants.", "The two conditional frequencies are almost equal: the variables look independent.") : ""));
+      },
+    };
+  },
+
+  // Sign of a product or a quotient of two affine functions: drag the root of each line along the x-axis and the
+  // slope point; the sign table below the graph is rebuilt from the two roots and the two slopes.
+  signtable(o) {
+    let r1 = -2, a1 = 1, r2 = 1.5, a2 = -.5, mode = o.spec.mode || "product";
+    choice(o, [["product", o.pair("Produit", "Product"), o.pair("Produit", "Product")], ["quotient", o.pair("Quotient", "Quotient"), o.pair("Quotient", "Quotient")]], mode, m => { mode = m; o.redraw(); });
+    const v = () => { const w = o.W - 72, h = o.H * .55, k = w / h; return { ...view(o, -5 * k / 1.6, 5 * k / 1.6, -5, 5), Y: y => 24 + (5 - y) / 10 * h, iY: Y => 5 - (Y - 24) / h * 10 }; };
+    const aff = (r, a) => x => a * (x - r);
+    return {
+      handles() {
+        const V = v();
+        return [[() => r1, x => (r1 = x), () => a1, x => (a1 = x)], [() => r2, x => (r2 = x), () => a2, x => (a2 = x)]].flatMap(([r, sr, a, sa]) => [
+          { x: V.X(r()), y: V.Y(0), cur: "ew-resize", move(X) { sr(clamp(snap(V.iX(X), .25), V.x0 + .5, V.x1 - .5)); } },
+          { x: V.X(r() + 1), y: V.Y(clamp(a(), -4.8, 4.8)), cur: "ns-resize", move(_, Y) { let t = clamp(snap(V.iY(Y), .25), -4.75, 4.75); if (Math.abs(t) < .25) t = t < 0 ? -.25 : .25; sa(t); } },
+        ]);
+      },
+      draw(g) {
+        const V = v(), N = o.tn, f = aff(r1, a1), h = aff(r2, a2), prod = mode === "product";
+        // graph (top part): the two lines and, faintly, the product or the quotient
+        g.save(); g.beginPath(); g.rect(0, 0, o.W, V.Y(-5) + 2); g.clip(); axes(g, V, { lang: o.L });
+        curve(g, V, prod ? x => f(x) * h(x) : x => f(x) / h(x), V.x0, V.x1, C.muted, 2);
+        curve(g, V, f, V.x0, V.x1, C.acc, 3); curve(g, V, h, V.x0, V.x1, C.blue, 3); g.restore();
+        dot(o, V.X(r1), V.Y(0), C.acc); dot(o, V.X(r1 + 1), V.Y(clamp(a1, -4.8, 4.8)), C.acc, inl("f"));
+        dot(o, V.X(r2), V.Y(0), C.blue); dot(o, V.X(r2 + 1), V.Y(clamp(a2, -4.8, 4.8)), C.blue, inl("g"));
+        // sign table (bottom part)
+        const top = V.Y(-5) + 18, rowH = (o.H - top - 10) / 4, x0 = 120, x1 = o.W - 30, roots = [...new Set([r1, r2])].sort((p, q) => p - q);
+        const cols = [-Infinity, ...roots, Infinity], X = i => x0 + (x1 - x0) * i / (cols.length - 1);
+        g.save(); g.strokeStyle = C.axis; g.lineWidth = 1.5; g.strokeRect(x0 - 100, top, x1 - x0 + 100, rowH * 4);
+        for (let i = 1; i < 4; i++) { g.beginPath(); g.moveTo(x0 - 100, top + rowH * i); g.lineTo(x1, top + rowH * i); g.stroke(); }
+        g.beginPath(); g.moveTo(x0, top); g.lineTo(x0, top + rowH * 4); g.stroke(); g.restore();
+        ["x", "f(x)", "g(x)", prod ? "f(x)g(x)" : "f(x)/g(x)"].forEach((t, i) => text(g, inl(t), x0 - 50, top + rowH * i + rowH / 2 + 7, C.ink, 18, "center"));
+        cols.forEach((c, i) => text(g, inl(c === -Infinity ? "-\\infty" : c === Infinity ? "+\\infty" : N(c)), X(i) + (i === 0 ? 22 : i === cols.length - 1 ? -22 : 0), top + rowH / 2 + 7, C.ink, 18, "center"));
+        const sgnAt = (fn, x) => (fn(x) > 0 ? "+" : "-");
+        for (let i = 0; i < cols.length - 1; i++) {
+          const lo = cols[i] === -Infinity ? roots[0] - 1 : cols[i], hi = cols[i + 1] === Infinity ? roots[roots.length - 1] + 1 : cols[i + 1], m = (lo + hi) / 2, xm = (X(i) + X(i + 1)) / 2;
+          const sf = sgnAt(f, m), sh = sgnAt(h, m), sp = sf === sh ? "+" : "-";
+          [[sf, 1, C.acc], [sh, 2, C.blue], [sp, 3, C.ink]].forEach(([s_, row, col]) => text(g, s_ === "+" ? "+" : "−", xm, top + rowH * row + rowH / 2 + 8, col, 24, "center"));
+        }
+        roots.forEach((r, j) => { const xi = X(j + 1); [[f, 1], [h, 2]].forEach(([fn, row]) => { if (Math.abs(fn(r)) < 1e-9) text(g, "0", xi, top + rowH * row + rowH / 2 + 8, C.ink, 20, "center"); else { g.save(); g.strokeStyle = C.grid; g.setLineDash([4, 4]); g.beginPath(); g.moveTo(xi, top + rowH * row + 4); g.lineTo(xi, top + rowH * (row + 1) - 4); g.stroke(); g.restore(); } });
+          const zeroDen = !prod && Math.abs(h(r)) < 1e-9;
+          if (zeroDen) { g.save(); g.strokeStyle = C.warn; g.lineWidth = 2; [-3, 3].forEach(d => { g.beginPath(); g.moveTo(xi + d, top + rowH * 3 + 4); g.lineTo(xi + d, top + rowH * 4 - 4); g.stroke(); }); g.restore(); }
+          else text(g, "0", xi, top + rowH * 3 + rowH / 2 + 8, C.ink, 20, "center"); });
+        set(o, lines(inl(`f(x)=${tpoly([[a1, "x"], [-a1 * r1, ""]], N)}`) + o.pair(", racine ", ", root ") + inl(N(r1)),
+          inl(`g(x)=${tpoly([[a2, "x"], [-a2 * r2, ""]], N)}`) + o.pair(", racine ", ", root ") + inl(N(r2)),
+          o.pair("Une expression affine prend le signe de son coefficient directeur à droite de sa racine.", "An affine expression has the sign of its slope to the right of its root."),
+          prod ? o.pair("Règle des signes : le produit est positif là où les deux facteurs ont le même signe.", "Sign rule: the product is positive where both factors have the same sign.") : o.pair(`La valeur ${inl(N(r2))} est interdite : ${inl("g")} s’y annule (double barre).`, `The value ${inl(N(r2))} is excluded: ${inl("g")} vanishes there (double bar).`)));
+      },
+    };
+  },
+};
+}
+
+/* ---- widgets-3d.js ---- */
+{
+// True 3D with the 2D canvas: orthographic camera, z up, painter's algorithm. Dragging empty space rotates (pitch clamped).
+// the one camera of the site (also the laboratory template `space`)
+
+const set = (o, html) => rich(o.readout, html);
+const lines = (...a) => a.filter(Boolean).join("<br>");
+
+function cam(o, s = 38, c = [0, 0, 1]) {
+  const k = { yaw: -.7, pitch: .55 };
+  o.rotate = {
+    active: false, last: null,
+    start(e, pt) { this.active = true; this.last = pt(e); },
+    move(e, pt) { const p = pt(e); cam3Turn(k, (p[0] - this.last[0]) * .008, (p[1] - this.last[1]) * .006); this.last = p; o.redraw(); },
+    end() { this.active = false; },
+  };
+  const P = (x, y, z) => { const q = cam3Project(k.yaw, k.pitch, x - c[0], y - c[1], z - c[2]); return { X: o.W / 2 + s * q.u, Y: o.H / 2 - s * q.v, d: q.d }; };
+  const un = (X, Y, zf) => { const q = cam3Unproject(k.yaw, k.pitch, (X - o.W / 2) / s, -(Y - o.H / 2) / s, zf - c[2]); return { x: q.x + c[0], y: q.y + c[1] }; };
+  return { k, P, un };
+}
+function poly(g, pts, fill, alpha, stroke) { g.save(); g.globalAlpha = alpha; g.fillStyle = fill; g.beginPath(); pts.forEach((p, i) => (i ? g.lineTo(p.X, p.Y) : g.moveTo(p.X, p.Y))); g.closePath(); g.fill(); g.globalAlpha = 1; if (stroke) { g.strokeStyle = stroke; g.lineWidth = 1; g.stroke(); } g.restore(); }
+function seg(g, a, b, col, w = 2.5, dash) { g.save(); g.strokeStyle = col; g.lineWidth = w; if (dash) g.setLineDash(dash); g.beginPath(); g.moveTo(a.X, a.Y); g.lineTo(b.X, b.Y); g.stroke(); g.restore(); }
+function floor(g, V, half = 4) { const f = []; for (let i = -half; i <= half; i++) { seg(g, V(i, -half, 0), V(i, half, 0), C.grid, 1); seg(g, V(-half, i, 0), V(half, i, 0), C.grid, 1); } }
+function axes3(g, V, L = 4.5) { [["x", [L, 0, 0]], ["y", [0, L, 0]], ["z", [0, 0, L]]].forEach(([n, p]) => { const a = V(0, 0, 0), b = V(...p); seg(g, a, b, C.axis, 1.6); text(g, inl(n), b.X + 6, b.Y - 6, C.muted, 16); }); }
+
+
+
+var W3 = {
+  // Surface z = f(x, y) patch with a draggable point on the floor (integration / level curves): painter's algorithm.
+  surface3d(o) {
+    let px = 1, py = 1; const f = (x, y) => 3 - (x * x + y * y) / 3; const { k, P, un } = cam(o, 36, [0, 0, 1.5]); const n = 18, h = 3;
+    return {
+      handles() { const s = P(px, py, 0); return [{ x: s.X, y: s.Y, cur: "move", move(X, Y) { const q = un(X, Y, 0); px = clamp(snap(q.x, .25), -h, h); py = clamp(snap(q.y, .25), -h, h); } }]; },
+      draw(g) {
+        floor(g, P, 3); axes3(g, P, 3.5); const facets = [];
+        for (let i = 0; i < n; i++) for (let j = 0; j < n; j++) {
+          const x0 = -h + 2 * h * i / n, x1 = -h + 2 * h * (i + 1) / n, y0 = -h + 2 * h * j / n, y1 = -h + 2 * h * (j + 1) / n;
+          const pts = [[x0, y0], [x1, y0], [x1, y1], [x0, y1]].map(([x, y]) => P(x, y, f(x, y))), z = f((x0 + x1) / 2, (y0 + y1) / 2);
+          facets.push({ pts, d: pts.reduce((s, p) => s + p.d, 0) / 4, z });
+        }
+        facets.sort((a, b) => b.d - a.d).forEach(F => { const sh = .45 + .1 * Math.min(1, F.z / 3); poly(g, F.pts, `rgb(${Math.round(60 + 60 * sh)},${Math.round(150 + 80 * sh)},${Math.round(130 + 60 * sh)})`, .95, "rgba(20,32,36,.6)"); });
+        const s = P(px, py, 0), t = P(px, py, f(px, py)); seg(g, s, t, C.warn, 2, [4, 4]); dot(o, t.X, t.Y, C.warn, "", "default", false); dot(o, s.X, s.Y, C.acc, o.L ? "(x, y)" : "(x ; y)");
+        set(o, lines(inl("z=3-\\dfrac{x^2+y^2}{3}"), inl(`f${tpt(o, px, py)}=${o.tn(f(px, py), 3)}`), o.pair("Glissez le fond pour tourner.", "Drag the background to rotate.")));
+      },
+    };
+  },
+};
+}
+
+/* ---- player.js ---- */
+// Classroom slide player, modelled on the interactive maths slide skill (Presenter + Explore):
+// fixed 1280x720 stage, flow column of step blocks on the left, live figure with controls on the right,
+// ◀ ▶ steps and "Tout" at the bottom left. The same file is bundled by scripts/export-slides.py into a
+// self-contained HTML export of each deck (window.__MX_EXPORT__ then carries the deck and its figures).
+
+const $ = (s, r = document) => r.querySelector(s);
+const EXPORT = typeof window !== "undefined" && window.__MX_EXPORT__ ? window.__MX_EXPORT__ : null;
+const params = new URLSearchParams(location.search);
+const deckId = EXPORT ? EXPORT.deck.id : params.get("deck") || "premiere-01";
+const stored = () => { try { return JSON.parse(localStorage.getItem("maths-explorer-v1") || "{}").lang === "en" ? 1 : 0; } catch { return 0; } };
+let lang = params.get("lang") === "en" ? 1 : params.get("lang") === "fr" ? 0 : stored();
+let deck, index = 0, revealed = false, live = null, step = 1, generation = 0, toastTimer = 0;
+
+const KIND = {
+  title: ["Titre", "Title"], goals: ["Objectifs", "Goals"], concept: ["À retenir", "Key idea"], method: ["Méthode", "Method"],
+  example: ["Exemple", "Example"], error: ["Attention", "Watch out"], try: ["À vous", "Your turn"], proof: ["Démonstration", "Proof"],
+  activity: ["Activité", "Activity"], code: ["Python", "Python"], widget: ["Explorer", "Explore"],
+};
+const UI = {
+  stepPrev: ["Étape précédente", "Previous step"], stepNext: ["Étape suivante", "Next step"], all: ["Tout", "All"],
+  step: ["Étape", "Step"], prev: ["Diapositive précédente", "Previous slide"], next: ["Diapositive suivante", "Next slide"],
+  answer: ["Voir la réponse", "Show the answer"], hide: ["Masquer la réponse", "Hide the answer"], answerLab: ["Réponse", "Answer"],
+  lang: ["English", "Français"], list: ["Plan", "Outline"], full: ["Plein écran", "Full screen"],
+  download: ["Télécharger HTML", "Download HTML"], downloadTip: ["Télécharger ce diaporama en un seul fichier HTML", "Download this deck as a single HTML file"],
+  home: ["Toutes les séries", "All decks"], loadErr: ["Série introuvable.", "Deck not found."],
+  hint: ["Flèches : étapes et diapositives · R réponse · G plan · F plein écran", "Arrows: steps and slides · R answer · G outline · F full screen"],
+  slides: ["diapositives", "slides"], liveLab: ["Valeurs en direct", "Live values"],
+  explore: ["Explorer le chapitre", "Explore the chapter"], figure: ["Figure", "Figure"],
+  free: ["La figure est réglable librement ; ses valeurs peuvent différer de celles de l’exemple.", "The figure is freely adjustable; its values may differ from the worked example."],
+  blocked: ["Plein écran bloqué par l’application. Ouvrez le lien dans le navigateur, puis touchez ⛶.", "Full screen is blocked here. Open the page in the browser, then tap ⛶."],
+  noMath: ["Les formules n’ont pas pu se charger : une connexion internet est nécessaire.", "Formulas could not load: an internet connection is required."],
+};
+const t = k => UI[k][lang];
+const esc = s => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;");
+const COURSE = { stmg: "Terminale STMG", premiere: "Première", seconde: "Seconde", terminale: "Terminale", expertes: "Maths expertes" };
+const SIZE_NARROW = 1500;
+
+function fit() {
+  const wrap = $("#wrap"), stage = $("#stage");
+  if (matchMedia("(max-width:760px) and (orientation:portrait)").matches) { wrap.style.width = ""; wrap.style.height = ""; stage.style.transform = ""; return; }
+  const k = Math.min(innerWidth / 1280, innerHeight / 720);
+  wrap.style.width = 1280 * k + "px"; wrap.style.height = 720 * k + "px"; stage.style.transform = `scale(${k})`;
+}
+
+function toast(message) {
+  const el = $("#toast"); el.textContent = message; el.hidden = false;
+  clearTimeout(toastTimer); toastTimer = setTimeout(() => { el.hidden = true; }, 5000);
+}
+
+function shell() {
+  $("#stage").innerHTML = `<div id="col"><div id="flow" tabindex="-1"></div><div id="live" hidden><div class="hd" id="live-lab"></div><div id="readout"></div></div></div>
+<div id="rt"></div>
+<div id="r1"><button class="b" id="step-prev">◀</button><span id="step-count"></span><button class="b" id="step-next">▶</button><button class="b" id="all-steps">Tout</button><span class="gap"></span><button class="b" id="pv">‹</button><span class="count" id="count"></span><button class="b" id="nx">›</button></div>
+<div id="r2">${EXPORT ? "" : `<a class="b" id="home" href="../index.html#slides">${t("home")}</a>`}<button class="b" id="tg" hidden></button><button class="b" id="rev" hidden></button><button class="b" id="lst" aria-pressed="false"></button><button class="b" id="fs" title="Plein écran">⛶</button></div>
+<div id="prog"><i></i></div><nav id="drawer" hidden></nav><div id="toast" hidden></div>`;
+}
+
+async function load() {
+  if (EXPORT) deck = EXPORT.deck;
+  else {
+    try {
+      const r = await fetch(`./data/${encodeURIComponent(deckId)}.json`, {cache:"no-store"});
+      if (!r.ok) throw new Error(r.status);
+      deck = await r.json();
+    } catch {
+      $("#stage").innerHTML = `<div id="col" class="wide"><h2 class="tt">${t("loadErr")}</h2><p><a class="b" href="../index.html#slides">${t("home")}</a></p></div>`;
+      return;
+    }
+  }
+  const selected = selectDeckEdition(deck, params.get('lang'), lang ? 'en' : 'fr');
+  if (!selected) {
+    const available = deckLanguages(deck);
+    $("#stage").innerHTML = `<div id="col" class="wide"><h2 class="tt">${lang ? 'This language edition is unavailable.' : 'Cette édition linguistique est indisponible.'}</h2><p>${lang ? 'Available editions' : 'Éditions disponibles'} : ${available.map(code => `<a class="b" href="?${EXPORT ? '' : 'deck=' + encodeURIComponent(deckId) + '&amp;'}lang=${code}">${code.toUpperCase()}</a>`).join(' ')}</p></div>`;
+    return;
+  }
+  deck = selected; lang = selected.selectedLanguage === 'en' ? 1 : 0;
+  shell(); bind();
+  const h = parseInt(location.hash.slice(1), 10);
+  index = Number.isFinite(h) ? Math.min(Math.max(h, 0), deck.slides.length - 1) : 0;
+  buildDrawer(); render();
+}
+
+function sizeClass(html) {
+  const n = html.replace(/<[^>]+>/g, "").length + (html.match(/\\[(\[]/g) || []).length * 25 + (html.match(/<li>/g) || []).length * 70 + (html.match(/\\\\/g) || []).length * 45;
+  return n > SIZE_NARROW ? "s4" : n > 1100 ? "s3" : n > 750 ? "s2" : n > 420 ? "s1" : "";
+}
+// ---- mathematics: normalise the deck TeX to the skill's rules before MathJax sees it
+const SUB = "₀₁₂₃₄₅₆₇₈₉", SUP = { "²": "2", "³": "3" };
+const MATH_ANY = /\\\((.*?)\\\)|\\\[(.*?)\\\]/gs;
+// Fractions are always \dfrac; French intervals and lists take a thin space before ";" (entities such as &lt; are left alone).
+const fixTeX = t => {
+  t = t.replace(/\\frac(?![A-Za-z])/g, "\\dfrac");
+  if (!lang) t = t.replace(/(\\[,;]|\\text\{[^}]*\}|&[a-z]+;)|;/g, (m, keep) => keep || "\\,;");
+  return t;
+};
+// Unicode sub/superscripts in prose become TeX: x₁ -> \(x_1\).
+const uniMath = h => h.replace(/([A-Za-z])([₀-₉]+|[²³])/g, (_, v, u) => `\\(${v}${SUP[u] ? "^" + SUP[u] : "_{" + [...u].map(c => SUB.indexOf(c)).join("") + "}"}\\)`);
+// \begin{array}{c|c} ... \hline ... \end{array} is an HTML <table> with CSS rules (MathJax array rules do not render reliably).
+const arrayTable = (spec, body) => {
+  const cols = []; let rule = false;
+  for (const c of spec) { if (c === "|") { if (cols.length) cols[cols.length - 1].r = true; else rule = true; } else cols.push({ l: rule, r: false }), rule = false; }
+  const rows = []; let top = false;
+  for (let row of body.split(/\\\\/)) {
+    let line = false; row = row.replace(/\\hline/g, () => { line = true; return ""; });
+    if (!row.trim()) { if (line) top = true; continue; }
+    rows.push({ cells: row.split("&amp;").map(c => c.trim()), top: top || line }); top = false;
+  }
+  const tr = rows.map((r, i) => `<tr${r.top && i ? ' class="rule"' : ""}>${r.cells.map((c, j) => `<td${cols[j]?.l ? ' class="l"' : ""}${cols[j]?.r ? ' class="r"' : ""}>${c ? `\\(${c}\\)` : ""}</td>`).join("")}</tr>`).join("");
+  return `<table class="sg">${tr}</table>`;
+};
+const tex = s => {
+  s = s.replace(/\\\[\s*\\begin\{array\}\{([^}]*)\}([\s\S]*?)\\end\{array\}\s*\\\]/g, (_, spec, body) => arrayTable(spec, fixTeX(body)));
+  s = s.replace(MATH_ANY, (m, a, b) => (a !== undefined ? `\\(${fixTeX(a)}\\)` : `\\[${fixTeX(b)}\\]`));
+  s = s.split(/(\\\(.*?\\\)|\\\[.*?\\\]|<table[\s\S]*?<\/table>)/gs).map((part, i) => (i % 2 ? part : uniMath(part))).join("");
+  return lang ? s.replace(/\\pgcd/g, "\\gcd").replace(/\\ppcm/g, "\\operatorname{lcm}") : s;
+};
+const plain = s => String(s).replace(/\\\((.*?)\\\)/g, (_, t) => t.replace(/\\[a-zA-Z]+\s?/g, "").replace(/[{}]/g, ""));
+
+// Text nodes come back from the DOM decoded ("<" for &lt;): escape them again before they are re-parsed.
+const escText = x => x.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+// Cumulative reveal: one block per sentence, list item, paragraph or table, shown step by step.
+function revealMarkup(html) {
+  const template = document.createElement("template"); template.innerHTML = html;
+  const parts = []; let pending = "";
+  const flush = () => { if (pending.trim()) parts.push(pending); pending = ""; };
+  for (const node of template.content.childNodes) {
+    if (node.nodeType === 1 && ["UL", "OL"].includes(node.tagName)) {
+      flush(); [...node.children].forEach((li, i) => parts.push(`<${node.tagName.toLowerCase()} ${node.tagName === "OL" ? `start="${i + 1}"` : ""}>${li.outerHTML}</${node.tagName.toLowerCase()}>`));
+    } else if (node.nodeType === 3) {
+      const text = node.textContent; let start = 0, math = false;
+      for (let i = 0; i < text.length; i++) {
+        if (text.slice(i, i + 2) === "\\(" || text.slice(i, i + 2) === "\\[") math = true;
+        if (text.slice(i, i + 2) === "\\)" || text.slice(i, i + 2) === "\\]") math = false;
+        if (!math && text[i] === "." && /^\s+[A-ZÀ-Ý]/.test(text.slice(i + 1))) { pending += escText(text.slice(start, i + 1)); flush(); start = i + 1; }
+      }
+      pending += escText(text.slice(start));
+    } else if (node.nodeType === 1) {
+      if (node.tagName === "BR") flush(); else if (["P", "DIV", "TABLE", "PRE"].includes(node.tagName)) { flush(); parts.push(node.outerHTML); } else pending += node.outerHTML;
+    }
+  }
+  flush(); return (parts.length ? parts : [html]).map((part, i) => `<div class="reveal-block" data-reveal="${i + 1}">${part}</div>`).join("");
+}
+
+const blocks = () => [...document.querySelectorAll("#flow [data-reveal]")];
+function paintSteps() {
+  const all = blocks();
+  all.forEach((b, i) => { b.hidden = i >= step; });
+  const n = Math.max(all.length, 1);
+  $("#step-count").textContent = all.length ? `${t("step")} ${Math.min(step, n)} / ${n}` : "";
+  $("#step-prev").disabled = step <= 1 && index === 0; $("#step-next").disabled = step >= n && index === deck.slides.length - 1;
+  $("#all-steps").classList.toggle("on", all.length > 0 && step >= all.length && all.length > 1);
+  $("#all-steps").hidden = all.length < 2;
+  if (typeof MathJax !== "undefined" && $("#flow").querySelector("mjx-container")) fitMath();
+}
+function advance(direction) {
+  const n = blocks().length;
+  if (direction > 0 && step < n) { step++; paintSteps(); const b = blocks()[step - 1]; b?.scrollIntoView({ block: "nearest", behavior: "instant" }); }
+  else if (direction < 0 && step > 1) { step--; paintSteps(); }
+  else go(index + direction, direction < 0);
+}
+
+function companion(spec, showDelta) {
+  if (live) { live.destroy?.(); live = null; }
+  $("#live").hidden = false; $("#live-lab").textContent = t("liveLab");
+  live = mount({ ...spec, showDelta }, { host: $("#wcanvas"), controls: $("#wctl"), readout: $("#readout"), hint: $("#whint"), lang });
+}
+
+function figSrc(deckKey, name) { const file = `${deckKey}-${name}${lang ? "-en" : ""}.svg`; return EXPORT ? EXPORT.figs[file] || "" : `./fig/${encodeURIComponent(file)}?v=${deck.figureVersion || ""}`; }
+
+async function render() {
+  const renderId = ++generation;
+  if (live) { live.destroy?.(); live = null; }
+  const s = deck.slides[index], k = s.k, label = KIND[k]?.[lang] || k;
+  document.documentElement.lang = lang ? "en" : "fr";
+  document.title = `${plain(deck.title[lang])} · Maths Explorer`;
+  const title = esc(s.t[lang]), rawBody = tex(s.b[lang] || "");
+  const widgets = deck.slides.filter(x => x.k === "widget"), shared = widgets[0];
+  const ans = s.a ? tex(s.a[lang]) : "";
+  const figs = (s.f || []).map(p => `<figure class="fig"><img src="${figSrc(deckId, p[lang])}" alt="${esc(plain(s.t[lang]))}"></figure>`).join("");
+  const mode = k === "title" || k === "code" ? "none" : k === "widget" ? "widget" : figs ? "fig" : shared && k !== "goals" ? "explore" : "none";
+  const col = $("#col"), flow = $("#flow"), rt = $("#rt");
+  col.dataset.kind = k;
+  $("#live").hidden = true; $("#readout").innerHTML = "";
+
+  if (k === "title") {
+    flow.innerHTML = `<div class="title-slide"><span class="chip">${esc(deck.courseTitle?.[lang] || COURSE[deck.course] || "")}</span><h1>${title}</h1><div class="meta">${deck.slides.length} ${t("slides")}</div><div class="hint">${t("hint")}</div></div>`;
+  } else if (k === "code") {
+    flow.innerHTML = `<div class="hd">${esc(label)}</div><h2 class="tt">${title}</h2><pre>${s.b[lang]}</pre>`;
+  } else {
+    const cls = sizeClass(rawBody + ans);
+    flow.innerHTML = `<div class="hd ${k === "error" ? "red" : ""}"><span>${esc(label)}</span><span class="deckname">${esc(deck.title[lang])}</span></div><h2 class="tt">${title}</h2>${s.h?.[lang] ? `<div class="sub">${esc(s.h[lang])}</div>` : ""}<div class="steps text ${cls}">${revealMarkup(rawBody)}</div>${ans ? `<div class="answer text ${cls}" id="ans" ${revealed ? "" : "hidden"}><div class="hd green">${t("answerLab")}</div>${ans}</div>` : ""}`;
+  }
+
+  if (mode === "fig") rt.innerHTML = `<div class="figcol">${figs}</div>`;
+  else if (mode === "widget" || mode === "explore") {
+    rt.innerHTML = `<div class="hint-line" id="whint"></div><div class="canvas-wrap" id="wcanvas"></div>${mode === "explore" ? `${widgets.length > 1 ? `<label class="explore-label">${t("explore")}<select id="explore-choice">${widgets.map((w, i) => `<option value="${i}">${esc(plain(w.t[lang]))}</option>`).join("")}</select></label>` : ""}<p class="note">${t("free")}</p>` : ""}<div class="wctl" id="wctl"></div>`;
+  } else rt.innerHTML = "";
+
+  chrome();
+  figHidden = false; layout(mode);
+  try { history.replaceState(null, "", EXPORT ? `#${index}` : `?deck=${encodeURIComponent(deckId)}&lang=${lang ? "en" : "fr"}#${index}`); } catch {}
+  // Formulas first: the widget readouts are typeset as they are written, so MathJax must be ready before they mount.
+  let ready = true;
+  try {
+    if (typeof MathJax === "undefined") throw new Error("MathJax");
+    await MathJax.startup.promise; await document.fonts.load('400 25px "STIX Two Text"');
+  } catch (e) { ready = false; console.warn(e); if (renderId === generation) toast(t("noMath")); }
+  if (renderId !== generation) return;
+  const defined = deck.slides.findIndex(x => x.k === "concept" && /Discriminant/.test(x.t[0]));
+  if (mode === "widget") companion(s.w, true);
+  else if (mode === "explore") {
+    companion(shared.w, defined < 0 || index >= defined);
+    if ($("#explore-choice")) $("#explore-choice").onchange = e => companion(widgets[+e.target.value].w, true);
+  }
+  paintSteps(); flow.scrollTop = 0;
+  if (ready) {
+    try { await MathJax.typesetPromise([$("#stage")]); $("#stage").querySelectorAll("mjx-assistive-mml").forEach(x => x.remove()); } catch (e) { console.warn(e); }
+    if (renderId !== generation) return;
+    fitMath();
+    // A figure that is only an exploration aid gives way when an equation needs the whole width.
+    if (mode === "explore" && needsWidth()) { figHidden = true; layout(mode); fitMath(); }
+  }
+}
+
+// ---- layout: the flow column is 520 px wide beside a figure, 1200 px without one
+let figHidden = false;
+function layout(mode) {
+  const wide = mode === "none" || (mode === "explore" && figHidden);
+  $("#col").className = wide ? "wide" : ""; $("#rt").hidden = wide;
+  const tg = $("#tg"); tg.hidden = mode !== "explore"; tg.setAttribute("aria-pressed", String(!figHidden)); tg.textContent = t("figure");
+}
+// Shrink any formula wider than the column so that nothing is cut off or needs sideways scrolling (never below MIN_SCALE).
+const MIN_SCALE = .5;
+function fitMath() {
+  const flow = $("#flow"), avail = flow.clientWidth - 4;
+  flow.querySelectorAll("mjx-container").forEach(m => { m.style.fontSize = ""; });
+  flow.querySelectorAll("mjx-container").forEach(m => {
+    if (!m.offsetParent) return;
+    const svg = m.querySelector("svg"); if (!svg) return;
+    const room = m.getAttribute("display") === "true" ? Math.min(avail, m.parentElement.clientWidth || avail) : avail;
+    const w = svg.getBoundingClientRect().width / (flow.getBoundingClientRect().width / flow.offsetWidth);
+    if (w > room) m.style.fontSize = Math.max(MIN_SCALE, room / w) * 100 + "%";
+  });
+}
+function needsWidth() {
+  return [...$("#flow").querySelectorAll("mjx-container")].some(m => m.offsetParent && m.querySelector("svg") && m.scrollWidth > m.clientWidth + 2 || m.offsetParent && m.style.fontSize && parseFloat(m.style.fontSize) <= MIN_SCALE * 100 + 1);
+}
+
+function chrome() {
+  const s = deck.slides[index], n = deck.slides.length;
+  $("#count").textContent = `${index + 1} / ${n}`;
+  $("#pv").disabled = index === 0; $("#nx").disabled = index === n - 1;
+  $("#pv").setAttribute("aria-label", t("prev")); $("#nx").setAttribute("aria-label", t("next"));
+  $("#step-prev").setAttribute("aria-label", t("stepPrev")); $("#step-next").setAttribute("aria-label", t("stepNext"));
+  $("#all-steps").textContent = t("all");
+  const rev = $("#rev"); rev.hidden = !s.a; rev.textContent = revealed ? t("hide") : t("answer"); rev.setAttribute("aria-pressed", revealed);
+  $("#lst").textContent = t("list"); $("#fs").setAttribute("aria-label", t("full"));
+
+  $("#prog i").style.width = `${((index + 1) / n) * 100}%`;
+  document.querySelectorAll("#drawer button").forEach((b, i) => b.toggleAttribute("aria-current", i === index));
+}
+
+function buildDrawer() {
+  const d = $("#drawer");
+  d.innerHTML = deck.slides.map((x, i) => `<button data-i="${i}">${i + 1}. ${esc(KIND[x.k]?.[lang] || x.k)} · ${esc(x.t[lang])}</button>`).join("");
+  d.querySelectorAll("button").forEach(b => { b.onclick = () => { setDrawer(false); go(+b.dataset.i); }; });
+  if (typeof MathJax !== "undefined" && MathJax.typesetPromise) MathJax.startup.promise.then(() => MathJax.typesetPromise([d])).then(() => d.querySelectorAll("mjx-assistive-mml").forEach(x => x.remove())).catch(() => {});
+}
+function setDrawer(on) { $("#drawer").hidden = !on; $("#lst").setAttribute("aria-pressed", on); }
+
+function go(i, toEnd = false) {
+  index = Math.min(Math.max(i, 0), deck.slides.length - 1); revealed = false; step = 1;
+  render().then(() => { if (toEnd) { step = Math.max(blocks().length, 1); paintSteps(); } });
+}
+function toggleAnswer() {
+  if (!deck.slides[index].a) return;
+  revealed = !revealed; $("#ans").hidden = !revealed;
+  const b = $("#rev"); b.setAttribute("aria-pressed", revealed); b.textContent = revealed ? t("hide") : t("answer");
+  if (revealed) $("#ans").scrollIntoView({ block: "nearest", behavior: "instant" });
+}
+
+
+function bind() {
+  $("#nx").onclick = () => go(index + 1); $("#pv").onclick = () => go(index - 1);
+  $("#step-next").onclick = () => advance(1); $("#step-prev").onclick = () => advance(-1);
+  $("#all-steps").onclick = () => { step = blocks().length; paintSteps(); };
+  $("#lst").onclick = () => setDrawer($("#drawer").hidden);
+  $("#rev").onclick = toggleAnswer;
+  $("#tg").onclick = () => { figHidden = !figHidden; layout("explore"); fitMath(); };
+  $("#fs").onclick = () => {
+    const de = document.documentElement;
+    if (document.fullscreenElement || document.webkitFullscreenElement) { (document.exitFullscreen || document.webkitExitFullscreen).call(document); return; }
+    const rq = de.requestFullscreen || de.webkitRequestFullscreen;
+    if (!rq) { toast(t("blocked")); return; }
+    let r; try { r = rq.call(de); } catch (e) { toast(t("blocked")); return; }
+    Promise.resolve(r).then(() => { try { screen.orientation.lock("landscape").catch(() => {}); } catch (e) {} }).catch(() => toast(t("blocked")));
+  };
+}
+addEventListener("keydown", e => {
+  if (!deck || e.target.closest?.("input,select,textarea,canvas,button,a")) return;
+  const k = e.key;
+  if (k === "ArrowRight" || k === "PageDown" || k === " ") { e.preventDefault(); advance(1); }
+  else if (k === "ArrowLeft" || k === "PageUp") { e.preventDefault(); advance(-1); }
+  else if (k === "Home") go(0); else if (k === "End") go(deck.slides.length - 1);
+  else if (k === "r" || k === "R" || k === "ArrowDown") { e.preventDefault(); toggleAnswer(); }
+  else if (k === "g" || k === "G") setDrawer($("#drawer").hidden);
+  else if (k === "f" || k === "F") $("#fs").click();
+  else if (k === "Escape" && !$("#drawer").hidden) setDrawer(false);
+});
+addEventListener("hashchange", () => { const h = parseInt(location.hash.slice(1), 10); if (deck && Number.isFinite(h) && h !== index) go(h); });
+document.addEventListener("fullscreenchange", () => setTimeout(fit, 100));
+addEventListener("resize", fit); fit();
+load();
+
+})();
+</script>
+</body>
+</html>

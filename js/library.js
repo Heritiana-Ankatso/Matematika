@@ -1,0 +1,98 @@
+import {liveCatalog} from './live-curriculum.js';
+import {editionFor,editionLabel} from './resource-editions.js';
+import {courseLanguage} from "./content-language.js";
+import { labs } from './content.js';
+import { resolveRef } from './lab/registry.js';
+import { assetHref, fetchJSON } from './data-loader.js';
+import {enrichment} from './enrichment-data.js';
+import {guides} from './study-guides.js';
+import {resourceCatalog as completeCompanionCatalog} from './resources-data.js';
+import {liveCompanionCatalog} from './live-curriculum.js';
+const companionCatalog = liveCompanionCatalog(completeCompanionCatalog);
+const esc=x=>String(x).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+export const resourceTypes={all:['Tous les types','All types'],notes:['Notes de cours','Lesson notes'],exercises:['Exercices','Exercises'],problems:['Problèmes','Problems'],activities:['Activités','Activities'],practice:['Applications guidées','Guided practice'],fluency:['Automatismes','Fluency'],assessment:['Évaluations','Assessments'],solutions:['Corrigés / professeur','Solutions / teacher'],booklet:['Chapitres complets','Complete chapters']};
+let catalogPromise;
+let filters={curriculum:'all',course:'all',type:'all',language:'all',search:'',solutions:false};
+const readCatalog=()=>catalogPromise??=fetchJSON('./resources/catalog.json').then(liveCatalog).catch(e=>{catalogPromise=undefined;throw e;});
+const normalize=s=>s.normalize('NFD').replace(/\p{Diacritic}/gu,'').toLowerCase();
+export function selectChapters(catalog,filter=filters) {
+  const q=normalize(filter.search);
+  return catalog.chapters.filter(c=>{
+    if(filter.lab&&!c.labs.some(ref=>ref.split('/')[0]===filter.lab))return false;
+    // a course belongs to its curriculum (manifest field); shared and exploration chapters serve every curriculum but the French one
+    const own=catalog.courses.find(x=>x.id===c.course)?.curriculum, common=['shared','explorations'].includes(c.course);
+    if(filter.curriculum==='fr'&&own!=='fr')return false;
+    if(['mg','ib'].includes(filter.curriculum)&&!common&&own!==filter.curriculum)return false;
+    if(filter.course!=='all'&&c.course!==filter.course)return false;
+    const rs=catalog.resources.filter(r=>r.chapter===c.id||r.chapter===c.guide);
+    if(filter.type!=='all'&&!rs.some(r=>r.type===filter.type&&(filter.solutions||r.audience!=='teacher')))return false;
+    if(filter.language!=='all'&&!rs.some(r=>editionFor(r,filter.language)))return false;
+    return !q||normalize([...c.title,catalog.courses.find(x=>x.id===c.course).title.join(' '),...rs.flatMap(r=>r.title)].join(' ')).includes(q);
+  });
+}
+export async function mountLibrary(main,{lang,id}) {
+  const t=x=>x[lang==='fr'?0:1],p=(fr,en)=>t([fr,en]);
+  main.innerHTML=`<p role="status">${p('Chargement des ressources…','Loading resources…')}</p>`;
+  try {
+    const c=await readCatalog();
+    if(!main.isConnected)return;
+    if(id?.startsWith('@')){
+      filters={...filters,curriculum:'all',course:'all',type:'all',search:'',lab:id.slice(1)};
+      id=undefined;
+    }else if(!id){filters.lab=undefined;}
+    if(id){
+      const chapter=c.chapters.find(x=>x.id===id);
+      if(!chapter){main.innerHTML=`<h1>${p('Chapitre introuvable','Chapter not found')}</h1><a href="#library">${p('Tous les chapitres','All chapters')}</a>`;return;}
+      renderChapter(main,c,chapter,t,p,lang);return;
+    }
+    const original=c.chapters.filter(x=>!['shared','explorations'].includes(x.course)&&x.number>0).length;
+    const pdf=c.resources.filter(x=>x.format==='PDF').length;
+    main.innerHTML=`<div class="section-kicker">${p('La bibliothèque','The resource library')}</div><div class="library-heading"><div><h1>${p('Un chapitre. Une prochaine étape.','A chapter. A next step.')}</h1><p>${p('Cours, exercices, problèmes et corrigés, à lire ou à télécharger.','Notes, exercises, problems and solutions to read or download.')}</p></div><div class="library-count"><strong>${original}</strong><span>${p('chapitres sources','source chapters')}</span><small>${pdf} PDF · ${Object.keys(guides).length} ${p('fiches FR / EN','FR / EN study sheets')}</small></div></div>
+    <form class="resource-filters" id="resource-filters"><label>${p('Rechercher','Search')}<input id="resource-search" type="search" value="${esc(filters.search)}" placeholder="${p('Un chapitre ou une notion…','A chapter or concept…')}"></label><label>${p('Parcours','Pathway')}<select id="resource-curriculum">${[['all','Toutes les ressources','All resources'],['fr','Programme français','French curriculum']].map(([v,fr,en])=>`<option value="${v}" ${filters.curriculum===v?'selected':''}>${p(fr,en)}</option>`).join('')}</select></label><label>${p('Cours','Course')}<select id="resource-course"></select></label><label>${p('Type de ressource','Resource type')}<select id="resource-type">${Object.entries(resourceTypes).map(([v,label])=>`<option value="${v}" ${filters.type===v?'selected':''}>${t(label)}</option>`).join('')}</select></label><label>${p('Langue des fichiers','File language')}<select id="resource-language">${[['all','Toutes','All'],['fr','Français','French'],['en','Anglais','English']].map(([v,fr,en])=>`<option value="${v}" ${filters.language===v?'selected':''}>${p(fr,en)}</option>`).join('')}</select></label><label class="teacher-toggle"><input id="resource-solutions" type="checkbox" ${filters.solutions?'checked':''}>${p('Inclure les corrigés et fichiers professeur','Include solutions and teacher files')}</label><button class="secondary" type="reset">${p('Effacer les filtres','Clear filters')}</button></form>
+    <p id="pathway-resource-note" class="resource-scope"></p><p class="resource-note">${p('Les langues disponibles sont indiquées pour chaque document. Les fichiers s’ouvrent dans la langue du cursus si cette édition existe.','Available languages are listed for each document. Files open in the curriculum language when that edition exists.')}</p><p id="resource-results-count" role="status" aria-live="polite"></p><div id="chapter-grid" class="chapter-grid"></div>`;
+    const form=main.querySelector('form');
+    const refresh=()=>{
+      const allowed=c.courses.filter(x=>['mg','ib'].includes(filters.curriculum)?['shared','explorations'].includes(x.id):filters.curriculum==='fr'?!['shared','explorations'].includes(x.id):true);
+      if(filters.course!=='all'&&!allowed.some(x=>x.id===filters.course))filters.course='all';
+      main.querySelector('#resource-course').innerHTML=`<option value="all">${p('Tous les cours','All courses')}</option>`+allowed.map(x=>`<option value="${x.id}" ${filters.course===x.id?'selected':''}>${esc(t(x.title))}</option>`).join('');
+      main.querySelector('#pathway-resource-note').textContent=['mg','ib'].includes(filters.curriculum)?p('Notions à transférer à votre cours : ces fiches ne constituent pas un programme malgache ou international complet. Vérifiez votre niveau, votre série et votre option avec votre enseignant.','Concepts to transfer to your course: these sheets are not a complete Malagasy or international syllabus. Check your level, stream and option with your teacher.'):'';
+      const matches=selectChapters(c,filters);
+      // Count source chapters the same way as the heading; shared sheets and exercise banks are listed separately.
+      const sourceCount=matches.filter(x=>!['shared','explorations'].includes(x.course)&&x.number>0).length,extra=matches.length-sourceCount;
+      main.querySelector('#resource-results-count').textContent=p(`${sourceCount} chapitres sources${extra?` · ${extra} fiches transversales et banques`:''} affichés${filters.lab?' · liés à cette expérience':''}`,`${sourceCount} source chapters${extra?` · ${extra} shared sheets and banks`:''} shown${filters.lab?' · linked to this experiment':''}`);
+      main.querySelector('#chapter-grid').innerHTML=matches.length?matches.map(ch=>{
+        const rs=c.resources.filter(r=>(r.chapter===ch.id||r.chapter===ch.guide)&&(filters.solutions||r.audience!=='teacher')&&(filters.language==='all'||editionFor(r,filters.language)));
+        const types=[...new Set(rs.map(r=>r.type))];
+        return `<article class="chapter-card"><div class="chapter-meta"><span>${esc(t(c.courses.find(x=>x.id===ch.course).title))}</span><span>${ch.number?String(ch.number).padStart(2,'0'):p('Banques','Banks')}</span></div><h2><a href="#library/${ch.id}">${esc(t(ch.title))}</a></h2><div class="resource-tags">${types.map(type=>`<span>${t(resourceTypes[type])}</span>`).join('')}</div><div class="chapter-card-bottom"><span>${rs.length} ${p('fichiers','files')}${' · '+[...new Set(rs.flatMap(r=>Object.keys(r.editions||{})))].map(x=>x.toUpperCase()).join(' / ')}</span><a href="#library/${ch.id}" class="secondary">${p('Ouvrir le chapitre','Open chapter')}</a></div></article>`;
+      }).join(''):`<div class="library-empty"><h2>${p('Aucun chapitre trouvé','No matching chapter')}</h2><p>${p('Essayez une autre notion ou effacez les filtres.','Try another concept or clear the filters.')}</p></div>`;
+    };
+    form.addEventListener('submit',e=>e.preventDefault());
+    form.addEventListener('input',e=>{
+      const keys={'resource-search':'search','resource-curriculum':'curriculum','resource-course':'course','resource-type':'type','resource-language':'language','resource-solutions':'solutions'};
+      const key=keys[e.target.id];if(!key)return;
+      filters[key]=key==='solutions'?e.target.checked:e.target.value;
+      if(key==='type'&&filters.type==='solutions'){filters.solutions=true;main.querySelector('#resource-solutions').checked=true;}
+      if(key==='solutions'&&!filters.solutions&&filters.type==='solutions'){filters.type='all';main.querySelector('#resource-type').value='all';}
+      refresh();
+    });
+    form.addEventListener('reset',e=>{e.preventDefault();filters={curriculum:'all',course:'all',type:'all',language:'all',search:'',solutions:false};mountLibrary(main,{lang});});
+    refresh();
+  }catch(e){if(main.isConnected){main.innerHTML=`<h1>${p('Ressources indisponibles','Resources unavailable')}</h1><p>${p('Le catalogue n’a pas pu être chargé.','The catalogue could not be loaded.')}</p><button class="primary" id="retry-resources">${p('Réessayer','Try again')}</button>`;main.querySelector('button').addEventListener('click',()=>mountLibrary(main,{lang,id}));}}
+}
+function renderChapter(main,c,ch,t,p,lang) {
+  const course=c.courses.find(x=>x.id===ch.course);
+  const topic=ch.course==='explorations'?null:guides[ch.topic];
+  const workshop=enrichment.find(x=>'explore-'+x.id===ch.id);
+  const fileLanguage=courseLanguage(ch.course,lang)==='en'?1:0;
+  const fileURL=r=>{const edition=editionFor(r,courseLanguage(r?.course,lang));return edition?assetHref(edition.path):'';};
+  const card=r=>{const language=courseLanguage(r.course,lang),edition=editionFor(r,language);return `<article class="resource-card"><div class="chapter-meta"><span>${t(resourceTypes[r.type])}</span><span>${r.format} · ${editionLabel(r)}</span></div><h3>${esc(t(r.title))}</h3>${edition?`<p>${r.format==='PDF'?`${edition.pages} ${p('pages','pages')} · ${(edition.bytes/1024).toFixed(0)} ${p('Ko','KB')}`:p('Fiche courte · imprimable','Short sheet · printable')}</p><div class="resource-actions"><a class="primary" href="${esc(fileURL(r))}" target="_blank" rel="noopener noreferrer">${p('Lire','Read')}<span class="sr-only">${p(' (nouvel onglet)',' (new tab)')}</span></a><a class="secondary" href="${esc(fileURL(r))}" download>${p('Télécharger','Download')}</a>${edition.htmlPath?`<a class="secondary" href="${esc(assetHref(edition.htmlPath))}">${p('Lecture web','Web edition')}</a>`:''}</div>`:`<p class="resource-note">${p('Édition indisponible dans la langue du cursus.','Edition unavailable in the curriculum language.')}</p>`}</article>`;};
+  const original=c.resources.filter(r=>r.chapter===ch.id&&r.audience!=='teacher');
+  const teacher=c.resources.filter(r=>r.chapter===ch.id&&r.audience==='teacher');
+  const guided=ch.course==='shared'?original:c.resources.filter(r=>r.chapter===ch.guide&&r.audience!=='teacher');
+  const links=ch.labs.map(ref=>{const r=resolveRef(ref),l=r&&labs.find(x=>x.id===r.experiment.id);return r?`<a class="secondary" href="#lab/${esc(ref)}">${p('Ouvrir dans le laboratoire','Open in the laboratory')} · ${esc(l?.short?.[lang==='fr'?0:1]??r.experiment.id)}</a>`:'';}).join('');
+  main.innerHTML=`${companionCatalog.chapters.some(x=>x.id===ch.id)?`<div class="companion-links"><a class="primary" href="#chapter/${ch.id}/cours">${p('Comprendre en images','Understand visually')}</a><a class="secondary" href="#chapter/${ch.id}/experiment">${p('Expérimenter','Experiment')}</a><a class="secondary" href="#chapter/${ch.id}/practice">${p('S’entraîner','Practise')}</a></div>`:''}<a class="library-back" href="#library">${p('Tous les chapitres','All chapters')}</a><div class="section-kicker">${esc(t(course.title))}${ch.number?' · '+String(ch.number).padStart(2,'0'):''}</div><h1>${esc(t(ch.title))}</h1>${links?`<div class="chapter-labs">${links}</div>`:''}
+  ${workshop?`<section class="study-sheet enrichment-preview"><span class="eyebrow">${esc(t(workshop.level))}</span><h2>${p('L’idée à explorer','The idea to explore')}</h2>${workshop.lesson.map(x=>`<p>${esc(t(x))}</p>`).join('')}<details><summary>${p('Voir un exemple expliqué','See a worked example')}</summary><p>${esc(t(workshop.worked))}</p></details><p>${esc(t(workshop.activity))}</p></section>`:''}
+  ${topic?`<section class="study-sheet"><div class="sheet-heading"><h2>${p('Pour commencer · FR / EN','Start here · FR / EN')}</h2><span>${p('Fiche courte','Short sheet')}</span></div><p class="resource-note">${p('Une adaptation des notions du chapitre. Elle complète les documents originaux.','An adaptation of the chapter’s concepts to complement the original documents.')}</p><div class="sheet-section"><h3>${p('À retenir','Key ideas')}</h3><p>${t(topic.notes)}</p></div><div class="sheet-section"><h3>${p('Exercice','Exercise')}</h3><p>${t(topic.exercises)}</p></div><div class="sheet-section"><h3>${p('Problème','Problem')}</h3><p>${t(topic.problems)}</p></div><details class="sheet-solution"><summary>${p('Afficher le corrigé détaillé','Reveal the worked solution')}</summary><p>${t(topic.solutions)}</p></details><div class="sheet-downloads">${guided.map(r=>`<a href="${esc(fileURL(r))}" download>${t(resourceTypes[r.type])} · HTML</a>`).join('')}<a href="${esc(fileURL(c.resources.find(r=>r.chapter===(ch.course==='shared'?ch.id:ch.guide)&&r.type==='solutions')))}" download>${p('Corrigé','Solution')} · HTML</a></div></section>`:''}
+  ${ch.course!=='shared'?`<section class="chapter-files"><h2>${p('Documents du chapitre','Chapter documents')}</h2><p class="resource-note">${p('Les notes peuvent contenir des exemples et applications. Les séances regroupent activités et exercices.','Notes may include examples and applications. Session files combine activities and exercises.')}</p><div class="resource-grid">${original.map(card).join('')}</div></section>`:`<section class="chapter-files"><h2>${p('Fichiers séparés','Separate files')}</h2><div class="resource-grid">${original.map(card).join('')}</div><p class="resource-note">${p('Ces notions peuvent être transférées à différents cours. Ce classement ne certifie pas un alignement avec une série malgache ou un référentiel international.','These concepts can be transferred to different courses. This organisation does not certify alignment with a Malagasy stream or international framework.')}</p>${(ch.relatedChapters??[]).map(id=>`<a class="related-chapter" href="#library/${id}">${esc(t(c.chapters.find(x=>x.id===id).title))} · ${esc(t(c.courses.find(x=>x.id===c.chapters.find(x=>x.id===id).course).title))}</a>`).join('')}</section>`}
+  ${teacher.length?`<details class="teacher-files"><summary>${p('Afficher les fichiers professeur et corrigés','Show teacher files and solutions')} (${teacher.length})</summary><p class="resource-note">${p('Ces fichiers peuvent contenir à la fois le cours, les réponses et des indications pédagogiques.','These files may contain notes, answers and teaching guidance together.')}</p><div class="resource-grid">${teacher.map(card).join('')}</div></details>`:''}`;
+}

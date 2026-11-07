@@ -1,0 +1,8199 @@
+export const resourceCatalog = {
+  "imported": "2026-10-07",
+  "sources": [
+    {
+      "name": "seconde-eleve.pdf",
+      "title": "Livret de mathématiques — Seconde — Élève — 2026–2027.pdf",
+      "modified": "2026-09-05T05:35:23.327Z"
+    },
+    {
+      "name": "seconde-prof.pdf",
+      "title": "Livret de mathématiques — Seconde — Professeur — 2026–2027.pdf",
+      "modified": "2026-09-05T05:35:32.750Z"
+    },
+    {
+      "name": "premiere-eleve.pdf",
+      "title": "Premiere-specialite-2026-2027-eleve.pdf",
+      "modified": "2026-09-18T14:52:27.633Z"
+    },
+    {
+      "name": "premiere-prof.pdf",
+      "title": "Premiere-specialite-2026-2027-professeur.pdf",
+      "modified": "2026-09-10T14:49:30.986Z"
+    },
+    {
+      "name": "terminale-eleve.pdf",
+      "title": "livret-eleve.pdf",
+      "modified": "2026-09-07T20:21:05.693Z"
+    },
+    {
+      "name": "terminale-prof.pdf",
+      "title": "livret-professeur.pdf",
+      "modified": "2026-09-07T20:21:12.156Z"
+    },
+    {
+      "name": "stmg-eleve.pdf",
+      "title": "Livret_TSTMG_2026-2027_Eleve.pdf",
+      "modified": "2026-09-15T04:07:38.654Z"
+    },
+    {
+      "name": "stmg-prof.pdf",
+      "title": "Livret_TSTMG_2026-2027_Professeur.pdf",
+      "modified": "2026-09-15T04:08:59.373Z"
+    },
+    {
+      "name": "automatismes-eleve.pdf",
+      "title": "Fiches_automatismes_2G_eleve.pdf",
+      "modified": "2026-10-06T18:34:14.806Z"
+    },
+    {
+      "name": "automatismes-prof.pdf",
+      "title": "Fiches_automatismes_2G_professeur.pdf",
+      "modified": "2026-10-06T18:34:15.099Z"
+    },
+    {
+      "name": "expertes-eleve.pdf",
+      "title": "expertes-eleve.pdf",
+      "modified": "2026-10-25T10:13:25.000Z"
+    },
+    {
+      "name": "expertes-prof.pdf",
+      "title": "expertes-prof.pdf",
+      "modified": "2026-10-25T10:13:25.000Z"
+    },
+    {
+      "name": "premiere-unsorted-automatismes",
+      "title": "Automatismes séries 1 à 3, source TeX locale",
+      "modified": "2026-10-27T08:27:28.348758Z"
+    },
+    {
+      "name": "t10-eleve.pdf",
+      "title": "Manuel de mathématiques T10, édition élève",
+      "modified": "2026-11-01T13:01:38.000Z"
+    },
+    {
+      "name": "t10-prof.pdf",
+      "title": "Manuel de mathématiques T10, édition professeur",
+      "modified": "2026-11-01T13:02:31.000Z"
+    },
+    {
+      "name": "t11s-eleve.pdf",
+      "title": "Manuel de mathématiques T11 S, édition élève",
+      "modified": "2026-11-01T12:49:10.000Z"
+    },
+    {
+      "name": "t11s-prof.pdf",
+      "title": "Manuel de mathématiques T11 S, édition professeur",
+      "modified": "2026-11-01T12:50:32.000Z"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "seconde-01",
+      "course": "seconde",
+      "number": 1,
+      "title": [
+        "Arithmétique",
+        "Arithmetic"
+      ],
+      "topic": "arithmetic",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "seconde-eleve.pdf",
+          "start": 7,
+          "path": "resources/seconde-01/chapter.pdf",
+          "sections": {
+            "lesson": 1,
+            "practice": 1,
+            "problem": 5
+          },
+          "editions": {
+            "fr": {
+              "path": "resources/seconde-01/chapter.pdf",
+              "bytes": 197645,
+              "sha256": "1872ca98badd4e1cea3b5754c98f5e1e09395fa4bbd0f5fee666916ae7913e02",
+              "pages": 5,
+              "start": 7,
+              "end": 11
+            },
+            "en": {
+              "path": "resources/seconde-01/chapter-en.pdf",
+              "bytes": 196510,
+              "sha256": "5e3d02c5d191c696b6210f92923479c9b300ffe2b3164c28bccfff0161a9a132",
+              "pages": 5,
+              "start": 7,
+              "end": 11
+            }
+          },
+          "pages": 5,
+          "bytes": 197645,
+          "end": 11,
+          "englishPath": "resources/seconde-01/chapter-en.pdf",
+          "englishPages": 5,
+          "englishBytes": 196510
+        },
+        {
+          "kind": "teacher",
+          "source": "seconde-prof.pdf",
+          "start": 7,
+          "path": "resources/seconde-01/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/seconde-01/teacher.pdf",
+              "bytes": 200253,
+              "sha256": "2d57353247c8da41d6379daaaa266f0abc96424b13499ebcf42f4a15ee7096aa",
+              "pages": 5,
+              "start": 7,
+              "end": 11
+            },
+            "en": {
+              "path": "resources/seconde-01/teacher-en.pdf",
+              "bytes": 198416,
+              "sha256": "82963a8ac500601366e5624504c538918d55a13a9f6488651c6c948969c569e7",
+              "pages": 5,
+              "start": 7,
+              "end": 11
+            }
+          },
+          "pages": 5,
+          "bytes": 200253,
+          "end": 11,
+          "englishPath": "resources/seconde-01/teacher-en.pdf",
+          "englishPages": 5,
+          "englishBytes": 198416
+        }
+      ],
+      "labs": [
+        "euler-primes/hunt"
+      ]
+    },
+    {
+      "id": "seconde-02",
+      "course": "seconde",
+      "number": 2,
+      "title": [
+        "Vecteurs du plan",
+        "Vectors in the plane"
+      ],
+      "topic": "vectors",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "seconde-eleve.pdf",
+          "start": 12,
+          "path": "resources/seconde-02/chapter.pdf",
+          "sections": {
+            "practice": 1,
+            "lesson": 4
+          },
+          "editions": {
+            "fr": {
+              "path": "resources/seconde-02/chapter.pdf",
+              "bytes": 189955,
+              "sha256": "32ab3837d7d1216ad85bf25b36ebed281516a54fc7f66e6a2b8d723a2cfcf53c",
+              "pages": 7,
+              "start": 12,
+              "end": 18
+            },
+            "en": {
+              "path": "resources/seconde-02/chapter-en.pdf",
+              "bytes": 189190,
+              "sha256": "144e4d6fb4ecd7a03cf74dbd2921b6bbce14cc7574ae29391519ecbfcad4abe5",
+              "pages": 7,
+              "start": 12,
+              "end": 18
+            }
+          },
+          "pages": 7,
+          "bytes": 189955,
+          "end": 18,
+          "englishPath": "resources/seconde-02/chapter-en.pdf",
+          "englishPages": 7,
+          "englishBytes": 189190
+        },
+        {
+          "kind": "teacher",
+          "source": "seconde-prof.pdf",
+          "start": 12,
+          "path": "resources/seconde-02/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/seconde-02/teacher.pdf",
+              "bytes": 189937,
+              "sha256": "224a24a3bdf439c0d65d3f8f6e5276c94a51fdfc9e0873f3a40a472877134ce7",
+              "pages": 7,
+              "start": 12,
+              "end": 18
+            },
+            "en": {
+              "path": "resources/seconde-02/teacher-en.pdf",
+              "bytes": 188568,
+              "sha256": "8aec2510f23b4c8ad30ee368960af9b023fbb75a9fb5c0c43b077fc3b7934874",
+              "pages": 7,
+              "start": 12,
+              "end": 18
+            }
+          },
+          "pages": 7,
+          "bytes": 189937,
+          "end": 18,
+          "englishPath": "resources/seconde-02/teacher-en.pdf",
+          "englishPages": 7,
+          "englishBytes": 188568
+        },
+        {
+          "kind": "fluency",
+          "source": "automatismes-eleve.pdf",
+          "start": 1,
+          "path": "resources/seconde-02/fluency-student.pdf",
+          "title": [
+            "Vecteurs du plan",
+            "Vectors in the plane"
+          ],
+          "editions": {
+            "fr": {
+              "path": "resources/seconde-02/fluency-student.pdf",
+              "bytes": 146185,
+              "sha256": "18e33d57cdf35a7a4a2a936575a1e338e804336ee7dc875bb6e0733bc28180d7",
+              "pages": 1,
+              "start": 1,
+              "end": 1
+            },
+            "en": {
+              "path": "resources/seconde-02/fluency-student-en.pdf",
+              "bytes": 143493,
+              "sha256": "a3eb8f9ff8d7a57a786b2ae1194fb9befc765e44328c330509b7fdea05f70c78",
+              "pages": 1,
+              "start": 1,
+              "end": 1
+            }
+          },
+          "pages": 1,
+          "bytes": 146185,
+          "end": 1,
+          "englishPath": "resources/seconde-02/fluency-student-en.pdf",
+          "englishPages": 1,
+          "englishBytes": 143493
+        },
+        {
+          "kind": "fluency-solutions",
+          "source": "automatismes-prof.pdf",
+          "start": 1,
+          "path": "resources/seconde-02/fluency-teacher.pdf",
+          "title": [
+            "Vecteurs du plan",
+            "Vectors in the plane"
+          ],
+          "editions": {
+            "fr": {
+              "path": "resources/seconde-02/fluency-teacher.pdf",
+              "bytes": 164705,
+              "sha256": "a7fa20f3b5cd0af4c6fc4fdda2ebfa768b8b7ea08eef3cc2a45fb77314442064",
+              "pages": 2,
+              "start": 1,
+              "end": 2
+            },
+            "en": {
+              "path": "resources/seconde-02/fluency-teacher-en.pdf",
+              "bytes": 162546,
+              "sha256": "8b40ebc7ad1e2970ccc79fb719dc0af9600a6dbf985668b7ab909703e022bf7d",
+              "pages": 2,
+              "start": 1,
+              "end": 2
+            }
+          },
+          "pages": 2,
+          "bytes": 164705,
+          "end": 2,
+          "englishPath": "resources/seconde-02/fluency-teacher-en.pdf",
+          "englishPages": 2,
+          "englishBytes": 162546
+        }
+      ],
+      "labs": [
+        "vectors/collinear",
+        "tiles/det"
+      ]
+    },
+    {
+      "id": "seconde-03",
+      "course": "seconde",
+      "number": 3,
+      "title": [
+        "Droites du plan",
+        "Straight lines in the plane"
+      ],
+      "topic": "lines",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "seconde-eleve.pdf",
+          "start": 19,
+          "path": "resources/seconde-03/chapter.pdf",
+          "sections": {
+            "practice": 1,
+            "lesson": 3
+          },
+          "editions": {
+            "fr": {
+              "path": "resources/seconde-03/chapter.pdf",
+              "bytes": 207035,
+              "sha256": "403b293e1000eea18e914d108d24c0829e5426213703d03d9a79edb6e17d1ffb",
+              "pages": 6,
+              "start": 19,
+              "end": 24
+            },
+            "en": {
+              "path": "resources/seconde-03/chapter-en.pdf",
+              "bytes": 206149,
+              "sha256": "d8b8fb6939aff4886dafc077f5626265a9f5c5ae732ec030e16b7cb11202d5aa",
+              "pages": 6,
+              "start": 19,
+              "end": 24
+            }
+          },
+          "pages": 6,
+          "bytes": 207035,
+          "end": 24,
+          "englishPath": "resources/seconde-03/chapter-en.pdf",
+          "englishPages": 6,
+          "englishBytes": 206149
+        },
+        {
+          "kind": "teacher",
+          "source": "seconde-prof.pdf",
+          "start": 19,
+          "path": "resources/seconde-03/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/seconde-03/teacher.pdf",
+              "bytes": 211081,
+              "sha256": "03c6292422f33066744bace7bd599427bc5b1986bf988e09bfe4fd83f0a34308",
+              "pages": 6,
+              "start": 19,
+              "end": 24
+            },
+            "en": {
+              "path": "resources/seconde-03/teacher-en.pdf",
+              "bytes": 209642,
+              "sha256": "c3307fa04d8b2340d3446a6155cfec7bceddb449fd7c63e9407b8c47c2c25240",
+              "pages": 6,
+              "start": 19,
+              "end": 24
+            }
+          },
+          "pages": 6,
+          "bytes": 211081,
+          "end": 24,
+          "englishPath": "resources/seconde-03/teacher-en.pdf",
+          "englishPages": 6,
+          "englishBytes": 209642
+        },
+        {
+          "kind": "fluency",
+          "source": "automatismes-eleve.pdf",
+          "start": 2,
+          "path": "resources/seconde-03/fluency-student.pdf",
+          "title": [
+            "Droites du plan",
+            "Lines in the plane"
+          ],
+          "editions": {
+            "fr": {
+              "path": "resources/seconde-03/fluency-student.pdf",
+              "bytes": 168380,
+              "sha256": "0e7e8f9857658c9b51e41d87d704230dc262c51abd0628159077be797c39744e",
+              "pages": 2,
+              "start": 2,
+              "end": 3
+            },
+            "en": {
+              "path": "resources/seconde-03/fluency-student-en.pdf",
+              "bytes": 166876,
+              "sha256": "a27d9cfe0c7535924d9c5921e3e595603f57a7bac2cb143076a61e00892dd6b1",
+              "pages": 2,
+              "start": 2,
+              "end": 3
+            }
+          },
+          "pages": 2,
+          "bytes": 168380,
+          "end": 3,
+          "englishPath": "resources/seconde-03/fluency-student-en.pdf",
+          "englishPages": 2,
+          "englishBytes": 166876
+        },
+        {
+          "kind": "fluency-solutions",
+          "source": "automatismes-prof.pdf",
+          "start": 3,
+          "path": "resources/seconde-03/fluency-teacher.pdf",
+          "title": [
+            "Droites du plan",
+            "Lines in the plane"
+          ],
+          "editions": {
+            "fr": {
+              "path": "resources/seconde-03/fluency-teacher.pdf",
+              "bytes": 192401,
+              "sha256": "6ce6acdf3a8fb2affac00121e637e51518dc7eb96fec53c4b98cffa69621530b",
+              "pages": 4,
+              "start": 3,
+              "end": 6
+            },
+            "en": {
+              "path": "resources/seconde-03/fluency-teacher-en.pdf",
+              "bytes": 192067,
+              "sha256": "609a2c32e67eeb4d29601ddacb448d36ce3bccf0120ab055d70eb5afcb5c932d",
+              "pages": 4,
+              "start": 3,
+              "end": 6
+            }
+          },
+          "pages": 4,
+          "bytes": 192401,
+          "end": 6,
+          "englishPath": "resources/seconde-03/fluency-teacher-en.pdf",
+          "englishPages": 4,
+          "englishBytes": 192067
+        }
+      ],
+      "labs": [
+        "line",
+        "vectors/collinear"
+      ]
+    },
+    {
+      "id": "seconde-04",
+      "course": "seconde",
+      "number": 4,
+      "title": [
+        "Nombres réels et intervalles",
+        "Real numbers and intervals"
+      ],
+      "topic": "intervals",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "seconde-eleve.pdf",
+          "start": 25,
+          "path": "resources/seconde-04/chapter.pdf",
+          "sections": {
+            "lesson": 1,
+            "practice": 1
+          },
+          "editions": {
+            "fr": {
+              "path": "resources/seconde-04/chapter.pdf",
+              "bytes": 232883,
+              "sha256": "202dc222cff9b2a231a9fb1207ec6823f1c70db8afb15ab15e6d87d5496db52b",
+              "pages": 6,
+              "start": 25,
+              "end": 30
+            },
+            "en": {
+              "path": "resources/seconde-04/chapter-en.pdf",
+              "bytes": 232032,
+              "sha256": "c5a27fca4e284317a89124c05833ceb6eea2ab80dabbd96a0a80449e28dd2d0c",
+              "pages": 6,
+              "start": 25,
+              "end": 30
+            }
+          },
+          "pages": 6,
+          "bytes": 232883,
+          "end": 30,
+          "englishPath": "resources/seconde-04/chapter-en.pdf",
+          "englishPages": 6,
+          "englishBytes": 232032
+        },
+        {
+          "kind": "teacher",
+          "source": "seconde-prof.pdf",
+          "start": 25,
+          "path": "resources/seconde-04/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/seconde-04/teacher.pdf",
+              "bytes": 234562,
+              "sha256": "57352cdc53a481b2b750a6d7a5e013190fb07d2ee16695706d85e1cfd63390fa",
+              "pages": 6,
+              "start": 25,
+              "end": 30
+            },
+            "en": {
+              "path": "resources/seconde-04/teacher-en.pdf",
+              "bytes": 232976,
+              "sha256": "d1a35096b4aafbba7a6b6554c4b4c208d3f3c74a682977feec2a933856304af0",
+              "pages": 6,
+              "start": 25,
+              "end": 30
+            }
+          },
+          "pages": 6,
+          "bytes": 234562,
+          "end": 30,
+          "englishPath": "resources/seconde-04/teacher-en.pdf",
+          "englishPages": 6,
+          "englishBytes": 232976
+        },
+        {
+          "kind": "fluency",
+          "source": "automatismes-eleve.pdf",
+          "start": 4,
+          "path": "resources/seconde-04/fluency-student.pdf",
+          "title": [
+            "Nombres réels et intervalles",
+            "Real numbers and intervals"
+          ],
+          "editions": {
+            "fr": {
+              "path": "resources/seconde-04/fluency-student.pdf",
+              "bytes": 177511,
+              "sha256": "cd1f9cc44404063754126537f6095deb0fbf1c911f9f3046ae9b930dab7a361d",
+              "pages": 2,
+              "start": 4,
+              "end": 5
+            },
+            "en": {
+              "path": "resources/seconde-04/fluency-student-en.pdf",
+              "bytes": 176347,
+              "sha256": "da5005bd52bc298890391fa065d29d0406ec951f8a833abc62073e55e1da4748",
+              "pages": 2,
+              "start": 4,
+              "end": 5
+            }
+          },
+          "pages": 2,
+          "bytes": 177511,
+          "end": 5,
+          "englishPath": "resources/seconde-04/fluency-student-en.pdf",
+          "englishPages": 2,
+          "englishBytes": 176347
+        },
+        {
+          "kind": "fluency-solutions",
+          "source": "automatismes-prof.pdf",
+          "start": 6,
+          "path": "resources/seconde-04/fluency-teacher.pdf",
+          "title": [
+            "Nombres réels et intervalles",
+            "Real numbers and intervals"
+          ],
+          "editions": {
+            "fr": {
+              "path": "resources/seconde-04/fluency-teacher.pdf",
+              "bytes": 196388,
+              "sha256": "47eaffdf06e7a43fe3c563aecf9b995d85bf0eb343141fff273e3214060b3698",
+              "pages": 3,
+              "start": 6,
+              "end": 8
+            },
+            "en": {
+              "path": "resources/seconde-04/fluency-teacher-en.pdf",
+              "bytes": 195979,
+              "sha256": "13137332485e6cba26dae05f0e8990783f97d7b79dfb42570a7225dc25a18023",
+              "pages": 3,
+              "start": 6,
+              "end": 8
+            }
+          },
+          "pages": 3,
+          "bytes": 196388,
+          "end": 8,
+          "englishPath": "resources/seconde-04/fluency-teacher-en.pdf",
+          "englishPages": 3,
+          "englishBytes": 195979
+        }
+      ],
+      "labs": []
+    },
+    {
+      "id": "seconde-05",
+      "course": "seconde",
+      "number": 5,
+      "title": [
+        "Bilan de trimestre et remédiation",
+        "Term review and consolidation"
+      ],
+      "topic": "reasoning",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "seconde-eleve.pdf",
+          "start": 31,
+          "path": "resources/seconde-05/chapter.pdf",
+          "sections": {
+            "practice": 1,
+            "problem": 3
+          },
+          "editions": {
+            "fr": {
+              "path": "resources/seconde-05/chapter.pdf",
+              "bytes": 138870,
+              "sha256": "453504f287ac10bddf49a51083fac560e1b0cf72b8652c6c8b257fec927007de",
+              "pages": 3,
+              "start": 31,
+              "end": 33
+            },
+            "en": {
+              "path": "resources/seconde-05/chapter-en.pdf",
+              "bytes": 137970,
+              "sha256": "dd820a3fdf9a9962e76b69212c96443f551d6d51a51992b3c582f3de1ee74e64",
+              "pages": 3,
+              "start": 31,
+              "end": 33
+            }
+          },
+          "pages": 3,
+          "bytes": 138870,
+          "end": 33,
+          "englishPath": "resources/seconde-05/chapter-en.pdf",
+          "englishPages": 3,
+          "englishBytes": 137970
+        },
+        {
+          "kind": "teacher",
+          "source": "seconde-prof.pdf",
+          "start": 31,
+          "path": "resources/seconde-05/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/seconde-05/teacher.pdf",
+              "bytes": 142245,
+              "sha256": "4f690f39d6da6c91d22c79687f52f25e7e594fd21512e28aa9ee56fd3e8b5f6a",
+              "pages": 3,
+              "start": 31,
+              "end": 33
+            },
+            "en": {
+              "path": "resources/seconde-05/teacher-en.pdf",
+              "bytes": 140497,
+              "sha256": "8fdb91c3c2079c466f6eadafdf6545d3dc61c3660a0b66d2e600b359cc34aa40",
+              "pages": 3,
+              "start": 31,
+              "end": 33
+            }
+          },
+          "pages": 3,
+          "bytes": 142245,
+          "end": 33,
+          "englishPath": "resources/seconde-05/teacher-en.pdf",
+          "englishPages": 3,
+          "englishBytes": 140497
+        }
+      ],
+      "labs": []
+    },
+    {
+      "id": "seconde-06",
+      "course": "seconde",
+      "number": 6,
+      "title": [
+        "Fonctions : représentations et fonctions de référence",
+        "Functions: representations and reference functions"
+      ],
+      "topic": "functions",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "seconde-eleve.pdf",
+          "start": 34,
+          "path": "resources/seconde-06/chapter.pdf",
+          "sections": {
+            "practice": 1,
+            "lesson": 6
+          },
+          "editions": {
+            "fr": {
+              "path": "resources/seconde-06/chapter.pdf",
+              "bytes": 214357,
+              "sha256": "3f2804151b338df77bfb54a7dfc41a6224ed993aff9c10fb28e1d014575191d9",
+              "pages": 9,
+              "start": 34,
+              "end": 42
+            },
+            "en": {
+              "path": "resources/seconde-06/chapter-en.pdf",
+              "bytes": 213006,
+              "sha256": "4e59828442b9a28337941dc07a89fe3894ac0d2f36573f957f884701ada29a99",
+              "pages": 9,
+              "start": 34,
+              "end": 42
+            }
+          },
+          "pages": 9,
+          "bytes": 214357,
+          "end": 42,
+          "englishPath": "resources/seconde-06/chapter-en.pdf",
+          "englishPages": 9,
+          "englishBytes": 213006
+        },
+        {
+          "kind": "teacher",
+          "source": "seconde-prof.pdf",
+          "start": 34,
+          "path": "resources/seconde-06/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/seconde-06/teacher.pdf",
+              "bytes": 218137,
+              "sha256": "20aff420bbf9cb100f96a4989619ee896b3ee397f81fec63ffba43cbe620d900",
+              "pages": 9,
+              "start": 34,
+              "end": 42
+            },
+            "en": {
+              "path": "resources/seconde-06/teacher-en.pdf",
+              "bytes": 216097,
+              "sha256": "532ee7c7d11f7f15b17e3f78fd2ed30c153ea7f5a66658f45869762d6dfa7820",
+              "pages": 9,
+              "start": 34,
+              "end": 42
+            }
+          },
+          "pages": 9,
+          "bytes": 218137,
+          "end": 42,
+          "englishPath": "resources/seconde-06/teacher-en.pdf",
+          "englishPages": 9,
+          "englishBytes": 216097
+        },
+        {
+          "kind": "fluency",
+          "source": "automatismes-eleve.pdf",
+          "start": 5,
+          "path": "resources/seconde-05/fluency-student.pdf",
+          "title": [
+            "Fonctions : représentations et fonctions de référence",
+            "Functions and representations"
+          ],
+          "editions": {
+            "fr": {
+              "path": "resources/seconde-05/fluency-student.pdf",
+              "bytes": 165785,
+              "sha256": "cbc21f889ceb644e6fad025dbd8f4e3be735ba1bfac3eea3b5e8271765253702",
+              "pages": 2,
+              "start": 5,
+              "end": 6
+            },
+            "en": {
+              "path": "resources/seconde-05/fluency-student-en.pdf",
+              "bytes": 162579,
+              "sha256": "b40537c0b3e5f81faf74aa4d330487659169f5edcddd79ad1a4303b71261f9c6",
+              "pages": 2,
+              "start": 5,
+              "end": 6
+            }
+          },
+          "pages": 2,
+          "bytes": 165785,
+          "end": 6,
+          "englishPath": "resources/seconde-05/fluency-student-en.pdf",
+          "englishPages": 2,
+          "englishBytes": 162579
+        },
+        {
+          "kind": "fluency-solutions",
+          "source": "automatismes-prof.pdf",
+          "start": 8,
+          "path": "resources/seconde-05/fluency-teacher.pdf",
+          "title": [
+            "Fonctions : représentations et fonctions de référence",
+            "Functions and representations"
+          ],
+          "editions": {
+            "fr": {
+              "path": "resources/seconde-05/fluency-teacher.pdf",
+              "bytes": 207553,
+              "sha256": "2d8e3836b9753223ed1a17d31309385ba08b650fc4b478643c6242ea9d3addf7",
+              "pages": 3,
+              "start": 8,
+              "end": 10
+            },
+            "en": {
+              "path": "resources/seconde-05/fluency-teacher-en.pdf",
+              "bytes": 205282,
+              "sha256": "8e8558bfbb9180477dc24c0bcff22f852902881339b9f0ede9f1450fea53f0f0",
+              "pages": 3,
+              "start": 8,
+              "end": 10
+            }
+          },
+          "pages": 3,
+          "bytes": 207553,
+          "end": 10,
+          "englishPath": "resources/seconde-05/fluency-teacher-en.pdf",
+          "englishPages": 3,
+          "englishBytes": 205282
+        }
+      ],
+      "labs": [
+        "quadratic/sign",
+        "line/intercept"
+      ]
+    },
+    {
+      "id": "seconde-07",
+      "course": "seconde",
+      "number": 7,
+      "title": [
+        "Statistiques descriptives à une variable",
+        "Descriptive statistics"
+      ],
+      "topic": "statistics",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "seconde-eleve.pdf",
+          "start": 43,
+          "path": "resources/seconde-07/chapter.pdf",
+          "sections": {
+            "lesson": 1,
+            "practice": 1
+          },
+          "editions": {
+            "fr": {
+              "path": "resources/seconde-07/chapter.pdf",
+              "bytes": 193284,
+              "sha256": "12aa92d407c1de51e8c9c7aa148baaca905607fa4168e0a808aed206d430ac8e",
+              "pages": 8,
+              "start": 43,
+              "end": 50
+            },
+            "en": {
+              "path": "resources/seconde-07/chapter-en.pdf",
+              "bytes": 191764,
+              "sha256": "73510766d8dd12fceee2dafe9b383652655c31d294ddaff986e4acf61cd27284",
+              "pages": 8,
+              "start": 43,
+              "end": 50
+            }
+          },
+          "pages": 8,
+          "bytes": 193284,
+          "end": 50,
+          "englishPath": "resources/seconde-07/chapter-en.pdf",
+          "englishPages": 8,
+          "englishBytes": 191764
+        },
+        {
+          "kind": "teacher",
+          "source": "seconde-prof.pdf",
+          "start": 43,
+          "path": "resources/seconde-07/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/seconde-07/teacher.pdf",
+              "bytes": 222894,
+              "sha256": "6559d183598d5d154f8027c0996a6b37a50f1ace6a23619fe27cf705bb069361",
+              "pages": 8,
+              "start": 43,
+              "end": 50
+            },
+            "en": {
+              "path": "resources/seconde-07/teacher-en.pdf",
+              "bytes": 220808,
+              "sha256": "fa20c3de8bc1cfade42d6d08d5b024c2efa5cffb0e1b9406570f208f34e3daa8",
+              "pages": 8,
+              "start": 43,
+              "end": 50
+            }
+          },
+          "pages": 8,
+          "bytes": 222894,
+          "end": 50,
+          "englishPath": "resources/seconde-07/teacher-en.pdf",
+          "englishPages": 8,
+          "englishBytes": 220808
+        },
+        {
+          "kind": "fluency",
+          "source": "automatismes-eleve.pdf",
+          "start": 7,
+          "path": "resources/seconde-06/fluency-student.pdf",
+          "title": [
+            "Statistiques descriptives à une variable",
+            "Descriptive statistics"
+          ],
+          "editions": {
+            "fr": {
+              "path": "resources/seconde-06/fluency-student.pdf",
+              "bytes": 166176,
+              "sha256": "f7ac3175625c984796f995305ead7d86e8544b750bb98d8b3f3fce9a24936e50",
+              "pages": 2,
+              "start": 7,
+              "end": 8
+            },
+            "en": {
+              "path": "resources/seconde-06/fluency-student-en.pdf",
+              "bytes": 165042,
+              "sha256": "6b94c564e65aaa503b4cfead2510641be957510247b600bc3eb67c6cce59d639",
+              "pages": 2,
+              "start": 7,
+              "end": 8
+            }
+          },
+          "pages": 2,
+          "bytes": 166176,
+          "end": 8,
+          "englishPath": "resources/seconde-06/fluency-student-en.pdf",
+          "englishPages": 2,
+          "englishBytes": 165042
+        },
+        {
+          "kind": "fluency-solutions",
+          "source": "automatismes-prof.pdf",
+          "start": 11,
+          "path": "resources/seconde-06/fluency-teacher.pdf",
+          "title": [
+            "Statistiques descriptives à une variable",
+            "Descriptive statistics"
+          ],
+          "editions": {
+            "fr": {
+              "path": "resources/seconde-06/fluency-teacher.pdf",
+              "bytes": 203053,
+              "sha256": "c77368c8f733f796e9537cb8281f5c5c266dd9e30ad9d4e5169b8433f2612193",
+              "pages": 3,
+              "start": 11,
+              "end": 13
+            },
+            "en": {
+              "path": "resources/seconde-06/fluency-teacher-en.pdf",
+              "bytes": 202820,
+              "sha256": "081ae1796b668e37cd8a6afb798c41427fcfc43adc621351884cafb466f3baa3",
+              "pages": 3,
+              "start": 11,
+              "end": 13
+            }
+          },
+          "pages": 3,
+          "bytes": 203053,
+          "end": 13,
+          "englishPath": "resources/seconde-06/fluency-teacher-en.pdf",
+          "englishPages": 3,
+          "englishBytes": 202820
+        }
+      ],
+      "labs": [
+        "statistics/box"
+      ]
+    },
+    {
+      "id": "seconde-08",
+      "course": "seconde",
+      "number": 8,
+      "title": [
+        "Calcul algébrique, équations et inéquations",
+        "Algebra, equations and inequalities"
+      ],
+      "topic": "algebra",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "seconde-eleve.pdf",
+          "start": 51,
+          "path": "resources/seconde-08/chapter.pdf",
+          "sections": {
+            "practice": 1
+          },
+          "editions": {
+            "fr": {
+              "path": "resources/seconde-08/chapter.pdf",
+              "bytes": 261281,
+              "sha256": "9db2db1d173c0240a7c5de649e3950277108e4d854eea599c74291f86a5af6c9",
+              "pages": 13,
+              "start": 51,
+              "end": 63
+            },
+            "en": {
+              "path": "resources/seconde-08/chapter-en.pdf",
+              "bytes": 259779,
+              "sha256": "95ba204b195ade7a0eaeacf8320de870801c3b4e456317fc01f54eab9ed8d270",
+              "pages": 13,
+              "start": 51,
+              "end": 63
+            }
+          },
+          "pages": 13,
+          "bytes": 261281,
+          "end": 63,
+          "englishPath": "resources/seconde-08/chapter-en.pdf",
+          "englishPages": 13,
+          "englishBytes": 259779
+        },
+        {
+          "kind": "teacher",
+          "source": "seconde-prof.pdf",
+          "start": 51,
+          "path": "resources/seconde-08/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/seconde-08/teacher.pdf",
+              "bytes": 266929,
+              "sha256": "bdda572daf474d1a5521bdbda39ab50808af9851949de71f5873e57b2008060a",
+              "pages": 13,
+              "start": 51,
+              "end": 63
+            },
+            "en": {
+              "path": "resources/seconde-08/teacher-en.pdf",
+              "bytes": 264744,
+              "sha256": "b970f88cc3055faa9f630f4b6ada777d58b1794dbb3c4a78e4b1be8e326ba748",
+              "pages": 13,
+              "start": 51,
+              "end": 63
+            }
+          },
+          "pages": 13,
+          "bytes": 266929,
+          "end": 63,
+          "englishPath": "resources/seconde-08/teacher-en.pdf",
+          "englishPages": 13,
+          "englishBytes": 264744
+        },
+        {
+          "kind": "fluency",
+          "source": "automatismes-eleve.pdf",
+          "start": 9,
+          "path": "resources/seconde-07/fluency-student.pdf",
+          "title": [
+            "Calcul algébrique, équations et inéquations",
+            "Algebra, equations and inequalities"
+          ],
+          "editions": {
+            "fr": {
+              "path": "resources/seconde-07/fluency-student.pdf",
+              "bytes": 174219,
+              "sha256": "7312cc872661c53794a9339ef305d9fbc97e7c6b4733a84e97097bee3577db29",
+              "pages": 2,
+              "start": 9,
+              "end": 10
+            },
+            "en": {
+              "path": "resources/seconde-07/fluency-student-en.pdf",
+              "bytes": 173032,
+              "sha256": "3fe8eab408c293fbbf0bc89c969ecfe83056cc0dd8ec94eca455fe38fefa0475",
+              "pages": 2,
+              "start": 9,
+              "end": 10
+            }
+          },
+          "pages": 2,
+          "bytes": 174219,
+          "end": 10,
+          "englishPath": "resources/seconde-07/fluency-student-en.pdf",
+          "englishPages": 2,
+          "englishBytes": 173032
+        },
+        {
+          "kind": "fluency-solutions",
+          "source": "automatismes-prof.pdf",
+          "start": 13,
+          "path": "resources/seconde-07/fluency-teacher.pdf",
+          "title": [
+            "Calcul algébrique, équations et inéquations",
+            "Algebra, equations and inequalities"
+          ],
+          "editions": {
+            "fr": {
+              "path": "resources/seconde-07/fluency-teacher.pdf",
+              "bytes": 201768,
+              "sha256": "f2cdfafec104363ea8db43fc23f692ae9455ae51d3af53f443ceb1639fb988af",
+              "pages": 4,
+              "start": 13,
+              "end": 16
+            },
+            "en": {
+              "path": "resources/seconde-07/fluency-teacher-en.pdf",
+              "bytes": 201381,
+              "sha256": "116c0e2e838cb5c37def8e7385236695699eef3ea7b3713c70b59fc508fc558d",
+              "pages": 4,
+              "start": 13,
+              "end": 16
+            }
+          },
+          "pages": 4,
+          "bytes": 201768,
+          "end": 16,
+          "englishPath": "resources/seconde-07/fluency-teacher-en.pdf",
+          "englishPages": 4,
+          "englishBytes": 201381
+        }
+      ],
+      "labs": []
+    },
+    {
+      "id": "seconde-09",
+      "course": "seconde",
+      "number": 9,
+      "title": [
+        "Proportions et évolutions",
+        "Proportions and percentage change"
+      ],
+      "topic": "proportions",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "seconde-eleve.pdf",
+          "start": 64,
+          "path": "resources/seconde-09/chapter.pdf",
+          "sections": {
+            "lesson": 1,
+            "practice": 1
+          },
+          "editions": {
+            "fr": {
+              "path": "resources/seconde-09/chapter.pdf",
+              "bytes": 137772,
+              "sha256": "af5c6abb746456f1f8930582d97ea931544a769f9f4dd8988be5f5d44674e46d",
+              "pages": 4,
+              "start": 64,
+              "end": 67
+            },
+            "en": {
+              "path": "resources/seconde-09/chapter-en.pdf",
+              "bytes": 136393,
+              "sha256": "a0496286856ffaa81c46e5bac3e3539871591de83f7b3d6ae317be20927701ae",
+              "pages": 4,
+              "start": 64,
+              "end": 67
+            }
+          },
+          "pages": 4,
+          "bytes": 137772,
+          "end": 67,
+          "englishPath": "resources/seconde-09/chapter-en.pdf",
+          "englishPages": 4,
+          "englishBytes": 136393
+        },
+        {
+          "kind": "teacher",
+          "source": "seconde-prof.pdf",
+          "start": 64,
+          "path": "resources/seconde-09/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/seconde-09/teacher.pdf",
+              "bytes": 138713,
+              "sha256": "c877778f4828149b3f08a674e97ab77ee92491b3255b91bc17cd1075cbb09b41",
+              "pages": 4,
+              "start": 64,
+              "end": 67
+            },
+            "en": {
+              "path": "resources/seconde-09/teacher-en.pdf",
+              "bytes": 136143,
+              "sha256": "cf7343c275a1d9e9fda18c2f6bfd93b10dd30c2a5cdc5f3c90d2233b2c6dd294",
+              "pages": 4,
+              "start": 64,
+              "end": 67
+            }
+          },
+          "pages": 4,
+          "bytes": 138713,
+          "end": 67,
+          "englishPath": "resources/seconde-09/teacher-en.pdf",
+          "englishPages": 4,
+          "englishBytes": 136143
+        },
+        {
+          "kind": "fluency",
+          "source": "automatismes-eleve.pdf",
+          "start": 11,
+          "path": "resources/seconde-08/fluency-student.pdf",
+          "title": [
+            "Proportions et évolutions",
+            "Proportions and change"
+          ],
+          "editions": {
+            "fr": {
+              "path": "resources/seconde-08/fluency-student.pdf",
+              "bytes": 127606,
+              "sha256": "c0e2e9becc394fc420b9b0e25e248452c353a969141ae23ef22db901f851a893",
+              "pages": 1,
+              "start": 11,
+              "end": 11
+            },
+            "en": {
+              "path": "resources/seconde-08/fluency-student-en.pdf",
+              "bytes": 124318,
+              "sha256": "b077d742ce89eab2367597eff8cb7500a97407af7c1ddad3b385fc2bf0abc5a5",
+              "pages": 1,
+              "start": 11,
+              "end": 11
+            }
+          },
+          "pages": 1,
+          "bytes": 127606,
+          "end": 11,
+          "englishPath": "resources/seconde-08/fluency-student-en.pdf",
+          "englishPages": 1,
+          "englishBytes": 124318
+        },
+        {
+          "kind": "fluency-solutions",
+          "source": "automatismes-prof.pdf",
+          "start": 16,
+          "path": "resources/seconde-08/fluency-teacher.pdf",
+          "title": [
+            "Proportions et évolutions",
+            "Proportions and change"
+          ],
+          "editions": {
+            "fr": {
+              "path": "resources/seconde-08/fluency-teacher.pdf",
+              "bytes": 143756,
+              "sha256": "fad4e4c5c22a05ac5a1dffb427de17d8d5b7419629a158d8a9bfca6c8abd8e52",
+              "pages": 2,
+              "start": 16,
+              "end": 17
+            },
+            "en": {
+              "path": "resources/seconde-08/fluency-teacher-en.pdf",
+              "bytes": 141291,
+              "sha256": "c3df3a7c506eccb9a389a7a920482fe64ac3b0ea2b62d6d200eec566eaffaa4e",
+              "pages": 2,
+              "start": 16,
+              "end": 17
+            }
+          },
+          "pages": 2,
+          "bytes": 143756,
+          "end": 17,
+          "englishPath": "resources/seconde-08/fluency-teacher-en.pdf",
+          "englishPages": 2,
+          "englishBytes": 141291
+        }
+      ],
+      "labs": []
+    },
+    {
+      "id": "seconde-10",
+      "course": "seconde",
+      "number": 10,
+      "title": [
+        "Variations et extrémums d'une fonction",
+        "Variation and extrema"
+      ],
+      "topic": "variations",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "seconde-eleve.pdf",
+          "start": 68,
+          "path": "resources/seconde-10/chapter.pdf",
+          "sections": {
+            "lesson": 1,
+            "practice": 1
+          },
+          "editions": {
+            "fr": {
+              "path": "resources/seconde-10/chapter.pdf",
+              "bytes": 220935,
+              "sha256": "9e0257d4fd28403521f77c8a3387d2e956be650c8926d781f746b6fffa4297d7",
+              "pages": 7,
+              "start": 68,
+              "end": 74
+            },
+            "en": {
+              "path": "resources/seconde-10/chapter-en.pdf",
+              "bytes": 219576,
+              "sha256": "d042b376502c3fe38f97b71093e7bc69644fdc81626e7b163fd8957309fe3de7",
+              "pages": 7,
+              "start": 68,
+              "end": 74
+            }
+          },
+          "pages": 7,
+          "bytes": 220935,
+          "end": 74,
+          "englishPath": "resources/seconde-10/chapter-en.pdf",
+          "englishPages": 7,
+          "englishBytes": 219576
+        },
+        {
+          "kind": "teacher",
+          "source": "seconde-prof.pdf",
+          "start": 68,
+          "path": "resources/seconde-10/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/seconde-10/teacher.pdf",
+              "bytes": 220874,
+              "sha256": "2c1cb7c3a14d3c6cee091ceb4586a006ffc9ced59c6d02fe5892d26552707b6e",
+              "pages": 7,
+              "start": 68,
+              "end": 74
+            },
+            "en": {
+              "path": "resources/seconde-10/teacher-en.pdf",
+              "bytes": 218834,
+              "sha256": "c7ad0704c0dda1b27b258bbb7fd1247fe035d7c356165d1341b94848dce0ddfb",
+              "pages": 7,
+              "start": 68,
+              "end": 74
+            }
+          },
+          "pages": 7,
+          "bytes": 220874,
+          "end": 74,
+          "englishPath": "resources/seconde-10/teacher-en.pdf",
+          "englishPages": 7,
+          "englishBytes": 218834
+        },
+        {
+          "kind": "fluency",
+          "source": "automatismes-eleve.pdf",
+          "start": 12,
+          "path": "resources/seconde-09/fluency-student.pdf",
+          "title": [
+            "Variations et extrémums d'une fonction",
+            "Variation and extrema"
+          ],
+          "editions": {
+            "fr": {
+              "path": "resources/seconde-09/fluency-student.pdf",
+              "bytes": 160030,
+              "sha256": "fac19ea95c88640008125df0d23b9af9395750ea7de62f6bfdd113ab3bb5e798",
+              "pages": 2,
+              "start": 12,
+              "end": 13
+            },
+            "en": {
+              "path": "resources/seconde-09/fluency-student-en.pdf",
+              "bytes": 158875,
+              "sha256": "062b7608bd23ff3b5d49628afa582e3a18070593e1cb3c21ea3e2ab617a3b19f",
+              "pages": 2,
+              "start": 12,
+              "end": 13
+            }
+          },
+          "pages": 2,
+          "bytes": 160030,
+          "end": 13,
+          "englishPath": "resources/seconde-09/fluency-student-en.pdf",
+          "englishPages": 2,
+          "englishBytes": 158875
+        },
+        {
+          "kind": "fluency-solutions",
+          "source": "automatismes-prof.pdf",
+          "start": 18,
+          "path": "resources/seconde-09/fluency-teacher.pdf",
+          "title": [
+            "Variations et extrémums d'une fonction",
+            "Variation and extrema"
+          ],
+          "editions": {
+            "fr": {
+              "path": "resources/seconde-09/fluency-teacher.pdf",
+              "bytes": 178750,
+              "sha256": "147df35e56c10cd821be4ad3754745e08ce67f9baab23505e26bda36c9cfb1a9",
+              "pages": 3,
+              "start": 18,
+              "end": 20
+            },
+            "en": {
+              "path": "resources/seconde-09/fluency-teacher-en.pdf",
+              "bytes": 178177,
+              "sha256": "b37645400328b93a7283c0532fb43b988676f3da1d368b08947a7c488c0654b9",
+              "pages": 3,
+              "start": 18,
+              "end": 20
+            }
+          },
+          "pages": 3,
+          "bytes": 178750,
+          "end": 20,
+          "englishPath": "resources/seconde-09/fluency-teacher-en.pdf",
+          "englishPages": 3,
+          "englishBytes": 178177
+        }
+      ],
+      "labs": [
+        "derivative/where"
+      ]
+    },
+    {
+      "id": "seconde-11",
+      "course": "seconde",
+      "number": 11,
+      "title": [
+        "Croisement de deux variables qualitatives",
+        "Two-way categorical tables"
+      ],
+      "topic": "conditioning",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "seconde-eleve.pdf",
+          "start": 75,
+          "path": "resources/seconde-11/chapter.pdf",
+          "sections": {
+            "lesson": 1,
+            "practice": 1
+          },
+          "editions": {
+            "fr": {
+              "path": "resources/seconde-11/chapter.pdf",
+              "bytes": 191920,
+              "sha256": "36cdb42da9c088aeeecfc3b10ac7a32713327dfc1b24d068f8a99cd2343d3fe4",
+              "pages": 4,
+              "start": 75,
+              "end": 78
+            },
+            "en": {
+              "path": "resources/seconde-11/chapter-en.pdf",
+              "bytes": 191109,
+              "sha256": "2817b9eff7e053e945694c1bfbf47b1e7aec1029d73fd06556b1edb8e36e9848",
+              "pages": 4,
+              "start": 75,
+              "end": 78
+            }
+          },
+          "pages": 4,
+          "bytes": 191920,
+          "end": 78,
+          "englishPath": "resources/seconde-11/chapter-en.pdf",
+          "englishPages": 4,
+          "englishBytes": 191109
+        },
+        {
+          "kind": "teacher",
+          "source": "seconde-prof.pdf",
+          "start": 75,
+          "path": "resources/seconde-11/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/seconde-11/teacher.pdf",
+              "bytes": 194694,
+              "sha256": "f76fb722b7329edca670bd9046c88bc1710cc17d9c487f3a8f6c182714c0aebd",
+              "pages": 4,
+              "start": 75,
+              "end": 78
+            },
+            "en": {
+              "path": "resources/seconde-11/teacher-en.pdf",
+              "bytes": 193080,
+              "sha256": "9fe3d851c4d88d65cb784224adc3f66452df81bfc3b298460e2ebb9d17a12a3b",
+              "pages": 4,
+              "start": 75,
+              "end": 78
+            }
+          },
+          "pages": 4,
+          "bytes": 194694,
+          "end": 78,
+          "englishPath": "resources/seconde-11/teacher-en.pdf",
+          "englishPages": 4,
+          "englishBytes": 193080
+        },
+        {
+          "kind": "fluency",
+          "source": "automatismes-eleve.pdf",
+          "start": 13,
+          "path": "resources/seconde-10/fluency-student.pdf",
+          "title": [
+            "Croisement de deux variables qualitatives",
+            "Two categorical variables"
+          ],
+          "editions": {
+            "fr": {
+              "path": "resources/seconde-10/fluency-student.pdf",
+              "bytes": 148720,
+              "sha256": "066f57e27f0ecfae02b00ce0218a1dbb36fe551471559bf974b0bd830d3da34d",
+              "pages": 2,
+              "start": 13,
+              "end": 14
+            },
+            "en": {
+              "path": "resources/seconde-10/fluency-student-en.pdf",
+              "bytes": 147297,
+              "sha256": "ea0fcddae10bdfe18158cb496468e34b6bcf615ee51e104f550e53025aedccb4",
+              "pages": 2,
+              "start": 13,
+              "end": 14
+            }
+          },
+          "pages": 2,
+          "bytes": 148720,
+          "end": 14,
+          "englishPath": "resources/seconde-10/fluency-student-en.pdf",
+          "englishPages": 2,
+          "englishBytes": 147297
+        },
+        {
+          "kind": "fluency-solutions",
+          "source": "automatismes-prof.pdf",
+          "start": 20,
+          "path": "resources/seconde-10/fluency-teacher.pdf",
+          "title": [
+            "Croisement de deux variables qualitatives",
+            "Two categorical variables"
+          ],
+          "editions": {
+            "fr": {
+              "path": "resources/seconde-10/fluency-teacher.pdf",
+              "bytes": 182738,
+              "sha256": "13deffce4196da8e33d9fd540fbc8caa3bc2b0789b0252fcb51daf921a0004f9",
+              "pages": 4,
+              "start": 20,
+              "end": 23
+            },
+            "en": {
+              "path": "resources/seconde-10/fluency-teacher-en.pdf",
+              "bytes": 181885,
+              "sha256": "82d7ca555c9d41a43a64818940950f4548ee7e90fc42daa42b73134edd885502",
+              "pages": 4,
+              "start": 20,
+              "end": 23
+            }
+          },
+          "pages": 4,
+          "bytes": 182738,
+          "end": 23,
+          "englishPath": "resources/seconde-10/fluency-teacher-en.pdf",
+          "englishPages": 4,
+          "englishBytes": 181885
+        }
+      ],
+      "labs": [
+        "statistics"
+      ]
+    },
+    {
+      "id": "seconde-12",
+      "course": "seconde",
+      "number": 12,
+      "title": [
+        "Géométrie repérée : synthèse vecteurs et droites",
+        "Coordinate geometry: vectors and lines"
+      ],
+      "topic": "lines",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "seconde-eleve.pdf",
+          "start": 79,
+          "path": "resources/seconde-12/chapter.pdf",
+          "sections": {
+            "practice": 1
+          },
+          "editions": {
+            "fr": {
+              "path": "resources/seconde-12/chapter.pdf",
+              "bytes": 119736,
+              "sha256": "168818fefd496ed0405044e308f98129511cd1085dc7c89fa931fb3333108a60",
+              "pages": 3,
+              "start": 79,
+              "end": 81
+            },
+            "en": {
+              "path": "resources/seconde-12/chapter-en.pdf",
+              "bytes": 118673,
+              "sha256": "811eace061e6777bdc1c6fa23f5fa679fab5b9be71d82772b6e3d80066f7ada9",
+              "pages": 3,
+              "start": 79,
+              "end": 81
+            }
+          },
+          "pages": 3,
+          "bytes": 119736,
+          "end": 81,
+          "englishPath": "resources/seconde-12/chapter-en.pdf",
+          "englishPages": 3,
+          "englishBytes": 118673
+        },
+        {
+          "kind": "teacher",
+          "source": "seconde-prof.pdf",
+          "start": 79,
+          "path": "resources/seconde-12/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/seconde-12/teacher.pdf",
+              "bytes": 126180,
+              "sha256": "cf2752fa2a8b32c5313f536dc3a92a51089bcc00aa0e087ac28ca64b27b4c968",
+              "pages": 3,
+              "start": 79,
+              "end": 81
+            },
+            "en": {
+              "path": "resources/seconde-12/teacher-en.pdf",
+              "bytes": 124440,
+              "sha256": "f77fcb78772a6fa95507ff62bc0117f8a0a2feeac39d98c7a2776255a6c5d3de",
+              "pages": 3,
+              "start": 79,
+              "end": 81
+            }
+          },
+          "pages": 3,
+          "bytes": 126180,
+          "end": 81,
+          "englishPath": "resources/seconde-12/teacher-en.pdf",
+          "englishPages": 3,
+          "englishBytes": 124440
+        },
+        {
+          "kind": "fluency",
+          "source": "automatismes-eleve.pdf",
+          "start": 15,
+          "path": "resources/seconde-11/fluency-student.pdf",
+          "title": [
+            "Géométrie repérée : synthèse vecteurs / droites",
+            "Coordinate geometry"
+          ],
+          "editions": {
+            "fr": {
+              "path": "resources/seconde-11/fluency-student.pdf",
+              "bytes": 150806,
+              "sha256": "934fa0e9500a13275d8bbda2bf4eb7434c7352a7b702211c08e5c34d25f780cc",
+              "pages": 2,
+              "start": 15,
+              "end": 16
+            },
+            "en": {
+              "path": "resources/seconde-11/fluency-student-en.pdf",
+              "bytes": 147109,
+              "sha256": "f3909c0150e2dbb431971362be262e1e9d5ba3c3677a233a5ab972d2b008dcc6",
+              "pages": 2,
+              "start": 15,
+              "end": 16
+            }
+          },
+          "pages": 2,
+          "bytes": 150806,
+          "end": 16,
+          "englishPath": "resources/seconde-11/fluency-student-en.pdf",
+          "englishPages": 2,
+          "englishBytes": 147109
+        },
+        {
+          "kind": "fluency-solutions",
+          "source": "automatismes-prof.pdf",
+          "start": 23,
+          "path": "resources/seconde-11/fluency-teacher.pdf",
+          "title": [
+            "Géométrie repérée : synthèse vecteurs / droites",
+            "Coordinate geometry"
+          ],
+          "editions": {
+            "fr": {
+              "path": "resources/seconde-11/fluency-teacher.pdf",
+              "bytes": 170866,
+              "sha256": "8bb1d00bb42ffe69514a0924c9cd7aa431f174edb60bab7db3848244e13c353e",
+              "pages": 3,
+              "start": 23,
+              "end": 25
+            },
+            "en": {
+              "path": "resources/seconde-11/fluency-teacher-en.pdf",
+              "bytes": 168044,
+              "sha256": "f334afc273528a906aec7d6ff1a44f3ee05e8ba640c7addb8454af2e2b63ad2f",
+              "pages": 3,
+              "start": 23,
+              "end": 25
+            }
+          },
+          "pages": 3,
+          "bytes": 170866,
+          "end": 25,
+          "englishPath": "resources/seconde-11/fluency-teacher-en.pdf",
+          "englishPages": 3,
+          "englishBytes": 168044
+        }
+      ],
+      "labs": [
+        "vectors/collinear",
+        "line"
+      ]
+    },
+    {
+      "id": "seconde-13",
+      "course": "seconde",
+      "number": 13,
+      "title": [
+        "Problèmes de synthèse, raisonnement et automatismes",
+        "Synthesis, reasoning and fluency"
+      ],
+      "topic": "reasoning",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "seconde-eleve.pdf",
+          "start": 82,
+          "path": "resources/seconde-13/chapter.pdf",
+          "sections": {
+            "practice": 1
+          },
+          "editions": {
+            "fr": {
+              "path": "resources/seconde-13/chapter.pdf",
+              "bytes": 161241,
+              "sha256": "47f210821b1c091038fccd04b1750fd53ccab2706ce9c470be36a9ff68029af5",
+              "pages": 3,
+              "start": 82,
+              "end": 84
+            },
+            "en": {
+              "path": "resources/seconde-13/chapter-en.pdf",
+              "bytes": 160053,
+              "sha256": "fafeffcb9e9938286e154a2ecf66a6dcd3043327345abec7acec8bc284aed42b",
+              "pages": 3,
+              "start": 82,
+              "end": 84
+            }
+          },
+          "pages": 3,
+          "bytes": 161241,
+          "end": 84,
+          "englishPath": "resources/seconde-13/chapter-en.pdf",
+          "englishPages": 3,
+          "englishBytes": 160053
+        },
+        {
+          "kind": "teacher",
+          "source": "seconde-prof.pdf",
+          "start": 82,
+          "path": "resources/seconde-13/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/seconde-13/teacher.pdf",
+              "bytes": 164040,
+              "sha256": "fe7b598498e8b16731cd8908be9cfa690a97e9fbd6bcf6c68d4c37502b50e3bb",
+              "pages": 3,
+              "start": 82,
+              "end": 84
+            },
+            "en": {
+              "path": "resources/seconde-13/teacher-en.pdf",
+              "bytes": 162137,
+              "sha256": "2a94ef1795b633c3dac92870a7047fe92bc9f5a05e457ed15975181d43ce7705",
+              "pages": 3,
+              "start": 82,
+              "end": 84
+            }
+          },
+          "pages": 3,
+          "bytes": 164040,
+          "end": 84,
+          "englishPath": "resources/seconde-13/teacher-en.pdf",
+          "englishPages": 3,
+          "englishBytes": 162137
+        },
+        {
+          "kind": "fluency",
+          "source": "automatismes-eleve.pdf",
+          "start": 16,
+          "path": "resources/seconde-12/fluency-student.pdf",
+          "title": [
+            "Problèmes de synthèse, raisonnement et automatismes",
+            "Reasoning and synthesis"
+          ],
+          "editions": {
+            "fr": {
+              "path": "resources/seconde-12/fluency-student.pdf",
+              "bytes": 147184,
+              "sha256": "e4e22f4b6805c0405c20ca45d9ee4768e76980b1e47d8d3aef734d23460515f5",
+              "pages": 1,
+              "start": 16,
+              "end": 16
+            },
+            "en": {
+              "path": "resources/seconde-12/fluency-student-en.pdf",
+              "bytes": 146310,
+              "sha256": "f5a6662acd5d4f94b1fb396fab219ad5fe6c7ad7a1d80028c60f0e62d2268a1f",
+              "pages": 1,
+              "start": 16,
+              "end": 16
+            }
+          },
+          "pages": 1,
+          "bytes": 147184,
+          "end": 16,
+          "englishPath": "resources/seconde-12/fluency-student-en.pdf",
+          "englishPages": 1,
+          "englishBytes": 146310
+        },
+        {
+          "kind": "fluency-solutions",
+          "source": "automatismes-prof.pdf",
+          "start": 25,
+          "path": "resources/seconde-12/fluency-teacher.pdf",
+          "title": [
+            "Problèmes de synthèse, raisonnement et automatismes",
+            "Reasoning and synthesis"
+          ],
+          "editions": {
+            "fr": {
+              "path": "resources/seconde-12/fluency-teacher.pdf",
+              "bytes": 178534,
+              "sha256": "e41fc0dc403220fe93efd51b0e548923faad6cf8fcf5c7d3c740f689ad88fbfd",
+              "pages": 2,
+              "start": 25,
+              "end": 26
+            },
+            "en": {
+              "path": "resources/seconde-12/fluency-teacher-en.pdf",
+              "bytes": 178485,
+              "sha256": "c87d9367f35b07aba1878b525db5df6a26a050849f083010ed4793ba00bd673e",
+              "pages": 2,
+              "start": 25,
+              "end": 26
+            }
+          },
+          "pages": 2,
+          "bytes": 178534,
+          "end": 26,
+          "englishPath": "resources/seconde-12/fluency-teacher-en.pdf",
+          "englishPages": 2,
+          "englishBytes": 178485
+        }
+      ],
+      "labs": [
+        "tiles/zoom",
+        "circle-regions/six"
+      ]
+    },
+    {
+      "id": "seconde-14",
+      "course": "seconde",
+      "number": 14,
+      "title": [
+        "Probabilités : conditionnement et arbres pondérés",
+        "Probability: conditioning and trees"
+      ],
+      "topic": "conditioning",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "seconde-eleve.pdf",
+          "start": 85,
+          "path": "resources/seconde-14/chapter.pdf",
+          "sections": {
+            "practice": 1
+          },
+          "editions": {
+            "fr": {
+              "path": "resources/seconde-14/chapter.pdf",
+              "bytes": 215849,
+              "sha256": "41472cf6a35d0c4e015c48ac8c611fd9d973fbb110a08100bb9391d4875ac810",
+              "pages": 7,
+              "start": 85,
+              "end": 91
+            },
+            "en": {
+              "path": "resources/seconde-14/chapter-en.pdf",
+              "bytes": 215049,
+              "sha256": "5d8963f80c6af436a24232ac875a7951e37e3bb14d5d7ce8f24573d4435f1005",
+              "pages": 7,
+              "start": 85,
+              "end": 91
+            }
+          },
+          "pages": 7,
+          "bytes": 215849,
+          "end": 91,
+          "englishPath": "resources/seconde-14/chapter-en.pdf",
+          "englishPages": 7,
+          "englishBytes": 215049
+        },
+        {
+          "kind": "teacher",
+          "source": "seconde-prof.pdf",
+          "start": 85,
+          "path": "resources/seconde-14/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/seconde-14/teacher.pdf",
+              "bytes": 218040,
+              "sha256": "4c38d645146eed11848e27a8ce1234cbca654c16c0cc50b3b2e85da0ebbdd3b9",
+              "pages": 7,
+              "start": 85,
+              "end": 91
+            },
+            "en": {
+              "path": "resources/seconde-14/teacher-en.pdf",
+              "bytes": 216543,
+              "sha256": "431b7495b2ad6f45dde958f01f37e55a22021e77418b115d12c95a2d10f67ba2",
+              "pages": 7,
+              "start": 85,
+              "end": 91
+            }
+          },
+          "pages": 7,
+          "bytes": 218040,
+          "end": 91,
+          "englishPath": "resources/seconde-14/teacher-en.pdf",
+          "englishPages": 7,
+          "englishBytes": 216543
+        },
+        {
+          "kind": "fluency",
+          "source": "automatismes-eleve.pdf",
+          "start": 17,
+          "path": "resources/seconde-13/fluency-student.pdf",
+          "title": [
+            "Probabilités : conditionnement et arbres pondérés",
+            "Conditional probability and trees"
+          ],
+          "editions": {
+            "fr": {
+              "path": "resources/seconde-13/fluency-student.pdf",
+              "bytes": 158873,
+              "sha256": "19280d3ce3431910b05b5ca58f1fbbc2913acedf4a0096e98213f3e966f380c4",
+              "pages": 3,
+              "start": 17,
+              "end": 19
+            },
+            "en": {
+              "path": "resources/seconde-13/fluency-student-en.pdf",
+              "bytes": 157850,
+              "sha256": "20cb4e045cea66cdf9fb23d8ae97f569c1839b3b2a16bf4ebe427716547d10f9",
+              "pages": 3,
+              "start": 17,
+              "end": 19
+            }
+          },
+          "pages": 3,
+          "bytes": 158873,
+          "end": 19,
+          "englishPath": "resources/seconde-13/fluency-student-en.pdf",
+          "englishPages": 3,
+          "englishBytes": 157850
+        },
+        {
+          "kind": "fluency-solutions",
+          "source": "automatismes-prof.pdf",
+          "start": 26,
+          "path": "resources/seconde-13/fluency-teacher.pdf",
+          "title": [
+            "Probabilités : conditionnement et arbres pondérés",
+            "Conditional probability and trees"
+          ],
+          "editions": {
+            "fr": {
+              "path": "resources/seconde-13/fluency-teacher.pdf",
+              "bytes": 190825,
+              "sha256": "cdf4dd4ac69d49ad2fabdb62607a4e76ef4f08cd491929c63e77e4207e8d05c6",
+              "pages": 5,
+              "start": 26,
+              "end": 30
+            },
+            "en": {
+              "path": "resources/seconde-13/fluency-teacher-en.pdf",
+              "bytes": 190442,
+              "sha256": "7dd841cf91514932dabe94306110482b530e9f42c3d4a3f4be3377288cba4b03",
+              "pages": 5,
+              "start": 26,
+              "end": 30
+            }
+          },
+          "pages": 5,
+          "bytes": 190825,
+          "end": 30,
+          "englishPath": "resources/seconde-13/fluency-teacher-en.pdf",
+          "englishPages": 5,
+          "englishBytes": 190442
+        }
+      ],
+      "labs": [
+        "probability/run",
+        "bertrand/ends"
+      ]
+    },
+    {
+      "id": "seconde-15",
+      "course": "seconde",
+      "number": 15,
+      "title": [
+        "Consolidation et transition vers la Première",
+        "Consolidation and transition"
+      ],
+      "topic": "reasoning",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "seconde-eleve.pdf",
+          "start": 92,
+          "path": "resources/seconde-15/chapter.pdf",
+          "sections": {
+            "practice": 1
+          },
+          "editions": {
+            "fr": {
+              "path": "resources/seconde-15/chapter.pdf",
+              "bytes": 166345,
+              "sha256": "923f2c18dd3a9e47d64567b36128b1671b39cc41f205e88bd3f6976bf26a8af8",
+              "pages": 3,
+              "start": 92,
+              "end": 94
+            },
+            "en": {
+              "path": "resources/seconde-15/chapter-en.pdf",
+              "bytes": 165227,
+              "sha256": "f705180b0d25da68d35dcec98b9e3c0629ddf8ad12cf7404a524e35c9ea311bd",
+              "pages": 3,
+              "start": 92,
+              "end": 94
+            }
+          },
+          "pages": 3,
+          "bytes": 166345,
+          "end": 94,
+          "englishPath": "resources/seconde-15/chapter-en.pdf",
+          "englishPages": 3,
+          "englishBytes": 165227
+        },
+        {
+          "kind": "teacher",
+          "source": "seconde-prof.pdf",
+          "start": 92,
+          "path": "resources/seconde-15-prof.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/seconde-15-prof.pdf",
+              "bytes": 353735,
+              "sha256": "f4e090cab0a4eaf89aaa6d36f7efc685d90d65e75566a1c448ca62c7e060792b",
+              "pages": 3,
+              "start": 92,
+              "end": 94
+            },
+            "en": {
+              "path": "resources/seconde-15-prof-en.pdf",
+              "bytes": 326146,
+              "sha256": "9df958f848997527a97f3a3a8c6a30c87d291906c7924aed1bdb7b0f300726f1",
+              "pages": 3,
+              "start": 92,
+              "end": 94
+            }
+          },
+          "pages": 3,
+          "bytes": 353735,
+          "end": 94,
+          "englishPath": "resources/seconde-15-prof-en.pdf",
+          "englishPages": 3,
+          "englishBytes": 326146
+        },
+        {
+          "kind": "fluency",
+          "source": "automatismes-eleve.pdf",
+          "start": 19,
+          "path": "resources/seconde-14/fluency-student.pdf",
+          "title": [
+            "Consolidation, automatismes et transition vers la Première",
+            "Consolidation and transition"
+          ],
+          "editions": {
+            "fr": {
+              "path": "resources/seconde-14/fluency-student.pdf",
+              "bytes": 147700,
+              "sha256": "fa1715b1fe999a44f5913adf0b73b976ca4ed8db3ec64593186fb81b6b1e9f60",
+              "pages": 2,
+              "start": 19,
+              "end": 20
+            },
+            "en": {
+              "path": "resources/seconde-14/fluency-student-en.pdf",
+              "bytes": 145017,
+              "sha256": "0efdf7ca7c31b3ed11d35f9aee676b30c1e3ebbbcb622e802826124b9ffafef4",
+              "pages": 2,
+              "start": 19,
+              "end": 20
+            }
+          },
+          "pages": 2,
+          "bytes": 147700,
+          "end": 20,
+          "englishPath": "resources/seconde-14/fluency-student-en.pdf",
+          "englishPages": 2,
+          "englishBytes": 145017
+        },
+        {
+          "kind": "fluency",
+          "source": "automatismes-eleve.pdf",
+          "start": 21,
+          "path": "resources/seconde-15/fluency-student.pdf",
+          "title": [
+            "Bilan annuel et consolidation des acquis de Seconde",
+            "Annual review and consolidation"
+          ],
+          "editions": {
+            "fr": {
+              "path": "resources/seconde-15/fluency-student.pdf",
+              "bytes": 166513,
+              "sha256": "58243508582bf87caaf88e506595f8c01826eb797753278ea10749d9564b5e6e",
+              "pages": 2,
+              "start": 21,
+              "end": 22
+            },
+            "en": {
+              "path": "resources/seconde-15/fluency-student-en.pdf",
+              "bytes": 165940,
+              "sha256": "1af676dd7c9d9aad3c0acc4da9f6eb3eb232ca438756049920f0861ae532b82d",
+              "pages": 2,
+              "start": 21,
+              "end": 22
+            }
+          },
+          "pages": 2,
+          "bytes": 166513,
+          "end": 22,
+          "englishPath": "resources/seconde-15/fluency-student-en.pdf",
+          "englishPages": 2,
+          "englishBytes": 165940
+        },
+        {
+          "kind": "fluency-solutions",
+          "source": "automatismes-prof.pdf",
+          "start": 30,
+          "path": "resources/seconde-14/fluency-teacher.pdf",
+          "title": [
+            "Consolidation, automatismes et transition vers la Première",
+            "Consolidation and transition"
+          ],
+          "editions": {
+            "fr": {
+              "path": "resources/seconde-14/fluency-teacher.pdf",
+              "bytes": 185286,
+              "sha256": "e4c3a0459a5b974a378387ab34ad71f8d1e8531ee089c5c044123f297730726d",
+              "pages": 2,
+              "start": 30,
+              "end": 31
+            },
+            "en": {
+              "path": "resources/seconde-14/fluency-teacher-en.pdf",
+              "bytes": 183341,
+              "sha256": "f24427b705dc5a60394c44c040372f5861f926817322b3ce114d4ecc3ae70179",
+              "pages": 2,
+              "start": 30,
+              "end": 31
+            }
+          },
+          "pages": 2,
+          "bytes": 185286,
+          "end": 31,
+          "englishPath": "resources/seconde-14/fluency-teacher-en.pdf",
+          "englishPages": 2,
+          "englishBytes": 183341
+        },
+        {
+          "kind": "fluency-solutions",
+          "source": "automatismes-prof.pdf",
+          "start": 32,
+          "path": "resources/seconde-15/fluency-teacher.pdf",
+          "title": [
+            "Bilan annuel et consolidation des acquis de Seconde",
+            "Annual review and consolidation"
+          ],
+          "editions": {
+            "fr": {
+              "path": "resources/seconde-15/fluency-teacher.pdf",
+              "bytes": 203112,
+              "sha256": "0e7e0f848d54c9d51d9f39359aa146c22896976979f584741f2361ed2562b0e3",
+              "pages": 4,
+              "start": 32,
+              "end": 35
+            },
+            "en": {
+              "path": "resources/seconde-15/fluency-teacher-en.pdf",
+              "bytes": 202543,
+              "sha256": "6ce585dddbf0abd47f8be251c053913c5335efad1de7323eda51449fa41e994d",
+              "pages": 4,
+              "start": 32,
+              "end": 35
+            }
+          },
+          "pages": 4,
+          "bytes": 203112,
+          "end": 35,
+          "englishPath": "resources/seconde-15/fluency-teacher-en.pdf",
+          "englishPages": 4,
+          "englishBytes": 202543
+        }
+      ],
+      "labs": []
+    },
+    {
+      "id": "premiere-01",
+      "course": "premiere",
+      "number": 1,
+      "title": [
+        "Suites numériques et modèles discrets",
+        "Sequences and discrete models"
+      ],
+      "topic": "sequences",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "premiere-eleve.pdf",
+          "start": 7,
+          "path": "resources/premiere-01/chapter.pdf",
+          "sections": {
+            "practice": 5,
+            "quiz": 8
+          },
+          "editions": {
+            "fr": {
+              "path": "resources/premiere-01/chapter.pdf",
+              "bytes": 203261,
+              "sha256": "acfa4496e13de1fcbe4495561bda9b6554b8646a1de5c6e91574dae3fd97766f",
+              "pages": 10,
+              "start": 7,
+              "end": 16
+            },
+            "en": {
+              "path": "resources/premiere-01/chapter-en.pdf",
+              "bytes": 200734,
+              "sha256": "573bb46a8cde09d892c8cd3942a4fab43249ec9a53683ddd721b72e5b932bc56",
+              "pages": 10,
+              "start": 7,
+              "end": 16
+            }
+          },
+          "pages": 10,
+          "bytes": 203261,
+          "end": 16,
+          "englishPath": "resources/premiere-01/chapter-en.pdf",
+          "englishPages": 10,
+          "englishBytes": 200734
+        },
+        {
+          "kind": "teacher",
+          "source": "premiere-prof.pdf",
+          "start": 7,
+          "path": "resources/premiere-01/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/premiere-01/teacher.pdf",
+              "bytes": 227989,
+              "sha256": "9f5dc48603ee256c6f7c846f648976f2b66a63cb3b6f3b1fd000b295a0174f18",
+              "pages": 13,
+              "start": 7,
+              "end": 19
+            },
+            "en": {
+              "path": "resources/premiere-01/teacher-en.pdf",
+              "bytes": 225523,
+              "sha256": "6783bf646feffc853cd6caebe66968e023e6b5027286dc16eb852253d1174886",
+              "pages": 13,
+              "start": 7,
+              "end": 19
+            }
+          },
+          "pages": 13,
+          "bytes": 227989,
+          "end": 19,
+          "englishPath": "resources/premiere-01/teacher-en.pdf",
+          "englishPages": 13,
+          "englishBytes": 225523
+        }
+      ],
+      "labs": [
+        "sequences/signs",
+        "cobweb/steps"
+      ]
+    },
+    {
+      "id": "premiere-02",
+      "course": "premiere",
+      "number": 2,
+      "title": [
+        "Second degré : formes et choix de méthode",
+        "Quadratics: forms and methods"
+      ],
+      "topic": "quadratic",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "premiere-eleve.pdf",
+          "start": 16,
+          "path": "resources/premiere-02/chapter.pdf",
+          "sections": {
+            "lesson": 2,
+            "practice": 4,
+            "quiz": 7
+          },
+          "editions": {
+            "fr": {
+              "path": "resources/premiere-02/chapter.pdf",
+              "bytes": 199476,
+              "sha256": "32ab827090eaad11d9a1bdc2b266bd0b9d1be13f64e9ab637c4fc0ca1a7aeb9b",
+              "pages": 10,
+              "start": 16,
+              "end": 25
+            },
+            "en": {
+              "path": "resources/premiere-02/chapter-en.pdf",
+              "bytes": 196509,
+              "sha256": "c744dd1bce5fc145b1d5f46285540beea0cd4529adee5b7c0d40c4e096345f4c",
+              "pages": 10,
+              "start": 16,
+              "end": 25
+            }
+          },
+          "pages": 10,
+          "bytes": 199476,
+          "end": 25,
+          "englishPath": "resources/premiere-02/chapter-en.pdf",
+          "englishPages": 10,
+          "englishBytes": 196509
+        },
+        {
+          "kind": "teacher",
+          "source": "premiere-prof.pdf",
+          "start": 19,
+          "path": "resources/premiere-02/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/premiere-02/teacher.pdf",
+              "bytes": 217406,
+              "sha256": "849ba47e3b7dd46354533334065e37a5c4f810950104ac278e451120961db181",
+              "pages": 13,
+              "start": 19,
+              "end": 31
+            },
+            "en": {
+              "path": "resources/premiere-02/teacher-en.pdf",
+              "bytes": 214730,
+              "sha256": "bc4427af648196cda5fec50f7bad1f985a67bbcac028ed0e3e7b47abd140b530",
+              "pages": 13,
+              "start": 19,
+              "end": 31
+            }
+          },
+          "pages": 13,
+          "bytes": 217406,
+          "end": 31,
+          "englishPath": "resources/premiere-02/teacher-en.pdf",
+          "englishPages": 13,
+          "englishBytes": 214730
+        }
+      ],
+      "labs": [
+        "quadratic/vertex"
+      ]
+    },
+    {
+      "id": "premiere-03",
+      "course": "premiere",
+      "number": 3,
+      "title": [
+        "Calcul vectoriel et produit scalaire",
+        "Vectors and the scalar product"
+      ],
+      "topic": "vectors",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "premiere-eleve.pdf",
+          "start": 24,
+          "path": "resources/premiere-03/chapter.pdf",
+          "sections": {
+            "practice": 5,
+            "quiz": 8
+          },
+          "editions": {
+            "fr": {
+              "path": "resources/premiere-03/chapter.pdf",
+              "bytes": 191024,
+              "sha256": "86322f3e56c3697f8cfe0cf338146f45ff19337db9baa150e293eacf09bc429a",
+              "pages": 10,
+              "start": 24,
+              "end": 33
+            },
+            "en": {
+              "path": "resources/premiere-03/chapter-en.pdf",
+              "bytes": 188055,
+              "sha256": "37b2a8ab3baa3e5d98a2bb66193acd4d888432e37c00641fab46a29a30bddca1",
+              "pages": 10,
+              "start": 24,
+              "end": 33
+            }
+          },
+          "pages": 10,
+          "bytes": 191024,
+          "end": 33,
+          "englishPath": "resources/premiere-03/chapter-en.pdf",
+          "englishPages": 10,
+          "englishBytes": 188055
+        },
+        {
+          "kind": "teacher",
+          "source": "premiere-prof.pdf",
+          "start": 30,
+          "path": "resources/premiere-03/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/premiere-03/teacher.pdf",
+              "bytes": 217631,
+              "sha256": "ee2b2e757c800c4fc4bd2a29a6c8c4367c9122fea7944d843be28fad47a3467d",
+              "pages": 13,
+              "start": 30,
+              "end": 42
+            },
+            "en": {
+              "path": "resources/premiere-03/teacher-en.pdf",
+              "bytes": 214901,
+              "sha256": "2b9b4179784dff285aa3a8a904ab33d2978b7135b130a0540f4b07d2b39dabe5",
+              "pages": 13,
+              "start": 30,
+              "end": 42
+            }
+          },
+          "pages": 13,
+          "bytes": 217631,
+          "end": 42,
+          "englishPath": "resources/premiere-03/teacher-en.pdf",
+          "englishPages": 13,
+          "englishBytes": 214901
+        }
+      ],
+      "labs": [
+        "vectors"
+      ]
+    },
+    {
+      "id": "premiere-04",
+      "course": "premiere",
+      "number": 4,
+      "title": [
+        "Dérivation : du taux à la tangente",
+        "Differentiation: rates and tangents"
+      ],
+      "topic": "derivative",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "premiere-eleve.pdf",
+          "start": 33,
+          "path": "resources/premiere-04/chapter.pdf",
+          "sections": {
+            "practice": 4,
+            "quiz": 7
+          },
+          "editions": {
+            "fr": {
+              "path": "resources/premiere-04/chapter.pdf",
+              "bytes": 188846,
+              "sha256": "e7596538db5e6005a0bb840f343ab9c2ad3cd9f488b75b35203d7195a2e7c57c",
+              "pages": 9,
+              "start": 33,
+              "end": 41
+            },
+            "en": {
+              "path": "resources/premiere-04/chapter-en.pdf",
+              "bytes": 186359,
+              "sha256": "6ad74f593b71b38ba5b8e71850a69f6beaf83476d2b6963ad8b6a03a3736079c",
+              "pages": 9,
+              "start": 33,
+              "end": 41
+            }
+          },
+          "pages": 9,
+          "bytes": 188846,
+          "end": 41,
+          "englishPath": "resources/premiere-04/chapter-en.pdf",
+          "englishPages": 9,
+          "englishBytes": 186359
+        },
+        {
+          "kind": "teacher",
+          "source": "premiere-prof.pdf",
+          "start": 42,
+          "path": "resources/premiere-04/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/premiere-04/teacher.pdf",
+              "bytes": 206386,
+              "sha256": "f1fa416241f468ad47672122e1a855b405ee4139984ef89e16971000d03a3c8d",
+              "pages": 12,
+              "start": 42,
+              "end": 53
+            },
+            "en": {
+              "path": "resources/premiere-04/teacher-en.pdf",
+              "bytes": 203783,
+              "sha256": "5e227df4fcda7d7ee84a0bd327c27465074fa0fefe36920a003d0823ca3c6349",
+              "pages": 12,
+              "start": 42,
+              "end": 53
+            }
+          },
+          "pages": 12,
+          "bytes": 206386,
+          "end": 53,
+          "englishPath": "resources/premiere-04/teacher-en.pdf",
+          "englishPages": 12,
+          "englishBytes": 203783
+        }
+      ],
+      "labs": [
+        "derivative/approach"
+      ]
+    },
+    {
+      "id": "premiere-05",
+      "course": "premiere",
+      "number": 5,
+      "title": [
+        "Probabilités conditionnelles et indépendance",
+        "Conditional probability and independence"
+      ],
+      "topic": "conditioning",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "premiere-eleve.pdf",
+          "start": 41,
+          "path": "resources/premiere-05/chapter.pdf",
+          "sections": {
+            "practice": 5,
+            "quiz": 8
+          },
+          "editions": {
+            "fr": {
+              "path": "resources/premiere-05/chapter.pdf",
+              "bytes": 195372,
+              "sha256": "f9338306926f587209e87acd202b3beb37453468067d579456af4484b3205384",
+              "pages": 10,
+              "start": 41,
+              "end": 50
+            },
+            "en": {
+              "path": "resources/premiere-05/chapter-en.pdf",
+              "bytes": 191829,
+              "sha256": "7e8c0ddf7008e764ebf26897ab3c0c498e8bafad2c06367c7b361ee3bb90129f",
+              "pages": 10,
+              "start": 41,
+              "end": 50
+            }
+          },
+          "pages": 10,
+          "bytes": 195372,
+          "end": 50,
+          "englishPath": "resources/premiere-05/chapter-en.pdf",
+          "englishPages": 10,
+          "englishBytes": 191829
+        },
+        {
+          "kind": "teacher",
+          "source": "premiere-prof.pdf",
+          "start": 53,
+          "path": "resources/premiere-05/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/premiere-05/teacher.pdf",
+              "bytes": 212897,
+              "sha256": "2f9d54b570b5113daab89245937151a94d6f82a0d5cedf42b53e052415ee6b7b",
+              "pages": 13,
+              "start": 53,
+              "end": 65
+            },
+            "en": {
+              "path": "resources/premiere-05/teacher-en.pdf",
+              "bytes": 209562,
+              "sha256": "9057e7226bbb48dd40caf3f26c0f81b99555b87a307e7bdeee593b09a1f9a921",
+              "pages": 13,
+              "start": 53,
+              "end": 65
+            }
+          },
+          "pages": 13,
+          "bytes": 212897,
+          "end": 65,
+          "englishPath": "resources/premiere-05/teacher-en.pdf",
+          "englishPages": 13,
+          "englishBytes": 209562
+        }
+      ],
+      "labs": [
+        "probability",
+        "bertrand"
+      ]
+    },
+    {
+      "id": "premiere-06",
+      "course": "premiere",
+      "number": 6,
+      "title": [
+        "Dérivation, variations et optimisation",
+        "Differentiation, variation and optimisation"
+      ],
+      "topic": "variations",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "premiere-eleve.pdf",
+          "start": 50,
+          "path": "resources/premiere-06/chapter.pdf",
+          "sections": {
+            "practice": 5,
+            "quiz": 8
+          },
+          "editions": {
+            "fr": {
+              "path": "resources/premiere-06/chapter.pdf",
+              "bytes": 202773,
+              "sha256": "c8cb63a67806b1f1e8bb3a7ca6338601d78d29b88a53e43699db92e6904c6774",
+              "pages": 10,
+              "start": 50,
+              "end": 59
+            },
+            "en": {
+              "path": "resources/premiere-06/chapter-en.pdf",
+              "bytes": 199777,
+              "sha256": "2c5e68782bbc8ece16f2e6bba2e21fead6937ec97f156a75ab9cd39b411737c6",
+              "pages": 10,
+              "start": 50,
+              "end": 59
+            }
+          },
+          "pages": 10,
+          "bytes": 202773,
+          "end": 59,
+          "englishPath": "resources/premiere-06/chapter-en.pdf",
+          "englishPages": 10,
+          "englishBytes": 199777
+        },
+        {
+          "kind": "teacher",
+          "source": "premiere-prof.pdf",
+          "start": 65,
+          "path": "resources/premiere-06/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/premiere-06/teacher.pdf",
+              "bytes": 220767,
+              "sha256": "c5e3a2019f891aa5fcdb46e33a0e4d9222d17fcc8611b9d413bb25d752b485f7",
+              "pages": 13,
+              "start": 65,
+              "end": 77
+            },
+            "en": {
+              "path": "resources/premiere-06/teacher-en.pdf",
+              "bytes": 218169,
+              "sha256": "444fb5fbc23c0c7e46ca946366532e463a27708ab4008701e4856bb7e111d0c6",
+              "pages": 13,
+              "start": 65,
+              "end": 77
+            }
+          },
+          "pages": 13,
+          "bytes": 220767,
+          "end": 77,
+          "englishPath": "resources/premiere-06/teacher-en.pdf",
+          "englishPages": 13,
+          "englishBytes": 218169
+        }
+      ],
+      "labs": [
+        "derivative/where",
+        "quadratic/vertex"
+      ]
+    },
+    {
+      "id": "premiere-07",
+      "course": "premiere",
+      "number": 7,
+      "title": [
+        "Géométrie repérée : droites, projections et cercles",
+        "Coordinate geometry: lines, projections and circles"
+      ],
+      "topic": "lines",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "premiere-eleve.pdf",
+          "start": 59,
+          "path": "resources/premiere-07/chapter.pdf",
+          "sections": {
+            "practice": 4,
+            "quiz": 7
+          },
+          "editions": {
+            "fr": {
+              "path": "resources/premiere-07/chapter.pdf",
+              "bytes": 189671,
+              "sha256": "b48445427b68ac2b1b984f5cd034b713062e4c634b02fbbea7738ee0a4b7b380",
+              "pages": 9,
+              "start": 59,
+              "end": 67
+            },
+            "en": {
+              "path": "resources/premiere-07/chapter-en.pdf",
+              "bytes": 186735,
+              "sha256": "a7d2e8de53289c6669ffaae974f5aeda595bc3cad6c038aa0959788343866362",
+              "pages": 9,
+              "start": 59,
+              "end": 67
+            }
+          },
+          "pages": 9,
+          "bytes": 189671,
+          "end": 67,
+          "englishPath": "resources/premiere-07/chapter-en.pdf",
+          "englishPages": 9,
+          "englishBytes": 186735
+        },
+        {
+          "kind": "teacher",
+          "source": "premiere-prof.pdf",
+          "start": 77,
+          "path": "resources/premiere-07/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/premiere-07/teacher.pdf",
+              "bytes": 204795,
+              "sha256": "20f4e6fd918c69e878dd688b57b76d7fe35764cbb50635298a216710b417e2df",
+              "pages": 11,
+              "start": 77,
+              "end": 87
+            },
+            "en": {
+              "path": "resources/premiere-07/teacher-en.pdf",
+              "bytes": 201556,
+              "sha256": "141d971d69ad0e1f0f04591f2b14079e0fcd9fca756eab333e05cc849db8b5f9",
+              "pages": 11,
+              "start": 77,
+              "end": 87
+            }
+          },
+          "pages": 11,
+          "bytes": 204795,
+          "end": 87,
+          "englishPath": "resources/premiere-07/teacher-en.pdf",
+          "englishPages": 11,
+          "englishBytes": 201556
+        }
+      ],
+      "labs": [
+        "line"
+      ]
+    },
+    {
+      "id": "premiere-08",
+      "course": "premiere",
+      "number": 8,
+      "title": [
+        "Variables aléatoires et dispersion",
+        "Random variables and dispersion"
+      ],
+      "topic": "randomvariables",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "premiere-eleve.pdf",
+          "start": 67,
+          "path": "resources/premiere-08/chapter.pdf",
+          "sections": {
+            "lesson": 2,
+            "practice": 5,
+            "quiz": 8
+          },
+          "editions": {
+            "fr": {
+              "path": "resources/premiere-08/chapter.pdf",
+              "bytes": 218247,
+              "sha256": "d07a9bb897bd693557d435f98570302be2395e38ed4700928e9bd01f3fcee1c8",
+              "pages": 10,
+              "start": 67,
+              "end": 76
+            },
+            "en": {
+              "path": "resources/premiere-08/chapter-en.pdf",
+              "bytes": 215446,
+              "sha256": "eeed0e115b88b5333e4a378ce70afb6d60d6130f6c3ca17c811196c102d4e17d",
+              "pages": 10,
+              "start": 67,
+              "end": 76
+            }
+          },
+          "pages": 10,
+          "bytes": 218247,
+          "end": 76,
+          "englishPath": "resources/premiere-08/chapter-en.pdf",
+          "englishPages": 10,
+          "englishBytes": 215446
+        },
+        {
+          "kind": "teacher",
+          "source": "premiere-prof.pdf",
+          "start": 88,
+          "path": "resources/premiere-08/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/premiere-08/teacher.pdf",
+              "bytes": 236959,
+              "sha256": "e9371ad9367b9b820c6a86cce96a3c1c6e630b7d9708fc286ce75cd60dac33b1",
+              "pages": 13,
+              "start": 88,
+              "end": 100
+            },
+            "en": {
+              "path": "resources/premiere-08/teacher-en.pdf",
+              "bytes": 234019,
+              "sha256": "528a5d923388acdf542dc209cbf51118c8fc723c2aef3475aff5f08de5d524c0",
+              "pages": 13,
+              "start": 88,
+              "end": 100
+            }
+          },
+          "pages": 13,
+          "bytes": 236959,
+          "end": 100,
+          "englishPath": "resources/premiere-08/teacher-en.pdf",
+          "englishPages": 13,
+          "englishBytes": 234019
+        }
+      ],
+      "labs": [
+        "probability/mean"
+      ]
+    },
+    {
+      "id": "premiere-09",
+      "course": "premiere",
+      "number": 9,
+      "title": [
+        "Fonction exponentielle et modèles continus",
+        "The exponential function and continuous models"
+      ],
+      "topic": "exponential",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "premiere-eleve.pdf",
+          "start": 76,
+          "path": "resources/premiere-09/chapter.pdf",
+          "sections": {
+            "practice": 5,
+            "quiz": 8
+          },
+          "editions": {
+            "fr": {
+              "path": "resources/premiere-09/chapter.pdf",
+              "bytes": 202963,
+              "sha256": "fafdaa43f8b9308ce55faef96e6da5560d5be7626c1b42052ea31fa53c544033",
+              "pages": 11,
+              "start": 76,
+              "end": 86
+            },
+            "en": {
+              "path": "resources/premiere-09/chapter-en.pdf",
+              "bytes": 200239,
+              "sha256": "c72c30b6ad1f99776ea31e359d850f994c1061f3ac3d5043ad1eee95e7a094dc",
+              "pages": 11,
+              "start": 76,
+              "end": 86
+            }
+          },
+          "pages": 11,
+          "bytes": 202963,
+          "end": 86,
+          "englishPath": "resources/premiere-09/chapter-en.pdf",
+          "englishPages": 11,
+          "englishBytes": 200239
+        },
+        {
+          "kind": "teacher",
+          "source": "premiere-prof.pdf",
+          "start": 100,
+          "path": "resources/premiere-09/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/premiere-09/teacher.pdf",
+              "bytes": 224815,
+              "sha256": "be4658d4cf765de43f5a71aee7e71e032b5bae4d31df82b4d84bffacbc8e1691",
+              "pages": 14,
+              "start": 100,
+              "end": 113
+            },
+            "en": {
+              "path": "resources/premiere-09/teacher-en.pdf",
+              "bytes": 222372,
+              "sha256": "cbfc579b9ed2926093c2500fc5273051622bd3bfc64684d8e9c669b5765c5bfd",
+              "pages": 14,
+              "start": 100,
+              "end": 113
+            }
+          },
+          "pages": 14,
+          "bytes": 224815,
+          "end": 113,
+          "englishPath": "resources/premiere-09/teacher-en.pdf",
+          "englishPages": 14,
+          "englishBytes": 222372
+        }
+      ],
+      "labs": [
+        "exponential/sequence"
+      ]
+    },
+    {
+      "id": "premiere-10",
+      "course": "premiere",
+      "number": 10,
+      "title": [
+        "Trigonométrie : cercle, radians et angles associés",
+        "Trigonometry: circle, radians and related angles"
+      ],
+      "topic": "trigonometry",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "premiere-eleve.pdf",
+          "start": 85,
+          "path": "resources/premiere-10/chapter.pdf",
+          "sections": {
+            "lesson": 2,
+            "practice": 5,
+            "quiz": 8
+          },
+          "editions": {
+            "fr": {
+              "path": "resources/premiere-10/chapter.pdf",
+              "bytes": 188213,
+              "sha256": "d2b03044a1c79b0e878d116a21b7213e41226b39e01367134bdf9170c6773964",
+              "pages": 11,
+              "start": 85,
+              "end": 95
+            },
+            "en": {
+              "path": "resources/premiere-10/chapter-en.pdf",
+              "bytes": 185654,
+              "sha256": "60267ccc8a132a743f5c0aa91507eb652a04ee96d7b20c1600c1e6b9a44f134d",
+              "pages": 11,
+              "start": 85,
+              "end": 95
+            }
+          },
+          "pages": 11,
+          "bytes": 188213,
+          "end": 95,
+          "englishPath": "resources/premiere-10/chapter-en.pdf",
+          "englishPages": 11,
+          "englishBytes": 185654
+        },
+        {
+          "kind": "teacher",
+          "source": "premiere-prof.pdf",
+          "start": 112,
+          "path": "resources/premiere-10/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/premiere-10/teacher.pdf",
+              "bytes": 205147,
+              "sha256": "c75242e94d493972a8b899c111627f89826fd5abf332ea2872ac51c16f68d6a0",
+              "pages": 14,
+              "start": 112,
+              "end": 125
+            },
+            "en": {
+              "path": "resources/premiere-10/teacher-en.pdf",
+              "bytes": 203022,
+              "sha256": "eeadf664fc15105020e08edc5641fb927f7ca313e795ebef39752317bcac5590",
+              "pages": 14,
+              "start": 112,
+              "end": 125
+            }
+          },
+          "pages": 14,
+          "bytes": 205147,
+          "end": 125,
+          "englishPath": "resources/premiere-10/teacher-en.pdf",
+          "englishPages": 14,
+          "englishBytes": 203022
+        }
+      ],
+      "labs": [
+        "trig/quadrants"
+      ]
+    },
+    {
+      "id": "terminale-01",
+      "course": "terminale",
+      "number": 1,
+      "title": [
+        "Suites numériques et récurrence",
+        "Sequences and induction"
+      ],
+      "topic": "sequences",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "terminale-eleve.pdf",
+          "start": 11,
+          "path": "resources/terminale-01/chapter.pdf",
+          "sections": {
+            "lesson": 1,
+            "practice": 4,
+            "problem": 5
+          },
+          "editions": {
+            "fr": {
+              "path": "resources/terminale-01/chapter.pdf",
+              "bytes": 174788,
+              "sha256": "0ab031fc90434d74c9e2c0c59a3ac3055d8eb28009ddf903bdde1fede91229fc",
+              "pages": 5,
+              "start": 11,
+              "end": 15
+            },
+            "en": {
+              "path": "resources/terminale-01/chapter-en.pdf",
+              "bytes": 172105,
+              "sha256": "8b370fe107095bcda2c53e1e79983f550851b89248801cef89e4d68119485874",
+              "pages": 5,
+              "start": 11,
+              "end": 15
+            }
+          },
+          "pages": 5,
+          "bytes": 174788,
+          "end": 15,
+          "englishPath": "resources/terminale-01/chapter-en.pdf",
+          "englishPages": 5,
+          "englishBytes": 172105
+        },
+        {
+          "kind": "teacher",
+          "source": "terminale-prof.pdf",
+          "start": 15,
+          "path": "resources/terminale-01/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/terminale-01/teacher.pdf",
+              "bytes": 224738,
+              "sha256": "98e2786cb22442fb5da6e7eef9fd64a9d72c73d3556d30439cd2d5bb8055f80a",
+              "pages": 7,
+              "start": 15,
+              "end": 21
+            },
+            "en": {
+              "path": "resources/terminale-01/teacher-en.pdf",
+              "bytes": 221105,
+              "sha256": "d5b2df3b7211c29db7c2596a839f5921ad14b04bcb152d6fbd8b03e23cd5d1f0",
+              "pages": 7,
+              "start": 15,
+              "end": 21
+            }
+          },
+          "pages": 7,
+          "bytes": 224738,
+          "end": 21,
+          "englishPath": "resources/terminale-01/teacher-en.pdf",
+          "englishPages": 7,
+          "englishBytes": 221105
+        }
+      ],
+      "labs": [
+        "sequences/formula",
+        "cobweb/steps"
+      ]
+    },
+    {
+      "id": "terminale-02",
+      "course": "terminale",
+      "number": 2,
+      "title": [
+        "Vecteurs, droites et plans de l'espace",
+        "Vectors, lines and planes in space"
+      ],
+      "topic": "space",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "terminale-eleve.pdf",
+          "start": 16,
+          "path": "resources/terminale-02/chapter.pdf",
+          "sections": {
+            "lesson": 1,
+            "practice": 4,
+            "problem": 5
+          },
+          "editions": {
+            "fr": {
+              "path": "resources/terminale-02/chapter.pdf",
+              "bytes": 181643,
+              "sha256": "90de4f3fce4177937dbfc477864953bb385327e7bcf3600eca63d05529d62701",
+              "pages": 5,
+              "start": 16,
+              "end": 20
+            },
+            "en": {
+              "path": "resources/terminale-02/chapter-en.pdf",
+              "bytes": 178305,
+              "sha256": "7421d0ebb7ed845160d3d87f3cb5a39c1e945b732df2505ddba29e6de4ce6939",
+              "pages": 5,
+              "start": 16,
+              "end": 20
+            }
+          },
+          "pages": 5,
+          "bytes": 181643,
+          "end": 20,
+          "englishPath": "resources/terminale-02/chapter-en.pdf",
+          "englishPages": 5,
+          "englishBytes": 178305
+        },
+        {
+          "kind": "teacher",
+          "source": "terminale-prof.pdf",
+          "start": 22,
+          "path": "resources/terminale-02/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/terminale-02/teacher.pdf",
+              "bytes": 196702,
+              "sha256": "6f229274c615ffecb63eccd55ad1bc9f2b9cc35a4ba3b7cb716d345084275c7f",
+              "pages": 7,
+              "start": 22,
+              "end": 28
+            },
+            "en": {
+              "path": "resources/terminale-02/teacher-en.pdf",
+              "bytes": 192508,
+              "sha256": "4715e565aadbf5eda8a3560d80186574b9b579bb51169318f68726161f32b6f5",
+              "pages": 7,
+              "start": 22,
+              "end": 28
+            }
+          },
+          "pages": 7,
+          "bytes": 196702,
+          "end": 28,
+          "englishPath": "resources/terminale-02/teacher-en.pdf",
+          "englishPages": 7,
+          "englishBytes": 192508
+        }
+      ],
+      "labs": [
+        "space-lines/param"
+      ]
+    },
+    {
+      "id": "terminale-03",
+      "course": "terminale",
+      "number": 3,
+      "title": [
+        "Limites de suites",
+        "Limits of sequences"
+      ],
+      "topic": "limitsseq",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "terminale-eleve.pdf",
+          "start": 21,
+          "path": "resources/terminale-03/chapter.pdf",
+          "sections": {
+            "lesson": 1,
+            "practice": 4,
+            "problem": 5
+          },
+          "editions": {
+            "fr": {
+              "path": "resources/terminale-03/chapter.pdf",
+              "bytes": 195227,
+              "sha256": "3a8f99bb50c6b11d698727b30a5bcb5bf0eae82e7de5701b34ffb0f5a8784b9e",
+              "pages": 5,
+              "start": 21,
+              "end": 25
+            },
+            "en": {
+              "path": "resources/terminale-03/chapter-en.pdf",
+              "bytes": 192150,
+              "sha256": "faf601d29f920660e30cad233af94d00feb78db110ee82b6ce00a43778e14cb5",
+              "pages": 5,
+              "start": 21,
+              "end": 25
+            }
+          },
+          "pages": 5,
+          "bytes": 195227,
+          "end": 25,
+          "englishPath": "resources/terminale-03/chapter-en.pdf",
+          "englishPages": 5,
+          "englishBytes": 192150
+        },
+        {
+          "kind": "teacher",
+          "source": "terminale-prof.pdf",
+          "start": 29,
+          "path": "resources/terminale-03/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/terminale-03/teacher.pdf",
+              "bytes": 211736,
+              "sha256": "1c901ecde1d60d6dcf7c7a62dab1b305f4e1156db79d09872deca094eea10bc1",
+              "pages": 7,
+              "start": 29,
+              "end": 35
+            },
+            "en": {
+              "path": "resources/terminale-03/teacher-en.pdf",
+              "bytes": 207788,
+              "sha256": "3c13c7e68a552824c462fd2302c611f74aabffd912f4621c3b6546508a1664d2",
+              "pages": 7,
+              "start": 29,
+              "end": 35
+            }
+          },
+          "pages": 7,
+          "bytes": 211736,
+          "end": 35,
+          "englishPath": "resources/terminale-03/teacher-en.pdf",
+          "englishPages": 7,
+          "englishBytes": 207788
+        }
+      ],
+      "labs": [
+        "sequences/signs",
+        "cobweb"
+      ]
+    },
+    {
+      "id": "terminale-04",
+      "course": "terminale",
+      "number": 4,
+      "title": [
+        "Limites de fonctions",
+        "Limits of functions"
+      ],
+      "topic": "limitsfunction",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "terminale-eleve.pdf",
+          "start": 26,
+          "path": "resources/terminale-04/chapter.pdf",
+          "sections": {
+            "lesson": 1,
+            "practice": 4,
+            "problem": 5
+          },
+          "editions": {
+            "fr": {
+              "path": "resources/terminale-04/chapter.pdf",
+              "bytes": 185458,
+              "sha256": "1d18c93f27cc4eb2ca74397615f09da54502e96dbe2ed89484dad074e5afb3c3",
+              "pages": 5,
+              "start": 26,
+              "end": 30
+            },
+            "en": {
+              "path": "resources/terminale-04/chapter-en.pdf",
+              "bytes": 182511,
+              "sha256": "f4a0af3872b0f2d80d0d70d8a467853079f6d70734c3888d349c3273c7aa8c24",
+              "pages": 5,
+              "start": 26,
+              "end": 30
+            }
+          },
+          "pages": 5,
+          "bytes": 185458,
+          "end": 30,
+          "englishPath": "resources/terminale-04/chapter-en.pdf",
+          "englishPages": 5,
+          "englishBytes": 182511
+        },
+        {
+          "kind": "teacher",
+          "source": "terminale-prof.pdf",
+          "start": 36,
+          "path": "resources/terminale-04/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/terminale-04/teacher.pdf",
+              "bytes": 199841,
+              "sha256": "ca7e37b6a25de41a8fbbf89cf56c97984b20cecd09efa6ad864225f07fd8c54a",
+              "pages": 7,
+              "start": 36,
+              "end": 42
+            },
+            "en": {
+              "path": "resources/terminale-04/teacher-en.pdf",
+              "bytes": 196396,
+              "sha256": "2140772f510d93b8f3b125fc09a89db27b1f5aafdbfc37047262424ffa33afb6",
+              "pages": 7,
+              "start": 36,
+              "end": 42
+            }
+          },
+          "pages": 7,
+          "bytes": 199841,
+          "end": 42,
+          "englishPath": "resources/terminale-04/teacher-en.pdf",
+          "englishPages": 7,
+          "englishBytes": 196396
+        }
+      ],
+      "labs": []
+    },
+    {
+      "id": "terminale-05",
+      "course": "terminale",
+      "number": 5,
+      "title": [
+        "Combinatoire et dénombrement",
+        "Combinatorics and counting"
+      ],
+      "topic": "combinatorics",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "terminale-eleve.pdf",
+          "start": 31,
+          "path": "resources/terminale-05/chapter.pdf",
+          "sections": {
+            "lesson": 1,
+            "practice": 4,
+            "problem": 5
+          },
+          "editions": {
+            "fr": {
+              "path": "resources/terminale-05/chapter.pdf",
+              "bytes": 183092,
+              "sha256": "469c92cf8f655c13eaa4ffa37db17312700d038d8519b783091ba01787c0c733",
+              "pages": 5,
+              "start": 31,
+              "end": 35
+            },
+            "en": {
+              "path": "resources/terminale-05/chapter-en.pdf",
+              "bytes": 179891,
+              "sha256": "71ce1cd444ada76420dd024abf6e37fdd56da895f344f6228b88b681647a30ff",
+              "pages": 5,
+              "start": 31,
+              "end": 35
+            }
+          },
+          "pages": 5,
+          "bytes": 183092,
+          "end": 35,
+          "englishPath": "resources/terminale-05/chapter-en.pdf",
+          "englishPages": 5,
+          "englishBytes": 179891
+        },
+        {
+          "kind": "teacher",
+          "source": "terminale-prof.pdf",
+          "start": 43,
+          "path": "resources/terminale-05/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/terminale-05/teacher.pdf",
+              "bytes": 195351,
+              "sha256": "2d61c9d93ecddd3f236bd78c22e59fd1f0ea4b0698345546e27d01ed27297454",
+              "pages": 7,
+              "start": 43,
+              "end": 49
+            },
+            "en": {
+              "path": "resources/terminale-05/teacher-en.pdf",
+              "bytes": 191079,
+              "sha256": "6a2b574a251261e93697b0c8324dfb6835a3bb9d4fb6550f534cca2e2cf059a1",
+              "pages": 7,
+              "start": 43,
+              "end": 49
+            }
+          },
+          "pages": 7,
+          "bytes": 195351,
+          "end": 49,
+          "englishPath": "resources/terminale-05/teacher-en.pdf",
+          "englishPages": 7,
+          "englishBytes": 191079
+        }
+      ],
+      "labs": [
+        "probability",
+        "circle-regions/seven"
+      ]
+    },
+    {
+      "id": "terminale-06",
+      "course": "terminale",
+      "number": 6,
+      "title": [
+        "Dérivation, convexité et continuité",
+        "Differentiation, convexity and continuity"
+      ],
+      "topic": "variations",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "terminale-eleve.pdf",
+          "start": 36,
+          "path": "resources/terminale-06/chapter.pdf",
+          "sections": {
+            "lesson": 1,
+            "practice": 4,
+            "problem": 5
+          },
+          "editions": {
+            "fr": {
+              "path": "resources/terminale-06/chapter.pdf",
+              "bytes": 185280,
+              "sha256": "0a46f27c092949b58fa9e7c0d3dfde60b9ea61962c4aa81656bec85afd5debee",
+              "pages": 5,
+              "start": 36,
+              "end": 40
+            },
+            "en": {
+              "path": "resources/terminale-06/chapter-en.pdf",
+              "bytes": 182121,
+              "sha256": "f208b55c4fd8a4130222c4ba4136b0852ee09f5e38388703f16ae8aaa8e0b5c3",
+              "pages": 5,
+              "start": 36,
+              "end": 40
+            }
+          },
+          "pages": 5,
+          "bytes": 185280,
+          "end": 40,
+          "englishPath": "resources/terminale-06/chapter-en.pdf",
+          "englishPages": 5,
+          "englishBytes": 182121
+        },
+        {
+          "kind": "teacher",
+          "source": "terminale-prof.pdf",
+          "start": 50,
+          "path": "resources/terminale-06/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/terminale-06/teacher.pdf",
+              "bytes": 244234,
+              "sha256": "2ab016cb8f039c3c7be5a06b19b1ad53470d34d84fa87cf085e75c9e76f39fbc",
+              "pages": 8,
+              "start": 50,
+              "end": 57
+            },
+            "en": {
+              "path": "resources/terminale-06/teacher-en.pdf",
+              "bytes": 240016,
+              "sha256": "677062ba3ab4730cbab836f987e5a297488461d4cdcf47c1357f6361383e2c9d",
+              "pages": 8,
+              "start": 50,
+              "end": 57
+            }
+          },
+          "pages": 8,
+          "bytes": 244234,
+          "end": 57,
+          "englishPath": "resources/terminale-06/teacher-en.pdf",
+          "englishPages": 8,
+          "englishBytes": 240016
+        }
+      ],
+      "labs": [
+        "derivative/where"
+      ]
+    },
+    {
+      "id": "terminale-07",
+      "course": "terminale",
+      "number": 7,
+      "title": [
+        "Probabilités conditionnelles et loi binomiale",
+        "Conditional probability and the binomial distribution"
+      ],
+      "topic": "binomial",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "terminale-eleve.pdf",
+          "start": 41,
+          "path": "resources/terminale-07/chapter.pdf",
+          "sections": {
+            "lesson": 1,
+            "practice": 4,
+            "problem": 5
+          },
+          "editions": {
+            "fr": {
+              "path": "resources/terminale-07/chapter.pdf",
+              "bytes": 187677,
+              "sha256": "5fc8efcd340ad0b87786226a21e59719642085f022d88dcbf37dd127210fe0df",
+              "pages": 5,
+              "start": 41,
+              "end": 45
+            },
+            "en": {
+              "path": "resources/terminale-07/chapter-en.pdf",
+              "bytes": 184806,
+              "sha256": "c673c7c2c45358ac572250675232ed395f156d52fcf2e64806727fcadcb73210",
+              "pages": 5,
+              "start": 41,
+              "end": 45
+            }
+          },
+          "pages": 5,
+          "bytes": 187677,
+          "end": 45,
+          "englishPath": "resources/terminale-07/chapter-en.pdf",
+          "englishPages": 5,
+          "englishBytes": 184806
+        },
+        {
+          "kind": "teacher",
+          "source": "terminale-prof.pdf",
+          "start": 58,
+          "path": "resources/terminale-07/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/terminale-07/teacher.pdf",
+              "bytes": 202998,
+              "sha256": "958547c99da629311f1f5f83aa0e59c2b8d7c2b170c2a37ae2418d3f0438dc76",
+              "pages": 7,
+              "start": 58,
+              "end": 64
+            },
+            "en": {
+              "path": "resources/terminale-07/teacher-en.pdf",
+              "bytes": 198849,
+              "sha256": "332222da792db2580fe58ca63dc061e4cc4e89eceaa704d62088e39d14541ad1",
+              "pages": 7,
+              "start": 58,
+              "end": 64
+            }
+          },
+          "pages": 7,
+          "bytes": 202998,
+          "end": 64,
+          "englishPath": "resources/terminale-07/teacher-en.pdf",
+          "englishPages": 7,
+          "englishBytes": 198849
+        }
+      ],
+      "labs": [
+        "probability/run"
+      ]
+    },
+    {
+      "id": "terminale-08",
+      "course": "terminale",
+      "number": 8,
+      "title": [
+        "Fonction logarithme",
+        "The logarithm function"
+      ],
+      "topic": "logarithm",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "terminale-eleve.pdf",
+          "start": 46,
+          "path": "resources/terminale-08/chapter.pdf",
+          "sections": {
+            "lesson": 1,
+            "practice": 4,
+            "problem": 5
+          },
+          "editions": {
+            "fr": {
+              "path": "resources/terminale-08/chapter.pdf",
+              "bytes": 176822,
+              "sha256": "6719330389adb27372abf7071a17affbffcd67a3c434273e81788c3ff302a56a",
+              "pages": 5,
+              "start": 46,
+              "end": 50
+            },
+            "en": {
+              "path": "resources/terminale-08/chapter-en.pdf",
+              "bytes": 173869,
+              "sha256": "21e3ed728900524001cd0611e7aa14687910f96bb5dc667af3be93151cb3987e",
+              "pages": 5,
+              "start": 46,
+              "end": 50
+            }
+          },
+          "pages": 5,
+          "bytes": 176822,
+          "end": 50,
+          "englishPath": "resources/terminale-08/chapter-en.pdf",
+          "englishPages": 5,
+          "englishBytes": 173869
+        },
+        {
+          "kind": "teacher",
+          "source": "terminale-prof.pdf",
+          "start": 65,
+          "path": "resources/terminale-08/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/terminale-08/teacher.pdf",
+              "bytes": 191200,
+              "sha256": "a591175b96e56e2e02d1ea26e37e9b551289c52086f73735d2bf90116ea3c8ba",
+              "pages": 7,
+              "start": 65,
+              "end": 71
+            },
+            "en": {
+              "path": "resources/terminale-08/teacher-en.pdf",
+              "bytes": 187519,
+              "sha256": "fb1ef8f076f903e58d134fe8d91e3a3194584c6209188bce61ba9627b3c82207",
+              "pages": 7,
+              "start": 65,
+              "end": 71
+            }
+          },
+          "pages": 7,
+          "bytes": 191200,
+          "end": 71,
+          "englishPath": "resources/terminale-08/teacher-en.pdf",
+          "englishPages": 7,
+          "englishBytes": 187519
+        }
+      ],
+      "labs": []
+    },
+    {
+      "id": "terminale-09",
+      "course": "terminale",
+      "number": 9,
+      "title": [
+        "Orthogonalité et distances",
+        "Orthogonality and distances"
+      ],
+      "topic": "orthogonal",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "terminale-eleve.pdf",
+          "start": 51,
+          "path": "resources/terminale-09/chapter.pdf",
+          "sections": {
+            "lesson": 1,
+            "practice": 4,
+            "problem": 5
+          },
+          "editions": {
+            "fr": {
+              "path": "resources/terminale-09/chapter.pdf",
+              "bytes": 179774,
+              "sha256": "02377a7d6900c030afb6d05de414c4a54568b331abba3ff93e14ca28dc1d848d",
+              "pages": 5,
+              "start": 51,
+              "end": 55
+            },
+            "en": {
+              "path": "resources/terminale-09/chapter-en.pdf",
+              "bytes": 176605,
+              "sha256": "152f5b27f546f794e0d3a6a01e60c7684a8ad67e1b6abc6a099dda4dd11b0e0a",
+              "pages": 5,
+              "start": 51,
+              "end": 55
+            }
+          },
+          "pages": 5,
+          "bytes": 179774,
+          "end": 55,
+          "englishPath": "resources/terminale-09/chapter-en.pdf",
+          "englishPages": 5,
+          "englishBytes": 176605
+        },
+        {
+          "kind": "teacher",
+          "source": "terminale-prof.pdf",
+          "start": 72,
+          "path": "resources/terminale-09/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/terminale-09/teacher.pdf",
+              "bytes": 205442,
+              "sha256": "d145534fb3a23fe203b3ef57b6dc5b33372991c0e6420f301f78923b2b23d0a8",
+              "pages": 7,
+              "start": 72,
+              "end": 78
+            },
+            "en": {
+              "path": "resources/terminale-09/teacher-en.pdf",
+              "bytes": 201120,
+              "sha256": "3550d0bb641c1939368f7130a0caa52a2a4af589770790ecc9b68d63269673d5",
+              "pages": 7,
+              "start": 72,
+              "end": 78
+            }
+          },
+          "pages": 7,
+          "bytes": 205442,
+          "end": 78,
+          "englishPath": "resources/terminale-09/teacher-en.pdf",
+          "englishPages": 7,
+          "englishBytes": 201120
+        }
+      ],
+      "labs": [
+        "space-lines/normal"
+      ]
+    },
+    {
+      "id": "terminale-10",
+      "course": "terminale",
+      "number": 10,
+      "title": [
+        "Primitives et équations différentielles",
+        "Antiderivatives and differential equations"
+      ],
+      "topic": "primitives",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "terminale-eleve.pdf",
+          "start": 56,
+          "path": "resources/terminale-10/chapter.pdf",
+          "sections": {
+            "lesson": 1,
+            "practice": 4,
+            "problem": 5
+          },
+          "editions": {
+            "fr": {
+              "path": "resources/terminale-10/chapter.pdf",
+              "bytes": 174448,
+              "sha256": "13ca005071989e9c85762adb1ea532251ba36ed30981f2f56291a5b5846cf4ca",
+              "pages": 5,
+              "start": 56,
+              "end": 60
+            },
+            "en": {
+              "path": "resources/terminale-10/chapter-en.pdf",
+              "bytes": 171398,
+              "sha256": "b421a22265e5ca22e33bbff2e5fb6b31139488225166db082610c38f295245c7",
+              "pages": 5,
+              "start": 56,
+              "end": 60
+            }
+          },
+          "pages": 5,
+          "bytes": 174448,
+          "end": 60,
+          "englishPath": "resources/terminale-10/chapter-en.pdf",
+          "englishPages": 5,
+          "englishBytes": 171398
+        },
+        {
+          "kind": "teacher",
+          "source": "terminale-prof.pdf",
+          "start": 79,
+          "path": "resources/terminale-10/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/terminale-10/teacher.pdf",
+              "bytes": 216316,
+              "sha256": "1c1c8c71950100fa5205a0a0d03fb8953f91dea916d88c05a71ea4d2056f333d",
+              "pages": 7,
+              "start": 79,
+              "end": 85
+            },
+            "en": {
+              "path": "resources/terminale-10/teacher-en.pdf",
+              "bytes": 212256,
+              "sha256": "33f5d0d82d9e6333dfff972c773680645c797d357472bde7252daf0c8558c306",
+              "pages": 7,
+              "start": 79,
+              "end": 85
+            }
+          },
+          "pages": 7,
+          "bytes": 216316,
+          "end": 85,
+          "englishPath": "resources/terminale-10/teacher-en.pdf",
+          "englishPages": 7,
+          "englishBytes": 212256
+        }
+      ],
+      "labs": [
+        "integral"
+      ]
+    },
+    {
+      "id": "terminale-11",
+      "course": "terminale",
+      "number": 11,
+      "title": [
+        "Calcul intégral",
+        "Integration"
+      ],
+      "topic": "integral",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "terminale-eleve.pdf",
+          "start": 61,
+          "path": "resources/terminale-11/chapter.pdf",
+          "sections": {
+            "lesson": 1,
+            "practice": 4,
+            "problem": 5
+          },
+          "editions": {
+            "fr": {
+              "path": "resources/terminale-11/chapter.pdf",
+              "bytes": 194205,
+              "sha256": "17bc4c7cc38a5e993a62d24c17c1f501248ad2095282ac16f43b02421aca1368",
+              "pages": 5,
+              "start": 61,
+              "end": 65
+            },
+            "en": {
+              "path": "resources/terminale-11/chapter-en.pdf",
+              "bytes": 191179,
+              "sha256": "b4fb9150a2d25538d16d7d3ed0679f8a1ab84780c8b3a70e0f71cd4344c747ee",
+              "pages": 5,
+              "start": 61,
+              "end": 65
+            }
+          },
+          "pages": 5,
+          "bytes": 194205,
+          "end": 65,
+          "englishPath": "resources/terminale-11/chapter-en.pdf",
+          "englishPages": 5,
+          "englishBytes": 191179
+        },
+        {
+          "kind": "teacher",
+          "source": "terminale-prof.pdf",
+          "start": 86,
+          "path": "resources/terminale-11/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/terminale-11/teacher.pdf",
+              "bytes": 239220,
+              "sha256": "4e7bec29dce156ec85374c615d5e162a538a27797e90f17e427453b532d63296",
+              "pages": 8,
+              "start": 86,
+              "end": 93
+            },
+            "en": {
+              "path": "resources/terminale-11/teacher-en.pdf",
+              "bytes": 235612,
+              "sha256": "17949f70cd9db678827b75fef1dab1d455020673cfc71e608b750b548b3b45c6",
+              "pages": 8,
+              "start": 86,
+              "end": 93
+            }
+          },
+          "pages": 8,
+          "bytes": 239220,
+          "end": 93,
+          "englishPath": "resources/terminale-11/teacher-en.pdf",
+          "englishPages": 8,
+          "englishBytes": 235612
+        }
+      ],
+      "labs": [
+        "integral/bound",
+        "buffon"
+      ]
+    },
+    {
+      "id": "terminale-12",
+      "course": "terminale",
+      "number": 12,
+      "title": [
+        "Variables aléatoires, concentration et loi des grands nombres",
+        "Random variables, concentration and the law of large numbers"
+      ],
+      "topic": "lln",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "terminale-eleve.pdf",
+          "start": 66,
+          "path": "resources/terminale-12/chapter.pdf",
+          "sections": {
+            "lesson": 1,
+            "practice": 4,
+            "problem": 5
+          },
+          "editions": {
+            "fr": {
+              "path": "resources/terminale-12/chapter.pdf",
+              "bytes": 187120,
+              "sha256": "e9dd6a6e8b3eab1be5f3b9ceccec267b651f6c380393036a1bd39a2cbee0de3b",
+              "pages": 5,
+              "start": 66,
+              "end": 70
+            },
+            "en": {
+              "path": "resources/terminale-12/chapter-en.pdf",
+              "bytes": 184315,
+              "sha256": "bc7d6a1098349ecf698689454f467e20585aba8a7d55a65c34669ebe2d61e0bd",
+              "pages": 5,
+              "start": 66,
+              "end": 70
+            }
+          },
+          "pages": 5,
+          "bytes": 187120,
+          "end": 70,
+          "englishPath": "resources/terminale-12/chapter-en.pdf",
+          "englishPages": 5,
+          "englishBytes": 184315
+        },
+        {
+          "kind": "teacher",
+          "source": "terminale-prof.pdf",
+          "start": 94,
+          "path": "resources/terminale-12/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/terminale-12/teacher.pdf",
+              "bytes": 239563,
+              "sha256": "bb67751f47911e16bd26bdbbb30337a7f1c138f436e0822e35bc76fddd9313e5",
+              "pages": 7,
+              "start": 94,
+              "end": 100
+            },
+            "en": {
+              "path": "resources/terminale-12/teacher-en.pdf",
+              "bytes": 235516,
+              "sha256": "72ff7021beb8c19c6fcf7d1733d59b3e5851e64cd3f369822432e681f4bed108",
+              "pages": 7,
+              "start": 94,
+              "end": 100
+            }
+          },
+          "pages": 7,
+          "bytes": 239563,
+          "end": 100,
+          "englishPath": "resources/terminale-12/teacher-en.pdf",
+          "englishPages": 7,
+          "englishBytes": 235516
+        }
+      ],
+      "labs": [
+        "probability/few",
+        "buffon/drop"
+      ]
+    },
+    {
+      "id": "terminale-13",
+      "course": "terminale",
+      "number": 13,
+      "title": [
+        "Représentations paramétriques et équations cartésiennes",
+        "Parametric representations and Cartesian equations"
+      ],
+      "topic": "space",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "terminale-eleve.pdf",
+          "start": 71,
+          "path": "resources/terminale-13/chapter.pdf",
+          "sections": {
+            "lesson": 1,
+            "practice": 4,
+            "problem": 5
+          },
+          "editions": {
+            "fr": {
+              "path": "resources/terminale-13/chapter.pdf",
+              "bytes": 178885,
+              "sha256": "0667c2b4e2dbf00efe5192cac9e9ec7569a0d18046ea074d9223a05b14d7166c",
+              "pages": 5,
+              "start": 71,
+              "end": 75
+            },
+            "en": {
+              "path": "resources/terminale-13/chapter-en.pdf",
+              "bytes": 175846,
+              "sha256": "b6ce136f8b17c3964c16406aab41f89715b9ef72666ff11212004e4e37fbce62",
+              "pages": 5,
+              "start": 71,
+              "end": 75
+            }
+          },
+          "pages": 5,
+          "bytes": 178885,
+          "end": 75,
+          "englishPath": "resources/terminale-13/chapter-en.pdf",
+          "englishPages": 5,
+          "englishBytes": 175846
+        },
+        {
+          "kind": "teacher",
+          "source": "terminale-prof.pdf",
+          "start": 101,
+          "path": "resources/terminale-13/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/terminale-13/teacher.pdf",
+              "bytes": 193094,
+              "sha256": "a5a1827118f3166bc9bfa7f288ec5fd80811fcc79895e111d93e46f8b2e6798c",
+              "pages": 7,
+              "start": 101,
+              "end": 107
+            },
+            "en": {
+              "path": "resources/terminale-13/teacher-en.pdf",
+              "bytes": 189281,
+              "sha256": "2d0538df34a782f37272fa195d3a0ba4896cc12d278396e326027ef14134ab8d",
+              "pages": 7,
+              "start": 101,
+              "end": 107
+            }
+          },
+          "pages": 7,
+          "bytes": 193094,
+          "end": 107,
+          "englishPath": "resources/terminale-13/teacher-en.pdf",
+          "englishPages": 7,
+          "englishBytes": 189281
+        }
+      ],
+      "labs": [
+        "space-lines/param"
+      ]
+    },
+    {
+      "id": "terminale-14",
+      "course": "terminale",
+      "number": 14,
+      "title": [
+        "Fonctions trigonométriques",
+        "Trigonometric functions"
+      ],
+      "topic": "trigonometry",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "terminale-eleve.pdf",
+          "start": 76,
+          "path": "resources/terminale-14/chapter.pdf",
+          "sections": {
+            "lesson": 1,
+            "practice": 4,
+            "problem": 5
+          },
+          "editions": {
+            "fr": {
+              "path": "resources/terminale-14/chapter.pdf",
+              "bytes": 186734,
+              "sha256": "118d22bd0be049e1431e4f29fa85ba56d96b2f8f283e02e169db4e95920672c0",
+              "pages": 5,
+              "start": 76,
+              "end": 80
+            },
+            "en": {
+              "path": "resources/terminale-14/chapter-en.pdf",
+              "bytes": 183941,
+              "sha256": "679e4dd537219bab07152b2f8875783f90d12223b56aa7e47476128c010e2ab5",
+              "pages": 5,
+              "start": 76,
+              "end": 80
+            }
+          },
+          "pages": 5,
+          "bytes": 186734,
+          "end": 80,
+          "englishPath": "resources/terminale-14/chapter-en.pdf",
+          "englishPages": 5,
+          "englishBytes": 183941
+        },
+        {
+          "kind": "teacher",
+          "source": "terminale-prof.pdf",
+          "start": 108,
+          "path": "resources/terminale-14/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/terminale-14/teacher.pdf",
+              "bytes": 201051,
+              "sha256": "65148c374708e21792f9226484a27be5c7be460718f211517f5a2dca6951d232",
+              "pages": 7,
+              "start": 108,
+              "end": 114
+            },
+            "en": {
+              "path": "resources/terminale-14/teacher-en.pdf",
+              "bytes": 197645,
+              "sha256": "b55be1fec5aac8d43f7999440b770d377bdd2673cdcb4821494b074fddd13478",
+              "pages": 7,
+              "start": 108,
+              "end": 114
+            }
+          },
+          "pages": 7,
+          "bytes": 201051,
+          "end": 114,
+          "englishPath": "resources/terminale-14/teacher-en.pdf",
+          "englishPages": 7,
+          "englishBytes": 197645
+        }
+      ],
+      "labs": [
+        "trig/quadrants"
+      ]
+    },
+    {
+      "id": "expertes-01",
+      "course": "expertes",
+      "number": 1,
+      "title": [
+        "Nombres complexes : point de vue algébrique",
+        "Complex numbers: the algebraic point of view"
+      ],
+      "topic": "complex-algebra",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "expertes-eleve.pdf",
+          "start": 5,
+          "path": "resources/expertes-01/chapter.pdf",
+          "sections": {
+            "lesson": 1,
+            "practice": 6,
+            "problem": 8
+          },
+          "editions": {
+            "fr": {
+              "path": "resources/expertes-01/chapter.pdf",
+              "bytes": 199695,
+              "sha256": "4f3693e3989b3d87d37d1c1bea74589f16ffe89c1496c758509171190752156e",
+              "pages": 8,
+              "start": 5,
+              "end": 12
+            },
+            "en": {
+              "path": "resources/expertes-01/chapter-en.pdf",
+              "bytes": 180713,
+              "sha256": "42e9d9d893482b103c5356f81eca606d13e09d521cbbbd59cb5f32f51769d203",
+              "pages": 8,
+              "start": 5,
+              "end": 12
+            }
+          },
+          "pages": 8,
+          "bytes": 199695,
+          "end": 12,
+          "englishPath": "resources/expertes-01/chapter-en.pdf",
+          "englishPages": 8,
+          "englishBytes": 180713
+        },
+        {
+          "kind": "teacher",
+          "source": "expertes-prof.pdf",
+          "start": 7,
+          "path": "resources/expertes-01/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/expertes-01/teacher.pdf",
+              "bytes": 213814,
+              "sha256": "c62bfd99924bf00994d3ff6f899d1c67117c7903e600defca308a2d335ffd22a",
+              "pages": 9,
+              "start": 7,
+              "end": 15
+            },
+            "en": {
+              "path": "resources/expertes-01/teacher-en.pdf",
+              "bytes": 194827,
+              "sha256": "8b71c717b741ca0a6d85772c92b8a7f1beff8a403fe7929a9e3e66794add0b73",
+              "pages": 9,
+              "start": 7,
+              "end": 15
+            }
+          },
+          "pages": 9,
+          "bytes": 213814,
+          "end": 15,
+          "englishPath": "resources/expertes-01/teacher-en.pdf",
+          "englishPages": 9,
+          "englishBytes": 194827
+        }
+      ],
+      "labs": [
+        "complex/scale"
+      ]
+    },
+    {
+      "id": "expertes-02",
+      "course": "expertes",
+      "number": 2,
+      "title": [
+        "Nombres complexes : point de vue géométrique",
+        "Complex numbers: the geometric point of view"
+      ],
+      "topic": "complex-plane",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "expertes-eleve.pdf",
+          "start": 13,
+          "path": "resources/expertes-02/chapter.pdf",
+          "sections": {
+            "lesson": 1,
+            "practice": 6,
+            "problem": 7
+          },
+          "editions": {
+            "fr": {
+              "path": "resources/expertes-02/chapter.pdf",
+              "bytes": 184119,
+              "sha256": "a1e26885df79174a02d7f653a3b1e7e9096b34e9f31be32094d5d80f95cb0fcf",
+              "pages": 7,
+              "start": 13,
+              "end": 19
+            },
+            "en": {
+              "path": "resources/expertes-02/chapter-en.pdf",
+              "bytes": 180402,
+              "sha256": "481d884275a45b1b92309fcb5d33aaa8d240344c96caf250e619595b60d652a5",
+              "pages": 7,
+              "start": 13,
+              "end": 19
+            }
+          },
+          "pages": 7,
+          "bytes": 184119,
+          "end": 19,
+          "englishPath": "resources/expertes-02/chapter-en.pdf",
+          "englishPages": 7,
+          "englishBytes": 180402
+        },
+        {
+          "kind": "teacher",
+          "source": "expertes-prof.pdf",
+          "start": 16,
+          "path": "resources/expertes-02/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/expertes-02/teacher.pdf",
+              "bytes": 199422,
+              "sha256": "47a524830351e5f658ab99163fdffb13f497581ca3abb513ddf01de7df3774b7",
+              "pages": 8,
+              "start": 16,
+              "end": 23
+            },
+            "en": {
+              "path": "resources/expertes-02/teacher-en.pdf",
+              "bytes": 195648,
+              "sha256": "568c4c1999b10232204486d85d0db85332a713750152559498a9c69f6e96ca5c",
+              "pages": 8,
+              "start": 16,
+              "end": 23
+            }
+          },
+          "pages": 8,
+          "bytes": 199422,
+          "end": 23,
+          "englishPath": "resources/expertes-02/teacher-en.pdf",
+          "englishPages": 8,
+          "englishBytes": 195648
+        }
+      ],
+      "labs": [
+        "complex/angles",
+        "vectors"
+      ]
+    },
+    {
+      "id": "expertes-03",
+      "course": "expertes",
+      "number": 3,
+      "title": [
+        "Nombres complexes et trigonométrie",
+        "Complex numbers and trigonometry"
+      ],
+      "topic": "complex-exponential",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "expertes-eleve.pdf",
+          "start": 20,
+          "path": "resources/expertes-03/chapter.pdf",
+          "sections": {
+            "lesson": 1,
+            "practice": 5,
+            "problem": 6
+          },
+          "editions": {
+            "fr": {
+              "path": "resources/expertes-03/chapter.pdf",
+              "bytes": 185115,
+              "sha256": "c140a50c8726e44b23953e3d08f74a2dd0787327615830addc40dc0fcbb19f27",
+              "pages": 6,
+              "start": 20,
+              "end": 25
+            },
+            "en": {
+              "path": "resources/expertes-03/chapter-en.pdf",
+              "bytes": 182067,
+              "sha256": "7cf7d28d32b8727f2ab342f4ed96f1da7373ec7dd609d0468f9d19e48067ad09",
+              "pages": 6,
+              "start": 20,
+              "end": 25
+            }
+          },
+          "pages": 6,
+          "bytes": 185115,
+          "end": 25,
+          "englishPath": "resources/expertes-03/chapter-en.pdf",
+          "englishPages": 6,
+          "englishBytes": 182067
+        },
+        {
+          "kind": "teacher",
+          "source": "expertes-prof.pdf",
+          "start": 24,
+          "path": "resources/expertes-03/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/expertes-03/teacher.pdf",
+              "bytes": 203103,
+              "sha256": "0ad2d49036fb0669f33ed064c8cb5d59f4374d7286e4ff72cde513e56ef3caa1",
+              "pages": 8,
+              "start": 24,
+              "end": 31
+            },
+            "en": {
+              "path": "resources/expertes-03/teacher-en.pdf",
+              "bytes": 199911,
+              "sha256": "b607b749756746dbcaf65a3bc243f905fb49657aba167be6a42d1b09abc1d64e",
+              "pages": 8,
+              "start": 24,
+              "end": 31
+            }
+          },
+          "pages": 8,
+          "bytes": 203103,
+          "end": 31,
+          "englishPath": "resources/expertes-03/teacher-en.pdf",
+          "englishPages": 8,
+          "englishBytes": 199911
+        }
+      ],
+      "labs": [
+        "complex/angles",
+        "trig/exact"
+      ]
+    },
+    {
+      "id": "expertes-04",
+      "course": "expertes",
+      "number": 4,
+      "title": [
+        "Équations polynomiales",
+        "Polynomial equations"
+      ],
+      "topic": "polynomials",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "expertes-eleve.pdf",
+          "start": 26,
+          "path": "resources/expertes-04/chapter.pdf",
+          "sections": {
+            "lesson": 1,
+            "practice": 5,
+            "problem": 6
+          },
+          "editions": {
+            "fr": {
+              "path": "resources/expertes-04/chapter.pdf",
+              "bytes": 183875,
+              "sha256": "c712d205c55eb770819251059c90f8138e1465a0e7c664bccf57ad1682682c0d",
+              "pages": 6,
+              "start": 26,
+              "end": 31
+            },
+            "en": {
+              "path": "resources/expertes-04/chapter-en.pdf",
+              "bytes": 180151,
+              "sha256": "2c0a75592724f153325f9e77e340406b407b3d3f6a08c66276cbe65eff8e0a6c",
+              "pages": 6,
+              "start": 26,
+              "end": 31
+            }
+          },
+          "pages": 6,
+          "bytes": 183875,
+          "end": 31,
+          "englishPath": "resources/expertes-04/chapter-en.pdf",
+          "englishPages": 6,
+          "englishBytes": 180151
+        },
+        {
+          "kind": "teacher",
+          "source": "expertes-prof.pdf",
+          "start": 32,
+          "path": "resources/expertes-04/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/expertes-04/teacher.pdf",
+              "bytes": 197010,
+              "sha256": "179475babbc871ef47ea2e5245dbd468d0beb20e740a94950e8073fdf9d58951",
+              "pages": 7,
+              "start": 32,
+              "end": 38
+            },
+            "en": {
+              "path": "resources/expertes-04/teacher-en.pdf",
+              "bytes": 193160,
+              "sha256": "da2149b2d542e8c4f7d3a72126bff8a5c6c052f9dfe616d01e0fc11df2d83784",
+              "pages": 7,
+              "start": 32,
+              "end": 38
+            }
+          },
+          "pages": 7,
+          "bytes": 197010,
+          "end": 38,
+          "englishPath": "resources/expertes-04/teacher-en.pdf",
+          "englishPages": 7,
+          "englishBytes": 193160
+        }
+      ],
+      "labs": [
+        "complex",
+        "quadratic/roots"
+      ]
+    },
+    {
+      "id": "expertes-05",
+      "course": "expertes",
+      "number": 5,
+      "title": [
+        "Nombres complexes et géométrie",
+        "Complex numbers and geometry"
+      ],
+      "topic": "roots-of-unity",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "expertes-eleve.pdf",
+          "start": 32,
+          "path": "resources/expertes-05/chapter.pdf",
+          "sections": {
+            "lesson": 1,
+            "practice": 5,
+            "problem": 6
+          },
+          "editions": {
+            "fr": {
+              "path": "resources/expertes-05/chapter.pdf",
+              "bytes": 177900,
+              "sha256": "1a24be092da1f5608183077a88fc6092337f7d87d7d117ee1e80c90fa0147a7c",
+              "pages": 6,
+              "start": 32,
+              "end": 37
+            },
+            "en": {
+              "path": "resources/expertes-05/chapter-en.pdf",
+              "bytes": 171587,
+              "sha256": "87350288767273295f9f629354886cb895e232dc7bfefd49c8039634536ecf39",
+              "pages": 6,
+              "start": 32,
+              "end": 37
+            }
+          },
+          "pages": 6,
+          "bytes": 177900,
+          "end": 37,
+          "englishPath": "resources/expertes-05/chapter-en.pdf",
+          "englishPages": 6,
+          "englishBytes": 171587
+        },
+        {
+          "kind": "teacher",
+          "source": "expertes-prof.pdf",
+          "start": 39,
+          "path": "resources/expertes-05/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/expertes-05/teacher.pdf",
+              "bytes": 200251,
+              "sha256": "eaa042ca29f990fd09fcb884bc057991770efa1b70296c94e346afdbd749cff1",
+              "pages": 7,
+              "start": 39,
+              "end": 45
+            },
+            "en": {
+              "path": "resources/expertes-05/teacher-en.pdf",
+              "bytes": 193914,
+              "sha256": "86ca2d3c5953bad7143d277e39e24eeaeac9fc50b6a9b9e4a7593f47e5c6f2f1",
+              "pages": 7,
+              "start": 39,
+              "end": 45
+            }
+          },
+          "pages": 7,
+          "bytes": 200251,
+          "end": 45,
+          "englishPath": "resources/expertes-05/teacher-en.pdf",
+          "englishPages": 7,
+          "englishBytes": 193914
+        }
+      ],
+      "labs": [
+        "complex/compare",
+        "trig/exact"
+      ]
+    },
+    {
+      "id": "expertes-06",
+      "course": "expertes",
+      "number": 6,
+      "title": [
+        "Divisibilité et congruences",
+        "Divisibility and congruences"
+      ],
+      "topic": "congruences",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "expertes-eleve.pdf",
+          "start": 38,
+          "path": "resources/expertes-06/chapter.pdf",
+          "sections": {
+            "lesson": 1,
+            "practice": 5,
+            "problem": 6
+          },
+          "editions": {
+            "fr": {
+              "path": "resources/expertes-06/chapter.pdf",
+              "bytes": 176915,
+              "sha256": "41fcfd2a0771ead614fac8e0c0f08451529cec648e6b6abb36de18f0793e948b",
+              "pages": 6,
+              "start": 38,
+              "end": 43
+            },
+            "en": {
+              "path": "resources/expertes-06/chapter-en.pdf",
+              "bytes": 170662,
+              "sha256": "dcb41759c4041c6c648f90ba339da200463b9f71cbcf4ea16d30636615eef4f3",
+              "pages": 6,
+              "start": 38,
+              "end": 43
+            }
+          },
+          "pages": 6,
+          "bytes": 176915,
+          "end": 43,
+          "englishPath": "resources/expertes-06/chapter-en.pdf",
+          "englishPages": 6,
+          "englishBytes": 170662
+        },
+        {
+          "kind": "teacher",
+          "source": "expertes-prof.pdf",
+          "start": 46,
+          "path": "resources/expertes-06/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/expertes-06/teacher.pdf",
+              "bytes": 187525,
+              "sha256": "6e04ecd70ae693f4b8b6965297709caf6b47e3fe6d38bb0360dd53dc2a54a00d",
+              "pages": 7,
+              "start": 46,
+              "end": 52
+            },
+            "en": {
+              "path": "resources/expertes-06/teacher-en.pdf",
+              "bytes": 181371,
+              "sha256": "9a64da7e47c6c639ebb12cf0cadf5abccce707df4ddb8bc0b8d28c324b32bcf8",
+              "pages": 7,
+              "start": 46,
+              "end": 52
+            }
+          },
+          "pages": 7,
+          "bytes": 187525,
+          "end": 52,
+          "englishPath": "resources/expertes-06/teacher-en.pdf",
+          "englishPages": 7,
+          "englishBytes": 181371
+        }
+      ],
+      "labs": []
+    },
+    {
+      "id": "expertes-07",
+      "course": "expertes",
+      "number": 7,
+      "title": [
+        "PGCD, théorèmes de Bézout et de Gauss",
+        "GCD, Bézout's and Gauss's theorems"
+      ],
+      "topic": "bezout",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "expertes-eleve.pdf",
+          "start": 44,
+          "path": "resources/expertes-07/chapter.pdf",
+          "sections": {
+            "lesson": 1,
+            "practice": 5,
+            "problem": 6
+          },
+          "editions": {
+            "fr": {
+              "path": "resources/expertes-07/chapter.pdf",
+              "bytes": 185047,
+              "sha256": "dc94662443c363276d2d35a7dd774bb2192d47891c7461ed46f37cfa27121c5c",
+              "pages": 6,
+              "start": 44,
+              "end": 49
+            },
+            "en": {
+              "path": "resources/expertes-07/chapter-en.pdf",
+              "bytes": 178524,
+              "sha256": "abff3ef3bbd5ff50455aa97eb53e03ddc66960e37905896d1b9c0f90ca93c503",
+              "pages": 6,
+              "start": 44,
+              "end": 49
+            }
+          },
+          "pages": 6,
+          "bytes": 185047,
+          "end": 49,
+          "englishPath": "resources/expertes-07/chapter-en.pdf",
+          "englishPages": 6,
+          "englishBytes": 178524
+        },
+        {
+          "kind": "teacher",
+          "source": "expertes-prof.pdf",
+          "start": 53,
+          "path": "resources/expertes-07/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/expertes-07/teacher.pdf",
+              "bytes": 197368,
+              "sha256": "aa3fc53b95b20372bec09cde8cf30779fcf0dcdd9113b751dd1e659aebfdd6fa",
+              "pages": 7,
+              "start": 53,
+              "end": 59
+            },
+            "en": {
+              "path": "resources/expertes-07/teacher-en.pdf",
+              "bytes": 190784,
+              "sha256": "1d527a336db53fa6477421c3289a0c7392873bbc69fc7c38975962b722bcb3ab",
+              "pages": 7,
+              "start": 53,
+              "end": 59
+            }
+          },
+          "pages": 7,
+          "bytes": 197368,
+          "end": 59,
+          "englishPath": "resources/expertes-07/teacher-en.pdf",
+          "englishPages": 7,
+          "englishBytes": 190784
+        }
+      ],
+      "labs": []
+    },
+    {
+      "id": "expertes-08",
+      "course": "expertes",
+      "number": 8,
+      "title": [
+        "Nombres premiers et petit théorème de Fermat",
+        "Prime numbers and Fermat's little theorem"
+      ],
+      "topic": "primes",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "expertes-eleve.pdf",
+          "start": 50,
+          "path": "resources/expertes-08/chapter.pdf",
+          "sections": {
+            "lesson": 1,
+            "practice": 5,
+            "problem": 6
+          },
+          "editions": {
+            "fr": {
+              "path": "resources/expertes-08/chapter.pdf",
+              "bytes": 206921,
+              "sha256": "d97973579995eb20818ceca64321998c05040476e8c5f29897515ed36abfd679",
+              "pages": 6,
+              "start": 50,
+              "end": 55
+            },
+            "en": {
+              "path": "resources/expertes-08/chapter-en.pdf",
+              "bytes": 200542,
+              "sha256": "2491551470844fe95e27d38460a69a12640a0ca07e337b5640dca4b74d0f4c3e",
+              "pages": 6,
+              "start": 50,
+              "end": 55
+            }
+          },
+          "pages": 6,
+          "bytes": 206921,
+          "end": 55,
+          "englishPath": "resources/expertes-08/chapter-en.pdf",
+          "englishPages": 6,
+          "englishBytes": 200542
+        },
+        {
+          "kind": "teacher",
+          "source": "expertes-prof.pdf",
+          "start": 60,
+          "path": "resources/expertes-08/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/expertes-08/teacher.pdf",
+              "bytes": 219690,
+              "sha256": "d3de053a94b27448d51c3e0e445620fff5ca0a5a8011bd4dcbc1a743a6f95b4f",
+              "pages": 7,
+              "start": 60,
+              "end": 66
+            },
+            "en": {
+              "path": "resources/expertes-08/teacher-en.pdf",
+              "bytes": 212986,
+              "sha256": "fc5fe94506d07999ec7ba83cda82f1d46b725e28711b565e4c86b66dac681a8f",
+              "pages": 7,
+              "start": 60,
+              "end": 66
+            }
+          },
+          "pages": 7,
+          "bytes": 219690,
+          "end": 66,
+          "englishPath": "resources/expertes-08/teacher-en.pdf",
+          "englishPages": 7,
+          "englishBytes": 212986
+        }
+      ],
+      "labs": [
+        "fermat/f5",
+        "euler-primes"
+      ]
+    },
+    {
+      "id": "expertes-09",
+      "course": "expertes",
+      "number": 9,
+      "title": [
+        "Matrices",
+        "Matrices"
+      ],
+      "topic": "matrices",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "expertes-eleve.pdf",
+          "start": 56,
+          "path": "resources/expertes-09/chapter.pdf",
+          "sections": {
+            "lesson": 1,
+            "practice": 5,
+            "problem": 6
+          },
+          "editions": {
+            "fr": {
+              "path": "resources/expertes-09/chapter.pdf",
+              "bytes": 169058,
+              "sha256": "b861c6f66190185595af0ef24e8c248a07b069953cc03c51f6f02ca579425a7e",
+              "pages": 6,
+              "start": 56,
+              "end": 61
+            },
+            "en": {
+              "path": "resources/expertes-09/chapter-en.pdf",
+              "bytes": 165524,
+              "sha256": "8eac05e433daac14950d5b440c7938000a102803ed7ce25e51bdca8398fcabfa",
+              "pages": 6,
+              "start": 56,
+              "end": 61
+            }
+          },
+          "pages": 6,
+          "bytes": 169058,
+          "end": 61,
+          "englishPath": "resources/expertes-09/chapter-en.pdf",
+          "englishPages": 6,
+          "englishBytes": 165524
+        },
+        {
+          "kind": "teacher",
+          "source": "expertes-prof.pdf",
+          "start": 67,
+          "path": "resources/expertes-09/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/expertes-09/teacher.pdf",
+              "bytes": 183498,
+              "sha256": "3fd63dfafe5c3e2ec3df0ff8037581180b5ddb6ee1ec915fb4aef3b00a19e60b",
+              "pages": 8,
+              "start": 67,
+              "end": 74
+            },
+            "en": {
+              "path": "resources/expertes-09/teacher-en.pdf",
+              "bytes": 179671,
+              "sha256": "dbaf828332adc3650d73aa0ee990030280e66ecc9d200f149c9dfdba08aa30ed",
+              "pages": 8,
+              "start": 67,
+              "end": 74
+            }
+          },
+          "pages": 8,
+          "bytes": 183498,
+          "end": 74,
+          "englishPath": "resources/expertes-09/teacher-en.pdf",
+          "englishPages": 8,
+          "englishBytes": 179671
+        }
+      ],
+      "labs": [
+        "matrix/flat"
+      ]
+    },
+    {
+      "id": "expertes-10",
+      "course": "expertes",
+      "number": 10,
+      "title": [
+        "Graphes",
+        "Graphs"
+      ],
+      "topic": "graphs",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "expertes-eleve.pdf",
+          "start": 62,
+          "path": "resources/expertes-10/chapter.pdf",
+          "sections": {
+            "lesson": 1,
+            "practice": 5,
+            "problem": 7
+          },
+          "editions": {
+            "fr": {
+              "path": "resources/expertes-10/chapter.pdf",
+              "bytes": 162310,
+              "sha256": "b7023efade4bc0ffb089a348967b99e665a2da2828d8e87a608bf895bdd2e399",
+              "pages": 7,
+              "start": 62,
+              "end": 68
+            },
+            "en": {
+              "path": "resources/expertes-10/chapter-en.pdf",
+              "bytes": 158826,
+              "sha256": "a57e1972b464aa1d15c91c8787bef84f1b9673263cc0600257d555ac64d81f5e",
+              "pages": 7,
+              "start": 62,
+              "end": 68
+            }
+          },
+          "pages": 7,
+          "bytes": 162310,
+          "end": 68,
+          "englishPath": "resources/expertes-10/chapter-en.pdf",
+          "englishPages": 7,
+          "englishBytes": 158826
+        },
+        {
+          "kind": "teacher",
+          "source": "expertes-prof.pdf",
+          "start": 75,
+          "path": "resources/expertes-10/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/expertes-10/teacher.pdf",
+              "bytes": 173382,
+              "sha256": "98a60b60784b7a5af6713e3f94f390ac589f789c5d824d33c5e1a99a4f7c5ef4",
+              "pages": 8,
+              "start": 75,
+              "end": 82
+            },
+            "en": {
+              "path": "resources/expertes-10/teacher-en.pdf",
+              "bytes": 169991,
+              "sha256": "60b9983f2a7bb340b1e8f1fd5f6ccba609e7fa59929f8bbfb3f8a94e6b78e8aa",
+              "pages": 8,
+              "start": 75,
+              "end": 82
+            }
+          },
+          "pages": 8,
+          "bytes": 173382,
+          "end": 82,
+          "englishPath": "resources/expertes-10/teacher-en.pdf",
+          "englishPages": 8,
+          "englishBytes": 169991
+        }
+      ],
+      "labs": []
+    },
+    {
+      "id": "expertes-11",
+      "course": "expertes",
+      "number": 11,
+      "title": [
+        "Suites de matrices et chaînes de Markov",
+        "Matrix sequences and Markov chains"
+      ],
+      "topic": "markov",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "expertes-eleve.pdf",
+          "start": 69,
+          "path": "resources/expertes-11/chapter.pdf",
+          "sections": {
+            "lesson": 1,
+            "practice": 5,
+            "problem": 7
+          },
+          "editions": {
+            "fr": {
+              "path": "resources/expertes-11/chapter.pdf",
+              "bytes": 181916,
+              "sha256": "eb05fcb95ee325abb38eece6b5de9ee43fe475ccb647ad9fa0f5883026969140",
+              "pages": 7,
+              "start": 69,
+              "end": 75
+            },
+            "en": {
+              "path": "resources/expertes-11/chapter-en.pdf",
+              "bytes": 178542,
+              "sha256": "e1c3dcc0ba1c89a934589ab716f95e87aba59e743557b625cfe774679bebc6c1",
+              "pages": 7,
+              "start": 69,
+              "end": 75
+            }
+          },
+          "pages": 7,
+          "bytes": 181916,
+          "end": 75,
+          "englishPath": "resources/expertes-11/chapter-en.pdf",
+          "englishPages": 7,
+          "englishBytes": 178542
+        },
+        {
+          "kind": "teacher",
+          "source": "expertes-prof.pdf",
+          "start": 83,
+          "path": "resources/expertes-11/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/expertes-11/teacher.pdf",
+              "bytes": 197162,
+              "sha256": "8b3c49363eb4e463ce48b94e6fa26ca180b1013b07e32f4a3d788f05f13edb54",
+              "pages": 8,
+              "start": 83,
+              "end": 90
+            },
+            "en": {
+              "path": "resources/expertes-11/teacher-en.pdf",
+              "bytes": 193336,
+              "sha256": "d7c4d33e15a072f850480226d713b9f1c7fd601c49c6c3254516766335928616",
+              "pages": 8,
+              "start": 83,
+              "end": 90
+            }
+          },
+          "pages": 8,
+          "bytes": 197162,
+          "end": 90,
+          "englishPath": "resources/expertes-11/teacher-en.pdf",
+          "englishPages": 8,
+          "englishBytes": 193336
+        }
+      ],
+      "labs": [
+        "sequences",
+        "probability"
+      ]
+    },
+    {
+      "id": "stmg-01",
+      "course": "stmg",
+      "number": 1,
+      "title": [
+        "Suites numériques",
+        "Sequences"
+      ],
+      "topic": "sequences",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "stmg-eleve.pdf",
+          "start": 7,
+          "path": "resources/stmg-01/chapter.pdf",
+          "sections": {
+            "lesson": 1,
+            "problem": 3,
+            "practice": 4
+          },
+          "editions": {
+            "fr": {
+              "path": "resources/stmg-01/chapter.pdf",
+              "bytes": 220263,
+              "sha256": "8302c33a2a276bec8100ad58d23afc303345b38b9e3e507e155c9e03f450e4ea",
+              "pages": 15,
+              "start": 7,
+              "end": 21
+            },
+            "en": {
+              "path": "resources/stmg-01/chapter-en.pdf",
+              "bytes": 217953,
+              "sha256": "bf149c7bb8fc9e56c7b3ec8f3264ea6183680cfbe1d0ec9ba7c4c39ccf680e83",
+              "pages": 15,
+              "start": 7,
+              "end": 21
+            }
+          },
+          "pages": 15,
+          "bytes": 220263,
+          "end": 21,
+          "englishPath": "resources/stmg-01/chapter-en.pdf",
+          "englishPages": 15,
+          "englishBytes": 217953
+        },
+        {
+          "kind": "teacher",
+          "source": "stmg-prof.pdf",
+          "start": 7,
+          "path": "resources/stmg-01/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/stmg-01/teacher.pdf",
+              "bytes": 248957,
+              "sha256": "77d66391af5706dabbe59392adcb1fbe5789e301cb49352d1b196dd6d1e33b1a",
+              "pages": 18,
+              "start": 7,
+              "end": 24
+            },
+            "en": {
+              "path": "resources/stmg-01/teacher-en.pdf",
+              "bytes": 247700,
+              "sha256": "8e706a7491ac177208df2318a072507e6af8f3b9eb5bd37f51618759c6a927a0",
+              "pages": 18,
+              "start": 7,
+              "end": 24
+            }
+          },
+          "pages": 18,
+          "bytes": 248957,
+          "end": 24,
+          "englishPath": "resources/stmg-01/teacher-en.pdf",
+          "englishPages": 18,
+          "englishBytes": 247700
+        }
+      ],
+      "labs": [
+        "sequences/versus",
+        "exponential/sequence"
+      ]
+    },
+    {
+      "id": "stmg-02",
+      "course": "stmg",
+      "number": 2,
+      "title": [
+        "Fonctions exponentielles",
+        "Exponential functions"
+      ],
+      "topic": "exponential",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "stmg-eleve.pdf",
+          "start": 21,
+          "path": "resources/stmg-02/chapter.pdf",
+          "sections": {
+            "lesson": 1,
+            "problem": 3,
+            "practice": 4
+          },
+          "editions": {
+            "fr": {
+              "path": "resources/stmg-02/chapter.pdf",
+              "bytes": 256882,
+              "sha256": "28a14a949493a04cecb0f6a3bd2d65fab33bc66534687e92c39a50a6c1696878",
+              "pages": 18,
+              "start": 21,
+              "end": 38
+            },
+            "en": {
+              "path": "resources/stmg-02/chapter-en.pdf",
+              "bytes": 255691,
+              "sha256": "1cec659a42d3af79ba8649e37611089c000a637a0cd44b3df6d5b843b7f58e0a",
+              "pages": 18,
+              "start": 21,
+              "end": 38
+            }
+          },
+          "pages": 18,
+          "bytes": 256882,
+          "end": 38,
+          "englishPath": "resources/stmg-02/chapter-en.pdf",
+          "englishPages": 18,
+          "englishBytes": 255691
+        },
+        {
+          "kind": "teacher",
+          "source": "stmg-prof.pdf",
+          "start": 26,
+          "path": "resources/stmg-02/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/stmg-02/teacher.pdf",
+              "bytes": 302646,
+              "sha256": "979fb160ca1ecec01fba3930e1012866c9b612c17fe9a9a29957b4a182e057ea",
+              "pages": 22,
+              "start": 26,
+              "end": 47
+            },
+            "en": {
+              "path": "resources/stmg-02/teacher-en.pdf",
+              "bytes": 299407,
+              "sha256": "f08e8c6732577d50e860a7e01e56f2b0cc005821897883a549e4168d1cf16b46",
+              "pages": 22,
+              "start": 26,
+              "end": 47
+            }
+          },
+          "pages": 22,
+          "bytes": 302646,
+          "end": 47,
+          "englishPath": "resources/stmg-02/teacher-en.pdf",
+          "englishPages": 22,
+          "englishBytes": 299407
+        }
+      ],
+      "labs": [
+        "exponential/base"
+      ]
+    },
+    {
+      "id": "stmg-03",
+      "course": "stmg",
+      "number": 3,
+      "title": [
+        "Fonction logarithme décimal",
+        "The common logarithm"
+      ],
+      "topic": "log10",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "stmg-eleve.pdf",
+          "start": 39,
+          "path": "resources/stmg-03/chapter.pdf",
+          "sections": {
+            "lesson": 1,
+            "problem": 2,
+            "practice": 3
+          },
+          "editions": {
+            "fr": {
+              "path": "resources/stmg-03/chapter.pdf",
+              "bytes": 222599,
+              "sha256": "5553b3330c6bf6fefc80b5abf5457ff397787881338671112be8ec742468ac79",
+              "pages": 17,
+              "start": 39,
+              "end": 55
+            },
+            "en": {
+              "path": "resources/stmg-03/chapter-en.pdf",
+              "bytes": 220776,
+              "sha256": "eceb62fa28e14d747887f2ad5c0b616a36208ff184e35d9c3ffeb79fd730c05e",
+              "pages": 17,
+              "start": 39,
+              "end": 55
+            }
+          },
+          "pages": 17,
+          "bytes": 222599,
+          "end": 55,
+          "englishPath": "resources/stmg-03/chapter-en.pdf",
+          "englishPages": 17,
+          "englishBytes": 220776
+        },
+        {
+          "kind": "teacher",
+          "source": "stmg-prof.pdf",
+          "start": 49,
+          "path": "resources/stmg-03/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/stmg-03/teacher.pdf",
+              "bytes": 301256,
+              "sha256": "6503aa516ff4963e6aa2191efc8994a48709887215498f26fffbffcb1a0bf0a6",
+              "pages": 24,
+              "start": 49,
+              "end": 72
+            },
+            "en": {
+              "path": "resources/stmg-03/teacher-en.pdf",
+              "bytes": 298578,
+              "sha256": "def6428bb6eb7792c4182e5d534e8ef153ba8ec803d204cbb3b78c79017bb13f",
+              "pages": 24,
+              "start": 49,
+              "end": 72
+            }
+          },
+          "pages": 24,
+          "bytes": 301256,
+          "end": 72,
+          "englishPath": "resources/stmg-03/teacher-en.pdf",
+          "englishPages": 24,
+          "englishBytes": 298578
+        }
+      ],
+      "labs": []
+    },
+    {
+      "id": "stmg-04",
+      "course": "stmg",
+      "number": 4,
+      "title": [
+        "Fonction inverse",
+        "The reciprocal function"
+      ],
+      "topic": "reciprocal",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "stmg-eleve.pdf",
+          "start": 56,
+          "path": "resources/stmg-04/chapter.pdf",
+          "sections": {
+            "lesson": 1,
+            "problem": 2,
+            "practice": 3
+          },
+          "editions": {
+            "fr": {
+              "path": "resources/stmg-04/chapter.pdf",
+              "bytes": 266242,
+              "sha256": "bd630119ed8f1784fe501614548fe36f332d1bbc05df32b87f2fd4ed871374aa",
+              "pages": 20,
+              "start": 56,
+              "end": 75
+            },
+            "en": {
+              "path": "resources/stmg-04/chapter-en.pdf",
+              "bytes": 240546,
+              "sha256": "503ffbdffc43a8aa245bb4c764aefc5f32beba42c11ad447b6dfbff7b0f9aa8f",
+              "pages": 20,
+              "start": 56,
+              "end": 75
+            }
+          },
+          "pages": 20,
+          "bytes": 266242,
+          "end": 75,
+          "englishPath": "resources/stmg-04/chapter-en.pdf",
+          "englishPages": 20,
+          "englishBytes": 240546
+        },
+        {
+          "kind": "teacher",
+          "source": "stmg-prof.pdf",
+          "start": 74,
+          "path": "resources/stmg-04/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/stmg-04/teacher.pdf",
+              "bytes": 336942,
+              "sha256": "52580db3d90a2a287690de9d0f9acccd98dec105c14979137e323c16b9fd4c47",
+              "pages": 27,
+              "start": 74,
+              "end": 100
+            },
+            "en": {
+              "path": "resources/stmg-04/teacher-en.pdf",
+              "bytes": 317249,
+              "sha256": "97d6416dcb2d8b8ed64ce978f2ae95dcdf798a2bb4784b4952a5f8780c613a3d",
+              "pages": 26,
+              "start": 74,
+              "end": 99
+            }
+          },
+          "pages": 27,
+          "bytes": 336942,
+          "end": 100,
+          "englishPath": "resources/stmg-04/teacher-en.pdf",
+          "englishPages": 26,
+          "englishBytes": 317249
+        }
+      ],
+      "labs": []
+    },
+    {
+      "id": "stmg-05",
+      "course": "stmg",
+      "number": 5,
+      "title": [
+        "Statistiques à deux variables quantitatives",
+        "Bivariate statistics"
+      ],
+      "topic": "regression",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "stmg-eleve.pdf",
+          "start": 73,
+          "path": "resources/stmg-05/chapter.pdf",
+          "sections": {
+            "lesson": 1,
+            "problem": 2,
+            "practice": 3
+          },
+          "editions": {
+            "fr": {
+              "path": "resources/stmg-05/chapter.pdf",
+              "bytes": 197448,
+              "sha256": "2e4789520a01e2abb29b5caf2c316485d054368ad486f186d04f0ac37443683e",
+              "pages": 18,
+              "start": 73,
+              "end": 90
+            },
+            "en": {
+              "path": "resources/stmg-05/chapter-en.pdf",
+              "bytes": 194186,
+              "sha256": "f454b49068802ebe30ced66f86f81612548abc72b577e682d6744bb59fa5a262",
+              "pages": 18,
+              "start": 73,
+              "end": 90
+            }
+          },
+          "pages": 18,
+          "bytes": 197448,
+          "end": 90,
+          "englishPath": "resources/stmg-05/chapter-en.pdf",
+          "englishPages": 18,
+          "englishBytes": 194186
+        },
+        {
+          "kind": "teacher",
+          "source": "stmg-prof.pdf",
+          "start": 99,
+          "path": "resources/stmg-05/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/stmg-05/teacher.pdf",
+              "bytes": 267700,
+              "sha256": "468363c5cc129214e52b31bd864e5e64d892ac818eafb68f529a0b56192426a9",
+              "pages": 25,
+              "start": 99,
+              "end": 123
+            },
+            "en": {
+              "path": "resources/stmg-05/teacher-en.pdf",
+              "bytes": 263128,
+              "sha256": "5dc348e0c1ec188af42cfb016e7aa47f2361e53fc2e6566c43d412088f03d0ee",
+              "pages": 25,
+              "start": 99,
+              "end": 123
+            }
+          },
+          "pages": 25,
+          "bytes": 267700,
+          "end": 123,
+          "englishPath": "resources/stmg-05/teacher-en.pdf",
+          "englishPages": 25,
+          "englishBytes": 263128
+        }
+      ],
+      "labs": [
+        "statistics"
+      ]
+    },
+    {
+      "id": "stmg-06",
+      "course": "stmg",
+      "number": 6,
+      "title": [
+        "Probabilités conditionnelles",
+        "Conditional probability"
+      ],
+      "topic": "conditioning",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "stmg-eleve.pdf",
+          "start": 90,
+          "path": "resources/stmg-06/chapter.pdf",
+          "sections": {
+            "lesson": 1,
+            "problem": 2,
+            "practice": 3
+          },
+          "editions": {
+            "fr": {
+              "path": "resources/stmg-06/chapter.pdf",
+              "bytes": 197995,
+              "sha256": "76bea0549b16165b014e91ab7dca39fe6282cfa7df20235b8c4c68072afaa203",
+              "pages": 17,
+              "start": 90,
+              "end": 106
+            },
+            "en": {
+              "path": "resources/stmg-06/chapter-en.pdf",
+              "bytes": 195011,
+              "sha256": "71d222bc46721e891fbf654fbc03fd6eed2c698dd3f66aa3fd3a79d48cae8593",
+              "pages": 17,
+              "start": 90,
+              "end": 106
+            }
+          },
+          "pages": 17,
+          "bytes": 197995,
+          "end": 106,
+          "englishPath": "resources/stmg-06/chapter-en.pdf",
+          "englishPages": 17,
+          "englishBytes": 195011
+        },
+        {
+          "kind": "teacher",
+          "source": "stmg-prof.pdf",
+          "start": 124,
+          "path": "resources/stmg-06/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/stmg-06/teacher.pdf",
+              "bytes": 255581,
+              "sha256": "5a170e6b285b2010888a5228e551b8749bec00535ab78655ff265ccaf5b04404",
+              "pages": 23,
+              "start": 124,
+              "end": 146
+            },
+            "en": {
+              "path": "resources/stmg-06/teacher-en.pdf",
+              "bytes": 250810,
+              "sha256": "6f483c2585274b7ea3d73fbd9af4794e80d82bc4a4c0d4ae1801c339ca9139db",
+              "pages": 23,
+              "start": 124,
+              "end": 146
+            }
+          },
+          "pages": 23,
+          "bytes": 255581,
+          "end": 146,
+          "englishPath": "resources/stmg-06/teacher-en.pdf",
+          "englishPages": 23,
+          "englishBytes": 250810
+        }
+      ],
+      "labs": [
+        "probability"
+      ]
+    },
+    {
+      "id": "stmg-07",
+      "course": "stmg",
+      "number": 7,
+      "title": [
+        "Variables aléatoires discrètes et loi binomiale",
+        "Discrete random variables and the binomial distribution"
+      ],
+      "topic": "binomial",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "stmg-eleve.pdf",
+          "start": 107,
+          "path": "resources/stmg-07/chapter.pdf",
+          "sections": {
+            "lesson": 1,
+            "problem": 3,
+            "practice": 4
+          },
+          "editions": {
+            "fr": {
+              "path": "resources/stmg-07/chapter.pdf",
+              "bytes": 174613,
+              "sha256": "5a869d7f98d0bea18e35b7e149023bd0679554b312989685d577b2ab98917029",
+              "pages": 11,
+              "start": 107,
+              "end": 117
+            },
+            "en": {
+              "path": "resources/stmg-07/chapter-en.pdf",
+              "bytes": 171744,
+              "sha256": "541de0f04b0dc9ea58726b37a0ad5b4d11c7482e2fbb00c3db70bf06beaa290c",
+              "pages": 11,
+              "start": 107,
+              "end": 117
+            }
+          },
+          "pages": 11,
+          "bytes": 174613,
+          "end": 117,
+          "englishPath": "resources/stmg-07/chapter-en.pdf",
+          "englishPages": 11,
+          "englishBytes": 171744
+        },
+        {
+          "kind": "teacher",
+          "source": "stmg-prof.pdf",
+          "start": 149,
+          "path": "resources/stmg-07/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/stmg-07/teacher.pdf",
+              "bytes": 234518,
+              "sha256": "66799b15d47a27c9b314c4d320d5d203aec8e1aaa9ad33af59e7b9617d7c5ae3",
+              "pages": 16,
+              "start": 149,
+              "end": 164
+            },
+            "en": {
+              "path": "resources/stmg-07/teacher-en.pdf",
+              "bytes": 229833,
+              "sha256": "d103b0d520e006233aa60cd5fde8bb6393edaa1e5904d388ac508863ac13ece7",
+              "pages": 16,
+              "start": 149,
+              "end": 164
+            }
+          },
+          "pages": 16,
+          "bytes": 234518,
+          "end": 164,
+          "englishPath": "resources/stmg-07/teacher-en.pdf",
+          "englishPages": 16,
+          "englishBytes": 229833
+        }
+      ],
+      "labs": [
+        "probability/run"
+      ]
+    },
+    {
+      "id": "stmg-08",
+      "course": "stmg",
+      "number": 8,
+      "title": [
+        "Révisions et consolidation",
+        "Revision and consolidation"
+      ],
+      "topic": "reasoning",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "stmg-eleve.pdf",
+          "start": 119,
+          "path": "resources/stmg-08/chapter.pdf",
+          "sections": {
+            "problem": 2,
+            "practice": 3
+          },
+          "editions": {
+            "fr": {
+              "path": "resources/stmg-08/chapter.pdf",
+              "bytes": 200926,
+              "sha256": "72b5bfc3731e94eb818f2b08314ac77a54d74c6ed4edcbc77557ec1acc602b65",
+              "pages": 11,
+              "start": 119,
+              "end": 129
+            },
+            "en": {
+              "path": "resources/stmg-08/chapter-en.pdf",
+              "bytes": 199118,
+              "sha256": "7f7ff5e99422cc54d63103ff7a0e11ca8d68fca03a4f9dbd5a0a4673dcb038c5",
+              "pages": 11,
+              "start": 119,
+              "end": 129
+            }
+          },
+          "pages": 11,
+          "bytes": 200926,
+          "end": 129,
+          "englishPath": "resources/stmg-08/chapter-en.pdf",
+          "englishPages": 11,
+          "englishBytes": 199118
+        },
+        {
+          "kind": "teacher",
+          "source": "stmg-prof.pdf",
+          "start": 166,
+          "path": "resources/stmg-08/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/stmg-08/teacher.pdf",
+              "bytes": 223473,
+              "sha256": "3740d2ab2a0b6522482696c5d3c9a843289072a4cbbdb9fc488a3c270536f5af",
+              "pages": 13,
+              "start": 166,
+              "end": 178
+            },
+            "en": {
+              "path": "resources/stmg-08/teacher-en.pdf",
+              "bytes": 220056,
+              "sha256": "59eafaf7a8936392b4f22d37ca3bfe5cf9186dea2367cc75aea59d6b5e4566cc",
+              "pages": 13,
+              "start": 166,
+              "end": 178
+            }
+          },
+          "pages": 13,
+          "bytes": 223473,
+          "end": 178,
+          "englishPath": "resources/stmg-08/teacher-en.pdf",
+          "englishPages": 13,
+          "englishBytes": 220056
+        }
+      ],
+      "labs": []
+    },
+    {
+      "id": "t10-01",
+      "course": "t10",
+      "number": 1,
+      "title": [
+        "Logique",
+        "Logic"
+      ],
+      "topic": "reasoning",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t10-eleve.pdf",
+          "start": 15,
+          "path": "resources/t10-01/chapter.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t10-01/chapter.pdf",
+              "bytes": 393891,
+              "sha256": "d0991e5fa0ce2c56633d5e10ae803d98aaf5b1437a9412d6519035f1277e97dc",
+              "pages": 24,
+              "start": 15,
+              "end": 38
+            }
+          },
+          "pages": 24,
+          "bytes": 393891,
+          "end": 38
+        },
+        {
+          "kind": "teacher",
+          "source": "t10-prof.pdf",
+          "start": 21,
+          "path": "resources/t10-01/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t10-01/teacher.pdf",
+              "bytes": 466504,
+              "sha256": "2d0888f21cd3474068409f67a8cd9bddf8b0c5240f5fc63d337aed238e193bc8",
+              "pages": 39,
+              "start": 21,
+              "end": 59
+            }
+          },
+          "pages": 39,
+          "bytes": 466504,
+          "end": 59
+        }
+      ],
+      "labs": []
+    },
+    {
+      "id": "t10-02",
+      "course": "t10",
+      "number": 2,
+      "title": [
+        "Algorithmique",
+        "Algorithms"
+      ],
+      "topic": "reasoning",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t10-eleve.pdf",
+          "start": 39,
+          "path": "resources/t10-02/chapter.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t10-02/chapter.pdf",
+              "bytes": 426340,
+              "sha256": "706c31f2f670f0cc2735de27db0fad363e5c14c294d9b598503ba8586016c178",
+              "pages": 22,
+              "start": 39,
+              "end": 60
+            }
+          },
+          "pages": 22,
+          "bytes": 426340,
+          "end": 60
+        },
+        {
+          "kind": "teacher",
+          "source": "t10-prof.pdf",
+          "start": 45,
+          "path": "resources/t10-02/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t10-02/teacher.pdf",
+              "bytes": 522267,
+              "sha256": "1554ec06aa04fc276eb90b0ce8d18714a9fbc929366bfb0d0fd69bfc8c73d8a1",
+              "pages": 43,
+              "start": 45,
+              "end": 87
+            }
+          },
+          "pages": 43,
+          "bytes": 522267,
+          "end": 87
+        }
+      ],
+      "labs": []
+    },
+    {
+      "id": "t10-03",
+      "course": "t10",
+      "number": 3,
+      "title": [
+        "Calcul dans ℝ",
+        "Calculation with real numbers"
+      ],
+      "topic": "intervals",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t10-eleve.pdf",
+          "start": 65,
+          "path": "resources/t10-03/chapter.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t10-03/chapter.pdf",
+              "bytes": 429368,
+              "sha256": "a237e6b4683b88b244c4eaf12e5cc63b5312f8bac393af49a9d67f934504dd85",
+              "pages": 28,
+              "start": 65,
+              "end": 92
+            }
+          },
+          "pages": 28,
+          "bytes": 429368,
+          "end": 92
+        },
+        {
+          "kind": "teacher",
+          "source": "t10-prof.pdf",
+          "start": 71,
+          "path": "resources/t10-03/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t10-03/teacher.pdf",
+              "bytes": 532786,
+              "sha256": "addfe3d3d70021cf5a3f7609160ddd0561de2b4f7ca486c21b7a9c8c509f7bb9",
+              "pages": 45,
+              "start": 71,
+              "end": 115
+            }
+          },
+          "pages": 45,
+          "bytes": 532786,
+          "end": 115
+        }
+      ],
+      "labs": []
+    },
+    {
+      "id": "t10-04",
+      "course": "t10",
+      "number": 4,
+      "title": [
+        "Équations et inéquations",
+        "Equations and inequalities"
+      ],
+      "topic": "quadratic",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t10-eleve.pdf",
+          "start": 93,
+          "path": "resources/t10-04/chapter.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t10-04/chapter.pdf",
+              "bytes": 411449,
+              "sha256": "0cc74eb80a7adeea47cf8394ae1679d3b490d0fc34fd8092d4ac13af2a135f7e",
+              "pages": 25,
+              "start": 93,
+              "end": 117
+            }
+          },
+          "pages": 25,
+          "bytes": 411449,
+          "end": 117
+        },
+        {
+          "kind": "teacher",
+          "source": "t10-prof.pdf",
+          "start": 99,
+          "path": "resources/t10-04/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t10-04/teacher.pdf",
+              "bytes": 508394,
+              "sha256": "1252e935c196523f2433d8b59a5a60e81543539a143f20c8744f629b08c0b89f",
+              "pages": 40,
+              "start": 99,
+              "end": 138
+            }
+          },
+          "pages": 40,
+          "bytes": 508394,
+          "end": 138
+        }
+      ],
+      "labs": [
+        "quadratic/roots"
+      ]
+    },
+    {
+      "id": "t10-05",
+      "course": "t10",
+      "number": 5,
+      "title": [
+        "Vecteurs du plan",
+        "Vectors in the plane"
+      ],
+      "topic": "vectors",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t10-eleve.pdf",
+          "start": 121,
+          "path": "resources/t10-05/chapter.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t10-05/chapter.pdf",
+              "bytes": 409827,
+              "sha256": "1cc448f25116a9439cc6e9c0be769d43e83d424f6430e3c8ab7db83b0d58c8c3",
+              "pages": 26,
+              "start": 121,
+              "end": 146
+            }
+          },
+          "pages": 26,
+          "bytes": 409827,
+          "end": 146
+        },
+        {
+          "kind": "teacher",
+          "source": "t10-prof.pdf",
+          "start": 127,
+          "path": "resources/t10-05/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t10-05/teacher.pdf",
+              "bytes": 535538,
+              "sha256": "db17e8b240bbe099e12e0196541abd4a99f63e5b20ebfa1257ee37c73d30e1a2",
+              "pages": 43,
+              "start": 127,
+              "end": 169
+            }
+          },
+          "pages": 43,
+          "bytes": 535538,
+          "end": 169
+        }
+      ],
+      "labs": [
+        "vectors/collinear"
+      ]
+    },
+    {
+      "id": "t10-06",
+      "course": "t10",
+      "number": 6,
+      "title": [
+        "Droites et cercles",
+        "Lines and circles"
+      ],
+      "topic": "lines",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t10-eleve.pdf",
+          "start": 147,
+          "path": "resources/t10-06/chapter.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t10-06/chapter.pdf",
+              "bytes": 395878,
+              "sha256": "d0a0c8eb6f02e06eaa96e66133acb884559dcb02c61acd34ccc4698124d7bd9f",
+              "pages": 23,
+              "start": 147,
+              "end": 169
+            }
+          },
+          "pages": 23,
+          "bytes": 395878,
+          "end": 169
+        },
+        {
+          "kind": "teacher",
+          "source": "t10-prof.pdf",
+          "start": 153,
+          "path": "resources/t10-06/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t10-06/teacher.pdf",
+              "bytes": 526945,
+              "sha256": "18ef34f2ca018061cb6ebe37f33a351d91e399d75b66d3eec68b0e765d2a099b",
+              "pages": 41,
+              "start": 153,
+              "end": 193
+            }
+          },
+          "pages": 41,
+          "bytes": 526945,
+          "end": 193
+        }
+      ],
+      "labs": [
+        "line/slope"
+      ]
+    },
+    {
+      "id": "t10-07",
+      "course": "t10",
+      "number": 7,
+      "title": [
+        "Fonctions numériques",
+        "Real functions"
+      ],
+      "topic": "functions",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t10-eleve.pdf",
+          "start": 173,
+          "path": "resources/t10-07/chapter.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t10-07/chapter.pdf",
+              "bytes": 417449,
+              "sha256": "66146640f9169a46b05105149f03dc792b14bc746202ec7ae0bfbe50d50c54ba",
+              "pages": 26,
+              "start": 173,
+              "end": 198
+            }
+          },
+          "pages": 26,
+          "bytes": 417449,
+          "end": 198
+        },
+        {
+          "kind": "teacher",
+          "source": "t10-prof.pdf",
+          "start": 179,
+          "path": "resources/t10-07/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t10-07/teacher.pdf",
+              "bytes": 529386,
+              "sha256": "6858d53b7ef9e528bef109f71fb8b3d78afc98db35e8cabe351475154de659e7",
+              "pages": 42,
+              "start": 179,
+              "end": 220
+            }
+          },
+          "pages": 42,
+          "bytes": 529386,
+          "end": 220
+        }
+      ],
+      "labs": [
+        "quadratic/vertex",
+        "line/intercept"
+      ]
+    },
+    {
+      "id": "t10-08",
+      "course": "t10",
+      "number": 8,
+      "title": [
+        "Trigonométrie",
+        "Trigonometry"
+      ],
+      "topic": "trigonometry",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t10-eleve.pdf",
+          "start": 203,
+          "path": "resources/t10-08/chapter.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t10-08/chapter.pdf",
+              "bytes": 435173,
+              "sha256": "8fe192032eeb89f421a8ee6572e71f5bef722e42ee07fb6140e37315f3b249ef",
+              "pages": 26,
+              "start": 203,
+              "end": 228
+            }
+          },
+          "pages": 26,
+          "bytes": 435173,
+          "end": 228
+        },
+        {
+          "kind": "teacher",
+          "source": "t10-prof.pdf",
+          "start": 209,
+          "path": "resources/t10-08/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t10-08/teacher.pdf",
+              "bytes": 554344,
+              "sha256": "66217ebbc97b3cfe1d20c742537171033c8bfdd83a641ba240e105589a3e5b8f",
+              "pages": 43,
+              "start": 209,
+              "end": 251
+            }
+          },
+          "pages": 43,
+          "bytes": 554344,
+          "end": 251
+        }
+      ],
+      "labs": [
+        "trig/quadrants"
+      ]
+    },
+    {
+      "id": "t10-09",
+      "course": "t10",
+      "number": 9,
+      "title": [
+        "Statistiques",
+        "Statistics"
+      ],
+      "topic": "statistics",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t10-eleve.pdf",
+          "start": 229,
+          "path": "resources/t10-09/chapter.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t10-09/chapter.pdf",
+              "bytes": 422265,
+              "sha256": "7cdf89ee8f97b42dbe9c224bfbb4ed5b293e2e943154cd149ab0d37939b9234e",
+              "pages": 26,
+              "start": 229,
+              "end": 254
+            }
+          },
+          "pages": 26,
+          "bytes": 422265,
+          "end": 254
+        },
+        {
+          "kind": "teacher",
+          "source": "t10-prof.pdf",
+          "start": 235,
+          "path": "resources/t10-09/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t10-09/teacher.pdf",
+              "bytes": 552446,
+              "sha256": "0f7b5e04990015dbb9f6dc9e89053f7b515566f9e7795a8a6bab56ebed972c7b",
+              "pages": 45,
+              "start": 235,
+              "end": 279
+            }
+          },
+          "pages": 45,
+          "bytes": 552446,
+          "end": 279
+        }
+      ],
+      "labs": [
+        "statistics/box"
+      ]
+    },
+    {
+      "id": "t11s-01",
+      "course": "t11s",
+      "number": 1,
+      "title": [
+        "Généralités sur les fonctions numériques",
+        "Real functions: general properties"
+      ],
+      "topic": "functions",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t11s-eleve.pdf",
+          "start": 15,
+          "path": "resources/t11s-01/chapter.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t11s-01/chapter.pdf",
+              "bytes": 131527,
+              "sha256": "2b4f6a5e19eaa7cabd760e16093f37ad799db8621581fa733ab18c12e9f751cc",
+              "pages": 12,
+              "start": 15,
+              "end": 26
+            }
+          },
+          "pages": 12,
+          "bytes": 131527,
+          "end": 26
+        },
+        {
+          "kind": "teacher",
+          "source": "t11s-prof.pdf",
+          "start": 15,
+          "path": "resources/t11s-01/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t11s-01/teacher.pdf",
+              "bytes": 147817,
+              "sha256": "f2e38599545ee981aeed3011e059e709ee1db81253dddbbd1d7691f6f4976939",
+              "pages": 14,
+              "start": 15,
+              "end": 28
+            }
+          },
+          "pages": 14,
+          "bytes": 147817,
+          "end": 28
+        }
+      ],
+      "labs": []
+    },
+    {
+      "id": "t11s-02",
+      "course": "t11s",
+      "number": 2,
+      "title": [
+        "Limites et continuité",
+        "Limits and continuity"
+      ],
+      "topic": "limitsfunction",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t11s-eleve.pdf",
+          "start": 27,
+          "path": "resources/t11s-02/chapter.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t11s-02/chapter.pdf",
+              "bytes": 70043,
+              "sha256": "aa7fe23512c6525b38d4519ad860e661cde308484d11722dc96f2f2ab2a126be",
+              "pages": 4,
+              "start": 27,
+              "end": 30
+            }
+          },
+          "pages": 4,
+          "bytes": 70043,
+          "end": 30
+        },
+        {
+          "kind": "teacher",
+          "source": "t11s-prof.pdf",
+          "start": 29,
+          "path": "resources/t11s-02/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t11s-02/teacher.pdf",
+              "bytes": 76752,
+              "sha256": "ee1f0828b054253e33493697baa1e0586e536163cbf13fc062b8c783ac9be8c0",
+              "pages": 6,
+              "start": 29,
+              "end": 34
+            }
+          },
+          "pages": 6,
+          "bytes": 76752,
+          "end": 34
+        }
+      ],
+      "labs": []
+    },
+    {
+      "id": "t11s-03",
+      "course": "t11s",
+      "number": 3,
+      "title": [
+        "Branches infinies et asymptotes",
+        "Infinite branches and asymptotes"
+      ],
+      "topic": "limitsfunction",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t11s-eleve.pdf",
+          "start": 31,
+          "path": "resources/t11s-03/chapter.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t11s-03/chapter.pdf",
+              "bytes": 70601,
+              "sha256": "4c9f07ebdbe5e304de46b3d85d4f82d0fa5000f07ba0ead170cbda0c010f8805",
+              "pages": 4,
+              "start": 31,
+              "end": 34
+            }
+          },
+          "pages": 4,
+          "bytes": 70601,
+          "end": 34
+        },
+        {
+          "kind": "teacher",
+          "source": "t11s-prof.pdf",
+          "start": 35,
+          "path": "resources/t11s-03/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t11s-03/teacher.pdf",
+              "bytes": 76891,
+              "sha256": "23da7cb3ff75004bcb28be48654521aeb724478fa6ebdf6b618780e10fea7085",
+              "pages": 6,
+              "start": 35,
+              "end": 40
+            }
+          },
+          "pages": 6,
+          "bytes": 76891,
+          "end": 40
+        }
+      ],
+      "labs": []
+    },
+    {
+      "id": "t11s-04",
+      "course": "t11s",
+      "number": 4,
+      "title": [
+        "Dérivation et tangentes",
+        "Differentiation and tangents"
+      ],
+      "topic": "derivative",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t11s-eleve.pdf",
+          "start": 35,
+          "path": "resources/t11s-04/chapter.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t11s-04/chapter.pdf",
+              "bytes": 69215,
+              "sha256": "c72cba510d27431e1bb823c45ae43315bd4c32db7dd7392093aac4314eb693b9",
+              "pages": 4,
+              "start": 35,
+              "end": 38
+            }
+          },
+          "pages": 4,
+          "bytes": 69215,
+          "end": 38
+        },
+        {
+          "kind": "teacher",
+          "source": "t11s-prof.pdf",
+          "start": 41,
+          "path": "resources/t11s-04/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t11s-04/teacher.pdf",
+              "bytes": 76077,
+              "sha256": "a070ff5aefbb710b497ceba5002f0b1dd947d3b121d0629c8694d18cac1b7313",
+              "pages": 6,
+              "start": 41,
+              "end": 46
+            }
+          },
+          "pages": 6,
+          "bytes": 76077,
+          "end": 46
+        }
+      ],
+      "labs": [
+        "derivative/approach"
+      ]
+    },
+    {
+      "id": "t11s-05",
+      "course": "t11s",
+      "number": 5,
+      "title": [
+        "Étude complète et représentation graphique",
+        "Full study and graph of a function"
+      ],
+      "topic": "derivative",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t11s-eleve.pdf",
+          "start": 39,
+          "path": "resources/t11s-05/chapter.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t11s-05/chapter.pdf",
+              "bytes": 72861,
+              "sha256": "f66dbd1950e9707ead9d447ebbf9489a5152c0ac3dd1a211e675153ce32382ad",
+              "pages": 4,
+              "start": 39,
+              "end": 42
+            }
+          },
+          "pages": 4,
+          "bytes": 72861,
+          "end": 42
+        },
+        {
+          "kind": "teacher",
+          "source": "t11s-prof.pdf",
+          "start": 47,
+          "path": "resources/t11s-05/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t11s-05/teacher.pdf",
+              "bytes": 80087,
+              "sha256": "eae885ebd55cad3bf26cc2531699f97dfff9376ba932835e77ad4f9f85f73f5b",
+              "pages": 6,
+              "start": 47,
+              "end": 52
+            }
+          },
+          "pages": 6,
+          "bytes": 80087,
+          "end": 52
+        }
+      ],
+      "labs": [
+        "derivative/where"
+      ]
+    },
+    {
+      "id": "t11s-06",
+      "course": "t11s",
+      "number": 6,
+      "title": [
+        "Logique et raisonnement",
+        "Logic and reasoning"
+      ],
+      "topic": "reasoning",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t11s-eleve.pdf",
+          "start": 47,
+          "path": "resources/t11s-06/chapter.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t11s-06/chapter.pdf",
+              "bytes": 66004,
+              "sha256": "9194ed125281007e9557be1d4c86ff354d879d600247fe97c7e62b278a30548d",
+              "pages": 4,
+              "start": 47,
+              "end": 50
+            }
+          },
+          "pages": 4,
+          "bytes": 66004,
+          "end": 50
+        },
+        {
+          "kind": "teacher",
+          "source": "t11s-prof.pdf",
+          "start": 59,
+          "path": "resources/t11s-06/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t11s-06/teacher.pdf",
+              "bytes": 71900,
+              "sha256": "9d13d20ea9dc64d873ca2bc4b83562161c4623c19afede0a77ab1e015e40defd",
+              "pages": 4,
+              "start": 59,
+              "end": 62
+            }
+          },
+          "pages": 4,
+          "bytes": 71900,
+          "end": 62
+        }
+      ],
+      "labs": []
+    },
+    {
+      "id": "t11s-07",
+      "course": "t11s",
+      "number": 7,
+      "title": [
+        "Boucles et organigrammes",
+        "Loops and flowcharts"
+      ],
+      "topic": "reasoning",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t11s-eleve.pdf",
+          "start": 51,
+          "path": "resources/t11s-07/chapter.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t11s-07/chapter.pdf",
+              "bytes": 65993,
+              "sha256": "c05109146c99516545a2c0521328b335bbf229bcc59d7fa0983008199c73d87c",
+              "pages": 4,
+              "start": 51,
+              "end": 54
+            }
+          },
+          "pages": 4,
+          "bytes": 65993,
+          "end": 54
+        },
+        {
+          "kind": "teacher",
+          "source": "t11s-prof.pdf",
+          "start": 63,
+          "path": "resources/t11s-07/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t11s-07/teacher.pdf",
+              "bytes": 71685,
+              "sha256": "ff1ae8e3c178dd171d758768185f3aa8db1d108927cbe286c814943da3787908",
+              "pages": 4,
+              "start": 63,
+              "end": 66
+            }
+          },
+          "pages": 4,
+          "bytes": 71685,
+          "end": 66
+        }
+      ],
+      "labs": []
+    },
+    {
+      "id": "t11s-08",
+      "course": "t11s",
+      "number": 8,
+      "title": [
+        "Équations et inéquations",
+        "Equations and inequalities"
+      ],
+      "topic": "quadratic",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t11s-eleve.pdf",
+          "start": 55,
+          "path": "resources/t11s-08/chapter.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t11s-08/chapter.pdf",
+              "bytes": 69090,
+              "sha256": "4d27b63c69e8bfe50698b8ab4f2d27e1aa263da148c087f1be17d251697ccd41",
+              "pages": 4,
+              "start": 55,
+              "end": 58
+            }
+          },
+          "pages": 4,
+          "bytes": 69090,
+          "end": 58
+        },
+        {
+          "kind": "teacher",
+          "source": "t11s-prof.pdf",
+          "start": 67,
+          "path": "resources/t11s-08/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t11s-08/teacher.pdf",
+              "bytes": 76597,
+              "sha256": "9cb652b4d1ce3bc7a647d22199637ed0ff8e6d4a5a2e9d3fb200beb233b053ab",
+              "pages": 6,
+              "start": 67,
+              "end": 72
+            }
+          },
+          "pages": 6,
+          "bytes": 76597,
+          "end": 72
+        }
+      ],
+      "labs": [
+        "quadratic/roots"
+      ]
+    },
+    {
+      "id": "t11s-09",
+      "course": "t11s",
+      "number": 9,
+      "title": [
+        "Systèmes linéaires et pivot de Gauss",
+        "Linear systems and Gaussian elimination"
+      ],
+      "topic": "algebra",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t11s-eleve.pdf",
+          "start": 59,
+          "path": "resources/t11s-09/chapter.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t11s-09/chapter.pdf",
+              "bytes": 64850,
+              "sha256": "de4682cbf00f4ff7ce72ac079acb7b317396d276126dd778bb9bf558e51cb5ea",
+              "pages": 4,
+              "start": 59,
+              "end": 62
+            }
+          },
+          "pages": 4,
+          "bytes": 64850,
+          "end": 62
+        },
+        {
+          "kind": "teacher",
+          "source": "t11s-prof.pdf",
+          "start": 73,
+          "path": "resources/t11s-09/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t11s-09/teacher.pdf",
+              "bytes": 70067,
+              "sha256": "85b050589f44481b9bb8e724be20eff9ca18b37ff30199275b165d2be623a2ab",
+              "pages": 4,
+              "start": 73,
+              "end": 76
+            }
+          },
+          "pages": 4,
+          "bytes": 70067,
+          "end": 76
+        }
+      ],
+      "labs": [
+        "line/direction"
+      ]
+    },
+    {
+      "id": "t11s-10",
+      "course": "t11s",
+      "number": 10,
+      "title": [
+        "Divisibilité, nombres premiers, PGCD et PPCM",
+        "Divisibility, primes, GCD and LCM"
+      ],
+      "topic": "arithmetic",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t11s-eleve.pdf",
+          "start": 63,
+          "path": "resources/t11s-10/chapter.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t11s-10/chapter.pdf",
+              "bytes": 67621,
+              "sha256": "2ba5256b9e14a9dd07c252b8b57c434a45502847ca3342bd199f3d893a6b599b",
+              "pages": 4,
+              "start": 63,
+              "end": 66
+            }
+          },
+          "pages": 4,
+          "bytes": 67621,
+          "end": 66
+        },
+        {
+          "kind": "teacher",
+          "source": "t11s-prof.pdf",
+          "start": 77,
+          "path": "resources/t11s-10/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t11s-10/teacher.pdf",
+              "bytes": 73933,
+              "sha256": "4dcbb3862b8e773c5438fde435de70d21ca681ad72837b600700bd2bab22ffcb",
+              "pages": 6,
+              "start": 77,
+              "end": 82
+            }
+          },
+          "pages": 6,
+          "bytes": 73933,
+          "end": 82
+        }
+      ],
+      "labs": [
+        "euler-primes/hunt"
+      ]
+    },
+    {
+      "id": "t11s-11",
+      "course": "t11s",
+      "number": 11,
+      "title": [
+        "Systèmes de numération",
+        "Number bases"
+      ],
+      "topic": "arithmetic",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t11s-eleve.pdf",
+          "start": 67,
+          "path": "resources/t11s-11/chapter.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t11s-11/chapter.pdf",
+              "bytes": 64245,
+              "sha256": "9a747a77198db4d09b68681f838dc5a6db5f3ed299134a5011f5110d27de3979",
+              "pages": 4,
+              "start": 67,
+              "end": 70
+            }
+          },
+          "pages": 4,
+          "bytes": 64245,
+          "end": 70
+        },
+        {
+          "kind": "teacher",
+          "source": "t11s-prof.pdf",
+          "start": 83,
+          "path": "resources/t11s-11/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t11s-11/teacher.pdf",
+              "bytes": 69350,
+              "sha256": "872b883fa6bb9428c4d55d2bd83a94bf801eca62b9a925062f656dc4bacb1caa",
+              "pages": 4,
+              "start": 83,
+              "end": 86
+            }
+          },
+          "pages": 4,
+          "bytes": 69350,
+          "end": 86
+        }
+      ],
+      "labs": []
+    },
+    {
+      "id": "t11s-12",
+      "course": "t11s",
+      "number": 12,
+      "title": [
+        "Suites numériques",
+        "Sequences"
+      ],
+      "topic": "sequences",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t11s-eleve.pdf",
+          "start": 71,
+          "path": "resources/t11s-12/chapter.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t11s-12/chapter.pdf",
+              "bytes": 69933,
+              "sha256": "8a156fd62922163e44e173a1273035758ed470e53b92ab9634630a62db862e45",
+              "pages": 4,
+              "start": 71,
+              "end": 74
+            }
+          },
+          "pages": 4,
+          "bytes": 69933,
+          "end": 74
+        },
+        {
+          "kind": "teacher",
+          "source": "t11s-prof.pdf",
+          "start": 87,
+          "path": "resources/t11s-12/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t11s-12/teacher.pdf",
+              "bytes": 78307,
+              "sha256": "6932d47f2147cc82cbc236fdb3ada08b1930331fdb8bf5daedfbc1c2ba96b46d",
+              "pages": 6,
+              "start": 87,
+              "end": 92
+            }
+          },
+          "pages": 6,
+          "bytes": 78307,
+          "end": 92
+        }
+      ],
+      "labs": [
+        "sequences/versus",
+        "cobweb/steps"
+      ]
+    },
+    {
+      "id": "t11s-13",
+      "course": "t11s",
+      "number": 13,
+      "title": [
+        "Calcul vectoriel et produit scalaire",
+        "Vectors and the dot product"
+      ],
+      "topic": "vectors",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t11s-eleve.pdf",
+          "start": 79,
+          "path": "resources/t11s-13/chapter.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t11s-13/chapter.pdf",
+              "bytes": 67287,
+              "sha256": "e9aaf77555b214e594f60edc5b01c7f3854c151a47944700a908f149115f1839",
+              "pages": 4,
+              "start": 79,
+              "end": 82
+            }
+          },
+          "pages": 4,
+          "bytes": 67287,
+          "end": 82
+        },
+        {
+          "kind": "teacher",
+          "source": "t11s-prof.pdf",
+          "start": 99,
+          "path": "resources/t11s-13/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t11s-13/teacher.pdf",
+              "bytes": 72377,
+              "sha256": "f0bf4d7008d5376a50ff0fb747fd5ea52fc707ab9a53c7039e503ba797907fa6",
+              "pages": 4,
+              "start": 99,
+              "end": 102
+            }
+          },
+          "pages": 4,
+          "bytes": 72377,
+          "end": 102
+        }
+      ],
+      "labs": [
+        "vectors/area"
+      ]
+    },
+    {
+      "id": "t11s-14",
+      "course": "t11s",
+      "number": 14,
+      "title": [
+        "Barycentres et lignes de niveau",
+        "Barycentres and level lines"
+      ],
+      "topic": "vectors",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t11s-eleve.pdf",
+          "start": 83,
+          "path": "resources/t11s-14/chapter.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t11s-14/chapter.pdf",
+              "bytes": 68583,
+              "sha256": "26d21975fa4e27d534b5cf51c989f86beb98d780080b2eec00812c5290d6376a",
+              "pages": 4,
+              "start": 83,
+              "end": 86
+            }
+          },
+          "pages": 4,
+          "bytes": 68583,
+          "end": 86
+        },
+        {
+          "kind": "teacher",
+          "source": "t11s-prof.pdf",
+          "start": 103,
+          "path": "resources/t11s-14/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t11s-14/teacher.pdf",
+              "bytes": 75930,
+              "sha256": "9272d16fee78a57a53a1c56d3a0150cca3acae092f1f99c7ece79810ff455a8b",
+              "pages": 6,
+              "start": 103,
+              "end": 108
+            }
+          },
+          "pages": 6,
+          "bytes": 75930,
+          "end": 108
+        }
+      ],
+      "labs": []
+    },
+    {
+      "id": "t11s-15",
+      "course": "t11s",
+      "number": 15,
+      "title": [
+        "Transformations et similitudes directes",
+        "Transformations and direct similarities"
+      ],
+      "topic": "lines",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t11s-eleve.pdf",
+          "start": 87,
+          "path": "resources/t11s-15/chapter.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t11s-15/chapter.pdf",
+              "bytes": 68960,
+              "sha256": "9ebb745fb8672a4ba5a436d379e32f2f49c13ec04ce809324a554c627e10ce99",
+              "pages": 4,
+              "start": 87,
+              "end": 90
+            }
+          },
+          "pages": 4,
+          "bytes": 68960,
+          "end": 90
+        },
+        {
+          "kind": "teacher",
+          "source": "t11s-prof.pdf",
+          "start": 109,
+          "path": "resources/t11s-15/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t11s-15/teacher.pdf",
+              "bytes": 75110,
+              "sha256": "1d8e12fd9ba8c55d2557f6fae312c0a0f7850ab7fb31885770ccc05b36c4dfc8",
+              "pages": 6,
+              "start": 109,
+              "end": 114
+            }
+          },
+          "pages": 6,
+          "bytes": 75110,
+          "end": 114
+        }
+      ],
+      "labs": [
+        "complex/scale"
+      ]
+    },
+    {
+      "id": "t11s-16",
+      "course": "t11s",
+      "number": 16,
+      "title": [
+        "Trigonométrie",
+        "Trigonometry"
+      ],
+      "topic": "trigonometry",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t11s-eleve.pdf",
+          "start": 91,
+          "path": "resources/t11s-16/chapter.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t11s-16/chapter.pdf",
+              "bytes": 66591,
+              "sha256": "f2eccd5b1f736e1624505a1712adcd23ff1f4740b61f824e5a9a33ee7c762ff3",
+              "pages": 4,
+              "start": 91,
+              "end": 94
+            }
+          },
+          "pages": 4,
+          "bytes": 66591,
+          "end": 94
+        },
+        {
+          "kind": "teacher",
+          "source": "t11s-prof.pdf",
+          "start": 115,
+          "path": "resources/t11s-16/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t11s-16/teacher.pdf",
+              "bytes": 73149,
+              "sha256": "5de0f5927677b49c44081f21239b5c0fa5639c27f485abbb6b76b05037a65bc5",
+              "pages": 6,
+              "start": 115,
+              "end": 120
+            }
+          },
+          "pages": 6,
+          "bytes": 73149,
+          "end": 120
+        }
+      ],
+      "labs": [
+        "trig/exact"
+      ]
+    },
+    {
+      "id": "t11s-17",
+      "course": "t11s",
+      "number": 17,
+      "title": [
+        "Géométrie dans l’espace",
+        "Solid geometry"
+      ],
+      "topic": "space",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t11s-eleve.pdf",
+          "start": 95,
+          "path": "resources/t11s-17/chapter.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t11s-17/chapter.pdf",
+              "bytes": 68956,
+              "sha256": "0161bf02adcbb43d9652c2cf5db13d14bef3d6ba7f95c3c9aaee92b527e44e54",
+              "pages": 4,
+              "start": 95,
+              "end": 98
+            }
+          },
+          "pages": 4,
+          "bytes": 68956,
+          "end": 98
+        },
+        {
+          "kind": "teacher",
+          "source": "t11s-prof.pdf",
+          "start": 121,
+          "path": "resources/t11s-17/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t11s-17/teacher.pdf",
+              "bytes": 75859,
+              "sha256": "1a610db9695b36c2d594082ed7ff319691a1d9aea19cc8361de38af095f23aec",
+              "pages": 6,
+              "start": 121,
+              "end": 126
+            }
+          },
+          "pages": 6,
+          "bytes": 75859,
+          "end": 126
+        }
+      ],
+      "labs": [
+        "space-lines/param"
+      ]
+    },
+    {
+      "id": "t11s-18",
+      "course": "t11s",
+      "number": 18,
+      "title": [
+        "Organisation des données et statistique",
+        "Organising data and statistics"
+      ],
+      "topic": "statistics",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t11s-eleve.pdf",
+          "start": 103,
+          "path": "resources/t11s-18/chapter.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t11s-18/chapter.pdf",
+              "bytes": 65162,
+              "sha256": "96443bd63c5a7f31e6d9915e69d53510fba964d18fea7686dfec4ecf55c4818a",
+              "pages": 4,
+              "start": 103,
+              "end": 106
+            }
+          },
+          "pages": 4,
+          "bytes": 65162,
+          "end": 106
+        },
+        {
+          "kind": "teacher",
+          "source": "t11s-prof.pdf",
+          "start": 133,
+          "path": "resources/t11s-18/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t11s-18/teacher.pdf",
+              "bytes": 70940,
+              "sha256": "a180ed214a32cd1902f7c7164c19082a10c7a321fec4694ecb0d6410ad6ff247",
+              "pages": 4,
+              "start": 133,
+              "end": 136
+            }
+          },
+          "pages": 4,
+          "bytes": 70940,
+          "end": 136
+        }
+      ],
+      "labs": [
+        "statistics/mean"
+      ]
+    },
+    {
+      "id": "t11s-19",
+      "course": "t11s",
+      "number": 19,
+      "title": [
+        "Ensembles, applications et dénombrement",
+        "Sets, maps and counting"
+      ],
+      "topic": "combinatorics",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t11s-eleve.pdf",
+          "start": 107,
+          "path": "resources/t11s-19/chapter.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t11s-19/chapter.pdf",
+              "bytes": 63071,
+              "sha256": "b0242bd0b83f8cdb8b854ea68aabf3cf56a9fe359eb0f5bc5b7e58ce77278547",
+              "pages": 4,
+              "start": 107,
+              "end": 110
+            }
+          },
+          "pages": 4,
+          "bytes": 63071,
+          "end": 110
+        },
+        {
+          "kind": "teacher",
+          "source": "t11s-prof.pdf",
+          "start": 137,
+          "path": "resources/t11s-19/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t11s-19/teacher.pdf",
+              "bytes": 67349,
+              "sha256": "ce2ea87cca339e17d3f18fdf50ab079698da91bc9642ba3bfecb88fc3e76c5fa",
+              "pages": 4,
+              "start": 137,
+              "end": 140
+            }
+          },
+          "pages": 4,
+          "bytes": 67349,
+          "end": 140
+        }
+      ],
+      "labs": []
+    },
+    {
+      "id": "t11s-20",
+      "course": "t11s",
+      "number": 20,
+      "title": [
+        "Probabilités sur un univers fini",
+        "Probability on a finite sample space"
+      ],
+      "topic": "randomvariables",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t11s-eleve.pdf",
+          "start": 111,
+          "path": "resources/t11s-20/chapter.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t11s-20/chapter.pdf",
+              "bytes": 63793,
+              "sha256": "2ca7ce3ff43303c896265905bec1e98ce985b0f4ca731752ca3434c15e07d31d",
+              "pages": 4,
+              "start": 111,
+              "end": 114
+            }
+          },
+          "pages": 4,
+          "bytes": 63793,
+          "end": 114
+        },
+        {
+          "kind": "teacher",
+          "source": "t11s-prof.pdf",
+          "start": 141,
+          "path": "resources/t11s-20/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t11s-20/teacher.pdf",
+              "bytes": 68934,
+              "sha256": "b60d6d7b7abd091a6c461c913a4dcb7c0e8bf4d837fe8f0acfd09213828e4136",
+              "pages": 4,
+              "start": 141,
+              "end": 144
+            }
+          },
+          "pages": 4,
+          "bytes": 68934,
+          "end": 144
+        }
+      ],
+      "labs": [
+        "probability/run"
+      ]
+    }
+  ],
+  "supplements": [
+    {
+      "id": "premiere-methods",
+      "course": "premiere",
+      "kind": "methods",
+      "title": [
+        "Raisonner et préparer l’épreuve",
+        "Reasoning and exam preparation"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "premiere-eleve.pdf",
+          "start": 94,
+          "path": "resources/premiere-methods-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/premiere-methods-eleve.pdf",
+              "bytes": 191329,
+              "sha256": "7b665aaed2044c58cf39625545cb05c92eced2d8cf907a229c394e93bd5014ba",
+              "pages": 4,
+              "start": 94,
+              "end": 97
+            },
+            "en": {
+              "path": "resources/premiere-methods-eleve-en.pdf",
+              "bytes": 187848,
+              "sha256": "01d624029c362c2a0a39ea797484a6960019c6a7cb52992a7d5870f68871e1ca",
+              "pages": 4,
+              "start": 94,
+              "end": 97
+            }
+          },
+          "pages": 4,
+          "bytes": 191329,
+          "end": 97,
+          "englishPath": "resources/premiere-methods-eleve-en.pdf",
+          "englishPages": 4,
+          "englishBytes": 187848
+        },
+        {
+          "kind": "teacher",
+          "source": "premiere-prof.pdf",
+          "start": 124,
+          "path": "resources/premiere-methods-prof.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/premiere-methods-prof.pdf",
+              "bytes": 197829,
+              "sha256": "b67e5795a5a785df6cbe897d959c3bbdace87117494e10680566ed491b9b9e97",
+              "pages": 4,
+              "start": 124,
+              "end": 127
+            },
+            "en": {
+              "path": "resources/premiere-methods-prof-en.pdf",
+              "bytes": 194272,
+              "sha256": "7ddca43146fe288dc39308681cae3d9f6afde544acdc7a02383db3d04f1509ec",
+              "pages": 4,
+              "start": 124,
+              "end": 127
+            }
+          },
+          "pages": 4,
+          "bytes": 197829,
+          "end": 127,
+          "englishPath": "resources/premiere-methods-prof-en.pdf",
+          "englishPages": 4,
+          "englishBytes": 194272
+        }
+      ]
+    },
+    {
+      "id": "premiere-fluency",
+      "course": "premiere",
+      "kind": "fluency",
+      "title": [
+        "Banque d’automatismes",
+        "Fluency bank"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "premiere-eleve.pdf",
+          "start": 98,
+          "path": "resources/premiere-fluency-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/premiere-fluency-eleve.pdf",
+              "bytes": 166511,
+              "sha256": "925a454cce526d6cbf9cc8f68557242d0e0239f0d9c6f8dea16c083bc40e6742",
+              "pages": 8,
+              "start": 98,
+              "end": 105
+            },
+            "en": {
+              "path": "resources/premiere-fluency-eleve-en.pdf",
+              "bytes": 162899,
+              "sha256": "579bfdfd13f2264924530cc31e1c49729e747efed38a60a77375132690034a8e",
+              "pages": 8,
+              "start": 98,
+              "end": 105
+            }
+          },
+          "pages": 8,
+          "bytes": 166511,
+          "end": 105,
+          "englishPath": "resources/premiere-fluency-eleve-en.pdf",
+          "englishPages": 8,
+          "englishBytes": 162899
+        },
+        {
+          "kind": "teacher",
+          "source": "premiere-prof.pdf",
+          "start": 128,
+          "path": "resources/premiere-fluency-prof.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/premiere-fluency-prof.pdf",
+              "bytes": 226278,
+              "sha256": "9bd762fba2632ad3fcc2953fbc6b32a8615152c54f53291c790627b6f0d147bf",
+              "pages": 13,
+              "start": 128,
+              "end": 140
+            },
+            "en": {
+              "path": "resources/premiere-fluency-prof-en.pdf",
+              "bytes": 223596,
+              "sha256": "03927c178f72421082f9393228d228e96759f3680516d64fb5fb6631222ec166",
+              "pages": 13,
+              "start": 128,
+              "end": 140
+            }
+          },
+          "pages": 13,
+          "bytes": 226278,
+          "end": 140,
+          "englishPath": "resources/premiere-fluency-prof-en.pdf",
+          "englishPages": 13,
+          "englishBytes": 223596
+        }
+      ]
+    },
+    {
+      "id": "premiere-assessments",
+      "course": "premiere",
+      "kind": "assessments",
+      "title": [
+        "Évaluations et préparation annuelle",
+        "Assessments and annual preparation"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "premiere-eleve.pdf",
+          "start": 106,
+          "path": "resources/premiere-assessments-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/premiere-assessments-eleve.pdf",
+              "bytes": 227923,
+              "sha256": "5942810ef77b321d1344ff9c42931765da9f5965c5665084fff5f2bb3f61bf4e",
+              "pages": 17,
+              "start": 106,
+              "end": 122
+            },
+            "en": {
+              "path": "resources/premiere-assessments-eleve-en.pdf",
+              "bytes": 223258,
+              "sha256": "3de64641c0ac29acac6f12b8c02b097012828c0bf20031782266442148e0693c",
+              "pages": 17,
+              "start": 106,
+              "end": 122
+            }
+          },
+          "pages": 17,
+          "bytes": 227923,
+          "end": 122,
+          "englishPath": "resources/premiere-assessments-eleve-en.pdf",
+          "englishPages": 17,
+          "englishBytes": 223258
+        },
+        {
+          "kind": "teacher",
+          "source": "premiere-prof.pdf",
+          "start": 141,
+          "path": "resources/premiere-assessments-prof.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/premiere-assessments-prof.pdf",
+              "bytes": 385332,
+              "sha256": "420962df00f69792abc7037dd0f3a0c6fa75fc5ad2a8dea39981489f66b46220",
+              "pages": 49,
+              "start": 141,
+              "end": 189
+            },
+            "en": {
+              "path": "resources/premiere-assessments-prof-en.pdf",
+              "bytes": 378664,
+              "sha256": "63863b51f7b1114a4c48bdc096783b58d947a9281616380837e2a8f364d8ce1a",
+              "pages": 49,
+              "start": 141,
+              "end": 189
+            }
+          },
+          "pages": 49,
+          "bytes": 385332,
+          "end": 189,
+          "englishPath": "resources/premiere-assessments-prof-en.pdf",
+          "englishPages": 49,
+          "englishBytes": 378664
+        }
+      ]
+    },
+    {
+      "id": "terminale-algorithms",
+      "course": "terminale",
+      "kind": "algorithms",
+      "title": [
+        "Algorithmique · P1 à P6",
+        "Algorithms · P1 to P6"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "terminale-eleve.pdf",
+          "start": 81,
+          "path": "resources/terminale-algorithms-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/terminale-algorithms-eleve.pdf",
+              "bytes": 167501,
+              "sha256": "c47b2a198710706baaaaa229b6c8342ba4bdc21d2c87067ca26b78292eed3e87",
+              "pages": 3,
+              "start": 81,
+              "end": 83
+            },
+            "en": {
+              "path": "resources/terminale-algorithms-eleve-en.pdf",
+              "bytes": 164558,
+              "sha256": "4474b9d891684a7e1e44c2125eac73656eeeee06797a881823cfe1d2b5c2bd1a",
+              "pages": 3,
+              "start": 81,
+              "end": 83
+            }
+          },
+          "pages": 3,
+          "bytes": 167501,
+          "end": 83,
+          "englishPath": "resources/terminale-algorithms-eleve-en.pdf",
+          "englishPages": 3,
+          "englishBytes": 164558
+        },
+        {
+          "kind": "teacher",
+          "source": "terminale-prof.pdf",
+          "start": 115,
+          "path": "resources/terminale-algorithms-prof.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/terminale-algorithms-prof.pdf",
+              "bytes": 170855,
+              "sha256": "8f95b94d07dbac233ca4b6c38b038db479909b4302c42fb0b9db4c62268ad489",
+              "pages": 3,
+              "start": 115,
+              "end": 117
+            },
+            "en": {
+              "path": "resources/terminale-algorithms-prof-en.pdf",
+              "bytes": 167202,
+              "sha256": "72d61520af926c4d8066e612bb745681021d92056094806fdd22e6a749ea789d",
+              "pages": 3,
+              "start": 115,
+              "end": 117
+            }
+          },
+          "pages": 3,
+          "bytes": 170855,
+          "end": 117,
+          "englishPath": "resources/terminale-algorithms-prof-en.pdf",
+          "englishPages": 3,
+          "englishBytes": 167202
+        }
+      ]
+    },
+    {
+      "id": "terminale-proofs",
+      "course": "terminale",
+      "kind": "proofs",
+      "title": [
+        "Répertoire des démonstrations",
+        "Proof index"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "terminale-eleve.pdf",
+          "start": 84,
+          "path": "resources/terminale-proofs-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/terminale-proofs-eleve.pdf",
+              "bytes": 137763,
+              "sha256": "d76a134154e50cc7618955f2e805ebb6f4460addb2453815a4f628fb7a917256",
+              "pages": 1,
+              "start": 84,
+              "end": 84
+            },
+            "en": {
+              "path": "resources/terminale-proofs-eleve-en.pdf",
+              "bytes": 134607,
+              "sha256": "d143801b9299ead3bc385ce7595c2644e02542ee796b8673ccdf1284f644f326",
+              "pages": 1,
+              "start": 84,
+              "end": 84
+            }
+          },
+          "pages": 1,
+          "bytes": 137763,
+          "end": 84,
+          "englishPath": "resources/terminale-proofs-eleve-en.pdf",
+          "englishPages": 1,
+          "englishBytes": 134607
+        },
+        {
+          "kind": "teacher",
+          "source": "terminale-prof.pdf",
+          "start": 118,
+          "path": "resources/terminale-proofs-prof.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/terminale-proofs-prof.pdf",
+              "bytes": 140196,
+              "sha256": "98adeeef5593dcf36aef631b2f248c8e092f3c7671509caadd9f857c53f6ac92",
+              "pages": 1,
+              "start": 118,
+              "end": 118
+            },
+            "en": {
+              "path": "resources/terminale-proofs-prof-en.pdf",
+              "bytes": 136152,
+              "sha256": "d79941cf74c8f1ecf61d2066d62dc873a05051e1f648bf4be1177393c0475687",
+              "pages": 1,
+              "start": 118,
+              "end": 118
+            }
+          },
+          "pages": 1,
+          "bytes": 140196,
+          "end": 118,
+          "englishPath": "resources/terminale-proofs-prof-en.pdf",
+          "englishPages": 1,
+          "englishBytes": 136152
+        }
+      ]
+    },
+    {
+      "id": "terminale-oral",
+      "course": "terminale",
+      "kind": "oral",
+      "title": [
+        "Ateliers de fin d’année et d’oral",
+        "End-of-year and oral workshops"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "terminale-eleve.pdf",
+          "start": 85,
+          "path": "resources/terminale-oral-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/terminale-oral-eleve.pdf",
+              "bytes": 95140,
+              "sha256": "187767722f0e5909f1aba9708935f1f6480e5a12d772379546a9ae5518a0894d",
+              "pages": 1,
+              "start": 85,
+              "end": 85
+            },
+            "en": {
+              "path": "resources/terminale-oral-eleve-en.pdf",
+              "bytes": 92000,
+              "sha256": "73e0492fec51fdf890bcba7bb882b5f005793d7d8fdbca58933cf14af2379f3e",
+              "pages": 1,
+              "start": 85,
+              "end": 85
+            }
+          },
+          "pages": 1,
+          "bytes": 95140,
+          "end": 85,
+          "englishPath": "resources/terminale-oral-eleve-en.pdf",
+          "englishPages": 1,
+          "englishBytes": 92000
+        },
+        {
+          "kind": "teacher",
+          "source": "terminale-prof.pdf",
+          "start": 119,
+          "path": "resources/terminale-oral-prof.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/terminale-oral-prof.pdf",
+              "bytes": 96813,
+              "sha256": "dcb330ac856a284ccb2bf868e55e05ea792b22e767c18604311995e6f77dc50d",
+              "pages": 1,
+              "start": 119,
+              "end": 119
+            },
+            "en": {
+              "path": "resources/terminale-oral-prof-en.pdf",
+              "bytes": 92726,
+              "sha256": "59140b0f457c90bc9ad1523ca46c97194a5c72858fae4b6c9390d6777f32045c",
+              "pages": 1,
+              "start": 119,
+              "end": 119
+            }
+          },
+          "pages": 1,
+          "bytes": 96813,
+          "end": 119,
+          "englishPath": "resources/terminale-oral-prof-en.pdf",
+          "englishPages": 1,
+          "englishBytes": 92726
+        }
+      ]
+    },
+    {
+      "id": "terminale-assessments",
+      "course": "terminale",
+      "kind": "assessments",
+      "title": [
+        "Évaluations de l’année",
+        "Annual assessments"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "terminale-eleve.pdf",
+          "start": 86,
+          "path": "resources/terminale-assessments-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/terminale-assessments-eleve.pdf",
+              "bytes": 342528,
+              "sha256": "6276ec30beb2e26a8f1d194005ba8e3c0e994b7b4a4307974b2d76ca923892f5",
+              "pages": 37,
+              "start": 86,
+              "end": 122
+            },
+            "en": {
+              "path": "resources/terminale-assessments-eleve-en.pdf",
+              "bytes": 337384,
+              "sha256": "ee09746f9b361605ee1003b36a35fe106fe3e96b8a1c9139a7bab023a973479d",
+              "pages": 37,
+              "start": 86,
+              "end": 122
+            }
+          },
+          "pages": 37,
+          "bytes": 342528,
+          "end": 122,
+          "englishPath": "resources/terminale-assessments-eleve-en.pdf",
+          "englishPages": 37,
+          "englishBytes": 337384
+        },
+        {
+          "kind": "teacher",
+          "source": "terminale-prof.pdf",
+          "start": 120,
+          "path": "resources/terminale-assessments-prof.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/terminale-assessments-prof.pdf",
+              "bytes": 1047625,
+              "sha256": "c63dd1160124dd54f14e9eb8c42dd95abc8004653421bac9a9bf1e36ee09d99c",
+              "pages": 169,
+              "start": 120,
+              "end": 288
+            },
+            "en": {
+              "path": "resources/terminale-assessments-prof-en.pdf",
+              "bytes": 1034892,
+              "sha256": "9fcaa4a6910e3be95b27882f42c91ac01e10d9800134fb01d15924f319e9143d",
+              "pages": 169,
+              "start": 120,
+              "end": 288
+            }
+          },
+          "pages": 169,
+          "bytes": 1047625,
+          "end": 288,
+          "englishPath": "resources/terminale-assessments-prof-en.pdf",
+          "englishPages": 169,
+          "englishBytes": 1034892
+        }
+      ]
+    },
+    {
+      "id": "stmg-assessments",
+      "course": "stmg",
+      "kind": "assessments",
+      "title": [
+        "Devoirs surveillés",
+        "Supervised assessments"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "stmg-eleve.pdf",
+          "start": 128,
+          "path": "resources/stmg-assessments-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/stmg-assessments-eleve.pdf",
+              "bytes": 190663,
+              "sha256": "fa54e3d74c090d95c9a77b5630b8488da85be7c7bf63698d61f28e4c1d7d5808",
+              "pages": 15,
+              "start": 128,
+              "end": 142
+            },
+            "en": {
+              "path": "resources/stmg-assessments-eleve-en.pdf",
+              "bytes": 187488,
+              "sha256": "c51d62ddfa3c55bb3134b8c774befba1c6cd57a8279ff1595ee7b736bbaf0a1a",
+              "pages": 15,
+              "start": 128,
+              "end": 142
+            }
+          },
+          "pages": 15,
+          "bytes": 190663,
+          "end": 142,
+          "englishPath": "resources/stmg-assessments-eleve-en.pdf",
+          "englishPages": 15,
+          "englishBytes": 187488
+        },
+        {
+          "kind": "teacher",
+          "source": "stmg-prof.pdf",
+          "start": 179,
+          "path": "resources/stmg-assessments-prof.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/stmg-assessments-prof.pdf",
+              "bytes": 230526,
+              "sha256": "2cad8d9340a991f7e04d42fa7da8c7acc7c95d03bdba7d68f8fd3b9338f61d61",
+              "pages": 16,
+              "start": 179,
+              "end": 194
+            },
+            "en": {
+              "path": "resources/stmg-assessments-prof-en.pdf",
+              "bytes": 227294,
+              "sha256": "8bcabee76b2d93ebaa36a048ac6f7375fd2a389fac14e98841aeec3112bfa909",
+              "pages": 16,
+              "start": 179,
+              "end": 194
+            }
+          },
+          "pages": 16,
+          "bytes": 230526,
+          "end": 194,
+          "englishPath": "resources/stmg-assessments-prof-en.pdf",
+          "englishPages": 16,
+          "englishBytes": 227294
+        }
+      ]
+    },
+    {
+      "id": "stmg-formulas",
+      "course": "stmg",
+      "kind": "formulas",
+      "title": [
+        "Formulaire raisonné",
+        "Formula reference with explanations"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "stmg-eleve.pdf",
+          "start": 143,
+          "path": "resources/stmg-formulas-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/stmg-formulas-eleve.pdf",
+              "bytes": 137021,
+              "sha256": "763f6b106350a55a71ad124794e367158287cfd25e5b48deff05e410488ad991",
+              "pages": 1,
+              "start": 143,
+              "end": 143
+            },
+            "en": {
+              "path": "resources/stmg-formulas-eleve-en.pdf",
+              "bytes": 134544,
+              "sha256": "5ae704c7300cf4a079227105fefcdd26d7fff04e44402beda94ec6e5598e61da",
+              "pages": 1,
+              "start": 143,
+              "end": 143
+            }
+          },
+          "pages": 1,
+          "bytes": 137021,
+          "end": 143,
+          "englishPath": "resources/stmg-formulas-eleve-en.pdf",
+          "englishPages": 1,
+          "englishBytes": 134544
+        },
+        {
+          "kind": "teacher",
+          "source": "stmg-prof.pdf",
+          "start": 194,
+          "path": "resources/stmg-formulas-prof.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/stmg-formulas-prof.pdf",
+              "bytes": 138965,
+              "sha256": "f0e06e58a80a37396121c35253dd434e82a7c0ae3a3f5ba096bf301388751ed1",
+              "pages": 1,
+              "start": 194,
+              "end": 194
+            },
+            "en": {
+              "path": "resources/stmg-formulas-prof-en.pdf",
+              "bytes": 136112,
+              "sha256": "235ebb528104c84fb4d105413532a0a02b9da41b4d3841d41cead4b7c3f625f4",
+              "pages": 1,
+              "start": 194,
+              "end": 194
+            }
+          },
+          "pages": 1,
+          "bytes": 138965,
+          "end": 194,
+          "englishPath": "resources/stmg-formulas-prof-en.pdf",
+          "englishPages": 1,
+          "englishBytes": 136112
+        }
+      ]
+    },
+    {
+      "id": "premiere-matrix",
+      "course": "premiere",
+      "kind": "planning",
+      "title": [
+        "Matrice de couverture du programme · professeur",
+        "Curriculum coverage matrix · teacher"
+      ],
+      "files": [
+        {
+          "kind": "teacher",
+          "source": "premiere-prof.pdf",
+          "start": 202,
+          "path": "resources/premiere-revision/matrix.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/premiere-revision/matrix.pdf",
+              "bytes": 97659,
+              "sha256": "7776124932744f6a673b427556728c7a157a15337391b5527232aa8f02822daf",
+              "pages": 6,
+              "start": 202,
+              "end": 207
+            },
+            "en": {
+              "path": "resources/premiere-revision/matrix-en.pdf",
+              "bytes": 94583,
+              "sha256": "427efa79d8540f9279e01f3b39954a6ce54b8f573559afc5136d7780e3905d3e",
+              "pages": 6,
+              "start": 202,
+              "end": 207
+            }
+          },
+          "pages": 6,
+          "bytes": 97659,
+          "end": 207,
+          "englishPath": "resources/premiere-revision/matrix-en.pdf",
+          "englishPages": 6,
+          "englishBytes": 94583
+        }
+      ]
+    },
+    {
+      "id": "premiere-schedule",
+      "course": "premiere",
+      "kind": "planning",
+      "title": [
+        "Conduite annuelle et créneaux · professeur",
+        "Annual schedule and time slots · teacher"
+      ],
+      "files": [
+        {
+          "kind": "teacher",
+          "source": "premiere-prof.pdf",
+          "start": 208,
+          "path": "resources/premiere-revision/schedule.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/premiere-revision/schedule.pdf",
+              "bytes": 144643,
+              "sha256": "fce8bf4dc270b6a20ec9db6b456ce959cb60a59f3ebd96440dc232ccaf518710",
+              "pages": 17,
+              "start": 208,
+              "end": 224
+            },
+            "en": {
+              "path": "resources/premiere-revision/schedule-en.pdf",
+              "bytes": 141425,
+              "sha256": "24dcb05285b7b080e680940adf82a895255844e5b45ddb431708d158be4cf20f",
+              "pages": 17,
+              "start": 208,
+              "end": 224
+            }
+          },
+          "pages": 17,
+          "bytes": 144643,
+          "end": 224,
+          "englishPath": "resources/premiere-revision/schedule-en.pdf",
+          "englishPages": 17,
+          "englishBytes": 141425
+        }
+      ]
+    },
+    {
+      "id": "premiere-unsorted",
+      "course": "premiere",
+      "kind": "unsorted",
+      "title": [
+        "Non classé",
+        "Unclassified"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "premiere-unsorted-automatismes",
+          "start": 1,
+          "path": "resources/premiere-unsorted/automatismes-series-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/premiere-unsorted/automatismes-series-eleve.pdf",
+              "bytes": 38277,
+              "sha256": "07a64f9abb3a741eefb5592701e214b080bc7c742db04a11385344e4e45be772",
+              "pages": 3,
+              "start": 1,
+              "end": 3
+            }
+          },
+          "pages": 3,
+          "bytes": 38277,
+          "end": 3
+        },
+        {
+          "kind": "teacher",
+          "source": "premiere-unsorted-automatismes",
+          "start": 1,
+          "path": "resources/premiere-unsorted/automatismes-series-corrige.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/premiere-unsorted/automatismes-series-corrige.pdf",
+              "bytes": 48956,
+              "sha256": "ca1b4a43736d08a3ce79af10f47ea6fe2c63712f6243ef54cfd4dcce062da073",
+              "pages": 4,
+              "start": 1,
+              "end": 4
+            }
+          },
+          "pages": 4,
+          "bytes": 48956,
+          "end": 4
+        }
+      ],
+      "number": 0,
+      "labs": []
+    },
+    {
+      "id": "t10-fluency",
+      "course": "t10",
+      "kind": "fluency",
+      "title": [
+        "Automatismes de chaque séance",
+        "Fluency starters for every lesson"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t10-eleve.pdf",
+          "start": 257,
+          "path": "resources/t10-fluency-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t10-fluency-eleve.pdf",
+              "bytes": 199787,
+              "sha256": "cbd1c2b92fd5163df206552ff961e1f38a5f26e62159af66e4590539c5a93cf9",
+              "pages": 18,
+              "start": 257,
+              "end": 274
+            }
+          },
+          "pages": 18,
+          "bytes": 199787,
+          "end": 274
+        },
+        {
+          "kind": "teacher",
+          "source": "t10-prof.pdf",
+          "start": 263,
+          "path": "resources/t10-fluency-prof.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t10-fluency-prof.pdf",
+              "bytes": 278780,
+              "sha256": "d308ba7d34435e075ceae400ad109e18fba6ddd92562e3da3ac1ae6ea1b68732",
+              "pages": 24,
+              "start": 263,
+              "end": 286
+            }
+          },
+          "pages": 24,
+          "bytes": 278780,
+          "end": 286
+        }
+      ]
+    },
+    {
+      "id": "t10-assessments",
+      "course": "t10",
+      "kind": "assessments",
+      "title": [
+        "Banque d’exercices et de problèmes",
+        "Bank of exercises and problems"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t10-eleve.pdf",
+          "start": 275,
+          "path": "resources/t10-assessments-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t10-assessments-eleve.pdf",
+              "bytes": 285356,
+              "sha256": "897966835cd54710feafc475773e030dbe5157d2d15f286ba3e8c9e94fc09c3a",
+              "pages": 16,
+              "start": 275,
+              "end": 290
+            }
+          },
+          "pages": 16,
+          "bytes": 285356,
+          "end": 290
+        },
+        {
+          "kind": "teacher",
+          "source": "t10-prof.pdf",
+          "start": 287,
+          "path": "resources/t10-assessments-prof.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t10-assessments-prof.pdf",
+              "bytes": 324955,
+              "sha256": "1dea67db87bdbbf60819fd3ce3bfd218ddf4bedaed5d3340f1ab5045fd24bf9d",
+              "pages": 24,
+              "start": 287,
+              "end": 310
+            }
+          },
+          "pages": 24,
+          "bytes": 324955,
+          "end": 310
+        }
+      ]
+    },
+    {
+      "id": "t10-guide",
+      "course": "t10",
+      "kind": "planning",
+      "title": [
+        "Guide du professeur et progression",
+        "Teacher guide and yearly plan"
+      ],
+      "files": [
+        {
+          "kind": "teacher",
+          "source": "t10-prof.pdf",
+          "start": 7,
+          "path": "resources/t10-guide-prof.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t10-guide-prof.pdf",
+              "bytes": 240114,
+              "sha256": "4ef978d05cd5295b593b06cf0bb18f2e85ebe33fae064bb925e981615994f37c",
+              "pages": 12,
+              "start": 7,
+              "end": 18
+            }
+          },
+          "pages": 12,
+          "bytes": 240114,
+          "end": 18
+        }
+      ]
+    },
+    {
+      "id": "t11s-assessments",
+      "course": "t11s",
+      "kind": "assessments",
+      "title": [
+        "Évaluations et sujets de synthèse",
+        "Assessments and synthesis papers"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t11s-eleve.pdf",
+          "start": 43,
+          "path": "resources/t11s-assessments-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t11s-assessments-eleve.pdf",
+              "bytes": 93544,
+              "sha256": "2d9fc082436ffa1804b1c4aca00843f162e902ed78d9d090d5f672ace3b0ae96",
+              "pages": 18,
+              "start": 43,
+              "end": 60
+            }
+          },
+          "pages": 18,
+          "bytes": 93544,
+          "end": 60
+        },
+        {
+          "kind": "teacher",
+          "source": "t11s-prof.pdf",
+          "start": 53,
+          "path": "resources/t11s-assessments-prof.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t11s-assessments-prof.pdf",
+              "bytes": 124093,
+              "sha256": "e915a38792baf3a847facf905519e22f949c8ed6e001eb354794ecea1f773917",
+              "pages": 26,
+              "start": 53,
+              "end": 78
+            }
+          },
+          "pages": 26,
+          "bytes": 124093,
+          "end": 78
+        }
+      ]
+    },
+    {
+      "id": "t11s-formulas",
+      "course": "t11s",
+      "kind": "formulas",
+      "title": [
+        "Formulaire et glossaire",
+        "Formulas and glossary"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t11s-eleve.pdf",
+          "start": 117,
+          "path": "resources/t11s-formulas-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t11s-formulas-eleve.pdf",
+              "bytes": 67685,
+              "sha256": "8e06f5653d97f9d23c4ec41f0c1c393b40e48095f02cad23534212a877a9e8d9",
+              "pages": 4,
+              "start": 117,
+              "end": 120
+            }
+          },
+          "pages": 4,
+          "bytes": 67685,
+          "end": 120
+        },
+        {
+          "kind": "teacher",
+          "source": "t11s-prof.pdf",
+          "start": 151,
+          "path": "resources/t11s-formulas-prof.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t11s-formulas-prof.pdf",
+              "bytes": 68178,
+              "sha256": "ab6e12332f30568da875ed80b03c24b0610c1a52ee55b72ee3bfc018f54ba8bf",
+              "pages": 4,
+              "start": 151,
+              "end": 154
+            }
+          },
+          "pages": 4,
+          "bytes": 68178,
+          "end": 154
+        }
+      ]
+    },
+    {
+      "id": "t11s-planning",
+      "course": "t11s",
+      "kind": "planning",
+      "title": [
+        "Progression indicative",
+        "Suggested yearly plan"
+      ],
+      "files": [
+        {
+          "kind": "teacher",
+          "source": "t11s-prof.pdf",
+          "start": 149,
+          "path": "resources/t11s-planning-prof.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t11s-planning-prof.pdf",
+              "bytes": 56033,
+              "sha256": "81dc2a925d3d0e789a3578fa49abe9385d41bd1bf60fa7b0c721ccb6d40b7cd2",
+              "pages": 2,
+              "start": 149,
+              "end": 150
+            }
+          },
+          "pages": 2,
+          "bytes": 56033,
+          "end": 150
+        }
+      ]
+    }
+  ]
+};
