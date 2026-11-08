@@ -107,7 +107,7 @@ export function turnAbout(pose, c, a) {
 }
 // How far a placed sofa is into the walls: the sum of the squared distances from its boundary points to the hallway,
 // plus the squared depth of the inner corner inside it. Zero exactly when the sofa fits (up to the sampling).
-export function penetration(poly, pose, step = 0.03) {
+export function penetration(poly, pose, step = 0.03, bound = Infinity) {
   const co = Math.cos(pose.a), si = Math.sin(pose.a);
   let f = 0;
   for (const [su, sv] of samplesOf(poly, step)) {
@@ -115,6 +115,7 @@ export function penetration(poly, pose, step = 0.03) {
     if (inHallway([x, y], 0)) continue;
     const h = Math.hypot(Math.max(0, x - 1), y < 0 ? -y : Math.max(0, y - 1)), v = Math.hypot(x < 0 ? -x : Math.max(0, x - 1), Math.max(0, y - 1));
     f += Math.min(h, v) ** 2;
+    if (f >= bound) return f;   // early exit: the caller only wants to know whether this pose beats `bound`
   }
   const q = cornerInSofa(poly, pose);
   if (contains(poly, q)) { let bd = Infinity; for (let i = 0; i < poly.length; i++) bd = Math.min(bd, segmentDistance(q, poly[i], poly[(i + 1) % poly.length])); f += bd * bd; }
@@ -123,26 +124,42 @@ export function penetration(poly, pose, step = 0.03) {
 // The walls push a sofa out: keep the angle of the pose and look for the nearby shift that brings the penetration to
 // zero (a pattern search with a shrinking step, from the requested position). Returns the pose that fits, or null
 // when no nearby position fits at that angle (the sofa is stuck).
-export function pushOut(poly, pose, { eps = 1e-5, start = 0.04, reach = 0.25 } = {}) {
-  let p = { ...pose }, f = penetration(poly, p);
-  const dirs = Array.from({ length: 8 }, (_, k) => [Math.cos((k * Math.PI) / 4), Math.sin((k * Math.PI) / 4)]);
-  for (let h = start; h > 1e-7 && f > 0; ) {
-    let moved = false;
-    for (const [ux, uy] of dirs) { const q = { ...p, x: p.x + h * ux, y: p.y + h * uy }, g = penetration(poly, q); if (g < f) { p = q; f = g; moved = true; break; } }
-    if (!moved) h /= 2;
-    if (Math.hypot(p.x - pose.x, p.y - pose.y) > reach) return null;
+export const PUSH_BUDGET = { evals: 400, ms: 40, coarse: 0.04 };
+export function pushOut(poly, pose, { eps = 1e-5, start = 0.04, reach = 0.25, maxEvals = PUSH_BUDGET.evals, maxMs = PUSH_BUDGET.ms, coarse = PUSH_BUDGET.coarse } = {}) {
+  // The search is bounded in evaluations and in wall-clock time (a pointer far ahead of a blocked sofa must not freeze the page);
+  // it uses a coarse boundary sampling and stops evaluating a candidate once it cannot beat the current pose. Only the final
+  // fit check is exact; when the budget runs out the sofa counts as stuck and the caller keeps the largest part of the move that fits.
+  const now = globalThis.performance?.now ? () => performance.now() : Date.now, t0 = now();
+  let p = { ...pose }, evals = 0;
+  // phase 1 on the coarse sampling; if that reaches zero but the exact test still fails, phase 2 continues on the exact sampling
+  for (const [step, h0] of [[coarse, start], [0.02, start / 4]]) {
+    let f = penetration(poly, p, step);
+    evals++;
+    const dirs = PUSH_DIRS;
+    for (let h = h0; h > 1e-7 && f > 0; ) {
+      let moved = false;
+      for (const [ux, uy] of dirs) {
+        if (++evals > maxEvals || ((evals & 7) === 0 && now() - t0 > maxMs)) return null;
+        const q = { ...p, x: p.x + h * ux, y: p.y + h * uy }, g = penetration(poly, q, step, f);
+        if (g < f) { p = q; f = g; moved = true; break; }
+      }
+      if (!moved) h /= 2;
+      if (Math.hypot(p.x - pose.x, p.y - pose.y) > reach) return null;
+    }
+    if (fits(poly, p, eps)) return p;
   }
-  return fits(poly, p, eps) ? p : null;
+  return null;
 }
+const PUSH_DIRS = Array.from({ length: 8 }, (_, k) => [Math.cos((k * Math.PI) / 4), Math.sin((k * Math.PI) / 4)]);
 // A move that the walls stop: keep the target if it fits; otherwise the guide, or let the walls push the sofa out (it slides along
 // them, and turning in the corner moves it as needed), if that stays close to the target; otherwise keep the largest
 // part of the move that fits.
 // `guide(a)`, when given, is a pose at angle a known to fit (the motion of Hammersley or Gerver): it is used when close.
-export function resolve(poly, pose, target, { eps = 1e-5, reach = 0.25, guide = null } = {}) {
+export function resolve(poly, pose, target, { eps = 1e-5, reach = 0.25, guide = null, push = {} } = {}) {
   if (!fits(poly, pose, eps) || fits(poly, target, eps)) return target;
   const g = guide?.(target.a);
   if (g && Math.hypot(g.x - target.x, g.y - target.y) < reach && fits(poly, g, eps)) return g;
-  const pushed = pushOut(poly, target, { eps });
+  const pushed = pushOut(poly, target, { eps, ...push });
   if (pushed && Math.hypot(pushed.x - target.x, pushed.y - target.y) < reach) return pushed;
   let lo = 0, hi = 1;
   for (let i = 0; i < 12; i++) { const m = (lo + hi) / 2, p = { x: pose.x + (target.x - pose.x) * m, y: pose.y + (target.y - pose.y) * m, a: pose.a + (target.a - pose.a) * m }; if (fits(poly, p, eps)) lo = m; else hi = m; }

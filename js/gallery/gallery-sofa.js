@@ -4,6 +4,7 @@
 import {exhibit,button,field,bind,palette} from './gallery-kit.js';
 import {hammersley,hammersleyArea,HAMMERSLEY_R,rectangle,area,place,fits,through,hammersleyPose,gerverPose,hammersleyTurn,gerverTurn,fromStroke,centroid,turnAbout,resolve,RECORDS} from './gallery-sofa-model.js';
 import {GERVER} from './gallery-sofa-gerver.js';
+const FRAME_MS=12;   // the walls get at most this long per frame (after the first step); the rest waits for the next frame
 const S=52,OX=450,OY=40,EPS=1e-5;   // world (y up) to canvas: X = OX + S x, Y = OY + S (1 - y)
 export function movingSofa(root,opts){
   const {t,lang}=opts,num=(v,d=3)=>lang==='fr'?v.toFixed(d).replace('.',','):v.toFixed(d);
@@ -30,7 +31,7 @@ export function movingSofa(root,opts){
   o.on(kindSel,'change',()=>{kind=kindSel.value;if(kind==='own'&&!own){drawing=[];drawBtn.textContent=t('Dessine dans le couloir…','Draw in the hallway…');}shapeChanged();});
   bind(root,'so-r',v=>{r=v;shapeChanged();},v=>v.toFixed(2));bind(root,'so-w',v=>{w=v;shapeChanged();},v=>v.toFixed(2));bind(root,'so-l',v=>{len=v;shapeChanged();},v=>v.toFixed(2));
   o.on(drawBtn,'click',()=>{drawing=[];drawBtn.textContent=t('Dessine dans le couloir…','Draw in the hallway…');dirty=true;});
-  o.on(playBtn,'click',()=>{play=play===null?0:null;auto=true;dirty=true;});
+  o.on(playBtn,'click',()=>{play=play===null?0:null;auto=true;dirty=true;o.wake(100);});
   o.on(root.querySelector('#so-reset'),'click',()=>{pose=start();shown={...pose};want=null;play=null;dirty=true;});
   o.touchHit(at=>{if(drawing)return true;const p=W(at),h=handle(),poly=place(hit,pose);if(Math.hypot(p[0]-h[0],p[1]-h[1])<.3)return true;let yes=false;for(let i=0,j=poly.length-1;i<poly.length;j=i++){const a=poly[i],b=poly[j];if((a[1]>p[1])!==(b[1]>p[1])&&p[0]<(b[0]-a[0])*(p[1]-a[1])/(b[1]-a[1])+a[0])yes=!yes;}return yes;});
   o.on(o.cv,'pointerdown',e=>{const p=W(o.point(e));play=null;
@@ -46,9 +47,9 @@ export function movingSofa(root,opts){
   function follow(){
     if(!want)return;const w=want;let moved=false;
     if(w.rotate!==undefined){const da=Math.atan2(Math.sin(w.rotate-pose.a),Math.cos(w.rotate-pose.a)),part=Math.max(-.4,Math.min(.4,da)),n=Math.min(14,Math.max(1,Math.ceil(Math.abs(part)/.03))),before=pose.a;
-      for(let i=0;i<n;i++)moveTo(turnAbout(pose,c0,pose.a+part/n));moved=Math.abs(pose.a-before)>1e-7;}
+      const t0=performance.now();for(let i=0;i<n&&(i===0||performance.now()-t0<FRAME_MS);i++)moveTo(turnAbout(pose,c0,pose.a+part/n));moved=Math.abs(pose.a-before)>1e-7;}
     else{const dx=w.x-pose.x,dy=w.y-pose.y,dist=Math.hypot(dx,dy);if(dist<1e-9){want=null;return;}const k=Math.min(0.5,dist)/dist,n=Math.min(14,Math.max(1,Math.ceil(Math.min(.5,dist)/.04)));
-      const x0=pose.x,y0=pose.y;for(let i=0;i<n;i++)moveTo({...pose,x:pose.x+dx*k/n,y:pose.y+dy*k/n});moved=Math.hypot(pose.x-x0,pose.y-y0)>1e-7;}
+      const x0=pose.x,y0=pose.y,t0=performance.now();for(let i=0;i<n&&(i===0||performance.now()-t0<FRAME_MS);i++)moveTo({...pose,x:pose.x+dx*k/n,y:pose.y+dy*k/n});moved=Math.hypot(pose.x-x0,pose.y-y0)>1e-7;}
     if(!moved)want=null;   // blocked: wait for the next pointer movement
   }
   const up=()=>{follow();want=null;if(drag?.draw&&drawing.length>8){const s=fromStroke(drawing);if(s&&area(s.poly)>.02){own=s.poly;own.pose={x:s.at[0],y:s.at[1],a:0};kind='own';kindSel.value='own';shapeChanged();}}if(drag?.draw){drawing=null;drawBtn.textContent=t('Dessiner mon canapé','Draw my sofa');show();}drag=null;dirty=true;};
@@ -57,6 +58,7 @@ export function movingSofa(root,opts){
     if(d){e.preventDefault();play=null;moveTo({...pose,x:pose.x+d[0]*.05,y:pose.y+d[1]*.05});}else if(e.key==='['||e.key===']'){e.preventDefault();play=null;moveTo(turnAbout(pose,c0,pose.a+(e.key===']'?-1:1)*Math.PI/90));}});
   shapeChanged();
   root.__sofa=()=>({pose:{...pose},handle:handle(),centre:centre(),kind});   // read by the browser tests
+  o.onResize=()=>{dirty=true;};o.busy=()=>play!==null||!!want;
   o.animate(dt=>{
     // frame time, or real elapsed time under reduced motion (the motion runs only when asked)
     const now=performance.now(),real=dt||Math.min(.1,(now-(o.last||now))/1000);o.last=now;
@@ -65,7 +67,7 @@ export function movingSofa(root,opts){
     // the drawn pose eases toward the true one (about 25 ms), which hides the small jumps of a sliding contact
     const gap=Math.hypot(pose.x-shown.x,pose.y-shown.y)+Math.abs(pose.a-shown.a);
     if(gap>0){if(opts.reduced()||gap>1.2||play!==null)shown={...pose};else{const k=1-Math.exp(-real*45);shown={x:shown.x+(pose.x-shown.x)*k,y:shown.y+(pose.y-shown.y)*k,a:shown.a+(pose.a-shown.a)*k};if(Math.hypot(pose.x-shown.x,pose.y-shown.y)+Math.abs(pose.a-shown.a)<2e-4)shown={...pose};}dirty=true;}
-    if(!dirty)return;dirty=false;
+    if(!dirty)return false;dirty=false;
     const C=palette(),ok=fits(poly,pose,EPS),done=ok&&through(poly,pose),A=kind==='gerver'?GERVER.area:kind==='hammersley'?hammersleyArea(r):area(poly);if(done&&!auto)best=Math.max(best,A);
     g.clearRect(0,0,o.W,o.H);g.fillStyle=C.line;g.globalAlpha=.35;g.fillRect(-2000,-2000,4640,4440);g.globalAlpha=1;
     g.fillStyle=C.sunken;g.fillRect(-2000,Y(1),X(1)+2000,S);g.fillRect(X(0),Y(1),S,3000);
