@@ -11,6 +11,8 @@ export const liveCourses = FULL_EDITION ? courses : courses.filter(c => c.curric
 export const isLiveCourse = id => liveCourses.some(c => c.id === id);
 const chapters = discoveryChapters.filter(c => isLiveCourse(c.course));
 const chapterIds = new Set(chapters.map(c => c.id));
+// Course of a live chapter id, '' when the id is unknown or not published.
+export const liveChapterCourse = id => chapters.find(c => c.id === id)?.course || '';
 export const liveLibraryCourses = FULL_EDITION ? courses : courses.filter(c => c.curriculum === 'fr' || c.curriculum === 'shared');
 const isLiveLibraryCourse = id => liveLibraryCourses.some(c => c.id === id);
 const libraryChapterIds = new Set(discoveryChapters.filter(c => isLiveLibraryCourse(c.course)).map(c => c.id));
@@ -35,7 +37,7 @@ export function liveCatalog(catalog) {
 
 export function isLiveRoute({ page, id, tab }) {
   if (FULL_EDITION && ['pathways', 'university'].includes(page)) return true;
-  if (['home', 'sources', 'automatismes', 'sheets'].includes(page)) return !id;
+  if (['home', 'teacher', 'sources', 'automatismes', 'sheets'].includes(page)) return !id;
   if (page === 'resources' || page === 'slides') return !id || isLiveCourse(id);
   if (page === 'chapter') return chapterIds.has(id);
   if (page === 'library') return !id || libraryChapterIds.has(id) || id.startsWith('@');
