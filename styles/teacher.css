@@ -67,3 +67,108 @@ a.td-action .td-action-title{color:var(--accent)}
 .rs-suggest{display:flex;flex-wrap:wrap;gap:8px}
 .rs-empty{padding:12px 16px;border:1.5px dashed var(--line-strong);background:var(--sunken)}
 .rs-note{font-size:.88rem}
+/* Mode bar (Préparer, En classe, Détente): under the header, wraps at 320 px, 44 px targets. */
+.modebar{display:flex;flex-wrap:wrap;gap:0 4px;padding:0 clamp(16px,3vw,32px);background:var(--surface);border-bottom:1px solid var(--line)}
+.modebar a{display:inline-flex;align-items:center;justify-content:center;min-height:44px;min-width:44px;padding:0 14px;box-sizing:border-box;font:700 .95rem var(--ui);color:var(--muted);border-bottom:3px solid transparent}
+.modebar a:hover{color:var(--ink)}
+.modebar a[aria-current="page"]{color:var(--ink);border-bottom-color:var(--accent)}
+.is-presenting .modebar{display:none}
+@media (max-width:480px){.modebar{padding:0 8px}.modebar a{flex:1 1 0;padding:0 6px}}
+/* En classe launch pad: large tiles, readable at projector distance, square corners, borders not shadows. */
+.teacher-page .td-class{margin:12px 0 0;padding-top:0;border-top:0}
+.lp-switch{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 0}
+.lp-switch .btn{min-height:48px;min-width:44px}
+.teacher-page .lp-pad{margin:16px 0;padding-top:0;border-top:0}
+.lp-grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,260px),1fr));gap:16px}
+.lp-grid>li{min-width:0}
+.lp-tile{position:relative;display:flex;flex-direction:column;gap:6px;height:100%;min-height:132px;padding:16px 16px 16px 56px;box-sizing:border-box;border:2px solid var(--line-strong);border-radius:0;background:var(--surface);color:var(--ink);text-decoration:none;overflow-wrap:anywhere}
+a.lp-tile:hover{border-color:var(--ink)}
+a.lp-tile:focus-visible,.lp-open:focus-visible,.lp-block:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.lp-n{position:absolute;left:16px;top:16px;font:700 1.3rem var(--ui);color:var(--muted)}
+.lp-title{font:700 1.5rem/1.2 var(--ui);margin:0;color:var(--ink)}
+a.lp-tile .lp-title{color:var(--accent)}
+.lp-detail{font-size:1.05rem;color:var(--muted);margin:0}
+.lp-tile.is-unavailable{border-style:dashed;border-color:var(--line);background:var(--sunken)}
+.lp-tile.is-unavailable .lp-title{color:var(--muted)}
+.lp-board{min-height:0}
+.lp-script{margin:4px 0;padding-left:20px;font-size:1.15rem;line-height:1.45}
+.lp-script li{margin:4px 0}
+.lp-tag{margin:0;font:700 .92rem var(--ui);text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
+.lp-tag.is-print{color:var(--ink)}
+.lp-why{margin:0;font-weight:600}
+.lp-open{align-self:flex-start}
+.lp-blocks{list-style:none;margin:0 0 8px;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.lp-blocks li{min-width:0}
+.lp-block{display:inline-flex;align-items:center;gap:12px;min-height:44px;padding:6px 14px;box-sizing:border-box;border:1.5px solid var(--line-strong);background:var(--surface);color:var(--accent);text-decoration:none;font:700 1.05rem var(--ui);max-width:100%;overflow-wrap:anywhere}
+a.lp-block:hover{border-color:var(--ink)}
+.lp-block-min{color:var(--muted);font-weight:400;font-size:.9rem}
+.lp-total{margin:0 0 8px;font-weight:600}
+.lp-build{display:inline-flex;align-items:center;min-height:44px;font-weight:700}
+@media(max-width:420px){.lp-grid{grid-template-columns:1fr}.lp-tile{padding-left:48px}.lp-n{left:12px}.lp-title{font-size:1.3rem}}
+/* In-class dock (dock.js): slim bar fixed to the bottom of tool pages in En classe. Cahier tokens only. */
+.dock{position:fixed;left:0;right:0;bottom:0;z-index:40;display:flex;align-items:stretch;gap:4px;box-sizing:border-box;min-height:52px;padding:4px clamp(8px,2vw,24px) calc(4px + env(safe-area-inset-bottom,0px));background:var(--surface);border-top:1.5px solid var(--line-strong);font:700 .92rem var(--ui)}
+.dock[hidden],.dock.is-projecting,.is-presenting .dock{display:none}
+.dock a,.dock button,.dock .dock-link{display:inline-flex;align-items:center;justify-content:center;min-height:44px;min-width:44px;padding:0 12px;box-sizing:border-box;font:inherit;color:var(--ink);text-decoration:none;white-space:nowrap}
+.dock-back{color:var(--accent)!important;text-decoration:underline!important;text-underline-offset:4px;flex:none}
+.dock-list{display:flex;flex:1 1 0;min-width:0;margin:0;padding:0;list-style:none;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:thin}
+.dock-list li{flex:none}
+.dock-link{color:var(--muted)!important;border-bottom:3px solid transparent}
+a.dock-link:hover{color:var(--ink)!important}
+.dock-link[aria-current="page"]{color:var(--ink)!important;border-bottom-color:var(--accent)}
+.dock-link.is-disabled{color:var(--muted)!important;opacity:.6;border-bottom:1px dashed var(--line-strong);cursor:not-allowed}
+.dock-step,.dock-fold,.dock-tab{background:var(--sunken);border:1px solid var(--line-strong)!important;border-radius:var(--r-sm);cursor:pointer;flex:none}
+.dock-step{font-size:1.3rem}
+.dock:focus-within,.dock a:focus-visible,.dock button:focus-visible{outline-offset:-3px}
+.dock a:focus-visible,.dock button:focus-visible{outline:3px solid var(--accent)}
+.dock.is-collapsed{left:auto;right:0;min-height:0;padding:0 8px calc(4px + env(safe-area-inset-bottom,0px));background:transparent;border:0}
+.dock.is-collapsed .dock-tab{background:var(--surface);box-shadow:0 0 0 1px var(--line-strong)}
+.has-dock body{padding-bottom:calc(60px + env(safe-area-inset-bottom,0px))}
+@media(max-width:480px){.dock{gap:2px;padding-left:4px;padding-right:4px}.dock a,.dock button,.dock .dock-link{padding:0 8px}.dock-back{font-size:.85rem}}
+@media(display-mode:fullscreen){.dock{display:none}}
+/* Préparer (#prepare): chapter sheet, search, séance builder. Cahier tokens only. */
+.pp-live{min-height:1.6em;margin:4px 0;font-weight:600}
+.pp-selects{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:16px}
+.pp-layout{display:grid;grid-template-columns:minmax(0,1fr);gap:0 32px}
+.pp-phases,.pp-results,.pp-blocks{list-style:none;margin:0;padding:0}
+.pp-phase,.pp-result,.pp-block{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 16px;padding:10px 0;border-bottom:1px solid var(--line)}
+.pp-phase-text{display:flex;flex-direction:column;gap:2px;min-width:0;flex:1 1 220px;overflow-wrap:anywhere}
+.pp-why{font-size:.9rem;color:var(--muted);font-style:italic}
+.pp-phase-actions,.pp-block-tools,.pp-builder-actions{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.pp-sub{font-size:1rem;margin:16px 0 4px}
+.pp-phase-select select,.pp-min input{min-width:0}
+.pp-min input{width:6rem}
+.pp-block{display:block;border:1.5px solid var(--line-strong);padding:12px;margin-bottom:8px;background:var(--surface)}
+.pp-block-head{display:flex;gap:12px;align-items:flex-start;margin-bottom:8px}
+.pp-block-n{flex:none;display:inline-flex;align-items:center;justify-content:center;min-width:32px;height:32px;border:1.5px solid var(--ink);font:700 .95rem var(--ui)}
+.pp-block a{color:var(--accent)}
+.pp-icon{min-width:44px}
+.pp-totals{margin:16px 0;padding:12px;border:1.5px solid var(--line-strong);background:var(--sunken)}
+.pp-totals p{margin:0 0 8px}
+.pp-total.is-over{border-left:6px solid var(--neg);padding-left:8px}
+.pp-meter{display:block;width:100%;height:20px;accent-color:var(--accent);margin:0 0 12px}
+.pp-warn{padding:8px 12px;border:1.5px solid var(--neg);background:var(--neg-soft);font-weight:600}
+.pp-builder-actions .btn{min-height:44px}
+.pp-builder-actions a.btn{text-decoration:none}
+@media(min-width:960px){
+ .pp-layout{grid-template-columns:minmax(0,1fr) minmax(360px,.9fr)}
+ .pp-sheet,.pp-search,.pp-eval{grid-column:1}
+ .pp-builder{grid-column:2;grid-row:1 / span 3;align-self:start;position:sticky;top:12px;max-height:calc(100vh - 24px);overflow:auto}
+}
+.pp-block a{display:inline-flex;align-items:center;min-height:44px}
+/* Détente (#relax): quiet cards, borders not shadows. Cahier tokens only. */
+.rx-section{margin:0 0 32px}
+.rx-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px}
+.rx-card{display:flex;flex-direction:column;gap:8px;min-width:0;padding:16px;box-sizing:border-box;border:1.5px solid var(--line-strong);background:var(--surface);overflow-wrap:anywhere}
+.rx-kind{margin:0;font:700 .85rem var(--ui);letter-spacing:.04em;text-transform:uppercase;color:var(--muted)}
+.rx-title{margin:0;font-size:1.25rem;line-height:1.25}
+.rx-teaser{margin:0;font-size:1.05rem;line-height:1.5}
+.rx-card summary{display:flex;align-items:center;min-height:44px;cursor:pointer;font-weight:600}
+.rx-hint{margin-top:8px}
+.rx-go{align-self:flex-start;display:inline-flex;align-items:center;min-height:44px;margin-top:auto;padding:0 16px;box-sizing:border-box;border:1.5px solid var(--ink);color:var(--accent);font-weight:700;text-decoration:none}
+.rx-go:hover{border-color:var(--accent)}
+.rx-draw{min-height:44px}
+.rx-live{min-height:1.6em;margin:4px 0 12px;font-weight:600}
+.rx-surprise-card{border-color:var(--accent)}
+.rx-more{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.rx-more a{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;box-sizing:border-box;border:1.5px solid var(--line-strong);background:var(--surface);color:var(--accent);font-weight:600;text-decoration:none}
+.rx-more a:hover{border-color:var(--ink)}
