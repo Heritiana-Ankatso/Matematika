@@ -13,7 +13,9 @@ and chapters; never merge or relabel one as another.
 
 - This repository holds only the built site. The source is still in Maths-explorer; the full edition is that code built
   with `FULL_EDITION = true` in `site/js/live-curriculum.js`. The name Matematika and the Mikajy Atlas link follow that
-  flag in the source: never patch the files here by hand.
+  flag in the source: never patch the files here by hand. The Atlas URL itself is kept only here, in
+  `.github/edition.env` (`MX_ATLAS_URL`), because the account it names must not be written in Maths-explorer; the full
+  build there needs it (`MX_ATLAS_URL=... make site`).
 - Making Matematika the source repository is step 2 of the owner's plan (private handoff
   `coordination/handoff-20261113/README.md` in ARHeritiana/Maths-explorer-backup). Until it is done, update this site
   with the sync recipe of Maths-explorer's `CLAUDE.md`: `FULL_EDITION = true`, `make site`, copy `dist/` here
