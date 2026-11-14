@@ -20,12 +20,13 @@ and chapters; never merge or relabel one as another.
   `.github/edition.env` (`MX_ATLAS_URL`); `make site` reads it from there (`build/mxbuild/site.py` `edition_env`).
 - `tests/banned.py` allows exactly one use of the banned account name: the addresses of the account that publishes
   this site (known by its hash). The name anywhere else is still reported.
-- Until step 3 of the plan (the owner's private handoff `coordination/handoff-20261113/README.md` in
-  ARHeritiana/Maths-explorer-backup) the two repositories share the same code. A source change made in Maths-explorer
-  is made here too in the same round (apply its diff, `make site`, pull request), and the reverse for any change that
-  is not specific to the full edition. Files that differ on purpose: this `CLAUDE.md`, `README.md`,
-  `.github/edition.env`, `.github/workflows/pages.yml`, `FULL_EDITION`, the
-  own-account exception in `tests/banned.py`, and `dist/`. Never copy Maths-explorer's `dist/` here.
+- Independence rule (step 3 of the owner's plan, 14 November 2026; replaces the shared-code paragraph): Matematika and
+  Maths-explorer are two independent products. Since step 3 Maths-explorer holds only the French lycée curriculum and
+  the general collections, with no `FULL_EDITION` switch; its code has diverged from this repository on purpose (no
+  Malagasy, international, university or Olympiad code there). Matematika still never lacks anything Maths-explorer
+  has: a French or general change made there is made here too in the same round (apply the part of its diff that fits,
+  `make site`, checks, pull request). A change here to the other curricula, to `FULL_EDITION` or to the Atlas link
+  stays here. Never copy Maths-explorer's `dist/` here, and never send the other curricula back to Maths-explorer.
 
 ## Git rule (owner, 14 November 2026, binding in every session)
 
