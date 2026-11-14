@@ -12,20 +12,23 @@ and chapters; never merge or relabel one as another.
 ## Current state (until the source moves here)
 
 - This repository holds only the built site. The source is still in Maths-explorer; the full edition is that code built
-  with `FULL_EDITION = true` in `site/js/live-curriculum.js`, plus the Mikajy Atlas download link in `js/config.js`.
+  with `FULL_EDITION = true` in `site/js/live-curriculum.js`. The name Matematika and the Mikajy Atlas link follow that
+  flag in the source: never patch the files here by hand.
 - Making Matematika the source repository is step 2 of the owner's plan (private handoff
   `coordination/handoff-20261113/README.md` in ARHeritiana/Maths-explorer-backup). Until it is done, update this site
-  with the sync recipe of Maths-explorer's `CLAUDE.md`: `FULL_EDITION = true`, `make site`, rsync `dist/` here
-  (excluding `LICENSE*`, `README.md`, `.nojekyll`, `CLAUDE.md`), commit with this repository's author identity, push,
-  then restore the flag in Maths-explorer.
-- Every sync must keep the Atlas link and must leave nothing of Maths-explorer behind: compare before pushing.
+  with the sync recipe of Maths-explorer's `CLAUDE.md`: `FULL_EDITION = true`, `make site`, copy `dist/` here
+  (keeping `LICENSE*`, `README.md`, `.nojekyll`, `CLAUDE.md` and `.github/`), commit with this repository's author
+  identity, open a pull request, then restore the flag in Maths-explorer.
+- Every sync must leave nothing of Maths-explorer behind: compare before pushing.
 
 ## Publishing
 
-GitHub Pages serves branch `main`, root folder (https://heritiana-ankatso.github.io/Matematika/). **A push to `main`
-is live at once**, and every file at the root is public, this one included: never put private material, credentials
-or personal details in this repository. Work on a feature branch and open a pull request; merge only once verified,
-with a rollback note (revert the merge commit).
+`.github/workflows/pages.yml` publishes the site on every push to `main` (https://heritiana-ankatso.github.io/Matematika/),
+without `CLAUDE.md` and `.github/`. It needs the Pages source set to "GitHub Actions" (Settings > Pages > Build and
+deployment); while the source is still "Deploy from a branch", Pages serves the branch itself, this file included.
+**A merge to `main` is live at once.** Never put private material, credentials or personal details in this repository
+(the site is public). Work on a branch and open a pull request; merge only once verified, with a rollback note (revert the
+merge commit).
 
 ## Language rule (owner, 11 November 2026)
 
