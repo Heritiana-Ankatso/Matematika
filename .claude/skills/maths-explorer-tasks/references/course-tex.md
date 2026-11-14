@@ -1,0 +1,22 @@
+# Recipe: course PDF (TeX)
+
+Read `content/CLAUDE.md` first (it is short). Then:
+1. Open only the unit: `content/tex/courses/<course>/<folder>/<unit>.fr.tex`. Never edit `.en.tex` (generated).
+2. If prose changed, update the matching segment in `<unit>.en.json` (stable ids; prose only, maths untouched).
+   Respect the governing language policy first (French curriculum lessons are French only). Retain the
+   current English edition with `mxbuild.twin.freeze_english(path, reason)` before editing French, and select
+   `buildLanguages: ["fr"]` in the manifest book. The checked snapshot retains the old edition; it does not certify
+   translation of the revised French. See `docs/ADR-0001-tex-i18n.md`.
+   When English work is authorised, regenerate it: `PYTHONPATH=build python3 -m mxbuild twin gen <unit>.fr.tex` (see `build/mxbuild/twin.py`
+   docstring for the exact commands if this fails).
+3. Environments and macros: `docs/TEX_STYLE_GUIDE.md` sections "Environments" and "Mapping"; do not read the core
+   packages unless changing the look.
+4. Verifying results with a script is optional (owner, 1 November 2026); if you write one, keep it in the private repository ARHeritiana/Maths-explorer-backup, folder verification, not in this public repository.
+5. Build: `make tex COURSE=<course>` (TeX Live packages listed in `docs/ARCHITECTURE.md` "Commands"), then
+   `make site`.
+6. New chapter: add it to `content/data/manifest.json` (`catalog.chapters`, and `books.<course>`), with its companion
+   layout record (`companion`); the build refuses incomplete entries.
+
+Look of every PDF: `content/tex/core/mx-layout.sty` (frame, palette), `mx-env.sty` (boxes), `mx-figures.sty` (figure
+palette). A core change rebuilds every course.
+Then follow `release.md`.

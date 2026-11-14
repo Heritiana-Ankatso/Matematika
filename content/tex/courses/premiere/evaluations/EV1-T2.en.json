@@ -1,0 +1,221 @@
+{
+ "unit": "EV1-T2.fr.tex",
+ "segments": {
+  "18381ceca0ac": {
+   "fr": "EV1-T2 -- DS commun",
+   "en": "EV1-T2 -- Common test",
+   "status": "aligned",
+   "order": 0
+  },
+  "e93930a66e38": {
+   "fr": "\\textbf{Sujet d’entraînement}. Chapitres 1 à 4.",
+   "en": "\\textbf{Practice paper}. Chapters 1 to 4.",
+   "status": "aligned",
+   "order": 2
+  },
+  "3dfaff988761": {
+   "fr": "Durée : 2 h. Sans calculatrice. Note sur 20. 14 novembre 2026.",
+   "en": "Duration: 2 h. No calculator. Marked out of 20. 14 November 2026.",
+   "status": "aligned",
+   "order": 3
+  },
+  "30f8a9d537b0": {
+   "fr": "Partie 1 -- Automatismes (6 points)",
+   "en": "Part 1 -- Fluency (6 points)",
+   "status": "aligned",
+   "order": 4
+  },
+  "3be7156bd6ab": {
+   "fr": "Douze questions, [[m1]] point chacune. Une seule réponse correcte ; aucune justification demandée. Une réponse incorrecte ou absente rapporte 0, sans retrait de points.",
+   "en": "Twelve questions, [[m1]] point each. Only one correct answer; no justification required. An incorrect or missing answer scores 0, with no loss of points.",
+   "status": "aligned",
+   "order": 5
+  },
+  "edb66e001ece": {
+   "fr": "Calculer [[m1]].",
+   "en": "Calculate [[m1]].",
+   "status": "aligned",
+   "order": 6
+  },
+  "3fe95882ddfe": {
+   "fr": "A. [[m1]]\\quad B. [[m2]]\\quad C. [[m3]]\\quad D. [[m4]]",
+   "en": "A. [[m1]]\\quad B. [[m2]]\\quad C. [[m3]]\\quad D. [[m4]]",
+   "status": "aligned",
+   "order": 7
+  },
+  "ae1dec348d74": {
+   "fr": "Une valeur de 50 augmente de [[m1]]. Valeur finale ?",
+   "en": "A value of 50 increases by [[m1]]. Final value?",
+   "status": "aligned",
+   "order": 12
+  },
+  "d3e6c29717d4": {
+   "fr": "Une valeur de 80 est obtenue après une baisse de [[m1]]. Valeur initiale ?",
+   "en": "A value of 80 is obtained after a [[m1]] decrease. Initial value?",
+   "status": "aligned",
+   "order": 14
+  },
+  "aabd6bf5577b": {
+   "fr": "Hausse de [[m1]] puis baisse de [[m2]] : coefficient global ?",
+   "en": "A [[m1]] increase then a [[m2]] decrease: overall coefficient?",
+   "status": "aligned",
+   "order": 16
+  },
+  "b49f7741c0aa": {
+   "fr": "La solution de [[m1]] vaut",
+   "en": "The solution of [[m1]] is",
+   "status": "aligned",
+   "order": 18
+  },
+  "b56c7e399051": {
+   "fr": "La pente entre [[m1]] et [[m2]] vaut",
+   "en": "The slope between [[m1]] and [[m2]] is",
+   "status": "aligned",
+   "order": 20
+  },
+  "70f54e7f3516": {
+   "fr": "La moyenne de [[m1]] vaut",
+   "en": "The mean of [[m1]] is",
+   "status": "aligned",
+   "order": 22
+  },
+  "8a4e70bcfcb0": {
+   "fr": "Un secteur de [[m1]] représente quelle fraction du total ?",
+   "en": "A sector of [[m1]] represents what fraction of the total?",
+   "status": "aligned",
+   "order": 24
+  },
+  "a739799c55e7": {
+   "fr": "Une probabilité vaut [[m1]]. Son complément vaut",
+   "en": "A probability is [[m1]]. Its complement is",
+   "status": "aligned",
+   "order": 26
+  },
+  "f5e964d70c4d": {
+   "fr": "Pour [[m1]], [[m2]] vaut",
+   "en": "For [[m1]], [[m2]] is",
+   "status": "aligned",
+   "order": 28
+  },
+  "e5cd1536aa01": {
+   "fr": "Partie 2 -- Exercices indépendants (14 points)",
+   "en": "Part 2 -- Independent exercises (14 points)",
+   "status": "aligned",
+   "order": 30
+  },
+  "3217f877e3df": {
+   "fr": "Toute démarche doit être justifiée. Les résultats exacts sont attendus sauf indication contraire.",
+   "en": "Every step must be justified. Exact results are expected unless stated otherwise.",
+   "status": "aligned",
+   "order": 31
+  },
+  "cc4cfae1c4bc": {
+   "fr": "Exercice 1 -- Deux procédés de croissance (5 points)",
+   "en": "Exercise 1 -- Two growth processes (5 points)",
+   "status": "aligned",
+   "order": 32
+  },
+  "f7490975dea2": {
+   "fr": "On compare deux modèles pour la production d’un atelier. Le jour 0, chacun prévoit 30 objets. Le modèle A prévoit 10 objets supplémentaires chaque jour ; le modèle B prévoit un doublement quotidien. Les productions du jour [[m1]] sont donc [[m2]] et [[m3]], pour [[m4]]. Un cumul désigne ici la somme des productions des jours indiqués.",
+   "en": "We compare two models for the output of a workshop. On day 0, each forecasts 30 items. Model A forecasts 10 extra items each day; model B forecasts a daily doubling. The outputs on day [[m1]] are therefore [[m2]] and [[m3]], for [[m4]]. A running total here means the sum of the outputs of the days indicated.",
+   "status": "aligned",
+   "order": 33
+  },
+  "eb7d93d958e1": {
+   "fr": "Donner la nature de chaque suite et calculer les productions du jour 2.",
+   "en": "State the type of each sequence and calculate the outputs on day 2.",
+   "status": "aligned",
+   "order": 34
+  },
+  "ecd5a728f8c3": {
+   "fr": "(1 pt)",
+   "en": "(1 pt)",
+   "status": "aligned",
+   "order": 35
+  },
+  "98cf71ba14c4": {
+   "fr": "Calculer les productions cumulées des jours 0 à 3 dans chacun des modèles.",
+   "en": "Calculate the cumulative outputs for days 0 to 3 in each model.",
+   "status": "aligned",
+   "order": 36
+  },
+  "76913274accd": {
+   "fr": "(2 pts)",
+   "en": "(2 pts)",
+   "status": "aligned",
+   "order": 37
+  },
+  "8173d94909bf": {
+   "fr": "Vérifier que le modèle B dépasse le modèle A au jour 1, puis expliquer pourquoi cet écart reste positif à tous les jours suivants en comparant les accroissements quotidiens.",
+   "en": "Check that model B exceeds model A on day 1, then explain why this gap stays positive on all following days by comparing the daily increments.",
+   "status": "aligned",
+   "order": 38
+  },
+  "67696a242ed8": {
+   "fr": "Exercice 2 -- Des racines imposées (5 points)",
+   "en": "Exercise 2 -- Imposed roots (5 points)",
+   "status": "aligned",
+   "order": 40
+  },
+  "17f46709e2ad": {
+   "fr": "On cherche une fonction polynôme [[m1]] de degré 2, définie sur [[m2]]. Sa courbe coupe l’axe des abscisses aux abscisses [[m3]] et 5, et elle passe par le point [[m4]]. Ces informations doivent permettre de déterminer la fonction.",
+   "en": "We look for a polynomial function [[m1]] of degree 2, defined on [[m2]]. Its curve crosses the x-axis at the x-coordinates [[m3]] and 5, and it passes through the point [[m4]]. This information must be enough to determine the function.",
+   "status": "aligned",
+   "order": 41
+  },
+  "fb33a0465972": {
+   "fr": "Donner sa forme factorisée.",
+   "en": "Give its factorised form.",
+   "status": "aligned",
+   "order": 42
+  },
+  "1411a5da6d64": {
+   "fr": "Déterminer son signe puis résoudre [[m1]].",
+   "en": "Determine its sign then solve [[m1]].",
+   "status": "aligned",
+   "order": 44
+  },
+  "4cba1d573282": {
+   "fr": "Donner sa forme canonique et son maximum.",
+   "en": "Give its vertex form and its maximum.",
+   "status": "aligned",
+   "order": 46
+  },
+  "fe536994c6bb": {
+   "fr": "Exercice 3 -- Une approximation contrôlée (4 points)",
+   "en": "Exercise 3 -- A controlled approximation (4 points)",
+   "status": "aligned",
+   "order": 48
+  },
+  "9da39d94fb3a": {
+   "fr": "La fonction [[m1]] est définie sur [[m2]] par [[m3]]. On souhaite approcher [[m4]] à l’aide de la tangente à sa courbe au point d’abscisse 3. Les calculs sont effectués sans calculatrice.",
+   "en": "The function [[m1]] is defined on [[m2]] by [[m3]]. We wish to approximate [[m4]] using the tangent to its curve at the point with x-coordinate 3. The calculations are done without a calculator.",
+   "status": "aligned",
+   "order": 49
+  },
+  "28e5dff382a7": {
+   "fr": "Pour [[m1]], calculer et simplifier le taux de variation entre 3 et [[m2]].",
+   "en": "For [[m1]], calculate and simplify the rate of change between 3 and [[m2]].",
+   "status": "aligned",
+   "order": 50
+  },
+  "480016e8abaa": {
+   "fr": "En déduire [[m1]], puis l’équation de la tangente au point d’abscisse 3.",
+   "en": "Deduce [[m1]], then the equation of the tangent at the point with x-coordinate 3.",
+   "status": "aligned",
+   "order": 52
+  },
+  "38754648ad7e": {
+   "fr": "Utiliser la tangente pour approcher [[m1]]. Calculer ensuite l’erreur « valeur exacte moins approximation ».",
+   "en": "Use the tangent to approximate [[m1]]. Then calculate the error ``exact value minus approximation''.",
+   "status": "aligned",
+   "order": 54
+  }
+ },
+ "standby": {
+  "reason": "Retain the published English edition during integration of concurrent French-only corrections; bilingual curriculum work remains on standby.",
+  "source": "\\mxnewpage\\section*{EV1-T2 -- DS commun}\\label{EV1-T2}\n\\addcontentsline{toc}{section}{EV1-T2 -- DS commun}\n\\textbf{Sujet d’entraînement}. Chapitres 1 à 4.\\par Durée : 2 h. Sans calculatrice. Note sur 20. 14 novembre 2026.\n\\subsection*{Partie 1 -- Automatismes (6 points)}\nDouze questions, \\num{0,5} point chacune. Une seule réponse correcte ; aucune justification demandée. Une réponse incorrecte ou absente rapporte 0, sans retrait de points.\n\\begin{enumerate}\n\\item Calculer $4+2\\times3$.\\par A. $18$\\quad B. $9$\\quad C. $13$\\quad D. $10$\n\\item Calculer $\\frac12+\\frac13$.\\par A. $\\frac{5}{3}$\\quad B. $\\frac{2}{5}$\\quad C. $\\frac{5}{6}$\\quad D. $\\frac{1}{6}$\n\\item Calculer $\\dfrac{2^4}{2^{2}}$.\\par A. $2$\\quad B. $4$\\quad C. $1$\\quad D. $9$\n\\item Une valeur de 50 augmente de \\pc{20}. Valeur finale ?\\par A. $70$\\quad B. $40$\\quad C. $10$\\quad D. $60$\n\\item Une valeur de 80 est obtenue après une baisse de \\pc{20}. Valeur initiale ?\\par A. $100$\\quad B. $96$\\quad C. $64$\\quad D. $60$\n\\item Hausse de \\pc{25} puis baisse de \\pc{20} : coefficient global ?\\par A. $1$\\quad B. $\\frac{21}{20}$\\quad C. $\\frac{4}{5}$\\quad D. $\\frac{9}{10}$\n\\item La solution de $2x+4=0$ vaut\\par A. $2$\\quad B. $8$\\quad C. $-2$\\quad D. $-8$\n\\item La pente entre $\\pt{0;4}$ et $\\pt{2;10}$ vaut\\par A. $3$\\quad B. $-3$\\quad C. $6$\\quad D. $2$\n\\item La moyenne de $4, 6, 8$ vaut\\par A. $18$\\quad B. $6$\\quad C. $7$\\quad D. $4$\n\\item Un secteur de $90^\\circ$ représente quelle fraction du total ?\\par A. $\\frac{1}{3}$\\quad B. $\\frac{3}{4}$\\quad C. $\\frac{1}{4}$\\quad D. $\\frac{1}{2}$\n\\item Une probabilité vaut $\\dfrac{2}{5}$. Son complément vaut\\par A. $\\frac{5}{2}$\\quad B. $\\frac{2}{5}$\\quad C. $\\frac{1}{5}$\\quad D. $\\frac{3}{5}$\n\\item Pour $f(x)=x^2+4$, $f(-2)$ vaut\\par A. $6$\\quad B. $16$\\quad C. $8$\\quad D. $0$\n\\end{enumerate}\n\\mxnewpage\\subsection*{Partie 2 -- Exercices indépendants (14 points)}\nToute démarche doit être justifiée. Les résultats exacts sont attendus sauf indication contraire.\n\\mxneed{12}\n\\subsection*{Exercice 1 -- Deux procédés de croissance (5 points)}\nOn compare deux modèles pour la production d’un atelier. Le jour 0, chacun prévoit 30 objets. Le modèle A prévoit 10 objets supplémentaires chaque jour ; le modèle B prévoit un doublement quotidien. Les productions du jour $n$ sont donc $a_n=30+10n$ et $b_n=30\\times2^n$, pour $n\\in\\N$. Un cumul désigne ici la somme des productions des jours indiqués.\n\\begin{enumerate}\n\\item Donner la nature de chaque suite et calculer les productions du jour 2. \\hfill(1 pt)\n\\item Calculer les productions cumulées des jours 0 à 3 dans chacun des modèles. \\hfill(2 pts)\n\\item Vérifier que le modèle B dépasse le modèle A au jour 1, puis expliquer pourquoi cet écart reste positif à tous les jours suivants en comparant les accroissements quotidiens. \\hfill(2 pts)\n\\end{enumerate}\n\\mxneed{12}\n\\subsection*{Exercice 2 -- Des racines imposées (5 points)}\nOn cherche une fonction polynôme $f$ de degré 2, définie sur $\\R$. Sa courbe coupe l’axe des abscisses aux abscisses $-1$ et 5, et elle passe par le point $\\pt{0;10}$. Ces informations doivent permettre de déterminer la fonction.\n\\begin{enumerate}\n\\item Donner sa forme factorisée. \\hfill(1 pt)\n\\item Déterminer son signe puis résoudre $f(x)\\leq0$. \\hfill(2 pts)\n\\item Donner sa forme canonique et son maximum. \\hfill(2 pts)\n\\end{enumerate}\n\\mxneed{12}\n\\subsection*{Exercice 3 -- Une approximation contrôlée (4 points)}\nLa fonction $f$ est définie sur $\\R$ par $f(x)=x^2+1$. On souhaite approcher $f(\\num{3,02})$ à l’aide de la tangente à sa courbe au point d’abscisse 3. Les calculs sont effectués sans calculatrice.\n\\begin{enumerate}\n\\item Pour $h\\ne0$, calculer et simplifier le taux de variation entre 3 et $3+h$. \\hfill(1 pt)\n\\item En déduire $f\\prime(3)$, puis l’équation de la tangente au point d’abscisse 3. \\hfill(1 pt)\n\\item Utiliser la tangente pour approcher $f(\\num{3,02})$. Calculer ensuite l’erreur « valeur exacte moins approximation ». \\hfill(2 pts)\n\\end{enumerate}\n",
+  "source_sha256": "4ab836aa08fc32503a5a66b8c8d91eee57daef9cf43015858743e7c24a8a4ca5",
+  "english_sha256": "955f9844710adf42cd039dd764839daf72e815ba2e253a8d0a51df9037dab55f"
+ }
+}

@@ -1,0 +1,138 @@
+"""Unit tests for the French-to-English twin generator (build/mxbuild/twin.py). Run: python3 tests/test_twin.py"""
+import copy, hashlib, sys, tempfile, unittest
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'build'))
+from mxbuild import twin
+
+
+def table(pairs, status='reviewed'):
+    return {'segments': {twin.seg_id(f): {'fr': f, 'en': e, 'status': status} for f, e in pairs}}
+
+
+def body(text):
+    assert text.startswith(twin.GENERATED)
+    return text[len(twin.GENERATED):]
+
+
+class Twin(unittest.TestCase):
+    def frozen(self):
+        source = 'On calcule $1+2$.\n'
+        data = table([('On calcule [[m1]].', 'Compute [[m1]].')])
+        english = twin.generate(source, data)
+        data['standby'] = {'reason': 'Curriculum English remains on standby', 'source': source,
+                           'source_sha256': hashlib.sha256(source.encode()).hexdigest(),
+                           'english_sha256': hashlib.sha256(english.encode()).hexdigest()}
+        return source, data, english
+
+    def test_standby_preserves_original_english_after_french_maths_and_prose_change(self):
+        source, data, english = self.frozen()
+        revised = 'Calculer et justifier $8+9=17$.\n'
+        self.assertEqual(twin.generate(revised, data), english)
+        self.assertEqual(twin.generation_source(revised, data), source)
+        self.assertNotIn('17', english)
+
+    def test_standby_detects_corrupted_source_and_changed_translation(self):
+        source, data, _ = self.frozen()
+        corrupt = copy.deepcopy(data); corrupt['standby']['source'] += 'Nouveau.'
+        with self.assertRaisesRegex(twin.TwinError, 'source hash'):
+            twin.generate(source, corrupt)
+        corrupt = copy.deepcopy(data); next(iter(corrupt['segments'].values()))['en'] = 'Calculate [[m1]].'
+        with self.assertRaisesRegex(twin.TwinError, 'edition changed'):
+            twin.generate(source, corrupt)
+
+    def test_freezing_requires_current_english_and_does_not_rewrite_it(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            fr = Path(tmp) / 'unit.fr.tex'; fr.write_text('On calcule $1+2$.\n')
+            data = table([('On calcule [[m1]].', 'Compute [[m1]].')])
+            twin.save_table(fr, data)
+            en = twin.en_path(fr); en.write_text(twin.generate(fr.read_text(), data))
+            original = en.read_bytes(); stamp = en.stat().st_mtime_ns
+            twin.freeze_english(fr, 'English curriculum standby')
+            self.assertEqual(en.read_bytes(), original); self.assertEqual(en.stat().st_mtime_ns, stamp)
+            fr.write_text('Calculer $4+5$.\n')
+            self.assertEqual(twin.generate(fr.read_text(), twin.load_table(fr)).encode(), original)
+            with self.assertRaisesRegex(twin.TwinError, 'standby'):
+                twin.align_into(fr, en.read_text())
+            data.pop('standby', None); twin.save_table(fr, data)
+            with self.assertRaises(twin.TwinError): twin.freeze_english(fr, 'English curriculum standby')
+
+    def test_prose_with_placeholders_may_reorder(self):
+        fr = r'Si $x>0$, alors $f(x)\geq0$.' + '\n'
+        _, segs = twin.split(fr)
+        self.assertEqual(segs[0]['text'], 'Si [[m1]], alors [[m2]].')
+        en = twin.generate(fr, table([('Si [[m1]], alors [[m2]].', '[[m2]] holds whenever [[m1]].')]))
+        self.assertEqual(body(en), r'$f(x)\geq0$ holds whenever $x>0$.' + '\n')
+
+    def test_missing_translation_fails(self):
+        with self.assertRaises(twin.TwinError):
+            twin.generate('Bonjour.\n', table([]))
+
+    def test_unreviewed_status_is_not_accepted(self):
+        with self.assertRaises(twin.TwinError):
+            twin.generate('Bonjour.\n', table([('Bonjour.', 'Hello.')], status='draft'))
+
+    def test_dropped_placeholder_fails(self):
+        with self.assertRaises(twin.TwinError):
+            twin.generate('On pose $a=1$ et $b=2$.\n', table([('On pose [[m1]] et [[m2]].', 'Let [[m1]].')]))
+
+    def test_translation_breaking_structure_fails(self):
+        with self.assertRaises(twin.TwinError):
+            twin.generate(r'\textbf{Note.} Texte.' + '\n', table([(r'\textbf{Note.} Texte.', r'\textbf{Note. Text.')]))
+
+    def test_notation_commands_are_kept_and_french_spacing_dropped(self):
+        fr = r'\item $\num{0,5}$\,; $\intoo{0}{1}$ et \num{1,25}' + '\n'
+        en = twin.generate(fr, table([(r'[[m1]]\,; [[m2]] et [[m3]]', '[[m1]]; [[m2]] and [[m3]]')]))
+        self.assertEqual(body(en), r'\item $\num{0,5}$; $\intoo{0}{1}$ and \num{1,25}' + '\n')
+
+    def test_plain_space_before_punctuation_after_maths_is_dropped(self):
+        # locked list items such as "\\item $a$ ;" (audit 2026-10-17): the chunk after the maths starts with the space
+        fr = '\\begin{enumerate}\n\\item $(3-2i)$ ;\n\\item $\\pt{2;-1}$ ?\n\\item $x$.\n\\end{enumerate}\n'
+        en = body(twin.generate(fr, table([])))
+        self.assertIn('$(3-2i)$;', en); self.assertIn('$\\pt{2;-1}$?', en)
+        self.assertIn('\\pt{2;-1}', en)   # semicolons inside maths are untouched
+
+    def test_words_inside_display_maths(self):
+        fr = r'\[|x|=\begin{cases}x&\text{si }x\geq0\\-x&\text{sinon}\end{cases}\]' + '\n'
+        en = twin.generate(fr, table([('si ', 'if '), ('sinon', 'otherwise')]))
+        self.assertIn(r'\text{if }x\geq0', en); self.assertIn(r'\text{otherwise}', en)
+
+    def test_figure_text_is_translated_and_code_locked(self):
+        fr = r'\begin{tikzpicture}\draw (0,0)--(1,2) node[above]{sommet};\end{tikzpicture}' + '\n'
+        en = twin.generate(fr, table([('sommet', 'vertex')]))
+        self.assertEqual(body(en), r'\begin{tikzpicture}\draw (0,0)--(1,2) node[above]{vertex};\end{tikzpicture}' + '\n')
+
+    def test_labels_and_inputs_are_locked(self):
+        fr = r'\section{Suites}\label{sec:suites}\input{figures/f1}' + '\n'
+        en = twin.generate(fr, table([('Suites', 'Sequences')]))
+        self.assertEqual(body(en), r'\section{Sequences}\label{sec:suites}\input{figures/f1}' + '\n')
+
+    def test_align_renumbers_placeholders(self):
+        pairs = twin.align('Si $a$, alors $b$.\n', 'We get $b$ when $a$.\n')
+        self.assertEqual(pairs, [('Si [[m1]], alors [[m2]].', 'We get [[m2]] when [[m1]].')])
+
+    def test_align_refuses_changed_maths(self):
+        with self.assertRaises(twin.TwinError):
+            twin.align('On a $x=\\num{1,5}$.\n', 'We have $x=\\num{1,6}$.\n')
+
+    def test_unclosed_inline_maths_raises(self):
+        with self.assertRaises(twin.TwinError):
+            twin.split('ab \\(x+1 sans fin\n')
+
+    def test_words_in_every_display_environment_are_translatable(self):
+        self.assertEqual(twin.translatable(r'\begin{flalign*}x&=1\text{ sinon}\end{flalign*}' + '\n'), [' sinon'])
+
+    def test_table_column_spec_is_locked(self):
+        self.assertEqual(twin.translatable(r'\begin{tabular}{|c|l|}Oui&Non\end{tabular}' + '\n'), ['Oui', 'Non'])
+
+    def test_spacing_inside_maths_is_kept(self):
+        fr = r'\item $\{x\,;\,x>0\}$\,; $1$' + '\n'
+        self.assertEqual(body(twin.generate(fr, table([]))), r'\item $\{x\,;\,x>0\}$; $1$' + '\n')
+
+    def test_code_listing_does_not_shift_maths(self):
+        fr = '\\begin{lstlisting}\nx = a % 2  # un $ isolé\n\\end{lstlisting}\nValeurs $3,2,3$ et $\\num{0,5}$.\n'
+        en = twin.generate(fr, table([('Valeurs [[m1]] et [[m2]].', 'Values [[m1]] and [[m2]].')]))
+        self.assertIn(r'Values $3,2,3$ and $\num{0,5}$.', en)
+
+
+if __name__ == '__main__':
+    unittest.main(verbosity=1)

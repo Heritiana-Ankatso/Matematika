@@ -1,0 +1,36 @@
+# build/mxbuild/: index
+
+The pipeline package. Run with `PYTHONPATH=build python3 -m mxbuild <command>` or the `make` targets (see `Makefile`).
+`build/out` holds products and logs (ignored by git; do not read).
+
+| Module | Holds | Make target |
+|---|---|---|
+| `__main__.py` | command line (`catalog`, `site`, `tex`, `check`, `twin`, `enrichment`, `notation`) | |
+| `__init__.py` | `ROOT`, `DIST` | |
+| `refresh.py` | dependency-driven rebuild of everything linked; input fingerprints in `content/data/build-state.json` | `make site` |
+| `site.py` | copy `site/` into `dist/`, regenerate import maps (cache busting); the edition name and search description (`content/data/edition.json`; full edition when `FULL_EDITION` is true) are written into the static pages of `NAMED_PAGES` (also used by `offline.py` and `scripts/export-slides.py`), and the full edition's Atlas link (`MX_ATLAS_URL`, required) into `js/config.js` | part of `make site` |
+| `offline.py` | writes `dist/sw.js`: `site/sw.js` with the shell manifest (files, content hashes, version) in place of its placeholder; `docs/OFFLINE.md` | part of `make site` |
+| `catalog.py` | `catalog.json`, `resources-data.js`, `RESOURCE_PROVENANCE.json` from the manifest; `load()`/`save()` | `make catalog` |
+| `content_index.py` | `site/js/catalogue-data.js` and the measured content model | part of `make site` |
+| `slide_editions.py` | explicit available slide languages, independent per-language sequences and paired-text compatibility | slides, exports, lecture PDFs |
+| `books.py` | course main files generated from manifest key `books`; `buildLanguages` selects editions rebuilt while retaining other published editions | |
+| `pipeline.py` | `COURSES` (course to builder script), `CHECKS` (pre-push suite), course builds | `make tex`, `make check` |
+| `tex.py` | TeX compilation driver and per-course cache; `compile_editions` supports one language without paired padding | `make tex` |
+| `pdf.py` | PDF excerpt assembly with the native frame | |
+| `twin.py` | French-to-English twin generation and checked standby snapshots (`docs/ADR-0001-tex-i18n.md`) | |
+| `notation.py` | web side of `mx-notation.sty`, slide MathJax table | |
+| `mada.py` | the Malagasy books' LaTeX (`content/tex/mada/`; T10, T11 S and the vocabulary of the T12 C/D book, class bokiko) rewritten for the slide parser: macros expanded (`\providecommand` and chapter definitions included), boxes unwrapped, teacher material, figures, exercises and answers dropped; tests `tests/test_mada.py` | slides |
+| `enrichment.py` | enrichment TeX units from `content/data/enrichment.json` | |
+| `migrate.py` | one-off migration of a course to the TeX system (historical) | |
+
+Without `pdflatex` (a sandbox) `make site` fails in the `slides` job as soon as `scripts/build-slides.py`, `content/slides/` or a course
+source changed, because the deck builder compiles the figures; the job leaves a stub `_figs_*.tex` and empties `dist/slides/data/`
+(restore with `git checkout dist/slides/data`, delete the stub). The `slide-exports` job (`scripts/export-slides.py`) needs no TeX; its
+fingerprint covers `site/slides/`, `site/js/lab/` and the helpers the bundled laboratory imports. Where TeX is missing, run
+`build-slides.py` with `compile_figs` replaced by "the committed SVG exists", then `export-slides.py`, then
+`PYTHONPATH=build python3 -m mxbuild.refresh --adopt` (the figures are unchanged, so the decks equal a real build); say so in the report.
+
+To add a pre-push check, append to `CHECKS` in `pipeline.py`. To add a dependency for rebuilds, edit `inputs()` in
+`refresh.py`.
+
+`pipeline.py` runs the prerequisite report generator in advisory mode and prints its summary; content findings do not constitute a publication gate.

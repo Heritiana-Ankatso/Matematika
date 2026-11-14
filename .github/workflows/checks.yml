@@ -1,0 +1,58 @@
+name: Website checks
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install pymupdf==1.26.6
+      - run: PYTHONPATH=build python -m mxbuild.refresh --check
+      - run: npm run check
+      - run: npm ci --ignore-scripts
+      - run: npm test
+      - name: Generate internal prerequisite diagnostics (advisory)
+        run: npm run check:prerequisites
+      - run: npm run test:dom
+      - name: Check publication anonymity and PDF metadata
+        run: |
+          python tests/banned.py
+          python tests/test_privacy_scan.py
+          python tests/privacy_scan.py
+      - name: Independently verify mathematical claims
+        run: |
+          python tests/count_claims.py
+          python tests/verify-arithmetic.py
+          python tests/verify-quadratic.py
+  browser:
+    # Pinned: Playwright 1.51 cannot install its system dependencies on ubuntu-latest (26.04).
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install playwright==1.51.0
+      - run: python -m playwright install --with-deps chromium
+      - run: npm run test:browser
+      # Same Playwright version as above, so the Node package reuses the browser already downloaded.
+      - run: npm install --no-save --ignore-scripts playwright@1.51.0
+      - run: npm run test:offline
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: browser-screenshots
+          path: test-results/*.png
+          if-no-files-found: ignore
