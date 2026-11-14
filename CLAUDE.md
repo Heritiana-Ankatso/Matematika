@@ -19,18 +19,28 @@ and chapters; never merge or relabel one as another.
 - Making Matematika the source repository is step 2 of the owner's plan (private handoff
   `coordination/handoff-20261113/README.md` in ARHeritiana/Maths-explorer-backup). Until it is done, update this site
   with the sync recipe of Maths-explorer's `CLAUDE.md`: `FULL_EDITION = true`, `make site`, copy `dist/` here
-  (keeping `LICENSE*`, `README.md`, `.nojekyll`, `CLAUDE.md` and `.github/`), commit with this repository's author
-  identity, open a pull request, then restore the flag in Maths-explorer.
+  (keeping `LICENSE*`, `README.md`, `.nojekyll`, `CLAUDE.md` and `.github/`), then follow the git rule below, and
+  restore the flag in Maths-explorer.
 - Every sync must leave nothing of Maths-explorer behind: compare before pushing.
+
+## Git rule (owner, 14 November 2026, binding in every session)
+
+Same rule as Maths-explorer (its `CLAUDE.md`): every change goes through a branch and a pull request. Start a branch from
+an up-to-date `main` (a session branch is fine), commit there with this repository's author identity, push it and open
+a pull request, ready for review, whose text gives the changes, the verification and a rollback note. This repository
+has no CI: the verification is the source's (green CI on the Maths-explorer commit the build comes from) plus a check
+of the built site in a browser under `/Matematika/`, written in the pull request. Merge only when that is done and there
+is no conflict; use a squash merge, so `main` gets one commit per pull request. Never push or force-push to `main`
+directly. The agent may merge its own verified pull request unless the owner asked to review it first. After the
+merge, delete the branch; when the session cannot, list it for the owner.
 
 ## Publishing
 
 `.github/workflows/pages.yml` publishes the site on every push to `main` (https://heritiana-ankatso.github.io/Matematika/),
 without `CLAUDE.md` and `.github/`. It needs the Pages source set to "GitHub Actions" (Settings > Pages > Build and
-deployment); while the source is still "Deploy from a branch", Pages serves the branch itself, this file included.
-**A merge to `main` is live at once.** Never put private material, credentials or personal details in this repository
-(the site is public). Work on a branch and open a pull request; merge only once verified, with a rollback note (revert the
-merge commit).
+deployment); while the source is still "Deploy from a branch", Pages serves the branch itself, this file included
+(`.github/` is never served). **A merge to `main` is live at once.** Never put private material, credentials or personal
+details in this repository (the site is public).
 
 ## Language rule (owner, 11 November 2026)
 
