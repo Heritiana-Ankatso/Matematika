@@ -1,0 +1,25 @@
+# Recipe: pages, routes, navigation, colours
+
+- Colour, font, radius, spacing: change the token in `site/styles/explorer.css` (top of file, light then dark theme).
+  Never write a literal colour in a page style or a canvas: canvases read tokens with `object-kit.js` `palette()`,
+  challenge cards with `site/js/challenges/common/kit.js` `colour(i)` (`--c1..--c8`). The PDF palette is separate
+  (`content/tex/core/mx-layout.sty`).
+- One page's styling: `site/styles/pages.css`, search the page's root class.
+- Homepage discovery, selected tools and conditional resume: `site/js/welcome.js`; search contract in `tests/home.test.mjs`.
+- Illustrated course catalogue: `site/js/resource-library.js`; reuse the existing discovery previews and lesson diagrams.
+- Navigation and footer: `site/js/app.js` `header()` (array `nav`), `footer()`.
+- New route: `site/js/app.js` `render()` (add to `valid` and to the dispatch chain) and a page module exporting
+  `<name>Page(...)` and `bind<Name>(...)`; add a row to the site map in `MAP.md` section 3.
+- Which language a page uses: `site/js/content-language.js`.
+- Design reasoning only when making a design decision: `docs/DESIGN_V3.md`, `docs/DESIGN_V4.md`.
+
+Visual check: `npm start`, screenshot at 1440 and 390 px, light and dark themes, keyboard use, no horizontal scroll.
+Then follow `release.md`.
+
+- History atlas: `site/js/history.js`, `site/js/history-layout.js`, `site/js/history-images.js`, `site/styles/history.css`; image files in `site/data/history/`. Preserve source/creator/licence metadata and distinguish documentary dates from lifetimes.
+
+- Foundations resources: `site/resources/basics/fractions.html` and `site/resources/basics/fractions.en.html` (bilingual fractions workbench; scripts must match outside the language table), `site/js/app.js` `basicsLessons` / `basicsPage` / `bindBasics`, and `site/js/discovery.js` `FOUNDATION_LESSONS`. Check host theme, iframe height, keyboard controls and phone layout.
+
+- Exercise collections and class navigation: `site/js/bank-page.js`, `site/js/annals-bank.js`, `site/js/slides-page.js`; shared live scope in `site/js/live-curriculum.js`; regressions in `tests/annals-bank.test.mjs`.
+
+- Annales program rendering: `scripts/annals-code.py` and `scripts/build-annals.py`; rebuild HTML with `--html-only`, verify retained PDF inputs with `scripts/build-annals-pdf.py --reuse-inputs`, then `make site`. Regressions: `tests/test_annals_code.py`, `tests/annals-bank.test.mjs`.

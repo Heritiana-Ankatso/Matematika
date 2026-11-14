@@ -1,0 +1,370 @@
+// Classroom slide player, modelled on the interactive maths slide skill (Presenter + Explore):
+// fixed 1280x720 stage, flow column of step blocks on the left, live figure with controls on the right,
+// ◀ ▶ steps and "Tout" at the bottom left. The same file is bundled by scripts/export-slides.py into a
+// self-contained HTML export of each deck (window.__MX_EXPORT__ then carries the deck and its figures).
+import { mount } from "./widgets.js";
+import { deckLanguages, selectDeckEdition } from "./edition-policy.js";
+
+const $ = (s, r = document) => r.querySelector(s);
+const EXPORT = typeof window !== "undefined" && window.__MX_EXPORT__ ? window.__MX_EXPORT__ : null;
+const params = new URLSearchParams(location.search);
+const deckId = EXPORT ? EXPORT.deck.id : params.get("deck") || "premiere-01";
+const stored = () => { try { return JSON.parse(localStorage.getItem("maths-explorer-v1") || "{}").lang === "en" ? 1 : 0; } catch { return 0; } };
+let lang = params.get("lang") === "en" ? 1 : params.get("lang") === "fr" ? 0 : stored();
+let deck, index = 0, revealed = false, live = null, step = 1, generation = 0, toastTimer = 0;
+
+const KIND = {
+  title: ["Titre", "Title"], goals: ["Objectifs", "Goals"], concept: ["À retenir", "Key idea"], method: ["Méthode", "Method"],
+  example: ["Exemple", "Example"], error: ["Attention", "Watch out"], try: ["À vous", "Your turn"], proof: ["Démonstration", "Proof"],
+  activity: ["Activité", "Activity"], code: ["Python", "Python"], widget: ["Explorer", "Explore"],
+};
+// The name of this edition, written into player.html by the build (build/mxbuild/site.py); exports keep the default.
+const SITE_NAME = document.querySelector('meta[name="application-name"]')?.content || "Maths Explorer";
+const UI = {
+  stepPrev: ["Étape précédente", "Previous step"], stepNext: ["Étape suivante", "Next step"], all: ["Tout", "All"],
+  step: ["Étape", "Step"], prev: ["Diapositive précédente", "Previous slide"], next: ["Diapositive suivante", "Next slide"],
+  answer: ["Voir la réponse", "Show the answer"], hide: ["Masquer la réponse", "Hide the answer"], answerLab: ["Réponse", "Answer"],
+  lang: ["English", "Français"], list: ["Plan", "Outline"], full: ["Plein écran", "Full screen"],
+  download: ["Télécharger HTML", "Download HTML"], downloadTip: ["Télécharger ce diaporama en un seul fichier HTML", "Download this deck as a single HTML file"],
+  home: ["Toutes les séries", "All decks"], back: ["Retour", "Back"], site: ["Accueil", "Home"],
+  backName: ["Retour à la liste des diaporamas", "Back to the list of slide decks"], siteName: [`Accueil de ${SITE_NAME}`, `${SITE_NAME} home`],
+  toNight: ["Passer au thème sombre", "Switch to dark theme"], toDay: ["Passer au thème clair", "Switch to light theme"], theme: ["Thème", "Theme"], loadErr: ["Série introuvable.", "Deck not found."],
+  hint: ["Flèches : étapes et diapositives · R réponse · G plan · F plein écran", "Arrows: steps and slides · R answer · G outline · F full screen"],
+  slides: ["diapositives", "slides"], liveLab: ["Valeurs en direct", "Live values"],
+  explore: ["Explorer le chapitre", "Explore the chapter"], figure: ["Figure", "Figure"],
+  free: ["La figure est réglable librement ; ses valeurs peuvent différer de celles de l’exemple.", "The figure is freely adjustable; its values may differ from the worked example."],
+  blocked: ["Plein écran bloqué par l’application. Ouvrez le lien dans le navigateur, puis touchez ⛶.", "Full screen is blocked here. Open the page in the browser, then tap ⛶."],
+  noMath: ["Les formules n’ont pas pu se charger : une connexion internet est nécessaire.", "Formulas could not load: an internet connection is required."],
+};
+const t = k => UI[k][lang];
+// ---- leaving the player. The site lives one level above this page (site/index.html, hash routes); an exported standalone deck has no
+// site next to it, so it gets no Back / Home (they would lead nowhere offline).
+const SITE = "../index.html";
+const homeHref = () => `${SITE}#home`;
+const backHref = () => `${SITE}#slides${deck?.course ? "/" + encodeURIComponent(deck.course) : ""}`;
+const framed = (() => { try { return window.self !== window.top; } catch { return true; } })();
+// Opened from a page of the site in this tab (same origin, a history entry to return to): Back is the browser's back, which restores
+// the list where the visitor left it. A new tab, an iframe or a direct link has nothing to go back to: Back is the explicit route.
+const cameFromSite = () => {
+  try { const r = new URL(document.referrer); return !framed && history.length > 1 && r.origin === location.origin && !/\/slides\/player\.html$/.test(r.pathname); } catch { return false; }
+};
+const themeKey = "maths-explorer-theme";
+const savedTheme = () => { try { const v = localStorage.getItem(themeKey); return v === "nuit" || v === "jour" ? v : null; } catch { return null; } };
+const systemTheme = () => (matchMedia("(prefers-color-scheme: dark)").matches ? "nuit" : "jour");
+const currentTheme = () => (document.documentElement.dataset.theme === "nuit" ? "nuit" : "jour");
+function applyTheme(name) { document.documentElement.dataset.theme = name; paintTheme(); }
+function paintTheme() {
+  const b = $("#theme"); if (!b) return;
+  const night = currentTheme() === "nuit", label = t(night ? "toDay" : "toNight");
+  b.setAttribute("aria-label", label); b.title = label; b.innerHTML = night ? ICON.sun : ICON.moon;
+}
+const ICON = {
+  back: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12H5M11 5l-7 7 7 7"/></svg>',
+  home: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-8 9 8M5 9.5V21h5v-6h4v6h5V9.5"/></svg>',
+  moon: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4 8.5 8.5 0 1 0 20 14.5z"/></svg>',
+  sun: '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M5 19l2-2M17 7l2-2"/></svg>',
+};
+applyTheme(savedTheme() || systemTheme());
+addEventListener("storage", e => { if (e.key === themeKey && (e.newValue === "nuit" || e.newValue === "jour")) applyTheme(e.newValue); });
+matchMedia("(prefers-color-scheme: dark)").addEventListener?.("change", () => { if (!savedTheme()) applyTheme(systemTheme()); });
+const esc = s => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;");
+const COURSE = { stmg: "Terminale STMG", premiere: "Première", seconde: "Seconde", terminale: "Terminale", expertes: "Maths expertes" };
+const SIZE_NARROW = 1500;
+
+function fit() {
+  const wrap = $("#wrap"), stage = $("#stage");
+  if (matchMedia("(max-width:760px) and (orientation:portrait)").matches) { wrap.style.width = ""; wrap.style.height = ""; stage.style.transform = ""; return; }
+  const k = Math.min(innerWidth / 1280, innerHeight / 720);
+  wrap.style.width = 1280 * k + "px"; wrap.style.height = 720 * k + "px"; stage.style.transform = `scale(${k})`;
+}
+
+function toast(message) {
+  const el = $("#toast"); el.textContent = message; el.hidden = false;
+  clearTimeout(toastTimer); toastTimer = setTimeout(() => { el.hidden = true; }, 5000);
+}
+
+function barMarkup() {
+  const site = EXPORT ? "" : `<a class="b" id="back" href="${backHref()}"${framed ? ' target="_top"' : ""} aria-label="${t("backName")}" title="${t("backName")}">${ICON.back}<span class="lbl">${t("back")}</span></a><a class="b" id="home" href="${homeHref()}"${framed ? ' target="_top"' : ""} aria-label="${t("siteName")}" title="${t("siteName")}">${ICON.home}<span class="lbl">${t("site")}</span></a>`;
+  return `<header id="bar" role="banner">${site}<div id="bar-title"><span id="bar-deck"></span></div><button class="b" id="theme" type="button"></button></header>`;
+}
+function shell() {
+  $("#stage").innerHTML = `${barMarkup()}<div id="col"><div id="flow" tabindex="-1"></div><div id="live" hidden><div class="hd" id="live-lab"></div><div id="readout"></div></div></div>
+<div id="rt"></div>
+<div id="r1"><button class="b" id="step-prev">◀</button><span id="step-count"></span><button class="b" id="step-next">▶</button><button class="b" id="all-steps">Tout</button><span class="gap"></span><button class="b" id="pv">‹</button><span class="count" id="count"></span><button class="b" id="nx">›</button></div>
+<div id="r2"><button class="b" id="tg" hidden></button><button class="b" id="rev" hidden></button><button class="b" id="lst" aria-pressed="false"></button><button class="b" id="fs" title="Plein écran"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" style="fill:none;stroke:currentColor;stroke-width:2"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button></div>
+<div id="prog"><i></i></div><nav id="drawer" hidden></nav><div id="toast" hidden></div>`;
+}
+
+async function load() {
+  if (EXPORT) deck = EXPORT.deck;
+  else {
+    try {
+      const r = await fetch(`./data/${encodeURIComponent(deckId)}.json`, {cache:"no-store"});
+      if (!r.ok) throw new Error(r.status);
+      deck = await r.json();
+    } catch {
+      $("#stage").innerHTML = `${barMarkup()}<div id="col" class="wide"><h2 class="tt">${t("loadErr")}</h2><p><a class="b" href="${SITE}#slides">${t("home")}</a></p></div>`;
+      bindBar();
+      return;
+    }
+  }
+  const selected = selectDeckEdition(deck, params.get('lang'), lang ? 'en' : 'fr');
+  if (!selected) {
+    const available = deckLanguages(deck);
+    $("#stage").innerHTML = `${barMarkup()}<div id="col" class="wide"><h2 class="tt">${lang ? 'This language edition is unavailable.' : 'Cette édition linguistique est indisponible.'}</h2><p>${lang ? 'Available editions' : 'Éditions disponibles'} : ${available.map(code => `<a class="b" href="?${EXPORT ? '' : 'deck=' + encodeURIComponent(deckId) + '&amp;'}lang=${code}">${code.toUpperCase()}</a>`).join(' ')}</p></div>`;
+    bindBar();
+    return;
+  }
+  deck = selected; lang = selected.selectedLanguage === 'en' ? 1 : 0;
+  shell(); bind();
+  const h = parseInt(location.hash.slice(1), 10);
+  index = Number.isFinite(h) ? Math.min(Math.max(h, 0), deck.slides.length - 1) : 0;
+  buildDrawer(); render();
+}
+
+function sizeClass(html) {
+  const n = html.replace(/<[^>]+>/g, "").length + (html.match(/\\[(\[]/g) || []).length * 25 + (html.match(/<li>/g) || []).length * 70 + (html.match(/\\\\/g) || []).length * 45;
+  return n > SIZE_NARROW ? "s4" : n > 1100 ? "s3" : n > 750 ? "s2" : n > 420 ? "s1" : "";
+}
+// ---- mathematics: normalise the deck TeX to the skill's rules before MathJax sees it
+const SUB = "₀₁₂₃₄₅₆₇₈₉", SUP = { "²": "2", "³": "3" };
+const MATH_ANY = /\\\((.*?)\\\)|\\\[(.*?)\\\]/gs;
+// Fractions are always \dfrac; French intervals and lists take a thin space before ";" (entities such as &lt; are left alone).
+const fixTeX = t => {
+  t = t.replace(/\\frac(?![A-Za-z])/g, "\\dfrac");
+  if (!lang) t = t.replace(/(\\[,;]|\\text\{[^}]*\}|&[a-z]+;)|;/g, (m, keep) => keep || "\\,;");
+  return t;
+};
+// Unicode sub/superscripts in prose become TeX: x₁ -> \(x_1\).
+const uniMath = h => h.replace(/([A-Za-z])([₀-₉]+|[²³])/g, (_, v, u) => `\\(${v}${SUP[u] ? "^" + SUP[u] : "_{" + [...u].map(c => SUB.indexOf(c)).join("") + "}"}\\)`);
+// \begin{array}{c|c} ... \hline ... \end{array} is an HTML <table> with CSS rules (MathJax array rules do not render reliably).
+const arrayTable = (spec, body) => {
+  const cols = []; let rule = false;
+  for (const c of spec) { if (c === "|") { if (cols.length) cols[cols.length - 1].r = true; else rule = true; } else cols.push({ l: rule, r: false }), rule = false; }
+  const rows = []; let top = false;
+  for (let row of body.split(/\\\\/)) {
+    let line = false; row = row.replace(/\\hline/g, () => { line = true; return ""; });
+    if (!row.trim()) { if (line) top = true; continue; }
+    rows.push({ cells: row.split("&amp;").map(c => c.trim()), top: top || line }); top = false;
+  }
+  const tr = rows.map((r, i) => `<tr${r.top && i ? ' class="rule"' : ""}>${r.cells.map((c, j) => `<td${cols[j]?.l ? ' class="l"' : ""}${cols[j]?.r ? ' class="r"' : ""}>${c ? `\\(${c}\\)` : ""}</td>`).join("")}</tr>`).join("");
+  return `<table class="sg">${tr}</table>`;
+};
+const tex = s => {
+  s = s.replace(/\\\[\s*\\begin\{array\}\{([^}]*)\}([\s\S]*?)\\end\{array\}\s*\\\]/g, (_, spec, body) => arrayTable(spec, fixTeX(body)));
+  s = s.replace(MATH_ANY, (m, a, b) => (a !== undefined ? `\\(${fixTeX(a)}\\)` : `\\[${fixTeX(b)}\\]`));
+  s = s.split(/(\\\(.*?\\\)|\\\[.*?\\\]|<table[\s\S]*?<\/table>)/gs).map((part, i) => (i % 2 ? part : uniMath(part))).join("");
+  return lang ? s.replace(/\\pgcd/g, "\\gcd").replace(/\\ppcm/g, "\\operatorname{lcm}") : s;
+};
+const plain = s => String(s).replace(/\\\((.*?)\\\)/g, (_, t) => t.replace(/\\[a-zA-Z]+\s?/g, "").replace(/[{}]/g, ""));
+
+// Text nodes come back from the DOM decoded ("<" for &lt;): escape them again before they are re-parsed.
+const escText = x => x.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+// Cumulative reveal: one block per sentence, list item, paragraph or table, shown step by step.
+function revealMarkup(html) {
+  const template = document.createElement("template"); template.innerHTML = html;
+  const parts = []; let pending = "";
+  const flush = () => { if (pending.trim()) parts.push(pending); pending = ""; };
+  for (const node of template.content.childNodes) {
+    if (node.nodeType === 1 && ["UL", "OL"].includes(node.tagName)) {
+      flush(); [...node.children].forEach((li, i) => parts.push(`<${node.tagName.toLowerCase()} ${node.tagName === "OL" ? `start="${i + 1}"` : ""}>${li.outerHTML}</${node.tagName.toLowerCase()}>`));
+    } else if (node.nodeType === 3) {
+      const text = node.textContent; let start = 0, math = false;
+      for (let i = 0; i < text.length; i++) {
+        if (text.slice(i, i + 2) === "\\(" || text.slice(i, i + 2) === "\\[") math = true;
+        if (text.slice(i, i + 2) === "\\)" || text.slice(i, i + 2) === "\\]") math = false;
+        if (!math && text[i] === "." && /^\s+[A-ZÀ-Ý]/.test(text.slice(i + 1))) { pending += escText(text.slice(start, i + 1)); flush(); start = i + 1; }
+      }
+      pending += escText(text.slice(start));
+    } else if (node.nodeType === 1) {
+      if (node.tagName === "BR") flush(); else if (["P", "DIV", "TABLE", "PRE"].includes(node.tagName)) { flush(); parts.push(node.outerHTML); } else pending += node.outerHTML;
+    }
+  }
+  flush(); return (parts.length ? parts : [html]).map((part, i) => `<div class="reveal-block" data-reveal="${i + 1}">${part}</div>`).join("");
+}
+
+const blocks = () => [...document.querySelectorAll("#flow [data-reveal]")];
+function paintSteps() {
+  const all = blocks();
+  all.forEach((b, i) => { b.hidden = i >= step; });
+  const n = Math.max(all.length, 1);
+  $("#step-count").textContent = all.length ? `${t("step")} ${Math.min(step, n)} / ${n}` : "";
+  $("#step-prev").disabled = step <= 1 && index === 0; $("#step-next").disabled = step >= n && index === deck.slides.length - 1;
+  $("#all-steps").classList.toggle("on", all.length > 0 && step >= all.length && all.length > 1);
+  $("#all-steps").hidden = all.length < 2;
+  if (typeof MathJax !== "undefined" && $("#flow").querySelector("mjx-container")) fitMath();
+}
+function advance(direction) {
+  const n = blocks().length;
+  if (direction > 0 && step < n) { step++; paintSteps(); const b = blocks()[step - 1]; b?.scrollIntoView({ block: "nearest", behavior: "instant" }); }
+  else if (direction < 0 && step > 1) { step--; paintSteps(); }
+  else go(index + direction, direction < 0);
+}
+
+function companion(spec, showDelta) {
+  if (live) { live.destroy?.(); live = null; }
+  $("#live").hidden = false; $("#live-lab").textContent = t("liveLab");
+  live = mount({ ...spec, showDelta }, { host: $("#wcanvas"), controls: $("#wctl"), readout: $("#readout"), hint: $("#whint"), lang });
+}
+
+function figSrc(deckKey, name) { const file = `${deckKey}-${name}${lang ? "-en" : ""}.svg`; return EXPORT ? EXPORT.figs[file] || "" : `./fig/${encodeURIComponent(file)}?v=${deck.figureVersion || ""}`; }
+
+async function render() {
+  const renderId = ++generation;
+  if (live) { live.destroy?.(); live = null; }
+  const s = deck.slides[index], k = s.k, label = KIND[k]?.[lang] || k;
+  document.documentElement.lang = lang ? "en" : "fr";
+  document.title = `${plain(deck.title[lang])} · ${SITE_NAME}`;
+  const title = esc(s.t[lang]), rawBody = tex(s.b[lang] || "");
+  const widgets = deck.slides.filter(x => x.k === "widget"), shared = widgets[0];
+  const ans = s.a ? tex(s.a[lang]) : "";
+  const figs = (s.f || []).map(p => `<figure class="fig"><img src="${figSrc(deckId, p[lang])}" alt="${esc(plain(s.t[lang]))}"></figure>`).join("");
+  const mode = k === "title" || k === "code" ? "none" : k === "widget" ? "widget" : figs ? "fig" : shared && k !== "goals" ? "explore" : "none";
+  const col = $("#col"), flow = $("#flow"), rt = $("#rt");
+  col.dataset.kind = k;
+  $("#live").hidden = true; $("#readout").innerHTML = "";
+
+  if (k === "title") {
+    flow.innerHTML = `<div class="title-slide"><span class="chip">${esc(deck.courseTitle?.[lang] || COURSE[deck.course] || "")}</span><h1>${title}</h1><div class="meta">${deck.slides.length} ${t("slides")}</div><div class="hint">${t("hint")}</div></div>`;
+  } else if (k === "code") {
+    flow.innerHTML = `<div class="hd">${esc(label)}</div><h2 class="tt">${title}</h2><pre>${s.b[lang]}</pre>`;
+  } else {
+    const cls = sizeClass(rawBody + ans);
+    flow.innerHTML = `<div class="hd ${k === "error" ? "red" : ""}"><span>${esc(label)}</span></div><h2 class="tt">${title}</h2>${s.h?.[lang] ? `<div class="sub">${esc(s.h[lang])}</div>` : ""}<div class="steps text ${cls}">${revealMarkup(rawBody)}</div>${ans ? `<div class="answer text ${cls}" id="ans" ${revealed ? "" : "hidden"}><div class="hd green">${t("answerLab")}</div>${ans}</div>` : ""}`;
+  }
+
+  if (mode === "fig") rt.innerHTML = `<div class="figcol">${figs}</div>`;
+  else if (mode === "widget" || mode === "explore") {
+    rt.innerHTML = `<div class="hint-line" id="whint"></div><div class="canvas-wrap" id="wcanvas"></div>${mode === "explore" ? `${widgets.length > 1 ? `<label class="explore-label">${t("explore")}<select id="explore-choice">${widgets.map((w, i) => `<option value="${i}">${esc(plain(w.t[lang]))}</option>`).join("")}</select></label>` : ""}<p class="note">${t("free")}</p>` : ""}<div class="wctl" id="wctl"></div>`;
+  } else rt.innerHTML = "";
+
+  chrome();
+  figHidden = false; layout(mode);
+  try { history.replaceState(null, "", EXPORT ? `#${index}` : `?deck=${encodeURIComponent(deckId)}&lang=${lang ? "en" : "fr"}#${index}`); } catch {}
+  // Formulas first: the widget readouts are typeset as they are written, so MathJax must be ready before they mount.
+  let ready = true;
+  try {
+    if (typeof MathJax === "undefined") throw new Error("MathJax");
+    await MathJax.startup.promise; await document.fonts.load('400 25px "STIX Two Text"');
+  } catch (e) { ready = false; console.warn(e); if (renderId === generation) toast(t("noMath")); }
+  if (renderId !== generation) return;
+  const defined = deck.slides.findIndex(x => x.k === "concept" && /Discriminant/.test(x.t[0]));
+  if (mode === "widget") companion(s.w, true);
+  else if (mode === "explore") {
+    companion(shared.w, defined < 0 || index >= defined);
+    if ($("#explore-choice")) $("#explore-choice").onchange = e => companion(widgets[+e.target.value].w, true);
+  }
+  paintSteps(); flow.scrollTop = 0;
+  if (ready) {
+    try { await MathJax.typesetPromise([$("#stage")]); $("#stage").querySelectorAll("mjx-assistive-mml").forEach(x => x.remove()); } catch (e) { console.warn(e); }
+    if (renderId !== generation) return;
+    fitMath();
+    // A figure that is only an exploration aid gives way when an equation needs the whole width.
+    if (mode === "explore" && needsWidth()) { figHidden = true; layout(mode); fitMath(); }
+  }
+}
+
+// ---- layout: the flow column is 520 px wide beside a figure, 1200 px without one
+let figHidden = false;
+function layout(mode) {
+  const wide = mode === "none" || (mode === "explore" && figHidden);
+  $("#col").className = wide ? "wide" : ""; $("#rt").hidden = wide;
+  const tg = $("#tg"); tg.hidden = mode !== "explore"; tg.setAttribute("aria-pressed", String(!figHidden)); tg.textContent = t("figure");
+}
+// Shrink any formula wider than the column so that nothing is cut off or needs sideways scrolling (never below MIN_SCALE).
+const MIN_SCALE = .5;
+function fitMath() {
+  const flow = $("#flow"), avail = flow.clientWidth - 4;
+  flow.querySelectorAll("mjx-container").forEach(m => { m.style.fontSize = ""; });
+  flow.querySelectorAll("mjx-container").forEach(m => {
+    if (!m.offsetParent) return;
+    const svg = m.querySelector("svg"); if (!svg) return;
+    const room = m.getAttribute("display") === "true" ? Math.min(avail, m.parentElement.clientWidth || avail) : avail;
+    const w = svg.getBoundingClientRect().width / (flow.getBoundingClientRect().width / flow.offsetWidth);
+    if (w > room) m.style.fontSize = Math.max(MIN_SCALE, room / w) * 100 + "%";
+  });
+}
+function needsWidth() {
+  return [...$("#flow").querySelectorAll("mjx-container")].some(m => m.offsetParent && m.querySelector("svg") && m.scrollWidth > m.clientWidth + 2 || m.offsetParent && m.style.fontSize && parseFloat(m.style.fontSize) <= MIN_SCALE * 100 + 1);
+}
+
+function chrome() {
+  const s = deck.slides[index], n = deck.slides.length;
+  $("#count").textContent = `${index + 1} / ${n}`;
+  $("#bar-deck").textContent = plain(deck.title[lang]);
+  $("#pv").disabled = index === 0; $("#nx").disabled = index === n - 1;
+  $("#pv").setAttribute("aria-label", t("prev")); $("#nx").setAttribute("aria-label", t("next"));
+  $("#step-prev").setAttribute("aria-label", t("stepPrev")); $("#step-next").setAttribute("aria-label", t("stepNext"));
+  $("#all-steps").textContent = t("all");
+  const rev = $("#rev"); rev.hidden = !s.a; rev.textContent = revealed ? t("hide") : t("answer"); rev.setAttribute("aria-pressed", revealed);
+  $("#lst").textContent = t("list"); $("#fs").setAttribute("aria-label", t("full"));
+
+  $("#prog i").style.width = `${((index + 1) / n) * 100}%`;
+  document.querySelectorAll("#drawer button").forEach((b, i) => b.toggleAttribute("aria-current", i === index));
+}
+
+function buildDrawer() {
+  const d = $("#drawer");
+  d.innerHTML = deck.slides.map((x, i) => `<button data-i="${i}">${i + 1}. ${esc(KIND[x.k]?.[lang] || x.k)} · ${esc(x.t[lang])}</button>`).join("");
+  d.querySelectorAll("button").forEach(b => { b.onclick = () => { setDrawer(false); go(+b.dataset.i); }; });
+  if (typeof MathJax !== "undefined" && MathJax.typesetPromise) MathJax.startup.promise.then(() => MathJax.typesetPromise([d])).then(() => d.querySelectorAll("mjx-assistive-mml").forEach(x => x.remove())).catch(() => {});
+}
+function setDrawer(on) { $("#drawer").hidden = !on; $("#lst").setAttribute("aria-pressed", on); }
+
+function go(i, toEnd = false) {
+  index = Math.min(Math.max(i, 0), deck.slides.length - 1); revealed = false; step = 1;
+  render().then(() => { if (toEnd) { step = Math.max(blocks().length, 1); paintSteps(); } });
+}
+function toggleAnswer() {
+  if (!deck.slides[index].a) return;
+  revealed = !revealed; $("#ans").hidden = !revealed;
+  const b = $("#rev"); b.setAttribute("aria-pressed", revealed); b.textContent = revealed ? t("hide") : t("answer");
+  if (revealed) $("#ans").scrollIntoView({ block: "nearest", behavior: "instant" });
+}
+
+
+// The bar belongs to every state of the player, including the error pages.
+function bindBar() {
+  $("#back")?.addEventListener("click", e => {
+    if (e.defaultPrevented || e.button || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || !cameFromSite()) return;
+    e.preventDefault(); history.back();
+  });
+  $("#theme")?.addEventListener("click", () => {
+    const next = currentTheme() === "nuit" ? "jour" : "nuit";
+    try { localStorage.setItem(themeKey, next); } catch { /* storage blocked: the choice lasts for this page */ }
+    applyTheme(next);
+  });
+  paintTheme();
+}
+function bind() {
+  bindBar();
+  $("#nx").onclick = () => go(index + 1); $("#pv").onclick = () => go(index - 1);
+  $("#step-next").onclick = () => advance(1); $("#step-prev").onclick = () => advance(-1);
+  $("#all-steps").onclick = () => { step = blocks().length; paintSteps(); };
+  $("#lst").onclick = () => setDrawer($("#drawer").hidden);
+  $("#rev").onclick = toggleAnswer;
+  $("#tg").onclick = () => { figHidden = !figHidden; layout("explore"); fitMath(); };
+  $("#fs").onclick = () => {
+    const de = document.documentElement;
+    if (document.fullscreenElement || document.webkitFullscreenElement) { (document.exitFullscreen || document.webkitExitFullscreen).call(document); return; }
+    const rq = de.requestFullscreen || de.webkitRequestFullscreen;
+    if (!rq) { toast(t("blocked")); return; }
+    let r; try { r = rq.call(de); } catch (e) { toast(t("blocked")); return; }
+    Promise.resolve(r).then(() => { try { screen.orientation.lock("landscape").catch(() => {}); } catch (e) {} }).catch(() => toast(t("blocked")));
+  };
+}
+addEventListener("keydown", e => {
+  if (!deck || e.target.closest?.("input,select,textarea,canvas,button,a")) return;
+  const k = e.key;
+  if (k === "ArrowRight" || k === "PageDown" || k === " ") { e.preventDefault(); advance(1); }
+  else if (k === "ArrowLeft" || k === "PageUp") { e.preventDefault(); advance(-1); }
+  else if (k === "Home") go(0); else if (k === "End") go(deck.slides.length - 1);
+  else if (k === "r" || k === "R" || k === "ArrowDown") { e.preventDefault(); toggleAnswer(); }
+  else if (k === "g" || k === "G") setDrawer($("#drawer").hidden);
+  else if (k === "f" || k === "F") $("#fs").click();
+  else if (k === "Escape" && !$("#drawer").hidden) setDrawer(false);
+});
+addEventListener("hashchange", () => { const h = parseInt(location.hash.slice(1), 10); if (deck && Number.isFinite(h) && h !== index) go(h); });
+document.addEventListener("fullscreenchange", () => setTimeout(fit, 100));
+addEventListener("resize", fit); fit();
+load();

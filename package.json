@@ -1,0 +1,23 @@
+{
+  "name": "maths-explorer",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "A bilingual experimental mathematics laboratory for high school students",
+  "scripts": {
+    "start": "node scripts/serve.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "check": "node scripts/check-syntax.mjs",
+    "test:browser": "python tests/run_browser.py",
+    "test:dom": "node tests/dom-smoke.mjs",
+    "test:offline": "node tests/offline_browser.mjs",
+    "check:prerequisites": "node scripts/check-prerequisites.mjs",
+    "check:prerequisites:strict": "node scripts/check-prerequisites.mjs --strict"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "jsdom": "26.1.0"
+  }
+}

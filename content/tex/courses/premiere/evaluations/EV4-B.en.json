@@ -1,0 +1,215 @@
+{
+ "unit": "EV4-B.fr.tex",
+ "segments": {
+  "f9935a0dbd83": {
+   "fr": "EV4-B -- Préparation EAM",
+   "en": "EV4-B -- EAM preparation",
+   "status": "aligned",
+   "order": 0
+  },
+  "46c4684b6a36": {
+   "fr": "\\textbf{Sujet réservé au professeur}. Ensemble du programme.",
+   "en": "\\textbf{Paper reserved for the teacher}. Whole programme.",
+   "status": "aligned",
+   "order": 2
+  },
+  "ad9a43ac0879": {
+   "fr": "Durée : 2 h. Sans calculatrice. Note sur 20. Entraînements de mai et juin ; EAM de zone à confirmer.",
+   "en": "Duration: 2 h. No calculator. Marked out of 20. Practice sessions in May and June; EAM date for the zone to be confirmed.",
+   "status": "aligned",
+   "order": 3
+  },
+  "30f8a9d537b0": {
+   "fr": "Partie 1 -- Automatismes (6 points)",
+   "en": "Part 1 -- Fluency (6 points)",
+   "status": "aligned",
+   "order": 4
+  },
+  "3be7156bd6ab": {
+   "fr": "Douze questions, [[m1]] point chacune. Une seule réponse correcte ; aucune justification demandée. Une réponse incorrecte ou absente rapporte 0, sans retrait de points.",
+   "en": "Twelve questions, [[m1]] point each. Only one correct answer; no justification required. An incorrect or missing answer scores 0, with no loss of points.",
+   "status": "aligned",
+   "order": 5
+  },
+  "edb66e001ece": {
+   "fr": "Calculer [[m1]].",
+   "en": "Calculate [[m1]].",
+   "status": "aligned",
+   "order": 6
+  },
+  "3fe95882ddfe": {
+   "fr": "A. [[m1]]\\quad B. [[m2]]\\quad C. [[m3]]\\quad D. [[m4]]",
+   "en": "A. [[m1]]\\quad B. [[m2]]\\quad C. [[m3]]\\quad D. [[m4]]",
+   "status": "aligned",
+   "order": 7
+  },
+  "ae1dec348d74": {
+   "fr": "Une valeur de 50 augmente de [[m1]]. Valeur finale ?",
+   "en": "A value of 50 increases by [[m1]]. Final value?",
+   "status": "aligned",
+   "order": 12
+  },
+  "d3e6c29717d4": {
+   "fr": "Une valeur de 80 est obtenue après une baisse de [[m1]]. Valeur initiale ?",
+   "en": "A value of 80 is obtained after a [[m1]] decrease. Initial value?",
+   "status": "aligned",
+   "order": 14
+  },
+  "aabd6bf5577b": {
+   "fr": "Hausse de [[m1]] puis baisse de [[m2]] : coefficient global ?",
+   "en": "A [[m1]] increase then a [[m2]] decrease: overall coefficient?",
+   "status": "aligned",
+   "order": 16
+  },
+  "b49f7741c0aa": {
+   "fr": "La solution de [[m1]] vaut",
+   "en": "The solution of [[m1]] is",
+   "status": "aligned",
+   "order": 18
+  },
+  "b56c7e399051": {
+   "fr": "La pente entre [[m1]] et [[m2]] vaut",
+   "en": "The slope between [[m1]] and [[m2]] is",
+   "status": "aligned",
+   "order": 20
+  },
+  "70f54e7f3516": {
+   "fr": "La moyenne de [[m1]] vaut",
+   "en": "The mean of [[m1]] is",
+   "status": "aligned",
+   "order": 22
+  },
+  "8a4e70bcfcb0": {
+   "fr": "Un secteur de [[m1]] représente quelle fraction du total ?",
+   "en": "A sector of [[m1]] represents what fraction of the total?",
+   "status": "aligned",
+   "order": 24
+  },
+  "a739799c55e7": {
+   "fr": "Une probabilité vaut [[m1]]. Son complément vaut",
+   "en": "A probability is [[m1]]. Its complement is",
+   "status": "aligned",
+   "order": 26
+  },
+  "f5e964d70c4d": {
+   "fr": "Pour [[m1]], [[m2]] vaut",
+   "en": "For [[m1]], [[m2]] is",
+   "status": "aligned",
+   "order": 28
+  },
+  "e5cd1536aa01": {
+   "fr": "Partie 2 -- Exercices indépendants (14 points)",
+   "en": "Part 2 -- Independent exercises (14 points)",
+   "status": "aligned",
+   "order": 30
+  },
+  "3217f877e3df": {
+   "fr": "Toute démarche doit être justifiée. Les résultats exacts sont attendus sauf indication contraire.",
+   "en": "Every step must be justified. Exact results are expected unless stated otherwise.",
+   "status": "aligned",
+   "order": 31
+  },
+  "e3375e048b8d": {
+   "fr": "Exercice 1 -- Un tarif moyen (5 points)",
+   "en": "Exercise 1 -- An average price (5 points)",
+   "status": "aligned",
+   "order": 32
+  },
+  "588a434af103": {
+   "fr": "Un service propose plusieurs tarifs. 60 pour cent des clients choisissent la formule A ; parmi eux, la moitié paie 0 unité et l’autre moitié paie 4 unités. Tous les autres clients paient 6 unités. On choisit un client au hasard et l’on note [[m1]] le prix qu’il paie. La dernière question étudie une réduction uniforme, y compris pour le tarif initialement nul.",
+   "en": "A service offers several rates. 60 percent of customers choose plan A; among them, half pay 0 units and the other half pay 4 units. All the other customers pay 6 units. A customer is chosen at random and [[m1]] is the price they pay. The last question studies a uniform reduction, including for the rate that was initially zero.",
+   "status": "aligned",
+   "order": 33
+  },
+  "e16adac1f56f": {
+   "fr": "Établir la loi de probabilité de [[m1]].",
+   "en": "Establish the probability distribution of [[m1]].",
+   "status": "aligned",
+   "order": 34
+  },
+  "ecd5a728f8c3": {
+   "fr": "(1 pt)",
+   "en": "(1 pt)",
+   "status": "aligned",
+   "order": 35
+  },
+  "d593dd40f073": {
+   "fr": "Calculer son espérance et sa variance.",
+   "en": "Calculate its expectation and variance.",
+   "status": "aligned",
+   "order": 36
+  },
+  "76913274accd": {
+   "fr": "(2 pts)",
+   "en": "(2 pts)",
+   "status": "aligned",
+   "order": 37
+  },
+  "b550f92122f1": {
+   "fr": "Tous les prix diminuent de 1 unité. Calculer la nouvelle moyenne et le nouvel écart type. Interpréter le prix négatif obtenu pour certains clients.",
+   "en": "All prices fall by 1 unit. Calculate the new mean and the new standard deviation. Interpret the negative price obtained for some customers.",
+   "status": "aligned",
+   "order": 38
+  },
+  "6ae3789f2058": {
+   "fr": "Exercice 2 -- Maximum exponentiel (5 points)",
+   "en": "Exercise 2 -- Exponential maximum (5 points)",
+   "status": "aligned",
+   "order": 40
+  },
+  "be1a1cfc2934": {
+   "fr": "La fonction [[m1]] est définie sur [[m2]] par [[m3]]. On cherche son maximum sur cet intervalle. Pour la dernière comparaison sans calculatrice, on pourra utiliser l’inégalité donnée [[m4]].",
+   "en": "The function [[m1]] is defined on [[m2]] by [[m3]]. We look for its maximum on this interval. For the last comparison without a calculator, you may use the inequality given, [[m4]].",
+   "status": "aligned",
+   "order": 41
+  },
+  "bacdd3fa8909": {
+   "fr": "Calculer [[m1]] sous forme factorisée.",
+   "en": "Calculate [[m1]] in factorised form.",
+   "status": "aligned",
+   "order": 42
+  },
+  "d60efaedc3ff": {
+   "fr": "Déterminer les variations et le maximum.",
+   "en": "Determine the variation and the maximum.",
+   "status": "aligned",
+   "order": 44
+  },
+  "f22a011074b6": {
+   "fr": "Comparer exactement [[m1]] au maximum, sachant [[m2]].",
+   "en": "Compare [[m1]] exactly with the maximum, given [[m2]].",
+   "status": "aligned",
+   "order": 46
+  },
+  "ba3308cb0896": {
+   "fr": "Exercice 3 -- Déterminer une position (4 points)",
+   "en": "Exercise 3 -- Determining a position (4 points)",
+   "status": "aligned",
+   "order": 48
+  },
+  "92644a0abf7d": {
+   "fr": "Dans un repère orthonormé, les points [[m1]] et [[m2]] sont fixes. Le point [[m3]] se déplace sur la droite d’équation [[m4]] ; ses coordonnées sont donc [[m5]], où [[m6]] parcourt [[m7]].",
+   "en": "In an orthonormal frame, the points [[m1]] and [[m2]] are fixed. The point [[m3]] moves on the line with equation [[m4]]; its coordinates are therefore [[m5]], where [[m6]] ranges over [[m7]].",
+   "status": "aligned",
+   "order": 49
+  },
+  "29790d11ef1e": {
+   "fr": "Déterminer les x pour lesquels les deux vecteurs sont orthogonaux.",
+   "en": "Determine the values of x for which the two vectors are orthogonal.",
+   "status": "aligned",
+   "order": 52
+  },
+  "e5bef68672d3": {
+   "fr": "Interpréter le résultat à l’aide du cercle de diamètre AB.",
+   "en": "Interpret the result using the circle with diameter AB.",
+   "status": "aligned",
+   "order": 54
+  }
+ },
+ "standby": {
+  "reason": "Retain the published English edition during integration of concurrent French-only corrections; bilingual curriculum work remains on standby.",
+  "source": "\\mxnewpage\\section*{EV4-B -- Préparation EAM}\\label{EV4-B}\n\\addcontentsline{toc}{section}{EV4-B -- Préparation EAM}\n\\textbf{Sujet réservé au professeur}. Ensemble du programme.\\par Durée : 2 h. Sans calculatrice. Note sur 20. Entraînements de mai et juin ; EAM de zone à confirmer.\n\\subsection*{Partie 1 -- Automatismes (6 points)}\nDouze questions, \\num{0,5} point chacune. Une seule réponse correcte ; aucune justification demandée. Une réponse incorrecte ou absente rapporte 0, sans retrait de points.\n\\begin{enumerate}\n\\item Calculer $3+2\\times3$.\\par A. $9$\\quad B. $12$\\quad C. $15$\\quad D. $8$\n\\item Calculer $\\frac12+\\frac13$.\\par A. $\\frac{5}{3}$\\quad B. $\\frac{5}{6}$\\quad C. $\\frac{2}{5}$\\quad D. $\\frac{1}{6}$\n\\item Calculer $\\dfrac{2^3}{2^{1}}$.\\par A. $8$\\quad B. $2$\\quad C. $4$\\quad D. $1$\n\\item Une valeur de 50 augmente de \\pc{20}. Valeur finale ?\\par A. $70$\\quad B. $40$\\quad C. $60$\\quad D. $10$\n\\item Une valeur de 80 est obtenue après une baisse de \\pc{20}. Valeur initiale ?\\par A. $60$\\quad B. $64$\\quad C. $96$\\quad D. $100$\n\\item Hausse de \\pc{25} puis baisse de \\pc{20} : coefficient global ?\\par A. $\\frac{21}{20}$\\quad B. $1$\\quad C. $\\frac{4}{5}$\\quad D. $\\frac{9}{10}$\n\\item La solution de $2x+3=0$ vaut\\par A. $\\frac{3}{2}$\\quad B. $6$\\quad C. $\\frac{-3}{2}$\\quad D. $-6$\n\\item La pente entre $\\pt{0;3}$ et $\\pt{2;9}$ vaut\\par A. $6$\\quad B. $-3$\\quad C. $3$\\quad D. $2$\n\\item La moyenne de $3, 5, 7$ vaut\\par A. $3$\\quad B. $15$\\quad C. $6$\\quad D. $5$\n\\item Un secteur de $90^\\circ$ représente quelle fraction du total ?\\par A. $\\frac{1}{3}$\\quad B. $\\frac{1}{2}$\\quad C. $\\frac{1}{4}$\\quad D. $\\frac{3}{4}$\n\\item Une probabilité vaut $\\dfrac{2}{5}$. Son complément vaut\\par A. $\\frac{3}{5}$\\quad B. $\\frac{1}{5}$\\quad C. $\\frac{2}{5}$\\quad D. $\\frac{5}{2}$\n\\item Pour $f(x)=x^2+3$, $f(-2)$ vaut\\par A. $12$\\quad B. $5$\\quad C. $-1$\\quad D. $7$\n\\end{enumerate}\n\\mxnewpage\\subsection*{Partie 2 -- Exercices indépendants (14 points)}\nToute démarche doit être justifiée. Les résultats exacts sont attendus sauf indication contraire.\n\\mxneed{12}\n\\subsection*{Exercice 1 -- Un tarif moyen (5 points)}\nUn service propose plusieurs tarifs. 60 pour cent des clients choisissent la formule A ; parmi eux, la moitié paie 0 unité et l’autre moitié paie 4 unités. Tous les autres clients paient 6 unités. On choisit un client au hasard et l’on note $X$ le prix qu’il paie. La dernière question étudie une réduction uniforme, y compris pour le tarif initialement nul.\n\\begin{enumerate}\n\\item Établir la loi de probabilité de $X$. \\hfill(1 pt)\n\\item Calculer son espérance et sa variance. \\hfill(2 pts)\n\\item Tous les prix diminuent de 1 unité. Calculer la nouvelle moyenne et le nouvel écart type. Interpréter le prix négatif obtenu pour certains clients. \\hfill(2 pts)\n\\end{enumerate}\n\\mxneed{12}\n\\subsection*{Exercice 2 -- Maximum exponentiel (5 points)}\nLa fonction $f$ est définie sur $\\intff{0}{4}$ par $f(t)=t^2e^{-t}$. On cherche son maximum sur cet intervalle. Pour la dernière comparaison sans calculatrice, on pourra utiliser l’inégalité donnée $e^2>4$.\n\\begin{enumerate}\n\\item Calculer $f\\prime$ sous forme factorisée. \\hfill(1 pt)\n\\item Déterminer les variations et le maximum. \\hfill(2 pts)\n\\item Comparer exactement $f(4)$ au maximum, sachant $e^2>4$. \\hfill(2 pts)\n\\end{enumerate}\n\\mxneed{12}\n\\subsection*{Exercice 3 -- Déterminer une position (4 points)}\nDans un repère orthonormé, les points $A\\pt{0;0}$ et $B\\pt{4;0}$ sont fixes. Le point $M$ se déplace sur la droite d’équation $y=2$ ; ses coordonnées sont donc $M\\pt{x;2}$, où $x$ parcourt $\\R$.\n\\begin{enumerate}\n\\item Calculer $\\vect{MA}\\cdot\\vect{MB}$. \\hfill(1 pt)\n\\item Déterminer les x pour lesquels les deux vecteurs sont orthogonaux. \\hfill(1 pt)\n\\item Interpréter le résultat à l’aide du cercle de diamètre AB. \\hfill(2 pts)\n\\end{enumerate}\n",
+  "source_sha256": "f259140a71dec432833c3b6913eaf8ddaf70452f3359f260eb6e445ee701ddcc",
+  "english_sha256": "1da3f4ade3ddb82e0dfada01034ce6dc9879289f094d8f6c9fad6e385d1070e6"
+ }
+}

@@ -1,0 +1,77 @@
+/* Native cards and frequencies share the laboratory shell, typography and theme tokens. */
+.inference-stage { padding: 1rem; min-width: 0; overflow-wrap: anywhere; }
+.inference-assumption, .inference-caution, .inference-plot-note { font-size: .88rem; line-height: 1.5; }
+.inference-status { font-weight: 700; min-height: 3em; }
+.inference-formula { font-size: 1rem; overflow-wrap: anywhere; }
+.inference-cells { display: flex; flex-wrap: wrap; gap: .35rem; margin-bottom: .8rem; }
+.inference-cell { border: 1px solid var(--line); padding: .35rem .55rem; border-radius: 0; font-variant-numeric: tabular-nums; }
+.inference-cell[data-match="true"] { border: 2px solid var(--accent); font-weight: 700; }
+.inference-doors { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: .5rem; }
+.inference-door { min-height: 100px; border: 2px solid var(--line-strong); border-radius: 0; color: var(--ink); background: var(--surface); overflow-wrap: anywhere; }
+.inference-door[aria-pressed="true"] { border-color: var(--accent); }
+.inference-surface .btn { margin: .3rem; min-height: 44px; }
+.inference-stats { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: .35rem .6rem; font-size: .9rem; }
+.inference-stats dt { margin: 0; }
+.inference-stats dd { margin: 0; font-variant-numeric: tabular-nums; }
+.inference-bin { display: grid; grid-template-columns: minmax(1.5em,.35fr) minmax(0,1fr) minmax(0,1.7fr); gap: .35rem; align-items: center; margin: .25rem 0; font-size: .75rem; }
+.inference-tracks { display: grid; gap: 2px; min-width: 0; }
+.inference-observed, .inference-theory { display: block; height: 8px; box-sizing: border-box; }
+.inference-observed { background: var(--obj2); }
+.inference-theory { border: 2px solid var(--accent); }
+.inference-data-label { display: block; font-size: .85rem; }
+.inference-data { width: 100%; box-sizing: border-box; min-height: 88px; font: inherit; color: var(--ink); background: var(--surface); }
+.inference-input-error { color: var(--neg); }
+.inference-plot { display: block; width: 100%; height: auto; max-height: 260px; margin: .4rem 0; background: var(--sunken); border: 1px solid var(--line); }
+.inference-axis { stroke: var(--line-strong); stroke-width: 1.5; }
+.inference-col { fill: var(--obj2); transform-box: fill-box; transform-origin: 50% 100%; transition: transform .35s ease-out; }
+.inference-curve { fill: none; stroke: var(--accent); stroke-width: 2.5; stroke-linejoin: round; }
+.inference-dot { fill: var(--surface); stroke: var(--accent); stroke-width: 2; }
+.inference-tick { fill: var(--muted); font: 11px system-ui, sans-serif; }
+@media (prefers-reduced-motion: reduce) { .inference-col { transition: none; } }
+.inference-stage [hidden] { display: none !important; }
+@media (max-width: 390px) { .inference-stage { padding: .5rem; } .inference-bin { font-size: .65rem; } }
+
+.lab2:has(.inference-stage) .lab2-nav { flex-wrap: wrap; }
+.lab2:has(.inference-stage) .lab2-nav button { flex: 1 1 8rem; min-width: 0; overflow-wrap: anywhere; }
+.lab2:has(.inference-stage) .lab2-controls,
+.lab2:has(.inference-stage) .lab2-ctl { min-width: 0; }
+.lab2:has(.inference-stage) .lab2-ctl-label { flex-wrap: wrap; overflow-wrap: anywhere; }
+.lab2:has(.inference-stage) .lab2-segment { min-width: 0; max-width: 100%; overflow-wrap: anywhere; white-space: normal; }
+.lab2:has(.inference-stage) .lab2-choice select { width: 100%; min-width: 0; max-width: 100%; box-sizing: border-box; }
+
+/* Monte Carlo surface: one canvas of trials, a run bar, the convergence chart and a table of checkpoints. */
+.mc-figure { min-width: 0; margin: .5rem 0; }
+.mc-canvas, .mc-chart { display: block; width: 100%; max-width: 100%; box-sizing: border-box; border: 1px solid var(--line); background: var(--surface); }
+.mc-canvas.is-draw { touch-action: none; cursor: crosshair; }
+.mc-bar { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; margin: .5rem 0; }
+.mc-bar .btn { min-height: 44px; min-width: 44px; margin: 0; }
+.mc-speed { display: inline-flex; flex-wrap: wrap; align-items: center; gap: .4rem; font-size: .9rem; min-width: 0; }
+.mc-speed select { min-height: 44px; max-width: 100%; font: inherit; color: var(--ink); background: var(--surface); }
+.mc-chart-title { margin: .8rem 0 .3rem; font-weight: 700; }
+.mc-table { width: 100%; border-collapse: collapse; font-size: .88rem; font-variant-numeric: tabular-nums; margin: .6rem 0; }
+.mc-table caption { text-align: left; font-size: .85rem; color: var(--muted); padding-bottom: .2rem; }
+.mc-table th, .mc-table td { border: 1px solid var(--line); padding: .25rem .4rem; text-align: left; overflow-wrap: anywhere; }
+.mc-pseudo { margin: .6rem 0; }
+.mc-pseudo summary { min-height: 44px; display: flex; align-items: center; cursor: pointer; }
+.mc-pseudo pre { overflow-x: auto; max-width: 100%; margin: 0; padding: .6rem; background: var(--sunken); font-size: .85rem; }
+
+/* Pictures of the chance exhibits (templates/inference-figure.js): canvas panels, two columns on a wide screen, one on a phone. */
+.inf-fig-host { min-width: 0; }
+.inf-fig { display: grid; grid-template-columns: minmax(0,1fr); gap: 12px; margin: .2rem 0 .8rem; }
+@media (min-width: 900px) { .inf-fig:not(.inf-fig--stack) { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+.inf-panel { margin: 0; min-width: 0; }
+.inf-panel figcaption { font-size: .9rem; font-weight: 700; margin-bottom: .3rem; min-height: 1.3em; }
+.inf-panel figcaption small { font-weight: 400; color: var(--muted); }
+.inf-canvas { position: relative; }
+.inf-canvas .obj-canvas { background: var(--surface); }
+.inf-panel canvas:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.inf-toggle { margin: .4rem 0 0; min-height: 44px; }
+.inf-overlay { position: absolute; inset: 0; display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); pointer-events: none; }
+.inf-overlay .inference-doors { display: contents; }
+.inf-overlay .inference-door { pointer-events: auto; min-height: 0; height: 100%; border: 0; background: transparent; color: transparent; font-size: 0; cursor: pointer; border-radius: 0; }
+.inf-overlay .inference-door:focus-visible { outline: 3px solid var(--accent); outline-offset: -6px; }
+.inf-overlay .inference-door[aria-pressed="true"] { border: 0; }
+.inference-more { margin: .6rem 0; }
+.inference-more summary { min-height: 44px; display: flex; align-items: center; cursor: pointer; font-weight: 700; }
+.inf-canvas.obj-viewport { max-width: none; margin-inline: 0; }
+.inf-fig--stack .inf-panel { max-width: 880px; }

@@ -1,7 +1,7 @@
-# Publishes the site to GitHub Pages on every push to main (https://heritiana-ankatso.github.io/Matematika/), without the
-# files that are not part of the site: CLAUDE.md (instructions for coding agents) and .github/.
-# One-time setup by the owner: repository Settings > Pages > Build and deployment > Source: "GitHub Actions".
-# Until then Pages serves the branch itself, CLAUDE.md included.
+# Publishes dist/ to GitHub Pages on every push to main (https://heritiana-ankatso.github.io/Matematika/).
+# dist/ is the built site and is committed (make site writes it); nothing else of the repository is served.
+# Pages source: "GitHub Actions" (repository Settings > Pages > Build and deployment), set on 14 November 2026.
+# All site URLs are relative, so the site works under the /Matematika/ sub-path.
 name: Deploy to GitHub Pages
 on:
   push:
@@ -22,14 +22,11 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
-      - name: Copy the site without the agent notes
-        run: |
-          mkdir -p "$RUNNER_TEMP/site"
-          tar --exclude=./.git --exclude=./.github --exclude=./CLAUDE.md -cf - . | tar -xf - -C "$RUNNER_TEMP/site"
-          test ! -e "$RUNNER_TEMP/site/CLAUDE.md" && test -f "$RUNNER_TEMP/site/index.html"
+      - name: Check that only the built site is published
+        run: test -f dist/index.html && test ! -e dist/CLAUDE.md && test ! -e dist/.github
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: ${{ runner.temp }}/site
+          path: dist
       - id: deployment
         uses: actions/deploy-pages@v4
