@@ -24,7 +24,7 @@ and chapters; never merge or relabel one as another.
   ARHeritiana/Maths-explorer-backup) the two repositories share the same code. A source change made in Maths-explorer
   is made here too in the same round (apply its diff, `make site`, pull request), and the reverse for any change that
   is not specific to the full edition. Files that differ on purpose: this `CLAUDE.md`, `README.md`,
-  `.github/edition.env`, `.github/workflows/pages.yml`, `FULL_EDITION`, `edition_env` in `build/mxbuild/site.py`, the
+  `.github/edition.env`, `.github/workflows/pages.yml`, `FULL_EDITION`, the
   own-account exception in `tests/banned.py`, and `dist/`. Never copy Maths-explorer's `dist/` here.
 
 ## Git rule (owner, 14 November 2026, binding in every session)
