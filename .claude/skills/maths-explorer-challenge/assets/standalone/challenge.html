@@ -259,6 +259,10 @@ details > summary:hover{ color: var(--accent); }
 .proof-callout p{ margin: 6px 0; }
 .challenge-columns form{ max-width: 460px; margin-top: 24px; }
 .challenge-columns form > label{ display: block; margin-bottom: 8px; font-weight: 700; }
+.challenge-shelf{ margin-top: 28px; }
+.challenge-shelf .shelf-title{ font-size: clamp(1.25rem, 2.2vw, 1.6rem); margin: 0 0 4px; }
+.challenge-shelf .shelf-note{ margin: 0 0 14px; max-width: 60ch; }
+.open-note{ max-width: 460px; margin-top: 20px; padding: 10px 14px; border-left: 3px solid var(--accent, currentColor); background: var(--accent-soft); }
 .original-statement{ max-width: 460px; margin-top: 20px; border-top: 1px solid var(--line); padding-top: 4px; }
 .original-statement .original-q{ margin: 6px 0 4px; font-size: clamp(1.05rem, 1.6vw, 1.2rem); }
 .extension{ margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--line); color: var(--ink-2); }
@@ -647,6 +651,10 @@ h3{ font-weight: 700; letter-spacing: -0.015em; }
 .btn-primary:hover, .primary:hover{ background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
 .btn-secondary, .secondary{ background: transparent; border-color: var(--ink); color: var(--ink); }
 .btn-secondary:hover, .secondary:hover{ background: var(--ink); color: var(--bg); }
+.btn-secondary[aria-pressed="true"], .btn-secondary[aria-pressed="true"]:hover{ background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.btn-secondary[aria-pressed="true"]::before{ content: "\2713\00a0"; }
+@media (forced-colors: active){.btn-secondary[aria-pressed="true"]{ outline: 3px solid Highlight; outline-offset: 2px; }
+}
 .tool-card, .idea-card, .chapter-tile, .home-result, .menu-tile, .resume, .rows, .group, .segmented, .discovery-card, .challenge-card, .pathway-card{ border-radius: 0; box-shadow: none; }
 .row[data-selected], .lab-link.selected{ box-shadow: none; border-left: 6px solid var(--accent); background: transparent; }
 .section-kicker, .kicker{ font: 600 0.82rem var(--ui); letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); }
@@ -674,12 +682,36 @@ input[type="range"]::-moz-range-thumb{ background: var(--accent); border-color: 
 .error-var input[type=range]{width:min(220px,50vw);min-height:44px}
 .error-diagram svg{display:block;width:min(100%,300px);height:auto}
 .chapter-errors h3{margin:0 0 6px}
+.pw-title h2{ margin: 0; font-size: clamp(1.5rem, 2.2vw, 2rem); }
+.pw-intro > summary{ cursor: pointer; color: var(--accent); font-weight: 700; min-height: 32px; }
+.pw-intro p{ margin: 8px 0 0; color: var(--ink-2); }
+.pw-label{ color: var(--muted); font-weight: 700; margin-right: 4px; }
+.pw-stage h3{ margin: 0 0 6px; font-size: 1.1rem; }
 .go-group > legend, .go-group > summary{ padding: 0 6px; font-weight: 800; font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
 .go-physics > summary{ cursor: pointer; padding: 0; min-height: 32px; display: flex; align-items: center; }
 .go-physics[open] > summary{ margin-bottom: 10px; }
 .go-buttons, .go-row{ display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
 .go-buttons .btn{ flex: 1 1 96px; }
 .go-group .act-field{ flex: none; }
+.olymp-theme h2{margin-top:28px}
+.olymp-card:hover,.olymp-card:focus-visible{border-color:var(--accent)}
+.olymp-card svg{color:var(--accent)}
+.olymp-problem{margin-top:18px;padding:18px;border:1px solid var(--line);border-left:4px solid var(--line-strong);border-radius:var(--r);background:var(--surface)}
+.olymp-problem.olymp-mg{border-left-color:var(--pos)}
+.olymp-problem.olymp-pan{border-left-color:var(--obj2)}
+.olymp-problem.olymp-intl{border-left-color:var(--accent)}
+.olymp-problem header{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px}
+.olymp-problem h3{margin:0;font-size:1.05rem}
+.olymp-hint,.olymp-solution{margin-top:10px}
+.olymp-hint summary,.olymp-solution summary{cursor:pointer;font-weight:600;min-height:32px}
+.olymp-solution{padding:10px 14px;border-radius:var(--r);background:var(--sunken)}
+.discovery-card:hover .discovery-thumb svg path:not(.preview-axis){stroke-dasharray:400;animation:thumb-draw .9s ease-out both}
+.discovery-card:hover .discovery-thumb svg .preview-fill{animation:thumb-pop .5s ease-out both;transform-box:fill-box;transform-origin:50% 100%}
+.discovery-card:focus-within .discovery-thumb{box-shadow:0 0 0 3px var(--accent)}
+@keyframes thumb-draw{from{stroke-dashoffset:400}to{stroke-dashoffset:0}}
+@keyframes thumb-pop{from{transform:scaleY(.2);opacity:.3}to{transform:none;opacity:1}}
+@media (prefers-reduced-motion: reduce){.discovery-card:hover .discovery-thumb svg *{animation:none!important}
+}
 .res-top h1{ margin-bottom: 4px; }
 .res-head h2{ margin: 0; font-size: clamp(1.5rem, 2.2vw, 2rem); }
 .res-layout .chapter-tile .discovery-preview svg{ height: 130px; }
@@ -1611,9 +1643,9 @@ function render() {
     + '<p class="problem" id="problem">' + T(v.prompt(q)) + '</p>'
     + '<details class="variation"><summary>' + t("Modifier les données", "Change the data") + '</summary><div class="pv-settings">' + settings() + '</div></details>'
     + (typeof C.activity === "function" ? '<section class="activity" aria-labelledby="activity-title"><h2 id="activity-title">' + t("À toi d’explorer", "Explore it yourself") + '</h2><div id="activity"></div></section>' : "")
-    + '<form id="challenge-form"><label for="challenge-answer">' + t("Ta réponse numérique", "Your numerical answer") + '</label><div class="answer-row"><input type="text" id="challenge-answer" required autocomplete="off" placeholder="' + t("Nombre ou fraction", "Number or fraction") + '"><button class="primary" type="submit">' + t("Vérifier", "Check") + '</button>'
-    + (v.impossible ? '<button class="secondary" type="button" id="challenge-impossible">Impossible</button>' : "") + '</div><p id="challenge-feedback" class="feedback" role="status"></p></form>'
-    + (original ? '<details class="original-statement"><summary>' + t("Énoncé d’origine", "Original statement") + '</summary><p class="problem original-q" id="original">' + T(original) + '</p><p class="muted">' + t("À traiter seul ou avec un enseignant : le site ne peut pas la vérifier.", "To work out alone or with a teacher: the site cannot check it.") + '</p></details>' : "")
+    + (v.open ? '<p class="open-note">' + t("Défi ouvert : le site ne vérifie pas ta réponse. Cherche, rédige, discutes-en avec d’autres, puis compare avec la solution.", "Open challenge: the site does not check your answer. Think, write it up, talk it over with others, then compare with the solution.") + '</p>' : '<form id="challenge-form"><label for="challenge-answer">' + t("Ta réponse numérique", "Your numerical answer") + '</label><div class="answer-row"><input type="text" id="challenge-answer" required autocomplete="off" placeholder="' + t("Nombre ou fraction", "Number or fraction") + '"><button class="primary" type="submit">' + t("Vérifier", "Check") + '</button>'
+    + (v.impossible ? '<button class="secondary" type="button" id="challenge-impossible">Impossible</button>' : "") + '</div><p id="challenge-feedback" class="feedback" role="status"></p></form>')
+    + (original ? '<details class="original-statement"><summary>' + t("Jusqu’à la preuve", "All the way to a proof") + '</summary><p class="problem original-q" id="original">' + T(original) + '</p><p class="muted">' + t("À traiter seul ou avec d’autres : le site ne vérifie pas cette partie.", "To work out alone or with others: the site does not check this part.") + '</p></details>' : "")
     + '</article></div><section class="solution-wide"><details class="solution"><summary>' + t("Voir la solution expliquée", "See the worked solution") + '</summary>'
     + (C.diagram ? '<div id="solution-anim" class="sol-host"></div>' : "")
     + '<details class="written"><summary>' + t("Version écrite", "Written version") + '</summary><p id="solution-text">' + T(v.solution(q)) + '</p></details>'
@@ -1632,7 +1664,7 @@ function render() {
     $("#challenge-feedback").textContent = ok ? t("C’est la bonne valeur. Maintenant, justifie-la : la solution t’aide à comparer ton raisonnement.", "That is the correct value. Now justify it: use the solution to compare your reasoning.") : t("Pas encore.", "Not yet.");
     $("#challenge-feedback").classList.toggle("success", ok);
   };
-  $("#challenge-form").addEventListener("submit", (e) => { e.preventDefault(); check($("#challenge-answer").value); });
+  $("#challenge-form")?.addEventListener("submit", (e) => { e.preventDefault(); check($("#challenge-answer").value); });
   $("#challenge-impossible")?.addEventListener("click", () => check("0"));
   document.querySelectorAll("[data-var]").forEach((el) => el.addEventListener("change", () => { q[el.dataset.var] = el.value; normalise(); render(); $(".variation").open = true; }));
 }
