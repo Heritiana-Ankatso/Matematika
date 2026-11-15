@@ -1249,6 +1249,9 @@ h1, h2 { font-weight: 800; font-stretch: 112%; letter-spacing: -0.03em; line-hei
 h3 { font-weight: 700; letter-spacing: -0.015em; }
 .page h1, .library-heading h1, .lab-heading h1, .chapter-heading h1 { font-size: clamp(2.1rem, 4.4vw, 3.6rem); font-stretch: 125%; letter-spacing: -0.04em; margin-bottom: 14px; }
 .entrance-intro h1, .home-head h1 { font-size: clamp(2.3rem, 5vw, 4.2rem); font-stretch: 125%; max-width: 16ch; line-height: 0.98; letter-spacing: -0.04em; }
+/* Archivo is wider than the v6 face: at 200 % text, long French words must still fit narrow columns. */
+@media (max-width: 600px) { h1, h2, .page h1, .library-heading h1, .lab-heading h1, .chapter-heading h1, .entrance-intro h1, .home-head h1 { font-stretch: 100%; } }
+h1, h2, h3, summary { hyphens: auto; overflow-wrap: anywhere; }
 .home-highlight { color: var(--accent); }
 
 /* running head: an 8 px graphite rule, then the section tabs as plain text with an indigo underline */

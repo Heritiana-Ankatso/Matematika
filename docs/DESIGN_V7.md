@@ -20,7 +20,7 @@ every curriculum, field and culture fits together like a pavement. Elegant, stru
 | Palette, Nuit | page `#121216`, surface `#1c1c22`, ink `#eeeae1` (15.6:1), secondary `#b9bcc6` (9.9:1), muted `#a4a8b4` (7.9:1). |
 | Meaning | `--accent` indigo = brand and actions (`#2c3d8f` Jour, `#8c9bff` Nuit); `--object` ochre = the studied object as a fill (`#c98b1e`, graphite on it), `--object-ink` for its lines and words (`#8a5a00` Jour, 4.9:1); `--obj2` laterite = second object; `--pos` moss = valid; `--neg` crimson = error, always with an icon and a word. |
 | Data colours | `--c1…--c8` are unchanged: they are data (graph colourings, series), not interface. |
-| Type | Archivo (SIL OFL, self-hosted, `site/fonts/`) for headings and interface; width 125 for page titles and the name, 112 for h1 and h2. Source Serif 4 (SIL OFL) for reading. STIX Two for mathematics. |
+| Type | Archivo (SIL OFL, self-hosted, `site/fonts/`) for headings and interface; width 125 for page titles and the name, 112 for h1 and h2. Source Serif 4 (SIL OFL) for reading. STIX Two for mathematics. Below 600 px headings use normal width, and headings and summaries may break a long word: Archivo is wider than the v6 face and must still pass the 200 % text checks. |
 | Shape | square corners (`--r` 0), circles stay circles. Structure by 2 px graphite rules, 1 px hairlines in tables, an 8 px rule opens the page. No shadow, gradient, blur or glow. |
 | Buttons | primary: indigo, graphite on hover. Secondary: graphite outline, filled on hover. Quiet: underlined text. Focus: 3 px indigo ring in Jour, ochre in Nuit. |
 | Motion | none for decoration; a figure eases to its new state. Nothing moves under reduced motion. |
