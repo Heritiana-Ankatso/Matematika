@@ -1243,25 +1243,28 @@ details.source-course[open] { padding-bottom: 16px; }
 
 
 /* ====================================================================================================================
-   Design v6 "Grille" (31 October 2026). Swiss modernist: white and black, one red, square corners, hairlines, no
-   shadow, no gradient, no blur, no decorative motion. Type: Schibsted Grotesk for headings and interface, Atkinson
-   Hyperlegible for running text (kept for low vision), STIX Two for mathematics. Tokens are in explorer.css.
-   Rationale and prototype: docs/design-v6/. Data colours (--c1..--c8) stay: graph colourings need them.
+   Design v7 "Pavage" (15 November 2026), built on the v6 grid: bone paper, graphite ink, one indigo for the brand and
+   actions, ochre for the studied object, square corners, 2 px rules, no shadow, no gradient, no blur, no decorative
+   motion. Type: Archivo (wide at display sizes) for headings and interface, Source Serif 4 for reading, STIX Two for
+   mathematics. Tokens are in explorer.css; rules in docs/DESIGN_V7.md. Data colours (--c1..--c8) stay.
    ==================================================================================================================== */
 :root { --signal: var(--accent); }
 h1, h2, h3, .brand, .btn, .primary, .secondary, .mainnav a, .subnav a, .language button, .seg, .text-button, .btn-quiet, .menu-tile strong, .row-title, .foot-brand { font-family: var(--ui); }
-h1, h2 { font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; }
+h1, h2 { font-weight: 800; font-stretch: 112%; letter-spacing: -0.03em; line-height: 1.02; }
 h3 { font-weight: 700; letter-spacing: -0.015em; }
-.page h1, .library-heading h1, .lab-heading h1, .chapter-heading h1 { font-size: clamp(2.1rem, 4.4vw, 3.6rem); letter-spacing: -0.035em; margin-bottom: 14px; }
-.entrance-intro h1, .home-head h1 { font-size: clamp(2.3rem, 5vw, 4.2rem); max-width: 16ch; line-height: 1.02; letter-spacing: -0.035em; }
+.page h1, .library-heading h1, .lab-heading h1, .chapter-heading h1 { font-size: clamp(2.1rem, 4.4vw, 3.6rem); font-stretch: 125%; letter-spacing: -0.04em; margin-bottom: 14px; }
+.entrance-intro h1, .home-head h1 { font-size: clamp(2.3rem, 5vw, 4.2rem); font-stretch: 125%; max-width: 16ch; line-height: 0.98; letter-spacing: -0.04em; }
+/* Archivo is wider than the v6 face: at 200 % text, long French words must still fit narrow columns. */
+@media (max-width: 600px) { h1, h2, .page h1, .library-heading h1, .lab-heading h1, .chapter-heading h1, .entrance-intro h1, .home-head h1 { font-stretch: 100%; } }
+h1, h2, h3, summary { hyphens: auto; overflow-wrap: anywhere; }
 .home-highlight { color: var(--accent); }
 
-/* running head: a heavy bar, then the section tabs as plain text with a red underline */
-.topbar { position: sticky; padding-top: 12px; background: var(--bg); border-bottom: 1px solid var(--ink); }
-.topbar::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 12px; background: var(--ink); }
-.brand { font-weight: 800; letter-spacing: -0.03em; font-size: 1.2rem; }
+/* running head: an 8 px graphite rule, then the section tabs as plain text with an indigo underline */
+.topbar { position: sticky; padding-top: 8px; background: var(--bg); border-bottom: 1px solid var(--ink); }
+.topbar::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 8px; background: var(--ink); }
+.brand { font-weight: 800; font-stretch: 125%; letter-spacing: 0.02em; text-transform: uppercase; font-size: 1.1rem; }
 .brandmark { width: 26px; height: 26px; }
-.bm-bg { fill: var(--ink); } .bm-curve, .bm-dot { stroke: var(--bg); } .bm-dot { fill: var(--accent); stroke: none; }
+.bm-bg { fill: var(--accent); } .bm-arc { stroke: var(--bg); }
 .mainnav a { font-weight: 700; color: var(--ink-2); }
 .mainnav a[aria-current]::after, .subnav a[aria-current]::after { height: 4px; background: var(--accent); border-radius: 0; }
 .mainnav a[aria-current], .subnav a[aria-current] { color: var(--ink); }
@@ -1270,10 +1273,10 @@ h3 { font-weight: 700; letter-spacing: -0.015em; }
 .language button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
 footer { border-top: 1px solid var(--ink); }
 
-/* buttons: square, black; red on hover */
+/* buttons: square; primary is indigo and turns graphite on hover */
 .btn, .primary, .secondary { border-radius: 0; border-width: 2px; }
-.btn-primary, .primary { background: var(--ink); color: var(--bg); border-color: var(--ink); }
-.btn-primary:hover, .primary:hover { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.btn-primary, .primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.btn-primary:hover, .primary:hover { background: var(--ink); border-color: var(--ink); color: var(--bg); }
 .btn-secondary, .secondary { background: transparent; border-color: var(--ink); color: var(--ink); }
 .btn-secondary:hover, .secondary:hover { background: var(--ink); color: var(--bg); }
 /* a toggle button shows its state: filled in the accent colour with a check mark when on (hover stays ink, so on is never mistaken for hover) */
@@ -1302,9 +1305,10 @@ footer { border-top: 1px solid var(--ink); }
 input[type="search"], input[type="text"], select, textarea { border-radius: 0; border: 1.5px solid var(--ink); background: var(--bg); }
 input[type="range"]::-webkit-slider-thumb { background: var(--accent); border-color: var(--bg); border-radius: 0; }
 input[type="range"]::-moz-range-thumb { background: var(--accent); border-color: var(--bg); border-radius: 0; }
-:focus-visible { outline: 3px solid var(--ink); outline-offset: 2px; border-radius: 0; }
-.feedback.success, .success { border-left: 5px solid var(--pos); }
-.feedback.error, .error { border-left: 5px solid var(--neg); }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 0; }
+:root[data-theme="nuit"] :focus-visible { outline-color: var(--object); }
+.feedback.success, .success { border: 2px solid var(--pos); }
+.feedback.error, .error { border: 2px solid var(--neg); }
 @media (prefers-reduced-motion: reduce) { .tool-card, .idea-card, .chapter-tile { transition: none; } }
 
 /* previews and emblems are drawn in ink on a light plate; red is kept for emphasis only (raised specificity beats the per-picture colours in explorer.css) */

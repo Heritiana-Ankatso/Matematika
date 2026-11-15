@@ -44,29 +44,29 @@ html.printing-doc, html.printing-doc body{ background: #fff !important; }
 }
 :root, :root[data-theme="jour"]{
   color-scheme: light;
-  --bg: #ffffff; --surface: #ffffff; --sunken: #f2f2f2;
-  --ink: #000000; --ink-2: #1f1f1f; --muted: #595959;
-  --line: #cdcdcd; --line-strong: #6e6e6e; --grid: #ececec;
-  --accent: #d90012; --accent-ink: #ffffff; --accent-soft: #fff0f1;
-  --obj2: #000000; --obj3: #8a8a8a;
-  --pos: #0a7a43; --pos-soft: #e1f3ea; --neg: #b3000f; --neg-soft: #fbe7e5;
-  --mark: #ffe14d;
+  --bg: #eeeae1; --surface: #ffffff; --sunken: #e4dfd3;
+  --ink: #18181b; --ink-2: #3a3d47; --muted: #444854;
+  --line: #d6d3cb; --line-strong: #5c6170; --grid: #e2ded4;
+  --accent: #2c3d8f; --accent-ink: #ffffff; --accent-soft: #e4e7f4; --object-ink: #8a5a00; --object: #c98b1e;
+  --obj2: #9e3b22; --obj3: #5c6170;
+  --pos: #2e6b3f; --pos-soft: #e2efe5; --neg: #a11d2b; --neg-soft: #f6e3e4;
+  --mark: #f0d9a8;
   --c1: #2563eb; --c2: #e8710a; --c3: #0f9d58; --c4: #c2185b; --c5: #7b1fa2; --c6: #00838f; --c7: #b8860b; --c8: #d84315;   
 }
 :root[data-theme="nuit"]{
   color-scheme: dark;
-  --bg: #0a0a0a; --surface: #121212; --sunken: #1b1b1b;
-  --ink: #ffffff; --ink-2: #dcdcdc; --muted: #a3a3a3;
-  --line: #333333; --line-strong: #808080; --grid: #202020;
-  --accent: #ff5560; --accent-ink: #000000; --accent-soft: #3a1316;
-  --obj2: #f2f2f2; --obj3: #9a9a9a;
-  --pos: #5fd0a0; --pos-soft: #12301f; --neg: #ff8a80; --neg-soft: #3a1714;
-  --mark: #4d4210;
+  --bg: #121216; --surface: #1c1c22; --sunken: #23232b;
+  --ink: #eeeae1; --ink-2: #b9bcc6; --muted: #a4a8b4;
+  --line: #3a3b44; --line-strong: #8e92a0; --grid: #1f1f26;
+  --accent: #8c9bff; --accent-ink: #121216; --accent-soft: #23253a; --object-ink: #e0a73e; --object: #e0a73e;
+  --obj2: #e8805f; --obj3: #8e92a0;
+  --pos: #6fc28a; --pos-soft: #16261b; --neg: #ff7a86; --neg-soft: #35161b;
+  --mark: #4a3a12;
   --c1: #7aa2ff; --c2: #ffa94d; --c3: #5fd0a0; --c4: #ff7eb6; --c5: #c9a6ff; --c6: #4dd0e1; --c7: #ffd54f; --c8: #ff8a65;
 }
 :root{
-  --display: "Schibsted Grotesk", system-ui, sans-serif; --ui: "Schibsted Grotesk", system-ui, sans-serif;
-  --body: "Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --display: "Archivo", system-ui, sans-serif; --ui: "Archivo", system-ui, sans-serif;
+  --body: "Source Serif 4", Georgia, "Times New Roman", serif;
   --math: "STIX Two Text", "Times New Roman", serif;
   --page-w: 1440px; 
   --r: 0; --r-sm: 0; --header: 66px; --chrome: var(--header); --t: 120ms ease;
@@ -638,17 +638,20 @@ details.source-course[open]{ padding-bottom: 16px; }
 }
 :root{ --signal: var(--accent); }
 h1, h2, h3, .brand, .btn, .primary, .secondary, .mainnav a, .subnav a, .language button, .seg, .text-button, .btn-quiet, .menu-tile strong, .row-title, .foot-brand{ font-family: var(--ui); }
-h1, h2{ font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; }
+h1, h2{ font-weight: 800; font-stretch: 112%; letter-spacing: -0.03em; line-height: 1.02; }
 h3{ font-weight: 700; letter-spacing: -0.015em; }
-.page h1, .library-heading h1, .lab-heading h1, .chapter-heading h1{ font-size: clamp(2.1rem, 4.4vw, 3.6rem); letter-spacing: -0.035em; margin-bottom: 14px; }
-.entrance-intro h1, .home-head h1{ font-size: clamp(2.3rem, 5vw, 4.2rem); max-width: 16ch; line-height: 1.02; letter-spacing: -0.035em; }
+.page h1, .library-heading h1, .lab-heading h1, .chapter-heading h1{ font-size: clamp(2.1rem, 4.4vw, 3.6rem); font-stretch: 125%; letter-spacing: -0.04em; margin-bottom: 14px; }
+.entrance-intro h1, .home-head h1{ font-size: clamp(2.3rem, 5vw, 4.2rem); font-stretch: 125%; max-width: 16ch; line-height: 0.98; letter-spacing: -0.04em; }
+@media (max-width: 600px){h1, h2, .page h1, .library-heading h1, .lab-heading h1, .chapter-heading h1, .entrance-intro h1, .home-head h1{ font-stretch: 100%; }
+}
+h1, h2, h3, summary{ hyphens: auto; overflow-wrap: anywhere; }
 .mainnav a{ font-weight: 700; color: var(--ink-2); }
 .mainnav a[aria-current]::after, .subnav a[aria-current]::after{ height: 4px; background: var(--accent); border-radius: 0; }
 .mainnav a[aria-current], .subnav a[aria-current]{ color: var(--ink); }
 .language button[aria-pressed="true"]{ background: var(--ink); color: var(--bg); }
 .btn, .primary, .secondary{ border-radius: 0; border-width: 2px; }
-.btn-primary, .primary{ background: var(--ink); color: var(--bg); border-color: var(--ink); }
-.btn-primary:hover, .primary:hover{ background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.btn-primary, .primary{ background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.btn-primary:hover, .primary:hover{ background: var(--ink); border-color: var(--ink); color: var(--bg); }
 .btn-secondary, .secondary{ background: transparent; border-color: var(--ink); color: var(--ink); }
 .btn-secondary:hover, .secondary:hover{ background: var(--ink); color: var(--bg); }
 .btn-secondary[aria-pressed="true"], .btn-secondary[aria-pressed="true"]:hover{ background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
@@ -661,9 +664,10 @@ h3{ font-weight: 700; letter-spacing: -0.015em; }
 input[type="search"], input[type="text"], select, textarea{ border-radius: 0; border: 1.5px solid var(--ink); background: var(--bg); }
 input[type="range"]::-webkit-slider-thumb{ background: var(--accent); border-color: var(--bg); border-radius: 0; }
 input[type="range"]::-moz-range-thumb{ background: var(--accent); border-color: var(--bg); border-radius: 0; }
-:focus-visible{ outline: 3px solid var(--ink); outline-offset: 2px; border-radius: 0; }
-.feedback.success, .success{ border-left: 5px solid var(--pos); }
-.feedback.error, .error{ border-left: 5px solid var(--neg); }
+:focus-visible{ outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 0; }
+:root[data-theme="nuit"] :focus-visible{ outline-color: var(--object); }
+.feedback.success, .success{ border: 2px solid var(--pos); }
+.feedback.error, .error{ border: 2px solid var(--neg); }
 :root:root:root .discovery-preview[data-preview]{ --topic-ink: var(--ink); color: var(--ink); background: var(--sunken); }
 .challenge-motif, .card-bottom{ color: var(--ink); }
 :root:has(.subnav){ --chrome: var(--header); }
