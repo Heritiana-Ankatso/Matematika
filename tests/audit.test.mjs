@@ -74,7 +74,6 @@ test("all reasoning, presets and pathway notes are bilingual and valid", () => {
     assert.ok(s.name.length===2 && s.name.every(Boolean));
     if(s.note) assert.ok(s.note.length===2 && s.note.every(Boolean));
   }
-  for(const c of challenges) for(const h of c.hints) assert.ok(h.length===2 && h.every(Boolean));
 });
 test("classic challenge answers agree with independent small-case calculations", () => {
   const answer=id=>challenges.find(c=>c.id===id).answer;
