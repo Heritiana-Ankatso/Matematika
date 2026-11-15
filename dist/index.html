@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <meta name="theme-color" content="#f5f6f8" />
+    <meta name="theme-color" content="#eeeae1" />
     <meta name="application-name" content="Matematika" />
     <meta
       name="description"
@@ -52,12 +52,12 @@
         if (saved !== "jour" && saved !== "nuit")
           saved = matchMedia("(prefers-color-scheme: dark)").matches ? "nuit" : "jour";
         document.documentElement.dataset.theme = saved;
-        document.querySelector('meta[name="theme-color"]').content = saved === "nuit" ? "#0c111b" : "#f5f6f8";
+        document.querySelector('meta[name="theme-color"]').content = saved === "nuit" ? "#121216" : "#eeeae1";
       } catch (e) {}
     </script>
     <link rel="preload" href="./fonts/stix-two-text-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="stylesheet" href="./styles/explorer.css?v=310094f082" />
-    <link rel="stylesheet" href="./styles/pages.css?v=ba781bf46c" />
+    <link rel="stylesheet" href="./styles/explorer.css?v=60ce24ba10" />
+    <link rel="stylesheet" href="./styles/pages.css?v=9c2b26fec0" />
     <link rel="stylesheet" href="./styles/ergonomics.css?v=4a6e199373" />
     <link rel="stylesheet" href="./styles/home.css?v=18e716a2da" />
     <link rel="stylesheet" href="./styles/history.css?v=7563185537" />
@@ -70,14 +70,14 @@
 {
       "imports": {
         "./js/annals-bank.js": "./js/annals-bank.js?v=49636c9652",
-        "./js/app.js": "./js/app.js?v=6550529ac1",
+        "./js/app.js": "./js/app.js?v=689b82620e",
         "./js/automatismes.js": "./js/automatismes.js?v=027ca4e4ff",
         "./js/bank-page.js": "./js/bank-page.js?v=2c2aacd2c3",
         "./js/basics-page.js": "./js/basics-page.js?v=ffbd569767",
         "./js/biographies-major.js": "./js/biographies-major.js?v=d52726aba4",
         "./js/camera3d.js": "./js/camera3d.js?v=1bacf9765e",
         "./js/canvas-navigation.js": "./js/canvas-navigation.js?v=04396cab00",
-        "./js/catalogue-data.js": "./js/catalogue-data.js?v=d3f9b44828",
+        "./js/catalogue-data.js": "./js/catalogue-data.js?v=e0506feb6a",
         "./js/challenges/ants/activity.js": "./js/challenges/ants/activity.js?v=976caa20eb",
         "./js/challenges/ants/art.js": "./js/challenges/ants/art.js?v=b866e20fa8",
         "./js/challenges/ants/index.js": "./js/challenges/ants/index.js?v=dbbb27f9e0",
@@ -544,7 +544,7 @@
         "./js/teacher-state.js": "./js/teacher-state.js?v=e93ee3e7d2",
         "./js/topic-registry.js": "./js/topic-registry.js?v=3e7623d626",
         "./js/topology-content.js": "./js/topology-content.js?v=ef333dc505",
-        "./js/ui.js": "./js/ui.js?v=a096b0396d",
+        "./js/ui.js": "./js/ui.js?v=a246f1f31d",
         "./js/university-model.js": "./js/university-model.js?v=504901b5eb",
         "./js/university.js": "./js/university.js?v=e7fbff3738",
         "./js/visible-loop.js": "./js/visible-loop.js?v=1bd00417d7",
@@ -554,7 +554,7 @@
       }
     }
     </script>
-    <script type="module" src="./js/app.js?v=6550529ac1"></script>
+    <script type="module" src="./js/app.js?v=689b82620e"></script>
     <!-- importmap:end -->
   </head>
   <body>
