@@ -43,7 +43,7 @@ really need them.
 | a gallery curiosity or a lab "object" | `site/js/lab-objects.js` (`mountObject`), `js/gallery/gallery-objects.js`, maths in `js/gallery/gallery-math.js`; card drawing in `home-art.js` | |
 | the error correction collection ("Erreurs": false claims, counterexamples, repairs, flawed derivations) | `site/js/errors-data.js` (the records; add an error here), `site/js/errors-model.js` (computed checks, `errorsFor`), `site/js/errors.js` (page); `tests/errors.test.mjs` | goals 4 and 5 of `docs/IMPROVEMENT_GOALS.md`; links to chapters are `links` of each record and appear back on chapter pages, the slides index and in discovery; coverage: `content/data/error-coverage.json`, then `node scripts/error-coverage.mjs` |
 | an Olympiad strategy (idea, example, problems, hints, solutions, links) | `site/js/olympiad-content.js`; page `site/js/olympiad.js`; figures `site/js/olympiad-widgets.js`; `tests/olympiad.test.mjs` | bilingual (owner rule: Olympiad is its own category) |
-| one challenge | its folder `site/js/challenges/<id>/` (index in `site/js/challenges/CLAUDE.md`) | new challenge: recipe `challenge` |
+| one challenge | its folder `site/js/challenges/<id>/` (index in `site/js/challenges/CLAUDE.md`) | new challenge: skill `maths-explorer-challenge` |
 | the home page | `site/js/welcome.js`, `site/styles/home.css`; interactive scene `site/js/figure-scenes.js`, engine `site/js/figure-engine.js` | |
 | course catalogue entries, titles, chapters, language of a course | `content/data/manifest.json` | `make site` |
 | internal prerequisite/order/scope diagnostics | `docs/PREREQUISITES.md`, `content/data/prerequisites.json`, `scripts/prerequisite-model.mjs`, `scripts/check-prerequisites.mjs` | `npm run check:prerequisites` (advisory) |
