@@ -115,7 +115,7 @@ function route() {
 function link(page, id = "") {
   return "#" + page + (id ? "/" + id : "");
 }
-const brandMark = `<svg class="brandmark" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><rect width="40" height="40" rx="10" class="bm-bg"/><path d="M9 11Q20 43 31 11" class="bm-curve"/><circle cx="10" cy="20" r="3.2" class="bm-dot"/><circle cx="30" cy="20" r="3.2" class="bm-dot"/></svg>`;
+const brandMark = `<svg class="brandmark" viewBox="0 0 120 120" aria-hidden="true" focusable="false"><rect width="120" height="120" class="bm-bg"/><path d="M90 60A30 30 0 1 1 30 60A30 30 0 1 1 90 60ZM30 0A30 30 0 0 1 0 30M90 0A30 30 0 0 0 120 30M0 90A30 30 0 0 1 30 120M120 90A30 30 0 0 0 90 120" class="bm-arc"/></svg>`;
 // Three sections: "Apprendre" (courses and classroom tools), "Explorer" (laboratory, challenges) and "Lire" (biographies,
 // stories, and the curiosities of the gallery).
 // The main bar names the sections; a row of tabs under it names the pages of the current section.
