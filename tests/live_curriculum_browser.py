@@ -63,8 +63,23 @@ with sync_playwright() as p:
             assert page.evaluate('location.hash') == route, route
             assert page.locator('main h1').count() > 0, route
             scoped_links()
-        go('#slides')
+        # No level in the address: every curriculum is offered and none is assumed (owner request, 16 November 2026).
+        for route in ['#resources', '#bank', '#slides']:
+            go(route)
+            page.locator('.curriculum-chooser').wait_for()
+            assert page.locator('.chapter-tile, .bank-chapters, .deck-card').count() == 0, route
+            levels = set(page.locator('.curriculum-chooser .pw-pick').evaluate_all('(nodes) => nodes.map(n => n.dataset.course || n.getAttribute("href").split("/")[1])'))
+            if route == '#bank':   # no online exercises for the Malagasy books yet: said on their card, not listed with 0
+                assert set(COURSES) <= levels and not levels & {'t10', 't11s'}, levels
+                assert page.locator('.curriculum-chooser a[href="#resources"]').count() == 1
+            else:
+                assert set(COURSES + ['t10', 't11s']) <= levels, (route, levels)
+            assert page.locator('.curriculum-chooser a[href="#university"]').count() == 1, route
+            scoped_links()
+        page.locator('.curriculum-chooser [data-course="t11s"]').click()
         page.locator('.deck-card').first.wait_for()
+        assert page.evaluate('location.hash') == '#slides/t11s'
+        assert page.locator('.curriculum-eyebrow').count() == 1
         scoped_links()
         go('#pack')
         page.locator('[name=course]').first.wait_for()

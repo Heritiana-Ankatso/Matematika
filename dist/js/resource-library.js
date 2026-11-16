@@ -10,15 +10,15 @@ import { liveCompanionCatalog } from './live-curriculum.js';
 const resourceCatalog = liveCompanionCatalog(completeCatalog);
 import { guides } from './learning-content.js';
 import { icon } from './icons.js';
+import { levelRail, curriculumChooser, chosenLevelNote, families, shortName } from './curriculum-picker.js';
 export {resourceCatalog};
 const P=(fr,en)=>[fr,en];
 const E=x=>String(x).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const courses=Object.fromEntries(primaryCourses.map(c=>[c.id,c.title]));
-const curriculumOf=Object.fromEntries(primaryCourses.map(c=>[c.id,c.curriculum]));   // 'fr' (French) or 'mg' (Malagasy)
-const inCurriculum=k=>Object.keys(courses).filter(id=>curriculumOf[id]===k);
 const kinds={chapter:P('Chapitre élève · cours, activités et exercices','Student chapter · lessons, activities and exercises'),teacher:P('Édition professeur · corrections et conseils','Teacher edition · solutions and guidance'),fluency:P('Automatismes · fiche élève','Fluency · student worksheet'),'fluency-solutions':P('Automatismes · corrigé','Fluency · solutions')};
 const tabs={understand:P('Comprendre','Understand'),experiment:P('Expérimenter','Experiment'),practice:P('S’entraîner','Practise'),documents:P('Documents','Documents')};
-let filter='',query='';
+// filter: the level shown, '' while no class is chosen (the curriculum chooser is shown, nothing is assumed).
+let filter='',query='',saved='';
 const normalize=s=>s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
 export function matchingChapters(course,search){const q=normalize(search.trim());return resourceCatalog.chapters.filter(c=>(course==='all'||c.course===course)&&(!q||normalize([...c.title,c.course,c.topic].join(' ')).includes(q)));}
 export function matchingSupplements(course,search){const q=normalize(search.trim());return resourceCatalog.supplements.filter(c=>(course==='all'||c.course===course)&&(!q||normalize([...c.title,c.course,c.kind].join(' ')).includes(q)));}
@@ -28,26 +28,28 @@ const progress={seen:new Set(),last:''};
 const kb=(b,t)=>`${Math.max(1,Math.round(b/1024))} ${t(P('Ko','KB'))}`;
 // Layout (owner request, 1 November 2026): a rail of curricula and levels stays beside the chapters, so that any level
 // is one click away from any other; the chapters of the chosen level fill the rest of the width.
-const SHORT={seconde:P('Seconde','Seconde'),premiere:P('Première spécialité','Première'),terminale:P('Terminale spécialité','Terminale'),expertes:P('Maths expertes','Further maths'),stmg:P('Terminale STMG','Terminale STMG'),t10:P('T10','T10'),t11s:P('T11 série S','T11 S')};
-const shortName=(id,t)=>t(SHORT[id]||courses[id]);
+// Levels of the class curricula (Malagasy and French), grouped by curriculum in the rail and the chooser.
+const levelIds=()=>families(Object.keys(courses)).flatMap(f=>f.ids);
 
-function rail(t,counts){const pick=id=>`<li><button type="button" class="pw-pick" data-course="${id}" aria-pressed="${filter===id&&!query.trim()}"><span>${E(shortName(id,t))}</span><small>${counts[id]}</small></button></li>`;
- return `<nav class="pw-rail res-rail" aria-label="${t(P('Classes et outils','Classes and tools'))}"><div class="pw-family"><ul>${inCurriculum('fr').map(pick).join('')}</ul></div></nav>`;}
+let counts={};
+const pick=(id,label)=>`<li><button type="button" class="pw-pick" data-course="${id}" aria-pressed="${filter===id&&!query.trim()}"><span>${E(label)}</span><small>${counts[id]}</small></button></li>`;
+function rail(t){return levelRail({t,ids:levelIds(),pick});}
 function supplementList(items,course,t){const link=(f,label)=>{if(!f)return '';const language=courseLanguage(course,documentLanguage),edition=editionFor(f,language);return edition?`<a class="res-doc-link" href="./${assetHref(edition.path.replace(/^\.\//,''))}" target="_blank" rel="noopener">${E(label)} <span>PDF · ${edition.pages} p.</span></a>`:'';};
  return items.length?`<details class="res-extra secondary-tools"><summary>${t(P('Livrets à imprimer','Printable booklets'))} (${items.length})</summary><ul class="res-docs">${items.map(c=>`<li><span class="res-doc-title">${E(t(c.title))}</span><span class="res-doc-links">${c.files[0].kind==='teacher'?link(c.files[0],t(P('Professeur','Teacher'))):link(c.files[0],t(P('Élève','Student')))+link(c.files[1],t(P('Corrigé','Solutions')))}</span></li>`).join('')}</ul></details>`:'';}
 function chapterTile(c,t){return `<li><a class="chapter-tile chapter-row" data-chapter="${E(c.id)}" href="#chapter/${E(c.id)}"><span class="chapter-row-number">${String(c.number).padStart(2,'0')}</span><span class="chapter-tile-body"><strong>${E(t(c.title))}</strong>${progress.seen.has(c.id)?`<small>${t(P('Déjà ouvert','Opened before'))}</small>`:''}</span><span class="chapter-row-arrow" aria-hidden="true">→</span></a></li>`;}
 function cards(t){const search=!!query.trim();const scope=search?'all':filter;const found=matchingChapters(scope,query),extra=matchingSupplements(scope,query);const groups=Object.entries(courses).filter(([id])=>[...found,...extra].some(c=>c.course===id));
- if(!search){const id=filter;return `<div class="res-head"><h2>${E(t(courses[id]))}</h2><span class="pw-count">${found.length} ${t(P('chapitres','chapters'))}</span></div><ol class="chapter-grid">${found.map(c=>chapterTile(c,t)).join('')}</ol>${supplementList(extra,id,t)}`;}
+ if(!search&&!filter)return curriculumChooser({t,ids:levelIds(),pick});
+ if(!search){const id=filter;return `${chosenLevelNote({t,id,remembered:id===saved,href:'#resources'})}<div class="res-head"><h2>${E(t(courses[id]))}</h2><span class="pw-count">${found.length} ${t(P('chapitres','chapters'))}</span></div><ol class="chapter-grid">${found.map(c=>chapterTile(c,t)).join('')}</ol>${supplementList(extra,id,t)}`;}
  return `<p class="resource-count" role="status">${found.length} ${t(P('chapitres trouvés','chapters found'))}</p>${groups.map(([id,title])=>`<section class="course-group"><h2 class="group-title">${E(t(title))}</h2><ol class="chapter-grid">${found.filter(c=>c.course===id).map(c=>chapterTile(c,t)).join('')}</ol>${extra.some(c=>c.course===id)?supplementList(extra.filter(c=>c.course===id),id,t):''}</section>`).join('')}${found.length||extra.length?'':`<div class="resource-empty"><p>${t(P('Aucune ressource ne correspond à cette recherche.','No resources match this search.'))}</p><button data-clear-search>${t(P('Effacer la recherche','Clear the search'))}</button></div>`}`;}
-export function libraryPage(t,{challenges=[],completed=new Set(),seen=new Set(),last='',labs=[]}={}){documentLanguage=t(P('fr','en'));progress.seen=seen;progress.last=last;const requested=globalThis.location?.hash.split('/')[1];if(courses[requested])filter=requested;else if(courses[currentCourse(filter)])filter=currentCourse(filter);if(!courses[filter]){let saved='';try{saved=currentCourse();}catch{}const lastCourse=last&&resourceCatalog.chapters.find(c=>c.id===last)?.course;filter=courses[saved]?saved:courses[lastCourse]?lastCourse:Object.keys(courses)[0];}const counts=Object.fromEntries(Object.keys(courses).map(id=>[id,resourceCatalog.chapters.filter(c=>c.course===id).length]));const resume=progress.last?resourceCatalog.chapters.find(c=>c.id===progress.last):null;return `<main id="main" tabindex="-1" class="page resource-page">
+export function libraryPage(t,{challenges=[],completed=new Set(),seen=new Set(),last='',labs=[]}={}){documentLanguage=t(P('fr','en'));progress.seen=seen;progress.last=last;const requested=globalThis.location?.hash.split('/')[1];saved='';try{saved=currentCourse();}catch{}filter=levelIds().includes(requested)?requested:'';counts=Object.fromEntries(Object.keys(courses).map(id=>[id,resourceCatalog.chapters.filter(c=>c.course===id).length]));const resume=progress.last?resourceCatalog.chapters.find(c=>c.id===progress.last):null;return `<main id="main" tabindex="-1" class="page resource-page">
 <div class="res-top"><div><h1>${t(P('Cours et exercices','Lessons and exercises'))}</h1><p class="page-intro">${t(P('Choisis ta classe, puis ouvre un chapitre. Le cours, les figures et les exercices sont réunis au même endroit.','Choose your class, then open a chapter. Lessons, figures and exercises are together in one place.'))}</p></div>${resume?`<a class="resume" href="#chapter/${resume.id}">${icon('clock-counter-clockwise',20)}<span><strong>${t(P('Reprendre','Continue'))}</strong> ${E(shortName(resume.course,t))} · ${E(t(resume.title))}</span>${icon('caret-right',18)}</a>`:''}</div>
-<div class="pw-layout res-layout">${rail(t,counts)}<section class="pw-panel chooser" aria-label="${t(P('Chapitres','Chapters'))}"><label class="search"><span class="sr-only">${t(P('Rechercher un chapitre','Find a chapter'))}</span>${icon('magnifying-glass',20)}<input id="resource-search" type="search" value="${E(query)}" placeholder="${t(P('Rechercher dans tous les niveaux : suites, logarithme, probabilités…','Search every level: sequences, logarithm, probability…'))}"></label><div id="resource-results" aria-live="polite">${cards(t)}</div>${workshopCards(t)}</section></div>
+<div class="pw-layout res-layout">${rail(t)}<section class="pw-panel chooser" aria-label="${t(P('Chapitres','Chapters'))}"><label class="search"><span class="sr-only">${t(P('Rechercher un chapitre','Find a chapter'))}</span>${icon('magnifying-glass',20)}<input id="resource-search" type="search" value="${E(query)}" placeholder="${t(P('Rechercher dans tous les niveaux : suites, logarithme, probabilités…','Search every level: sequences, logarithm, probability…'))}"></label><div id="resource-results" aria-live="polite">${cards(t)}</div>${workshopCards(t)}</section></div>
 <details class="resource-origin"><summary>${t(P('D’où viennent ces ressources ?','Where do these resources come from?'))}</summary><p>${t(P('Les langues disponibles sont indiquées pour chaque document. Les guides essentiels et graphiques accompagnent chaque chapitre.','Available languages are listed for each document. Essential guides and diagrams accompany each chapter.'))}</p></details></main>`;}
 export function bindLibrary(t) {
  const results=document.querySelector('#resource-results');
  const search=document.querySelector('#resource-search');
  const paint=()=>{results.innerHTML=cards(t);document.querySelectorAll('.res-rail [data-course]').forEach(b=>b.setAttribute('aria-pressed',String(!query.trim()&&b.dataset.course===filter)));};
- const choose=id=>{filter=id;query='';search.value='';rememberCourse(id);history.replaceState(null,'','#resources/'+id);paint();results.querySelector('h2')?.scrollIntoView?.({block:'nearest'});};
+ const choose=id=>{filter=saved=id;query='';search.value='';rememberCourse(id);history.replaceState(null,'','#resources/'+id);paint();results.querySelector('h2')?.scrollIntoView?.({block:'nearest'});};
  const click=e=>{const button=e.target.closest('[data-course],[data-clear-search]');if(!button)return;
   if(button.hasAttribute('data-course'))choose(button.dataset.course);
   else {query='';search.value='';paint();search.focus();}

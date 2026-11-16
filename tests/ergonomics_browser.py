@@ -13,12 +13,16 @@ with sync_playwright() as p:
   page.goto(BASE+'/#'+route);page.locator('main').wait_for();page.wait_for_timeout(120)
  go('home');page.select_option('#home-class','stmg');assert page.locator('.mainnav [data-section="learn"]').get_attribute('href')=='#resources/stmg'
  page.locator('.mainnav [data-section="learn"]').click();
- page.locator('.subnav a[href="#automatismes"]').wait_for(state='visible')  # Automatismes must be visible in Apprendre
- page.locator('.subnav a[href="#sheets"]').wait_for(state='visible')  # Fiches must be visible in Apprendre
+ # Apprendre folds its classroom tools under one menu (owner request, 16 November 2026): one click shows them
+ assert page.locator('.subnav .section-tools').get_attribute('open') is None
+ page.locator('.subnav .section-tools > summary').click()
+ page.locator('.subnav a[href="#automatismes"]').wait_for(state='visible')
+ page.locator('.subnav a[href="#sheets"]').wait_for(state='visible')
  page.locator('.res-rail [data-course="premiere"]').click()
  assert page.locator('.subnav [data-course-page="bank"]').get_attribute('href')=='#bank/premiere'
  page.locator('.subnav [data-course-page="bank"]').click();page.wait_for_url('**/#bank/premiere')
- page.locator('.subnav [data-course-page="slides"]').click();page.locator('.deck-card').first.wait_for()
+ page.locator('.subnav .section-tools > summary').click();page.locator('.subnav [data-course-page="slides"]').click();page.locator('.deck-card').first.wait_for()
+ assert page.locator('.subnav .section-tools').get_attribute('open') is not None  # open on its own pages
  page.locator('[data-course="expertes"]').click();assert page.locator('.subnav [data-course-page="resources"]').get_attribute('href')=='#resources/expertes'
  go('chapter/premiere-02/cours');page.locator('#chapter-sequence[aria-busy="false"]').wait_for();go('sheets')
  assert page.locator('#gen-new').is_visible(), 'New worksheet variant must be visible without opening settings'
