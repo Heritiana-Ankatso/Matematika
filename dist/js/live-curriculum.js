@@ -50,6 +50,7 @@ export function isLiveRoute({ page, id, tab }) {
   if (page === 'olympiad') return FULL_EDITION;
   if (page === 'workshop') return FULL_EDITION || id === 'quadratic';
   if (page === 'errors') return true;
+  if (page === 'intuition') return !id;
   return false;
 }
 
