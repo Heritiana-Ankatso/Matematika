@@ -78,6 +78,7 @@ really need them.
 | the unpublished Monte Carlo exploration lab | `HANDOFF.md` task queue, then `docs/future-work/monte-carlo-lab.html` | Prototype, now integrated as the `monte-carlo-*` laboratory experiments (`site/js/lab/experiments/monte-carlo.js`); kept as reference. |
 | the unpublished set theory interactive atlas | `HANDOFF.md` task queue, then `docs/future-work/set-theory-interactive-atlas.html` | Prototype, now integrated as the foundations lesson `#basics/sets` (`site/resources/basics/sets*.html`); kept as reference. |
 | the unpublished London Eye trigonometry exercise | `HANDOFF.md` task queue, then `docs/future-work/london-eye-interactive-exercise.html` | Prototype, now integrated as the experiment `ferris-wheel` (International pathway); kept as reference. |
+| the native Malagasy T10 course, chapter 1 Logique (unpublished: not in `manifest.json`, nothing in `dist/`) | `content/tex/courses/mada-t10/c01.fr.tex` and `content/tex/courses/mada-t10/corriges/c01.fr.tex` (French only), `scripts/build-mada-t10.py`, `content/malagasy/chapters.json` (programme mapping), `content/slides/mada-t10-01.json`, experiment `site/js/lab/experiments/logic-truth.js` (+ `site/js/lab/models/logic-truth.js`, `site/js/lab/templates/logic.js`) | `scripts/check-mada-t10-logic.py`, `tests/logic-truth.test.mjs`, `tests/mada-t10-01.test.mjs`; plan `docs/future-work/malagasy-t10-ch01-adaptation-plan.md` section 6 |
 
 
 ## 3. Site map (hash routes)

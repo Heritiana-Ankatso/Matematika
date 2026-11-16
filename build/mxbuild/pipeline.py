@@ -27,6 +27,7 @@ COURSES = {
     'terminale': ['scripts/build-tex-resources.py', 'terminale', '--chapters', *map(str, chapter_numbers('terminale')), '--appendices'],
     'expertes': ['scripts/build-expertes.py'],
     'enrichment': ['scripts/build-enrichment.py'],
+    'mada-t10': ['scripts/build-mada-t10.py'],   # native Malagasy T10 course, unpublished: PDFs stay in build/out
 }
 
 
