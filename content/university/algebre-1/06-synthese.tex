@@ -1,0 +1,105 @@
+\chapitre[All five chapters.]{Synthèse}{Problèmes transversaux et auto-évaluation}{Cross-chapter problems and self-assessment}
+\resume{Cinq fils relient les chapitres : les quotients, $\Z/n\Z$, le groupe $\GL_n$, les permutations et l'élimination. Pour chacun, un rappel du schéma commun puis des problèmes qui obligent à passer d'un langage à l'autre ; enfin la liste de contrôle de tout le cours.}
+\summary{Five threads link the chapters: quotients, Z/nZ, the group GL_n, permutations and elimination. For each, a reminder of the common pattern, then problems that force you to move between languages; finally the checklist for the whole course.}
+\begin{objectifs}
+\item Reconnaître le même schéma (relation \og même image \fg, quotient, factorisation) aux trois étages : ensembles, groupes, anneaux.
+\item Suivre un objet ($\Z/n\Z$, $\GL_n$, une permutation, une matrice) à travers tous les chapitres.
+\item Vérifier, à froid et sans notes, ce qui est acquis dans tout le cours.
+\end{objectifs}
+\begin{prerequis}
+Les chapitres 1 à 5. Ces problèmes sont le meilleur test de maîtrise : il faut savoir passer d'un langage à l'autre.
+\end{prerequis}
+
+\section{Le schéma des quotients}
+\begin{essentiel}[Un théorème, trois étages]
+Soit $f:E\to F$ et $\mathcal R$ la relation \og $f(x)=f(y)$ \fg. Alors $f=\overline f\circ\pi$ avec $\pi:E\to E/\mathcal R$ surjective et $\overline f:E/\mathcal R\to\Img f$ bijective.
+\begin{tabular}{lll}
+Étage & Classes de $\mathcal R$ & Structure en plus \\
+Ensembles (ch. 1) & les fibres $f^{-1}(\ens y)$ & aucune : $E/\mathcal R\sim\Img f$ \\
+Groupes (ch. 4) & les classes $x\Ker f$ & $\Ker f$ normal : $G/\Ker f\simeq\Img f$ \\
+Anneaux (ch. 5) & les classes $x+\Ker f$ & $\Ker f$ idéal : $A/\Ker f\simeq\Img f$ \\
+\end{tabular}
+À chaque étage, la même preuve en trois temps : bien défini (sens $\Leftarrow$), injectif (sens $\Rightarrow$), compatible avec les lois.
+\end{essentiel}
+
+\section{Les autres fils}
+\begin{itemize}
+\item \textbf{$\Z/n\Z$ de bout en bout} : ensemble quotient (ch. 1), groupe cyclique d'ordre $n$ dont les sous-groupes correspondent aux diviseurs de $n$ (ch. 4), anneau dont les inversibles sont donnés par Bézout, corps exactement quand $n$ est premier (ch. 1 et 5).
+\item \textbf{$\GL_n$} : matrices inversibles (ch. 2), déterminant multiplicatif (ch. 3), donc homomorphisme $\GL_n\to\K^*$ de noyau $\SL_n$ (ch. 4), avec $\det P_\sigma=\sgn(\sigma)$.
+\item \textbf{Permutations} : bijections (ch. 1), matrices de permutation (ch. 2), signature et déterminant (ch. 3 et 4), $D_n$ dans $S_n$ et dans $O_2(\R)$ (ch. 4).
+\item \textbf{L'élimination} : matrices d'élimination et $PA=LU$ (ch. 2), d'où rang, bases, dimension, déterminant et inverse (ch. 3).
+\end{itemize}
+
+\exercices
+\rubrique{D}
+\begin{exo}[S][Quotients partout]
+(a) Énoncer et démontrer la factorisation canonique pour une application quelconque. (b) Pour un homomorphisme de groupes $f$, montrer que la relation \og même image \fg{} est exactement $x\,\mathcal R_g\,y\iff y^{-1}x\in\Ker f$, puis en déduire le premier théorème d'isomorphisme à partir de (a) en ajoutant seulement la compatibilité avec les lois. (c) Même travail pour un homomorphisme d'anneaux. (d) Appliquer aux trois exemples : $\det$ sur $\GL_2(\R)$, $z\mapsto\abs z$ sur $\C^*$, la réduction $\Z\to\Z/n\Z$ (comme groupe, puis comme anneau).
+\begin{corrige}
+(a) Voir \voir{thm-factorisation}. (b) $f(x)=f(y)\iff f(y)^{-1}f(x)=e\iff f(y^{-1}x)=e\iff y^{-1}x\in\Ker f$. Les classes de $\mathcal R$ sont donc les $x\Ker f$, l'ensemble quotient est $G/\Ker f$, et (a) donne une bijection $\overline f:G/\Ker f\to\Img f$. Il reste à voir $\overline f(xK\cdot yK)=\overline f(xyK)=f(xy)=f(x)f(y)$, ce qui utilise la loi de $G/K$, bien définie parce que $K$ est normal. (c) Même chose avec $x+\Ker f$, la compatibilité avec $+$ et $\times$, et le fait que $\Ker f$ est un idéal. (d) $\GL_2(\R)/\SL_2(\R)\simeq\R^*$ ; $\C^*/S^1\simeq\R_+^*$ ; $\Z/n\Z$, quotient du groupe $\Z$ par $n\Z$ et de l'anneau $\Z$ par l'idéal $n\Z$.
+\end{corrige}
+\end{exo}
+\begin{exo}[S][$\Z/n\Z$ de bout en bout]
+Pour $n=15$ puis $n=13$ : (a) décrire $\Z/n\Z$ comme ensemble quotient ; (b) donner ses générateurs comme groupe additif et ses sous-groupes ; (c) donner ses inversibles, et l'inverse de $\cl7$ par Euclide étendu ; (d) dire si c'est un corps, un anneau intègre, et lister ses diviseurs de zéro ; (e) montrer, à l'aide de Lagrange dans $(\Z/n\Z)^\times$, que $a^{\varphi(n)}\equiv1\pmod n$ pour $\pgcd(a,n)=1$, et calculer $2^{100}$ modulo $15$ et modulo $13$.
+\begin{corrige}
+$n=15$. (a) Les classes $\cl0,\dots,\cl{14}$. (b) Générateurs : les $\cl k$ avec $\pgcd(k,15)=1$, soit $\cl1,\cl2,\cl4,\cl7,\cl8,\cl{11},\cl{13},\cl{14}$ ; sous-groupes d'ordres $1,3,5,15$ : $\ens{\cl0}$, $\langle\cl5\rangle$, $\langle\cl3\rangle$, tout. (c) Les mêmes 8 classes ; $15=2\cdot7+1$, donc $1=15-2\cdot7$ et $\cl7^{-1}=\cl{-2}=\cl{13}$ (contrôle : $91=6\cdot15+1$). (d) Pas un corps ; diviseurs de zéro : $\cl3,\cl5,\cl6,\cl9,\cl{10},\cl{12}$. (e) $\varphi(15)=8$, $2^{100}=2^{96}\cdot2^4=(2^8)^{12}\cdot16\equiv16\equiv1\pmod{15}$.
+$n=13$. (a) $\cl0,\dots,\cl{12}$. (b) Tout $\cl k\neq\cl0$ engendre ; sous-groupes triviaux seulement (ordre premier). (c) Les 12 classes non nulles ; $13=7+6$, $7=6+1$, donc $1=7-6=7-(13-7)=2\cdot7-13$ et $\cl7^{-1}=\cl2$. (d) Corps ; aucun diviseur de zéro. (e) $\varphi(13)=12$, $2^{100}=2^{96}\cdot2^4\equiv16\equiv3\pmod{13}$.
+\end{corrige}
+\end{exo}
+\begin{exo}[S][Le fil de $\GL_n$]
+(a) Montrer que $\GL_n(\K)$ est un groupe et que $\det$ en est un homomorphisme surjectif vers $\K^*$ ; en déduire $\GL_n/\SL_n\simeq\K^*$. (b) Montrer que $\sigma\mapsto P_\sigma$ est un homomorphisme injectif $S_n\to\GL_n(\K)$ et que $\det P_\sigma=\sgn(\sigma)$. (c) On travaille sur le corps $\Z/2\Z$. Montrer que $\GL_2(\Z/2\Z)$ a 6 éléments, qu'il n'est pas abélien, et qu'il est isomorphe à $S_3$ en le faisant agir sur les trois vecteurs non nuls de $(\Z/2\Z)^2$.
+\begin{corrige}
+(a) Chapitre 2 (\voir{prop-produit-inverse}), puis P8 ; surjectif par $\mathrm{diag}(t,1,\dots,1)$ ; premier théorème. (b) Voir \voir{prop-gl}. (c) Une matrice est inversible si ses colonnes sont libres : première colonne non nulle (3 choix parmi $(\Z/2\Z)^2\setminus\ens{\mathbf 0}$), seconde hors de la droite engendrée par la première (4 vecteurs moins 2 : 2 choix). Total $6$. $\begin{pmatrix}1&1\\0&1\end{pmatrix}$ et $\begin{pmatrix}0&1\\1&0\end{pmatrix}$ ne commutent pas. Une matrice inversible permute les 3 vecteurs non nuls ; cela donne un homomorphisme vers $S_3$, injectif (une matrice qui fixe $e_1$ et $e_2$ est l'identité), entre groupes d'ordre 6 : un isomorphisme.
+\end{corrige}
+\end{exo}
+\begin{exo}[A][Permutations et déterminant]
+(a) À partir de P1 à P3 seulement, montrer qu'en développant chaque ligne $v_i=\sum_ja_{ij}e_j$ par linéarité, on obtient
+\[\det A=\sum_{\sigma\in S_n}\sgn(\sigma)\,a_{1\sigma(1)}a_{2\sigma(2)}\cdots a_{n\sigma(n)}\qquad\text{(formule de Leibniz).}\]
+(b) Retrouver $ad-bc$ et la règle de Sarrus pour $n=3$. (c) Expliquer pourquoi cette formule, une fois prise comme définition, prouve l'existence du déterminant admise au chapitre 3.
+\begin{corrige}
+(a) Par P3 appliquée ligne après ligne, $\det A=\sum_{j_1,\dots,j_n}a_{1j_1}\cdots a_{nj_n}\det(e_{j_1},\dots,e_{j_n})$, où la matrice a pour lignes $e_{j_1},\dots,e_{j_n}$. Si deux $j_k$ coïncident, ce déterminant est nul (P4). Sinon $k\mapsto j_k$ est une permutation $\sigma$, la matrice est une matrice de permutation, et des échanges de lignes la ramènent à $I_n$ : son déterminant est $\sgn(\sigma)$ (\voir{prop-gl}, P2, P1).
+(b) $n=2$ : $\id$ donne $a_{11}a_{22}$, la transposition donne $-a_{12}a_{21}$. $n=3$ : les 3 permutations paires ($\id$ et les deux 3-cycles) donnent $a_{11}a_{22}a_{33}+a_{12}a_{23}a_{31}+a_{13}a_{21}a_{32}$, les 3 transpositions les termes négatifs.
+(c) On vérifie directement que la somme de Leibniz est linéaire en chaque ligne (chaque terme contient exactement un coefficient de chaque ligne), vaut $1$ pour $I_n$ (seul $\sigma=\id$ contribue), et change de signe quand on échange deux lignes (réindexer par $\sigma\circ\tau$ avec $\tau$ la transposition, et $\sgn(\sigma\tau)=-\sgn(\sigma)$). Elle vérifie donc P1 à P3 : un déterminant existe.
+\end{corrige}
+\end{exo}
+\begin{exo}[A][Le fil des permutations]
+Soit $n\ge3$. (a) Montrer que l'action de $D_n$ sur les sommets du polygone donne un homomorphisme injectif $D_n\to S_n$. (b) Déterminer la signature de la rotation $r$ et de la réflexion $\tau$ vues comme permutations des sommets, selon la parité de $n$. (c) En déduire pour quels $n$ l'image de $D_n$ est contenue dans $A_n$. (d) Comparer avec le déterminant de $r$ et $\tau$ vus dans $O_2(\R)$ : pourquoi les deux \og signes \fg{} diffèrent-ils ?
+\begin{corrige}
+(a) Une isométrie qui fixe tous les sommets fixe le polygone point par point : c'est l'identité. (b) $r$ est un $n$-cycle : signature $(-1)^{n-1}$. $\tau$ fixe le sommet $1$ (et le sommet opposé si $n$ est pair) et échange les autres par paires : $\lfloor\frac{n-1}2\rfloor$ transpositions. (c) $r\in A_n$ si et seulement si $n$ est impair ; $\tau\in A_n$ si et seulement si $\lfloor\frac{n-1}2\rfloor$ est pair, c'est-à-dire $n\equiv1$ ou $2\pmod 4$. Les deux à la fois : $n\equiv1\pmod4$ (par exemple $n=5$). (d) Dans $O_2(\R)$, $\det r=1$ et $\det\tau=-1$ toujours : ce sont deux homomorphismes différents de $D_n$ vers $\ens{\pm1}$. Le déterminant mesure l'orientation du plan, la signature la parité de la permutation des sommets.
+\end{corrige}
+\end{exo}
+\begin{exo}[S][Le moteur de l'élimination]
+Soit $A=\begin{pmatrix}1&2&1\\2&5&3\\1&3&3\end{pmatrix}$. (a) Calculer $A=LU$. (b) En déduire le rang, une base de $R(A)$, $N(A)$, et $\det A$. (c) Calculer $A^{-1}=U^{-1}L^{-1}$ ; pourquoi est-elle à coefficients entiers, et pourquoi est-elle symétrique ? (d) Dans quel groupe de matrices du chapitre 4 se trouve $A$ ?
+\begin{corrige}
+(a) $\ell_{21}=2$, $\ell_{31}=1$ : lignes $(0,1,1)$ et $(0,1,2)$ ; $\ell_{32}=1$ : ligne $(0,0,1)$. $L=\begin{pmatrix}1&0&0\\2&1&0\\1&1&1\end{pmatrix}$, $U=\begin{pmatrix}1&2&1\\0&1&1\\0&0&1\end{pmatrix}$.
+(b) Trois pivots : rang 3, $R(A)=\R^3$ (base : les lignes de $U$), $N(A)=\ens{\mathbf 0}$, $\det A=1\cdot1\cdot1=1$.
+(c) $L^{-1}=E_{32}E_{31}E_{21}=\begin{pmatrix}1&0&0\\-2&1&0\\1&-1&1\end{pmatrix}$ et $U^{-1}=\begin{pmatrix}1&-2&1\\0&1&-1\\0&0&1\end{pmatrix}$, d'où $A^{-1}=\begin{pmatrix}6&-3&1\\-3&2&-1\\1&-1&1\end{pmatrix}$. Coefficients entiers : les pivots valent $1$, aucune division n'a lieu (ou : $\det A=1$, chapitre 4). Symétrique : $A$ l'est, et l'inverse d'une symétrique est symétrique.
+(d) $A\in\SL_3(\Z)\subset\GL_3(\Z)$.
+\end{corrige}
+\end{exo}
+\begin{exo}[A][Trois quotients de $\Z{[X]}$]
+On considère les homomorphismes d'anneaux $\Z[X]\to\Z$, $P\mapsto P(0)$ ; $\Z[X]\to\Z/2\Z$, $P\mapsto\cl{P(0)}$ ; $\Z[X]\to\C$, $P\mapsto P(i)$. Pour chacun, déterminer le noyau (en le décrivant comme un idéal engendré par un ou deux éléments), l'image, et dire si le noyau est premier ou maximal.
+\begin{corrige}
+(1) Noyau $(X)$ (polynômes sans terme constant), image $\Z$ : $\Z[X]/(X)\simeq\Z$ intègre, pas un corps : $(X)$ premier, non maximal. (2) Noyau $(2,X)$ (terme constant pair), image $\Z/2\Z$ corps : maximal. On montre comme pour $(X,Y)$ que $(2,X)$ n'est pas principal. (3) Noyau $(X^2+1)$ (division par le polynôme unitaire $X^2+1$, qui est possible dans $\Z[X]$), image $\Z[i]$ : $\Z[X]/(X^2+1)\simeq\Z[i]$, intègre, pas un corps : premier, non maximal.
+\end{corrige}
+\end{exo}
+\begin{exo}[D][Classer les groupes d'ordre au plus 7]
+En combinant Lagrange, la classification des groupes cycliques, les exercices sur les ordres 4 et 6, montrer qu'à isomorphisme près, les groupes d'ordre $1$ à $7$ sont : le groupe trivial, $\Z/2\Z$, $\Z/3\Z$, $\Z/4\Z$, $\Z/2\Z\times\Z/2\Z$, $\Z/5\Z$, $\Z/6\Z$, $S_3$, $\Z/7\Z$ ; et qu'ils sont deux à deux non isomorphes.
+\begin{corrige}
+Ordres premiers 2, 3, 5, 7 : cycliques (\voir{cor-lagrange}). Ordre 4 et ordre 6 : exercices du chapitre 4. Non-isomorphie : les ordres diffèrent, sauf pour $\Z/4\Z$ et $\Z/2\Z\times\Z/2\Z$ (élément d'ordre 4 ou non) et $\Z/6\Z$ et $S_3$ (commutativité). Pour l'ordre 8, on trouverait cinq groupes : $\Z/8\Z$, $\Z/2\Z\times\Z/4\Z$, $(\Z/2\Z)^3$, $D_4$ et $Q_8$ (figure des tables de Cayley).
+\end{corrige}
+\end{exo}
+
+\begin{bilan}
+\item \textbf{Ch. 1.} Prouver ou réfuter une égalité d'ensembles ; calculer images et images réciproques.
+\item \textbf{Ch. 1.} Prouver injective, surjective, bijective, et énoncer la caractérisation par un inverse des deux côtés.
+\item \textbf{Ch. 1.} Vérifier une équivalence ou un ordre ; décrire un quotient ; inverser dans $\Z/n\Z$ par Euclide ; rédiger le Théorème 1.4.12 et la diagonale de Cantor.
+\item \textbf{Ch. 2.} Multiplier des matrices de quatre façons ; rédiger Cauchy, Schwarz et l'inégalité triangulaire.
+\item \textbf{Ch. 2.} Factoriser $PA=LU$ par éliminations explicites ; résoudre ; inverser ; prouver \og inversible $\iff$ colonnes libres $\iff$ solution unique \fg.
+\item \textbf{Ch. 3.} Appliquer le critère de sous-espace ; trouver base et dimension de $C(A)$, $R(A)$, $N(A)$, $N(A\tr)$ via $LU$ ; vérifier les formules.
+\item \textbf{Ch. 3.} Rédiger l'équivalence des caractérisations d'une base et le lemme d'échange ; calculer un déterminant à partir de P1 à P9 ; écrire la matrice d'une application linéaire ; changer de base.
+\item \textbf{Ch. 4.} Critère de sous-groupe, $\langle g\rangle$, ordres ; rédiger Lagrange et ses corollaires.
+\item \textbf{Ch. 4.} Prouver qu'un sous-groupe est normal ou non ; construire un quotient ; rédiger le premier théorème d'isomorphisme.
+\item \textbf{Ch. 4.} Manipuler cycles, transpositions, parité ; décrire $D_n$ ; énoncer et prouver Cayley.
+\item \textbf{Ch. 5.} Démontrer : idéal $\iff$ quotient anneau ; $\Z/n\Z$ corps $\iff n$ premier ; décrire idéaux, unités, irréductibles de $\Z$.
+\item \textbf{Transversal.} Dresser le parallèle groupes et anneaux, et reconnaître le schéma des quotients aux trois étages.
+\end{bilan}

@@ -28,6 +28,11 @@ def file_record(path):
     return record
 
 
+def lesson_meta(section):
+    path = ROOT / section['lessonSource']
+    return json.loads(path.read_text())['sequences'] if path.exists() else {s['id']: {} for s in section['sequences']}
+
+
 def university_index(manifest, previous, measure=file_record):
     index = copy.deepcopy(manifest['university'])
     files, ids = {}, set()
@@ -45,11 +50,14 @@ def university_index(manifest, previous, measure=file_record):
             if section['id']=='fourier':
                 lesson=fourier_lessons[seq['id']]
                 seq.update(title=[lesson['title'],lesson['title']],summary=[lesson['objectives'][0],lesson['objectives'][0]],prerequisites=[lesson['prerequisites'],lesson['prerequisites']])
+            if section.get('lessonSource'):
+                # Titles, summaries, prerequisites and outline come from the lesson sources, through their build receipt.
+                seq.update(lesson_meta(section).get(seq['id'], {}))
             seq['number'] = position
             for key in ('studentPage', 'teacherPage'):
                 if key in old_sequences.get(seq['id'], {}):
                     seq[key] = old_sequences[seq['id']][key]
-            path = f"resources/university/{section['id']}/slides/{seq['slide']}"
+            path = f"resources/university/{section['id']}/{seq.get('folder', 'slides')}/{seq['slide']}"
             files[seq['id']] = measure(DIST / path)
         for doc in section['documents']:
             record = measure(DIST / doc['path'])

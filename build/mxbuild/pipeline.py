@@ -89,6 +89,7 @@ CHECKS = [
     ('native annales books and sources', [PY, 'scripts/build-annals-pdf.py', '--check']),
     ('prerequisite report generation (advisory)', ['node', 'scripts/check-prerequisites.mjs']),
     ('Fourier sources and editions', [PY, 'scripts/build-fourier.py', '--check']),
+    ('Algèbre 1 sources and editions', [PY, 'scripts/build-algebre1.py', '--check']),
     ('content dependencies and linked views', [PY, '-m', 'mxbuild.refresh', '--check']),
     ('content propagation tests', [PY, 'tests/test_content_dependencies.py']),
     ('npm test', ['npm', 'test']),

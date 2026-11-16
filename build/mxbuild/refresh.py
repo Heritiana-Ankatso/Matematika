@@ -7,6 +7,7 @@ products, never a publication shortcut for changed mathematical sources.
 import argparse
 import hashlib
 import json
+import re
 import subprocess
 import sys
 from pathlib import Path
@@ -40,6 +41,8 @@ def inputs():
         result['annals'] = fingerprint(['content/tex/annals/**/*', 'content/tex/core/*', 'scripts/build-annals.py', 'scripts/annals-code.py', 'scripts/build-annals-pdf.py'], manifest['annalsBank'])
     result['static-site'] = fingerprint(['site/**/*', 'content/data/edition.json'])
     result['fourier'] = fingerprint(['content/university/fourier/**/*','scripts/build-fourier.py'],[s for s in manifest['university']['sections'] if s['id']=='fourier'])
+    result['algebre-1'] = fingerprint(['content/university/algebre-1/**/*', 'scripts/build-algebre1.py', 'site/styles/algebra1.css', 'site/js/algebra1-*.js'],
+                                      [s for s in manifest['university']['sections'] if s['id'] == 'algebre-1'])
     result['foundations'] = fingerprint(
         ['content/tex/university/foundations/**/*', 'content/slides/university/foundations/*',
          'scripts/build-university.py'],
@@ -95,6 +98,8 @@ def run_job(key):
         return
     elif key == 'fourier':
         command(sys.executable, 'scripts/build-fourier.py')
+    elif key == 'algebre-1':
+        command(sys.executable, 'scripts/build-algebre1.py')
     elif key == 'foundations':
         if any(s['id'] == 'foundations' for s in catalog.load()['university']['sections']):
             command(sys.executable, 'scripts/build-university.py')
@@ -120,6 +125,12 @@ def run_job(key):
         missing = [p for p in paths if not (DIST / p.removeprefix('./')).is_file()]
         if missing:
             raise RuntimeError('Malagasy PDFs missing; run scripts/build-mada.py --books <Mada-Boky>/Livres: ' + ', '.join(missing[:5]))
+
+
+def catalogue_core():
+    """The catalogue as the slide exports embed it: without the generated asset versions."""
+    text = content_index.MODEL.read_text() if content_index.MODEL.exists() else ''
+    return re.sub(r'^export const assetVersions = .*;$', '', text, flags=re.M)
 
 
 def cleanup(previous):
@@ -185,6 +196,7 @@ def prepare(check=False, adopt=False):
             run_job(key)
             # Builders may update shared inputs and other outputs. Recheck later jobs.
             pending.update(changed_jobs(saved.get('inputs', {}), inputs()))
+    core = catalogue_core()
     # Exports embed generated figures and must follow every producer.
     if not adopt and ('slides' in pending or 'slide-exports' in pending):
         run_job('slide-exports')
@@ -195,6 +207,12 @@ def prepare(check=False, adopt=False):
     # Pruning changes the asset map, so regenerate it before versioning entry scripts.
     content_index.write()
     site.write()
+    # Lab decks also embed the catalogue (without its asset versions): a catalogue change, such as a new university
+    # collection, makes them stale, and it is only known once the catalogue above is final.
+    if not adopt and catalogue_core() != core:
+        run_job('slide-exports')
+        content_index.write()
+        site.write()
     receipt = {'schema': 1, 'inputs': inputs(), 'outputs': output_hashes()}
     STATE.write_text(json.dumps(receipt, ensure_ascii=False, indent=2) + '\n')
     print('Content prepared: derived catalogues, source copies, downloads and cache versions.')

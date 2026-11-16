@@ -19,6 +19,8 @@ Sources of everything the build publishes. Generated files sit beside some sourc
 | `tex/lectures/` | Beamer lecture editions (`scripts/build-lecture-slides.py`) | yes |
 | `tex/university/foundations/` | university foundations sources (`scripts/build-university.py`) | yes |
 | `university/module-maths/` | applied mathematics module (`scripts/build-module-maths.py`) | yes |
+| `university/algebre-1/` | Algèbre 1 course: one LaTeX-dialect source per lesson, PDF style `algebre1.sty`, dialect in `README.md` (`scripts/build-algebre1.py`) | yes |
+| `data/algebre1-build.json` | generated receipt of the Algèbre 1 build: source digest, lesson metadata read by `build/mxbuild/content_index.py`, output hashes | never |
 | `tex/unsorted/<set>/` | hand-supplied standalone sources of unclassified resources (XeLaTeX, not built by `make tex`); their PDFs sit in `dist/resources/premiere-unsorted/` and are listed under the chapter `premiere-unsorted` ("Non classé") in `data/manifest.json`; edition metadata `layout: "source"` explicitly preserves their supplied page layout while privacy and link checks still apply | yes |
 | `slides/<deck>.json` | authored decks (English Terminale, Seconde, Première) | yes, then `make slides` |
 | `slides/draft/terminale-<NN>.fr.json` | French Terminale drafts with figure code | yes |
