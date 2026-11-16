@@ -53,12 +53,13 @@ test('chapters.json records the programme mapping and the unpublished state', ()
   for (const k of ['unit', 'solutions', 'builder', 'lab', 'slides', 'checker']) assert.ok(exists(u.native[k]), u.native[k]);
 });
 
-test('unpublished: no manifest entry, nothing under dist/, the experiment not registered', () => {
+test('unpublished: no manifest entry, no course page or file under dist/, the experiment not registered', () => {
   const manifest = read('content/data/manifest.json');
   assert.ok(!/mada-t10/.test(manifest), 'manifest.json');
   assert.ok(!/logic-truth/.test(manifest), 'manifest labs');
-  const hits = execFileSync('git', ['ls-files', 'dist'], { cwd: new URL('..', import.meta.url).pathname, encoding: 'utf8' }).split('\n').filter((f) => /mada-t10|logic-truth/.test(f));
-  assert.deepEqual(hits, [], 'dist/ is untouched');
+  const hits = execFileSync('git', ['ls-files', 'dist'], { cwd: new URL('..', import.meta.url).pathname, encoding: 'utf8' }).split('\n').filter((f) => /mada-t10|logic-truth/.test(f) && !/^dist\/js\/lab\/(experiments|models)\/logic-truth\.js$/.test(f));
+  // the build copies every module under site/js to dist/js, so the two laboratory modules are there; no page, course file or deck is
+  assert.deepEqual(hits, [], 'dist/ holds nothing of the course but the copied laboratory modules');
   assert.ok(!/logic-truth/.test(read('site/js/lab/registry.js')));
 });
 
