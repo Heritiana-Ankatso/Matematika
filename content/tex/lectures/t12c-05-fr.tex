@@ -2,7 +2,12 @@
 \makeatletter\IfFileExists{core/beamer/beamerthememx.sty}{\def\mxcorepath{core/}\def\input@path{{core/beamer/}{core/}}}{\def\mxcorepath{../core/}\def\input@path{{../core/beamer/}{../core/}}}\makeatother
 \documentclass[aspectratio=169,10pt,t]{beamer}
 \usetheme{mx}
-\usepackage{graphicx,booktabs}
+\usepackage{graphicx,booktabs,mathtools,array,adjustbox}
+\usepackage[all]{xy}
+\providecommand{\actualtextwidth}{\textwidth}
+\providecommand{\veccor}[2]{\left(\begin{matrix}#1\\#2\end{matrix}\right)}
+\DeclarePairedDelimiter{\VecNorm}{\lVert}{\rVert}
+\providecommand{\ETC}{\ldots}
 \usepackage[french]{babel}
 \setlength{\parskip}{.45em}
 \hypersetup{pdfauthor={},pdfsubject={Lecture slides},pdfkeywords={},pdftitle={Barycentres}}
@@ -36,19 +41,19 @@
 \author{}
 \begin{document}
 \mxtitleframe
-\begin{frame}{Barycentre de \(n\) points pondérés}
+\begin{frame}[allowframebreaks]{Barycentre de \(n\) points pondérés}
 On appelle \emph{point pondéré} tout couple de la forme \((A,\alpha)\) où \(A\) est un point et \(\alpha\) un nombre réel.
 Le nombre réel \(\alpha\) est appellé \emph{coefficient} de \(A\).
 \end{frame}
-\begin{frame}{Barycentre de \(n\) points pondérés}
+\begin{frame}[allowframebreaks]{Barycentre de \(n\) points pondérés}
 Soient \((A,\alpha)\) et \((B,\beta)\) deux points pondérés tels que \(A \neq B\) et \(\alpha + \beta \neq 0\).
 On appelle \emph{barycentre} du système \(\{ (A,\alpha) ; (B,\beta) \}\) le point \(G\) qui vérifie 
 \(\alpha \; \overrightarrow{GA} + \beta \; \overrightarrow{GB} = \overrightarrow{0}\).
 \end{frame}
-\begin{frame}{Barycentre de \(n\) points pondérés}
+\begin{frame}[allowframebreaks]{Barycentre de \(n\) points pondérés}
 Dans le plan \((O, \overrightarrow{\imath} , \overrightarrow{\jmath})\), soit \(\{ (A,\alpha) ; (B,\beta) \}\) un systéme pondéré non nul et soit \(G\) le barycentre de ce systéme.
 \end{frame}
-\begin{frame}{Barycentre de \(n\) points pondérés}
+\begin{frame}[allowframebreaks]{Barycentre de \(n\) points pondérés}
 On sait que \( \alpha \overrightarrow{GA} + \beta \overrightarrow{GB} = \overrightarrow{0}\).
 A l'aide de la relation de Chasles, on a
 \[\begin{aligned}
@@ -58,10 +63,9 @@ A l'aide de la relation de Chasles, on a
 \overrightarrow{OG} = \dfrac{\alpha \overrightarrow{OA} + \beta \overrightarrow{OB}}{\alpha + \beta} 
 \end{aligned}\]
 \end{frame}
-\begin{frame}{Barycentre de \(n\) points pondérés}
+\begin{frame}[allowframebreaks]{Barycentre de \(n\) points pondérés}
 Posons \((x_a , y_a)\), \((x_b , y_b)\) et \((x_g , y_g)\) les coordonnées respectives de \(A\), \(B\) et \(G\).
 \[
-
 \veccor{x_g}{y_g} = \dfrac{1}{\alpha + \beta} \left[ \alpha  \veccor{x_a}{y_a}  + \beta \veccor{x_b}{y_b} \right]
 \]
 
@@ -76,13 +80,14 @@ y_g = \dfrac{1}{\alpha + \beta} \; (\alpha y_a + \beta y_b)
 \right.
 \]
 \end{frame}
-\begin{frame}{Barycentre de \(n\) points pondérés}
+\begin{frame}[allowframebreaks]{Barycentre de \(n\) points pondérés}
 Si \(G\) est le barycentre du système pondéré non nul \(\{ (A,\alpha) , (B,\beta) \}\) 
 	alors \(G\) appartient à la droite \((AB)\).
 	
 	Si, de plus, \(G\) appartient au segment \([AB]\) et est distinct de \(A\) et de \(B\), alors \(\alpha\) et \(\beta\) sont non nuls et de même signe.
 \end{frame}
-\begin{frame}{Barycentre de \(n\) points pondérés}
+\begin{frame}[allowframebreaks]{Barycentre de \(n\) points pondérés}
+\scriptsize
 Comme \(G\) est le barycentre du système pondéré \(\{ (A,\alpha) , (B,\beta) \}\), 
 		alors \(\alpha \overrightarrow{GA} + \beta \overrightarrow{GB} = \overrightarrow{0}\).
 		Si \(\alpha = 0\), alors \(\beta \neq 0\) et \(\beta \overrightarrow{GB} = \overrightarrow{0}\), donc \(G = B\), qui appartient à \((AB)\).
@@ -97,7 +102,7 @@ Comme \(G\) est le barycentre du système pondéré \(\{ (A,\alpha) , (B,\beta) 
 		alors \(- \dfrac{\beta}{\alpha}\) est un nombre négatif ; cela entraîne que  
 		\(\dfrac{\beta}{\alpha}\) est de signe positif et donc que \(\alpha\) et \(\beta\) sont de même signe.
 \end{frame}
-\begin{frame}{Barycentre de \(n\) points pondérés}
+\begin{frame}[allowframebreaks]{Barycentre de \(n\) points pondérés}
 Soient \(A\) et \(B\) deux points distincts et \((\mathcal{D})\) la droite \((AB)\).
 
 \begin{itemize}
@@ -108,7 +113,8 @@ Soient \(A\) et \(B\) deux points distincts et \((\mathcal{D})\) la droite \((AB
 
 \end{itemize}
 \end{frame}
-\begin{frame}{Barycentre de \(n\) points pondérés}
+\begin{frame}[allowframebreaks]{Barycentre de \(n\) points pondérés}
+\footnotesize
 \begin{itemize}
 \item Soit \(M\) un point de la droite \((\mathcal{D})\).
 			Comme \(A\), \(B\) et \(M\) sont colinéaire, 
@@ -124,7 +130,7 @@ Soient \(A\) et \(B\) deux points distincts et \((\mathcal{D})\) la droite \((AB
 
 \end{itemize}
 \end{frame}
-\begin{frame}{Barycentre de \(n\) points pondérés (2)}
+\begin{frame}[allowframebreaks]{Barycentre de \(n\) points pondérés (2)}
 \begin{itemize}
 \item Soit maintenant \(G\) le barycentre du système \(\{ (A,\alpha) ; (B,\beta) \}\).
 			Cela signifie que \(\alpha \overrightarrow{GA} + \beta \overrightarrow{GB} = \overrightarrow{0}\).
@@ -134,15 +140,15 @@ Soient \(A\) et \(B\) deux points distincts et \((\mathcal{D})\) la droite \((AB
 
 \end{itemize}
 \end{frame}
-\begin{frame}{Barycentre de \(n\) points pondérés}
+\begin{frame}[allowframebreaks]{Barycentre de \(n\) points pondérés}
 Si \(M\) est le barycentre du système \(\{ (A, \alpha) ; (B, \beta) \}\), alors le couple \((\alpha,\beta)\) constitue les \emph{coordonnées barycentriques} de \(M\) par rapport à \((A,B)\).
 \end{frame}
-\begin{frame}{Barycentre de \(n\) points pondérés}
+\begin{frame}[allowframebreaks]{Barycentre de \(n\) points pondérés}
 Etant donné un système de trois points pondérés \(\{ (A, \alpha) ; (B, \beta) ; (C, \gamma) \}\) tel que 
 \(\alpha + \beta + \gamma \neq 0\),
 on appelle barycentre du système le point \(M\) du plan tel que \(\alpha \overrightarrow{MA} + \beta \overrightarrow{MB} + \gamma \overrightarrow{MC} = \overrightarrow{0}\).
 \end{frame}
-\begin{frame}{Barycentre de \(n\) points pondérés}
+\begin{frame}[allowframebreaks]{Barycentre de \(n\) points pondérés}
 Montrons que tout système de cette forme admet un barycentre. 
 
 Notons par \(\mathcal{P}\) le plan euclidien et par \(\overrightarrow{\mathcal{P}}\) le plan vectoriel.
@@ -150,7 +156,7 @@ Soit \(\overrightarrow{f}\) l'application de \(\mathcal{P}\) vers \(\overrightar
 associe le vecteur \(\alpha \overrightarrow{MA} + \beta \overrightarrow{MB} + \gamma \overrightarrow{MC}\).
 On veut alors connaître les solutions de l'équation \(\overrightarrow{f}(M) = \overrightarrow{0}\).
 \end{frame}
-\begin{frame}{Barycentre de \(n\) points pondérés}
+\begin{frame}[allowframebreaks]{Barycentre de \(n\) points pondérés}
 Prenons un point \(N\) de \(\mathcal{P}\).
 D'après la relation de Chasles, on a 
 
@@ -159,33 +165,34 @@ D'après la relation de Chasles, on a
            & = (\alpha + \beta + \gamma) \overrightarrow{MN} + \overrightarrow{f}(N)      \; .
 \end{aligned}\]
 \end{frame}
-\begin{frame}{Barycentre de \(n\) points pondérés (2)}
+\begin{frame}[allowframebreaks]{Barycentre de \(n\) points pondérés (2)}
 \begin{itemize}
 \item Si \(\alpha + \beta + \gamma = 0\) alors \(\overrightarrow{f}(M) = \overrightarrow{f}(N)\) pour tout \(M\) et \(N\) de \(\mathcal{P}\) et la fonction \(\overrightarrow{f}\) est donc constante
 égal à \(\beta \overrightarrow{AB} + \gamma \overrightarrow{AC}\).
 
 \end{itemize}
 \end{frame}
-\begin{frame}{Barycentre de \(n\) points pondérés (3)}
+\begin{frame}[allowframebreaks]{Barycentre de \(n\) points pondérés (3)}
+\footnotesize
 \begin{itemize}
 \item Si \(\alpha + \beta + \gamma \neq 0\), fixons un origine qu'on appellera \(O\).
       On a alors
-      \[\begin{aligned}
+      \begin{align*}
       \overrightarrow{f}(G) & = (\alpha + \beta + \gamma) \overrightarrow{GO} + \overrightarrow{f(O)} \\
-                 & = (\alpha + \beta + \gamma) \overrightarrow{GO} + \alpha \overrightarrow{OA} + \beta \overrightarrow{OB} + \gamma \overrightarrow{OC} \\
-      \\ \text{et si $G$ est le barycentre alors $\overrightarrow{f}(G) = \overrightarrow{0}$ et on a } \\
+                 & = (\alpha + \beta + \gamma) \overrightarrow{GO} + \alpha \overrightarrow{OA} + \beta \overrightarrow{OB} + \gamma \overrightarrow{OC} \intertext{et si $G$ est le barycentre alors $\overrightarrow{f}(G) = \overrightarrow{0}$ et on a } 
       \overrightarrow{0} & = (\alpha + \beta + \gamma) \overrightarrow{GO} + \alpha \overrightarrow{OA} + \beta \overrightarrow{OB} + \gamma \overrightarrow{OC} \\
       \\ \text{et ainsi} \\
-      \end{aligned}\]
+      \end{align*}
 \[\overrightarrow{OG} = \dfrac{ \alpha \overrightarrow{OA} + \beta \overrightarrow{OB} + \gamma \overrightarrow{OC} }{ \alpha + \beta + \gamma } \; .\]
 
 \end{itemize}
 \end{frame}
-\begin{frame}{Barycentre de \(n\) points pondérés}
+\begin{frame}[allowframebreaks]{Barycentre de \(n\) points pondérés}
 Si \(\alpha + \beta + \gamma \neq 0\), alors il existe un unique point \(G\) tel que \(\alpha \overrightarrow{GA} + \beta \overrightarrow{GB} + \gamma \overrightarrow{GC} = \overrightarrow{0}\).
 Ce point \(G\) est appelé \emph{barycentre} du système \(((A,\alpha),(B,\beta),(C,\gamma))\).
 \end{frame}
-\begin{frame}{Barycentre de \(n\) points pondérés}
+\begin{frame}[allowframebreaks]{Barycentre de \(n\) points pondérés}
+\footnotesize
 \textbf{Coordonnées du barycentre}
 
  On rapporte maintenant le plan \(\mathcal{P}\) à un repère \((O,\overrightarrow{\imath},\overrightarrow{\jmath})\).
@@ -202,10 +209,10 @@ y_G = \dfrac{\alpha y_A + \beta y_B + \gamma y_C }{\alpha + \beta + \gamma} \; .
 \right.
 \]
 \end{frame}
-\begin{frame}{Barycentre de \(n\) points pondérés}
+\begin{frame}[allowframebreaks]{Barycentre de \(n\) points pondérés}
 Tout triplet \((\alpha , \beta , \gamma)\) tel que \(M\) soit un barycentre de \(((A,\alpha),(B,\beta),(C,\gamma))\) constitue des \emph{coordonnées barycentriques}.
 \end{frame}
-\begin{frame}{Barycentre de \(n\) points pondérés}
+\begin{frame}[allowframebreaks]{Barycentre de \(n\) points pondérés}
 \textbf{Associativité du barycentre}
 
  Soient les deux systèmes de points pondérés non nuls
@@ -221,16 +228,17 @@ On note \(G\) le barycentre de \(\mathcal{S}\) et \(G'\) celui de \(\mathcal{S}'
 Alors \(G\) est aussi le barycentre du système
 \(\left((G',\alpha+\beta),(C,\gamma)\right)\).
 \end{frame}
-\begin{frame}{Barycentre de \(n\) points pondérés}
+\begin{frame}[allowframebreaks]{Barycentre de \(n\) points pondérés}
 En effet, avec ces hypothèses on a \(\alpha \overrightarrow{G' A} + \beta \overrightarrow{G' B} = \overrightarrow{0}\) ce qui, d'après la relation de Chasles, donne 
 \(\alpha \overrightarrow{GA} + \beta \overrightarrow{GB} = (\alpha + \beta) \overrightarrow{GG'}\).
 Combinant cette dernière avec l'égalité \(\alpha \overrightarrow{GA} + \beta \overrightarrow{GB} + \gamma \overrightarrow{GC} = \overrightarrow{0}\), on a 
 \((\alpha + \beta) \overrightarrow{GG'} + \gamma \overrightarrow{GC} = \overrightarrow{0}\) ce qui montre que \(G\) est le barycentre du système \(((G' , \alpha + \beta),(C , \gamma))\).
 \end{frame}
-\begin{frame}{Barycentre de \(n\) points pondérés}
+\begin{frame}[allowframebreaks]{Barycentre de \(n\) points pondérés}
 Le barycentre de \(n\) points pondérés n'est autre qu'une généralisation du barycentre de trois points pondérés.
 \end{frame}
-\begin{frame}{Barycentre de \(n\) points pondérés}
+\begin{frame}[allowframebreaks]{Barycentre de \(n\) points pondérés}
+\footnotesize
 Soient \(A_1,\ A_2,\ \ldots ,\ A_n\) \(n\) points distincts du plan.
             Soient \(\alpha_1,\ \alpha_2,\ \ldots ,\ \alpha_n\) \(n\) nombres réels.
             
@@ -242,12 +250,12 @@ Soient \(A_1,\ A_2,\ \ldots ,\ A_n\) \(n\) points distincts du plan.
 	              \left\lbrace (A_1,\alpha_1) ; (A_2,\alpha_2) ; \ldots ; (A_n,\alpha_n) \right\rbrace.
 	            \]
 \end{frame}
-\begin{frame}{Barycentre de \(n\) points pondérés}
+\begin{frame}[allowframebreaks]{Barycentre de \(n\) points pondérés}
 Soient 
             \(\left\lbrace (A_1,\alpha_1) ; (A_2,\alpha_2) ; \ldots ; (A_n,\alpha_n) \right\rbrace\)
             un système de points pondérés vérifiant \(\sum \alpha_i \neq 0\) et soit \(G\) le barycentre de ce système.
 \end{frame}
-\begin{frame}{Barycentre de \(n\) points pondérés (2)}
+\begin{frame}[allowframebreaks]{Barycentre de \(n\) points pondérés (2)}
 \begin{enumerate}
 \setcounter{enumi}{0}\item le barycentre \(G\) est indépendant de l'ordre des couples \((A_i , \alpha_i)\),
 	                  
@@ -258,7 +266,7 @@ Soient
 
 \end{enumerate}
 \end{frame}
-\begin{frame}{Barycentre de \(n\) points pondérés (3)}
+\begin{frame}[allowframebreaks]{Barycentre de \(n\) points pondérés (3)}
 \begin{enumerate}
 \setcounter{enumi}{2}\item si \(\alpha_1 = \alpha_2 = \cdots = \alpha_n\), on dit que \(G\) est 
                         l'\emph{isobarycentre} ou le centre de gravité des points 
@@ -266,7 +274,7 @@ Soient
 
 \end{enumerate}
 \end{frame}
-\begin{frame}{Barycentre de \(n\) points pondérés (4)}
+\begin{frame}[allowframebreaks]{Barycentre de \(n\) points pondérés (4)}
 \begin{enumerate}
 \setcounter{enumi}{3}\item si \(p<n\) et que \(\alpha_1 + \alpha_2 + \cdots + \alpha_p = \alpha' \neq 0\), alors 
 	                        le système 
@@ -281,17 +289,17 @@ Soient
 
 \end{enumerate}
 \end{frame}
-\begin{frame}{Barycentre de \(n\) points pondérés (5)}
+\begin{frame}[allowframebreaks]{Barycentre de \(n\) points pondérés (5)}
 Comme l'ordre des couples ne change pas le barycentre,
                        le point \(G'\) de prop: associativite peut être remplacé par
                        le barycentre de n'importe quel sous-ensemble de \(p\) couples, 
                        et non seulement des \(p\) premiers.
 \end{frame}
-\begin{frame}{Fonctions de Leibniz}
+\begin{frame}[allowframebreaks]{Fonctions de Leibniz}
 On considère l'espace affine \(E\) associé à l'espace vectoriel \(V\). 
 Soit \((A_i , \alpha_i)_{i = 1 , \dots , n}\) une famille de points pondérés.
 \end{frame}
-\begin{frame}{Fonctions de Leibniz}
+\begin{frame}[allowframebreaks]{Fonctions de Leibniz}
 On appelle \emph{fonction vectorielle de Leibniz} associée au système
 \(\{(A_i,\alpha_i)\}_{i=1,\dots,n}\) l'application de \(E\) dans \(V\) qui, à tout point \(M\), associe le vecteur
 	
@@ -300,25 +308,25 @@ On appelle \emph{fonction vectorielle de Leibniz} associée au système
 			\; .
 		\]
 \end{frame}
-\begin{frame}{Fonctions de Leibniz}
+\begin{frame}[allowframebreaks]{Fonctions de Leibniz}
 Posons \(m = \sum_{i = 1}^{n} \alpha_i\).
 \end{frame}
-\begin{frame}{Fonctions de Leibniz}
+\begin{frame}[allowframebreaks]{Fonctions de Leibniz}
 Pour tout couple de points \((M , N)\), on a 
 		
 			\[   \overrightarrow{f}(M) = \overrightarrow{f}(N) + m \; \overrightarrow{MN}		\; .\]
 \end{frame}
-\begin{frame}{Fonctions de Leibniz}
+\begin{frame}[allowframebreaks]{Fonctions de Leibniz}
 Soit \((M,N)\) un couple de points de \(E\).
 		D'après la relation de Chasles, on a 
-			displaymath
-			f(M) = \_i = 1\textasciicircum{}n \_i ( MN + NA\_i ) 
-				= \_i = 1\textasciicircum{}n \_i  MN + \_i = 1\textasciicircum{}n \_i NA\_i 
-				= ( \_i = 1\textasciicircum{}n \_i )  MN + f(N)           
-			  .
-			displaymath
+			\[
+			\overrightarrow{f}(M) = \sum_{i = 1}^n \alpha_i ( \overrightarrow{MN} + \overrightarrow{NA_i} ) 
+				= \sum_{i = 1}^n \alpha_i  \overrightarrow{MN} + \sum_{i = 1}^n \alpha_i \overrightarrow{NA_i} 
+				= \left( \sum_{i = 1}^n \alpha_i \right) \cdot \overrightarrow{MN} + \overrightarrow{f}(N)           
+			\; .
+			\]
 \end{frame}
-\begin{frame}{Fonctions de Leibniz}
+\begin{frame}[allowframebreaks]{Fonctions de Leibniz}
 Selon la valeur de \(\sum_{i = 1}^{n} \alpha_i\), on distingue deux cas : 
 
 \begin{enumerate}
@@ -329,7 +337,7 @@ Selon la valeur de \(\sum_{i = 1}^{n} \alpha_i\), on distingue deux cas :
 
 \end{enumerate}
 \end{frame}
-\begin{frame}{Fonctions de Leibniz}
+\begin{frame}[allowframebreaks]{Fonctions de Leibniz}
 \begin{enumerate}
 \setcounter{enumi}{0}\item Supposons que \(\sum_{i = 1}^{n} \alpha_i = 0\). 
 				Soient \(M\) et \(N\) deux points.
@@ -340,7 +348,8 @@ Selon la valeur de \(\sum_{i = 1}^{n} \alpha_i\), on distingue deux cas :
 
 \end{enumerate}
 \end{frame}
-\begin{frame}{Fonctions de Leibniz (2)}
+\begin{frame}[allowframebreaks]{Fonctions de Leibniz (2)}
+\footnotesize
 \begin{enumerate}
 \setcounter{enumi}{1}\item Supposons que \(\sum_{i = 1}^{n} \alpha_i \neq 0\). 
 				Fixons un point \(O\) comme origine. 
@@ -367,17 +376,17 @@ Selon la valeur de \(\sum_{i = 1}^{n} \alpha_i\), on distingue deux cas :
 
 \end{enumerate}
 \end{frame}
-\begin{frame}{Fonctions de Leibniz}
+\begin{frame}[allowframebreaks]{Fonctions de Leibniz}
 La première partie de la Propriété prp:fonction vectorielle prp: fonction vectorielle 2 mérite une attention particulière.
 La voici donc répétée, cette fois, avec l'honneur qui lui est dû.
 
 Si \(\sum_{i = 1}^{n} \alpha _{i} \neq 0\), alors il existe un point \(G\) tel que \(\overrightarrow{f}(G) = \overrightarrow{0}\).
 \end{frame}
-\begin{frame}{Fonctions de Leibniz}
+\begin{frame}[allowframebreaks]{Fonctions de Leibniz}
 On considère l'espace affine \(E\) associé à l'espace vectoriel \(V\). 
 Soit \((A_i , \alpha_i)_{i = 1 , \dots , n}\) une famille de points pondérés.
 \end{frame}
-\begin{frame}{Fonctions de Leibniz}
+\begin{frame}[allowframebreaks]{Fonctions de Leibniz}
 On appelle \emph{fonction scalaire de Leibniz} associée au système
 \(\{(A_i,\alpha_i)\}_{i=1,\dots,n}\) l'application de \(E\) dans \(\mathbb{R}\) qui, à tout point \(M\), associe le réel
       
@@ -386,10 +395,10 @@ On appelle \emph{fonction scalaire de Leibniz} associée au système
 		      \; .
 	      \]
 \end{frame}
-\begin{frame}{Fonctions de Leibniz}
+\begin{frame}[allowframebreaks]{Fonctions de Leibniz}
 Posons \(m = \sum_{i = 1}^n \alpha_i\).
 \end{frame}
-\begin{frame}{Fonctions de Leibniz}
+\begin{frame}[allowframebreaks]{Fonctions de Leibniz}
 \begin{enumerate}
 \setcounter{enumi}{0}\item Pour tout points \(M\) et \(N\), on a :
       \(\displaystyle{
@@ -407,7 +416,7 @@ Posons \(m = \sum_{i = 1}^n \alpha_i\).
 
 \end{enumerate}
 \end{frame}
-\begin{frame}{Fonctions de Leibniz (2)}
+\begin{frame}[allowframebreaks]{Fonctions de Leibniz (2)}
 \begin{enumerate}
 \setcounter{enumi}{2}\item Si \(\sum_{i = 1}^n \alpha_i \neq 0\) alors le système \(\left\{ \left( A_i , \alpha_i \right) \mid 1 \leq i \leq n \right\}\)
       admet un barycentre \(G\) ; et on a pour tout point \(M\)       
@@ -418,7 +427,7 @@ Posons \(m = \sum_{i = 1}^n \alpha_i\).
 
 \end{enumerate}
 \end{frame}
-\begin{frame}{Fonctions de Leibniz}
+\begin{frame}[allowframebreaks]{Fonctions de Leibniz}
 \begin{enumerate}
 \setcounter{enumi}{0}\item Soient \(M\) et \(N\) deux points.
       \(\displaystyle{\varphi(M) = \sum_{i = 1}^n \alpha_i \; {\overrightarrow{M A_i}}^2}\)
@@ -433,26 +442,29 @@ Posons \(m = \sum_{i = 1}^n \alpha_i\).
                  & = m \; {\overrightarrow{MN}}^2 + 2 \; \overrightarrow{MN} \cdot \overrightarrow{f}(N) + \varphi(N) \;.
       \end{aligned}\]
 
+\item Il suffit d'appliquer la propriété précédente au cas \(m = 0\).      
+
 \end{enumerate}
 \end{frame}
-\begin{frame}{Fonctions de Leibniz (2)}
+\begin{frame}[allowframebreaks]{Fonctions de Leibniz (2)}
 \begin{enumerate}
-\setcounter{enumi}{1}\item Il suffit d'appliquer la propriété précédente au cas \(m = 0\).      
-
-\item Il suffit d'appliquer la Propriété prp: fonction scalaire prp: fonction scalaire 1 à \(G\), en remarquant que \(\overrightarrow{f}(G) = \overrightarrow{0}\).
+\setcounter{enumi}{2}\item Il suffit d'appliquer la Propriété prp: fonction scalaire prp: fonction scalaire 1 à \(G\), en remarquant que \(\overrightarrow{f}(G) = \overrightarrow{0}\).
 
 \end{enumerate}
 \end{frame}
-\begin{frame}{Fonctions de Leibniz}
+\begin{frame}[allowframebreaks]{Fonctions de Leibniz}
 Soient \((A_i , \alpha_i)_{1\leq i\leq n}\) un système de points pondérés et \(\varphi\) la fonction scalaire de Leibniz associée.
 On appelle ligne de niveau \(k\) de \(\varphi\) l'ensemble des points \(M\) tels que \(\varphi(M) = k\).
 En utilisant la Propriété prp: fonction scalaire prp: fonction scalaire 1, on obtient pour tout bipoints \((M,N)\) :
-displaymath
-(M) = m   MN\textasciicircum{}2 + 2   MN  f(N) + (N)
-displaymath
+\[
+\varphi(M) = m \; {\overrightarrow{MN}}^2 + 2 \; \overrightarrow{MN} \cdot \overrightarrow{f}(N) + \varphi(N)
+\]
+\end{frame}
+\begin{frame}[allowframebreaks]{Fonctions de Leibniz}
 et on distingue alors deux cas suivant la valeur de \(m\).
 \end{frame}
-\begin{frame}{Fonctions de Leibniz (2)}
+\begin{frame}[allowframebreaks]{Fonctions de Leibniz (2)}
+\scriptsize
 \begin{enumerate}
 \setcounter{enumi}{0}\item Si \(\mathbf{m = 0}\) 
       alors, comme \(\overrightarrow{f}\) est constante, égal à un vecteur qu'on notera \(\overrightarrow{v}\), on obtient: 
@@ -475,7 +487,8 @@ et on distingue alors deux cas suivant la valeur de \(m\).
 
 \end{enumerate}
 \end{frame}
-\begin{frame}{Fonctions de Leibniz (3)}
+\begin{frame}[allowframebreaks]{Fonctions de Leibniz (3)}
+\footnotesize
 \begin{enumerate}
 \setcounter{enumi}{1}\item Si \(\mathbf{m \neq 0}\) 
       alors, le système \((A_i , \alpha_i)_{1\leq i\leq n}\) admet un barycentre \(G\) ; on obtient alors : 
@@ -490,25 +503,29 @@ et on distingue alors deux cas suivant la valeur de \(m\).
       \]
       Posons \(a = \dfrac{k - \varphi (G)}{m}\).
       On distingue alors 3 cas suivant les valeurs de \(a\).
-      
-\begin{itemize}
- 
-      \item Si \(\mathbf{a < 0}\) : 
+
+\end{enumerate}
+\end{frame}
+\begin{frame}[allowframebreaks]{Fonctions de Leibniz (4)}
+\begin{enumerate}
+\setcounter{enumi}{2}\item Si \(\mathbf{a < 0}\) : 
             alors l'Équation eq: ligne de niveau m neq 0 n'admet pas de solution et 
             la ligne de niveau est \(\emptyset\).
       
 \item Si \(\mathbf{a = 0}\) : 
             alors l'Équation eq: ligne de niveau m neq 0 admet une solution unique \(G\).
             La ligne de niveau \(k\) est donc \(\{ G \}\).
-      
-\item Si \(\mathbf{a > 0}\) : 
+
+\end{enumerate}
+\end{frame}
+\begin{frame}[allowframebreaks]{Fonctions de Leibniz (5)}
+\begin{enumerate}
+\setcounter{enumi}{4}\item Si \(\mathbf{a > 0}\) : 
             alors \(MG = \sqrt{a} \).
             Ainsi, la ligne de niveau \(k\) est l'ensemble des points \(M\) tels que 
             la distance entre \(M\) et \(G\) est égale à \(\sqrt{a}\).
             Autrement dit, c'est le
             cercle de centre \(G\) et de rayon \(\sqrt{a}\).
-
-\end{itemize}
 
 \end{enumerate}
 \end{frame}

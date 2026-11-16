@@ -2,7 +2,12 @@
 \makeatletter\IfFileExists{core/beamer/beamerthememx.sty}{\def\mxcorepath{core/}\def\input@path{{core/beamer/}{core/}}}{\def\mxcorepath{../core/}\def\input@path{{../core/beamer/}{../core/}}}\makeatother
 \documentclass[aspectratio=169,10pt,t]{beamer}
 \usetheme{mx}
-\usepackage{graphicx,booktabs}
+\usepackage{graphicx,booktabs,mathtools,array,adjustbox}
+\usepackage[all]{xy}
+\providecommand{\actualtextwidth}{\textwidth}
+\providecommand{\veccor}[2]{\left(\begin{matrix}#1\\#2\end{matrix}\right)}
+\DeclarePairedDelimiter{\VecNorm}{\lVert}{\rVert}
+\providecommand{\ETC}{\ldots}
 \usepackage[french]{babel}
 \setlength{\parskip}{.45em}
 \hypersetup{pdfauthor={},pdfsubject={Lecture slides},pdfkeywords={},pdftitle={Primitives et intégrales}}
@@ -36,19 +41,19 @@
 \author{}
 \begin{document}
 \mxtitleframe
-\begin{frame}{Primitives}
+\begin{frame}[allowframebreaks]{Primitives}
 Soit \(f\) une fonction définie sur un intervalle \(I\) non-vide.
             Une fonction \(F\) est une \emph{primitive} de \(f\) sur \(I\) si \(F\) est dérivable sur \(I\) et si, 
             pour tout \(x\in I\), \(F'(x)=f(x)\).
 \end{frame}
-\begin{frame}{Primitives (2)}
+\begin{frame}[allowframebreaks]{Primitives (2)}
 Si une fonction \(f\) admet une primitive \(F\), alors elle en admet une infinité.
             En fait, toutes les fonctions de la forme \(F+c\) où \(c\in\mathbb{R}\) sont aussi des primitives de \(f\).
 
             L'ensemble des primitives de \(f\) est noté par \(\displaystyle{\int f(x) ~\mathrm{d}x}\).
             example
 \end{frame}
-\begin{frame}{Primitives (3)}
+\begin{frame}[allowframebreaks]{Primitives (3)}
 \begin{itemize}
 
                         \item \(f:x\mapsto 2x\) admet \(F:x\mapsto x^2\) comme primitive sur \(\mathbb{R}\).
@@ -60,10 +65,10 @@ Si une fonction \(f\) admet une primitive \(F\), alors elle en admet une infinit
 
             example
 \end{frame}
-\begin{frame}{Primitives}
+\begin{frame}[allowframebreaks]{Primitives}
 Soit \(f\) une fonction définie sur un intervalle \(I\) et \(F\) une primitive de \(f\) sur \(I\).
 \end{frame}
-\begin{frame}{Primitives (2)}
+\begin{frame}[allowframebreaks]{Primitives (2)}
 \begin{enumerate}
 \setcounter{enumi}{0}\item La fonction \(\lambda f\) admet la fonction \(\lambda F\) comme primitive sur \(I\).
             
@@ -75,14 +80,14 @@ Soit \(f\) une fonction définie sur un intervalle \(I\) et \(F\) une primitive 
 
 \end{enumerate}
 \end{frame}
-\begin{frame}{Primitives (3)}
+\begin{frame}[allowframebreaks]{Primitives (3)}
 \begin{enumerate}
 \setcounter{enumi}{3}\item Soient \(x_0\in I\) et \(y_0\in \mathbb{R}\).
                   Alors \(f\) admet une unique primitive \(F_0\) sur \(I\) vérifiant \(F_0 (x_0) = y_0\).
 
 \end{enumerate}
 \end{frame}
-\begin{frame}{Primitives (4)}
+\begin{frame}[allowframebreaks]{Primitives (4)}
 example
                   Cherchons la primitive de la fonction \(f:x\mapsto 3 x^2\) qui s'annule en \(1\).
                   La fonction \(F:x\mapsto x^3\) est dérivable et sa dérivée est \(F':x\mapsto 3x^2\).
@@ -90,24 +95,25 @@ example
                   Ainsi, \(F_0' (x) = 3x^2\) et \(F_0 (1) = 1 - 1 = 0\).
             example
 \end{frame}
-\begin{frame}{Primitives}
+\begin{frame}[allowframebreaks]{Primitives}
 minipage0.45
 \end{frame}
-\begin{frame}{Primitives (2)}
+\begin{frame}[allowframebreaks]{Primitives (2)}
+\footnotesize
 \begin{center}\begin{tabular}{ll}
-Fonctions & Primitives \\ 
-\(0\) & \(k\) \\ 
-\(1\) & \(x + k\) \\ 
-\(\dfrac{1}{x^2}\) & \(-\dfrac{1}{x}+k\) \\ 
-\(\dfrac{1}{\sqrt{x}}\) & \(2\sqrt{x}+k\) \\ 
-\(x^n \quad (n\neq -1)\) & \(\dfrac{x^{n+1}}{n+1} + k\) \\ 
-\(\cos x\) & \(\sin x + k\) \\ 
-\(\sin x\) & \(-\cos x +k\) \\ 
-\(\mathrm{e}^{x}\) & \(\mathrm{e}^{x} + k\) \\ 
-\(\dfrac{1}{x}\) & \(\ln |x| + k\) \\ 
+Fonctions & Primitives \\ {}
+\(0\) & \(k\) \\ {}
+\(1\) & \(x + k\) \\ {}
+\(\dfrac{1}{x^2}\) & \(-\dfrac{1}{x}+k\) \\ {}
+\(\dfrac{1}{\sqrt{x}}\) & \(2\sqrt{x}+k\) \\ {}
+\(x^n \quad (n\neq -1)\) & \(\dfrac{x^{n+1}}{n+1} + k\) \\ {}
+\(\cos x\) & \(\sin x + k\) \\ {}
+\(\sin x\) & \(-\cos x +k\) \\ {}
+\(\mathrm{e}^{x}\) & \(\mathrm{e}^{x} + k\) \\ {}
+\(\dfrac{1}{x}\) & \(\ln |x| + k\) \\ {}
 \end{tabular}\end{center}
 \end{frame}
-\begin{frame}{Primitives (3)}
+\begin{frame}[allowframebreaks]{Primitives (3)}
 minipage
       
             minipage0.45
@@ -118,7 +124,7 @@ minipage
 
 En voici quelques exemples :
 \end{frame}
-\begin{frame}{Primitives (4)}
+\begin{frame}[allowframebreaks]{Primitives (4)}
 \begin{itemize}
 
 							\item \(x \mapsto \mathrm{e}^{-x^2}\)
@@ -135,7 +141,7 @@ En voici quelques exemples :
 
             minipage
 \end{frame}
-\begin{frame}{Primitives}
+\begin{frame}[allowframebreaks]{Primitives}
 Soient \(g\) une fonction dérivable sur un intervalle \(I\) et \(f\) une fonction dérivable sur un intervalle
             contenant \(g(I)\).
             Comme la recherche d'une primitive est l'opération inverse de la dérivation, on a :
@@ -144,17 +150,20 @@ Soient \(g\) une fonction dérivable sur un intervalle \(I\) et \(f\) une foncti
                         \int f'(x) \cdot f^n (x) ~\mathrm{d}x               & = & \dfrac{1}{n+1} f^{n+1}(x) + C
                         \quad (n \in \mathbb{N})
                   \end{array}\]
-            En particulier, pour une fonction \(u\) dérivable sur \(I\) (et, selon le cas, \(u(x)\neq 0\) ou \(u(x)>0\) sur \(I\)) :
+\end{frame}
+\begin{frame}[allowframebreaks]{Primitives (2)}
+En particulier, pour une fonction \(u\) dérivable sur \(I\) (et, selon le cas, \(u(x)\neq 0\) ou \(u(x)>0\) sur \(I\)) :
                   \[\begin{array}{rcl}
                         \int \dfrac{u'(x)}{u(x)} ~\mathrm{d}x        & = & \ln |u(x)| + C ,      \\
                         \int u'(x) \, \mathrm{e}^{u(x)} ~\mathrm{d}x      & = & \mathrm{e}^{u(x)} + C ,     \\
                         \int \dfrac{u'(x)}{\sqrt{u(x)}} ~\mathrm{d}x & = & 2 \sqrt{u(x)} + C ,   \\
                         \int \dfrac{u'(x)}{u^2(x)} ~\mathrm{d}x      & = & -\dfrac{1}{u(x)} + C .
                   \end{array}\]
-            
-            example
+
+example
 \end{frame}
-\begin{frame}{Primitives (2)}
+\begin{frame}[allowframebreaks]{Primitives (3)}
+\footnotesize
 \begin{enumerate}
 \setcounter{enumi}{0}\item On veut trouver une primitive de \(a(x) = 2x \cdot \cos (x^2)\).
                               On constate que \(2x\) est en fait la dérivée de \(x^2\).
@@ -170,7 +179,7 @@ Soient \(g\) une fonction dérivable sur un intervalle \(I\) et \(f\) une foncti
 
 \end{enumerate}
 \end{frame}
-\begin{frame}{Primitives (3)}
+\begin{frame}[allowframebreaks]{Primitives (4)}
 \begin{enumerate}
 \setcounter{enumi}{1}\item On veut trouver une primitive de \(b(x) = \cos x \cdot \sin^4 x\).
                               On commence par remarquer que \(\cos\) est en fait la dérivée de \(\sin\).
@@ -179,18 +188,20 @@ Soient \(g\) une fonction dérivable sur un intervalle \(I\) et \(f\) une foncti
 
 \end{enumerate}
 \end{frame}
-\begin{frame}{Primitives (4)}
+\begin{frame}[allowframebreaks]{Primitives (5)}
 example
 \end{frame}
-\begin{frame}{Intégrales}
+\begin{frame}[allowframebreaks]{Intégrales}
 Soit \(f\) une fonction définie sur un intervalle \(I\) et y admettant une primitive \(F\).
 	      Soient \(a\) et \(b\) deux éléments de \(I\).
 	      On appelle intégrale de \(f\) entre \(a\) et \(b\) le réel 
 	            \[
 	            \int_{a}^{b} f(x) ~\mathrm{d}x = \left[ F(x) \right]_{a}^{b} = F(b) - F(a)      \,.
 	            \]
-	      
-	              La variable \(x\) de la définition est muette, 
+\end{frame}
+\begin{frame}[allowframebreaks]{Intégrales (2)}
+\footnotesize
+La variable \(x\) de la définition est muette, 
 	              c'est-à-dire qu'on peut la remplacer par n'importe quelle autre variable.
 	              Ainsi, \(\int_{a}^{b} f(x) ~\mathrm{d}x = \int_{a}^{b} f(t) \mathrm{d}t\). 
 	              La valeur de \(\int_{a}^{b} f(x) ~\mathrm{d}x\) ne dépend pas de la primitive \(F\) choisie.
@@ -204,12 +215,12 @@ Soit \(f\) une fonction définie sur un intervalle \(I\) et y admettant une prim
 	                                                     = \left[ F_2 (x) \right]_{a}^{b}       \,.
 	                    \end{aligned}\]
 \end{frame}
-\begin{frame}{Intégrales}
+\begin{frame}[allowframebreaks]{Intégrales}
 Soient \(f\) et \(g\) deux fonctions définies sur un intervalle \(I\) et y admettant des primitives.
 	      Soient \(F\) une primitive de \(f\) et \(G\) une primitive de \(g\).
 	      Soient \(a\), \(b\) et \(c\) trois éléments de \(I\) et \(\lambda \in \mathbb{R}\).
 \end{frame}
-\begin{frame}{Intégrales (2)}
+\begin{frame}[allowframebreaks]{Intégrales (2)}
 \begin{enumerate}
 \setcounter{enumi}{0}\item \(\int_{a}^{b} f(x) ~\mathrm{d}x = -\int_{b}^{a} f(x) ~\mathrm{d}x\)
 	                  
@@ -219,7 +230,7 @@ Soient \(f\) et \(g\) deux fonctions définies sur un intervalle \(I\) et y adme
 
 \end{enumerate}
 \end{frame}
-\begin{frame}{Intégrales (3)}
+\begin{frame}[allowframebreaks]{Intégrales (3)}
 \begin{enumerate}
 \setcounter{enumi}{3}\item \(\int_{a}^{b} f(x) ~\mathrm{d}x = \int_{a}^{c} f(x) ~\mathrm{d}x + \int_{c}^{b} f(x) ~\mathrm{d}x\)
 	                  
@@ -228,10 +239,10 @@ Soient \(f\) et \(g\) deux fonctions définies sur un intervalle \(I\) et y adme
 
 \end{enumerate}
 \end{frame}
-\begin{frame}{Intégrales}
+\begin{frame}[allowframebreaks]{Intégrales}
 Soit \(f\) une fonction définie et continue sur un intervalle \([a,b]\) (\(a<b\)).
 \end{frame}
-\begin{frame}{Intégrales (2)}
+\begin{frame}[allowframebreaks]{Intégrales (2)}
 \begin{enumerate}
 \setcounter{enumi}{0}\item Si \( f(x) \leq 0\) pour tout \(x\in [a,b]\), alors \(\int_{a}^{b} f(x) ~\mathrm{d}x \leq 0\).
 	                  
@@ -241,30 +252,31 @@ Soit \(f\) une fonction définie et continue sur un intervalle \([a,b]\) (\(a<b\
 
 \end{enumerate}
 \end{frame}
-\begin{frame}{Intégrales (3)}
+\begin{frame}[allowframebreaks]{Intégrales (3)}
 \begin{enumerate}
 \setcounter{enumi}{3}\item Si \(m\leq f(x) \leq M\) pour tout \(x\in [a,b]\), 
 	                        alors \( m \leq \dfrac{1}{b-a} \int_{a}^{b} f(x) ~\mathrm{d}x \leq M\).
 
 \end{enumerate}
 \end{frame}
-\begin{frame}{Intégrales (4)}
+\begin{frame}[allowframebreaks]{Intégrales (4)}
 Le réel \(\mu = \dfrac{1}{b-a} \int_{a}^{b} f(x) ~\mathrm{d}x\) est appelé la \emph{valeur moyenne} de \(f\) sur \([a,b]\) ;
 	            le point 4 est l'\emph{inégalité de la moyenne}.
 \end{frame}
-\begin{frame}{Intégrales}
+\begin{frame}[allowframebreaks]{Intégrales}
 Soient \(u\) et \(v\) deux fonctions dérivables sur un intervalle non-vide \(I\).
 	            Si \(u'v\) admet une primitive sur \(I\), alors on a 
 	                  \[
 	                        \int u(x) \cdot v'(x) ~\mathrm{d}x = u(x) \cdot v(x) - \int u'(x) \cdot v(x) ~\mathrm{d}x      
-	                  
 	                  \]
-	            ou, avec d'autres notations :
+
+ou, avec d'autres notations :
 	                  \[
 	                        \int u \ \mathrm{d}v = u \cdot v - \int v \ \mathrm{d}u      \,.
-	                  
 	                  \]
-	            example
+\end{frame}
+\begin{frame}[allowframebreaks]{Intégrales (2)}
+example
 	                  On considère la fonction \(f\) définie par \(f(x) = x\cdot \mathrm{e}^{x}\).
 	                  On veut trouver la primitive \(F\) de \(f\) qui vérifie \(F(1) = 1\).
 	                  
@@ -273,12 +285,16 @@ Soient \(u\) et \(v\) deux fonctions dérivables sur un intervalle non-vide \(I\
 	                              u           & = x       & \text{ et } & &      \mathrm{d}v & = \mathrm{e}^{x} ~\mathrm{d}x      \\
 	                              \mathrm{d}u & = ~\mathrm{d}x     & \text{    } & &      v           & = \mathrm{e}^{x}          \;.
 	                        \end{aligned}\]
-	                  On a alors :
+\end{frame}
+\begin{frame}[allowframebreaks]{Intégrales (3)}
+On a alors :
 	                        \[\begin{aligned}
 	                        \int x \cdot \mathrm{e}^{x} ~\mathrm{d}x & = [x \cdot \mathrm{e}^{x} ] - \int \mathrm{e}^{x} ~\mathrm{d}x       \\
 	                                                  & = x \cdot \mathrm{e}^{x} - \mathrm{e}^{x} + C               \;.
 	                        \end{aligned}\]
-	                  Posons alors \(F(x) = \mathrm{e}^{x} (x-1) + C\).
+\end{frame}
+\begin{frame}[allowframebreaks]{Intégrales (4)}
+Posons alors \(F(x) = \mathrm{e}^{x} (x-1) + C\).
 	                  On cherche alors la valeur de \(C\) pour que \(F(1) = 1\).
 	                  On a \(
 	                              F(1) = \mathrm{e}^{1} (1-1) + C = C
@@ -287,7 +303,8 @@ Soient \(u\) et \(v\) deux fonctions dérivables sur un intervalle non-vide \(I\
 	                  D'où \(F(x) = \mathrm{e}^{x} (x-1) + 1\).
 	            example
 \end{frame}
-\begin{frame}{Intégrales}
+\begin{frame}[allowframebreaks]{Intégrales}
+\footnotesize
 Soit \(f\) une fonction définie sur un intervalle \(I\) et y admettant une primitive \(F\) 
 	      et soit \(\varphi\) une fonction définie et dérivable sur un intervalle \(J\) telle que \(\varphi (J) \subseteq I\).
 	      La fonction \(t \mapsto F\left( \varphi (t) \right)\) est dérivable sur \(J\) et a pour dérivée 
@@ -296,10 +313,10 @@ Soit \(f\) une fonction définie sur un intervalle \(I\) et y admettant une prim
 	      Si de plus \(\varphi\) est une bijection de \(J\) vers \(I\), on peut poser \(x=\varphi (t)\), \(x\in I\), on a :
 	            \[
 	                  \int f(x) ~\mathrm{d}x = \int f(\varphi(t)) \cdot \varphi'(t) \mathrm{d}t      \,.
-	            
 	            \]
-	            
-	            example
+\end{frame}
+\begin{frame}[allowframebreaks]{Intégrales (2)}
+example
 	                  Posons \(f(x) = x \sqrt{x+1}\).
 	                  On veut trouver une primitive de \(f\).
 	                  Posons \(t = \sqrt{x+1}\), on a \(x = t^2 - 1\) et donc \(~\mathrm{d}x = 2t \mathrm{d}t\).
@@ -309,12 +326,15 @@ Soit \(f\) une fonction définie sur un intervalle \(I\) et y admettant une prim
 	                                              & = 2 \left[ \dfrac{t^5}{5} - \dfrac{t^3}{3} \right] + C                      
 	                                                = \dfrac{2}{5} (x+1)^{\dfrac{5}{2}} - \dfrac{2}{3} (x+1)^{\dfrac{3}{2}} + C   \,.
 	                  \end{aligned}\]
-	                  Ainsi, la fonction \(F\) définie par 
+\end{frame}
+\begin{frame}[allowframebreaks]{Intégrales (3)}
+Ainsi, la fonction \(F\) définie par 
 	                  \(F(x) = \dfrac{2}{5} (x+1)^{\dfrac{5}{2}} - \dfrac{2}{3} (x+1)^{\dfrac{3}{2}}\)
 	                  est une primitive de \(f\) sur \(]-1,+\infty[\) (on revient à la variable \(x\) grâce à \(t = \sqrt{x+1}\)).
 	            example
 \end{frame}
-\begin{frame}{Intégrales}
+\begin{frame}[allowframebreaks]{Intégrales}
+\footnotesize
 Soient \(f\) une fonction continue et positive sur un intervalle \([a,b]\) (\(a<b\))
       et notons par \(\mathcal{C}\) sa courbe représentative dans 
       le plan rapporté à un repère orthogonal \((O,\overrightarrow{\imath},\overrightarrow{\jmath})\).
@@ -322,13 +342,14 @@ Soient \(f\) une fonction continue et positive sur un intervalle \([a,b]\) (\(a<
       est alors égal à \(\int_{a}^{b} f(x) ~\mathrm{d}x\).
       Cette valeur s'exprime en unités d'aire : l'unité d'aire est l'aire du rectangle construit sur \(\overrightarrow{\imath}\) et \(\overrightarrow{\jmath}\) (de côtés \(\|\overrightarrow{\imath}\|\) et \(\|\overrightarrow{\jmath}\|\)).
 \end{frame}
-\begin{frame}{Intégrales}
+\begin{frame}[allowframebreaks]{Intégrales}
 Notons que si \(f\) est négative sur \([a,b]\), alors la valeur de \(\int_{a}^{b} f(x) ~\mathrm{d}x\) est aussi négative.
 
 Ainsi, dans ce cas, l'aire délimitée par \(\mathcal{C}\), l'axe \(x'Ox\) et les droites d'équations \(x=a\) et \(x=b\)
       est alors égal à \(-\int_{a}^{b} f(x) ~\mathrm{d}x\).
 \end{frame}
-\begin{frame}{Intégrales}
+\begin{frame}[allowframebreaks]{Intégrales}
+\footnotesize
 Plus généralement, si la fonction prend à la fois des valeurs positives et négatives sur \([a,b]\),
       l'aire du domaine plan correspond à \(\int_{a}^{b} |f(x)| ~\mathrm{d}x\).
       La valeur absolue permet de s'assurer qu'on calcule toujours des valeurs positives.
@@ -340,7 +361,7 @@ Plus généralement, si la fonction prend à la fois des valeurs positives et n�
       Si on calcule juste la valeur de \(\int_{a}^{b} f(x) ~\mathrm{d}x\), alors 
       la partie négative et la partie positive se soustrairont.
 \end{frame}
-\begin{frame}{Intégrales}
+\begin{frame}[allowframebreaks]{Intégrales}
 Soient \(a>0\) et \(f\) une fonction continue sur \([-a,a]\).
 
 \begin{itemize}
@@ -351,16 +372,16 @@ Soient \(a>0\) et \(f\) une fonction continue sur \([-a,a]\).
 
 \end{itemize}
 \end{frame}
-\begin{frame}{Intégrales}
+\begin{frame}[allowframebreaks]{Intégrales}
 Soit \(f\) une fonction continue sur \([a,b]\) et \(\psi : J \rightarrow [a,b]\) une fonction dérivable, de dérivée continue, et bijective.
       
       Si \(\psi (\alpha) = a\) et \(\psi (\beta) = b\), alors : 
             \[
                   \int_{a}^{b} f(x) ~\mathrm{d}x = \int_{\alpha}^{\beta} f(\psi(t)) \cdot \psi'(t) \mathrm{d}t      \,.
-            
             \]
-            
-            example
+\end{frame}
+\begin{frame}[allowframebreaks]{Intégrales (2)}
+example
                   Posons \(f(x) = x \sqrt{x+1}\).
                   On veut trouver l'integrale \(\int_{0}^{1} f(x) ~\mathrm{d}x\).
                   Posons \(t = \sqrt{x+1}\), on a \(x = t^2 - 1\) et donc \(~\mathrm{d}x = 2t \mathrm{d}t\).
@@ -376,12 +397,14 @@ Soit \(f\) une fonction continue sur \([a,b]\) et \(\psi : J \rightarrow [a,b]\)
                                                       \right]                                                               \\
                                                 & = \dfrac{4}{15} \cdot \left(\sqrt{2} + 1 \right)                           \,.
                   \end{aligned}\]
-            example
 \end{frame}
-\begin{frame}{Intégrales}
+\begin{frame}[allowframebreaks]{Intégrales (3)}
+example
+\end{frame}
+\begin{frame}[allowframebreaks]{Intégrales}
 Soit \(f\) une fonction définie et continue sur un intervalle \(I\).
 \end{frame}
-\begin{frame}{Intégrales}
+\begin{frame}[allowframebreaks]{Intégrales}
 De la forme \(\int_{a}^{x} f(t) \mathrm{d}t\)
 
  Comme \(f\) est continue, elle admet des primitives sur \(I\).
@@ -389,21 +412,22 @@ De la forme \(\int_{a}^{x} f(t) \mathrm{d}t\)
                   qui n'est autre que la primitive de \(f\) qui s'annule en \(a\).
                   Cette fonction est dérivable et a pour dérivée \(f\).
 \end{frame}
-\begin{frame}{Intégrales}
+\begin{frame}[allowframebreaks]{Intégrales}
 De la forme \(\int_{u(x)}^{v(x)} f(t) \mathrm{d}t\)
 
  Soient \(u\) et \(v\) deux fonctions dérivables dans un domaine \(\mathcal{D}\), et à valeurs dans \(I\).
                   La fonction \(f\) étant continue, elle admet une primitive \(F\)
                   En fait elle en admet plusieurs, on va juste considérer une d'elles.
 \end{frame}
-\begin{frame}{Intégrales (2)}
+\begin{frame}[allowframebreaks]{Intégrales (2)}
 On peut alors définir la fonction \(H\) par 
                   \(H(x) = \int_{u(x)}^{v(x)} f(t) \mathrm{d}t\).
                   On sait que 
                   \[\begin{aligned}
                         H(x) & = \int_{u(x)}^{v(x)} f(t) \mathrm{d}t = F(v(x)) - F(u(x)) \;.
                   \end{aligned}\]
-                  Cette fonction est dérivable sur \(\mathcal{D}\) et sa dérivée est définie par
+
+Cette fonction est dérivable sur \(\mathcal{D}\) et sa dérivée est définie par
 
                               \[
                                     H'(x) = v'(x) \cdot f(v(x)) - u'(x) \cdot f(u(x)) .

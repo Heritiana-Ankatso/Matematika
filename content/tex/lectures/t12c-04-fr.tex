@@ -2,7 +2,12 @@
 \makeatletter\IfFileExists{core/beamer/beamerthememx.sty}{\def\mxcorepath{core/}\def\input@path{{core/beamer/}{core/}}}{\def\mxcorepath{../core/}\def\input@path{{../core/beamer/}{../core/}}}\makeatother
 \documentclass[aspectratio=169,10pt,t]{beamer}
 \usetheme{mx}
-\usepackage{graphicx,booktabs}
+\usepackage{graphicx,booktabs,mathtools,array,adjustbox}
+\usepackage[all]{xy}
+\providecommand{\actualtextwidth}{\textwidth}
+\providecommand{\veccor}[2]{\left(\begin{matrix}#1\\#2\end{matrix}\right)}
+\DeclarePairedDelimiter{\VecNorm}{\lVert}{\rVert}
+\providecommand{\ETC}{\ldots}
 \usepackage[french]{babel}
 \setlength{\parskip}{.45em}
 \hypersetup{pdfauthor={},pdfsubject={Lecture slides},pdfkeywords={},pdftitle={Nombres complexes}}
@@ -36,14 +41,14 @@
 \author{}
 \begin{document}
 \mxtitleframe
-\begin{frame}{Nombres complexes}
+\begin{frame}[allowframebreaks]{Nombres complexes}
 Dans l'ensemble des nombres réels, certaines équations polynomiales telles \(x^2 + 1 = 0\) n'admettent pas de solutions. 
 Pour remédier à ce problème, on introduit un nouveau \emph{nombre imaginaire} \(i\) vérifiant \(i^2 = -1\).
 On obtient ainsi un nouvel ensemble qu'on dénote usuellement par \(\mathbb{C}\). 
 Cet ensemble \(\mathbb{C}\) est appelé le corps des nombres complexes. 
 Il est constitué des nombres de la forme \(a + i b\) où \(a\) et \(b\) sont deux nombres réels et \(i\) l'unité imaginaire.
 \end{frame}
-\begin{frame}{Nombres complexes}
+\begin{frame}[allowframebreaks]{Nombres complexes}
 Si \(z\) est un élément de \(\mathbb{C}\), alors \(z\) s'écrit de manière unique sous la forme \(a + i b\) .
 Cette forme est appelée la \emph{forme algébrique} de \(z\).
 Le réel \(a\) est appelé partie réelle de \(z\) et est noté \(\mathfrak{Re}(z)\).
@@ -51,7 +56,7 @@ Le réel \(b\) est appelé partie imaginaire de \(z\) et est noté \(\mathfrak{I
 
 Un nombre complexe dont la partie réelle est nulle est qualifié d'\emph{imaginaire pur}.
 \end{frame}
-\begin{frame}{Nombres complexes}
+\begin{frame}[allowframebreaks]{Nombres complexes}
 Soient \(z_1 = a_1 + i b_1\) et \(z_2 = a_2 + i b_2\) deux nombres complexes.
 
 \begin{itemize}
@@ -66,14 +71,14 @@ Soient \(z_1 = a_1 + i b_1\) et \(z_2 = a_2 + i b_2\) deux nombres complexes.
 
 \end{itemize}
 \end{frame}
-\begin{frame}{Nombres complexes (2)}
+\begin{frame}[allowframebreaks]{Nombres complexes (2)}
 En pratique, toutes les opérations se font de la même façon que dans \(\mathbb{R}\) (on peut même diviser par tout nombre complexe non nul).
 \end{frame}
-\begin{frame}{Nombres complexes}
+\begin{frame}[allowframebreaks]{Nombres complexes}
 Pour un nombre complexe \(z = a + i b\) donné, on définit \emph{le conjugué} de \(z\) comme étant le nombre complexe
 \(\overline{z} = a - i b\).
 \end{frame}
-\begin{frame}{Nombres complexes}
+\begin{frame}[allowframebreaks]{Nombres complexes}
 Si \(z\), \(z_1\) et \(z_2\) sont trois nombres complexes, on a : 
 
 \begin{enumerate}
@@ -90,12 +95,12 @@ Si \(z\), \(z_1\) et \(z_2\) sont trois nombres complexes, on a :
 
 \end{enumerate}
 \end{frame}
-\begin{frame}{Nombres complexes}
+\begin{frame}[allowframebreaks]{Nombres complexes}
 Soit \(z = a + i b\) un nombre complexe.
 On appelle module de \(z\) le nombre réel noté \(| z |\) et défini par 
 \(|z| = \sqrt{z \overline{z}} = \sqrt{a^2 + b^2}\).
 \end{frame}
-\begin{frame}{Nombres complexes}
+\begin{frame}[allowframebreaks]{Nombres complexes}
 Soient \(z = a + i b\) et \(z'\) deux nombres complexes. On a:
 
 \begin{enumerate}
@@ -112,12 +117,12 @@ Soient \(z = a + i b\) et \(z'\) deux nombres complexes. On a:
 
 \end{enumerate}
 \end{frame}
-\begin{frame}{Point de vue géometrique des nombres complexes}
+\begin{frame}[allowframebreaks]{Point de vue géometrique des nombres complexes}
 L'ensemble \(\mathbb{C}\) des nombres complexes peut aisément être identifié au plan \(\mathbb{R}^2\).
 À chaque nombre complexe \(z = a + i b\), on associe le point \(M(a,b)\) de \(\mathbb{R}^2\).
 On pourra ainsi parler de \emph{plan complexe}, en référence à cette représentation dans un repère orthonormé \((O,\overrightarrow{u},\overrightarrow{v})\).
 \end{frame}
-\begin{frame}{Point de vue géometrique des nombres complexes}
+\begin{frame}[allowframebreaks]{Point de vue géometrique des nombres complexes}
 \textbf{Terminologie}
 
  Avec cette représentation, on dit que:
@@ -137,14 +142,14 @@ On pourra ainsi parler de \emph{plan complexe}, en référence à cette représe
 De même que pour un point, on définit l'affixe d'un vecteur \(\overrightarrow{u} \left( \begin{matrix} a \\ b \end{matrix} \right)\)
 comme étant le nombre complexe \(z = a + i b\).
 \end{frame}
-\begin{frame}{Point de vue géometrique des nombres complexes (2)}
+\begin{frame}[allowframebreaks]{Point de vue géometrique des nombres complexes (2)}
 Le module du nombre complexe \(z\) prend alors sens comme étant la distance Euclidienne entre l'origine et son image: le point \(M\).
 Autrement dit, il s'agit de la norme du vecteur \(\overrightarrow{OM}\).
 \end{frame}
-\begin{frame}{Point de vue géometrique des nombres complexes}
+\begin{frame}[allowframebreaks]{Point de vue géometrique des nombres complexes}
 L'addition de deux nombres complexes se traduit alors comme l'addition de deux vecteurs du plan. (Voir Fig fig:complex\_sum)
 \end{frame}
-\begin{frame}{Point de vue géometrique des nombres complexes (2)}
+\begin{frame}[allowframebreaks]{Point de vue géometrique des nombres complexes (2)}
 Soient \(z = a+ib\) et \(z' = a'+ib'\) deux nombres complexes. 
 Soient \(M (a,b)\) et \(M'(a',b')\) leurs images respectifs.
 Considérons les vecteurs \(\overrightarrow{OM}\) et \(\overrightarrow{OM'}\), soit \(M''\) le point du plan complexe tel que 
@@ -154,22 +159,23 @@ Considérons les vecteurs \(\overrightarrow{OM}\) et \(\overrightarrow{OM'}\), s
 On sait que \(\overrightarrow{OM''}\) a pour coordonnées \(\left( \begin{matrix} a+a' \\ b+b' \end{matrix} \right)\).
 On vérifie qu'il s'agit de l'image de \(z'' = z + z'\).
 \end{frame}
-\begin{frame}{Point de vue géometrique des nombres complexes}
+\begin{frame}[allowframebreaks]{Point de vue géometrique des nombres complexes}
 Si \(z = a + i b\) alors \(\overline{z} = a - i b\); ainsi, l'image de \(z\) a pour coordonnées \((a,b)\) et celle de \(\overline{z}\) a pour coordonnées \((a,-b)\).
 On constate alors que l'image de \(\overline{z}\) n'est autre que l'image du point \(M\) par la symétrie d'axe \(O\overrightarrow{u}\) (Voir Fig fig:conjugue).
 \end{frame}
-\begin{frame}{Forme trigonométrique d'un nombre complexe}
+\begin{frame}[allowframebreaks]{Forme trigonométrique d'un nombre complexe}
 Dans le plan complexe muni d'un repère orthonormé \((O,\overrightarrow{u},\overrightarrow{v})\), considérons le point \(M(x,y)\) d'affixe \(z\) non nul\(0\) n'a pas d'argument.
 On appelle argument de \(z\), et on note par \(\arg(z)\), la mesure de l'angle formé par \(\overrightarrow{OM}\) avec \(\overrightarrow{u}\).
 \end{frame}
-\begin{frame}{Forme trigonométrique d'un nombre complexe}
+\begin{frame}[allowframebreaks]{Forme trigonométrique d'un nombre complexe}
+\footnotesize
 Pour tout nombre complexe \(z\) différent de \(0\), on peut définir le nombre \(z' = \dfrac{z}{|z|}\) qui a pour module \(1\) En effet, \(\left|\dfrac{z}{|z|}\right| = \dfrac{|z|}{|z|} = 1\)..
 Ainsi, la distance entre l'origine et l'image \(M'\) de \(z'\) est égale à \(1\) ; autrement dit, \(M'\) appartient au cercle unité.
 On sait alors qu'il existe un angle \(\theta\) tel que \(\mathfrak{Re}(z') = \cos \theta \) et \(\mathfrak{Im}(z') = \sin \theta\).
 L'angle \(\theta\) ainsi défini est un argument de \(z'\).
 Puisque \(\overrightarrow{OM} = |z| \overrightarrow{OM'}\), les deux vecteurs sont colinéaires ; il s'ensuit que l'angle formé par \(\overrightarrow{OM}\) avec \(\overrightarrow{u}\) est le même que celui formé par \(\overrightarrow{OM'}\) avec \(\overrightarrow{u}\) (à un multiple de \(2\pi\) près).
 \end{frame}
-\begin{frame}{Forme trigonométrique d'un nombre complexe}
+\begin{frame}[allowframebreaks]{Forme trigonométrique d'un nombre complexe}
 On constate que le point \(M'\) a pour affixe \(\cos \theta + i \sin \theta\).
 De là, on aboutit à la conclusion que \(M\) a pour affixe \(|z|(\cos \theta + i\sin \theta)\).
 Si on pose \(r = |z|\) alors on a \(z = r (\cos \theta + i \sin \theta)\) .
@@ -178,7 +184,8 @@ Cette expression est la \emph{forme trigonométrique} de \(z\).
 Le même nombre complexe \(z\) peut aussi être désigné par le couple \([r,\theta]\) .
 Cette dernière expression est appelée la \emph{forme polaire} du nombre complexe \(z\).
 \end{frame}
-\begin{frame}{Forme trigonométrique d'un nombre complexe}
+\begin{frame}[allowframebreaks]{Forme trigonométrique d'un nombre complexe}
+\footnotesize
 Pour passer de la forme trigonométrique à la forme algébrique, il suffit de developper l'expression. 
 En effet, si \(z = r (\cos \theta + i \sin \theta)\) alors 
 la partie réelle de \(z\) n'est autre que \(r \cos \theta\) et la partie imaginaire est \(r \sin \theta\). 
@@ -190,10 +197,10 @@ On sait que le nombre \(\dfrac{z}{|z|}\) appartient au cercle unité.
 Il existe alors un angle \(\theta\) vérifiant \(\dfrac{z}{|z|} = \cos \theta + i \sin \theta\).
 Finalement, l'expression trigonométrique sera \(z = |z| (\cos \theta + i \sin \theta)\).
 \end{frame}
-\begin{frame}{Forme trigonométrique d'un nombre complexe}
+\begin{frame}[allowframebreaks]{Forme trigonométrique d'un nombre complexe}
 Soient \(z\) et \(z'\) deux nombres complexes non nuls. On a alors :
 \end{frame}
-\begin{frame}{Forme trigonométrique d'un nombre complexe (2)}
+\begin{frame}[allowframebreaks]{Forme trigonométrique d'un nombre complexe (2)}
 \begin{itemize}
 \item \(\arg(z z') = \arg(z) + \arg(z')\) et \(\arg(z^n) = n \, \arg(z)\),
 		
@@ -204,7 +211,7 @@ Soient \(z\) et \(z'\) deux nombres complexes non nuls. On a alors :
 
 \end{itemize}
 \end{frame}
-\begin{frame}{Forme trigonométrique d'un nombre complexe (3)}
+\begin{frame}[allowframebreaks]{Forme trigonométrique d'un nombre complexe (3)}
 \begin{itemize}
 \item Si \(z \in \mathbb{R}^*\) alors 
 		      \(\arg(z) = 
@@ -216,7 +223,7 @@ Soient \(z\) et \(z'\) deux nombres complexes non nuls. On a alors :
 
 \end{itemize}
 \end{frame}
-\begin{frame}{Forme trigonométrique d'un nombre complexe (4)}
+\begin{frame}[allowframebreaks]{Forme trigonométrique d'un nombre complexe (4)}
 \begin{itemize}
 \item Si \(z = \lambda i\) avec \(\lambda \in \mathbb{R}^*\) alors 
 		      \(\arg(z) = 
@@ -228,14 +235,14 @@ Soient \(z\) et \(z'\) deux nombres complexes non nuls. On a alors :
 
 \end{itemize}
 \end{frame}
-\begin{frame}{Forme trigonométrique d'un nombre complexe (5)}
+\begin{frame}[allowframebreaks]{Forme trigonométrique d'un nombre complexe (5)}
 Les égalités portant sur des arguments s'entendent à un multiple de \(2\pi\) près.
 \end{frame}
-\begin{frame}{Forme trigonométrique d'un nombre complexe}
+\begin{frame}[allowframebreaks]{Forme trigonométrique d'un nombre complexe}
 Soit \(n\) un nombre entier relatif. On a
 	\[ (\cos \theta + i \sin \theta)^n = \cos n \theta + i \sin n \theta .\]
 \end{frame}
-\begin{frame}{Notation exponentielle d'un nombre complexe}
+\begin{frame}[allowframebreaks]{Notation exponentielle d'un nombre complexe}
 Pour tout nombre réel \(\theta\) on a
 \[ \mathrm{e}^{i \, \theta} = \cos \theta + i \sin \theta .\]
 
@@ -243,13 +250,14 @@ A partir de cette formule, on peut en obtenir d'autres:
 
 minipage0.45
 \end{frame}
-\begin{frame}{Notation exponentielle d'un nombre complexe (2)}
+\begin{frame}[allowframebreaks]{Notation exponentielle d'un nombre complexe (2)}
 \[\begin{aligned}
 \mathrm{e}^{i \, \theta }   & = \cos \theta + i \sin \theta \\
 \mathrm{e}^{- i \, \theta } & = \cos \theta - i \sin \theta \\
 \\ \text{et on additionne pour avoir} \\
 \mathrm{e}^{i \, \theta } + \mathrm{e}^{ -i \, \theta } & = 2 \cos \theta \\
 \end{aligned}\]
+
 On a alors: 
 
 \[ \cos \theta  = \dfrac{\mathrm{e}^{i \, \theta } + \mathrm{e}^{ -i \, \theta }}{2} .\]
@@ -260,7 +268,7 @@ minipage[c][][c].02
       
 minipage
 \end{frame}
-\begin{frame}{Notation exponentielle d'un nombre complexe (3)}
+\begin{frame}[allowframebreaks]{Notation exponentielle d'un nombre complexe (3)}
 minipage0.45 
 \[\begin{aligned}
 \mathrm{e}^{i \, \theta }   & = \cos \theta + i \sin \theta \\
@@ -268,13 +276,14 @@ minipage0.45
 \\ \text{et on soustrait pour avoir} \\
 \mathrm{e}^{i \, \theta } - \mathrm{e}^{ -i \, \theta } & = 2 \, i \sin \theta \\
 \end{aligned}\]
+
 et 
 
 \[ \sin \theta = \dfrac{\mathrm{e}^{i \, \theta } - \mathrm{e}^{ -i \, \theta }}{2 \, i} .\]
 
 minipage
 \end{frame}
-\begin{frame}{Linéarisation de fonctions trigonométriques}
+\begin{frame}[allowframebreaks]{Linéarisation de fonctions trigonométriques}
 Les formules vues dans la section précédente peuvent servir à linéariser les fonctions trigonométriques.
 En effet, pour linéariser les expressions de la forme \(\cos ^n \theta\), on utilise la formule exponentielle de la fonction cosinus.
 L'expression \(\cos ^n \theta\) devient alors \(\left( \dfrac{ \mathrm{e}^{i \theta} + \mathrm{e}^{-i \theta} }{ 2 } \right)^n\) et on peut utiliser la formule du binôme pour la développer.
@@ -282,7 +291,7 @@ Puis on regroupe les termes et on les identifie à des fonctions trigonométriqu
 
 Voyons cela par un exemple :
 \end{frame}
-\begin{frame}{Linéarisation de fonctions trigonométriques}
+\begin{frame}[allowframebreaks]{Linéarisation de fonctions trigonométriques}
 Linéarisons l'expression \(\cos ^3 \theta\).
 	      Pour cela, on utilise la formule d'Euler correspondante :
       \[\begin{aligned}
@@ -294,23 +303,24 @@ Linéarisons l'expression \(\cos ^3 \theta\).
                              = \dfrac{1}{4} \left[ \dfrac{\mathrm{e}^{i 3\theta} + \mathrm{e}^{-i 3\theta}}{2} 
                                  + 3 \dfrac{ \mathrm{e}^{i \theta} + \mathrm{e}^{-i \theta} }{2} \right]                                \,.
       \end{aligned}\]
-      \[ \cos ^3 \theta = \dfrac{1}{4} \left[ \cos 3\theta + 3 \cos \theta \right] .\]
+
+\[ \cos ^3 \theta = \dfrac{1}{4} \left[ \cos 3\theta + 3 \cos \theta \right] .\]
 \end{frame}
-\begin{frame}{Linéarisation de fonctions trigonométriques}
+\begin{frame}[allowframebreaks]{Linéarisation de fonctions trigonométriques}
 La linéarisation de \(\sin ^n \theta\) se fait de maniére analogue.
 \end{frame}
-\begin{frame}{Equations du second degré dans \(\mathbb{C}\)}
+\begin{frame}[allowframebreaks]{Equations du second degré dans \(\mathbb{C}\)}
 Comme on l'a vu en introduction, certaines équations polynomiales dans \(\mathbb{R}\) n'admettent pas de racine.
 On sait déjà comment résoudre les équations du second degré dans \(\mathbb{R}\), cette même méthode peut être appliquée dans \(\mathbb{C}\).
 On va voir dans cette section comment étendre cette méthode aux nombres complexes.
 \end{frame}
-\begin{frame}{Equations du second degré dans \(\mathbb{C}\)}
+\begin{frame}[allowframebreaks]{Equations du second degré dans \(\mathbb{C}\)}
 Considérons l'équation \(a z^2 + b z + c = 0\), avec \(a\neq0\), où \(z\) est l'inconnue.
 On se propose de résoudre cette équation dans \(\mathbb{C}\), c'est-à-dire qu'on cherche les nombres complexes qui la vérifient.
 Posons \(\Delta = b^2 - 4 a c\).
 On distingue alors 3 cas:
 \end{frame}
-\begin{frame}{Equations du second degré dans \(\mathbb{C}\) (2)}
+\begin{frame}[allowframebreaks]{Equations du second degré dans \(\mathbb{C}\) (2)}
 \begin{itemize}
 
 \item Si \(\Delta>0\):
@@ -324,7 +334,8 @@ On distingue alors 3 cas:
 
 \end{itemize}
 \end{frame}
-\begin{frame}{Equations du second degré dans \(\mathbb{C}\) (3)}
+\begin{frame}[allowframebreaks]{Equations du second degré dans \(\mathbb{C}\) (3)}
+\footnotesize
 Dans ce dernier cas, il nous faut alors chercher des solutions complexes.
 Puisque \(b^2 - 4 ac<0\), alors \(4ac - b^2\) est strictement positif.
 On peut alors réecrire \(\Delta\) sous la forme \(b^2 - 4ac = - (4ac - b^2) = i^2 (4ac - b^2)\).
@@ -332,17 +343,17 @@ Puisque \(4ac - b^2\) est positif, on peut prendre sa racine carrée et ainsi é
 Ainsi, on obtient deux nombres complexes \(i \cdot \sqrt{4ac - b^2}\) et \(-i \cdot \sqrt{4ac - b^2}\) dont les carrés sont égaux à \(\Delta\).
 En prenant \(z' = \dfrac{-b -i \cdot \sqrt{4ac - b^2} }{2a}\) et \(z'' = \dfrac{-b + i \cdot \sqrt{4ac - b^2} }{2a}\), on vérifie bien que \(z'\) et \(z''\) sont racines de l'équation \(a z^2 + b z + c = 0\).
 \end{frame}
-\begin{frame}{Equations du second degré dans \(\mathbb{C}\)}
+\begin{frame}[allowframebreaks]{Equations du second degré dans \(\mathbb{C}\)}
 Les racines non réelles d'un polynôme à coefficients réels sont deux à deux conjuguées.
       Autrement dit, si \(P\) est un polynôme à coefficients réels et que \(z_0\) est une racine de \(P\),
       alors \(\overline{z_0}\) est aussi une racine de \(P\).
 \end{frame}
-\begin{frame}{Equations du second degré dans \(\mathbb{C}\)}
+\begin{frame}[allowframebreaks]{Equations du second degré dans \(\mathbb{C}\)}
 Les équations du second degré à coefficients complexes se résolvent de la même manière que celles à coefficients réels.
 Considérons l'équation \(a z^2 + b z + c = 0\) où, cette fois, \(a\), \(b\) et \(c\) sont des nombres complexes avec \(a\neq0\).
 On prend toujours \(\Delta = b^2 - 4ac\), et on distingue deux cas:
 \end{frame}
-\begin{frame}{Equations du second degré dans \(\mathbb{C}\) (2)}
+\begin{frame}[allowframebreaks]{Equations du second degré dans \(\mathbb{C}\) (2)}
 \begin{itemize}
 
 \item Si \(\Delta = 0\):
@@ -354,7 +365,8 @@ On prend toujours \(\Delta = b^2 - 4ac\), et on distingue deux cas:
 
 \end{itemize}
 \end{frame}
-\begin{frame}{Equations du second degré dans \(\mathbb{C}\)}
+\begin{frame}[allowframebreaks]{Equations du second degré dans \(\mathbb{C}\)}
+\footnotesize
 Soit \(Z=X+iY\), on veut chercher un nombre \(z=x+iy\) tel que \(z^2 = Z\).
       Comme \(z^2 = (x+iy)^2 = x^2 - y^2 + 2ixy = X + iY\), 
             \(
@@ -377,36 +389,39 @@ Soit \(Z=X+iY\), on veut chercher un nombre \(z=x+iy\) tel que \(z^2 = Z\).
                         \end{array}
                   \right. 
             \]
-      Les solutions de ce système sont :
+\end{frame}
+\begin{frame}[allowframebreaks]{Equations du second degré dans \(\mathbb{C}\) (2)}
+Les solutions de ce système sont :
 			\[
 				\left\{\begin{array}{l}
 					x = \pm \sqrt{\dfrac{|Z| + \mathfrak{Re}(Z)}{2}}		\\
 					y = \pm \sqrt{\dfrac{|Z| - \mathfrak{Re}(Z)}{2}}		
 				\end{array}\right.
 			\]
-			où \(x\) et \(y\) sont de même signes si \(\mathfrak{Im}(Z) > 0\) et de signe contraire si \(\mathfrak{Im}(Z) < 0\).
+
+où \(x\) et \(y\) sont de même signes si \(\mathfrak{Im}(Z) > 0\) et de signe contraire si \(\mathfrak{Im}(Z) < 0\).
 \end{frame}
-\begin{frame}{Equations du second degré dans \(\mathbb{C}\)}
+\begin{frame}[allowframebreaks]{Equations du second degré dans \(\mathbb{C}\)}
 Soient \(P\) un polynôme à coefficients complexes de degré \(n \geq 1\) et \(z_0\) un nombre complexe.
       Si \(P(z_0) = 0\), alors il existe un polynôme \(Q\) de degré \(n - 1\) tel que, pour tout \(z \in \mathbb{C}\),
       \(P(z) = (z - z_0)\,Q(z)\).
 \end{frame}
-\begin{frame}{Equations du second degré dans \(\mathbb{C}\)}
+\begin{frame}[allowframebreaks]{Equations du second degré dans \(\mathbb{C}\)}
 On cherche une racine particulière \(z_0\) (souvent réelle ou imaginaire pure, indiquée par l'énoncé) :
       pour \(z_0 = x\) réel, \(P(x) = 0\) équivaut à \(\mathfrak{Re}(P(x)) = 0\) et \(\mathfrak{Im}(P(x)) = 0\) ; pour \(z_0 = iy\), on remplace \(z\) par \(iy\) de même.
       On détermine ensuite \(Q(z) = a z^2 + b z + c\) par identification des coefficients (ou par division),
       puis on résout l'équation du second degré \(Q(z) = 0\).
 \end{frame}
-\begin{frame}{Racine \(n^{\text{ième}}\) d'un nombre complexe}
+\begin{frame}[allowframebreaks]{Racine \(n^{\text{ième}}\) d'un nombre complexe}
 Soient \(Z\) un nombre complexe et \(n\) un nombre entier naturel supérieure à 1.
       On appelle racine \(n^{\text{ième}}\) de \(Z\) tout nombre complexe \(z\) vérifiant
             \(z^n = Z\).
 \end{frame}
-\begin{frame}{Racine \(n^{\text{ième}}\) d'un nombre complexe}
+\begin{frame}[allowframebreaks]{Racine \(n^{\text{ième}}\) d'un nombre complexe}
 Les racines \(n^{\text{ième}}\) de l'unité sont les nombres complexes \(z\) vérifiant \(z^n=1\).
 Ce sont les nombres \(\left(u_k = \left[ 1,\dfrac{2k\pi}{n} \right] \right)_{0\leq k <n}\).
 \end{frame}
-\begin{frame}{Racine \(n^{\text{ième}}\) d'un nombre complexe}
+\begin{frame}[allowframebreaks]{Racine \(n^{\text{ième}}\) d'un nombre complexe}
 \begin{itemize}
 
             \item \(n=2\) :  \(u_0 = 1\) et \(u_1 = -1\).
@@ -417,7 +432,7 @@ Ce sont les nombres \(\left(u_k = \left[ 1,\dfrac{2k\pi}{n} \right] \right)_{0\l
 
 \end{itemize}
 \end{frame}
-\begin{frame}{Racine \(n^{\text{ième}}\) d'un nombre complexe}
+\begin{frame}[allowframebreaks]{Racine \(n^{\text{ième}}\) d'un nombre complexe}
 Soient \([R,\Phi]\) et \([\rho,\varphi]\) les representations polaires de \(Z\) et \(z\).
 Rappelons que l'argument d'un nombre complexe est défini à un multiple de \(2 \pi\) près.
 Donc pour que \(z^n\) soit égal à \(Z\) il faut que \( [\rho^n,n \varphi] \) soit égal à \([R,\Phi]\) et donc que:
@@ -430,7 +445,7 @@ Donc pour que \(z^n\) soit égal à \(Z\) il faut que \( [\rho^n,n \varphi] \) s
 
 \end{itemize}
 \end{frame}
-\begin{frame}{Racine \(n^{\text{ième}}\) d'un nombre complexe (2)}
+\begin{frame}[allowframebreaks]{Racine \(n^{\text{ième}}\) d'un nombre complexe (2)}
 Ainsi, \(\rho = \sqrt[n]{R}\) et \(\varphi = \dfrac{\Phi + 2 k \pi}{n}\).
 Les possibilités pour \(z\) sont alors:
 \[
@@ -442,26 +457,26 @@ Les possibilités pour \(z\) sont alors:
       \left[ \sqrt[n]{R} , \dfrac{\Phi + 2(n-1) \pi}{n} \right].
       \]
 \end{frame}
-\begin{frame}{Racine \(n^{\text{ième}}\) d'un nombre complexe}
+\begin{frame}[allowframebreaks]{Racine \(n^{\text{ième}}\) d'un nombre complexe}
 Toute autre valeur de \(k\) donnerait l'une de ces valeurs à un multiple de \(2 \pi\) près.
 Cela nous mène au théorème suivant :
 \end{frame}
-\begin{frame}{Racine \(n^{\text{ième}}\) d'un nombre complexe}
+\begin{frame}[allowframebreaks]{Racine \(n^{\text{ième}}\) d'un nombre complexe}
 Soit \(n\) un entier naturel non nul et \(z = [r,\theta]\) un nombre complexe non nul.
 Alors \(z\) admet \(n\) racines \(n^{\text{ième}}\) qui sont :
 \[
 z_k = \sqrt[n]{r} \left[ \cos \left( \dfrac{\theta + 2k \pi}{n} \right) + i \sin \left( \dfrac{\theta + 2k \pi}{n} \right) \right] \text{ avec } 0 \leq k < n
 \]
 \end{frame}
-\begin{frame}{Racine \(n^{\text{ième}}\) d'un nombre complexe}
+\begin{frame}[allowframebreaks]{Racine \(n^{\text{ième}}\) d'un nombre complexe}
 Représentées géométriquement dans le plan complexe, ces racines \(n^{\text{ième}}\) forment les sommets d'un polygône régulier centré en l'origine.
 \end{frame}
-\begin{frame}{Transformation de \(a \cos x + b \sin x\)}
+\begin{frame}[allowframebreaks]{Transformation de \(a \cos x + b \sin x\)}
 On se propose de résoudre l'équation 
 \[
 a \cos x + b \sin x = c
-
 \]
+
 où \(a\), \(b\) et \(c\) sont des nombres réels.
 Posons \(z = a+ i b \) et soient \(r\) son module et \(\theta\) son argument.
 On sait que \( a = r \cos \theta\) et \(b = r \sin \theta\) avec \(r = \sqrt{a^2 + b^2}\).
@@ -469,25 +484,28 @@ Ainsi, l'expression \(a \cos x + b \sin x \) devient
 \[
 r \cos \theta \, \cos x + r \sin \theta \, \sin x = r \left( \cos \theta \, \cos x + \sin \theta \, \sin x \right) \; .
 \]
+\end{frame}
+\begin{frame}[allowframebreaks]{Transformation de \(a \cos x + b \sin x\) (2)}
 Faisant usage de formule trigonométrique connue \(\cos( u - v ) = \cos u \, \cos v + \sin u \, \sin v\), et de l'équation \(r = \sqrt{a^2 + b^2}\), on obtient
 \[
 a \, \cos x + b \, \sin x = \sqrt{a^2 + b^2} \; \cos (\theta - x) \; .
 \]
+
 Ainsi, l'Equation eq:a cos x + b sin x devient 
 \[
 \cos (\theta - x) = \dfrac{c}{\sqrt{a^2 + b^2}} \; .
-
 \]
+
 On distingue alors \(2\) cas :
 \end{frame}
-\begin{frame}{Transformation de \(a \cos x + b \sin x\) (2)}
+\begin{frame}[allowframebreaks]{Transformation de \(a \cos x + b \sin x\) (3)}
 \begin{itemize}
 \item  Si \( \left| \dfrac{c}{\sqrt{a^2 + b^2}} \right| > 1\) :  
       Alors l'équation n'admet pas de solution.
 
 \end{itemize}
 \end{frame}
-\begin{frame}{Transformation de \(a \cos x + b \sin x\) (3)}
+\begin{frame}[allowframebreaks]{Transformation de \(a \cos x + b \sin x\) (4)}
 \begin{itemize}
 \item  Si \( \left| \dfrac{c}{\sqrt{a^2 + b^2}} \right| \leq 1\) :  
       Alors il existe \(\alpha\) tel que \(\cos \alpha =  \dfrac{c}{\sqrt{a^2 + b^2}} \).
@@ -507,12 +525,13 @@ On distingue alors \(2\) cas :
 
 \end{itemize}
 \end{frame}
-\begin{frame}{Transformation de \(a \cos x + b \sin x\)}
+\begin{frame}[allowframebreaks]{Transformation de \(a \cos x + b \sin x\)}
 On veut résoudre l'équation 
 \[
 \cos x + \sqrt{3} \sin x = \sqrt{2} \; .
-
 \]
+\end{frame}
+\begin{frame}[allowframebreaks]{Transformation de \(a \cos x + b \sin x\) (2)}
 Posons \(z = 1 + i \sqrt{3}\); on a alors \(z = 2 e^{i \dfrac{\pi}{3}}\).
 Ainsi, \(1 = 2 \cos \dfrac{\pi}{3}\) et \(\sqrt{3} = 2 \sin \dfrac{\pi}{3}\).
 L'Equation eq:ex: cos x + sin x devient alors 
@@ -521,6 +540,8 @@ L'Equation eq:ex: cos x + sin x devient alors
 \cos \left( \dfrac{\pi}{3} - x \right) & = \dfrac{\sqrt{2}}{2} \\
 \dfrac{\pi}{3} - x = \dfrac{\pi}{4} + 2 k \pi \quad \text{ ou } \quad x - \dfrac{\pi}{3} = \dfrac{\pi}{4} + 2 k \pi \\
 \end{aligned}\]
+\end{frame}
+\begin{frame}[allowframebreaks]{Transformation de \(a \cos x + b \sin x\) (3)}
 ce qui nous donne comme solutions : 
 \(
 \left\lbrace \dfrac{\pi}{12} + 2 k \pi \mid k \in \mathbb{Z} \right\rbrace 
@@ -528,53 +549,54 @@ ce qui nous donne comme solutions :
 \left\lbrace \dfrac{7 \pi }{12} + 2 k \pi \mid k \in \mathbb{Z} \right\rbrace
 \).
 \end{frame}
-\begin{frame}{Utilisation en géométrie}
+\begin{frame}[allowframebreaks]{Utilisation en géométrie}
 On rapporte le plan complexe à un repère orthonormé direct \((O,\overrightarrow{e_1},\overrightarrow{e_2})\).
 Soit \(f\) une transformation du plan qui au point \(M\) d'affixe \(z\) associe le point \(M'\) d'affixe \(z'\).
 La relation qui exprime \(z'\) en fonction de \(z\) est appelée \emph{écriture complexe} de \(f\).
 \end{frame}
-\begin{frame}{Utilisation en géométrie}
+\begin{frame}[allowframebreaks]{Utilisation en géométrie}
 Soit \(M (z_M)\) un point du plan complexe et \(\overrightarrow{V}\) un vecteur d'affixe \(z_{\overrightarrow{V}}\).
       Le translaté de \(M\) par le vecteur \(\overrightarrow{V}\) est le point \(M'\) d'affixe \(z_M + z_{\overrightarrow{V}}\).
 \end{frame}
-\begin{frame}{Utilisation en géométrie (2)}
+\begin{frame}[allowframebreaks]{Utilisation en géométrie (2)}
 En effet, comme \(z_M\) est l'affixe de \(\overrightarrow{OM}\) et que \(z_{\overrightarrow{V}}\) est l'affixe de \(\overrightarrow{V}\) 
       alors l'affixe du vecteur \(\overrightarrow{OM} + \overrightarrow{V}\) est \(z_M + z_{\overrightarrow{V}}\) 
       ce qui doit correspondre à l'affixe de \(\overrightarrow{OM'}\).
       En identifiant les points aux vecteurs, on réalise que l'affixe du point \(M'\) est \(z_M + z_{\overrightarrow{V}}\).
 \end{frame}
-\begin{frame}{Utilisation en géométrie}
+\begin{frame}[allowframebreaks]{Utilisation en géométrie}
 Soient \(P\) un point du plan d'affixe \(z_P\) et \(k\in\mathbb{R}^*\).
 Soient \(h\) l'homothétie de centre \(P\) et de rapport \(k\) et \(M'\) l'image de \(M\) par \(h\).
 On a alors \(z' - z_P = k (z - z_P) \).
 
 L'écriture complexe de \(h\) est donc \( z' = k \cdot z + (1-k) z_P \).
 \end{frame}
-\begin{frame}{Utilisation en géométrie}
+\begin{frame}[allowframebreaks]{Utilisation en géométrie}
 Soient \(A\), \(B\) et \(C\) trois points du plan complexe d'affixes respectifs \(z_A\), \(z_B\) et \(z_C\).
       L'affixe du vecteur \(\overrightarrow{AB}\) est alors \(z_B - z_A\) et l'affixe du vecteur \(\overrightarrow{AC}\) est \(z_C - z_A\).
       Désignons par \(\overrightarrow{u}\) le vecteur d'affixe \(1\).
 \end{frame}
-\begin{frame}{Utilisation en géométrie (2)}
+\begin{frame}[allowframebreaks]{Utilisation en géométrie (2)}
 On sait que \(\mathrm{mes}\left( \widehat{ \overrightarrow{u} ; \overrightarrow{AB} } \right) = \arg(z_B - z_A)\) et 
       \(\mathrm{mes}\left( \widehat{ \overrightarrow{u} ; \overrightarrow{AC} } \right) = \arg(z_C - z_A)\).
       Il suit que 
       \(\mathrm{mes}\left( \widehat{ \overrightarrow{AB} ; \overrightarrow{AC} } \right) = \arg(z_C-z_A)-\arg(z_B-z_A)=\arg\dfrac{z_C - z_A}{z_B - z_A}\).
 \end{frame}
-\begin{frame}{Utilisation en géométrie}
+\begin{frame}[allowframebreaks]{Utilisation en géométrie}
 Soient \(P\) un point du plan complexe et \(\theta\) un nombre réel.
 On désigne par \(r\) la rotation de centre \(P\) et d'angle \(\theta\).
 Soit \(M\) un point du plan distinct de \(P\) et soit \(M'\) son image par \(r\).
 On sait alors que 
 \[
 \VecNorm*{ \overrightarrow{PM}} = \VecNorm*{ \overrightarrow{PM'}} 
-
 \]
+
 et 
 \[
 \mathrm{mes}\left(\overrightarrow{PM} , \overrightarrow{PM'} \right) = \theta \; .
-
 \]
+\end{frame}
+\begin{frame}[allowframebreaks]{Utilisation en géométrie (2)}
 Notons par \(z_P\), \(z_M\) et \(z_{M'}\) les affixes de \(P\), \(M\) et \(M'\) respectivement.
 En utilisant les affixes, on a alors 
 \(
@@ -596,7 +618,7 @@ et donc
 \)
 .
 \end{frame}
-\begin{frame}{Utilisation en géométrie}
+\begin{frame}[allowframebreaks]{Utilisation en géométrie}
 En posant \(Z = \dfrac{z_{M'} - z_P}{z_M - z_P}\), on a \(|Z| = 1\) et \(\text{arg} (Z) = \theta\), ce qui entraîne que 
 \(Z = \cos \theta + i \sin \theta\). 
 Cela nous permet d'écrire \(( z_{M'} - z_P ) = ( \cos \theta + i \sin \theta) \; ( z_M - z_P )\) et donc 
@@ -605,11 +627,11 @@ Ainsi, l'écriture complexe de \(r\) est :
  
 \( z' = \mathrm{e}^{i\theta} (z - z_P) + z_P\).
 \end{frame}
-\begin{frame}{Utilisation en géométrie}
+\begin{frame}[allowframebreaks]{Utilisation en géométrie}
 On appelle \emph{similitude plane directe} toute transformation du plan qui conserve les angles orientés
       et qui multiplie les distances par une constante non nulle.
 \end{frame}
-\begin{frame}{Utilisation en géométrie}
+\begin{frame}[allowframebreaks]{Utilisation en géométrie}
 Une similitude plane directe appartient à l'une des deux catégories suivantes :
 
 \begin{itemize}
@@ -620,7 +642,7 @@ Une similitude plane directe appartient à l'une des deux catégories suivantes 
 
 \end{itemize}
 \end{frame}
-\begin{frame}{Utilisation en géométrie}
+\begin{frame}[allowframebreaks]{Utilisation en géométrie}
 Une similitude plane directe qui n'est pas une translation est caractérisée par : 
 
 \begin{itemize}
@@ -633,24 +655,25 @@ Une similitude plane directe qui n'est pas une translation est caractérisée pa
 
 \end{itemize}
 \end{frame}
-\begin{frame}{Utilisation en géométrie}
+\begin{frame}[allowframebreaks]{Utilisation en géométrie}
 Soient \(P\), d'affixe \(z_P\), un point, \(\theta\) un nombre réel et \(k\) un nombre réel strictement positif.
             Notons par \(S\) la similitude plane directe de centre \(P\), d'angle \(\theta\) et de rapport \(k\).
             
             Pour tout point \(M\) d'affixe \(z\), on note par \(M'\) son image par \(S\) et par \(z'\) l'affixe de \(M'\).            
             On a alors :
-                  displaymath
-                        
-                              arrayl
-                                    PM' = k  PM 
-
-                                    mes ( PM ; PM' ) = 
-                              array
-                        .
-                  displaymath
-            Avec ces notations, l'écriture complexe de \(S\) est \( z' = k \mathrm{e}^{i\theta} (z - z_P) + z_P \).
+                  \[
+                        \left\lbrace
+                              \begin{array}{l}
+                                    PM' = k\, PM \\
+                                    \mathrm{mes} \left( \overrightarrow{PM} ; \overrightarrow{PM'} \right) = \theta
+                              \end{array}
+                        \right.
+                  \]
 \end{frame}
-\begin{frame}{Utilisation en géométrie}
+\begin{frame}[allowframebreaks]{Utilisation en géométrie (2)}
+Avec ces notations, l'écriture complexe de \(S\) est \( z' = k \mathrm{e}^{i\theta} (z - z_P) + z_P \).
+\end{frame}
+\begin{frame}[allowframebreaks]{Utilisation en géométrie}
 L'expression complexe d'une similitude plane directe est de la forme \(z'=a\,z+b\), avec \(a \neq 0\).
 \end{frame}
 \end{document}

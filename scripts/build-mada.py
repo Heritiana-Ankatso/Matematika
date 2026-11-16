@@ -275,12 +275,15 @@ def t12_layout(toc, pages):
         solutions = t.lower().startswith('corrigé')
         practice = bool(re.match(r'(corrigés? des )?sujets?', t, re.I))
         kind = ('practice' if practice else 'bac') + ('-solutions' if solutions else '')
-        years = {}
+        years = {}; later = {}
         j = i + 1
         while j < len(toc) and toc[j][0] == 3:
             ym = re.search(r'(\d{4})\s*$', toc[j][1])
-            years[int(ym.group(1)) if ym else toc[j][1]] = span(toc, j, pages); j += 1
+            key = int(ym.group(1)) if ym else toc[j][1]
+            # the teacher book prints each series' statements, then its corrigés, under one bookmark: a repeated year is the solution
+            (later if key in years and not solutions else years)[key] = span(toc, j, pages); j += 1
         out[kind][series] = years
+        if later: out[kind + '-solutions'][series] = later
     return out
 
 
@@ -315,7 +318,7 @@ def build_t12(docs, tocs, chapter, supplement):
                 teacher = None
                 sol = lp[kind + '-solutions'].get(series, {}).get(year)
                 if sol: teacher = ('t12-prof.pdf', [lp[kind][series][year], sol])
-                supplement(f'{course}-{kind}-{year}', course, kind, [t.format(s=series, y=year) for t in label], ('t12-eleve.pdf', [rng]), teacher)
+                supplement(f'{course}-{kind}-' + re.sub(r'[^a-z0-9]+', '-', str(year).lower()).strip('-'), course, kind, [t.format(s=series, y=year) for t in label], ('t12-eleve.pdf', [rng]), teacher)
 
 
 if __name__ == '__main__':

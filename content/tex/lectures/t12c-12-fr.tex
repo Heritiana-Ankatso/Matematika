@@ -2,7 +2,12 @@
 \makeatletter\IfFileExists{core/beamer/beamerthememx.sty}{\def\mxcorepath{core/}\def\input@path{{core/beamer/}{core/}}}{\def\mxcorepath{../core/}\def\input@path{{../core/beamer/}{../core/}}}\makeatother
 \documentclass[aspectratio=169,10pt,t]{beamer}
 \usetheme{mx}
-\usepackage{graphicx,booktabs}
+\usepackage{graphicx,booktabs,mathtools,array,adjustbox}
+\usepackage[all]{xy}
+\providecommand{\actualtextwidth}{\textwidth}
+\providecommand{\veccor}[2]{\left(\begin{matrix}#1\\#2\end{matrix}\right)}
+\DeclarePairedDelimiter{\VecNorm}{\lVert}{\rVert}
+\providecommand{\ETC}{\ldots}
 \usepackage[french]{babel}
 \setlength{\parskip}{.45em}
 \hypersetup{pdfauthor={},pdfsubject={Lecture slides},pdfkeywords={},pdftitle={Équations différentielles}}
@@ -36,39 +41,40 @@
 \author{}
 \begin{document}
 \mxtitleframe
-\begin{frame}{Introduction}
+\begin{frame}[allowframebreaks]{Introduction}
 La fonction exponentielle qu'on a étudiée auparavant possède une propriété intéressante :
 	      elle est égale à sa propre dérivée.
       Cette propriété va bien souvent être utilisée pour résoudre ce que l'on appelle
       \emph{équation différentielle}.
 \end{frame}
-\begin{frame}{Introduction}
+\begin{frame}[allowframebreaks]{Introduction}
 Une \emph{équation différentielle} est une équation dans laquelle
 	      l'inconnue est une fonction et où figurent cette fonction et ses dérivées.
 	      Résoudre une équation différentielle sur un intervalle \(I\) consiste donc à chercher toutes les fonctions \(f\)
       (dérivables sur \(I\) autant de fois que nécessaire) qui vérifient l'équation pour tout \(x\) de \(I\).
 \end{frame}
-\begin{frame}{Équation différentielle du premier ordre}
+\begin{frame}[allowframebreaks]{Équation différentielle du premier ordre}
 Une équation différentielle est dite \emph{du premier ordre}
             si elle ne fait intervenir que des dérivées d'ordre au plus \(1\).
             On veut trouver une fonction \(y\) vérifiant l'équation
             \( y' + ay = 0 \) où \(a\) est un nombre réel.
             Autrement dit, on cherche les fonctions \(f\), dérivables sur \(\mathbb{R}\), telles que \({f'(x) + a \; f(x) = 0}\) pour tout réel \(x\).
 \end{frame}
-\begin{frame}{Équation différentielle du premier ordre}
+\begin{frame}[allowframebreaks]{Équation différentielle du premier ordre}
 \textbf{Résolution}
 
  Cette équation est équivalente à \(y' = - a y\) où encore, en posant \(\alpha = -a\), à
                   \[
-                  
                   y' = \alpha y \; .
                   \]
-                  La fonction \(f\) définie par \(f(x) = e^{\alpha x}\) vérifie cette propriété
+
+La fonction \(f\) définie par \(f(x) = e^{\alpha x}\) vérifie cette propriété
                   puisque \(f'(x) = \alpha \; e^{\alpha x} = \alpha \; f(x)\).
 
 Cette fonction \(f\) est donc une solution particulière de l'Équation eq: diff premier ordre.
 \end{frame}
-\begin{frame}{Équation différentielle du premier ordre}
+\begin{frame}[allowframebreaks]{Équation différentielle du premier ordre}
+\footnotesize
 Cherchons maintenant \emph{toutes} les solutions.
                   Soit \(f\) une solution quelconque de eq: diff premier ordre.
 	                  Comme \(e^{\alpha x} \neq 0\) pour tout réel \(x\), on peut définir sur \(\mathbb{R}\) la fonction \(g\) par
@@ -80,17 +86,19 @@ Cherchons maintenant \emph{toutes} les solutions.
                         \\ \text{et comme $f'(x) = \alpha f(x)$,} \\
                         g'(x) & = \alpha f(x) e^{-\alpha x } - \alpha f(x) e^{-\alpha x} = 0 \;.
                   \end{aligned}\]
-	                  La dérivée de \(g\) est nulle sur l'intervalle \(\mathbb{R}\), donc \(g\) est constante :
+\end{frame}
+\begin{frame}[allowframebreaks]{Équation différentielle du premier ordre (2)}
+La dérivée de \(g\) est nulle sur l'intervalle \(\mathbb{R}\), donc \(g\) est constante :
 	                  il existe un réel \(k\) tel que \(g(x) = k\), c'est-à-dire \(f(x) = k \, e^{\alpha x}\) pour tout \(x\).
 	                  Réciproquement, pour tout réel \(k\), la fonction \(x \mapsto k\,e^{\alpha x}\) est solution,
 	                  car sa dérivée est \(k \alpha e^{\alpha x}\).
 	                  Ainsi :
 \end{frame}
-\begin{frame}{Équation différentielle du premier ordre}
+\begin{frame}[allowframebreaks]{Équation différentielle du premier ordre}
 l'ensemble des solutions de l'équation \(y' + a \; y = 0\) est
 	                  l'ensemble des fonctions \(f\) telles que \(f(x) = k \; e^{-a x}\) où \(k \in \mathbb{R}\).
 \end{frame}
-\begin{frame}{Équation différentielle du premier ordre}
+\begin{frame}[allowframebreaks]{Équation différentielle du premier ordre}
 \textbf{Résolution d'une équation avec condition initiale}
 
  On veut résoudre une équation différentielle du premier ordre
@@ -100,19 +108,19 @@ l'ensemble des solutions de l'équation \(y' + a \; y = 0\) est
                   La fonction \(y\) s'écrit alors
                   \(y(x) = y_0 e^{a x_0} e^{-a x} = y_0 e^{-a(x - x_0)}\).
 \end{frame}
-\begin{frame}{Équation différentielle du premier ordre (2)}
+\begin{frame}[allowframebreaks]{Équation différentielle du premier ordre (2)}
 Le calcul précédent montre que la constante \(k\) est entièrement déterminée :
                   l'équation \(y' + a y = 0\) admet une
                   solution unique vérifiant la condition \(y(x_0) = y_0\).
 \end{frame}
-\begin{frame}{Équation différentielle du premier ordre}
+\begin{frame}[allowframebreaks]{Équation différentielle du premier ordre}
 \textbf{Équation avec second membre}
 
  Soit \(h\) une fonction définie sur un intervalle \(I\) et l'équation
                   \((E) : y' + a y = h(x)\). L'équation \((E_0) : y' + a y = 0\) est appelée
                   \emph{équation sans second membre} (ou homogène) associée à \((E)\).
 \end{frame}
-\begin{frame}{Équation différentielle du premier ordre (2)}
+\begin{frame}[allowframebreaks]{Équation différentielle du premier ordre (2)}
 Supposons que l'on connaisse une solution particulière \(p\) de \((E)\).
                   Pour une fonction \(f\) dérivable sur \(I\), posons \(u = f - p\). On a
                   \(u' + a u = (f' + a f) - (p' + a p) = (f' + a f) - h\).
@@ -121,23 +129,24 @@ Supposons que l'on connaisse une solution particulière \(p\) de \((E)\).
 
 les solutions de \(y' + ay = h(x)\) sont les fonctions \(x \mapsto p(x) + k\,e^{-ax}\), \(k \in \mathbb{R}\).
 \end{frame}
-\begin{frame}{Équation différentielle du premier ordre}
+\begin{frame}[allowframebreaks]{Équation différentielle du premier ordre}
 En particulier, si \(a \neq 0\) et si \(h\) est une constante \(b\), la fonction constante \(p = \dfrac{b}{a}\)
                   est une solution particulière, et les solutions de \(y' + a y = b\) sont les fonctions
                   \(x \mapsto \dfrac{b}{a} + k\,e^{-ax}\).
                   Le même raisonnement s'applique aux équations du second ordre de la section suivante :
                   solution générale = solution particulière + solution générale de l'équation sans second membre.
 \end{frame}
-\begin{frame}{Équation différentielle du second ordre}
+\begin{frame}[allowframebreaks]{Équation différentielle du second ordre}
 On s'intéresse maintenant aux équations de la forme
             \[
-            
                   y'' + a y' + by = 0,
             \]
-            où \(a\) et \(b\) sont des nombres réels.
+
+où \(a\) et \(b\) sont des nombres réels.
             Pour résoudre une telle équation, on résout d'abord l'équation caractéristique.
 \end{frame}
-\begin{frame}{Équation différentielle du second ordre}
+\begin{frame}[allowframebreaks]{Équation différentielle du second ordre}
+\footnotesize
 \textbf{Équation caractéristique:}
 
  On cherche les réels \(r\) tels que la fonction \(x \mapsto e^{rx}\) soit une solution de l'équation.
@@ -148,12 +157,12 @@ On s'intéresse maintenant aux équations de la forme
                   cela équivaut à \(r^2 + a r + b = 0\).
                   Cette équation du second degré est appelée \emph{équation caractéristique} de eq: diff second ordre.
 \end{frame}
-\begin{frame}{Équation différentielle du second ordre}
+\begin{frame}[allowframebreaks]{Équation différentielle du second ordre}
 \textbf{Résolution:}
 
  Selon le discriminant \(\Delta = a^2 - 4b\) de l'équation caractéristique, on admet le théorème suivant.
 \end{frame}
-\begin{frame}{Équation différentielle du second ordre}
+\begin{frame}[allowframebreaks]{Équation différentielle du second ordre}
 \begin{itemize}
 \item Si \(\Delta > 0\):
                                     Soient \(r_1\) et \(r_2\) les deux solutions réelles de l'équation caractéristique.
@@ -163,7 +172,7 @@ On s'intéresse maintenant aux équations de la forme
 
 \end{itemize}
 \end{frame}
-\begin{frame}{Équation différentielle du second ordre (2)}
+\begin{frame}[allowframebreaks]{Équation différentielle du second ordre (2)}
 \begin{itemize}
 \item Si \(\Delta = 0\): Soit \(\rho\) la racine (double) de l'équation caractéristique.
                                     L'ensemble des solutions de l'Équation eq: diff second ordre est
@@ -172,7 +181,8 @@ On s'intéresse maintenant aux équations de la forme
 
 \end{itemize}
 \end{frame}
-\begin{frame}{Équation différentielle du second ordre (3)}
+\begin{frame}[allowframebreaks]{Équation différentielle du second ordre (3)}
+\footnotesize
 \begin{itemize}
 \item Si \(\Delta < 0\):
                                     L'équation caractéristique admet alors deux racines complexes conjuguées.
@@ -184,19 +194,20 @@ On s'intéresse maintenant aux équations de la forme
 
 \end{itemize}
 \end{frame}
-\begin{frame}{Équation différentielle du second ordre}
+\begin{frame}[allowframebreaks]{Équation différentielle du second ordre}
 Dans tous les cas, il existe une solution unique satisfaisant aux conditions initiales
                         \(y(x_0) = y_0\) et \(y'(x_0) = y'_0\).
 \end{frame}
-\begin{frame}{Équation différentielle du second ordre}
+\begin{frame}[allowframebreaks]{Équation différentielle du second ordre}
 Résoudre l'équation différentielle
                         \[
-                        
                               y'' - 3 y' - 4 y = 0
                         \]
-                  avec les conditions initiales : \(y(0) = 2 \) et \(y'(0) = 4\).
+
+avec les conditions initiales : \(y(0) = 2 \) et \(y'(0) = 4\).
 \end{frame}
-\begin{frame}{Équation différentielle du second ordre (2)}
+\begin{frame}[allowframebreaks]{Équation différentielle du second ordre (2)}
+\footnotesize
 L'équation caractéristique est \(r^2 - 3r - 4 = 0\) ; son discriminant est \(\Delta = 9 + 16 = 25 > 0\)
                   et ses racines sont \(r_1 = \dfrac{3 + 5}{2} = 4\) et \(r_2 = \dfrac{3 - 5}{2} = -1\).
                   Les solutions de eq:ex:eq diff 1 sont donc les fonctions \(y(x) = A e^{4x} + B e^{-x}\),

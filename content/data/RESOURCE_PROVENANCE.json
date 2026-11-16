@@ -5282,646 +5282,798 @@
     "editions": {
       "fr": {
         "path": "resources/t12c-01/chapter.pdf",
-        "bytes": 467935,
-        "sha256": "74675bf1563f248f391d10aa062c7a4d59a236be581a271d9c0988336f650a90",
-        "pages": 19,
+        "bytes": 478664,
+        "sha256": "ecb2b2ad894248586cfc3251e0cc3f540b6659de249239414745d1dbe4f99175",
+        "pages": 20,
         "start": 8,
-        "end": 26
+        "end": 27
       }
     },
     "path": "resources/t12c-01/chapter.pdf",
     "pages": [
       8,
-      26
+      27
     ],
-    "sha256": "74675bf1563f248f391d10aa062c7a4d59a236be581a271d9c0988336f650a90"
+    "sha256": "ecb2b2ad894248586cfc3251e0cc3f540b6659de249239414745d1dbe4f99175"
   },
   {
     "source": "t12-prof.pdf",
     "editions": {
       "fr": {
         "path": "resources/t12c-01/teacher.pdf",
-        "bytes": 471327,
-        "sha256": "62f928a51540e9f7d94b3fe571d3d207c47210aed9bb1f2079254f302a316b97",
-        "pages": 19,
-        "start": 8,
-        "end": 26
+        "bytes": 532050,
+        "sha256": "ac8ce0476220d221757377b6a2fee00a28754d2c2cee71e72e435aa9e6243dfd",
+        "pages": 26,
+        "start": 10,
+        "end": 35
       }
     },
     "path": "resources/t12c-01/teacher.pdf",
     "pages": [
-      8,
-      26
+      10,
+      35
     ],
-    "sha256": "62f928a51540e9f7d94b3fe571d3d207c47210aed9bb1f2079254f302a316b97"
+    "sha256": "ac8ce0476220d221757377b6a2fee00a28754d2c2cee71e72e435aa9e6243dfd"
   },
   {
     "source": "t12-eleve.pdf",
     "editions": {
       "fr": {
         "path": "resources/t12c-02/chapter.pdf",
-        "bytes": 425401,
-        "sha256": "30a82f77bc6f70426c0e80b41833400bd10664f27c1421363d011d0e58b3015b",
+        "bytes": 427446,
+        "sha256": "e42f2bf03c9fbdbcfebc88c0ea5706193b0aeafe15d13d723f58a8e4a68341cd",
         "pages": 16,
-        "start": 27,
-        "end": 42
+        "start": 28,
+        "end": 43
       }
     },
     "path": "resources/t12c-02/chapter.pdf",
     "pages": [
-      27,
-      42
+      28,
+      43
     ],
-    "sha256": "30a82f77bc6f70426c0e80b41833400bd10664f27c1421363d011d0e58b3015b"
+    "sha256": "e42f2bf03c9fbdbcfebc88c0ea5706193b0aeafe15d13d723f58a8e4a68341cd"
   },
   {
     "source": "t12-prof.pdf",
     "editions": {
       "fr": {
         "path": "resources/t12c-02/teacher.pdf",
-        "bytes": 467278,
-        "sha256": "78961ef383dcb4daac1de1132a704d85469c29107090da8b14b2da28d9cce82f",
+        "bytes": 472248,
+        "sha256": "68fb4b9faca3bca4a93da2072ac4c7ca8a82082d5041c140ffda1356e2c70b95",
         "pages": 22,
-        "start": 27,
-        "end": 48
+        "start": 36,
+        "end": 57
       }
     },
     "path": "resources/t12c-02/teacher.pdf",
     "pages": [
-      27,
-      48
+      36,
+      57
     ],
-    "sha256": "78961ef383dcb4daac1de1132a704d85469c29107090da8b14b2da28d9cce82f"
+    "sha256": "68fb4b9faca3bca4a93da2072ac4c7ca8a82082d5041c140ffda1356e2c70b95"
   },
   {
     "source": "t12-eleve.pdf",
     "editions": {
       "fr": {
         "path": "resources/t12c-03/chapter.pdf",
-        "bytes": 350569,
-        "sha256": "cf91b6f786945bbaef025461ef0ff7c32924e4aa8658beed8a877ccb08da2477",
-        "pages": 5,
-        "start": 45,
-        "end": 49
+        "bytes": 351885,
+        "sha256": "1140c9163731f1ae6268bfc2b848d44494880c9dc3fed97f83ac6e68823ff61d",
+        "pages": 6,
+        "start": 46,
+        "end": 51
       }
     },
     "path": "resources/t12c-03/chapter.pdf",
     "pages": [
-      45,
-      49
+      46,
+      51
     ],
-    "sha256": "cf91b6f786945bbaef025461ef0ff7c32924e4aa8658beed8a877ccb08da2477"
+    "sha256": "1140c9163731f1ae6268bfc2b848d44494880c9dc3fed97f83ac6e68823ff61d"
+  },
+  {
+    "source": "t12-prof.pdf",
+    "editions": {
+      "fr": {
+        "path": "resources/t12c-03/teacher.pdf",
+        "bytes": 365141,
+        "sha256": "57bfa38eef06e7219e25d77ab96adec2ae95b808b9cd520aa3c6f84d64dd8c9c",
+        "pages": 7,
+        "start": 60,
+        "end": 66
+      }
+    },
+    "path": "resources/t12c-03/teacher.pdf",
+    "pages": [
+      60,
+      66
+    ],
+    "sha256": "57bfa38eef06e7219e25d77ab96adec2ae95b808b9cd520aa3c6f84d64dd8c9c"
   },
   {
     "source": "t12-eleve.pdf",
     "editions": {
       "fr": {
         "path": "resources/t12c-04/chapter.pdf",
-        "bytes": 440722,
-        "sha256": "119874cc21c5854da389e61aef02ea199e0c012a819ee75fa1dbf2c8146f75d0",
-        "pages": 23,
-        "start": 50,
-        "end": 72
+        "bytes": 450802,
+        "sha256": "6320667099d142761906654662081622df52b567e747d42870942ea0570d9859",
+        "pages": 24,
+        "start": 52,
+        "end": 75
       }
     },
     "path": "resources/t12c-04/chapter.pdf",
     "pages": [
-      50,
-      72
+      52,
+      75
     ],
-    "sha256": "119874cc21c5854da389e61aef02ea199e0c012a819ee75fa1dbf2c8146f75d0"
+    "sha256": "6320667099d142761906654662081622df52b567e747d42870942ea0570d9859"
   },
   {
     "source": "t12-prof.pdf",
     "editions": {
       "fr": {
         "path": "resources/t12c-04/teacher.pdf",
-        "bytes": 472263,
-        "sha256": "122a5c5d6f50cd4eb33438f803288e4e9a3bbf2d81cca02763f924ac855ba330",
-        "pages": 28,
-        "start": 56,
-        "end": 83
+        "bytes": 570774,
+        "sha256": "c3caf889890df04bf278d9a3dafe3fc254fb050f563de91cd69b5d62e1b1ea39",
+        "pages": 39,
+        "start": 67,
+        "end": 105
       }
     },
     "path": "resources/t12c-04/teacher.pdf",
     "pages": [
-      56,
-      83
+      67,
+      105
     ],
-    "sha256": "122a5c5d6f50cd4eb33438f803288e4e9a3bbf2d81cca02763f924ac855ba330"
+    "sha256": "c3caf889890df04bf278d9a3dafe3fc254fb050f563de91cd69b5d62e1b1ea39"
   },
   {
     "source": "t12-eleve.pdf",
     "editions": {
       "fr": {
         "path": "resources/t12c-05/chapter.pdf",
-        "bytes": 385979,
-        "sha256": "d5569f52741128c611fa0f5b9523d5d6de1ea2e1165e3def248e0453efef845a",
+        "bytes": 387889,
+        "sha256": "b5329437f6bf3e517c587cb9e4aa0a40c0384ae5398c1e5c298f987219dcacca",
         "pages": 10,
-        "start": 73,
-        "end": 82
+        "start": 76,
+        "end": 85
       }
     },
     "path": "resources/t12c-05/chapter.pdf",
     "pages": [
-      73,
-      82
+      76,
+      85
     ],
-    "sha256": "d5569f52741128c611fa0f5b9523d5d6de1ea2e1165e3def248e0453efef845a"
+    "sha256": "b5329437f6bf3e517c587cb9e4aa0a40c0384ae5398c1e5c298f987219dcacca"
   },
   {
     "source": "t12-prof.pdf",
     "editions": {
       "fr": {
         "path": "resources/t12c-05/teacher.pdf",
-        "bytes": 405939,
-        "sha256": "c95a737f919759a26abe75b9ea7865b305ccb4a02ec544bf64841876f4b40df6",
+        "bytes": 411118,
+        "sha256": "89be921456bf651fe57084a2fc16ff2cf629210f9f292dd096fefef06ae29623",
         "pages": 12,
-        "start": 84,
-        "end": 95
+        "start": 106,
+        "end": 117
       }
     },
     "path": "resources/t12c-05/teacher.pdf",
     "pages": [
-      84,
-      95
+      106,
+      117
     ],
-    "sha256": "c95a737f919759a26abe75b9ea7865b305ccb4a02ec544bf64841876f4b40df6"
+    "sha256": "89be921456bf651fe57084a2fc16ff2cf629210f9f292dd096fefef06ae29623"
   },
   {
     "source": "t12-eleve.pdf",
     "editions": {
       "fr": {
         "path": "resources/t12c-06/chapter.pdf",
-        "bytes": 427756,
-        "sha256": "a75a4abde2521cda4b2deed2a0e0bc9919fdccfde4510b9bc5b02a300bda7f87",
+        "bytes": 429653,
+        "sha256": "75d7cc930e8862dabd1615015ce9bcb0aa1b8ba446acea0b8a692e103c0efe37",
         "pages": 12,
-        "start": 83,
-        "end": 94
+        "start": 86,
+        "end": 97
       }
     },
     "path": "resources/t12c-06/chapter.pdf",
     "pages": [
-      83,
-      94
+      86,
+      97
     ],
-    "sha256": "a75a4abde2521cda4b2deed2a0e0bc9919fdccfde4510b9bc5b02a300bda7f87"
+    "sha256": "75d7cc930e8862dabd1615015ce9bcb0aa1b8ba446acea0b8a692e103c0efe37"
   },
   {
     "source": "t12-prof.pdf",
     "editions": {
       "fr": {
         "path": "resources/t12c-06/teacher.pdf",
-        "bytes": 460995,
-        "sha256": "c3c3b790a97899a9a9c57c15e5f8e035c4bfe4d3399a3d834b1052bf2c677c98",
+        "bytes": 466172,
+        "sha256": "8fc27186145a30a4c8b59cc5895a9ed1d69d797e1b89102d8145740ae099c126",
         "pages": 16,
-        "start": 96,
-        "end": 111
+        "start": 118,
+        "end": 133
       }
     },
     "path": "resources/t12c-06/teacher.pdf",
     "pages": [
-      96,
-      111
+      118,
+      133
     ],
-    "sha256": "c3c3b790a97899a9a9c57c15e5f8e035c4bfe4d3399a3d834b1052bf2c677c98"
+    "sha256": "8fc27186145a30a4c8b59cc5895a9ed1d69d797e1b89102d8145740ae099c126"
   },
   {
     "source": "t12-eleve.pdf",
     "editions": {
       "fr": {
         "path": "resources/t12c-07/chapter.pdf",
-        "bytes": 389391,
-        "sha256": "14157cb3c9d7dc5e85d1a458328efdef23e77c9e7cc6669a193d685a840d35dd",
+        "bytes": 391361,
+        "sha256": "2e74cc62220f27fade70bbfc2c22d2d523e9ec7f61dfebcc44ac234f4f600b8f",
         "pages": 7,
-        "start": 95,
-        "end": 101
+        "start": 98,
+        "end": 104
       }
     },
     "path": "resources/t12c-07/chapter.pdf",
     "pages": [
-      95,
-      101
+      98,
+      104
     ],
-    "sha256": "14157cb3c9d7dc5e85d1a458328efdef23e77c9e7cc6669a193d685a840d35dd"
+    "sha256": "2e74cc62220f27fade70bbfc2c22d2d523e9ec7f61dfebcc44ac234f4f600b8f"
   },
   {
     "source": "t12-prof.pdf",
     "editions": {
       "fr": {
         "path": "resources/t12c-07/teacher.pdf",
-        "bytes": 442306,
-        "sha256": "ac7df204f647a63fad0e456ff5d4fc35cb3b2bc7d0949dda1418f8523826ce75",
+        "bytes": 447457,
+        "sha256": "c88479adb7b27578282256fa523d274e542c96266e8e100a73f65e7fdf534fc2",
         "pages": 12,
-        "start": 112,
-        "end": 123
+        "start": 134,
+        "end": 145
       }
     },
     "path": "resources/t12c-07/teacher.pdf",
     "pages": [
-      112,
-      123
+      134,
+      145
     ],
-    "sha256": "ac7df204f647a63fad0e456ff5d4fc35cb3b2bc7d0949dda1418f8523826ce75"
+    "sha256": "c88479adb7b27578282256fa523d274e542c96266e8e100a73f65e7fdf534fc2"
   },
   {
     "source": "t12-eleve.pdf",
     "editions": {
       "fr": {
         "path": "resources/t12c-08/chapter.pdf",
-        "bytes": 402714,
-        "sha256": "d19ca22a38f797c7fd303b9b2a3d33cbd731eb3a2e64cd086ded82d46c018979",
+        "bytes": 405954,
+        "sha256": "10eb3019057747baf95740cf1c93e74e1b33c67971092ae97660b32734d1c512",
         "pages": 11,
-        "start": 104,
-        "end": 114
+        "start": 107,
+        "end": 117
       }
     },
     "path": "resources/t12c-08/chapter.pdf",
     "pages": [
-      104,
-      114
+      107,
+      117
     ],
-    "sha256": "d19ca22a38f797c7fd303b9b2a3d33cbd731eb3a2e64cd086ded82d46c018979"
+    "sha256": "10eb3019057747baf95740cf1c93e74e1b33c67971092ae97660b32734d1c512"
   },
   {
     "source": "t12-prof.pdf",
     "editions": {
       "fr": {
         "path": "resources/t12c-08/teacher.pdf",
-        "bytes": 408241,
-        "sha256": "b695f62ebfebe81dd7a5facbf6e42196eb14013d87bb4a1e94b918c4a52beef0",
-        "pages": 12,
-        "start": 126,
-        "end": 137
+        "bytes": 430101,
+        "sha256": "5098c7f155320fbaa8f09a58b8b3d8f34962530419f0770451792d12a67772ed",
+        "pages": 13,
+        "start": 148,
+        "end": 160
       }
     },
     "path": "resources/t12c-08/teacher.pdf",
     "pages": [
-      126,
-      137
+      148,
+      160
     ],
-    "sha256": "b695f62ebfebe81dd7a5facbf6e42196eb14013d87bb4a1e94b918c4a52beef0"
+    "sha256": "5098c7f155320fbaa8f09a58b8b3d8f34962530419f0770451792d12a67772ed"
   },
   {
     "source": "t12-eleve.pdf",
     "editions": {
       "fr": {
         "path": "resources/t12c-09/chapter.pdf",
-        "bytes": 486443,
-        "sha256": "393576adb78290770931b65d27436c64ea1b9ea46f7dea3066aa3f06d66253d2",
+        "bytes": 492699,
+        "sha256": "c3b14ffd2d8e9ff3f2a2f83168c22e4fd1eecb85eda62bd56e0334a61058052a",
         "pages": 14,
-        "start": 115,
-        "end": 128
+        "start": 118,
+        "end": 131
       }
     },
     "path": "resources/t12c-09/chapter.pdf",
     "pages": [
-      115,
-      128
+      118,
+      131
     ],
-    "sha256": "393576adb78290770931b65d27436c64ea1b9ea46f7dea3066aa3f06d66253d2"
+    "sha256": "c3b14ffd2d8e9ff3f2a2f83168c22e4fd1eecb85eda62bd56e0334a61058052a"
+  },
+  {
+    "source": "t12-prof.pdf",
+    "editions": {
+      "fr": {
+        "path": "resources/t12c-09/teacher.pdf",
+        "bytes": 539525,
+        "sha256": "c71f35d3bd598d2ada2d4409baa3e903d142fd4d93f7357d7e45408e9ccbab09",
+        "pages": 20,
+        "start": 161,
+        "end": 180
+      }
+    },
+    "path": "resources/t12c-09/teacher.pdf",
+    "pages": [
+      161,
+      180
+    ],
+    "sha256": "c71f35d3bd598d2ada2d4409baa3e903d142fd4d93f7357d7e45408e9ccbab09"
   },
   {
     "source": "t12-eleve.pdf",
     "editions": {
       "fr": {
         "path": "resources/t12c-10/chapter.pdf",
-        "bytes": 351795,
-        "sha256": "07369279e3c4b0bda1dc5de43135055a475f2450e5c490fbed8fae3b49b26e3b",
+        "bytes": 360155,
+        "sha256": "5f04b7159dab225d035c03bdaede10f5af701e3a005e425d9fde6d55d5aef916",
         "pages": 11,
-        "start": 129,
-        "end": 139
+        "start": 132,
+        "end": 142
       }
     },
     "path": "resources/t12c-10/chapter.pdf",
     "pages": [
-      129,
-      139
+      132,
+      142
     ],
-    "sha256": "07369279e3c4b0bda1dc5de43135055a475f2450e5c490fbed8fae3b49b26e3b"
+    "sha256": "5f04b7159dab225d035c03bdaede10f5af701e3a005e425d9fde6d55d5aef916"
+  },
+  {
+    "source": "t12-prof.pdf",
+    "editions": {
+      "fr": {
+        "path": "resources/t12c-10/teacher.pdf",
+        "bytes": 430278,
+        "sha256": "5157eedfcfea645391cfe7157e7a4f3fee2f8a5e8aae67adec32fb02b2b08edd",
+        "pages": 19,
+        "start": 181,
+        "end": 199
+      }
+    },
+    "path": "resources/t12c-10/teacher.pdf",
+    "pages": [
+      181,
+      199
+    ],
+    "sha256": "5157eedfcfea645391cfe7157e7a4f3fee2f8a5e8aae67adec32fb02b2b08edd"
   },
   {
     "source": "t12-eleve.pdf",
     "editions": {
       "fr": {
         "path": "resources/t12c-11/chapter.pdf",
-        "bytes": 412714,
-        "sha256": "887d3dd43318da7164123d46c5ec48beb05e4ea56ce64cd9c7d64920b84cac04",
-        "pages": 9,
-        "start": 153,
-        "end": 161
+        "bytes": 417040,
+        "sha256": "0d3698729d645711647d9b5cc41e70d08625140ea3475d22f1db25e0c62bd8fb",
+        "pages": 10,
+        "start": 156,
+        "end": 165
       }
     },
     "path": "resources/t12c-11/chapter.pdf",
     "pages": [
-      153,
-      161
+      156,
+      165
     ],
-    "sha256": "887d3dd43318da7164123d46c5ec48beb05e4ea56ce64cd9c7d64920b84cac04"
+    "sha256": "0d3698729d645711647d9b5cc41e70d08625140ea3475d22f1db25e0c62bd8fb"
+  },
+  {
+    "source": "t12-prof.pdf",
+    "editions": {
+      "fr": {
+        "path": "resources/t12c-11/teacher.pdf",
+        "bytes": 446863,
+        "sha256": "e05378e2333c372303cd108fb83b727b56cbeb75e840c1eb7afbc033affce048",
+        "pages": 13,
+        "start": 216,
+        "end": 228
+      }
+    },
+    "path": "resources/t12c-11/teacher.pdf",
+    "pages": [
+      216,
+      228
+    ],
+    "sha256": "e05378e2333c372303cd108fb83b727b56cbeb75e840c1eb7afbc033affce048"
   },
   {
     "source": "t12-eleve.pdf",
     "editions": {
       "fr": {
         "path": "resources/t12c-12/chapter.pdf",
-        "bytes": 314316,
-        "sha256": "b4845165899beb1bc8853c3fd0c547b7569635b13ea40a16a80cb985ae3473a3",
+        "bytes": 316172,
+        "sha256": "07a2ebc9abb2a6e974a02b6a007344604cd813c40c9f1096cad1bb02344b25d9",
         "pages": 6,
-        "start": 162,
-        "end": 167
+        "start": 166,
+        "end": 171
       }
     },
     "path": "resources/t12c-12/chapter.pdf",
     "pages": [
-      162,
-      167
+      166,
+      171
     ],
-    "sha256": "b4845165899beb1bc8853c3fd0c547b7569635b13ea40a16a80cb985ae3473a3"
+    "sha256": "07a2ebc9abb2a6e974a02b6a007344604cd813c40c9f1096cad1bb02344b25d9"
   },
   {
     "source": "t12-prof.pdf",
     "editions": {
       "fr": {
         "path": "resources/t12c-12/teacher.pdf",
-        "bytes": 334344,
-        "sha256": "b2bdb46cdd8cb73c5878d531bbeb34811c2b2f747ea6bb1502abeecee9d652b5",
+        "bytes": 339460,
+        "sha256": "e7b054adc3f63cd6915e0b503f01d57d9992d9447a925a81423a3bdf5608a250",
         "pages": 8,
-        "start": 188,
-        "end": 195
+        "start": 229,
+        "end": 236
       }
     },
     "path": "resources/t12c-12/teacher.pdf",
     "pages": [
-      188,
-      195
+      229,
+      236
     ],
-    "sha256": "b2bdb46cdd8cb73c5878d531bbeb34811c2b2f747ea6bb1502abeecee9d652b5"
+    "sha256": "e7b054adc3f63cd6915e0b503f01d57d9992d9447a925a81423a3bdf5608a250"
   },
   {
     "source": "t12-eleve.pdf",
     "editions": {
       "fr": {
         "path": "resources/t12d-01/chapter.pdf",
-        "bytes": 425401,
-        "sha256": "30a82f77bc6f70426c0e80b41833400bd10664f27c1421363d011d0e58b3015b",
+        "bytes": 427446,
+        "sha256": "e42f2bf03c9fbdbcfebc88c0ea5706193b0aeafe15d13d723f58a8e4a68341cd",
         "pages": 16,
-        "start": 27,
-        "end": 42
+        "start": 28,
+        "end": 43
       }
     },
     "path": "resources/t12d-01/chapter.pdf",
     "pages": [
-      27,
-      42
+      28,
+      43
     ],
-    "sha256": "30a82f77bc6f70426c0e80b41833400bd10664f27c1421363d011d0e58b3015b"
+    "sha256": "e42f2bf03c9fbdbcfebc88c0ea5706193b0aeafe15d13d723f58a8e4a68341cd"
   },
   {
     "source": "t12-prof.pdf",
     "editions": {
       "fr": {
         "path": "resources/t12d-01/teacher.pdf",
-        "bytes": 467278,
-        "sha256": "78961ef383dcb4daac1de1132a704d85469c29107090da8b14b2da28d9cce82f",
+        "bytes": 472248,
+        "sha256": "68fb4b9faca3bca4a93da2072ac4c7ca8a82082d5041c140ffda1356e2c70b95",
         "pages": 22,
-        "start": 27,
-        "end": 48
+        "start": 36,
+        "end": 57
       }
     },
     "path": "resources/t12d-01/teacher.pdf",
     "pages": [
-      27,
-      48
+      36,
+      57
     ],
-    "sha256": "78961ef383dcb4daac1de1132a704d85469c29107090da8b14b2da28d9cce82f"
+    "sha256": "68fb4b9faca3bca4a93da2072ac4c7ca8a82082d5041c140ffda1356e2c70b95"
   },
   {
     "source": "t12-eleve.pdf",
     "editions": {
       "fr": {
         "path": "resources/t12d-02/chapter.pdf",
-        "bytes": 350569,
-        "sha256": "cf91b6f786945bbaef025461ef0ff7c32924e4aa8658beed8a877ccb08da2477",
-        "pages": 5,
-        "start": 45,
-        "end": 49
+        "bytes": 351885,
+        "sha256": "1140c9163731f1ae6268bfc2b848d44494880c9dc3fed97f83ac6e68823ff61d",
+        "pages": 6,
+        "start": 46,
+        "end": 51
       }
     },
     "path": "resources/t12d-02/chapter.pdf",
     "pages": [
-      45,
-      49
+      46,
+      51
     ],
-    "sha256": "cf91b6f786945bbaef025461ef0ff7c32924e4aa8658beed8a877ccb08da2477"
+    "sha256": "1140c9163731f1ae6268bfc2b848d44494880c9dc3fed97f83ac6e68823ff61d"
+  },
+  {
+    "source": "t12-prof.pdf",
+    "editions": {
+      "fr": {
+        "path": "resources/t12d-02/teacher.pdf",
+        "bytes": 365141,
+        "sha256": "57bfa38eef06e7219e25d77ab96adec2ae95b808b9cd520aa3c6f84d64dd8c9c",
+        "pages": 7,
+        "start": 60,
+        "end": 66
+      }
+    },
+    "path": "resources/t12d-02/teacher.pdf",
+    "pages": [
+      60,
+      66
+    ],
+    "sha256": "57bfa38eef06e7219e25d77ab96adec2ae95b808b9cd520aa3c6f84d64dd8c9c"
   },
   {
     "source": "t12-eleve.pdf",
     "editions": {
       "fr": {
         "path": "resources/t12d-03/chapter.pdf",
-        "bytes": 440722,
-        "sha256": "119874cc21c5854da389e61aef02ea199e0c012a819ee75fa1dbf2c8146f75d0",
-        "pages": 23,
-        "start": 50,
-        "end": 72
+        "bytes": 450802,
+        "sha256": "6320667099d142761906654662081622df52b567e747d42870942ea0570d9859",
+        "pages": 24,
+        "start": 52,
+        "end": 75
       }
     },
     "path": "resources/t12d-03/chapter.pdf",
     "pages": [
-      50,
-      72
+      52,
+      75
     ],
-    "sha256": "119874cc21c5854da389e61aef02ea199e0c012a819ee75fa1dbf2c8146f75d0"
+    "sha256": "6320667099d142761906654662081622df52b567e747d42870942ea0570d9859"
   },
   {
     "source": "t12-prof.pdf",
     "editions": {
       "fr": {
         "path": "resources/t12d-03/teacher.pdf",
-        "bytes": 472263,
-        "sha256": "122a5c5d6f50cd4eb33438f803288e4e9a3bbf2d81cca02763f924ac855ba330",
-        "pages": 28,
-        "start": 56,
-        "end": 83
+        "bytes": 570774,
+        "sha256": "c3caf889890df04bf278d9a3dafe3fc254fb050f563de91cd69b5d62e1b1ea39",
+        "pages": 39,
+        "start": 67,
+        "end": 105
       }
     },
     "path": "resources/t12d-03/teacher.pdf",
     "pages": [
-      56,
-      83
+      67,
+      105
     ],
-    "sha256": "122a5c5d6f50cd4eb33438f803288e4e9a3bbf2d81cca02763f924ac855ba330"
+    "sha256": "c3caf889890df04bf278d9a3dafe3fc254fb050f563de91cd69b5d62e1b1ea39"
   },
   {
     "source": "t12-eleve.pdf",
     "editions": {
       "fr": {
         "path": "resources/t12d-04/chapter.pdf",
-        "bytes": 389391,
-        "sha256": "14157cb3c9d7dc5e85d1a458328efdef23e77c9e7cc6669a193d685a840d35dd",
+        "bytes": 391361,
+        "sha256": "2e74cc62220f27fade70bbfc2c22d2d523e9ec7f61dfebcc44ac234f4f600b8f",
         "pages": 7,
-        "start": 95,
-        "end": 101
+        "start": 98,
+        "end": 104
       }
     },
     "path": "resources/t12d-04/chapter.pdf",
     "pages": [
-      95,
-      101
+      98,
+      104
     ],
-    "sha256": "14157cb3c9d7dc5e85d1a458328efdef23e77c9e7cc6669a193d685a840d35dd"
+    "sha256": "2e74cc62220f27fade70bbfc2c22d2d523e9ec7f61dfebcc44ac234f4f600b8f"
   },
   {
     "source": "t12-prof.pdf",
     "editions": {
       "fr": {
         "path": "resources/t12d-04/teacher.pdf",
-        "bytes": 442306,
-        "sha256": "ac7df204f647a63fad0e456ff5d4fc35cb3b2bc7d0949dda1418f8523826ce75",
+        "bytes": 447457,
+        "sha256": "c88479adb7b27578282256fa523d274e542c96266e8e100a73f65e7fdf534fc2",
         "pages": 12,
-        "start": 112,
-        "end": 123
+        "start": 134,
+        "end": 145
       }
     },
     "path": "resources/t12d-04/teacher.pdf",
     "pages": [
-      112,
-      123
+      134,
+      145
     ],
-    "sha256": "ac7df204f647a63fad0e456ff5d4fc35cb3b2bc7d0949dda1418f8523826ce75"
+    "sha256": "c88479adb7b27578282256fa523d274e542c96266e8e100a73f65e7fdf534fc2"
   },
   {
     "source": "t12-eleve.pdf",
     "editions": {
       "fr": {
         "path": "resources/t12d-05/chapter.pdf",
-        "bytes": 402714,
-        "sha256": "d19ca22a38f797c7fd303b9b2a3d33cbd731eb3a2e64cd086ded82d46c018979",
+        "bytes": 405954,
+        "sha256": "10eb3019057747baf95740cf1c93e74e1b33c67971092ae97660b32734d1c512",
         "pages": 11,
-        "start": 104,
-        "end": 114
+        "start": 107,
+        "end": 117
       }
     },
     "path": "resources/t12d-05/chapter.pdf",
     "pages": [
-      104,
-      114
+      107,
+      117
     ],
-    "sha256": "d19ca22a38f797c7fd303b9b2a3d33cbd731eb3a2e64cd086ded82d46c018979"
+    "sha256": "10eb3019057747baf95740cf1c93e74e1b33c67971092ae97660b32734d1c512"
   },
   {
     "source": "t12-prof.pdf",
     "editions": {
       "fr": {
         "path": "resources/t12d-05/teacher.pdf",
-        "bytes": 408241,
-        "sha256": "b695f62ebfebe81dd7a5facbf6e42196eb14013d87bb4a1e94b918c4a52beef0",
-        "pages": 12,
-        "start": 126,
-        "end": 137
+        "bytes": 430101,
+        "sha256": "5098c7f155320fbaa8f09a58b8b3d8f34962530419f0770451792d12a67772ed",
+        "pages": 13,
+        "start": 148,
+        "end": 160
       }
     },
     "path": "resources/t12d-05/teacher.pdf",
     "pages": [
-      126,
-      137
+      148,
+      160
     ],
-    "sha256": "b695f62ebfebe81dd7a5facbf6e42196eb14013d87bb4a1e94b918c4a52beef0"
+    "sha256": "5098c7f155320fbaa8f09a58b8b3d8f34962530419f0770451792d12a67772ed"
   },
   {
     "source": "t12-eleve.pdf",
     "editions": {
       "fr": {
         "path": "resources/t12d-06/chapter.pdf",
-        "bytes": 486443,
-        "sha256": "393576adb78290770931b65d27436c64ea1b9ea46f7dea3066aa3f06d66253d2",
+        "bytes": 492699,
+        "sha256": "c3b14ffd2d8e9ff3f2a2f83168c22e4fd1eecb85eda62bd56e0334a61058052a",
         "pages": 14,
-        "start": 115,
-        "end": 128
+        "start": 118,
+        "end": 131
       }
     },
     "path": "resources/t12d-06/chapter.pdf",
     "pages": [
-      115,
-      128
+      118,
+      131
     ],
-    "sha256": "393576adb78290770931b65d27436c64ea1b9ea46f7dea3066aa3f06d66253d2"
+    "sha256": "c3b14ffd2d8e9ff3f2a2f83168c22e4fd1eecb85eda62bd56e0334a61058052a"
+  },
+  {
+    "source": "t12-prof.pdf",
+    "editions": {
+      "fr": {
+        "path": "resources/t12d-06/teacher.pdf",
+        "bytes": 539525,
+        "sha256": "c71f35d3bd598d2ada2d4409baa3e903d142fd4d93f7357d7e45408e9ccbab09",
+        "pages": 20,
+        "start": 161,
+        "end": 180
+      }
+    },
+    "path": "resources/t12d-06/teacher.pdf",
+    "pages": [
+      161,
+      180
+    ],
+    "sha256": "c71f35d3bd598d2ada2d4409baa3e903d142fd4d93f7357d7e45408e9ccbab09"
   },
   {
     "source": "t12-eleve.pdf",
     "editions": {
       "fr": {
         "path": "resources/t12d-07/chapter.pdf",
-        "bytes": 351795,
-        "sha256": "07369279e3c4b0bda1dc5de43135055a475f2450e5c490fbed8fae3b49b26e3b",
+        "bytes": 360155,
+        "sha256": "5f04b7159dab225d035c03bdaede10f5af701e3a005e425d9fde6d55d5aef916",
         "pages": 11,
-        "start": 129,
-        "end": 139
+        "start": 132,
+        "end": 142
       }
     },
     "path": "resources/t12d-07/chapter.pdf",
     "pages": [
-      129,
-      139
+      132,
+      142
     ],
-    "sha256": "07369279e3c4b0bda1dc5de43135055a475f2450e5c490fbed8fae3b49b26e3b"
+    "sha256": "5f04b7159dab225d035c03bdaede10f5af701e3a005e425d9fde6d55d5aef916"
+  },
+  {
+    "source": "t12-prof.pdf",
+    "editions": {
+      "fr": {
+        "path": "resources/t12d-07/teacher.pdf",
+        "bytes": 430278,
+        "sha256": "5157eedfcfea645391cfe7157e7a4f3fee2f8a5e8aae67adec32fb02b2b08edd",
+        "pages": 19,
+        "start": 181,
+        "end": 199
+      }
+    },
+    "path": "resources/t12d-07/teacher.pdf",
+    "pages": [
+      181,
+      199
+    ],
+    "sha256": "5157eedfcfea645391cfe7157e7a4f3fee2f8a5e8aae67adec32fb02b2b08edd"
   },
   {
     "source": "t12-eleve.pdf",
     "editions": {
       "fr": {
         "path": "resources/t12d-08/chapter.pdf",
-        "bytes": 390322,
-        "sha256": "dc5c24a234b67480a7fda3483e39f0db4247d363e8706ba72fe6ed79b709f3e3",
+        "bytes": 392176,
+        "sha256": "ef6391e85a5cf5ff9119ecefcdb6669e69a7220f21ab8834fd9b4c0ffaa4a122",
         "pages": 13,
-        "start": 140,
-        "end": 152
+        "start": 143,
+        "end": 155
       }
     },
     "path": "resources/t12d-08/chapter.pdf",
     "pages": [
-      140,
-      152
+      143,
+      155
     ],
-    "sha256": "dc5c24a234b67480a7fda3483e39f0db4247d363e8706ba72fe6ed79b709f3e3"
+    "sha256": "ef6391e85a5cf5ff9119ecefcdb6669e69a7220f21ab8834fd9b4c0ffaa4a122"
   },
   {
     "source": "t12-prof.pdf",
     "editions": {
       "fr": {
         "path": "resources/t12d-08/teacher.pdf",
-        "bytes": 415917,
-        "sha256": "8ab933d19c93b2cb6404cefa3e09ad4ab2eb4bd2171c14680f1132ddafa45288",
+        "bytes": 420633,
+        "sha256": "766995cedce5c4f4926e5ec1d4b7fecb42952dd0de3b836f21dc38b2e104650e",
         "pages": 16,
-        "start": 163,
-        "end": 178
+        "start": 200,
+        "end": 215
       }
     },
     "path": "resources/t12d-08/teacher.pdf",
     "pages": [
-      163,
-      178
+      200,
+      215
     ],
-    "sha256": "8ab933d19c93b2cb6404cefa3e09ad4ab2eb4bd2171c14680f1132ddafa45288"
+    "sha256": "766995cedce5c4f4926e5ec1d4b7fecb42952dd0de3b836f21dc38b2e104650e"
   },
   {
     "source": "t12-eleve.pdf",
     "editions": {
       "fr": {
         "path": "resources/t12d-09/chapter.pdf",
-        "bytes": 412714,
-        "sha256": "887d3dd43318da7164123d46c5ec48beb05e4ea56ce64cd9c7d64920b84cac04",
-        "pages": 9,
-        "start": 153,
-        "end": 161
+        "bytes": 417040,
+        "sha256": "0d3698729d645711647d9b5cc41e70d08625140ea3475d22f1db25e0c62bd8fb",
+        "pages": 10,
+        "start": 156,
+        "end": 165
       }
     },
     "path": "resources/t12d-09/chapter.pdf",
     "pages": [
-      153,
-      161
+      156,
+      165
     ],
-    "sha256": "887d3dd43318da7164123d46c5ec48beb05e4ea56ce64cd9c7d64920b84cac04"
+    "sha256": "0d3698729d645711647d9b5cc41e70d08625140ea3475d22f1db25e0c62bd8fb"
+  },
+  {
+    "source": "t12-prof.pdf",
+    "editions": {
+      "fr": {
+        "path": "resources/t12d-09/teacher.pdf",
+        "bytes": 446863,
+        "sha256": "e05378e2333c372303cd108fb83b727b56cbeb75e840c1eb7afbc033affce048",
+        "pages": 13,
+        "start": 216,
+        "end": 228
+      }
+    },
+    "path": "resources/t12d-09/teacher.pdf",
+    "pages": [
+      216,
+      228
+    ],
+    "sha256": "e05378e2333c372303cd108fb83b727b56cbeb75e840c1eb7afbc033affce048"
   },
   {
     "source": "premiere-eleve.pdf",
@@ -6736,740 +6888,1557 @@
     "editions": {
       "fr": {
         "path": "resources/t12c-problems-eleve.pdf",
-        "bytes": 291843,
-        "sha256": "90d0b5ec3e8162915a55622695bfa56b737e4e0a2bec829f95b5177434043556",
-        "pages": 8,
-        "start": 168,
-        "end": 175
+        "bytes": 324595,
+        "sha256": "eb988f9392dddef1c6afe3701c9a10a29352a43a49417af3412ea45de68af4fe",
+        "pages": 7,
+        "start": 172,
+        "end": 178
       }
     },
     "path": "resources/t12c-problems-eleve.pdf",
     "pages": [
-      168,
-      175
+      172,
+      178
     ],
-    "sha256": "90d0b5ec3e8162915a55622695bfa56b737e4e0a2bec829f95b5177434043556"
+    "sha256": "eb988f9392dddef1c6afe3701c9a10a29352a43a49417af3412ea45de68af4fe"
+  },
+  {
+    "source": "t12-prof.pdf",
+    "editions": {
+      "fr": {
+        "path": "resources/t12c-problems-prof.pdf",
+        "bytes": 418924,
+        "sha256": "4fff2477f63984945f302366431910f724c4477988934da30fd2357f6987c854",
+        "pages": 18,
+        "start": 237,
+        "end": 254
+      }
+    },
+    "path": "resources/t12c-problems-prof.pdf",
+    "pages": [
+      237,
+      254
+    ],
+    "sha256": "4fff2477f63984945f302366431910f724c4477988934da30fd2357f6987c854"
   },
   {
     "source": "t12-eleve.pdf",
     "editions": {
       "fr": {
         "path": "resources/t12c-annexes-eleve.pdf",
-        "bytes": 379669,
-        "sha256": "41bf571be0ba75b178c69ee0a86952261af14470c84b6aac13af67e9db9f263e",
+        "bytes": 381630,
+        "sha256": "aa9a4f82648a408bebd501fde0fad0c9857c1c2d5123683181a1cfaf12e68bc5",
         "pages": 10,
-        "start": 242,
-        "end": 251
+        "start": 265,
+        "end": 274
       }
     },
     "path": "resources/t12c-annexes-eleve.pdf",
     "pages": [
-      242,
-      251
+      265,
+      274
     ],
-    "sha256": "41bf571be0ba75b178c69ee0a86952261af14470c84b6aac13af67e9db9f263e"
+    "sha256": "aa9a4f82648a408bebd501fde0fad0c9857c1c2d5123683181a1cfaf12e68bc5"
   },
   {
     "source": "t12-eleve.pdf",
     "editions": {
       "fr": {
         "path": "resources/t12c-bac-2018-eleve.pdf",
-        "bytes": 258781,
-        "sha256": "8a7a14ec1fb4f2720787084d17dc828847286e24dc0d9c1aa3db554111eb505c",
+        "bytes": 260637,
+        "sha256": "13459b161b022ba232f92a7067c6179b3228cb754895ff1d3d49ab7edbc075d3",
         "pages": 2,
-        "start": 178,
-        "end": 179
+        "start": 181,
+        "end": 182
       }
     },
     "path": "resources/t12c-bac-2018-eleve.pdf",
     "pages": [
-      178,
-      179
+      181,
+      182
     ],
-    "sha256": "8a7a14ec1fb4f2720787084d17dc828847286e24dc0d9c1aa3db554111eb505c"
+    "sha256": "13459b161b022ba232f92a7067c6179b3228cb754895ff1d3d49ab7edbc075d3"
+  },
+  {
+    "source": "t12-prof.pdf",
+    "editions": {
+      "fr": {
+        "path": "resources/t12c-bac-2018-prof.pdf",
+        "bytes": 320871,
+        "sha256": "b5be6d7822735a26ac979cf0de8ae5f0af377097eb3de4c7cfde3e7c21193dbb",
+        "pages": 5,
+        "start": 257,
+        "end": 261
+      }
+    },
+    "path": "resources/t12c-bac-2018-prof.pdf",
+    "pages": [
+      257,
+      261
+    ],
+    "sha256": "b5be6d7822735a26ac979cf0de8ae5f0af377097eb3de4c7cfde3e7c21193dbb"
   },
   {
     "source": "t12-eleve.pdf",
     "editions": {
       "fr": {
         "path": "resources/t12c-bac-2017-eleve.pdf",
-        "bytes": 259488,
-        "sha256": "aeaae150667462606d90898945134c37a836f6cdb92a5f1f26a8d22815628900",
+        "bytes": 261338,
+        "sha256": "d6c6c45c4b5853a8145e379f439b12cf7f38f1bc9a6d941db50a281fb18ebbf3",
         "pages": 2,
-        "start": 180,
-        "end": 181
+        "start": 183,
+        "end": 184
       }
     },
     "path": "resources/t12c-bac-2017-eleve.pdf",
     "pages": [
-      180,
-      181
+      183,
+      184
     ],
-    "sha256": "aeaae150667462606d90898945134c37a836f6cdb92a5f1f26a8d22815628900"
+    "sha256": "d6c6c45c4b5853a8145e379f439b12cf7f38f1bc9a6d941db50a281fb18ebbf3"
+  },
+  {
+    "source": "t12-prof.pdf",
+    "editions": {
+      "fr": {
+        "path": "resources/t12c-bac-2017-prof.pdf",
+        "bytes": 301464,
+        "sha256": "9315f04a7d4487246956457bd6c07519bd8004dd840a57f2a56122e1c48b02e3",
+        "pages": 7,
+        "start": 259,
+        "end": 265
+      }
+    },
+    "path": "resources/t12c-bac-2017-prof.pdf",
+    "pages": [
+      259,
+      265
+    ],
+    "sha256": "9315f04a7d4487246956457bd6c07519bd8004dd840a57f2a56122e1c48b02e3"
   },
   {
     "source": "t12-eleve.pdf",
     "editions": {
       "fr": {
         "path": "resources/t12c-bac-2016-eleve.pdf",
-        "bytes": 261096,
-        "sha256": "c6b1334850ecfb259b302b5ce32942fce6702d03d2a900a461f5563111cfa8fa",
+        "bytes": 262960,
+        "sha256": "eb2d6e301c60f488fd81491118e5d0262324fed845e3a4e488c56087affa7e3d",
         "pages": 2,
-        "start": 182,
-        "end": 183
+        "start": 185,
+        "end": 186
       }
     },
     "path": "resources/t12c-bac-2016-eleve.pdf",
     "pages": [
-      182,
-      183
+      185,
+      186
     ],
-    "sha256": "c6b1334850ecfb259b302b5ce32942fce6702d03d2a900a461f5563111cfa8fa"
+    "sha256": "eb2d6e301c60f488fd81491118e5d0262324fed845e3a4e488c56087affa7e3d"
+  },
+  {
+    "source": "t12-prof.pdf",
+    "editions": {
+      "fr": {
+        "path": "resources/t12c-bac-2016-prof.pdf",
+        "bytes": 289503,
+        "sha256": "61031cf17cb08b96c01c04dbefd3ee062f5ded260d5f0179903cfa6b75dcd063",
+        "pages": 5,
+        "start": 261,
+        "end": 265
+      }
+    },
+    "path": "resources/t12c-bac-2016-prof.pdf",
+    "pages": [
+      261,
+      265
+    ],
+    "sha256": "61031cf17cb08b96c01c04dbefd3ee062f5ded260d5f0179903cfa6b75dcd063"
   },
   {
     "source": "t12-eleve.pdf",
     "editions": {
       "fr": {
         "path": "resources/t12c-bac-2015-eleve.pdf",
-        "bytes": 262355,
-        "sha256": "7f531bbcd14cc736efbc302cafcb2a3aebec3445e06dc218c5ad126ed55b88cb",
+        "bytes": 264217,
+        "sha256": "9fccb50495e2bb4e95ded2ceb8f765129651b96f97e9b7602cc3e5ed14c50642",
         "pages": 3,
-        "start": 184,
-        "end": 186
+        "start": 187,
+        "end": 189
       }
     },
     "path": "resources/t12c-bac-2015-eleve.pdf",
     "pages": [
-      184,
-      186
+      187,
+      189
     ],
-    "sha256": "7f531bbcd14cc736efbc302cafcb2a3aebec3445e06dc218c5ad126ed55b88cb"
+    "sha256": "9fccb50495e2bb4e95ded2ceb8f765129651b96f97e9b7602cc3e5ed14c50642"
+  },
+  {
+    "source": "t12-prof.pdf",
+    "editions": {
+      "fr": {
+        "path": "resources/t12c-bac-2015-prof.pdf",
+        "bytes": 297858,
+        "sha256": "e63d1a63b28cebd5b12428e2447e419361966bf8351fffc2bc8403dcf1dbbac4",
+        "pages": 7,
+        "start": 263,
+        "end": 269
+      }
+    },
+    "path": "resources/t12c-bac-2015-prof.pdf",
+    "pages": [
+      263,
+      269
+    ],
+    "sha256": "e63d1a63b28cebd5b12428e2447e419361966bf8351fffc2bc8403dcf1dbbac4"
   },
   {
     "source": "t12-eleve.pdf",
     "editions": {
       "fr": {
         "path": "resources/t12c-bac-2014-eleve.pdf",
-        "bytes": 262622,
-        "sha256": "64a68e66b2ccdbfeb96a82b59d9c997cbf3a82371475af564d6b53cd43133f47",
+        "bytes": 264489,
+        "sha256": "2d1f68796f4deef6080d2ddbf7022f88d977441d1fb4be461d8b278f9634c571",
         "pages": 2,
-        "start": 187,
-        "end": 188
+        "start": 190,
+        "end": 191
       }
     },
     "path": "resources/t12c-bac-2014-eleve.pdf",
     "pages": [
-      187,
-      188
+      190,
+      191
     ],
-    "sha256": "64a68e66b2ccdbfeb96a82b59d9c997cbf3a82371475af564d6b53cd43133f47"
+    "sha256": "2d1f68796f4deef6080d2ddbf7022f88d977441d1fb4be461d8b278f9634c571"
+  },
+  {
+    "source": "t12-prof.pdf",
+    "editions": {
+      "fr": {
+        "path": "resources/t12c-bac-2014-prof.pdf",
+        "bytes": 290274,
+        "sha256": "5474a3f1785678b0dd52017d1d2a06fbf8813084854fb6a99b2bfd3c05a0eacf",
+        "pages": 5,
+        "start": 266,
+        "end": 270
+      }
+    },
+    "path": "resources/t12c-bac-2014-prof.pdf",
+    "pages": [
+      266,
+      270
+    ],
+    "sha256": "5474a3f1785678b0dd52017d1d2a06fbf8813084854fb6a99b2bfd3c05a0eacf"
   },
   {
     "source": "t12-eleve.pdf",
     "editions": {
       "fr": {
         "path": "resources/t12c-bac-2013-eleve.pdf",
-        "bytes": 262197,
-        "sha256": "f0d4c4abfe83c1806850b6315486c20df03ebeeb20efdcd6be5fc019df0e96db",
+        "bytes": 264075,
+        "sha256": "9f395d596d3ecef8cf4a3494c7dd887698921c432ca09ba9dfc13d38efcc338b",
         "pages": 2,
-        "start": 189,
-        "end": 190
+        "start": 192,
+        "end": 193
       }
     },
     "path": "resources/t12c-bac-2013-eleve.pdf",
     "pages": [
-      189,
-      190
+      192,
+      193
     ],
-    "sha256": "f0d4c4abfe83c1806850b6315486c20df03ebeeb20efdcd6be5fc019df0e96db"
+    "sha256": "9f395d596d3ecef8cf4a3494c7dd887698921c432ca09ba9dfc13d38efcc338b"
+  },
+  {
+    "source": "t12-prof.pdf",
+    "editions": {
+      "fr": {
+        "path": "resources/t12c-bac-2013-prof.pdf",
+        "bytes": 333797,
+        "sha256": "0603b1f1c4ab471b96ffc4f98c6f0ed25f66e8eb9f22b1a4870730ca3b5e46eb",
+        "pages": 6,
+        "start": 268,
+        "end": 273
+      }
+    },
+    "path": "resources/t12c-bac-2013-prof.pdf",
+    "pages": [
+      268,
+      273
+    ],
+    "sha256": "0603b1f1c4ab471b96ffc4f98c6f0ed25f66e8eb9f22b1a4870730ca3b5e46eb"
   },
   {
     "source": "t12-eleve.pdf",
     "editions": {
       "fr": {
         "path": "resources/t12c-bac-2012-eleve.pdf",
-        "bytes": 260244,
-        "sha256": "fbeb06634956fa8e9cd2df0a3bd3c1b5d3b0b93df0b914a243807581fe4360e0",
+        "bytes": 262082,
+        "sha256": "385219edfbf9c7a4c99cf5bf999a621e2ac0eb4f682e379057d0f1c39bed589a",
         "pages": 2,
-        "start": 191,
-        "end": 192
+        "start": 194,
+        "end": 195
       }
     },
     "path": "resources/t12c-bac-2012-eleve.pdf",
     "pages": [
-      191,
-      192
+      194,
+      195
     ],
-    "sha256": "fbeb06634956fa8e9cd2df0a3bd3c1b5d3b0b93df0b914a243807581fe4360e0"
+    "sha256": "385219edfbf9c7a4c99cf5bf999a621e2ac0eb4f682e379057d0f1c39bed589a"
+  },
+  {
+    "source": "t12-prof.pdf",
+    "editions": {
+      "fr": {
+        "path": "resources/t12c-bac-2012-prof.pdf",
+        "bytes": 327823,
+        "sha256": "b5168aa42650b39f71570c21a1295b9618e823879e86c818c55a562583f5e05e",
+        "pages": 6,
+        "start": 270,
+        "end": 275
+      }
+    },
+    "path": "resources/t12c-bac-2012-prof.pdf",
+    "pages": [
+      270,
+      275
+    ],
+    "sha256": "b5168aa42650b39f71570c21a1295b9618e823879e86c818c55a562583f5e05e"
   },
   {
     "source": "t12-eleve.pdf",
     "editions": {
       "fr": {
         "path": "resources/t12c-bac-2011-eleve.pdf",
-        "bytes": 260585,
-        "sha256": "6ab3c9bf36463b19c4ca6d9421c9168537a6390de7051293d7bec7a14244b935",
+        "bytes": 262438,
+        "sha256": "46be68a4d700e0bf3a11b8b611d90bb9cd86fea38b475b27f9a9db4da3487e20",
         "pages": 2,
-        "start": 193,
-        "end": 194
+        "start": 196,
+        "end": 197
       }
     },
     "path": "resources/t12c-bac-2011-eleve.pdf",
     "pages": [
-      193,
-      194
+      196,
+      197
     ],
-    "sha256": "6ab3c9bf36463b19c4ca6d9421c9168537a6390de7051293d7bec7a14244b935"
+    "sha256": "46be68a4d700e0bf3a11b8b611d90bb9cd86fea38b475b27f9a9db4da3487e20"
+  },
+  {
+    "source": "t12-prof.pdf",
+    "editions": {
+      "fr": {
+        "path": "resources/t12c-bac-2011-prof.pdf",
+        "bytes": 294483,
+        "sha256": "1012f31c28be2ef8ce5103ff3aa640cb968bf8e098134d2d1645347f69f525bd",
+        "pages": 6,
+        "start": 272,
+        "end": 277
+      }
+    },
+    "path": "resources/t12c-bac-2011-prof.pdf",
+    "pages": [
+      272,
+      277
+    ],
+    "sha256": "1012f31c28be2ef8ce5103ff3aa640cb968bf8e098134d2d1645347f69f525bd"
   },
   {
     "source": "t12-eleve.pdf",
     "editions": {
       "fr": {
         "path": "resources/t12c-bac-2010-eleve.pdf",
-        "bytes": 259484,
-        "sha256": "92f695ab59c943833f793099fec22708ea3fbd79b2d18c966430da88f314ac28",
+        "bytes": 261350,
+        "sha256": "9ad1b08f4a8cb6df4682ed6bb8cba10109c60165f322a6bfaa79273016d6c0b9",
         "pages": 2,
-        "start": 195,
-        "end": 196
+        "start": 198,
+        "end": 199
       }
     },
     "path": "resources/t12c-bac-2010-eleve.pdf",
     "pages": [
-      195,
-      196
+      198,
+      199
     ],
-    "sha256": "92f695ab59c943833f793099fec22708ea3fbd79b2d18c966430da88f314ac28"
+    "sha256": "9ad1b08f4a8cb6df4682ed6bb8cba10109c60165f322a6bfaa79273016d6c0b9"
+  },
+  {
+    "source": "t12-prof.pdf",
+    "editions": {
+      "fr": {
+        "path": "resources/t12c-bac-2010-prof.pdf",
+        "bytes": 327324,
+        "sha256": "bade2daaa522ea4a1288c7802bdc0ed34c9ea518c97d1f25d0a282b9d1a1d0f2",
+        "pages": 6,
+        "start": 274,
+        "end": 279
+      }
+    },
+    "path": "resources/t12c-bac-2010-prof.pdf",
+    "pages": [
+      274,
+      279
+    ],
+    "sha256": "bade2daaa522ea4a1288c7802bdc0ed34c9ea518c97d1f25d0a282b9d1a1d0f2"
   },
   {
     "source": "t12-eleve.pdf",
     "editions": {
       "fr": {
         "path": "resources/t12c-bac-2009-eleve.pdf",
-        "bytes": 294956,
-        "sha256": "ea90a7d4c7ebd32921a02e8fbea64a178eb3bba8c6a44eb998d6baf203e82109",
+        "bytes": 296831,
+        "sha256": "072c19f6235e6e5148f98193d0c4fa7110095e35c82b2db3df167ef5f49fb950",
         "pages": 2,
-        "start": 197,
-        "end": 198
+        "start": 200,
+        "end": 201
       }
     },
     "path": "resources/t12c-bac-2009-eleve.pdf",
     "pages": [
-      197,
-      198
+      200,
+      201
     ],
-    "sha256": "ea90a7d4c7ebd32921a02e8fbea64a178eb3bba8c6a44eb998d6baf203e82109"
+    "sha256": "072c19f6235e6e5148f98193d0c4fa7110095e35c82b2db3df167ef5f49fb950"
+  },
+  {
+    "source": "t12-prof.pdf",
+    "editions": {
+      "fr": {
+        "path": "resources/t12c-bac-2009-prof.pdf",
+        "bytes": 325188,
+        "sha256": "24c66ddcff4f96bd96bacfa5c0ef577a954e92915dd127369802886ad3d2b77d",
+        "pages": 6,
+        "start": 276,
+        "end": 281
+      }
+    },
+    "path": "resources/t12c-bac-2009-prof.pdf",
+    "pages": [
+      276,
+      281
+    ],
+    "sha256": "24c66ddcff4f96bd96bacfa5c0ef577a954e92915dd127369802886ad3d2b77d"
   },
   {
     "source": "t12-eleve.pdf",
     "editions": {
       "fr": {
         "path": "resources/t12c-bac-2008-eleve.pdf",
-        "bytes": 260143,
-        "sha256": "1846138825bd41b8f1a63676aa2ac3afc655b9d3cc07e9ab2b4b49155cece627",
+        "bytes": 261985,
+        "sha256": "22f5b18956193ee16838d64f15c14580ef136654d6bb38dafae5ca3f70d14c8f",
         "pages": 2,
-        "start": 199,
-        "end": 200
+        "start": 202,
+        "end": 203
       }
     },
     "path": "resources/t12c-bac-2008-eleve.pdf",
     "pages": [
-      199,
-      200
+      202,
+      203
     ],
-    "sha256": "1846138825bd41b8f1a63676aa2ac3afc655b9d3cc07e9ab2b4b49155cece627"
+    "sha256": "22f5b18956193ee16838d64f15c14580ef136654d6bb38dafae5ca3f70d14c8f"
+  },
+  {
+    "source": "t12-prof.pdf",
+    "editions": {
+      "fr": {
+        "path": "resources/t12c-bac-2008-prof.pdf",
+        "bytes": 293915,
+        "sha256": "1662c5189cbeb8ac70acc50c6d8d2a954b040c59ba9c39aee348a3fb67c18ed3",
+        "pages": 6,
+        "start": 278,
+        "end": 283
+      }
+    },
+    "path": "resources/t12c-bac-2008-prof.pdf",
+    "pages": [
+      278,
+      283
+    ],
+    "sha256": "1662c5189cbeb8ac70acc50c6d8d2a954b040c59ba9c39aee348a3fb67c18ed3"
   },
   {
     "source": "t12-eleve.pdf",
     "editions": {
       "fr": {
         "path": "resources/t12c-bac-2007-eleve.pdf",
-        "bytes": 261564,
-        "sha256": "8b8fa0e443d66406698610afc16340c8edf68cb54d940cdd8f4fcd7d16be3250",
+        "bytes": 263423,
+        "sha256": "d25c89f102e364c15deed760d1dc90959410e1b115c6cbb0d1726527e49a52e3",
         "pages": 2,
-        "start": 201,
-        "end": 202
+        "start": 204,
+        "end": 205
       }
     },
     "path": "resources/t12c-bac-2007-eleve.pdf",
     "pages": [
-      201,
-      202
+      204,
+      205
     ],
-    "sha256": "8b8fa0e443d66406698610afc16340c8edf68cb54d940cdd8f4fcd7d16be3250"
+    "sha256": "d25c89f102e364c15deed760d1dc90959410e1b115c6cbb0d1726527e49a52e3"
+  },
+  {
+    "source": "t12-prof.pdf",
+    "editions": {
+      "fr": {
+        "path": "resources/t12c-bac-2007-prof.pdf",
+        "bytes": 295361,
+        "sha256": "af80177d0c3089a28c10779ee2d0396fa276ea03353f339445301ce2298afe69",
+        "pages": 6,
+        "start": 280,
+        "end": 285
+      }
+    },
+    "path": "resources/t12c-bac-2007-prof.pdf",
+    "pages": [
+      280,
+      285
+    ],
+    "sha256": "af80177d0c3089a28c10779ee2d0396fa276ea03353f339445301ce2298afe69"
   },
   {
     "source": "t12-eleve.pdf",
     "editions": {
       "fr": {
         "path": "resources/t12c-bac-2006-eleve.pdf",
-        "bytes": 259656,
-        "sha256": "1b4882cc52982c5bd91706cd45a75152ec77f5ad9c41c816f968b7729c01da0d",
+        "bytes": 261509,
+        "sha256": "b141df250ee9441832d36e496ea21d58bb0ba208a48129b1c0c3133be7d70c44",
         "pages": 2,
-        "start": 203,
-        "end": 204
+        "start": 206,
+        "end": 207
       }
     },
     "path": "resources/t12c-bac-2006-eleve.pdf",
     "pages": [
-      203,
-      204
+      206,
+      207
     ],
-    "sha256": "1b4882cc52982c5bd91706cd45a75152ec77f5ad9c41c816f968b7729c01da0d"
+    "sha256": "b141df250ee9441832d36e496ea21d58bb0ba208a48129b1c0c3133be7d70c44"
+  },
+  {
+    "source": "t12-prof.pdf",
+    "editions": {
+      "fr": {
+        "path": "resources/t12c-bac-2006-prof.pdf",
+        "bytes": 298551,
+        "sha256": "10df86fc37e019f2f22a675fcdf6832e6b3fe394c3d40130fcbd258cf7b2fa9a",
+        "pages": 7,
+        "start": 282,
+        "end": 288
+      }
+    },
+    "path": "resources/t12c-bac-2006-prof.pdf",
+    "pages": [
+      282,
+      288
+    ],
+    "sha256": "10df86fc37e019f2f22a675fcdf6832e6b3fe394c3d40130fcbd258cf7b2fa9a"
   },
   {
     "source": "t12-eleve.pdf",
     "editions": {
       "fr": {
         "path": "resources/t12c-bac-2005-eleve.pdf",
-        "bytes": 261559,
-        "sha256": "897087fb50ad35ca6ca7557c64df9ebfcbe3e889ec2ad0c50f68bbd09f7b5bd1",
+        "bytes": 263388,
+        "sha256": "6ef62312f9189e3b6ae2f8f6d5836fda25bafb1cd76a95f681e1b7f8dcdcebfc",
         "pages": 2,
-        "start": 205,
-        "end": 206
+        "start": 208,
+        "end": 209
       }
     },
     "path": "resources/t12c-bac-2005-eleve.pdf",
     "pages": [
-      205,
-      206
+      208,
+      209
     ],
-    "sha256": "897087fb50ad35ca6ca7557c64df9ebfcbe3e889ec2ad0c50f68bbd09f7b5bd1"
+    "sha256": "6ef62312f9189e3b6ae2f8f6d5836fda25bafb1cd76a95f681e1b7f8dcdcebfc"
   },
   {
     "source": "t12-prof.pdf",
     "editions": {
       "fr": {
         "path": "resources/t12c-bac-2005-prof.pdf",
-        "bytes": 324581,
-        "sha256": "e535e7fc0992fbda78078608bd1d2846369a0c75b52c05af41e9c747a6513b32",
-        "pages": 7,
-        "start": 233,
-        "end": 239
+        "bytes": 328632,
+        "sha256": "3cfcc834325f1e960160a247656ac8c32d08b4c15f29d0387bfc20e6e2c88ccd",
+        "pages": 6,
+        "start": 284,
+        "end": 289
       }
     },
     "path": "resources/t12c-bac-2005-prof.pdf",
     "pages": [
-      233,
-      239
+      284,
+      289
     ],
-    "sha256": "e535e7fc0992fbda78078608bd1d2846369a0c75b52c05af41e9c747a6513b32"
+    "sha256": "3cfcc834325f1e960160a247656ac8c32d08b4c15f29d0387bfc20e6e2c88ccd"
   },
   {
     "source": "t12-eleve.pdf",
     "editions": {
       "fr": {
         "path": "resources/t12c-bac-2004-eleve.pdf",
-        "bytes": 260412,
-        "sha256": "006bdf2f927baacf659ee0fa59b7d704f5ce90e1dbab88410cf4664f0e7bb004",
+        "bytes": 262253,
+        "sha256": "f4e172e770a2b28a32fbdbe8e42955b67e8e2fd55d34ab56a1cc80f66e543eae",
         "pages": 2,
-        "start": 207,
-        "end": 208
+        "start": 210,
+        "end": 211
       }
     },
     "path": "resources/t12c-bac-2004-eleve.pdf",
     "pages": [
-      207,
-      208
+      210,
+      211
     ],
-    "sha256": "006bdf2f927baacf659ee0fa59b7d704f5ce90e1dbab88410cf4664f0e7bb004"
+    "sha256": "f4e172e770a2b28a32fbdbe8e42955b67e8e2fd55d34ab56a1cc80f66e543eae"
   },
   {
     "source": "t12-prof.pdf",
     "editions": {
       "fr": {
         "path": "resources/t12c-bac-2004-prof.pdf",
-        "bytes": 347542,
-        "sha256": "9182e688914b8aaef029290cf6f3f026d845f790a337303d2d099ecbfc1087b9",
+        "bytes": 352550,
+        "sha256": "7013cd075cf969c9feb8fb2efd20eb824573b90c61378386faf05cd6faf38a07",
         "pages": 10,
-        "start": 235,
-        "end": 244
+        "start": 286,
+        "end": 295
       }
     },
     "path": "resources/t12c-bac-2004-prof.pdf",
     "pages": [
-      235,
-      244
+      286,
+      295
     ],
-    "sha256": "9182e688914b8aaef029290cf6f3f026d845f790a337303d2d099ecbfc1087b9"
+    "sha256": "7013cd075cf969c9feb8fb2efd20eb824573b90c61378386faf05cd6faf38a07"
   },
   {
     "source": "t12-eleve.pdf",
     "editions": {
       "fr": {
         "path": "resources/t12c-bac-2003-eleve.pdf",
-        "bytes": 260193,
-        "sha256": "20553c91cd20f8b897a038020c3db73145f03a33264680cda46cc3ea723f92c9",
+        "bytes": 262043,
+        "sha256": "cb2d82b215b712b40f5aea60f3641061cba3247de061b36a9560955e009df172",
         "pages": 2,
-        "start": 209,
-        "end": 210
+        "start": 212,
+        "end": 213
       }
     },
     "path": "resources/t12c-bac-2003-eleve.pdf",
     "pages": [
-      209,
-      210
+      212,
+      213
     ],
-    "sha256": "20553c91cd20f8b897a038020c3db73145f03a33264680cda46cc3ea723f92c9"
+    "sha256": "cb2d82b215b712b40f5aea60f3641061cba3247de061b36a9560955e009df172"
   },
   {
     "source": "t12-prof.pdf",
     "editions": {
       "fr": {
         "path": "resources/t12c-bac-2003-prof.pdf",
-        "bytes": 369615,
-        "sha256": "53cd62fb199c6dc1454e90f9d8d1df3349e8712b7e9a5ee0efd8eb808308acb2",
+        "bytes": 374640,
+        "sha256": "8604e5266d17c69f878f2d215efae89218a5f634015e82f8220b09eba47cc9da",
         "pages": 11,
-        "start": 237,
-        "end": 247
+        "start": 288,
+        "end": 298
       }
     },
     "path": "resources/t12c-bac-2003-prof.pdf",
     "pages": [
-      237,
-      247
+      288,
+      298
     ],
-    "sha256": "53cd62fb199c6dc1454e90f9d8d1df3349e8712b7e9a5ee0efd8eb808308acb2"
+    "sha256": "8604e5266d17c69f878f2d215efae89218a5f634015e82f8220b09eba47cc9da"
+  },
+  {
+    "source": "t12-eleve.pdf",
+    "editions": {
+      "fr": {
+        "path": "resources/t12c-practice-sujet-c6-eleve.pdf",
+        "bytes": 258985,
+        "sha256": "fc6581948e8a3b4aec52cd2169a6cff5f925c301a4e09209bcdac26c1050b742",
+        "pages": 2,
+        "start": 255,
+        "end": 256
+      }
+    },
+    "path": "resources/t12c-practice-sujet-c6-eleve.pdf",
+    "pages": [
+      255,
+      256
+    ],
+    "sha256": "fc6581948e8a3b4aec52cd2169a6cff5f925c301a4e09209bcdac26c1050b742"
+  },
+  {
+    "source": "t12-eleve.pdf",
+    "editions": {
+      "fr": {
+        "path": "resources/t12c-practice-sujet-c5-eleve.pdf",
+        "bytes": 249109,
+        "sha256": "db0c51cd48dca1d4072cf20332d5e2d9c36d4369921a6e9f0c91d631cd3a825e",
+        "pages": 2,
+        "start": 253,
+        "end": 254
+      }
+    },
+    "path": "resources/t12c-practice-sujet-c5-eleve.pdf",
+    "pages": [
+      253,
+      254
+    ],
+    "sha256": "db0c51cd48dca1d4072cf20332d5e2d9c36d4369921a6e9f0c91d631cd3a825e"
+  },
+  {
+    "source": "t12-eleve.pdf",
+    "editions": {
+      "fr": {
+        "path": "resources/t12c-practice-sujet-c4-eleve.pdf",
+        "bytes": 247435,
+        "sha256": "66ca536ee66ac082e05f75d3630f3ed04fd2de52393bf41ee6fec6f3d7a7d3d2",
+        "pages": 2,
+        "start": 251,
+        "end": 252
+      }
+    },
+    "path": "resources/t12c-practice-sujet-c4-eleve.pdf",
+    "pages": [
+      251,
+      252
+    ],
+    "sha256": "66ca536ee66ac082e05f75d3630f3ed04fd2de52393bf41ee6fec6f3d7a7d3d2"
+  },
+  {
+    "source": "t12-eleve.pdf",
+    "editions": {
+      "fr": {
+        "path": "resources/t12c-practice-sujet-c3-eleve.pdf",
+        "bytes": 259441,
+        "sha256": "c239eea434331cef924461bb25d5bb4213fd54f8988e9df3de8e4822a41f79dd",
+        "pages": 2,
+        "start": 249,
+        "end": 250
+      }
+    },
+    "path": "resources/t12c-practice-sujet-c3-eleve.pdf",
+    "pages": [
+      249,
+      250
+    ],
+    "sha256": "c239eea434331cef924461bb25d5bb4213fd54f8988e9df3de8e4822a41f79dd"
+  },
+  {
+    "source": "t12-eleve.pdf",
+    "editions": {
+      "fr": {
+        "path": "resources/t12c-practice-sujet-c2-eleve.pdf",
+        "bytes": 248655,
+        "sha256": "526cb622c285da048f2e4f1f2f756ea519cf79f93d9eea7d4cf15ae6fc768f15",
+        "pages": 2,
+        "start": 247,
+        "end": 248
+      }
+    },
+    "path": "resources/t12c-practice-sujet-c2-eleve.pdf",
+    "pages": [
+      247,
+      248
+    ],
+    "sha256": "526cb622c285da048f2e4f1f2f756ea519cf79f93d9eea7d4cf15ae6fc768f15"
+  },
+  {
+    "source": "t12-eleve.pdf",
+    "editions": {
+      "fr": {
+        "path": "resources/t12c-practice-sujet-c1-eleve.pdf",
+        "bytes": 261449,
+        "sha256": "fff76149fefc5ae4fc4dd57d7d3f5c6f75d4ad6422b064a671f3be6aaea2a506",
+        "pages": 2,
+        "start": 245,
+        "end": 246
+      }
+    },
+    "path": "resources/t12c-practice-sujet-c1-eleve.pdf",
+    "pages": [
+      245,
+      246
+    ],
+    "sha256": "fff76149fefc5ae4fc4dd57d7d3f5c6f75d4ad6422b064a671f3be6aaea2a506"
   },
   {
     "source": "t12-eleve.pdf",
     "editions": {
       "fr": {
         "path": "resources/t12d-problems-eleve.pdf",
-        "bytes": 291843,
-        "sha256": "90d0b5ec3e8162915a55622695bfa56b737e4e0a2bec829f95b5177434043556",
-        "pages": 8,
-        "start": 168,
-        "end": 175
+        "bytes": 324595,
+        "sha256": "eb988f9392dddef1c6afe3701c9a10a29352a43a49417af3412ea45de68af4fe",
+        "pages": 7,
+        "start": 172,
+        "end": 178
       }
     },
     "path": "resources/t12d-problems-eleve.pdf",
     "pages": [
-      168,
-      175
+      172,
+      178
     ],
-    "sha256": "90d0b5ec3e8162915a55622695bfa56b737e4e0a2bec829f95b5177434043556"
+    "sha256": "eb988f9392dddef1c6afe3701c9a10a29352a43a49417af3412ea45de68af4fe"
+  },
+  {
+    "source": "t12-prof.pdf",
+    "editions": {
+      "fr": {
+        "path": "resources/t12d-problems-prof.pdf",
+        "bytes": 418924,
+        "sha256": "4fff2477f63984945f302366431910f724c4477988934da30fd2357f6987c854",
+        "pages": 18,
+        "start": 237,
+        "end": 254
+      }
+    },
+    "path": "resources/t12d-problems-prof.pdf",
+    "pages": [
+      237,
+      254
+    ],
+    "sha256": "4fff2477f63984945f302366431910f724c4477988934da30fd2357f6987c854"
   },
   {
     "source": "t12-eleve.pdf",
     "editions": {
       "fr": {
         "path": "resources/t12d-annexes-eleve.pdf",
-        "bytes": 379669,
-        "sha256": "41bf571be0ba75b178c69ee0a86952261af14470c84b6aac13af67e9db9f263e",
+        "bytes": 381630,
+        "sha256": "aa9a4f82648a408bebd501fde0fad0c9857c1c2d5123683181a1cfaf12e68bc5",
         "pages": 10,
-        "start": 242,
-        "end": 251
+        "start": 265,
+        "end": 274
       }
     },
     "path": "resources/t12d-annexes-eleve.pdf",
     "pages": [
-      242,
-      251
+      265,
+      274
     ],
-    "sha256": "41bf571be0ba75b178c69ee0a86952261af14470c84b6aac13af67e9db9f263e"
+    "sha256": "aa9a4f82648a408bebd501fde0fad0c9857c1c2d5123683181a1cfaf12e68bc5"
   },
   {
     "source": "t12-eleve.pdf",
     "editions": {
       "fr": {
         "path": "resources/t12d-bac-2018-eleve.pdf",
-        "bytes": 207432,
-        "sha256": "5b578aeec0477e3986565cd1629e186f83f0dd7baee7e62a4ae8d2340b8c71dc",
+        "bytes": 209145,
+        "sha256": "3fa883a81b02ce66f61b351ec2709e1a65d6fdec05115f7ea3f8d5e2be2a947f",
         "pages": 2,
-        "start": 211,
-        "end": 212
+        "start": 214,
+        "end": 215
       }
     },
     "path": "resources/t12d-bac-2018-eleve.pdf",
     "pages": [
-      211,
-      212
+      214,
+      215
     ],
-    "sha256": "5b578aeec0477e3986565cd1629e186f83f0dd7baee7e62a4ae8d2340b8c71dc"
+    "sha256": "3fa883a81b02ce66f61b351ec2709e1a65d6fdec05115f7ea3f8d5e2be2a947f"
+  },
+  {
+    "source": "t12-prof.pdf",
+    "editions": {
+      "fr": {
+        "path": "resources/t12d-bac-2018-prof.pdf",
+        "bytes": 282677,
+        "sha256": "10836dd64cea96ca593d08746792240612202013f9207033d80a88da9d6ec359",
+        "pages": 5,
+        "start": 362,
+        "end": 366
+      }
+    },
+    "path": "resources/t12d-bac-2018-prof.pdf",
+    "pages": [
+      362,
+      366
+    ],
+    "sha256": "10836dd64cea96ca593d08746792240612202013f9207033d80a88da9d6ec359"
   },
   {
     "source": "t12-eleve.pdf",
     "editions": {
       "fr": {
         "path": "resources/t12d-bac-2017-eleve.pdf",
-        "bytes": 259087,
-        "sha256": "3cf74980436802bc6e6d62d4fc4a0bb24631b3c9379f9bae815bd36fd25a6ed5",
+        "bytes": 260930,
+        "sha256": "ab0f89502bd73aeaec8844cba0f8ccb20f9010cecc7bfce053f96f8c8a0a8c85",
         "pages": 2,
-        "start": 213,
-        "end": 214
+        "start": 216,
+        "end": 217
       }
     },
     "path": "resources/t12d-bac-2017-eleve.pdf",
     "pages": [
-      213,
-      214
+      216,
+      217
     ],
-    "sha256": "3cf74980436802bc6e6d62d4fc4a0bb24631b3c9379f9bae815bd36fd25a6ed5"
+    "sha256": "ab0f89502bd73aeaec8844cba0f8ccb20f9010cecc7bfce053f96f8c8a0a8c85"
+  },
+  {
+    "source": "t12-prof.pdf",
+    "editions": {
+      "fr": {
+        "path": "resources/t12d-bac-2017-prof.pdf",
+        "bytes": 302376,
+        "sha256": "00ac8323d81a4cb66f120b46b87385a68b23cafb219ea62c218a843ba075b4b6",
+        "pages": 6,
+        "start": 364,
+        "end": 369
+      }
+    },
+    "path": "resources/t12d-bac-2017-prof.pdf",
+    "pages": [
+      364,
+      369
+    ],
+    "sha256": "00ac8323d81a4cb66f120b46b87385a68b23cafb219ea62c218a843ba075b4b6"
   },
   {
     "source": "t12-eleve.pdf",
     "editions": {
       "fr": {
         "path": "resources/t12d-bac-2016-eleve.pdf",
-        "bytes": 250974,
-        "sha256": "ccf222675f313404c9e366a6e6494944c82e91cf1793ebc473cde0193b0461e7",
+        "bytes": 252633,
+        "sha256": "d0e5dbf6a70352bdfb517082f20a5ff3948d1d7b0ecb746fab73657591e59ef2",
         "pages": 2,
-        "start": 215,
-        "end": 216
+        "start": 218,
+        "end": 219
       }
     },
     "path": "resources/t12d-bac-2016-eleve.pdf",
     "pages": [
-      215,
-      216
+      218,
+      219
     ],
-    "sha256": "ccf222675f313404c9e366a6e6494944c82e91cf1793ebc473cde0193b0461e7"
+    "sha256": "d0e5dbf6a70352bdfb517082f20a5ff3948d1d7b0ecb746fab73657591e59ef2"
+  },
+  {
+    "source": "t12-prof.pdf",
+    "editions": {
+      "fr": {
+        "path": "resources/t12d-bac-2016-prof.pdf",
+        "bytes": 288334,
+        "sha256": "c9a9b252845b6782c129e409b83cf8a268d54c0bccbfe1230241b2e154056b4f",
+        "pages": 5,
+        "start": 366,
+        "end": 370
+      }
+    },
+    "path": "resources/t12d-bac-2016-prof.pdf",
+    "pages": [
+      366,
+      370
+    ],
+    "sha256": "c9a9b252845b6782c129e409b83cf8a268d54c0bccbfe1230241b2e154056b4f"
   },
   {
     "source": "t12-eleve.pdf",
     "editions": {
       "fr": {
         "path": "resources/t12d-bac-2015-eleve.pdf",
-        "bytes": 247164,
-        "sha256": "cf508098f39ab18db4b037c79094ed012c4d40d39a379738c67d4ffdee12417e",
+        "bytes": 248432,
+        "sha256": "4899177d6cecd1cb804b58a09ca45cbde024342590a57ffec2bf5af03a63f8aa",
         "pages": 2,
-        "start": 217,
-        "end": 218
+        "start": 220,
+        "end": 221
       }
     },
     "path": "resources/t12d-bac-2015-eleve.pdf",
     "pages": [
-      217,
-      218
+      220,
+      221
     ],
-    "sha256": "cf508098f39ab18db4b037c79094ed012c4d40d39a379738c67d4ffdee12417e"
+    "sha256": "4899177d6cecd1cb804b58a09ca45cbde024342590a57ffec2bf5af03a63f8aa"
+  },
+  {
+    "source": "t12-prof.pdf",
+    "editions": {
+      "fr": {
+        "path": "resources/t12d-bac-2015-prof.pdf",
+        "bytes": 331266,
+        "sha256": "73e4ab4392ea438218325acbfe324930f54bfb94dfc5df6b7b67c893bd2071fb",
+        "pages": 6,
+        "start": 368,
+        "end": 373
+      }
+    },
+    "path": "resources/t12d-bac-2015-prof.pdf",
+    "pages": [
+      368,
+      373
+    ],
+    "sha256": "73e4ab4392ea438218325acbfe324930f54bfb94dfc5df6b7b67c893bd2071fb"
   },
   {
     "source": "t12-eleve.pdf",
     "editions": {
       "fr": {
         "path": "resources/t12d-bac-2014-eleve.pdf",
-        "bytes": 207823,
-        "sha256": "ede83aa82f50aafcff810e933e6639ae8c3c45cafa69b3d41941a408e8a706e5",
+        "bytes": 209513,
+        "sha256": "478f23616cee5289147895a3d29fd0d3a69b392b6bf36177f4141ee611ac871f",
         "pages": 2,
-        "start": 219,
-        "end": 220
+        "start": 222,
+        "end": 223
       }
     },
     "path": "resources/t12d-bac-2014-eleve.pdf",
     "pages": [
-      219,
-      220
+      222,
+      223
     ],
-    "sha256": "ede83aa82f50aafcff810e933e6639ae8c3c45cafa69b3d41941a408e8a706e5"
+    "sha256": "478f23616cee5289147895a3d29fd0d3a69b392b6bf36177f4141ee611ac871f"
+  },
+  {
+    "source": "t12-prof.pdf",
+    "editions": {
+      "fr": {
+        "path": "resources/t12d-bac-2014-prof.pdf",
+        "bytes": 325391,
+        "sha256": "74194cd534861cecd92610100b05676d958d7848d91e1f2d8b11ce92d0817785",
+        "pages": 5,
+        "start": 370,
+        "end": 374
+      }
+    },
+    "path": "resources/t12d-bac-2014-prof.pdf",
+    "pages": [
+      370,
+      374
+    ],
+    "sha256": "74194cd534861cecd92610100b05676d958d7848d91e1f2d8b11ce92d0817785"
   },
   {
     "source": "t12-eleve.pdf",
     "editions": {
       "fr": {
         "path": "resources/t12d-bac-2013-eleve.pdf",
-        "bytes": 257539,
-        "sha256": "58dd7a6a11a2865e9ef74e26bff1340ca7f3a48521fcf31698cc5a5a02339a55",
+        "bytes": 259427,
+        "sha256": "b79a2258386599e5195d8cedf754421121373d095347e333b19e2c7a12b70065",
         "pages": 2,
-        "start": 221,
-        "end": 222
+        "start": 224,
+        "end": 225
       }
     },
     "path": "resources/t12d-bac-2013-eleve.pdf",
     "pages": [
-      221,
-      222
+      224,
+      225
     ],
-    "sha256": "58dd7a6a11a2865e9ef74e26bff1340ca7f3a48521fcf31698cc5a5a02339a55"
+    "sha256": "b79a2258386599e5195d8cedf754421121373d095347e333b19e2c7a12b70065"
+  },
+  {
+    "source": "t12-prof.pdf",
+    "editions": {
+      "fr": {
+        "path": "resources/t12d-bac-2013-prof.pdf",
+        "bytes": 284327,
+        "sha256": "3497fdce63fbff27f0a0853a0f4521e8e4ddc34e5a3071f94bb9735486ffbb6d",
+        "pages": 5,
+        "start": 372,
+        "end": 376
+      }
+    },
+    "path": "resources/t12d-bac-2013-prof.pdf",
+    "pages": [
+      372,
+      376
+    ],
+    "sha256": "3497fdce63fbff27f0a0853a0f4521e8e4ddc34e5a3071f94bb9735486ffbb6d"
   },
   {
     "source": "t12-eleve.pdf",
     "editions": {
       "fr": {
         "path": "resources/t12d-bac-2012-eleve.pdf",
-        "bytes": 256606,
-        "sha256": "fdb3f89c1343012c69ecc522d2b115f1f36a6e8ef88cc34470d8fbb619bd6601",
+        "bytes": 258457,
+        "sha256": "a306a23681c22e5209c3a25084f5a89bf8c94f032930dc795d53c9ad05ef6fd8",
         "pages": 2,
-        "start": 223,
-        "end": 224
+        "start": 226,
+        "end": 227
       }
     },
     "path": "resources/t12d-bac-2012-eleve.pdf",
     "pages": [
-      223,
-      224
+      226,
+      227
     ],
-    "sha256": "fdb3f89c1343012c69ecc522d2b115f1f36a6e8ef88cc34470d8fbb619bd6601"
+    "sha256": "a306a23681c22e5209c3a25084f5a89bf8c94f032930dc795d53c9ad05ef6fd8"
+  },
+  {
+    "source": "t12-prof.pdf",
+    "editions": {
+      "fr": {
+        "path": "resources/t12d-bac-2012-prof.pdf",
+        "bytes": 326069,
+        "sha256": "03e34c46d3ce7a91446f45adda5f24c47bfa6fda84f27a28b329b3aea54e2b2d",
+        "pages": 5,
+        "start": 374,
+        "end": 378
+      }
+    },
+    "path": "resources/t12d-bac-2012-prof.pdf",
+    "pages": [
+      374,
+      378
+    ],
+    "sha256": "03e34c46d3ce7a91446f45adda5f24c47bfa6fda84f27a28b329b3aea54e2b2d"
   },
   {
     "source": "t12-eleve.pdf",
     "editions": {
       "fr": {
         "path": "resources/t12d-bac-2011-eleve.pdf",
-        "bytes": 259792,
-        "sha256": "86abb254f0654050fa4ad942170d44bc3ca7a56a4901532ec0e8ab5bbe6457c7",
+        "bytes": 261648,
+        "sha256": "a3feca60231a6fad415e7630948e7543798020e51819799a9ddda8a05c05ff75",
         "pages": 2,
-        "start": 225,
-        "end": 226
+        "start": 228,
+        "end": 229
       }
     },
     "path": "resources/t12d-bac-2011-eleve.pdf",
     "pages": [
-      225,
-      226
+      228,
+      229
     ],
-    "sha256": "86abb254f0654050fa4ad942170d44bc3ca7a56a4901532ec0e8ab5bbe6457c7"
+    "sha256": "a3feca60231a6fad415e7630948e7543798020e51819799a9ddda8a05c05ff75"
+  },
+  {
+    "source": "t12-prof.pdf",
+    "editions": {
+      "fr": {
+        "path": "resources/t12d-bac-2011-prof.pdf",
+        "bytes": 333984,
+        "sha256": "3327919349c942705973ed3e8f3b744a568239b68ea2a626a23de5b740ce9eb1",
+        "pages": 7,
+        "start": 376,
+        "end": 382
+      }
+    },
+    "path": "resources/t12d-bac-2011-prof.pdf",
+    "pages": [
+      376,
+      382
+    ],
+    "sha256": "3327919349c942705973ed3e8f3b744a568239b68ea2a626a23de5b740ce9eb1"
   },
   {
     "source": "t12-eleve.pdf",
     "editions": {
       "fr": {
         "path": "resources/t12d-bac-2010-eleve.pdf",
-        "bytes": 206017,
-        "sha256": "68cbbae90084c665cea81ebd6c0dfc0d859aaf104ef91aa6663b955282ee1af0",
+        "bytes": 207742,
+        "sha256": "b5ffd441fb02431b804d081241067b8bbbf948cff4db32ce98336face16b2f53",
         "pages": 2,
-        "start": 227,
-        "end": 228
+        "start": 230,
+        "end": 231
       }
     },
     "path": "resources/t12d-bac-2010-eleve.pdf",
     "pages": [
-      227,
-      228
+      230,
+      231
     ],
-    "sha256": "68cbbae90084c665cea81ebd6c0dfc0d859aaf104ef91aa6663b955282ee1af0"
+    "sha256": "b5ffd441fb02431b804d081241067b8bbbf948cff4db32ce98336face16b2f53"
+  },
+  {
+    "source": "t12-prof.pdf",
+    "editions": {
+      "fr": {
+        "path": "resources/t12d-bac-2010-prof.pdf",
+        "bytes": 324663,
+        "sha256": "c1fba7ea535359c61dbd50df0e9e05ebbd0cb028614a348cb1609fd271491b0f",
+        "pages": 5,
+        "start": 378,
+        "end": 382
+      }
+    },
+    "path": "resources/t12d-bac-2010-prof.pdf",
+    "pages": [
+      378,
+      382
+    ],
+    "sha256": "c1fba7ea535359c61dbd50df0e9e05ebbd0cb028614a348cb1609fd271491b0f"
   },
   {
     "source": "t12-eleve.pdf",
     "editions": {
       "fr": {
         "path": "resources/t12d-bac-2009-eleve.pdf",
-        "bytes": 206782,
-        "sha256": "c9fd63cf5d5f39939aae4ca9a52be9e7f60b74cb92396c3dcf16fb1e7f55554b",
+        "bytes": 208483,
+        "sha256": "8e935a1350e3025eb12ec5416b3fbf36d56d9f1da859f80b650a2d01ae45f469",
         "pages": 2,
-        "start": 229,
-        "end": 230
+        "start": 232,
+        "end": 233
       }
     },
     "path": "resources/t12d-bac-2009-eleve.pdf",
     "pages": [
-      229,
-      230
+      232,
+      233
     ],
-    "sha256": "c9fd63cf5d5f39939aae4ca9a52be9e7f60b74cb92396c3dcf16fb1e7f55554b"
+    "sha256": "8e935a1350e3025eb12ec5416b3fbf36d56d9f1da859f80b650a2d01ae45f469"
+  },
+  {
+    "source": "t12-prof.pdf",
+    "editions": {
+      "fr": {
+        "path": "resources/t12d-bac-2009-prof.pdf",
+        "bytes": 301536,
+        "sha256": "156142c1e0e0ec06c2556b7fcc2b35b28e1fca9a96dd3cb653e7b51589e71aa1",
+        "pages": 5,
+        "start": 380,
+        "end": 384
+      }
+    },
+    "path": "resources/t12d-bac-2009-prof.pdf",
+    "pages": [
+      380,
+      384
+    ],
+    "sha256": "156142c1e0e0ec06c2556b7fcc2b35b28e1fca9a96dd3cb653e7b51589e71aa1"
   },
   {
     "source": "t12-eleve.pdf",
     "editions": {
       "fr": {
         "path": "resources/t12d-bac-2008-eleve.pdf",
-        "bytes": 256008,
-        "sha256": "2c3c561c0e0d926bc75056d573def318dec92a136f4d6dbba22cf5f3bed6de53",
+        "bytes": 257871,
+        "sha256": "7a57830f390fd536bb3930e55de1aae2de847adb69d56c3a08bdc0132e62db47",
         "pages": 1,
-        "start": 231,
-        "end": 231
+        "start": 234,
+        "end": 234
       }
     },
     "path": "resources/t12d-bac-2008-eleve.pdf",
     "pages": [
-      231,
-      231
+      234,
+      234
     ],
-    "sha256": "2c3c561c0e0d926bc75056d573def318dec92a136f4d6dbba22cf5f3bed6de53"
+    "sha256": "7a57830f390fd536bb3930e55de1aae2de847adb69d56c3a08bdc0132e62db47"
+  },
+  {
+    "source": "t12-prof.pdf",
+    "editions": {
+      "fr": {
+        "path": "resources/t12d-bac-2008-prof.pdf",
+        "bytes": 281437,
+        "sha256": "7b8758402b726d219bdad19a2a12952a72bcd69cc961f180288a4e169839514e",
+        "pages": 4,
+        "start": 382,
+        "end": 385
+      }
+    },
+    "path": "resources/t12d-bac-2008-prof.pdf",
+    "pages": [
+      382,
+      385
+    ],
+    "sha256": "7b8758402b726d219bdad19a2a12952a72bcd69cc961f180288a4e169839514e"
   },
   {
     "source": "t12-eleve.pdf",
     "editions": {
       "fr": {
         "path": "resources/t12d-bac-2007-eleve.pdf",
-        "bytes": 259665,
-        "sha256": "18eef33fed8d02275700f37f0a76f4b8473eed5f591e8d22e3164125383017bc",
+        "bytes": 261518,
+        "sha256": "18e194a1ead45bd00a8fb960c4da573d5226c6b10c92777bd760b522b1c1c25a",
         "pages": 2,
-        "start": 232,
-        "end": 233
+        "start": 235,
+        "end": 236
       }
     },
     "path": "resources/t12d-bac-2007-eleve.pdf",
     "pages": [
-      232,
-      233
+      235,
+      236
     ],
-    "sha256": "18eef33fed8d02275700f37f0a76f4b8473eed5f591e8d22e3164125383017bc"
+    "sha256": "18e194a1ead45bd00a8fb960c4da573d5226c6b10c92777bd760b522b1c1c25a"
+  },
+  {
+    "source": "t12-prof.pdf",
+    "editions": {
+      "fr": {
+        "path": "resources/t12d-bac-2007-prof.pdf",
+        "bytes": 289174,
+        "sha256": "a9a8cb233a1ecdbf7361c98d88325b29316bb6e8206474505d895636c91c669b",
+        "pages": 5,
+        "start": 383,
+        "end": 387
+      }
+    },
+    "path": "resources/t12d-bac-2007-prof.pdf",
+    "pages": [
+      383,
+      387
+    ],
+    "sha256": "a9a8cb233a1ecdbf7361c98d88325b29316bb6e8206474505d895636c91c669b"
   },
   {
     "source": "t12-eleve.pdf",
     "editions": {
       "fr": {
         "path": "resources/t12d-bac-2006-eleve.pdf",
-        "bytes": 207161,
-        "sha256": "aaf66b15e76a409a06c81718497a4b0891bc8899b1f4b38dd31ff1da2c1e472a",
+        "bytes": 208879,
+        "sha256": "e6601a86cc0efb29332adc8eae99a07165a0338d3bb7d73f6e32603fd8693bd4",
         "pages": 2,
-        "start": 234,
-        "end": 235
+        "start": 237,
+        "end": 238
       }
     },
     "path": "resources/t12d-bac-2006-eleve.pdf",
     "pages": [
-      234,
-      235
+      237,
+      238
     ],
-    "sha256": "aaf66b15e76a409a06c81718497a4b0891bc8899b1f4b38dd31ff1da2c1e472a"
+    "sha256": "e6601a86cc0efb29332adc8eae99a07165a0338d3bb7d73f6e32603fd8693bd4"
+  },
+  {
+    "source": "t12-prof.pdf",
+    "editions": {
+      "fr": {
+        "path": "resources/t12d-bac-2006-prof.pdf",
+        "bytes": 333143,
+        "sha256": "27385ab6133d4ac8e6d1495dee8cbe3b9da6f34156d2759790b4a832c8b76576",
+        "pages": 5,
+        "start": 385,
+        "end": 389
+      }
+    },
+    "path": "resources/t12d-bac-2006-prof.pdf",
+    "pages": [
+      385,
+      389
+    ],
+    "sha256": "27385ab6133d4ac8e6d1495dee8cbe3b9da6f34156d2759790b4a832c8b76576"
   },
   {
     "source": "t12-eleve.pdf",
     "editions": {
       "fr": {
         "path": "resources/t12d-bac-2005-eleve.pdf",
-        "bytes": 208174,
-        "sha256": "ee33d5363d4dbbc683afd76da6dc6619d8938b8a1c0ef4da4da37d2328916512",
+        "bytes": 209865,
+        "sha256": "08b742b2aef376cb241271b83ac5510e5594834a98ffedf48f8044d255a7df64",
         "pages": 2,
-        "start": 236,
-        "end": 237
+        "start": 239,
+        "end": 240
       }
     },
     "path": "resources/t12d-bac-2005-eleve.pdf",
     "pages": [
-      236,
-      237
+      239,
+      240
     ],
-    "sha256": "ee33d5363d4dbbc683afd76da6dc6619d8938b8a1c0ef4da4da37d2328916512"
+    "sha256": "08b742b2aef376cb241271b83ac5510e5594834a98ffedf48f8044d255a7df64"
+  },
+  {
+    "source": "t12-prof.pdf",
+    "editions": {
+      "fr": {
+        "path": "resources/t12d-bac-2005-prof.pdf",
+        "bytes": 295086,
+        "sha256": "9894882cfb1daf28465c4644a4c4db6d58c2c3209d9d8a341df46e3b2b3e9419",
+        "pages": 5,
+        "start": 387,
+        "end": 391
+      }
+    },
+    "path": "resources/t12d-bac-2005-prof.pdf",
+    "pages": [
+      387,
+      391
+    ],
+    "sha256": "9894882cfb1daf28465c4644a4c4db6d58c2c3209d9d8a341df46e3b2b3e9419"
   },
   {
     "source": "t12-eleve.pdf",
     "editions": {
       "fr": {
         "path": "resources/t12d-bac-2004-eleve.pdf",
-        "bytes": 259583,
-        "sha256": "fae87a4632c123b993672b8e99a0bcce996102721de7d2b4a025b4178e6849c0",
+        "bytes": 261453,
+        "sha256": "5a6ebc42bdf890c8d6e4aed974e60edc5b092caf00ce6eb2f525ae482c8af85f",
         "pages": 2,
-        "start": 238,
-        "end": 239
+        "start": 241,
+        "end": 242
       }
     },
     "path": "resources/t12d-bac-2004-eleve.pdf",
     "pages": [
-      238,
-      239
+      241,
+      242
     ],
-    "sha256": "fae87a4632c123b993672b8e99a0bcce996102721de7d2b4a025b4178e6849c0"
+    "sha256": "5a6ebc42bdf890c8d6e4aed974e60edc5b092caf00ce6eb2f525ae482c8af85f"
+  },
+  {
+    "source": "t12-prof.pdf",
+    "editions": {
+      "fr": {
+        "path": "resources/t12d-bac-2004-prof.pdf",
+        "bytes": 295211,
+        "sha256": "8cc8fb1719c7aba9e048c51937e2397b8d750db79eca86a3f6996b4bf861fbbf",
+        "pages": 6,
+        "start": 389,
+        "end": 394
+      }
+    },
+    "path": "resources/t12d-bac-2004-prof.pdf",
+    "pages": [
+      389,
+      394
+    ],
+    "sha256": "8cc8fb1719c7aba9e048c51937e2397b8d750db79eca86a3f6996b4bf861fbbf"
   },
   {
     "source": "t12-eleve.pdf",
     "editions": {
       "fr": {
         "path": "resources/t12d-bac-2003-eleve.pdf",
-        "bytes": 242385,
-        "sha256": "c7fe1c266f2e861e5a9289e4d87c1de6827b66a9dcbc9706fbeb1f562982ca15",
+        "bytes": 244098,
+        "sha256": "5b283b61c977232ec305cf7ae7229f40066cbead2254c7a3e7e93c1ec5d7dd29",
         "pages": 2,
-        "start": 240,
-        "end": 241
+        "start": 243,
+        "end": 244
       }
     },
     "path": "resources/t12d-bac-2003-eleve.pdf",
     "pages": [
-      240,
-      241
+      243,
+      244
     ],
-    "sha256": "c7fe1c266f2e861e5a9289e4d87c1de6827b66a9dcbc9706fbeb1f562982ca15"
+    "sha256": "5b283b61c977232ec305cf7ae7229f40066cbead2254c7a3e7e93c1ec5d7dd29"
+  },
+  {
+    "source": "t12-prof.pdf",
+    "editions": {
+      "fr": {
+        "path": "resources/t12d-bac-2003-prof.pdf",
+        "bytes": 329939,
+        "sha256": "298c4562bafaece243a2edde80193dde4f4ee2ac11d28a08b564b549f549bf72",
+        "pages": 6,
+        "start": 391,
+        "end": 396
+      }
+    },
+    "path": "resources/t12d-bac-2003-prof.pdf",
+    "pages": [
+      391,
+      396
+    ],
+    "sha256": "298c4562bafaece243a2edde80193dde4f4ee2ac11d28a08b564b549f549bf72"
+  },
+  {
+    "source": "t12-eleve.pdf",
+    "editions": {
+      "fr": {
+        "path": "resources/t12d-practice-sujet-d6-eleve.pdf",
+        "bytes": 206332,
+        "sha256": "a3764c30d88f125e3a56b644849aea1e39f8b35c724aeff0e65fc0209be5fb85",
+        "pages": 1,
+        "start": 264,
+        "end": 264
+      }
+    },
+    "path": "resources/t12d-practice-sujet-d6-eleve.pdf",
+    "pages": [
+      264,
+      264
+    ],
+    "sha256": "a3764c30d88f125e3a56b644849aea1e39f8b35c724aeff0e65fc0209be5fb85"
+  },
+  {
+    "source": "t12-eleve.pdf",
+    "editions": {
+      "fr": {
+        "path": "resources/t12d-practice-sujet-d5-eleve.pdf",
+        "bytes": 194738,
+        "sha256": "1e4338c82da5b46b24670312f603cd63a9994bbbe23d3e07499f9c23384bee85",
+        "pages": 1,
+        "start": 263,
+        "end": 263
+      }
+    },
+    "path": "resources/t12d-practice-sujet-d5-eleve.pdf",
+    "pages": [
+      263,
+      263
+    ],
+    "sha256": "1e4338c82da5b46b24670312f603cd63a9994bbbe23d3e07499f9c23384bee85"
+  },
+  {
+    "source": "t12-eleve.pdf",
+    "editions": {
+      "fr": {
+        "path": "resources/t12d-practice-sujet-d4-eleve.pdf",
+        "bytes": 257623,
+        "sha256": "a204f51e530f931a8766b202886fee0ab8234aacf8c13dc7d85b238973f68770",
+        "pages": 1,
+        "start": 262,
+        "end": 262
+      }
+    },
+    "path": "resources/t12d-practice-sujet-d4-eleve.pdf",
+    "pages": [
+      262,
+      262
+    ],
+    "sha256": "a204f51e530f931a8766b202886fee0ab8234aacf8c13dc7d85b238973f68770"
+  },
+  {
+    "source": "t12-eleve.pdf",
+    "editions": {
+      "fr": {
+        "path": "resources/t12d-practice-sujet-d3-eleve.pdf",
+        "bytes": 206541,
+        "sha256": "a511b06a53dd8a354ee4c0ea7771ac5fe13c0768b1bdfe5d1cf3e3e442469fc3",
+        "pages": 1,
+        "start": 261,
+        "end": 261
+      }
+    },
+    "path": "resources/t12d-practice-sujet-d3-eleve.pdf",
+    "pages": [
+      261,
+      261
+    ],
+    "sha256": "a511b06a53dd8a354ee4c0ea7771ac5fe13c0768b1bdfe5d1cf3e3e442469fc3"
+  },
+  {
+    "source": "t12-eleve.pdf",
+    "editions": {
+      "fr": {
+        "path": "resources/t12d-practice-sujet-d2-eleve.pdf",
+        "bytes": 247434,
+        "sha256": "018c5235d667d4d4e3475c263140eb9068f28389c6d74721f9a2a5a6174a7cd0",
+        "pages": 2,
+        "start": 259,
+        "end": 260
+      }
+    },
+    "path": "resources/t12d-practice-sujet-d2-eleve.pdf",
+    "pages": [
+      259,
+      260
+    ],
+    "sha256": "018c5235d667d4d4e3475c263140eb9068f28389c6d74721f9a2a5a6174a7cd0"
+  },
+  {
+    "source": "t12-eleve.pdf",
+    "editions": {
+      "fr": {
+        "path": "resources/t12d-practice-sujet-d1-eleve.pdf",
+        "bytes": 247655,
+        "sha256": "962eb34a174c83eece348d3f2689d00527efc52be9f1806e6c63e24517604aae",
+        "pages": 2,
+        "start": 257,
+        "end": 258
+      }
+    },
+    "path": "resources/t12d-practice-sujet-d1-eleve.pdf",
+    "pages": [
+      257,
+      258
+    ],
+    "sha256": "962eb34a174c83eece348d3f2689d00527efc52be9f1806e6c63e24517604aae"
   }
 ]

@@ -2,7 +2,12 @@
 \makeatletter\IfFileExists{core/beamer/beamerthememx.sty}{\def\mxcorepath{core/}\def\input@path{{core/beamer/}{core/}}}{\def\mxcorepath{../core/}\def\input@path{{../core/beamer/}{../core/}}}\makeatother
 \documentclass[aspectratio=169,10pt,t]{beamer}
 \usetheme{mx}
-\usepackage{graphicx,booktabs}
+\usepackage{graphicx,booktabs,mathtools,array,adjustbox}
+\usepackage[all]{xy}
+\providecommand{\actualtextwidth}{\textwidth}
+\providecommand{\veccor}[2]{\left(\begin{matrix}#1\\#2\end{matrix}\right)}
+\DeclarePairedDelimiter{\VecNorm}{\lVert}{\rVert}
+\providecommand{\ETC}{\ldots}
 \usepackage[french]{babel}
 \setlength{\parskip}{.45em}
 \hypersetup{pdfauthor={},pdfsubject={Lecture slides},pdfkeywords={},pdftitle={Limites, continuité et dérivation}}
@@ -36,7 +41,7 @@
 \author{}
 \begin{document}
 \mxtitleframe
-\begin{frame}{Limites et continuité}
+\begin{frame}[allowframebreaks]{Limites et continuité}
 Les limites aux infinis se calculent de manière similaire à celles des suites.
             
             La limite en \(\pm\infty\) d'une fraction rationnelle est égale à la limite du quotient des termes de plus haut degré.
@@ -46,12 +51,13 @@ Les limites aux infinis se calculent de manière similaire à celles des suites.
                                                                            = \lim_{x\rightarrow+\infty} \dfrac{x}{-2}      
                                                                            = -\infty	.
                   \]
-            example
+
+example
 \end{frame}
-\begin{frame}{Limites et continuité}
+\begin{frame}[allowframebreaks]{Limites et continuité}
 Soient \(f\) une fonction et \(x_0\) un nombre réel.
 \end{frame}
-\begin{frame}{Limites et continuité (2)}
+\begin{frame}[allowframebreaks]{Limites et continuité (2)}
 \begin{itemize}
 \item On dit que \(f\) tend vers \(+\infty\) quand \(x\) tend vers \(x_0\) si 
                         \(f(x)\) devient positif et aussi grand que l'on veut
@@ -59,7 +65,7 @@ Soient \(f\) une fonction et \(x_0\) un nombre réel.
 
 \end{itemize}
 \end{frame}
-\begin{frame}{Limites et continuité (3)}
+\begin{frame}[allowframebreaks]{Limites et continuité (3)}
 \begin{itemize}
 \item On dit que \(f\) tend vers \(-\infty\) quand \(x\) tend vers \(x_0\) si 
                         \(f(x)\) devient négatif et aussi grand que l'on veut en valeur absolue
@@ -67,7 +73,7 @@ Soient \(f\) une fonction et \(x_0\) un nombre réel.
 
 \end{itemize}
 \end{frame}
-\begin{frame}{Limites et continuité (4)}
+\begin{frame}[allowframebreaks]{Limites et continuité (4)}
 \begin{itemize}
 \item On appelle limite de \(f\) à gauche de \(x_0\) 
                      
@@ -79,7 +85,7 @@ Soient \(f\) une fonction et \(x_0\) un nombre réel.
 
 \end{itemize}
 \end{frame}
-\begin{frame}{Limites et continuité (5)}
+\begin{frame}[allowframebreaks]{Limites et continuité (5)}
 \begin{itemize}
 \item On appelle limite de \(f\) à droite de \({x_0}\) 
                      
@@ -91,7 +97,7 @@ Soient \(f\) une fonction et \(x_0\) un nombre réel.
 
 \end{itemize}
 \end{frame}
-\begin{frame}{Limites et continuité (6)}
+\begin{frame}[allowframebreaks]{Limites et continuité (6)}
 keypoint 
 
 \begin{itemize}
@@ -105,7 +111,8 @@ keypoint
 
       keypoint
 \end{frame}
-\begin{frame}{Limites et continuité}
+\begin{frame}[allowframebreaks]{Limites et continuité}
+\footnotesize
 Soit \(f\) une fonction.
             
             Si \(\lim_{x\rightarrow+\infty}f(x)=b\) (ou \(\lim_{x\rightarrow-\infty}f(x)=b\)), avec \(b\) réel,
@@ -120,61 +127,65 @@ Soit \(f\) une fonction.
 
             example
 \end{frame}
-\begin{frame}{Limites et continuité}
+\begin{frame}[allowframebreaks]{Limites et continuité}
 Les opérations sur les limites se font comme d'habitude :
             table[H]
 \end{frame}
-\begin{frame}{Limites et continuité (2)}
+\begin{frame}[allowframebreaks]{Limites et continuité (2)}
+\footnotesize
 \begin{center}\begin{tabular}{lll}
-\(\lim f\) & \(\lim g\) & \(\lim (f+g)\) \\ 
-\(\ell\) & \(\ell'\) & \(\ell+\ell'\) \\ 
-\(\ell\) & \(+\infty\) & \(+\infty\) \\ 
-\(\ell\) & \(-\infty\) & \(-\infty\) \\ 
-\(+\infty\) & \(+\infty\) & \(+\infty\) \\ 
-\(-\infty\) & \(-\infty\) & \(-\infty\) \\ 
-\(+\infty\) & \(-\infty\) & Forme indéterminée \\ 
+\(\lim f\) & \(\lim g\) & \(\lim (f+g)\) \\ {}
+\(\ell\) & \(\ell'\) & \(\ell+\ell'\) \\ {}
+\(\ell\) & \(+\infty\) & \(+\infty\) \\ {}
+\(\ell\) & \(-\infty\) & \(-\infty\) \\ {}
+\(+\infty\) & \(+\infty\) & \(+\infty\) \\ {}
+\(-\infty\) & \(-\infty\) & \(-\infty\) \\ {}
+\(+\infty\) & \(-\infty\) & Forme indéterminée \\ {}
 \end{tabular}\end{center}
 \end{frame}
-\begin{frame}{Limites et continuité (3)}
+\begin{frame}[allowframebreaks]{Limites et continuité (3)}
 Limite d'une somme.
             
             table
 
 table[H]
 \end{frame}
-\begin{frame}{Limites et continuité (4)}
+\begin{frame}[allowframebreaks]{Limites et continuité (4)}
+\footnotesize
 \begin{center}\begin{tabular}{lll}
-\(\lim f\) & \(\lim g\) & \(\lim (f\cdot g)\) \\ 
-\( \ell \) & \( \ell' \) & \( \ell \cdot \ell' \) \\ 
-\( \ell (\neq 0) \) & \( \infty \) & \(\infty\) (signe du produit) \\ 
-\( \infty \) & \(\infty \) & \(\infty \) (signe du produit) \\ 
-\(0\) & \(\infty\) & Forme indéterminée \\ 
+\(\lim f\) & \(\lim g\) & \(\lim (f\cdot g)\) \\ {}
+\( \ell \) & \( \ell' \) & \( \ell \cdot \ell' \) \\ {}
+\( \ell (\neq 0) \) & \( \infty \) & \(\infty\) (signe du produit) \\ {}
+\( \infty \) & \(\infty \) & \(\infty \) (signe du produit) \\ {}
+\(0\) & \(\infty\) & Forme indéterminée \\ {}
 \end{tabular}\end{center}
 \end{frame}
-\begin{frame}{Limites et continuité (5)}
+\begin{frame}[allowframebreaks]{Limites et continuité (5)}
 Limite d'un produit.
             
             table
 
 table[H]
 \end{frame}
-\begin{frame}{Limites et continuité (6)}
+\begin{frame}[allowframebreaks]{Limites et continuité (6)}
+\footnotesize
 \begin{center}\begin{tabular}{lll}
-\(\lim f\) & \(\lim g\) & \(\lim \left( \dfrac{f}{g} \right)\) \\ 
-\( \ell \) & \( \ell' (\neq 0) \) & \( \dfrac{\ell}{\ell'} \) \\ 
-\( \ell \) & \(\infty \) & \(0\) \\ 
-\( \ell (\neq 0) \) & \( 0 \) (avec \(g\) de signe constant) & \(\infty\) (règle des signes) \\ 
-\( \infty \) & \( \ell' \) & \(\infty \) (règle des signes) \\ 
-\(0\) & \(0\) & Forme indéterminée \\ 
-\(\infty\) & \(\infty\) & Forme indéterminée \\ 
+\(\lim f\) & \(\lim g\) & \(\lim \left( \dfrac{f}{g} \right)\) \\ {}
+\( \ell \) & \( \ell' (\neq 0) \) & \( \dfrac{\ell}{\ell'} \) \\ {}
+\( \ell \) & \(\infty \) & \(0\) \\ {}
+\( \ell (\neq 0) \) & \( 0 \) (avec \(g\) de signe constant) & \(\infty\) (règle des signes) \\ {}
+\( \infty \) & \( \ell' \) & \(\infty \) (règle des signes) \\ {}
+\(0\) & \(0\) & Forme indéterminée \\ {}
+\(\infty\) & \(\infty\) & Forme indéterminée \\ {}
 \end{tabular}\end{center}
 \end{frame}
-\begin{frame}{Limites et continuité (7)}
+\begin{frame}[allowframebreaks]{Limites et continuité (7)}
 Limite d'un quotient.
             
             table
 \end{frame}
-\begin{frame}{Limites et continuité}
+\begin{frame}[allowframebreaks]{Limites et continuité}
+\footnotesize
 Soient \(f\) et \(g\) deux fonctions et soit \(h = g\circ f\), c'est-à-dire \(h(x) = g\left( f(x) \right)\).
             Si \( \lim_{x\rightarrow x_0} f(x) = y_0 \) 
             et \( \lim_{x\rightarrow y_0} g(x) = z_0\) 
@@ -198,10 +209,12 @@ Soient \(f\) et \(g\) deux fonctions et soit \(h = g\circ f\), c'est-à-dire \(h
                   \Rightarrow
                   \lim_{x\rightarrow-\infty} h(x) = 1
                   \]
-                  
-            example
 \end{frame}
-\begin{frame}{Limites et continuité}
+\begin{frame}[allowframebreaks]{Limites et continuité (2)}
+example
+\end{frame}
+\begin{frame}[allowframebreaks]{Limites et continuité}
+\footnotesize
 Soit \(f\) une fonction définie sur un intervalle \(I\) et soit \(a \in I\).
             On dit que \(f\) est continue en \(a\) si 
                   \(\lim_{x\rightarrow a^-} f(x) = \lim_{x\rightarrow a^+} f(x) = f(a)\).
@@ -212,7 +225,7 @@ Soit \(f\) une fonction définie sur un intervalle \(I\) et soit \(a \in I\).
                   \(\lim_{x\rightarrow a^-} f(x) = \lim_{x\rightarrow a^+} f(x) = \ell\) avec \(\ell\) \emph{réel}, 
             alors on peut prolonger \(f\) par continuité en \(a\) en posant \(f(a) = \lim_{x\rightarrow a} f(x)\).
 \end{frame}
-\begin{frame}{Limites et continuité}
+\begin{frame}[allowframebreaks]{Limites et continuité}
 \begin{itemize}
 \item Les fonctions polynômiales ainsi que les fonction \(\sin\) et \(\cos\) sont continues.
             
@@ -222,7 +235,7 @@ Soit \(f\) une fonction définie sur un intervalle \(I\) et soit \(a \in I\).
 
 \end{itemize}
 \end{frame}
-\begin{frame}{Limites et continuité (2)}
+\begin{frame}[allowframebreaks]{Limites et continuité (2)}
 \begin{itemize}
 \item Le quotient de deux fonctions continues est continu sur tout intervalle dans lequel le dénominateur ne s'annule pas.
             
@@ -230,7 +243,7 @@ Soit \(f\) une fonction définie sur un intervalle \(I\) et soit \(a \in I\).
 
 \end{itemize}
 \end{frame}
-\begin{frame}{Limites et continuité}
+\begin{frame}[allowframebreaks]{Limites et continuité}
 Soit \(f\) une fonction continue sur un intervalle \([a,b]\).
             On note respectivement par \(m\) et \(M\) le minimum et le maximum de \(f\) sur \([a,b]\).
             Alors, pour tout \(y_0\in[m,M]\), il existe \(x_0\in[a,b]\) tel que \(f(x_0)=y_0\).      
@@ -238,10 +251,10 @@ Soit \(f\) une fonction continue sur un intervalle \([a,b]\).
 En particulier, pour tout réel \(k\) compris entre \(f(a)\) et \(f(b)\), l'équation \(f(x) = k\) admet au moins une solution dans \([a,b]\) ;
             si \(f(a)\) et \(f(b)\) sont de signes contraires, l'équation \(f(x) = 0\) admet au moins une solution dans \([a,b]\).
 \end{frame}
-\begin{frame}{Limites et continuité}
+\begin{frame}[allowframebreaks]{Limites et continuité}
 Soient \(f\), \(g\), \(h\) des fonctions définies au voisinage de \(x_0\) (\(x_0\) réel ou infini).
 \end{frame}
-\begin{frame}{Limites et continuité (2)}
+\begin{frame}[allowframebreaks]{Limites et continuité (2)}
 \begin{itemize}
 
                   \item Si \(f(x) \leq g(x)\) au voisinage de \(x_0\) et \(\lim_{x_0} f = +\infty\), alors \(\lim_{x_0} g = +\infty\)
@@ -252,15 +265,15 @@ Soient \(f\), \(g\), \(h\) des fonctions définies au voisinage de \(x_0\) (\(x_
 
 \end{itemize}
 \end{frame}
-\begin{frame}{Limites et continuité (3)}
+\begin{frame}[allowframebreaks]{Limites et continuité (3)}
 Par exemple, \(-\dfrac{1}{x} \leq \dfrac{\sin x}{x} \leq \dfrac{1}{x}\) pour \(x > 0\), donc \(\lim_{x\rightarrow+\infty} \dfrac{\sin x}{x} = 0\).
             On admet aussi \(\lim_{x\rightarrow 0} \dfrac{\sin x}{x} = 1\).
 \end{frame}
-\begin{frame}{Limites et continuité}
+\begin{frame}[allowframebreaks]{Limites et continuité}
 Soit \(f : E \rightarrow F\) une fonction.
             On dit que \(f\) est \emph{bijective} si :
 \end{frame}
-\begin{frame}{Limites et continuité (2)}
+\begin{frame}[allowframebreaks]{Limites et continuité (2)}
 \begin{itemize}
 
                         \item \textbf{Injectivité :}  
@@ -274,24 +287,25 @@ Soit \(f : E \rightarrow F\) une fonction.
 
 \end{itemize}
 \end{frame}
-\begin{frame}{Limites et continuité}
+\begin{frame}[allowframebreaks]{Limites et continuité}
 Soit \(f\) une fonction continue et strictement monotone sur un intervalle \(I\). 
             Alors \(f\) réalise une bijection de \(I\) vers \(f(I)\).
             
             La fonction \(f\) admet alors une fonction réciproque \(f^{-1} : f(I) \rightarrow I\).
 \end{frame}
-\begin{frame}{Limites et continuité (2)}
+\begin{frame}[allowframebreaks]{Limites et continuité (2)}
 Cette réciproque \(f^{-1}\) est aussi une bijection continue et strictement monotone.
             De plus, \(f\) et \(f^{-1}\) varient dans le même sens.
             Si \(f\) est dérivable en \(x_0 \in I\) avec \(f'(x_0) \neq 0\), alors \(f^{-1}\) est dérivable en \(y_0 = f(x_0)\) et
             \(\left(f^{-1}\right)'(y_0) = \dfrac{1}{f'(x_0)}\) ; si \(f'(x_0) = 0\), la courbe de \(f^{-1}\) a une tangente verticale au point d'abscisse \(y_0\).
 \end{frame}
-\begin{frame}{Limites et continuité}
+\begin{frame}[allowframebreaks]{Limites et continuité}
 Soit \(f\) une fonction continue et strictement monotone sur un intervalle \([a,b]\).
             On note respectivement par \(m\) et \(M\) le minimum et le maximum de \(f\) sur \([a,b]\).
             Alors, pour tout \(y_0\in[m,M]\), il existe \emph{un unique} \(x_0\in[a,b]\) tel que \(f(x_0)=y_0\).
 \end{frame}
-\begin{frame}{Dérivation}
+\begin{frame}[allowframebreaks]{Dérivation}
+\footnotesize
 Soient \(f\) une fonction et \(x_0 \in \mathbb{R}\).
             
             On dit que la fonction \(f\) est dérivable au point \(x_0\) si 
@@ -305,7 +319,8 @@ Soient \(f\) une fonction et \(x_0 \in \mathbb{R}\).
             
             Toute fonction dérivable est aussi continue. Mais la réciproque est fausse.
 \end{frame}
-\begin{frame}{Dérivation}
+\begin{frame}[allowframebreaks]{Dérivation}
+\footnotesize
 Soient \(f\) une fonction et \(x_0 \in \mathbb{R}\).
             On dit que la fonction \(f\) est dérivable à gauche (resp. à droite) en \(x_0\) si la fonction 
                   \(x \mapsto \dfrac{f(x)-f(x_0)}{x-x_0} \)
@@ -320,7 +335,8 @@ Soient \(f\) une fonction et \(x_0 \in \mathbb{R}\).
             Si \(f'_g(x_0) \neq f'_d(x_0)\), le point de la courbe d'abscisse \(x_0\) est un \emph{point anguleux} ;
             si le taux de variation tend vers l'infini, la courbe a une demi-tangente verticale.
 \end{frame}
-\begin{frame}{Dérivation}
+\begin{frame}[allowframebreaks]{Dérivation}
+\footnotesize
 Soit \(f\) une fonction dérivable sur un intervalle \(I\).
             Si \(f'\) est aussi dérivable sur \(I\), alors sa dérivée, 
             notée \(f''\) ou \(\dfrac{\mathrm{d}^2f}{\mathrm{d}x^2}\) est appelée
@@ -331,7 +347,7 @@ Soit \(f\) une fonction dérivable sur un intervalle \(I\).
             Si \(f\) admet une dérivée d'ordre \(n\) pour tout \(n\in \mathbb{N}^*\), alors \(f\) est dite
             \emph{indéfiniment dérivable} sur \(I\).
 \end{frame}
-\begin{frame}{Dérivation}
+\begin{frame}[allowframebreaks]{Dérivation}
 Soient \(f\) une fonction, 
             \(\mathcal{C}\) la courbe représentative de \(f\) 
             et \(x_0\in \mathbb{R}\)
@@ -344,13 +360,13 @@ Le nombre \(f'(x_0)\) représente alors
 L'équation de la droite \((\mathcal{T}_{x_0})\) peut s'écrire
             \( y = f'(x_0) \cdot (x-x_0) + f(x_0) \).
 \end{frame}
-\begin{frame}{Dérivation}
+\begin{frame}[allowframebreaks]{Dérivation}
 Si \(f\) est dérivable sur un intervalle \(I\) et si \(f'(x) > 0\) (resp. \(f'(x)<0\)) pour tout \(x \in I\),
                   sauf peut-être en un nombre fini de points où \(f'\) s'annule,
                   alors \(f\) est strictement croissante (resp. strictement décroissante) sur \(I\).
                   Si \(f'(x) = 0\) pour tout \(x \in I\), alors \(f\) est constante sur \(I\).
 \end{frame}
-\begin{frame}{Dérivation}
+\begin{frame}[allowframebreaks]{Dérivation}
 Soient \(a\) et \(b\) deux nombres réels tels que \(a<b\).
                         Soit \(f\) une fonction continue sur \([a,b]\) et dérivable sur \(]a,b[\).
                         Alors il existe un réel \(c\in]a,b[\) tel que 
@@ -358,13 +374,14 @@ Soient \(a\) et \(b\) deux nombres réels tels que \(a<b\).
                                     \[
                                           \dfrac{f(b)-f(a)}{b-a}=f'(c)
                                     \]
-                              .
+
+.
 \end{frame}
-\begin{frame}{Dérivation}
+\begin{frame}[allowframebreaks]{Dérivation}
 Soit \(f\) une fonction continue sur \([a,b]\) et dérivable sur \(]a,b[\).
                         Si \(f(a) = f(b)\) alors il existe \(c\in]a,b[\) tel que \(f'(c) = 0\).
 \end{frame}
-\begin{frame}{Dérivation}
+\begin{frame}[allowframebreaks]{Dérivation}
 Soit \(f:[a,b]\rightarrow\mathbb{R}\) une fonction (avec \(a\) et \(b\) deux réels tels que \(a<b\)).
                         Si 
 
@@ -376,82 +393,86 @@ Soit \(f:[a,b]\rightarrow\mathbb{R}\) une fonction (avec \(a\) et \(b\) deux ré
 
 \end{itemize}
 \end{frame}
-\begin{frame}{Dérivation (2)}
+\begin{frame}[allowframebreaks]{Dérivation (2)}
 alors \[ \left| \dfrac{f(b) - f(a)}{b - a} \right| \leq M . \]
-                        Plus généralement, si \(|f'(x)| \leq M\) sur un intervalle \(I\), alors \(|f(x) - f(y)| \leq M |x - y|\) pour tous \(x\), \(y\) de \(I\) ;
+
+Plus généralement, si \(|f'(x)| \leq M\) sur un intervalle \(I\), alors \(|f(x) - f(y)| \leq M |x - y|\) pour tous \(x\), \(y\) de \(I\) ;
                         et si \(m \leq f'(x) \leq M\) sur \(]a,b[\), alors \(m(b-a) \leq f(b) - f(a) \leq M(b-a)\).
 \end{frame}
-\begin{frame}{Dérivation}
+\begin{frame}[allowframebreaks]{Dérivation}
 Application aux suites \(u_{n+1} = f(u_n)\)
 
  Soit \(f\) une fonction définie sur un intervalle \(I\) telle que \(f(I) \subset I\), et \((u_n)\) définie par \(u_0 \in I\) et
                         \(u_{n+1} = f(u_n)\) ; alors \(u_n \in I\) pour tout \(n\) (récurrence).
 \end{frame}
-\begin{frame}{Dérivation (2)}
+\begin{frame}[allowframebreaks]{Dérivation (2)}
 \begin{itemize}
 \item Si \((u_n)\) converge vers \(\ell \in I\) et si \(f\) est continue en \(\ell\), alors \(f(\ell) = \ell\) :
                                     la limite est une solution de l'équation \(f(x) = x\).
 
 \end{itemize}
 \end{frame}
-\begin{frame}{Dérivation (3)}
+\begin{frame}[allowframebreaks]{Dérivation (3)}
 \begin{itemize}
 \item Si \(f(\ell) = \ell\) avec \(\ell \in I\) et \(|f'(x)| \leq k < 1\) sur \(I\), l'inégalité des accroissements finis donne
                                     \(|u_{n+1} - \ell| \leq k\,|u_n - \ell|\), puis \(|u_n - \ell| \leq k^n |u_0 - \ell|\) ; donc \((u_n)\) converge vers \(\ell\).
 
 \end{itemize}
 \end{frame}
-\begin{frame}{Dérivation}
+\begin{frame}[allowframebreaks]{Dérivation}
 table[H]
 \end{frame}
-\begin{frame}{Dérivation (2)}
+\begin{frame}[allowframebreaks]{Dérivation (2)}
+\footnotesize
 \begin{center}\begin{tabular}{lll}
-Fonctions & Dérivées & Domaines de dérivabilités \\ 
-\(c\) & \(0\) & \(\mathbb{R}\) \\ 
-\(\lambda x\) & \(\lambda\) & \(\mathbb{R}\) \\ 
-\(x^n\) (\(n\in\mathbb{N}^*\)) & \(n \cdot x^{n-1}\) & \(\mathbb{R}\) \\ 
-\(\sqrt{x}\) & \(\dfrac{1}{2\sqrt{x}}\) & \(]0 ; +\infty [\) \\ 
-\(\dfrac{1}{x}\) & \(-\dfrac{1}{x^2}\) & \(]-\infty ; 0[ \cup ] 0 ; +\infty[\) \\ 
-\(\sin {x}\) & \(\cos {x}\) & \(\mathbb{R}\) \\ 
-\(\cos {x}\) & \(-\sin {x}\) & \(\mathbb{R}\) \\ 
+Fonctions & Dérivées & Domaines de dérivabilités \\ {}
+\(c\) & \(0\) & \(\mathbb{R}\) \\ {}
+\(\lambda x\) & \(\lambda\) & \(\mathbb{R}\) \\ {}
+\(x^n\) (\(n\in\mathbb{N}^*\)) & \(n \cdot x^{n-1}\) & \(\mathbb{R}\) \\ {}
+\(\sqrt{x}\) & \(\dfrac{1}{2\sqrt{x}}\) & \(]0 ; +\infty [\) \\ {}
+\(\dfrac{1}{x}\) & \(-\dfrac{1}{x^2}\) & \(]-\infty ; 0[ \cup ] 0 ; +\infty[\) \\ {}
+\(\sin {x}\) & \(\cos {x}\) & \(\mathbb{R}\) \\ {}
+\(\cos {x}\) & \(-\sin {x}\) & \(\mathbb{R}\) \\ {}
 \end{tabular}\end{center}
 \end{frame}
-\begin{frame}{Dérivation (3)}
+\begin{frame}[allowframebreaks]{Dérivation (3)}
 Dérivée de fonctions usuelles.
       table
 \end{frame}
-\begin{frame}{Dérivation}
+\begin{frame}[allowframebreaks]{Dérivation}
+\footnotesize
 table[H]
-            \begin{center}\begin{tabular}{lll}
-Fonctions & Dérivées & Domaines de dérivabilités \\ 
-\(\lambda u\) & \(\lambda u'\) & en tout réel où \(u\) est dérivable \\ 
-\(u^n\) (\(n\in\mathbb{N}^*\)) & \(n \cdot u' \cdot u^{n-1}\) & en tout réel où \(u\) est dérivable \\ 
-\(\sqrt{u}\) & \(\dfrac{u'}{2\sqrt{u}}\) & tout réel où \(u\) est dérivable et strictement positif \\ 
-\(\dfrac{1}{u}\) & \(-\dfrac{u'}{u^2}\) & tout réel où \(u\) est dérivable et différent de zéro \\ 
-\(\sin {u}\) & \(u' \cos {u}\) & en tout réel où \(u\) est dérivable \\ 
-\(\cos {u}\) & \(- u' \sin {u}\) & en tout réel où \(u\) est dérivable \\ 
+            \begin{center}\begin{tabular}{>{\raggedright\arraybackslash}p{0.29\linewidth}>{\raggedright\arraybackslash}p{0.29\linewidth}>{\raggedright\arraybackslash}p{0.29\linewidth}}
+Fonctions & Dérivées & Domaines de dérivabilités \\ {}
+\(\lambda u\) & \(\lambda u'\) & en tout réel où \(u\) est dérivable \\ {}
+\(u^n\) (\(n\in\mathbb{N}^*\)) & \(n \cdot u' \cdot u^{n-1}\) & en tout réel où \(u\) est dérivable \\ {}
+\(\sqrt{u}\) & \(\dfrac{u'}{2\sqrt{u}}\) & tout réel où \(u\) est dérivable et strictement positif \\ {}
+\(\dfrac{1}{u}\) & \(-\dfrac{u'}{u^2}\) & tout réel où \(u\) est dérivable et différent de zéro \\ {}
+\(\sin {u}\) & \(u' \cos {u}\) & en tout réel où \(u\) est dérivable \\ {}
+\(\cos {u}\) & \(- u' \sin {u}\) & en tout réel où \(u\) est dérivable \\ {}
 \end{tabular}\end{center}
          Dérivées faisant intervenir des fonctions usuelles.
       table
 \end{frame}
-\begin{frame}{Dérivation}
+\begin{frame}[allowframebreaks]{Dérivation}
 table[H]
 \end{frame}
-\begin{frame}{Dérivation (2)}
+\begin{frame}[allowframebreaks]{Dérivation (2)}
+\footnotesize
 \begin{center}\begin{tabular}{ll}
-Fonctions & Dérivées \\ 
-\(u + v\) & \(u' + v'\) \\ 
-\(u\cdot v\) & \(u' \cdot v + u \cdot v'\) \\ 
-\(\displaystyle{ \dfrac{u}{v} }\) & \(\displaystyle{ \dfrac{u' \cdot v - u \cdot v'}{v^2} }\) \\ 
-\(\displaystyle{ f^{-1} }\) & \(\displaystyle{ \dfrac{1}{f'\circ f^{-1}} }\) (là où \(f'\circ f^{-1} \neq 0\)) \\ 
-\(f \circ g\) & \(g' \cdot \left( f' \circ g \right)\) \\ 
+Fonctions & Dérivées \\ {}
+\(u + v\) & \(u' + v'\) \\ {}
+\(u\cdot v\) & \(u' \cdot v + u \cdot v'\) \\ {}
+\(\displaystyle{ \dfrac{u}{v} }\) & \(\displaystyle{ \dfrac{u' \cdot v - u \cdot v'}{v^2} }\) \\ {}
+\(\displaystyle{ f^{-1} }\) & \(\displaystyle{ \dfrac{1}{f'\circ f^{-1}} }\) (là où \(f'\circ f^{-1} \neq 0\)) \\ {}
+\(f \circ g\) & \(g' \cdot \left( f' \circ g \right)\) \\ {}
 \end{tabular}\end{center}
 \end{frame}
-\begin{frame}{Dérivation (3)}
+\begin{frame}[allowframebreaks]{Dérivation (3)}
 Opérations sur les dérivées.
       table
 \end{frame}
-\begin{frame}{Propriétés géométriques}
+\begin{frame}[allowframebreaks]{Propriétés géométriques}
 Soit \(f\) une fonction et \(\mathcal{D}_f\) son domaine de définition.
 
 \begin{itemize}
@@ -462,7 +483,7 @@ Soit \(f\) une fonction et \(\mathcal{D}_f\) son domaine de définition.
 
 \end{itemize}
 \end{frame}
-\begin{frame}{Propriétés géométriques}
+\begin{frame}[allowframebreaks]{Propriétés géométriques}
 \textbf{Symétrie par rapport à une droite verticale}
 
  La courbe représentative d'une fonction paire admet une symétrie par rapport à l'axe \(Oy\).
@@ -471,7 +492,7 @@ Soit \(f\) une fonction et \(\mathcal{D}_f\) son domaine de définition.
                   par rapport à la droite d'équation \(x=a\) si
                   \[   \forall x\in\mathcal{D}_f,\ (2a-x)\in\mathcal{D}_f \text{ et } f(2a-x) = f(x)   \]
 \end{frame}
-\begin{frame}{Propriétés géométriques}
+\begin{frame}[allowframebreaks]{Propriétés géométriques}
 \textbf{Symétrie par rapport à un point}
 
  La courbe représentative d'une fonction impaire admet une symétrie par rapport à l'origine.
@@ -479,37 +500,37 @@ Soit \(f\) une fonction et \(\mathcal{D}_f\) son domaine de définition.
                   la courbe représentative d'une fonction \(f\) admet une symétrie par rapport à un point \(I = (a,b)\) si
                   \[   \forall x\in\mathcal{D}_f,\ (2a-x)\in\mathcal{D}_f \text{ et } f(2a-x) + f(x) = 2 b .  \]
 \end{frame}
-\begin{frame}{Propriétés géométriques}
+\begin{frame}[allowframebreaks]{Propriétés géométriques}
 Une fonction \(f\) est dite périodique de période \(T\) si 
                   \[ \forall x \in \mathcal{D}_f, x+T\in\mathcal{D}_f \text{ et } f(x+T) = f(x)      \;. \]
 
 Les fonctions périodiques les plus fréquemment rencontrées sont 
             les fonctions trigonométriques \(\sin\) et \(\cos\) (de période \(2\pi\)).
 \end{frame}
-\begin{frame}{Propriétés géométriques (2)}
+\begin{frame}[allowframebreaks]{Propriétés géométriques (2)}
 Pour étudier une fonction périodique de période \(T\), 
             il suffit de l'étudier sur un intervalle de longueur \(T\).
             Pour tracer la courbe, il suffit de le faire sur un tel intervalle,
             le reste de la courbe s'obtient par translation de cette partie.
 \end{frame}
-\begin{frame}{Propriétés géométriques}
+\begin{frame}[allowframebreaks]{Propriétés géométriques}
 Soient \(I(a,b)\) un point et \(f\) une fonction définie sur un voisinage de \(a\).
             Notons par \((\mathcal{C})\) la courbe représentative de \(f\).
             Le point \(I\) de \((\mathcal{C})\) est un point d'inflexion si 
             la courbe \((\mathcal{C})\) traverse sa tangente au point \(I\) (elle passe d'un côté à l'autre de cette tangente).
 \end{frame}
-\begin{frame}{Propriétés géométriques (2)}
+\begin{frame}[allowframebreaks]{Propriétés géométriques (2)}
 Si \(f\) est deux fois dérivable au voisinage du point \(I\)
             et si la dérivée seconde s'annule en \(a\) en changeant de signe
             alors \(I\) est un point d'inflexion.
 \end{frame}
-\begin{frame}{Propriétés géométriques}
+\begin{frame}[allowframebreaks]{Propriétés géométriques}
 Soit \(f : E \rightarrow F\) une fonction bijective, notons par \(\mathcal{C}\) sa courbe représentative.
             Elle admet alors une fonction réciproque \(f^{-1} : F \rightarrow E\) 
             dont on notera par \(\mathcal{C}'\) la courbe représentative.
             Dans un repère orthonormé, les courbes \(\mathcal{C}\) et \(\mathcal{C}'\) sont symétriques par rapport à la première bissectrice (droite d'équation \(y = x\)).
 \end{frame}
-\begin{frame}{Branches infinies}
+\begin{frame}[allowframebreaks]{Branches infinies}
 Soient \(f\) une fonction et \(\mathcal{C}\) sa courbe représentative.
       La courbe \(\mathcal{C}\) est alors un ensemble de points de la forme \((x,f(x))\).
       On parle de \emph{branche infinie} de la courbe quand au moins une des coordonnées tend vers l'infini.
@@ -519,10 +540,10 @@ On sait déjà que si \(\lim_{x\rightarrow x_0} f(x) = \infty\) (à gauche ou à
 
 Pour ce qui est de la limite de \(f(x)\) quand \(x\) tend vers l'infini, il y a plusieurs possibilités.
 \end{frame}
-\begin{frame}{Branches infinies (2)}
+\begin{frame}[allowframebreaks]{Branches infinies (2)}
 Si \(\lim_{x\rightarrow\infty} f(x) = \infty\) et que \(\lim_{x\rightarrow\infty} \dfrac{f(x)}{x} = 0\) alors la courbe \(\mathcal{C}\) admet une branche parabolique de direction \(x'Ox\).
 \end{frame}
-\begin{frame}{Branches infinies}
+\begin{frame}[allowframebreaks]{Branches infinies}
 Axe \((x'Ox)\)
 
 \[
@@ -547,7 +568,7 @@ La courbe \((\mathcal{C})\) admet une branche parabolique de direction \((y'Oy)\
 
 D'axe \(y = ax\)
 \end{frame}
-\begin{frame}{Branches infinies (2)}
+\begin{frame}[allowframebreaks]{Branches infinies (2)}
 \[
 		\left\{\begin{array}{l}
 			\lim_{x\rightarrow \infty} \dfrac{f(x)}{x} = a \neq 0		\\
@@ -555,7 +576,7 @@ D'axe \(y = ax\)
 		\end{array}\right.
 	\]
 \end{frame}
-\begin{frame}{Branches infinies}
+\begin{frame}[allowframebreaks]{Branches infinies}
 La courbe \((\mathcal{C})\) admet une branche parabolique de direction \((y = a x)\)
 \end{frame}
 \end{document}

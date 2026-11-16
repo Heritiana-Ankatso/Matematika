@@ -2,7 +2,12 @@
 \makeatletter\IfFileExists{core/beamer/beamerthememx.sty}{\def\mxcorepath{core/}\def\input@path{{core/beamer/}{core/}}}{\def\mxcorepath{../core/}\def\input@path{{../core/beamer/}{../core/}}}\makeatother
 \documentclass[aspectratio=169,10pt,t]{beamer}
 \usetheme{mx}
-\usepackage{graphicx,booktabs}
+\usepackage{graphicx,booktabs,mathtools,array,adjustbox}
+\usepackage[all]{xy}
+\providecommand{\actualtextwidth}{\textwidth}
+\providecommand{\veccor}[2]{\left(\begin{matrix}#1\\#2\end{matrix}\right)}
+\DeclarePairedDelimiter{\VecNorm}{\lVert}{\rVert}
+\providecommand{\ETC}{\ldots}
 \usepackage[english]{babel}
 \setlength{\parskip}{.45em}
 \hypersetup{pdfauthor={},pdfsubject={Lecture slides},pdfkeywords={},pdftitle={Differentiation, convexity and continuity}}
@@ -36,39 +41,41 @@
 \author{}
 \begin{document}
 \mxtitleframe
-\begin{frame}{Objectives}
+\begin{frame}[allowframebreaks]{Objectives}
 Differentiate a composite function; study variations and convexity; prove existence and uniqueness; approximate a solution.
 \end{frame}
-\begin{frame}{Differentiating a composite}
+\begin{frame}[allowframebreaks]{Differentiating a composite}
 If \(u\) is differentiable on \(I\) and \(v\) is differentiable on an interval containing \(u(I)\), then \((v\circ u)'=(v'\circ u)u'\). Domains must be checked before computing.
 \[ (u^n)'=nu'u^{n-1},\quad(e^u)'=u'e^u,\quad
 (\dfrac{1}{u})'=-\dfrac{u'}{u^2},\quad(\sqrt u)'=\dfrac{u'}{2\sqrt u}\quad(u>0).\]
+
 For example, \(f(x)=\sqrt{3x+1}\) is differentiable for \(x>-\dfrac{1}{3}\) and \(f'(x)=\dfrac{3}{2\sqrt{3x+1}}\). The sign of \(f'\) determines the variations of \(f\); the sign of \(f\) does not.
 \end{frame}
-\begin{frame}{Convexity}
+\begin{frame}[allowframebreaks]{Convexity}
 A function \(f\) is convex on an interval \(I\) if its curve lies below its chords: for \(x,y\in I\) and \(t\in[0,1]\),
 \[f((1-t)x+ty)\le(1-t)f(x)+tf(y).\]
+
 For a twice-differentiable function, the following equivalences are accepted without proof: \(f\) is convex; \(f'\) is increasing; \(f''\ge0\); the curve lies above all its tangents. The inequalities are reversed for a concave function. A point of inflection is a point where the curve changes convexity.
 \end{frame}
-\begin{frame}{Convexity}
+\begin{frame}[allowframebreaks]{Convexity}
 Suppose \(f''\ge0\). Fix \(a\) and set \(g(x)=f(x)-f(a)-f'(a)(x-a)\). Since \(f'\) is increasing, \(g'(x)=f'(x)-f'(a)\le0\) for \(x\le a\) and \(\ge0\) for \(x\ge a\). Thus \(g\) attains its minimum \(g(a)=0\) at \(a\), so \(f(x)\ge f(a)+f'(a)(x-a)\).
 \end{frame}
-\begin{frame}{Convexity}
+\begin{frame}[allowframebreaks]{Convexity}
 \(x^4\) is convex and \(f''(0)=0\), but \(0\) is not the abscissa of a point of inflection. \(x^3\) changes convexity at \(0\). The convexity of the exponential and its tangent at \(0\) give \(e^x\ge1+x\).
 \end{frame}
-\begin{frame}{Continuity and equations}
+\begin{frame}[allowframebreaks]{Continuity and equations}
 \(f\) is continuous at \(a\) if \(\lim_{x\to a}f(x)=f(a)\). Every differentiable function is continuous. The converse is false: \(|x|\) is continuous at \(0\) but not differentiable at \(0\).
 \end{frame}
-\begin{frame}{Continuity and equations}
+\begin{frame}[allowframebreaks]{Continuity and equations}
 If \(f\) is continuous on \([a,b]\), every real number between \(f(a)\) and \(f(b)\) has at least one preimage in \([a,b]\). If \(f\) is also strictly monotonic, this preimage is unique. One can also work on an open interval using the limits at the endpoints.
 \end{frame}
-\begin{frame}{Continuity and equations}
+\begin{frame}[allowframebreaks]{Continuity and equations}
 \(f(x)=x^3+x-1\) is continuous on \([0,1]\). Since \(f(0)=-1\) and \(f(1)=1\), the IVT gives a zero in \(]0,1[\). Because \(f'(x)=3x^2+1>0\), it is unique. \(f(0.68)<0<f(0.69)\) provides a bracketing interval, without replacing the justifications of existence and uniqueness.
 \end{frame}
-\begin{frame}{Continuity and equations}
+\begin{frame}[allowframebreaks]{Continuity and equations}
 For \(x\ne1\), set \(g(x)=\dfrac{x^2-1}{x-1}\), and set \(g(1)=a\). Since \(g(x)=x+1\) when \(x\ne1\), \(\lim_{x\to1}g(x)=2\). The function is continuous at \(1\) if and only if \(a=2\). The value at the point must therefore be compared with the limit, not replaced by it without justification.
 \end{frame}
-\begin{frame}{Continuity and equations}
+\begin{frame}[allowframebreaks]{Continuity and equations}
 If \(u_n\to\ell\) and \(f\) is continuous at \(\ell\), then \(f(u_n)\to f(\ell)\). For a convergent recursive sequence \(u_{n+1}=f(u_n)\), we obtain \(\ell=f(\ell)\).
 \end{frame}
 \begin{frame}{Bisection}
@@ -82,12 +89,12 @@ For \(f\) continuous and \(f(a)f(b)<0\), compute \(m=\dfrac{a+b}{2}\). If \(f(m)
 \end{column}
 \end{columns}
 \end{frame}
-\begin{frame}{Research activity}
+\begin{frame}[allowframebreaks]{Research activity}
 \textbf{Derivatives and graphical readings - 35 min.}
 
 Consider the function \(f\) defined on \(\R\) by \(f(x)=x^3-3x\). Let \(\mathcal C_f\) denote its graph.
 \end{frame}
-\begin{frame}{Research activity (2)}
+\begin{frame}[allowframebreaks]{Research activity (2)}
 \begin{enumerate}
 \setcounter{enumi}{0}\item Calculate \(f' (x)\) and \(f'' (x)\), then draw up their sign tables.
 
@@ -99,7 +106,7 @@ Consider the function \(f\) defined on \(\R\) by \(f(x)=x^3-3x\). Let \(\mathcal
 
 \end{enumerate}
 \end{frame}
-\begin{frame}{Research activity (3)}
+\begin{frame}[allowframebreaks]{Research activity (3)}
 \begin{enumerate}
 \setcounter{enumi}{4}\item Explain, using this example, why continuity is not enough to guarantee the uniqueness of a solution.
 

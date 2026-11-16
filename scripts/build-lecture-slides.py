@@ -28,9 +28,38 @@ def escape(s):
     chars={'\\':r'\textbackslash{}','&':r'\&','%':r'\%','$':r'\$','#':r'\#','_':r'\_','{':r'\{','}':r'\}','~':r'\textasciitilde{}','^':r'\textasciicircum{}'}
     return ''.join(PUNCT.get(c,chars.get(c,c)) for c in s.replace('\xa0',' ').replace('\u202f',' '))
 
+def long_text_rows(tex):
+    # \[\begin{aligned} ... \\ \text{long sentence} \\ ... \end{aligned}\]  ->  align* with \intertext (wraps, and may break across pages)
+    m=re.fullmatch(r'\\\[\s*\\begin\{aligned\}([\s\S]*)\\end\{aligned\}\s*\\\]',tex)
+    if not m or not re.search(r'\\text\{[^{}]*(?:\{[^{}]*\}[^{}]*)*\}',m[1]):return tex
+    body=m[1];done=False
+    def sub(x):
+        nonlocal done
+        if len(x[1])>70:done=True;return ' \\intertext{'+x[1]+'} '
+        return x[0]
+    body=re.sub(r'\s*\\\\\s*(?:\\\\\s*)?\\text\{((?:[^{}]|\{[^{}]*\})*)\}\s*(?:\\\\|$)',sub,body)
+    return '\\begin{align*}'+body+'\\end{align*}' if done else tex
+
+def fit_math(tex):
+    tex=long_text_rows(tex)
+    # A long \text{...} sentence inside an aligned block cannot wrap, and an xymatrix diagram is as wide as its grid:
+    # wrap the first in a parbox and scale the second to the slide width.
+    out='';i=0
+    while True:
+        j=tex.find('\\text{',i)
+        if j<0:out+=tex[i:];break
+        k=j+6;depth=1
+        while k<len(tex) and depth:
+            depth+= (tex[k]=='{')-(tex[k]=='}');k+=1
+        body=tex[j+6:k-1]
+        out+=tex[i:j]+(('\\text{\\parbox[t]{.88\\linewidth}{\\raggedright '+body+'}}') if len(body)>70 else tex[j:k]);i=k
+    if '\\xymatrix' in out and out.startswith('\\('):out='\\adjustbox{max width=\\linewidth,max height=.42\\textheight}{$'+out[2:-2]+'$}'
+    return out
+
 def convert(fragment):
     maths=[]
-    def save(m):maths.append(html.unescape(m[0]).replace(r'\frac',r'\dfrac'));return f'MXMATH{len(maths)-1}TOKEN'
+    def save(m):maths.append(fit_math(re.sub(r'(\\(?:cdot|times|circ))(?=[A-Z])',r'\1 ',re.sub(r'\n[ \t]*\n','\n',html.unescape(m[0]))).replace(r'\frac',r'\dfrac')));return f'MXMATH{len(maths)-1}TOKEN'
+    fragment=re.sub(r'\d\.\d+!(?=\\\(\\xymatrix)','',fragment)
     fragment=re.sub(r'\\\([\s\S]*?\\\)|\\\[[\s\S]*?\\\]',save,fragment)
     root=dom.fragment_fromstring(fragment,create_parent='div')
     def walk(node):
@@ -43,9 +72,9 @@ def convert(fragment):
         if tag in ('ul','ol'):return '\n\\begin{'+('itemize' if tag=='ul' else 'enumerate')+'}\n'+(r'\setcounter{enumi}{'+str(int(node.get('start','1'))-1)+'}' if tag=='ol' else '')+inner+'\n\\end{'+('itemize' if tag=='ul' else 'enumerate')+'}\n'
         if tag=='li':return '\\item '+inner+'\n'
         if tag in ('p','div','section'):return inner+'\n\n'
-        if tag=='tr':return ' & '.join(walk(c) for c in node)+r' \\ '+'\n'
+        if tag=='tr':return ' & '.join(walk(c) for c in node)+r' \\ {}'+'\n'
         if tag=='table':
-            rows=node.xpath('.//tr');cols=max([len(row) for row in rows] or [1]);return '\\begin{center}\\begin{tabular}{'+'l'*cols+'}\n'+''.join(walk(row) for row in rows)+'\\end{tabular}\\end{center}'
+            rows=node.xpath('.//tr');cols=max([len(row) for row in rows] or [1]);wide=any(len(re.sub(r'\\s+',' ',c.text_content()))>60 for c in node.xpath('.//td|.//th'));spec=(('>{\\raggedright\\arraybackslash}p{'+('%.2f'%(.86/cols))+'\\linewidth}')*cols) if wide else 'l'*cols;return '\\begin{center}\\begin{tabular}{'+spec+'}\n'+''.join(walk(row) for row in rows)+'\\end{tabular}\\end{center}'
         return inner
     result=walk(root)
     for i,tex in enumerate(maths):result=result.replace(f'MXMATH{i}TOKEN',tex)
@@ -53,7 +82,23 @@ def convert(fragment):
 
 def weight(html_text):
     # characters of text, plus a line's worth for each table row (a variation table is short in characters, tall on the page)
-    return len(re.sub('<[^>]*>','',html_text))+80*html_text.count('<tr')+30*html_text.count('<li')
+    # displayed maths is a block of its own, and every \\ row in it (matrices, systems, tables) is another line of height
+    plain=re.sub('<[^>]*>','',html_text)
+    return len(re.sub(r'\\\[[\s\S]*?\\\]','',plain))+110*plain.count('\\[')+45*plain.count('\\\\')+80*html_text.count('<tr')+30*html_text.count('<li')
+def flat_items(lst,limit):
+    # Items of a list; an oversized item that holds a nested list is cut into its own text and the nested items (shown one level up
+    # on the continuation pages) so that a long worked example can be paginated.
+    for li in lst:
+        nested=li.xpath('./ul|./ol')
+        if nested and weight(dom.tostring(li,encoding='unicode'))>limit:
+            for n in nested:
+                tail=n.tail;parent=n.getparent();parent.remove(n)
+                if tail:li.text=(li.text or '')+tail if not len(li) else li.text
+            yield li
+            for n in nested:yield from flat_items(n,limit)
+        else:yield li
+
+limit_big=620
 def chunks(fragment,limit=540):
     # Keep displayed maths and list items intact. A lecture page has a reading order, no live control instructions.
     # Split only at top level: a list nested inside an item must stay with its parent <li>.
@@ -68,7 +113,7 @@ def chunks(fragment,limit=540):
     cuts=sorted(set(marked));glued=[];last=0
     for c in cuts:glued.append(fragment[last:c]);last=c
     glued.append(fragment[last:])
-    pieces=[q for g in glued for q in ([g] if re.match(r'\s*<(?:ul|ol)[ >]',g) else re.split(r'(?:<br\s*/?>\s*){2,}|(?<=</p>)\s*',g))]
+    pieces=[q for g in glued for q in ([g] if re.match(r'\s*<(?:ul|ol)[ >]',g) else re.split(r'(?:<br\s*/?>\s*){2,}|(?<=</p>)\s*|(?<=\\\])\s+(?=\S)',g))]
     out=[];current=''
     for piece in pieces:
         if not piece.strip():continue
@@ -77,7 +122,7 @@ def chunks(fragment,limit=540):
         if weight(piece)>limit and re.fullmatch(r'\s*<(ul|ol)(?: [^>]*)?>[\s\S]*</\1>\s*',piece):
             node=dom.fragment_fromstring(piece);tag=node.tag
             start=int(node.get('start','1') or 1)
-            for child in node:
+            for child in flat_items(node,limit):
                 item=dom.tostring(child,encoding='unicode')
                 if weight(current+item)>limit and current:out.append(f'<{tag}'+(f' start="{start}"'if tag=='ol'else '')+f'>{current}</{tag}>');start+=current.count('<li');current=''
                 current+=item
@@ -95,7 +140,12 @@ def preamble(title,lang):
 \makeatletter\IfFileExists{core/beamer/beamerthememx.sty}{\def\mxcorepath{core/}\def\input@path{{core/beamer/}{core/}}}{\def\mxcorepath{../core/}\def\input@path{{../core/beamer/}{../core/}}}\makeatother
 \documentclass[aspectratio=169,10pt,t]{beamer}
 \usetheme{mx}
-\usepackage{graphicx,booktabs}
+\usepackage{graphicx,booktabs,mathtools,array,adjustbox}
+\usepackage[all]{xy}
+\providecommand{\actualtextwidth}{\textwidth}
+\providecommand{\veccor}[2]{\left(\begin{matrix}#1\\#2\end{matrix}\right)}
+\DeclarePairedDelimiter{\VecNorm}{\lVert}{\rVert}
+\providecommand{\ETC}{\ldots}
 \usepackage[''' + ('french' if lang=='fr' else 'english') + r''']{babel}
 \setlength{\parskip}{.45em}
 \hypersetup{pdfauthor={},pdfsubject={Lecture slides},pdfkeywords={},pdftitle={'''+escape(title)+r'''}}
@@ -142,18 +192,18 @@ def tex_for(deck,lang,work):
             label=title+(' ('+str(i+1)+')' if i else '')
             if not chunk.strip() and not fs:continue
             text=convert(chunk)
-            parts.append('\\begin{frame}{'+convert(label)+'}\n')
+            parts.append('\\begin{frame}'+('' if fs else '[allowframebreaks]')+'{'+convert(label)+'}\n')
             if fs:
                 parts.append('\\begin{columns}[T,onlytextwidth]\n\\begin{column}{.57\\textwidth}\n'+text+'\n\\end{column}\n\\begin{column}{.4\\textwidth}\n\\centering\n')
                 for f in fs:parts.append('\\includegraphics[width=\\linewidth,height='+str(4.5/len(fs))+'cm,keepaspectratio]{figures/'+f.name+'}\n')
                 parts.append('\\end{column}\n\\end{columns}\n')
-            else:parts.append(text+'\n')
+            else:parts.append(('\\scriptsize\n' if weight(chunk)>2*limit_big else '\\footnotesize\n' if weight(chunk)>limit_big else '')+text+'\n')
             parts.append('\\end{frame}\n')
         answer=slide.get('a',['',''])[L]
         if answer.strip():
             for i,chunk in enumerate(chunks(answer)):
                 label=('Correction : ' if lang=='fr' else 'Worked answer: ')+title
-                parts.append('\\begin{frame}{'+convert(label)+'}\n'+convert(chunk)+'\n\\end{frame}\n')
+                parts.append('\\begin{frame}[allowframebreaks]{'+convert(label)+'}\n'+convert(chunk)+'\n\\end{frame}\n')
     parts.append('\\end{document}\n');tex=''.join(parts)
     if '\\llbracket' in tex or '\\rrbracket' in tex:   # French integer intervals: Beamer has no stmaryrd here
         tex=tex.replace('\n\\title{','\n'+''.join('\\providecommand{\\'+k+'}{'+v+'}\n' for k,v in BRACKETS.items())+'\\title{',1)
@@ -186,7 +236,7 @@ def build_one(item):
     with pymupdf.open(out)as doc:
         dims=doc[0].rect;assert abs(dims.width/dims.height-16/9)<.005
         pages=len(doc)
-    log=(work/'main.log').read_text(errors='replace');overflow=[x for x in log.splitlines()if 'Overfull' in x or 'Missing character' in x]
+    log=(work/'main.log').read_text(errors='replace');overflow=[x for x in log.splitlines()if 'Missing character' in x or ('Overfull' in x and not (re.search(r'vbox \(([0-9.]+)pt too high',x) and float(re.search(r'vbox \(([0-9.]+)pt',x)[1])<12) and not re.search(r'hbox \((0?\.[0-9]+|1\.[0-9]+)pt too wide',x))]
     return {'id':deck['id'],'lang':lang,'pages':pages,'pdf':out.name,'bytes':out.stat().st_size,'source':zpath.name,'sourceBytes':zpath.stat().st_size,'sourceSha256':hashlib.sha256(zpath.read_bytes()).hexdigest(),'sha256':hashlib.sha256(out.read_bytes()).hexdigest(),'warnings':overflow}
 
 def main():

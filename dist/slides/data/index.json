@@ -15,8 +15,8 @@
   "editions": {
    "fr": {
     "path": "slides/data/t12c-01.json",
-    "bytes": 93312,
-    "sha256": "9c49ea619ec46549eb7a06d843b87ae3ad92af662d96102059661f486330867d",
+    "bytes": 94642,
+    "sha256": "7df8378674668cd450cbac301b6cc94c1f6ab5483ed635e4b983374dc9073471",
     "slides": 53
    }
   }
@@ -37,8 +37,8 @@
   "editions": {
    "fr": {
     "path": "slides/data/t12c-02.json",
-    "bytes": 51251,
-    "sha256": "2bf463f23db8fdaf7a0b36af82417a33e0eadc566bfec0d388ab955687ea3487",
+    "bytes": 51229,
+    "sha256": "fbafe68008d436321ddef3b1b6445b70b51579b527877be2d0643084bc411432",
     "slides": 40
    }
   }
@@ -81,8 +81,8 @@
   "editions": {
    "fr": {
     "path": "slides/data/t12c-04.json",
-    "bytes": 63281,
-    "sha256": "51758400880875072af5b1723fd3c4e9c94e626950aff7208a1852000c260f51",
+    "bytes": 63459,
+    "sha256": "a46c9ff0349e00f9262e746881fbd1ff8644077970a21f1a3c4dba690ca70acd",
     "slides": 50
    }
   }
@@ -95,7 +95,7 @@
    "Barycentres",
    "Barycentres"
   ],
-  "slides": 36,
+  "slides": 37,
   "kind": "extracted",
   "languages": [
    "fr"
@@ -103,9 +103,9 @@
   "editions": {
    "fr": {
     "path": "slides/data/t12c-05.json",
-    "bytes": 52307,
-    "sha256": "59662d6b79166db834ce2b48f9614cef7bb43897a7bf2e763cf505e18c6eda42",
-    "slides": 36
+    "bytes": 52929,
+    "sha256": "70f797863d6fc2bc5a870be29d49c1c01d77449d6e7e6ae9797fda67bdba1195",
+    "slides": 37
    }
   }
  },
@@ -279,8 +279,8 @@
   "editions": {
    "fr": {
     "path": "slides/data/t12d-01.json",
-    "bytes": 51251,
-    "sha256": "d27cbd64b3807361f76653c920526ea35cd4faeb3c9f6f176155ade41c152f0a",
+    "bytes": 51229,
+    "sha256": "0f39d32f2c0430544ef968995cd35552a5a20e2703781d45241db332f068e97d",
     "slides": 40
    }
   }
@@ -323,8 +323,8 @@
   "editions": {
    "fr": {
     "path": "slides/data/t12d-03.json",
-    "bytes": 63281,
-    "sha256": "016399b8e4d18dfdcef25d480d8e87ee9cae061775b3a0e70f6395238f85f9ea",
+    "bytes": 63459,
+    "sha256": "4aa258d2599a6bda59b51594c86477a4a8f3aaacb100c5ea506284f01ea286bb",
     "slides": 50
    }
   }

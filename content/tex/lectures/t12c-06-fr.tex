@@ -2,7 +2,12 @@
 \makeatletter\IfFileExists{core/beamer/beamerthememx.sty}{\def\mxcorepath{core/}\def\input@path{{core/beamer/}{core/}}}{\def\mxcorepath{../core/}\def\input@path{{../core/beamer/}{../core/}}}\makeatother
 \documentclass[aspectratio=169,10pt,t]{beamer}
 \usetheme{mx}
-\usepackage{graphicx,booktabs}
+\usepackage{graphicx,booktabs,mathtools,array,adjustbox}
+\usepackage[all]{xy}
+\providecommand{\actualtextwidth}{\textwidth}
+\providecommand{\veccor}[2]{\left(\begin{matrix}#1\\#2\end{matrix}\right)}
+\DeclarePairedDelimiter{\VecNorm}{\lVert}{\rVert}
+\providecommand{\ETC}{\ldots}
 \usepackage[french]{babel}
 \setlength{\parskip}{.45em}
 \hypersetup{pdfauthor={},pdfsubject={Lecture slides},pdfkeywords={},pdftitle={Applications affines et isométries}}
@@ -36,10 +41,10 @@
 \author{}
 \begin{document}
 \mxtitleframe
-\begin{frame}{Introduction}
+\begin{frame}[allowframebreaks]{Introduction}
 Dans ce chapitre, \(\mathcal{P}\) désigne le plan affine et \(\mathcal{E}\) l'espace affine.
 \end{frame}
-\begin{frame}{Définitions et exemples}
+\begin{frame}[allowframebreaks]{Définitions et exemples}
 Une application \(f : \mathcal{P} \rightarrow \mathcal{P}\) est une \emph{application affine}
                   si elle conserve le barycentre.
                   
@@ -47,7 +52,8 @@ Une application \(f : \mathcal{P} \rightarrow \mathcal{P}\) est une \emph{applic
                   En posant \(G' = f(G)\), \(A' = f(A)\) et \(B' = f(B)\), on a 
                   \(G' = \mathrm{Bar}\left\lbrace (A',\alpha) ; (B',\beta) \right\rbrace\).
 \end{frame}
-\begin{frame}{Définitions et exemples}
+\begin{frame}[allowframebreaks]{Définitions et exemples}
+\footnotesize
 \begin{enumerate}
 \setcounter{enumi}{0}\item Considérons la translation \(t_{\overrightarrow{u}}\) de vecteur \(\overrightarrow{u}\).
                               En posant \(t_{\overrightarrow{u}} (M) = M'\), on a \(\overrightarrow{MM'} = \overrightarrow{u}\).
@@ -72,7 +78,7 @@ Une application \(f : \mathcal{P} \rightarrow \mathcal{P}\) est une \emph{applic
 
 \end{enumerate}
 \end{frame}
-\begin{frame}{Définitions et exemples}
+\begin{frame}[allowframebreaks]{Définitions et exemples}
 Considérons l'homothétie \(h\) de centre \(I\) et de rapport \(k\).
                   En posant \(h(M) = M'\), on a \(\overrightarrow{IM'} = k \overrightarrow{IM}\).
                   
@@ -81,7 +87,9 @@ Considérons l'homothétie \(h\) de centre \(I\) et de rapport \(k\).
                   \[
                   G = \mathrm{Bar}\left\lbrace (A,\alpha);(B,\beta) \right\rbrace.
                   \]
-                  Posons \(G' = h(G)\), \(A' = h(A)\) et \(B' = h(B)\).
+\end{frame}
+\begin{frame}[allowframebreaks]{Définitions et exemples (2)}
+Posons \(G' = h(G)\), \(A' = h(A)\) et \(B' = h(B)\).
                   On a alors 
                   \[\begin{aligned}
                         \alpha \overrightarrow{G'A'} + \beta \overrightarrow{G'B'}
@@ -94,7 +102,7 @@ Considérons l'homothétie \(h\) de centre \(I\) et de rapport \(k\).
                                 = \overrightarrow{0}.
                   \end{aligned}\]
 \end{frame}
-\begin{frame}{Définitions et exemples}
+\begin{frame}[allowframebreaks]{Définitions et exemples}
 Considérons la réflexion d'axe \((\mathcal{D})\).
                   On veut montrer que la réflexion est une application affine.
 
@@ -105,7 +113,10 @@ Considérons la réflexion d'axe \((\mathcal{D})\).
                         \alpha \overrightarrow{GA} + \beta \overrightarrow{GA} + \beta \overrightarrow{AB} & = \overrightarrow{0} \\
                         (\alpha+\beta) \overrightarrow{GA} + \beta \overrightarrow{AB} & = \overrightarrow{0}
                   \end{aligned}\]
-                  et donc \(\overrightarrow{AG} = \dfrac{\beta}{\alpha + \beta} \overrightarrow{AB}\).
+\end{frame}
+\begin{frame}[allowframebreaks]{Définitions et exemples (2)}
+\footnotesize
+et donc \(\overrightarrow{AG} = \dfrac{\beta}{\alpha + \beta} \overrightarrow{AB}\).
                   Comme
                   \(\overline{AG} = \dfrac{\beta}{\alpha + \beta} \overline{AB}\), on a 
                   \(\dfrac{\overline{AG}}{\overline{AB}} = \dfrac{\beta}{\alpha + \beta}\).
@@ -120,7 +131,7 @@ Considérons la réflexion d'axe \((\mathcal{D})\).
                   
                   Ainsi, \(G' = \mathrm{Bar}\left\lbrace (A',\alpha);(B',\beta) \right\rbrace\).
 \end{frame}
-\begin{frame}{Définitions et exemples}
+\begin{frame}[allowframebreaks]{Définitions et exemples}
 Considérons la rotation \(r\) de centre \(I\) et d'angle \(\theta\).
                   Elle a alors pour expression complexe \(z' = az + b\) où \(a = e^{i\theta}\), donc \(|a| = 1\).
                   
@@ -133,35 +144,39 @@ Considérons la rotation \(r\) de centre \(I\) et d'angle \(\theta\).
                               \qquad
                         B' = r(B).
                         \]
-                  L'affixe de \(\alpha \overrightarrow{G'A'} + \beta \overrightarrow{G'B'}\) 
+\end{frame}
+\begin{frame}[allowframebreaks]{Définitions et exemples (2)}
+L'affixe de \(\alpha \overrightarrow{G'A'} + \beta \overrightarrow{G'B'}\) 
                   est \(\alpha (z_A' - z_G') + \beta (z_B' - z_G')\),
                   ce qui est égal à 
                   \[
                         \alpha (a z_A + b - a z_G - b) + \beta (a z_B + b - a z_G - b) =
                                                       a \left[ \alpha (z_A - z_G) + \beta (z_B - z_G) \right] \]
-                  qui n'est autre que l'affixe de 
+\end{frame}
+\begin{frame}[allowframebreaks]{Définitions et exemples (3)}
+qui n'est autre que l'affixe de 
                   \(a ( \underbrace{\alpha \overrightarrow{GA} + \beta \overrightarrow{GB}}_{\overrightarrow{0}} )\).
                   
                   Ainsi, \(G'= \mathrm{Bar}\left\lbrace (A',\alpha);(B',\beta) \right\rbrace\).
 \end{frame}
-\begin{frame}{Définitions et exemples}
+\begin{frame}[allowframebreaks]{Définitions et exemples}
 La composition de deux applications affines est une application affine.
              
             C'est-à-dire que si \(f\) et \(g\) sont deux applications affines, alors \(f\circ g\) est aussi une application affine.
 \end{frame}
-\begin{frame}{Définitions et exemples}
+\begin{frame}[allowframebreaks]{Définitions et exemples}
 Soit \(f : \mathcal{P} \rightarrow \mathcal{P} , M \mapsto M'\) une application affine.
             L'application \(\Phi : \overrightarrow{AB} \mapsto \Phi(\overrightarrow{AB}) = \overrightarrow{A'B'}\)
             est appelée application linéaire associée à l'application affine \(f\).
 \end{frame}
-\begin{frame}{Définitions et exemples}
+\begin{frame}[allowframebreaks]{Définitions et exemples}
 Trouvons l'application linéaire associée à une translation \(t_{\overrightarrow{u}}\).
 
 Appelons \(T\) l'application linéaire associée à \(t_{\overrightarrow{u}}\).
                   On a alors \(T : \overrightarrow{AB} \mapsto \overrightarrow{A'B'} = \overrightarrow{AB}\).
                   Ainsi, \(T = \mathrm{Id}\).
 \end{frame}
-\begin{frame}{Définitions et exemples}
+\begin{frame}[allowframebreaks]{Définitions et exemples}
 Cherchons l'application linéaire associée à une homothétie \(h(I,k)\).
 
                   Soit \(H\) l'application linéaire associée à \(h(I,k)\).
@@ -169,7 +184,7 @@ Cherchons l'application linéaire associée à une homothétie \(h(I,k)\).
                   
                   L'application \(H\) est appelée une \emph{homothétie vectorielle}.
 \end{frame}
-\begin{frame}{Définitions et exemples}
+\begin{frame}[allowframebreaks]{Définitions et exemples}
 Soit \(f\) l'application affine qui à tout point \(M(x,y)\) associe le point \(M'(x',y')\).
                   On appelle \emph{expression analytique} de \(f\) la donnée de \((x',y')\) en fonction de \((x,y)\).
                   Elle est souvent donnée sous la forme : 
@@ -180,15 +195,16 @@ Soit \(f\) l'application affine qui à tout point \(M(x,y)\) associe le point \(
                                     y' = b_1 x + b_2 y + b_3 
                               \end{array}
                         \right.
-                        
                   \]
-                  où \(a_1\), \(a_2\), \(a_3\), \(b_1\), \(b_2\) et \(b_3\) sont des réels.
+
+où \(a_1\), \(a_2\), \(a_3\), \(b_1\), \(b_2\) et \(b_3\) sont des réels.
 \end{frame}
-\begin{frame}{Définitions et exemples}
+\begin{frame}[allowframebreaks]{Définitions et exemples}
 Une application affine \(f\) du plan \(\mathcal{P}\) est entièrement définie par les données 
                   des transformés de trois points non-alignés \(A\), \(B\) et \(C\).
 \end{frame}
-\begin{frame}{Définitions et exemples}
+\begin{frame}[allowframebreaks]{Définitions et exemples}
+\footnotesize
 [.64]
 			                  Soient \(A\), \(B\) et \(C\) trois points non-alignés du plan.
 			                  Alors \((A ; \overrightarrow{AB} , \overrightarrow{AC})\) forme un repère.
@@ -209,10 +225,10 @@ Une application affine \(f\) du plan \(\mathcal{P}\) est entièrement définie p
                         y \begin{pmatrix} x_C' - x_A' \\ y_C' - y_A' \end{pmatrix}.
                         \]
 \end{frame}
-\begin{frame}{Définitions et exemples (2)}
+\begin{frame}[allowframebreaks]{Définitions et exemples (2)}
 Ce qui détermine \((x',y')\).
 \end{frame}
-\begin{frame}{Isométrie affine}
+\begin{frame}[allowframebreaks]{Isométrie affine}
 Une transformation \(f\) est une isométrie si elle conserve la distance, autrement dit :
             si 
             \( \left\{\begin{array}{l}
@@ -225,7 +241,8 @@ Une transformation \(f\) est une isométrie si elle conserve la distance, autrem
             
             Nous admettons que toute \emph{isométrie} est une \emph{application affine bijective}.
 \end{frame}
-\begin{frame}{Isométrie affine}
+\begin{frame}[allowframebreaks]{Isométrie affine}
+\footnotesize
 \begin{itemize}
 \item \textbf{Translation :} 
 
@@ -248,7 +265,7 @@ Une transformation \(f\) est une isométrie si elle conserve la distance, autrem
 
 \end{itemize}
 \end{frame}
-\begin{frame}{Isométrie affine (2)}
+\begin{frame}[allowframebreaks]{Isométrie affine (2)}
 \begin{itemize}
 \item \textbf{Rotation :} 
 
@@ -258,7 +275,7 @@ Une transformation \(f\) est une isométrie si elle conserve la distance, autrem
 
 \end{itemize}
 \end{frame}
-\begin{frame}{Isométrie affine (3)}
+\begin{frame}[allowframebreaks]{Isométrie affine (3)}
 \begin{itemize}
 \item \textbf{Reflexion :} 
 
@@ -268,7 +285,8 @@ Une transformation \(f\) est une isométrie si elle conserve la distance, autrem
 
 \end{itemize}
 \end{frame}
-\begin{frame}{Isométrie affine (4)}
+\begin{frame}[allowframebreaks]{Isométrie affine (4)}
+\footnotesize
 \begin{itemize}
 \item \textbf{Homothétie :} 
 
@@ -287,7 +305,7 @@ Une transformation \(f\) est une isométrie si elle conserve la distance, autrem
 
 \end{itemize}
 \end{frame}
-\begin{frame}{Isométrie affine}
+\begin{frame}[allowframebreaks]{Isométrie affine}
 \begin{itemize}
 \item La composition de deux isométries est une isométrie.
                   
@@ -304,7 +322,7 @@ Une transformation \(f\) est une isométrie si elle conserve la distance, autrem
 
 \end{itemize}
 \end{frame}
-\begin{frame}{Isométrie affine (2)}
+\begin{frame}[allowframebreaks]{Isométrie affine (2)}
 \begin{itemize}
 \item Toute isométrie transforme deux droites parallèles en deux droites parallèles :
                         on dit qu'une isométrie \emph{conserve le parallélisme}.
@@ -314,7 +332,7 @@ Une transformation \(f\) est une isométrie si elle conserve la distance, autrem
 
 \end{itemize}
 \end{frame}
-\begin{frame}{Isométrie affine (3)}
+\begin{frame}[allowframebreaks]{Isométrie affine (3)}
 \begin{itemize}
 \item Toute isométrie transforme un cercle en un cercle : 
                         on dit qu'une isométrie \emph{conserve la cocyclicité}.
@@ -327,7 +345,7 @@ Une transformation \(f\) est une isométrie si elle conserve la distance, autrem
 
 \end{itemize}
 \end{frame}
-\begin{frame}{Reconnaissance des isométries}
+\begin{frame}[allowframebreaks]{Reconnaissance des isométries}
 Soit \(f\) une application affine d'expression analytique 
             \[
                   \left\lbrace
@@ -343,7 +361,7 @@ Soit
             et soit \(\Delta = a_1 \cdot b_2 - b_1 \cdot a_2\)
             .
 \end{frame}
-\begin{frame}{Reconnaissance des isométries}
+\begin{frame}[allowframebreaks]{Reconnaissance des isométries}
 Le repère étant orthonormé, l'application \(f\) est une isométrie si et seulement si \(A\) est de l'un des types : 
                   \[\begin{aligned}
                         \begin{pmatrix}
@@ -354,12 +372,14 @@ Le repère étant orthonormé, l'application \(f\) est une isométrie si et seul
                               a & b \\ b & -a
                         \end{pmatrix}
                   \end{aligned}\]
-                  où \(a^2 + b^2 = 1\).
+\end{frame}
+\begin{frame}[allowframebreaks]{Reconnaissance des isométries (2)}
+où \(a^2 + b^2 = 1\).
                   
                   De plus, \(f\) est une isométrie positive (ou un déplacement) si \(\Delta = 1\)
                   et elle est une isométrie négative (ou un antidéplacement) si \(\Delta = -1\).
 \end{frame}
-\begin{frame}{Reconnaissance des isométries}
+\begin{frame}[allowframebreaks]{Reconnaissance des isométries}
 Soit \(f\) une application affine.
 
 \begin{itemize}
@@ -372,29 +392,30 @@ Soit \(f\) une application affine.
 
 \end{itemize}
 \end{frame}
-\begin{frame}{Reconnaissance des isométries}
+\begin{frame}[allowframebreaks]{Reconnaissance des isométries}
 Soit \(f\) une isométrie.
 		      table[h!]
 \end{frame}
-\begin{frame}{Reconnaissance des isométries (2)}
-\begin{center}\begin{tabular}{lll}
-\textbf{Points invariants} & \textbf{déplacement} & \textbf{antidéplacement} \\ 
-Le plan \(\mathcal{P}\) tout entier & \(\mathrm{Id}\) &  \\ 
-Une droite \((\mathcal{D})\) &  & \(S_{(\mathcal{D})}\) \\ 
-Un point \(\Omega\) & \(r(\Omega,\theta),\ \theta\neq 0\) &  \\ 
+\begin{frame}[allowframebreaks]{Reconnaissance des isométries (2)}
+\footnotesize
+\begin{center}\begin{tabular}{>{\raggedright\arraybackslash}p{0.29\linewidth}>{\raggedright\arraybackslash}p{0.29\linewidth}>{\raggedright\arraybackslash}p{0.29\linewidth}}
+\textbf{Points invariants} & \textbf{déplacement} & \textbf{antidéplacement} \\ {}
+Le plan \(\mathcal{P}\) tout entier & \(\mathrm{Id}\) &  \\ {}
+Une droite \((\mathcal{D})\) &  & \(S_{(\mathcal{D})}\) \\ {}
+Un point \(\Omega\) & \(r(\Omega,\theta),\ \theta\neq 0\) &  \\ {}
 Aucun point invariant & \(t_{\overrightarrow{u}},\ \overrightarrow{u}\neq\overrightarrow{0}\) &  
                                             Composée d'une symétrie orthogonale d'axe \((\mathcal{D})\) et 
                                             d'une translation de vecteur \(\overrightarrow{u}\) non nul de 
                                             direction parallèle à \((\mathcal{D})\).
-                                                 [0] \\ 
+                                                 [0] \\ {}
 \end{tabular}\end{center}
 \end{frame}
-\begin{frame}{Reconnaissance des isométries (3)}
+\begin{frame}[allowframebreaks]{Reconnaissance des isométries (3)}
 Classification des isométries suivant l'ensemble des points invariants.
             
             table
 \end{frame}
-\begin{frame}{Classification des isométries}
+\begin{frame}[allowframebreaks]{Classification des isométries}
 Soit \(\left(\overrightarrow{OA},\overrightarrow{OB}\right)\) un angle orienté.
 
 \begin{itemize}
@@ -409,12 +430,12 @@ Soit \(\left(\overrightarrow{OA},\overrightarrow{OB}\right)\) un angle orienté.
 
 Toute isométrie qui \emph{conserve l'orientation des angles} est appelée \emph{déplacement}.
 \end{frame}
-\begin{frame}{Classification des isométries (2)}
+\begin{frame}[allowframebreaks]{Classification des isométries (2)}
 Toute isométrie qui \emph{\textbf{ne} conserve \textbf{pas} l'orientation des angles} est appelée
 
 \emph{\textbf{anti}déplacement}.
 \end{frame}
-\begin{frame}{Classification des isométries}
+\begin{frame}[allowframebreaks]{Classification des isométries}
 \begin{itemize}
 \item Toute isométrie est soit un déplacement, soit un antidéplacement.
                   
@@ -428,17 +449,18 @@ Toute isométrie qui \emph{\textbf{ne} conserve \textbf{pas} l'orientation des a
 
 \end{itemize}
 \end{frame}
-\begin{frame}{Classification des isométries (2)}
+\begin{frame}[allowframebreaks]{Classification des isométries (2)}
 \begin{itemize}
 \item La composition d'un déplacement et d'un antidéplacement,
                         dans n'importe quel ordre, est un antidéplacement.
 
 \end{itemize}
 \end{frame}
-\begin{frame}{Classification des isométries}
+\begin{frame}[allowframebreaks]{Classification des isométries}
+\scriptsize
 Tout déplacement a pour expression complexe une équation de la forme \(z' = az + b\) avec \(|a| = 1\).
 	             
-	            0.96!\(\xymatrix@C=.05\actualtextwidth{
+	            \adjustbox{max width=\linewidth,max height=.42\textheight}{$\xymatrix@C=.05\actualtextwidth{
                             &
                                    &  
                                           & *+[F]{ \begin{array}{c} f:z' = az + b \\ |a| = 1 \end{array} }
@@ -467,9 +489,10 @@ Tout déplacement a pour expression complexe une équation de la forme \(z' = az
                                    & *+[F]{\begin{array}{l} f=t_{\overrightarrow{u}} \\ \overrightarrow{u} (b) \end{array}}
                                           & 
                                                  & *+[F]{\begin{array}{l} f=r(I;\alpha) \\ \alpha= \mathrm{Arg}\left( a \right) \\ z_I=\dfrac{b}{1-a} \end{array} } \\
-	                     }\)
+	                     }$}
 \end{frame}
-\begin{frame}{Classification des isométries}
+\begin{frame}[allowframebreaks]{Classification des isométries}
+\footnotesize
 Tout antidéplacement a pour expression complexe une équation de la forme :
                   \(z' = a\overline{z} + b\) avec \(|a| = 1\).
 
@@ -480,7 +503,7 @@ Tout antidéplacement a pour expression complexe une équation de la forme :
                               \(f = t_{\overrightarrow{u}} \circ S_{(\mathcal{D})}\)
                               (forme réduite d'un antidéplacement).
 \end{frame}
-\begin{frame}{Composition de déplacements et antidéplacements}
+\begin{frame}[allowframebreaks]{Composition de déplacements et antidéplacements}
 On désigne par :
 
 \begin{itemize}
@@ -493,31 +516,31 @@ On désigne par :
 
 \end{itemize}
 \end{frame}
-\begin{frame}{Composition de déplacements et antidéplacements}
+\begin{frame}[allowframebreaks]{Composition de déplacements et antidéplacements}
 Soient \((\mathcal{D}_1)\) et \((\mathcal{D}_2)\) deux droites parallèles distinctes.
             Soient \(H_1\) un point de \((\mathcal{D}_1)\) et \(H_2\) le projeté orthogonal de \(H_1\) sur \((\mathcal{D}_2)\).
             Alors \(s_{(\mathcal{D}_2)} \circ s_{(\mathcal{D}_1)} = t_{2\overrightarrow{H_1 H_2}}\).
 \end{frame}
-\begin{frame}{Composition de déplacements et antidéplacements (2)}
+\begin{frame}[allowframebreaks]{Composition de déplacements et antidéplacements (2)}
 La réciproque est aussi vraie.
             Soit \(\overrightarrow{u}\) un vecteur et \((\mathcal{D}_1)\) une droite
             perpendiculaire à la direction de \(\overrightarrow{u}\). 
             Soit \((\mathcal{D}_2)\) le translaté de \((\mathcal{D}_1)\) par le vecteur \(\dfrac{1}{2}\overrightarrow{u}\).
             Alors \(t_{\overrightarrow{u}} = s_{(\mathcal{D}_2)} \circ s_{(\mathcal{D}_1)}\).
 \end{frame}
-\begin{frame}{Composition de déplacements et antidéplacements}
+\begin{frame}[allowframebreaks]{Composition de déplacements et antidéplacements}
 Soient \((\mathcal{D}_1)\) et \((\mathcal{D}_2)\) deux droites distinctes se coupant en un point \(\Omega\).
             Soit \(\theta = \mathrm{mes}((\mathcal{D}_1),(\mathcal{D}_2)) \quad [\pi]\).
             Alors \(s_{(\mathcal{D}_2)} \circ s_{(\mathcal{D}_1)} = r(\Omega,2\theta)\).
 \end{frame}
-\begin{frame}{Composition de déplacements et antidéplacements (2)}
+\begin{frame}[allowframebreaks]{Composition de déplacements et antidéplacements (2)}
 La réciproque est aussi vraie.
             Soit \(\Omega\) un point et \(\theta\) un nombre réelqui sera considéré en tant qu'angle.
             Soit \((\mathcal{D}_1)\) une droite et soit 
             \((\mathcal{D}_2)\) le transformé de \((\mathcal{D}_1)\) par la rotation de centre \(\Omega\) et d'angle \(\dfrac{\theta}{2}\).
             Alors \(r(\Omega,\theta) = s_{(\mathcal{D}_2)} \circ s_{(\mathcal{D}_1)}\).
 \end{frame}
-\begin{frame}{Composition de déplacements et antidéplacements}
+\begin{frame}[allowframebreaks]{Composition de déplacements et antidéplacements}
 \textbf{Composée de deux rotations}
 
  Soient \(r_1 = r(\Omega_1 , \theta_1)\) et \(r_2 = r(\Omega_2 , \theta_2)\).
@@ -531,13 +554,13 @@ La réciproque est aussi vraie.
 
 \end{itemize}
 \end{frame}
-\begin{frame}{Composition de déplacements et antidéplacements}
+\begin{frame}[allowframebreaks]{Composition de déplacements et antidéplacements}
 \textbf{Composée d'une rotation et d'une translation}
 
  Soient \(t\) une translation et \(r\) une rotation d'angle \(\theta \neq 0 \quad [2\pi]\).
                   Alors \(r \circ t\) et \(t \circ r\) sont des rotations d'angle \(\theta\) (en général de centres différents).
 \end{frame}
-\begin{frame}{Composition de déplacements et antidéplacements}
+\begin{frame}[allowframebreaks]{Composition de déplacements et antidéplacements}
 \begin{itemize}
 
                   \item Tout déplacement est la composée de deux symétries orthogonales.

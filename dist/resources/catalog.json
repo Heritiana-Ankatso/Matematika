@@ -31801,23 +31801,23 @@
       "source": "t12-student",
       "sourcePages": [
         8,
-        26
+        27
       ],
       "review": "source-unverified",
       "editions": {
         "fr": {
           "path": "./resources/t12c-01/chapter.pdf",
-          "bytes": 467935,
-          "sha256": "74675bf1563f248f391d10aa062c7a4d59a236be581a271d9c0988336f650a90",
-          "pages": 19
+          "bytes": 478664,
+          "sha256": "ecb2b2ad894248586cfc3251e0cc3f540b6659de249239414745d1dbe4f99175",
+          "pages": 20
         }
       },
       "languages": [
         "fr"
       ],
       "language": "fr",
-      "pages": 19,
-      "bytes": 467935,
+      "pages": 20,
+      "bytes": 478664,
       "translation": "authored-bilingual"
     },
     {
@@ -31837,24 +31837,24 @@
       ],
       "source": "t12-teacher",
       "sourcePages": [
-        8,
-        26
+        10,
+        35
       ],
       "review": "source-unverified",
       "editions": {
         "fr": {
           "path": "./resources/t12c-01/teacher.pdf",
-          "bytes": 471327,
-          "sha256": "62f928a51540e9f7d94b3fe571d3d207c47210aed9bb1f2079254f302a316b97",
-          "pages": 19
+          "bytes": 532050,
+          "sha256": "ac8ce0476220d221757377b6a2fee00a28754d2c2cee71e72e435aa9e6243dfd",
+          "pages": 26
         }
       },
       "languages": [
         "fr"
       ],
       "language": "fr",
-      "pages": 19,
-      "bytes": 471327,
+      "pages": 26,
+      "bytes": 532050,
       "translation": "authored-bilingual"
     },
     {
@@ -31874,15 +31874,15 @@
       ],
       "source": "t12-student",
       "sourcePages": [
-        27,
-        42
+        28,
+        43
       ],
       "review": "source-unverified",
       "editions": {
         "fr": {
           "path": "./resources/t12c-02/chapter.pdf",
-          "bytes": 425401,
-          "sha256": "30a82f77bc6f70426c0e80b41833400bd10664f27c1421363d011d0e58b3015b",
+          "bytes": 427446,
+          "sha256": "e42f2bf03c9fbdbcfebc88c0ea5706193b0aeafe15d13d723f58a8e4a68341cd",
           "pages": 16
         }
       },
@@ -31891,7 +31891,7 @@
       ],
       "language": "fr",
       "pages": 16,
-      "bytes": 425401,
+      "bytes": 427446,
       "translation": "authored-bilingual"
     },
     {
@@ -31911,15 +31911,15 @@
       ],
       "source": "t12-teacher",
       "sourcePages": [
-        27,
-        48
+        36,
+        57
       ],
       "review": "source-unverified",
       "editions": {
         "fr": {
           "path": "./resources/t12c-02/teacher.pdf",
-          "bytes": 467278,
-          "sha256": "78961ef383dcb4daac1de1132a704d85469c29107090da8b14b2da28d9cce82f",
+          "bytes": 472248,
+          "sha256": "68fb4b9faca3bca4a93da2072ac4c7ca8a82082d5041c140ffda1356e2c70b95",
           "pages": 22
         }
       },
@@ -31928,7 +31928,7 @@
       ],
       "language": "fr",
       "pages": 22,
-      "bytes": 467278,
+      "bytes": 472248,
       "translation": "authored-bilingual"
     },
     {
@@ -31948,24 +31948,61 @@
       ],
       "source": "t12-student",
       "sourcePages": [
-        45,
-        49
+        46,
+        51
       ],
       "review": "source-unverified",
       "editions": {
         "fr": {
           "path": "./resources/t12c-03/chapter.pdf",
-          "bytes": 350569,
-          "sha256": "cf91b6f786945bbaef025461ef0ff7c32924e4aa8658beed8a877ccb08da2477",
-          "pages": 5
+          "bytes": 351885,
+          "sha256": "1140c9163731f1ae6268bfc2b848d44494880c9dc3fed97f83ac6e68823ff61d",
+          "pages": 6
         }
       },
       "languages": [
         "fr"
       ],
       "language": "fr",
-      "pages": 5,
-      "bytes": 350569,
+      "pages": 6,
+      "bytes": 351885,
+      "translation": "authored-bilingual"
+    },
+    {
+      "id": "t12c-03-teacher",
+      "chapter": "t12c-03",
+      "course": "t12c",
+      "type": "solutions",
+      "title": [
+        "Chapitre complet · professeur (cours et corrigés)",
+        "Complete chapter · teacher (notes and solutions)"
+      ],
+      "audience": "teacher",
+      "format": "PDF",
+      "url": [
+        "./resources/t12c-03/teacher.pdf",
+        null
+      ],
+      "source": "t12-teacher",
+      "sourcePages": [
+        60,
+        66
+      ],
+      "review": "source-unverified",
+      "editions": {
+        "fr": {
+          "path": "./resources/t12c-03/teacher.pdf",
+          "bytes": 365141,
+          "sha256": "57bfa38eef06e7219e25d77ab96adec2ae95b808b9cd520aa3c6f84d64dd8c9c",
+          "pages": 7
+        }
+      },
+      "languages": [
+        "fr"
+      ],
+      "language": "fr",
+      "pages": 7,
+      "bytes": 365141,
       "translation": "authored-bilingual"
     },
     {
@@ -31985,24 +32022,24 @@
       ],
       "source": "t12-student",
       "sourcePages": [
-        50,
-        72
+        52,
+        75
       ],
       "review": "source-unverified",
       "editions": {
         "fr": {
           "path": "./resources/t12c-04/chapter.pdf",
-          "bytes": 440722,
-          "sha256": "119874cc21c5854da389e61aef02ea199e0c012a819ee75fa1dbf2c8146f75d0",
-          "pages": 23
+          "bytes": 450802,
+          "sha256": "6320667099d142761906654662081622df52b567e747d42870942ea0570d9859",
+          "pages": 24
         }
       },
       "languages": [
         "fr"
       ],
       "language": "fr",
-      "pages": 23,
-      "bytes": 440722,
+      "pages": 24,
+      "bytes": 450802,
       "translation": "authored-bilingual"
     },
     {
@@ -32022,24 +32059,24 @@
       ],
       "source": "t12-teacher",
       "sourcePages": [
-        56,
-        83
+        67,
+        105
       ],
       "review": "source-unverified",
       "editions": {
         "fr": {
           "path": "./resources/t12c-04/teacher.pdf",
-          "bytes": 472263,
-          "sha256": "122a5c5d6f50cd4eb33438f803288e4e9a3bbf2d81cca02763f924ac855ba330",
-          "pages": 28
+          "bytes": 570774,
+          "sha256": "c3caf889890df04bf278d9a3dafe3fc254fb050f563de91cd69b5d62e1b1ea39",
+          "pages": 39
         }
       },
       "languages": [
         "fr"
       ],
       "language": "fr",
-      "pages": 28,
-      "bytes": 472263,
+      "pages": 39,
+      "bytes": 570774,
       "translation": "authored-bilingual"
     },
     {
@@ -32059,15 +32096,15 @@
       ],
       "source": "t12-student",
       "sourcePages": [
-        73,
-        82
+        76,
+        85
       ],
       "review": "source-unverified",
       "editions": {
         "fr": {
           "path": "./resources/t12c-05/chapter.pdf",
-          "bytes": 385979,
-          "sha256": "d5569f52741128c611fa0f5b9523d5d6de1ea2e1165e3def248e0453efef845a",
+          "bytes": 387889,
+          "sha256": "b5329437f6bf3e517c587cb9e4aa0a40c0384ae5398c1e5c298f987219dcacca",
           "pages": 10
         }
       },
@@ -32076,7 +32113,7 @@
       ],
       "language": "fr",
       "pages": 10,
-      "bytes": 385979,
+      "bytes": 387889,
       "translation": "authored-bilingual"
     },
     {
@@ -32096,15 +32133,15 @@
       ],
       "source": "t12-teacher",
       "sourcePages": [
-        84,
-        95
+        106,
+        117
       ],
       "review": "source-unverified",
       "editions": {
         "fr": {
           "path": "./resources/t12c-05/teacher.pdf",
-          "bytes": 405939,
-          "sha256": "c95a737f919759a26abe75b9ea7865b305ccb4a02ec544bf64841876f4b40df6",
+          "bytes": 411118,
+          "sha256": "89be921456bf651fe57084a2fc16ff2cf629210f9f292dd096fefef06ae29623",
           "pages": 12
         }
       },
@@ -32113,7 +32150,7 @@
       ],
       "language": "fr",
       "pages": 12,
-      "bytes": 405939,
+      "bytes": 411118,
       "translation": "authored-bilingual"
     },
     {
@@ -32133,15 +32170,15 @@
       ],
       "source": "t12-student",
       "sourcePages": [
-        83,
-        94
+        86,
+        97
       ],
       "review": "source-unverified",
       "editions": {
         "fr": {
           "path": "./resources/t12c-06/chapter.pdf",
-          "bytes": 427756,
-          "sha256": "a75a4abde2521cda4b2deed2a0e0bc9919fdccfde4510b9bc5b02a300bda7f87",
+          "bytes": 429653,
+          "sha256": "75d7cc930e8862dabd1615015ce9bcb0aa1b8ba446acea0b8a692e103c0efe37",
           "pages": 12
         }
       },
@@ -32150,7 +32187,7 @@
       ],
       "language": "fr",
       "pages": 12,
-      "bytes": 427756,
+      "bytes": 429653,
       "translation": "authored-bilingual"
     },
     {
@@ -32170,15 +32207,15 @@
       ],
       "source": "t12-teacher",
       "sourcePages": [
-        96,
-        111
+        118,
+        133
       ],
       "review": "source-unverified",
       "editions": {
         "fr": {
           "path": "./resources/t12c-06/teacher.pdf",
-          "bytes": 460995,
-          "sha256": "c3c3b790a97899a9a9c57c15e5f8e035c4bfe4d3399a3d834b1052bf2c677c98",
+          "bytes": 466172,
+          "sha256": "8fc27186145a30a4c8b59cc5895a9ed1d69d797e1b89102d8145740ae099c126",
           "pages": 16
         }
       },
@@ -32187,7 +32224,7 @@
       ],
       "language": "fr",
       "pages": 16,
-      "bytes": 460995,
+      "bytes": 466172,
       "translation": "authored-bilingual"
     },
     {
@@ -32207,15 +32244,15 @@
       ],
       "source": "t12-student",
       "sourcePages": [
-        95,
-        101
+        98,
+        104
       ],
       "review": "source-unverified",
       "editions": {
         "fr": {
           "path": "./resources/t12c-07/chapter.pdf",
-          "bytes": 389391,
-          "sha256": "14157cb3c9d7dc5e85d1a458328efdef23e77c9e7cc6669a193d685a840d35dd",
+          "bytes": 391361,
+          "sha256": "2e74cc62220f27fade70bbfc2c22d2d523e9ec7f61dfebcc44ac234f4f600b8f",
           "pages": 7
         }
       },
@@ -32224,7 +32261,7 @@
       ],
       "language": "fr",
       "pages": 7,
-      "bytes": 389391,
+      "bytes": 391361,
       "translation": "authored-bilingual"
     },
     {
@@ -32244,15 +32281,15 @@
       ],
       "source": "t12-teacher",
       "sourcePages": [
-        112,
-        123
+        134,
+        145
       ],
       "review": "source-unverified",
       "editions": {
         "fr": {
           "path": "./resources/t12c-07/teacher.pdf",
-          "bytes": 442306,
-          "sha256": "ac7df204f647a63fad0e456ff5d4fc35cb3b2bc7d0949dda1418f8523826ce75",
+          "bytes": 447457,
+          "sha256": "c88479adb7b27578282256fa523d274e542c96266e8e100a73f65e7fdf534fc2",
           "pages": 12
         }
       },
@@ -32261,7 +32298,7 @@
       ],
       "language": "fr",
       "pages": 12,
-      "bytes": 442306,
+      "bytes": 447457,
       "translation": "authored-bilingual"
     },
     {
@@ -32281,15 +32318,15 @@
       ],
       "source": "t12-student",
       "sourcePages": [
-        104,
-        114
+        107,
+        117
       ],
       "review": "source-unverified",
       "editions": {
         "fr": {
           "path": "./resources/t12c-08/chapter.pdf",
-          "bytes": 402714,
-          "sha256": "d19ca22a38f797c7fd303b9b2a3d33cbd731eb3a2e64cd086ded82d46c018979",
+          "bytes": 405954,
+          "sha256": "10eb3019057747baf95740cf1c93e74e1b33c67971092ae97660b32734d1c512",
           "pages": 11
         }
       },
@@ -32298,7 +32335,7 @@
       ],
       "language": "fr",
       "pages": 11,
-      "bytes": 402714,
+      "bytes": 405954,
       "translation": "authored-bilingual"
     },
     {
@@ -32318,24 +32355,24 @@
       ],
       "source": "t12-teacher",
       "sourcePages": [
-        126,
-        137
+        148,
+        160
       ],
       "review": "source-unverified",
       "editions": {
         "fr": {
           "path": "./resources/t12c-08/teacher.pdf",
-          "bytes": 408241,
-          "sha256": "b695f62ebfebe81dd7a5facbf6e42196eb14013d87bb4a1e94b918c4a52beef0",
-          "pages": 12
+          "bytes": 430101,
+          "sha256": "5098c7f155320fbaa8f09a58b8b3d8f34962530419f0770451792d12a67772ed",
+          "pages": 13
         }
       },
       "languages": [
         "fr"
       ],
       "language": "fr",
-      "pages": 12,
-      "bytes": 408241,
+      "pages": 13,
+      "bytes": 430101,
       "translation": "authored-bilingual"
     },
     {
@@ -32355,15 +32392,15 @@
       ],
       "source": "t12-student",
       "sourcePages": [
-        115,
-        128
+        118,
+        131
       ],
       "review": "source-unverified",
       "editions": {
         "fr": {
           "path": "./resources/t12c-09/chapter.pdf",
-          "bytes": 486443,
-          "sha256": "393576adb78290770931b65d27436c64ea1b9ea46f7dea3066aa3f06d66253d2",
+          "bytes": 492699,
+          "sha256": "c3b14ffd2d8e9ff3f2a2f83168c22e4fd1eecb85eda62bd56e0334a61058052a",
           "pages": 14
         }
       },
@@ -32372,7 +32409,44 @@
       ],
       "language": "fr",
       "pages": 14,
-      "bytes": 486443,
+      "bytes": 492699,
+      "translation": "authored-bilingual"
+    },
+    {
+      "id": "t12c-09-teacher",
+      "chapter": "t12c-09",
+      "course": "t12c",
+      "type": "solutions",
+      "title": [
+        "Chapitre complet · professeur (cours et corrigés)",
+        "Complete chapter · teacher (notes and solutions)"
+      ],
+      "audience": "teacher",
+      "format": "PDF",
+      "url": [
+        "./resources/t12c-09/teacher.pdf",
+        null
+      ],
+      "source": "t12-teacher",
+      "sourcePages": [
+        161,
+        180
+      ],
+      "review": "source-unverified",
+      "editions": {
+        "fr": {
+          "path": "./resources/t12c-09/teacher.pdf",
+          "bytes": 539525,
+          "sha256": "c71f35d3bd598d2ada2d4409baa3e903d142fd4d93f7357d7e45408e9ccbab09",
+          "pages": 20
+        }
+      },
+      "languages": [
+        "fr"
+      ],
+      "language": "fr",
+      "pages": 20,
+      "bytes": 539525,
       "translation": "authored-bilingual"
     },
     {
@@ -32392,15 +32466,15 @@
       ],
       "source": "t12-student",
       "sourcePages": [
-        129,
-        139
+        132,
+        142
       ],
       "review": "source-unverified",
       "editions": {
         "fr": {
           "path": "./resources/t12c-10/chapter.pdf",
-          "bytes": 351795,
-          "sha256": "07369279e3c4b0bda1dc5de43135055a475f2450e5c490fbed8fae3b49b26e3b",
+          "bytes": 360155,
+          "sha256": "5f04b7159dab225d035c03bdaede10f5af701e3a005e425d9fde6d55d5aef916",
           "pages": 11
         }
       },
@@ -32409,7 +32483,44 @@
       ],
       "language": "fr",
       "pages": 11,
-      "bytes": 351795,
+      "bytes": 360155,
+      "translation": "authored-bilingual"
+    },
+    {
+      "id": "t12c-10-teacher",
+      "chapter": "t12c-10",
+      "course": "t12c",
+      "type": "solutions",
+      "title": [
+        "Chapitre complet · professeur (cours et corrigés)",
+        "Complete chapter · teacher (notes and solutions)"
+      ],
+      "audience": "teacher",
+      "format": "PDF",
+      "url": [
+        "./resources/t12c-10/teacher.pdf",
+        null
+      ],
+      "source": "t12-teacher",
+      "sourcePages": [
+        181,
+        199
+      ],
+      "review": "source-unverified",
+      "editions": {
+        "fr": {
+          "path": "./resources/t12c-10/teacher.pdf",
+          "bytes": 430278,
+          "sha256": "5157eedfcfea645391cfe7157e7a4f3fee2f8a5e8aae67adec32fb02b2b08edd",
+          "pages": 19
+        }
+      },
+      "languages": [
+        "fr"
+      ],
+      "language": "fr",
+      "pages": 19,
+      "bytes": 430278,
       "translation": "authored-bilingual"
     },
     {
@@ -32429,24 +32540,61 @@
       ],
       "source": "t12-student",
       "sourcePages": [
-        153,
-        161
+        156,
+        165
       ],
       "review": "source-unverified",
       "editions": {
         "fr": {
           "path": "./resources/t12c-11/chapter.pdf",
-          "bytes": 412714,
-          "sha256": "887d3dd43318da7164123d46c5ec48beb05e4ea56ce64cd9c7d64920b84cac04",
-          "pages": 9
+          "bytes": 417040,
+          "sha256": "0d3698729d645711647d9b5cc41e70d08625140ea3475d22f1db25e0c62bd8fb",
+          "pages": 10
         }
       },
       "languages": [
         "fr"
       ],
       "language": "fr",
-      "pages": 9,
-      "bytes": 412714,
+      "pages": 10,
+      "bytes": 417040,
+      "translation": "authored-bilingual"
+    },
+    {
+      "id": "t12c-11-teacher",
+      "chapter": "t12c-11",
+      "course": "t12c",
+      "type": "solutions",
+      "title": [
+        "Chapitre complet · professeur (cours et corrigés)",
+        "Complete chapter · teacher (notes and solutions)"
+      ],
+      "audience": "teacher",
+      "format": "PDF",
+      "url": [
+        "./resources/t12c-11/teacher.pdf",
+        null
+      ],
+      "source": "t12-teacher",
+      "sourcePages": [
+        216,
+        228
+      ],
+      "review": "source-unverified",
+      "editions": {
+        "fr": {
+          "path": "./resources/t12c-11/teacher.pdf",
+          "bytes": 446863,
+          "sha256": "e05378e2333c372303cd108fb83b727b56cbeb75e840c1eb7afbc033affce048",
+          "pages": 13
+        }
+      },
+      "languages": [
+        "fr"
+      ],
+      "language": "fr",
+      "pages": 13,
+      "bytes": 446863,
       "translation": "authored-bilingual"
     },
     {
@@ -32466,15 +32614,15 @@
       ],
       "source": "t12-student",
       "sourcePages": [
-        162,
-        167
+        166,
+        171
       ],
       "review": "source-unverified",
       "editions": {
         "fr": {
           "path": "./resources/t12c-12/chapter.pdf",
-          "bytes": 314316,
-          "sha256": "b4845165899beb1bc8853c3fd0c547b7569635b13ea40a16a80cb985ae3473a3",
+          "bytes": 316172,
+          "sha256": "07a2ebc9abb2a6e974a02b6a007344604cd813c40c9f1096cad1bb02344b25d9",
           "pages": 6
         }
       },
@@ -32483,7 +32631,7 @@
       ],
       "language": "fr",
       "pages": 6,
-      "bytes": 314316,
+      "bytes": 316172,
       "translation": "authored-bilingual"
     },
     {
@@ -32503,15 +32651,15 @@
       ],
       "source": "t12-teacher",
       "sourcePages": [
-        188,
-        195
+        229,
+        236
       ],
       "review": "source-unverified",
       "editions": {
         "fr": {
           "path": "./resources/t12c-12/teacher.pdf",
-          "bytes": 334344,
-          "sha256": "b2bdb46cdd8cb73c5878d531bbeb34811c2b2f747ea6bb1502abeecee9d652b5",
+          "bytes": 339460,
+          "sha256": "e7b054adc3f63cd6915e0b503f01d57d9992d9447a925a81423a3bdf5608a250",
           "pages": 8
         }
       },
@@ -32520,7 +32668,7 @@
       ],
       "language": "fr",
       "pages": 8,
-      "bytes": 334344,
+      "bytes": 339460,
       "translation": "authored-bilingual"
     },
     {
@@ -32540,15 +32688,15 @@
       ],
       "source": "t12-student",
       "sourcePages": [
-        27,
-        42
+        28,
+        43
       ],
       "review": "source-unverified",
       "editions": {
         "fr": {
           "path": "./resources/t12d-01/chapter.pdf",
-          "bytes": 425401,
-          "sha256": "30a82f77bc6f70426c0e80b41833400bd10664f27c1421363d011d0e58b3015b",
+          "bytes": 427446,
+          "sha256": "e42f2bf03c9fbdbcfebc88c0ea5706193b0aeafe15d13d723f58a8e4a68341cd",
           "pages": 16
         }
       },
@@ -32557,7 +32705,7 @@
       ],
       "language": "fr",
       "pages": 16,
-      "bytes": 425401,
+      "bytes": 427446,
       "translation": "authored-bilingual"
     },
     {
@@ -32577,15 +32725,15 @@
       ],
       "source": "t12-teacher",
       "sourcePages": [
-        27,
-        48
+        36,
+        57
       ],
       "review": "source-unverified",
       "editions": {
         "fr": {
           "path": "./resources/t12d-01/teacher.pdf",
-          "bytes": 467278,
-          "sha256": "78961ef383dcb4daac1de1132a704d85469c29107090da8b14b2da28d9cce82f",
+          "bytes": 472248,
+          "sha256": "68fb4b9faca3bca4a93da2072ac4c7ca8a82082d5041c140ffda1356e2c70b95",
           "pages": 22
         }
       },
@@ -32594,7 +32742,7 @@
       ],
       "language": "fr",
       "pages": 22,
-      "bytes": 467278,
+      "bytes": 472248,
       "translation": "authored-bilingual"
     },
     {
@@ -32614,24 +32762,61 @@
       ],
       "source": "t12-student",
       "sourcePages": [
-        45,
-        49
+        46,
+        51
       ],
       "review": "source-unverified",
       "editions": {
         "fr": {
           "path": "./resources/t12d-02/chapter.pdf",
-          "bytes": 350569,
-          "sha256": "cf91b6f786945bbaef025461ef0ff7c32924e4aa8658beed8a877ccb08da2477",
-          "pages": 5
+          "bytes": 351885,
+          "sha256": "1140c9163731f1ae6268bfc2b848d44494880c9dc3fed97f83ac6e68823ff61d",
+          "pages": 6
         }
       },
       "languages": [
         "fr"
       ],
       "language": "fr",
-      "pages": 5,
-      "bytes": 350569,
+      "pages": 6,
+      "bytes": 351885,
+      "translation": "authored-bilingual"
+    },
+    {
+      "id": "t12d-02-teacher",
+      "chapter": "t12d-02",
+      "course": "t12d",
+      "type": "solutions",
+      "title": [
+        "Chapitre complet · professeur (cours et corrigés)",
+        "Complete chapter · teacher (notes and solutions)"
+      ],
+      "audience": "teacher",
+      "format": "PDF",
+      "url": [
+        "./resources/t12d-02/teacher.pdf",
+        null
+      ],
+      "source": "t12-teacher",
+      "sourcePages": [
+        60,
+        66
+      ],
+      "review": "source-unverified",
+      "editions": {
+        "fr": {
+          "path": "./resources/t12d-02/teacher.pdf",
+          "bytes": 365141,
+          "sha256": "57bfa38eef06e7219e25d77ab96adec2ae95b808b9cd520aa3c6f84d64dd8c9c",
+          "pages": 7
+        }
+      },
+      "languages": [
+        "fr"
+      ],
+      "language": "fr",
+      "pages": 7,
+      "bytes": 365141,
       "translation": "authored-bilingual"
     },
     {
@@ -32651,24 +32836,24 @@
       ],
       "source": "t12-student",
       "sourcePages": [
-        50,
-        72
+        52,
+        75
       ],
       "review": "source-unverified",
       "editions": {
         "fr": {
           "path": "./resources/t12d-03/chapter.pdf",
-          "bytes": 440722,
-          "sha256": "119874cc21c5854da389e61aef02ea199e0c012a819ee75fa1dbf2c8146f75d0",
-          "pages": 23
+          "bytes": 450802,
+          "sha256": "6320667099d142761906654662081622df52b567e747d42870942ea0570d9859",
+          "pages": 24
         }
       },
       "languages": [
         "fr"
       ],
       "language": "fr",
-      "pages": 23,
-      "bytes": 440722,
+      "pages": 24,
+      "bytes": 450802,
       "translation": "authored-bilingual"
     },
     {
@@ -32688,24 +32873,24 @@
       ],
       "source": "t12-teacher",
       "sourcePages": [
-        56,
-        83
+        67,
+        105
       ],
       "review": "source-unverified",
       "editions": {
         "fr": {
           "path": "./resources/t12d-03/teacher.pdf",
-          "bytes": 472263,
-          "sha256": "122a5c5d6f50cd4eb33438f803288e4e9a3bbf2d81cca02763f924ac855ba330",
-          "pages": 28
+          "bytes": 570774,
+          "sha256": "c3caf889890df04bf278d9a3dafe3fc254fb050f563de91cd69b5d62e1b1ea39",
+          "pages": 39
         }
       },
       "languages": [
         "fr"
       ],
       "language": "fr",
-      "pages": 28,
-      "bytes": 472263,
+      "pages": 39,
+      "bytes": 570774,
       "translation": "authored-bilingual"
     },
     {
@@ -32725,15 +32910,15 @@
       ],
       "source": "t12-student",
       "sourcePages": [
-        95,
-        101
+        98,
+        104
       ],
       "review": "source-unverified",
       "editions": {
         "fr": {
           "path": "./resources/t12d-04/chapter.pdf",
-          "bytes": 389391,
-          "sha256": "14157cb3c9d7dc5e85d1a458328efdef23e77c9e7cc6669a193d685a840d35dd",
+          "bytes": 391361,
+          "sha256": "2e74cc62220f27fade70bbfc2c22d2d523e9ec7f61dfebcc44ac234f4f600b8f",
           "pages": 7
         }
       },
@@ -32742,7 +32927,7 @@
       ],
       "language": "fr",
       "pages": 7,
-      "bytes": 389391,
+      "bytes": 391361,
       "translation": "authored-bilingual"
     },
     {
@@ -32762,15 +32947,15 @@
       ],
       "source": "t12-teacher",
       "sourcePages": [
-        112,
-        123
+        134,
+        145
       ],
       "review": "source-unverified",
       "editions": {
         "fr": {
           "path": "./resources/t12d-04/teacher.pdf",
-          "bytes": 442306,
-          "sha256": "ac7df204f647a63fad0e456ff5d4fc35cb3b2bc7d0949dda1418f8523826ce75",
+          "bytes": 447457,
+          "sha256": "c88479adb7b27578282256fa523d274e542c96266e8e100a73f65e7fdf534fc2",
           "pages": 12
         }
       },
@@ -32779,7 +32964,7 @@
       ],
       "language": "fr",
       "pages": 12,
-      "bytes": 442306,
+      "bytes": 447457,
       "translation": "authored-bilingual"
     },
     {
@@ -32799,15 +32984,15 @@
       ],
       "source": "t12-student",
       "sourcePages": [
-        104,
-        114
+        107,
+        117
       ],
       "review": "source-unverified",
       "editions": {
         "fr": {
           "path": "./resources/t12d-05/chapter.pdf",
-          "bytes": 402714,
-          "sha256": "d19ca22a38f797c7fd303b9b2a3d33cbd731eb3a2e64cd086ded82d46c018979",
+          "bytes": 405954,
+          "sha256": "10eb3019057747baf95740cf1c93e74e1b33c67971092ae97660b32734d1c512",
           "pages": 11
         }
       },
@@ -32816,7 +33001,7 @@
       ],
       "language": "fr",
       "pages": 11,
-      "bytes": 402714,
+      "bytes": 405954,
       "translation": "authored-bilingual"
     },
     {
@@ -32836,24 +33021,24 @@
       ],
       "source": "t12-teacher",
       "sourcePages": [
-        126,
-        137
+        148,
+        160
       ],
       "review": "source-unverified",
       "editions": {
         "fr": {
           "path": "./resources/t12d-05/teacher.pdf",
-          "bytes": 408241,
-          "sha256": "b695f62ebfebe81dd7a5facbf6e42196eb14013d87bb4a1e94b918c4a52beef0",
-          "pages": 12
+          "bytes": 430101,
+          "sha256": "5098c7f155320fbaa8f09a58b8b3d8f34962530419f0770451792d12a67772ed",
+          "pages": 13
         }
       },
       "languages": [
         "fr"
       ],
       "language": "fr",
-      "pages": 12,
-      "bytes": 408241,
+      "pages": 13,
+      "bytes": 430101,
       "translation": "authored-bilingual"
     },
     {
@@ -32873,15 +33058,15 @@
       ],
       "source": "t12-student",
       "sourcePages": [
-        115,
-        128
+        118,
+        131
       ],
       "review": "source-unverified",
       "editions": {
         "fr": {
           "path": "./resources/t12d-06/chapter.pdf",
-          "bytes": 486443,
-          "sha256": "393576adb78290770931b65d27436c64ea1b9ea46f7dea3066aa3f06d66253d2",
+          "bytes": 492699,
+          "sha256": "c3b14ffd2d8e9ff3f2a2f83168c22e4fd1eecb85eda62bd56e0334a61058052a",
           "pages": 14
         }
       },
@@ -32890,7 +33075,44 @@
       ],
       "language": "fr",
       "pages": 14,
-      "bytes": 486443,
+      "bytes": 492699,
+      "translation": "authored-bilingual"
+    },
+    {
+      "id": "t12d-06-teacher",
+      "chapter": "t12d-06",
+      "course": "t12d",
+      "type": "solutions",
+      "title": [
+        "Chapitre complet · professeur (cours et corrigés)",
+        "Complete chapter · teacher (notes and solutions)"
+      ],
+      "audience": "teacher",
+      "format": "PDF",
+      "url": [
+        "./resources/t12d-06/teacher.pdf",
+        null
+      ],
+      "source": "t12-teacher",
+      "sourcePages": [
+        161,
+        180
+      ],
+      "review": "source-unverified",
+      "editions": {
+        "fr": {
+          "path": "./resources/t12d-06/teacher.pdf",
+          "bytes": 539525,
+          "sha256": "c71f35d3bd598d2ada2d4409baa3e903d142fd4d93f7357d7e45408e9ccbab09",
+          "pages": 20
+        }
+      },
+      "languages": [
+        "fr"
+      ],
+      "language": "fr",
+      "pages": 20,
+      "bytes": 539525,
       "translation": "authored-bilingual"
     },
     {
@@ -32910,15 +33132,15 @@
       ],
       "source": "t12-student",
       "sourcePages": [
-        129,
-        139
+        132,
+        142
       ],
       "review": "source-unverified",
       "editions": {
         "fr": {
           "path": "./resources/t12d-07/chapter.pdf",
-          "bytes": 351795,
-          "sha256": "07369279e3c4b0bda1dc5de43135055a475f2450e5c490fbed8fae3b49b26e3b",
+          "bytes": 360155,
+          "sha256": "5f04b7159dab225d035c03bdaede10f5af701e3a005e425d9fde6d55d5aef916",
           "pages": 11
         }
       },
@@ -32927,7 +33149,44 @@
       ],
       "language": "fr",
       "pages": 11,
-      "bytes": 351795,
+      "bytes": 360155,
+      "translation": "authored-bilingual"
+    },
+    {
+      "id": "t12d-07-teacher",
+      "chapter": "t12d-07",
+      "course": "t12d",
+      "type": "solutions",
+      "title": [
+        "Chapitre complet · professeur (cours et corrigés)",
+        "Complete chapter · teacher (notes and solutions)"
+      ],
+      "audience": "teacher",
+      "format": "PDF",
+      "url": [
+        "./resources/t12d-07/teacher.pdf",
+        null
+      ],
+      "source": "t12-teacher",
+      "sourcePages": [
+        181,
+        199
+      ],
+      "review": "source-unverified",
+      "editions": {
+        "fr": {
+          "path": "./resources/t12d-07/teacher.pdf",
+          "bytes": 430278,
+          "sha256": "5157eedfcfea645391cfe7157e7a4f3fee2f8a5e8aae67adec32fb02b2b08edd",
+          "pages": 19
+        }
+      },
+      "languages": [
+        "fr"
+      ],
+      "language": "fr",
+      "pages": 19,
+      "bytes": 430278,
       "translation": "authored-bilingual"
     },
     {
@@ -32947,15 +33206,15 @@
       ],
       "source": "t12-student",
       "sourcePages": [
-        140,
-        152
+        143,
+        155
       ],
       "review": "source-unverified",
       "editions": {
         "fr": {
           "path": "./resources/t12d-08/chapter.pdf",
-          "bytes": 390322,
-          "sha256": "dc5c24a234b67480a7fda3483e39f0db4247d363e8706ba72fe6ed79b709f3e3",
+          "bytes": 392176,
+          "sha256": "ef6391e85a5cf5ff9119ecefcdb6669e69a7220f21ab8834fd9b4c0ffaa4a122",
           "pages": 13
         }
       },
@@ -32964,7 +33223,7 @@
       ],
       "language": "fr",
       "pages": 13,
-      "bytes": 390322,
+      "bytes": 392176,
       "translation": "authored-bilingual"
     },
     {
@@ -32984,15 +33243,15 @@
       ],
       "source": "t12-teacher",
       "sourcePages": [
-        163,
-        178
+        200,
+        215
       ],
       "review": "source-unverified",
       "editions": {
         "fr": {
           "path": "./resources/t12d-08/teacher.pdf",
-          "bytes": 415917,
-          "sha256": "8ab933d19c93b2cb6404cefa3e09ad4ab2eb4bd2171c14680f1132ddafa45288",
+          "bytes": 420633,
+          "sha256": "766995cedce5c4f4926e5ec1d4b7fecb42952dd0de3b836f21dc38b2e104650e",
           "pages": 16
         }
       },
@@ -33001,7 +33260,7 @@
       ],
       "language": "fr",
       "pages": 16,
-      "bytes": 415917,
+      "bytes": 420633,
       "translation": "authored-bilingual"
     },
     {
@@ -33021,24 +33280,61 @@
       ],
       "source": "t12-student",
       "sourcePages": [
-        153,
-        161
+        156,
+        165
       ],
       "review": "source-unverified",
       "editions": {
         "fr": {
           "path": "./resources/t12d-09/chapter.pdf",
-          "bytes": 412714,
-          "sha256": "887d3dd43318da7164123d46c5ec48beb05e4ea56ce64cd9c7d64920b84cac04",
-          "pages": 9
+          "bytes": 417040,
+          "sha256": "0d3698729d645711647d9b5cc41e70d08625140ea3475d22f1db25e0c62bd8fb",
+          "pages": 10
         }
       },
       "languages": [
         "fr"
       ],
       "language": "fr",
-      "pages": 9,
-      "bytes": 412714,
+      "pages": 10,
+      "bytes": 417040,
+      "translation": "authored-bilingual"
+    },
+    {
+      "id": "t12d-09-teacher",
+      "chapter": "t12d-09",
+      "course": "t12d",
+      "type": "solutions",
+      "title": [
+        "Chapitre complet · professeur (cours et corrigés)",
+        "Complete chapter · teacher (notes and solutions)"
+      ],
+      "audience": "teacher",
+      "format": "PDF",
+      "url": [
+        "./resources/t12d-09/teacher.pdf",
+        null
+      ],
+      "source": "t12-teacher",
+      "sourcePages": [
+        216,
+        228
+      ],
+      "review": "source-unverified",
+      "editions": {
+        "fr": {
+          "path": "./resources/t12d-09/teacher.pdf",
+          "bytes": 446863,
+          "sha256": "e05378e2333c372303cd108fb83b727b56cbeb75e840c1eb7afbc033affce048",
+          "pages": 13
+        }
+      },
+      "languages": [
+        "fr"
+      ],
+      "language": "fr",
+      "pages": 13,
+      "bytes": 446863,
       "translation": "authored-bilingual"
     }
   ],
@@ -33193,16 +33489,16 @@
     {
       "name": "t12-student",
       "title": "Manuel de mathématiques T12 C et D, édition élève",
-      "modified": "2026-11-14T14:39:38.000Z",
-      "sha256": "24943b10c78b859c4b57e4e0578e951bc0496ef2e3b6f4d5fad151197ac7df24",
-      "bytes": 1664740
+      "modified": "2026-11-16T14:44:02.000Z",
+      "sha256": "582e09882f70b329f40530fe53ce6eaa94bc2e34017eda8eafbc969c5ba1455b",
+      "bytes": 1780978
     },
     {
       "name": "t12-teacher",
       "title": "Manuel de mathématiques T12 C et D, édition professeur",
-      "modified": "2026-11-14T14:39:38.000Z",
-      "sha256": "6ea650b84323b7de90bcc935343e6227e4fc8cd183fa986b1b3e193033be52f3",
-      "bytes": 2031737
+      "modified": "2026-11-16T14:44:02.000Z",
+      "sha256": "3a7f380371502c27726b9d7c2e2d102f899b3d37b10444ec977af01c88287bde",
+      "bytes": 3410610
     }
   ]
 }

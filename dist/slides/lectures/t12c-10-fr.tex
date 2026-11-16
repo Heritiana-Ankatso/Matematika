@@ -2,7 +2,12 @@
 \makeatletter\IfFileExists{core/beamer/beamerthememx.sty}{\def\mxcorepath{core/}\def\input@path{{core/beamer/}{core/}}}{\def\mxcorepath{../core/}\def\input@path{{../core/beamer/}{../core/}}}\makeatother
 \documentclass[aspectratio=169,10pt,t]{beamer}
 \usetheme{mx}
-\usepackage{graphicx,booktabs}
+\usepackage{graphicx,booktabs,mathtools,array,adjustbox}
+\usepackage[all]{xy}
+\providecommand{\actualtextwidth}{\textwidth}
+\providecommand{\veccor}[2]{\left(\begin{matrix}#1\\#2\end{matrix}\right)}
+\DeclarePairedDelimiter{\VecNorm}{\lVert}{\rVert}
+\providecommand{\ETC}{\ldots}
 \usepackage[french]{babel}
 \setlength{\parskip}{.45em}
 \hypersetup{pdfauthor={},pdfsubject={Lecture slides},pdfkeywords={},pdftitle={Fonctions exponentielle et logarithme}}
@@ -36,12 +41,13 @@
 \author{}
 \begin{document}
 \mxtitleframe
-\begin{frame}{Fonction exponentielle}
+\begin{frame}[allowframebreaks]{Fonction exponentielle}
 La \emph{fonction exponentielle} est l'unique fonction \(f\) définie et dérivable sur \(\mathbb{R}\) et vérifiant : 
                   \[   f' = f \qquad \text{ et } \qquad f(0) = 1   \,. \]
-            On note la fonction par \(\mathrm{exp}\).
+
+On note la fonction par \(\mathrm{exp}\).
 \end{frame}
-\begin{frame}{Fonction exponentielle}
+\begin{frame}[allowframebreaks]{Fonction exponentielle}
 La fonction exponentielle peut en fait être considérée comme une fonction puissance.
             Il existe un nombre réel \(e\) (\(\simeq 2,718\,281\,828\,459\,045\)) 
             tel que \(\exp{x} = e^{x}\) pour tout \(x\in\mathbb{Q}\).
@@ -50,10 +56,10 @@ La fonction exponentielle peut en fait être considérée comme une fonction pui
             une généralisation d'une fonction puissance.
             On dénotera alors \(\exp{x}\) par \(\mathrm{e}^{x}\).
 \end{frame}
-\begin{frame}{Fonction exponentielle}
+\begin{frame}[allowframebreaks]{Fonction exponentielle}
 Soient \(a\) et \(b\) deux nombres réels.
 \end{frame}
-\begin{frame}{Fonction exponentielle (2)}
+\begin{frame}[allowframebreaks]{Fonction exponentielle (2)}
 \begin{itemize}
 
                   \item \(\mathrm{e}^{0} = 1\)
@@ -68,7 +74,7 @@ Soient \(a\) et \(b\) deux nombres réels.
 
 \end{itemize}
 \end{frame}
-\begin{frame}{Fonction exponentielle}
+\begin{frame}[allowframebreaks]{Fonction exponentielle}
 La fonction \(\exp\) est définie sur \(\mathbb{R}\).
             De plus, \(\mathrm{e}^{x} > 0\) pour tout \(x\in\mathbb{R}\) (car \(\mathrm{e}^{x} = \left(\mathrm{e}^{x/2}\right)^2\) et \(\mathrm{e}^{x/2}\,\mathrm{e}^{-x/2} = 1\), donc \(\mathrm{e}^{x/2} \neq 0\)).
             Comme \(\exp' x = \exp x > 0\), alors la fonction \(\exp\) est strictement croissante sur \(\mathbb{R}\).
@@ -77,19 +83,19 @@ La fonction \(\exp\) est définie sur \(\mathbb{R}\).
                         x<y \Rightarrow \mathrm{e}^{x} < \mathrm{e}^{y}      \;.
                   \]
 \end{frame}
-\begin{frame}{Fonction exponentielle}
-\[\begin{aligned}
+\begin{frame}[allowframebreaks]{Fonction exponentielle}
+\begin{align*}
                   \lim_{x\rightarrow-\infty} \mathrm{e}^{x} & = 0     & \lim_{x\rightarrow+\infty} \mathrm{e}^{x} & = +\infty \\
-                  \lim_{x\rightarrow-\infty} x \mathrm{e}^{x} & = 0   & \lim_{x\rightarrow+\infty} \dfrac{\mathrm{e}^{x}}{x} & = +\infty \\
-                \\ \text{ou plus généralement, pour tout $n\in\mathbb{N}$ (<< croissances comparées >> : en $+\infty$, l'exponentielle l'emporte sur toute puissance de $x$)} \\
+                  \lim_{x\rightarrow-\infty} x \mathrm{e}^{x} & = 0   & \lim_{x\rightarrow+\infty} \dfrac{\mathrm{e}^{x}}{x} & = +\infty \intertext{ou plus généralement, pour tout $n\in\mathbb{N}$ (<< croissances comparées >> : en $+\infty$, l'exponentielle l'emporte sur toute puissance de $x$)} 
                   \lim_{x\rightarrow-\infty} x^n \mathrm{e}^{x} & = 0 & \lim_{x\rightarrow+\infty} \dfrac{\mathrm{e}^{x}}{x^n} & = +\infty\;.
-            \end{aligned}\]
-            On a aussi 
+            \end{align*}
+
+On a aussi 
                   \[
                         \lim_{x\rightarrow 0} \dfrac{\mathrm{e}^{x}-1}{x} = 1      \;.
                   \]
 \end{frame}
-\begin{frame}{Fonction exponentielle}
+\begin{frame}[allowframebreaks]{Fonction exponentielle}
 \textbf{Fonctions composées avec la fonction exponentielle}
 
  Il suit de la formule de dérivation d'une fonction composée que 
@@ -97,12 +103,12 @@ La fonction \(\exp\) est définie sur \(\mathbb{R}\).
             Ainsi, \(u\) et \(\mathrm{e}^{u}\) ont même sens de variations.
             Par exemple, pour un réel \(k\), \(\left(\mathrm{e}^{kx}\right)' = k\,\mathrm{e}^{kx}\).
 \end{frame}
-\begin{frame}{Fonction exponentielle}
+\begin{frame}[allowframebreaks]{Fonction exponentielle}
 Étude de la fonction \(\exp\)
 
 Posons \(f(x) = \mathrm{e}^{x}\).
 \end{frame}
-\begin{frame}{Fonction exponentielle (2)}
+\begin{frame}[allowframebreaks]{Fonction exponentielle (2)}
 \begin{itemize}
 \item \textbf{Domaine de définition :}  La fonction \(\exp\) est définie sur \(\mathbb{R} = ]-\infty,+\infty[\).
             
@@ -113,7 +119,7 @@ Posons \(f(x) = \mathrm{e}^{x}\).
 
 \end{itemize}
 \end{frame}
-\begin{frame}{Fonction exponentielle (3)}
+\begin{frame}[allowframebreaks]{Fonction exponentielle (3)}
 \begin{itemize}
 \item \textbf{Tableau des variations :}  
 
@@ -125,7 +131,7 @@ Posons \(f(x) = \mathrm{e}^{x}\).
 
 \end{itemize}
 \end{frame}
-\begin{frame}{Fonction exponentielle (4)}
+\begin{frame}[allowframebreaks]{Fonction exponentielle (4)}
 \begin{itemize}
 \item \textbf{Valeurs remarquables :}  \(f(0) = 1\) donc la courbe passe par le point de coordonnées \((0,1)\).
                                           De plus, la dérivée en ce point est égale à \(1\) :
@@ -135,26 +141,26 @@ Posons \(f(x) = \mathrm{e}^{x}\).
 
 \end{itemize}
 \end{frame}
-\begin{frame}{Fonction exponentielle (5)}
+\begin{frame}[allowframebreaks]{Fonction exponentielle (5)}
 \begin{itemize}
 \item \textbf{Courbe représentative :} 
                   Avant de tracer la courbe représentative de \(f\), étudions d'abord ses branches infinies.
                   
-\begin{itemize}
-
-                        \item Comme \(\lim_{x\rightarrow-\infty} f(x) = 0\), 
+\item Comme \(\lim_{x\rightarrow-\infty} f(x) = 0\), 
                               alors la courbe admet la droite d'équation \(y=0\) comme asymptote horizontale
                               au voisinage de \(-\infty\).
-                        
+
+\end{itemize}
+\end{frame}
+\begin{frame}[allowframebreaks]{Fonction exponentielle (6)}
+\begin{itemize}
 \item Comme \(\lim_{x\rightarrow+\infty} f(x) = +\infty\) et que
                               \(\lim_{x\rightarrow+\infty} \dfrac{f(x)}{x} = +\infty\) alors
                               la courbe admet une branche parabolique de direction \((y'Oy)\) au voisinage de \(+\infty\).
 
 \end{itemize}
-
-\end{itemize}
 \end{frame}
-\begin{frame}{Fonction Logarithme}
+\begin{frame}[allowframebreaks]{Fonction Logarithme}
 On a vu que la fonction exponentielle est continue (elle est même dérivable)
             et strictement croissante sur \(\mathbb{R}\).
             Elle définit donc une bijection de \(\mathbb{R}\) vers \(\mathbb{R}^*_+\).
@@ -170,11 +176,11 @@ On a vu que la fonction exponentielle est continue (elle est même dérivable)
                         \right.
                   \]
 \end{frame}
-\begin{frame}{Fonction Logarithme}
+\begin{frame}[allowframebreaks]{Fonction Logarithme}
 Ainsi, dans un repère orthonormé, la courbe de la fonction \(\exp\) et celle de la fonction \(\ln\) sont 
       symétriques par rapport à la première bissectrice (droite d'équation \(y = x\)).
 \end{frame}
-\begin{frame}{Fonction Logarithme}
+\begin{frame}[allowframebreaks]{Fonction Logarithme}
 \begin{itemize}
 
                   \item \(\ln 1 = 0\) car \(\mathrm{e}^{0} = 1\)
@@ -183,12 +189,12 @@ Ainsi, dans un repère orthonormé, la courbe de la fonction \(\exp\) et celle d
 
 \end{itemize}
 \end{frame}
-\begin{frame}{Fonction Logarithme (2)}
+\begin{frame}[allowframebreaks]{Fonction Logarithme (2)}
 Comme la fonction exponentielle est une bijection continue et strictement croissante de \(\mathbb{R}\) sur \(]0,+\infty[\), 
             la fonction logarithme népérien est une bijection continue et strictement croissante de \(]0,+\infty[\) sur \(\mathbb{R}\).
             En particulier, \(\ln x < 0\) pour \(0 < x < 1\) et \(\ln x > 0\) pour \(x > 1\).
 \end{frame}
-\begin{frame}{Fonction Logarithme}
+\begin{frame}[allowframebreaks]{Fonction Logarithme}
 Soient \(a\), \(b\) et \(x\) des nombres réels strictement positifs, \(\lambda\) un réel et \(n\) un entier relatif.
             On a alors :
 
@@ -202,19 +208,21 @@ Soient \(a\), \(b\) et \(x\) des nombres réels strictement positifs, \(\lambda\
                         \ln x = \lambda & \iff x = \mathrm{e}^{\lambda}      & 
                         \ln x < \lambda & \iff x < \mathrm{e}^{\lambda}      
             \end{aligned}\]
-            et, pour tout réel \(t\) et tout réel \(\mu > 0\) :
+\end{frame}
+\begin{frame}[allowframebreaks]{Fonction Logarithme (2)}
+et, pour tout réel \(t\) et tout réel \(\mu > 0\) :
             \[\begin{aligned}
                         \mathrm{e}^{t} = \mu & \iff t = \ln{\mu} &
                         \mathrm{e}^{t} < \mu & \iff t < \ln{\mu} \;.
             \end{aligned}\]
 \end{frame}
-\begin{frame}{Fonction Logarithme}
+\begin{frame}[allowframebreaks]{Fonction Logarithme}
 La fonction logarithme népérien est dérivable sur \(]0,+\infty[\) avec
                   \[
                         \left( \ln x \right)' = \dfrac{1}{x}      \;.
                   \]
 \end{frame}
-\begin{frame}{Fonction Logarithme}
+\begin{frame}[allowframebreaks]{Fonction Logarithme}
 Posons \(f(x) = \mathrm{e}^{x}\). On sait alors que \(f^{-1} (x) = \ln x\).
                   En utilisant la formule de dérivation de la fonction réciproque, on a :
                         \[\begin{aligned}
@@ -223,20 +231,21 @@ Posons \(f(x) = \mathrm{e}^{x}\). On sait alors que \(f^{-1} (x) = \ln x\).
                               \left(\ln (x) \right)'    & = \dfrac{1}{x}                                  \,.
                         \end{aligned}\]
 \end{frame}
-\begin{frame}{Fonction Logarithme}
+\begin{frame}[allowframebreaks]{Fonction Logarithme}
 \[\begin{aligned}
                         \lim_{x\rightarrow 0^+} \ln x                & = -\infty            &
                         \lim_{x\rightarrow 0^+} x\cdot\ln x          & = 0                  \\
                         \lim_{x\rightarrow +\infty} \ln x            & = +\infty            &
                         \lim_{x\rightarrow +\infty} \dfrac{\ln x}{x}  & = 0                  
                   \end{aligned}\]
-                  Plus généralement (croissances comparées), pour tout entier \(n \geq 1\) :
+
+Plus généralement (croissances comparées), pour tout entier \(n \geq 1\) :
                   \(\displaystyle \lim_{x\rightarrow +\infty} \dfrac{\ln x}{x^n} = 0\) et \(\displaystyle \lim_{x\rightarrow 0^+} x^n \ln x = 0\).
                   \[
                         \lim_{x\rightarrow 0} \dfrac{\ln (1 + x)}{x} = 1      \;.
                   \]
 \end{frame}
-\begin{frame}{Fonction Logarithme}
+\begin{frame}[allowframebreaks]{Fonction Logarithme}
 \textbf{Fonctions composées avec la fonction logarithme népérien}
 
  Soit \(u\) une fonction dérivable sur un intervalle \(I\) tel que \(u(x)>0\) pour tout \(x\in I\).
@@ -246,7 +255,7 @@ Posons \(f(x) = \mathrm{e}^{x}\). On sait alors que \(f^{-1} (x) = \ln x\).
             Si \(u\) est dérivable et ne s'annule pas sur \(I\), on a de même
             \(\left( \ln |u| \right)' = \dfrac{u'}{u}\) ; en particulier \(\left(\ln|x|\right)' = \dfrac{1}{x}\) sur \(]-\infty,0[\) et sur \(]0,+\infty[\).
 \end{frame}
-\begin{frame}{Fonction Logarithme}
+\begin{frame}[allowframebreaks]{Fonction Logarithme}
 On définit la fonction logarithme décimal par :
                         \[
                               \begin{array}{rcl}
@@ -255,7 +264,8 @@ On définit la fonction logarithme décimal par :
                               \end{array}
                         \]
 \end{frame}
-\begin{frame}{Fonction Logarithme}
+\begin{frame}[allowframebreaks]{Fonction Logarithme}
+\scriptsize
 Si la fonction \(\ln\) est la réciproque de la fonction \(x\mapsto \mathrm{e}^{x}\),
                   la fonction \(\log\) peut être considérée comme étant la réciproque de la fonction \(x\mapsto 10^x\).
                   
@@ -276,10 +286,12 @@ Si la fonction \(\ln\) est la réciproque de la fonction \(x\mapsto \mathrm{e}^{
                                     \simeq 23\,249\,424{,}67
                                     .
                                     \]
-                              Ainsi, ce nombre comporte \(23\,249\,425\) chiffres.
+\end{frame}
+\begin{frame}[allowframebreaks]{Fonction Logarithme (2)}
+Ainsi, ce nombre comporte \(23\,249\,425\) chiffres.
                         example
 \end{frame}
-\begin{frame}{Fonction Logarithme}
+\begin{frame}[allowframebreaks]{Fonction Logarithme}
 Soit \(a\) un nombre réel strictement positif et différent de \(1\) (pour que \(\ln a \neq 0\)).
                   On définit la fonction logarithme de base \(a\) par :
                         \[
@@ -289,22 +301,23 @@ Soit \(a\) un nombre réel strictement positif et différent de \(1\) (pour que 
                               \end{array}
                         \]
 \end{frame}
-\begin{frame}{Fonction Logarithme}
+\begin{frame}[allowframebreaks]{Fonction Logarithme}
 On a \(\log_a 1 = 0\), \(\log_a a = 1\), et \(\log_{10} = \log\).
             La fonction \(\log_a\) est croissante si \(a > 1\), décroissante si \(0 < a < 1\) ; c'est la réciproque de la fonction \(x \mapsto a^x\) définie ci-dessous.
 \end{frame}
-\begin{frame}{Fonction Logarithme}
+\begin{frame}[allowframebreaks]{Fonction Logarithme}
 Soit \(a\) un réel strictement positif. Pour tout réel \(x\), on pose
                   \[ a^x = \mathrm{e}^{x \ln a} \;. \]
-                  Lorsque \(x\) est un entier, on retrouve la puissance habituelle (car \(\mathrm{e}^{n \ln a} = \left(\mathrm{e}^{\ln a}\right)^n = a^n\)).
+
+Lorsque \(x\) est un entier, on retrouve la puissance habituelle (car \(\mathrm{e}^{n \ln a} = \left(\mathrm{e}^{\ln a}\right)^n = a^n\)).
 \end{frame}
-\begin{frame}{Fonction Logarithme}
+\begin{frame}[allowframebreaks]{Fonction Logarithme}
 Soient \(a > 0\), \(b > 0\) et \(x\), \(y\) des réels. Alors
                   \(a^{x+y} = a^x a^y\), \(a^{-x} = \dfrac{1}{a^x}\), \(\left(a^x\right)^y = a^{xy}\), \((ab)^x = a^x b^x\) et \(\ln\left(a^x\right) = x \ln a\).
 
 La fonction \(x \mapsto a^x\) est dérivable sur \(\mathbb{R}\) et \(\left(a^x\right)' = (\ln a)\, a^x\).
 \end{frame}
-\begin{frame}{Fonction Logarithme (2)}
+\begin{frame}[allowframebreaks]{Fonction Logarithme (2)}
 \begin{itemize}
 
                         \item Si \(a > 1\), elle est strictement croissante, \(\lim_{x \rightarrow -\infty} a^x = 0\) et \(\lim_{x \rightarrow +\infty} a^x = +\infty\) ;
@@ -315,10 +328,10 @@ La fonction \(x \mapsto a^x\) est dérivable sur \(\mathbb{R}\) et \(\left(a^x\r
 
 \end{itemize}
 \end{frame}
-\begin{frame}{Fonction Logarithme (3)}
+\begin{frame}[allowframebreaks]{Fonction Logarithme (3)}
 Pour \(a \neq 1\), \(y = a^x \iff x = \log_a y\) (avec \(y > 0\)).
 \end{frame}
-\begin{frame}{Fonction Logarithme}
+\begin{frame}[allowframebreaks]{Fonction Logarithme}
 Soit \(\alpha\) un réel. La fonction \(x \mapsto x^\alpha = \mathrm{e}^{\alpha \ln x}\) est définie et dérivable sur \(]0,+\infty[\) et
                   \(\left(x^\alpha\right)' = \alpha\, x^{\alpha - 1}\).
                   Par exemple, \(\sqrt{x} = x^{1/2}\) pour \(x > 0\).

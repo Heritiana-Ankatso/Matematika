@@ -2,7 +2,12 @@
 \makeatletter\IfFileExists{core/beamer/beamerthememx.sty}{\def\mxcorepath{core/}\def\input@path{{core/beamer/}{core/}}}{\def\mxcorepath{../core/}\def\input@path{{../core/beamer/}{../core/}}}\makeatother
 \documentclass[aspectratio=169,10pt,t]{beamer}
 \usetheme{mx}
-\usepackage{graphicx,booktabs}
+\usepackage{graphicx,booktabs,mathtools,array,adjustbox}
+\usepackage[all]{xy}
+\providecommand{\actualtextwidth}{\textwidth}
+\providecommand{\veccor}[2]{\left(\begin{matrix}#1\\#2\end{matrix}\right)}
+\DeclarePairedDelimiter{\VecNorm}{\lVert}{\rVert}
+\providecommand{\ETC}{\ldots}
 \usepackage[french]{babel}
 \setlength{\parskip}{.45em}
 \hypersetup{pdfauthor={},pdfsubject={Lecture slides},pdfkeywords={},pdftitle={Arithmétique}}
@@ -36,14 +41,14 @@
 \author{}
 \begin{document}
 \mxtitleframe
-\begin{frame}{Introduction}
+\begin{frame}[allowframebreaks]{Introduction}
 Soient \(a\) et \(b\) deux entiers naturels.
 On dit que \(a\) divise \(b\) ou que \(a\) est un diviseur de \(b\) s'il existe un entier naturel \(q\) tel que \(b = aq\).
 On dit aussi que \(b\) est un multiple de \(a\) ou encore que \(b\) est divisible par \(a\).
 
 L'ensemble des diviseurs de \(a\) est noté \(D_{(a)}\) ou \(D_a\).
 \end{frame}
-\begin{frame}{Nombres premiers}
+\begin{frame}[allowframebreaks]{Nombres premiers}
 \begin{enumerate}
 \setcounter{enumi}{0}
                         \item Un nombre \(n\in\mathbb{N}^*\) est dit \emph{premier} 
@@ -54,11 +59,11 @@ L'ensemble des diviseurs de \(a\) est noté \(D_{(a)}\) ou \(D_a\).
 
 \end{enumerate}
 \end{frame}
-\begin{frame}{Nombres premiers (2)}
+\begin{frame}[allowframebreaks]{Nombres premiers (2)}
 Le nombre \(1\) \textbf{n'}est \textbf{pas} premier,
                         le plus petit nombre premier est \(2\).
 \end{frame}
-\begin{frame}{Nombres premiers}
+\begin{frame}[allowframebreaks]{Nombres premiers}
 \begin{itemize}
 
                         \item Tout nombre entier naturel \(n > 1\) qui n'est pas premier 
@@ -69,7 +74,8 @@ Le nombre \(1\) \textbf{n'}est \textbf{pas} premier,
 
 \end{itemize}
 \end{frame}
-\begin{frame}{Nombres premiers (2)}
+\begin{frame}[allowframebreaks]{Nombres premiers (2)}
+\footnotesize
 example
                         Décomposer \(90\) et \(140\) en produits de facteurs premiers.
                         \[
@@ -89,7 +95,10 @@ example
                                             1 &   \\
                                     \end{array}
                         \]
-                                    Ainsi, \(90 = 2 \cdot 3^2 \cdot 5\) et \(140 = 2^2 \cdot 5 \cdot 7\).
+\end{frame}
+\begin{frame}[allowframebreaks]{Nombres premiers (3)}
+\footnotesize
+Ainsi, \(90 = 2 \cdot 3^2 \cdot 5\) et \(140 = 2^2 \cdot 5 \cdot 7\).
                   example
             
             Etant donné un nombre entier naturel \(n > 2\),
@@ -107,10 +116,10 @@ example
                         On conclut que \(139\) est premier.
                   example
 \end{frame}
-\begin{frame}{Nombres premiers}
+\begin{frame}[allowframebreaks]{Nombres premiers}
 Il y a une infinité de nombres premiers.
 \end{frame}
-\begin{frame}{Nombres premiers}
+\begin{frame}[allowframebreaks]{Nombres premiers}
 Le crible d'Eratosthenes est une méthode pour trouver tous les nombres premiers jusqu'à un rang \(n\) donné.
             On commence par écrire tous les nombres entiers de \(1\) à \(n\) dans une table 
             contenant \(\lfloor \sqrt{n} \rfloor\)
@@ -119,7 +128,7 @@ Le crible d'Eratosthenes est une méthode pour trouver tous les nombres premiers
 
 c'est-à-dire le plus grand entier inférieur ou égal à \(X\).
 \end{frame}
-\begin{frame}{Nombres premiers}
+\begin{frame}[allowframebreaks]{Nombres premiers}
 colonnes.
             On raye le nombre \(1\) puisqu'il n'est pas premier.
             Le prochain nombre non-rayés est premier, on le prend et on raye tous ses multiples.
@@ -127,16 +136,16 @@ colonnes.
             On s'arrête après avoir traité les nombres premiers inférieurs ou égaux à \(\sqrt{n}\).
             À la fin de l'algorithme, tous les nombres non rayés sont premiers.
 \end{frame}
-\begin{frame}{Diviseurs et multiples d'un nombre entier relatif}
+\begin{frame}[allowframebreaks]{Diviseurs et multiples d'un nombre entier relatif}
 Soient \(a\) et \(b\) deux nombres entiers relatifs.
 On dit que \(a\) divise \(b\), et on note \(a | b\), s'il existe un nombre entier relatif \(q\) tel que \(b = q a\).
 On dit aussi que \(b\) est un multiple de \(a\); 
 le nombre \(q\) est appelé \emph{quotient} de \(b\) par \(a\).
 \end{frame}
-\begin{frame}{Diviseurs et multiples d'un nombre entier relatif}
+\begin{frame}[allowframebreaks]{Diviseurs et multiples d'un nombre entier relatif}
 Soient \(a\), \(b\) et \(c\) trois nombres entiers relatifs non-nuls.
 \end{frame}
-\begin{frame}{Diviseurs et multiples d'un nombre entier relatif (2)}
+\begin{frame}[allowframebreaks]{Diviseurs et multiples d'un nombre entier relatif (2)}
 \begin{enumerate}
 \setcounter{enumi}{0}\item Si \(a|b\) et \(b|a\) alors \(a = b\) ou \(a = -b\).
       
@@ -153,7 +162,7 @@ Soient \(a\), \(b\) et \(c\) trois nombres entiers relatifs non-nuls.
 
 \end{enumerate}
 \end{frame}
-\begin{frame}{Diviseurs et multiples d'un nombre entier relatif (3)}
+\begin{frame}[allowframebreaks]{Diviseurs et multiples d'un nombre entier relatif (3)}
 \begin{enumerate}
 \setcounter{enumi}{5}\item 
 \begin{enumerate}
@@ -172,7 +181,7 @@ Soient \(a\), \(b\) et \(c\) trois nombres entiers relatifs non-nuls.
 
 \end{enumerate}
 \end{frame}
-\begin{frame}{Diviseurs et multiples d'un nombre entier relatif}
+\begin{frame}[allowframebreaks]{Diviseurs et multiples d'un nombre entier relatif}
 Soit \((a,b) \in \mathbb{Z} \times \mathbb{Z}^*\).
 
 Il existe alors un unique couple d'entiers relatifs \((q,r)\) tel que
@@ -187,7 +196,7 @@ Il existe alors un unique couple d'entiers relatifs \((q,r)\) tel que
 
 \end{itemize}
 \end{frame}
-\begin{frame}{Diviseurs et multiples d'un nombre entier relatif (2)}
+\begin{frame}[allowframebreaks]{Diviseurs et multiples d'un nombre entier relatif (2)}
 \(b|a\) si et seulement si \(r=0\).
       
       example
@@ -195,11 +204,11 @@ Il existe alors un unique couple d'entiers relatifs \((q,r)\) tel que
             On vérifie que \(-17 = (-4) \cdot 5 + 3\).
       example
 \end{frame}
-\begin{frame}{Numération à base \(b\)}
+\begin{frame}[allowframebreaks]{Numération à base \(b\)}
 Rappelons que dans l'écriture usuelle d'un nombre entier, on utilise la base \(10\).
       On se sert des symboles : \(0\), \(1\), \(2\), \(3\), \(4\), \(5\), \(6\), \(7\), \(8\) et \(9\) (il y a dix symboles).
 \end{frame}
-\begin{frame}{Numération à base \(b\) (2)}
+\begin{frame}[allowframebreaks]{Numération à base \(b\) (2)}
 Soit \(N\) un entier naturel et
             \( a_n a_{n-1} \dots a_2 a_1 a_0 \)
       où \(a_i \in \{ 0, 1, 2, \dots , 9 \}\) est son écriture décimale (c'est-à-dire usuelle).
@@ -210,12 +219,12 @@ Soit \(N\) un entier naturel et
               & = \sum_{i=0}^{n} a_{i} \cdot 10^{i}
             \end{aligned}\]
 \end{frame}
-\begin{frame}{Numération à base \(b\)}
+\begin{frame}[allowframebreaks]{Numération à base \(b\)}
 Considérons le nombre \(N = 9\;235\;819\).
             On a alors 
             \(N = 9\cdot 10^{6} + 2\cdot 10^{5} + 3\cdot 10^{4} + 5\cdot 10^{3} + 8\cdot 10^{2} + 1\cdot 10^{1} + 9\cdot 10^{0}\).
 \end{frame}
-\begin{frame}{Numération à base \(b\)}
+\begin{frame}[allowframebreaks]{Numération à base \(b\)}
 Pour écrire un nombre entier naturel \(N\) en base \(b\) (où \(b\geq 2\)), on se sert de \(b\) symboles.
       Si l'écriture en base \(b\) de \(N\) est 
             \( a_n a_{n-1} \dots a_2 a_1 a_0 \)
@@ -225,17 +234,18 @@ Pour écrire un nombre entier naturel \(N\) en base \(b\) (où \(b\geq 2\)), on 
                   + a_{2} \cdot b^{2} + a_{1} \cdot b^{1} + a_{0} \cdot b^{0}            \\
               & = \sum_{i=0}^{n} a_{i} \cdot b^{i}                                       .
             \end{aligned}\]
-      Pour indiquer que l'écriture est en base \(b\), on note \( \overline{a_n a_{n-1} \dots a_2 a_1 a_0}^{(b)}\).
+\end{frame}
+\begin{frame}[allowframebreaks]{Numération à base \(b\) (2)}
+Pour indiquer que l'écriture est en base \(b\), on note \( \overline{a_n a_{n-1} \dots a_2 a_1 a_0}^{(b)}\).
       conversionexample
       Écrivons les nombres 13 et 41 en base 2 (écriture binaire).
-\end{frame}
-\begin{frame}{Numération à base \(b\) (2)}
+
 Ainsi, \(13 = \overline{1101}^{_{(2)}}\).
             
             Ainsi, \(41 = \overline{101001}^{_{(2)}}\).
       conversionexample
 \end{frame}
-\begin{frame}{Numération à base \(b\)}
+\begin{frame}[allowframebreaks]{Numération à base \(b\)}
 conversionexample
             Écrivons les nombres 957 et 188899 en base 8 :
 
@@ -244,7 +254,7 @@ conversionexample
             Ainsi, \(188899 = \overline{560743}^{_{(8)}}\).
       conversionexample
 \end{frame}
-\begin{frame}{Numération à base \(b\) (2)}
+\begin{frame}[allowframebreaks]{Numération à base \(b\) (2)}
 conversionexample
             Écrivons les nombres 18 647 et 1 304 748 en base 12, pour celà, 
             on aura besoin d'ajouter les symboles \(A\) et \(B\) pour les <<chiffres>> dix et onze respectivement.
@@ -254,7 +264,8 @@ conversionexample
             Ainsi, \(1\,304\,748 = \overline{52B090}^{_{(12)}}\).
       conversionexample
 \end{frame}
-\begin{frame}{Numération à base \(b\)}
+\begin{frame}[allowframebreaks]{Numération à base \(b\)}
+\footnotesize
 Il existe d'autres notations pour les nombres en base autres que dix.
             Le nombre \(42\) peut par exemple être noté
                   \( \overline{101010}^{_{(2)}} \),
@@ -268,7 +279,7 @@ Il existe d'autres notations pour les nombres en base autres que dix.
             on ajoute souvent des lettres de l'alphabet latin dans l'ordre.
             On peut utiliser des lettres minuscules aussi bien que capitales.
 \end{frame}
-\begin{frame}{Congruence}
+\begin{frame}[allowframebreaks]{Congruence}
 Soient \((x,y) \in \mathbb{Z}^2\) et \(n\in\mathbb{N}\).
             On dit que \(x\) est congru à \(y\) modulo \(n\) si
             \(n\) divise \(x-y\). 
@@ -279,58 +290,59 @@ Soient \((x,y) \in \mathbb{Z}^2\) et \(n\in\mathbb{N}\).
                                          & \iff & x - y = k \cdot n \quad (k\in\mathbb{Z})      \\
                                          & \iff & x = y + k \cdot n \quad (k\in\mathbb{Z})      
                   \end{array}\]
-            La congruence modulo \(0\) est l'égalité.
+
+La congruence modulo \(0\) est l'égalité.
 \end{frame}
-\begin{frame}{Congruence}
+\begin{frame}[allowframebreaks]{Congruence}
 Soit \(n\) un entier naturel.
 \end{frame}
-\begin{frame}{Congruence (2)}
+\begin{frame}[allowframebreaks]{Congruence (2)}
 \begin{enumerate}
 \setcounter{enumi}{0}\item La congruence modulo \(n\) est une relation d'équivalence, 
                         c'est-à-dire que, pour tous entiers relatifs \(x\), \(y\) et \(z\), on a :
 
-\begin{itemize}
-
-                              \item \textbf{Reflexivité :}  
+\item \textbf{Reflexivité :}  
                                     \(x \equiv x \quad \mathrm{mod}\ n\),
-                              
-\item \textbf{Symétrie :}  
+
+\end{enumerate}
+\end{frame}
+\begin{frame}[allowframebreaks]{Congruence (3)}
+\begin{enumerate}
+\setcounter{enumi}{2}\item \textbf{Symétrie :}  
                                     \(x \equiv y \quad \mathrm{mod}\ n \iff y \equiv x \quad \mathrm{mod}\ n\),
                               
 \item \textbf{Transitivité :}  
                                     \(\left( x \equiv y \quad \mathrm{mod}\ n \text{ et } y \equiv z \quad \mathrm{mod}\ n \right) \Rightarrow x \equiv z \quad \mathrm{mod}\ n\).
 
-\end{itemize}
-
 \end{enumerate}
 \end{frame}
-\begin{frame}{Congruence (3)}
+\begin{frame}[allowframebreaks]{Congruence (4)}
+\footnotesize
 \begin{enumerate}
 \setcounter{enumi}{4}\item La congruence modulo \(n\) est compatible avec l'addition et la multiplication, 
                         c'est-à-dire que, pour tous entiers relatifs \(x_1\), \(x_2\), \(y_1\) et \(y_2\), on a :
 
-                        displaymath
-                              .
-                                    arrayl
-                                          x\_1  y\_1   mod n 
-
-                                          x\_2  y\_2   mod n
-                                    array
-
-                                    arrayl
-                                          x\_1 + x\_2  y\_1 + y\_2   mod n             
-
-                                          x\_1  x\_2  y\_1  y\_2   mod n     
-
-                                    array
-                              .
-                        displaymath
+                        \[
+                              \left.
+                                    \begin{array}{l}
+                                          x_1 \equiv y_1 \quad \mathrm{mod}\ n \\
+                                          x_2 \equiv y_2 \quad \mathrm{mod}\ n
+                                    \end{array}
+                              \right\rbrace
+                              \Rightarrow
+                              \left\lbrace
+                                    \begin{array}{l}
+                                          x_1 + x_2 \equiv y_1 + y_2 \quad \mathrm{mod}\ n             \\
+                                          x_1 \cdot x_2 \equiv y_1 \cdot y_2 \quad \mathrm{mod}\ n     \\
+                                    \end{array}
+                              \right.
+                        \]
                         et par conséquent, pour tout \(k\in\mathbb{N}^*\), on a :
                               \(x \equiv y \quad \mathrm{mod}\ n \Rightarrow x^k \equiv y^k \quad \mathrm{mod}\ n\).
 
 \end{enumerate}
 \end{frame}
-\begin{frame}{Congruence}
+\begin{frame}[allowframebreaks]{Congruence}
 \begin{enumerate}
 \setcounter{enumi}{0}
                   \item Si \(d|n\) et \(x \equiv y \quad \mathrm{mod}\ n\), alors \(x \equiv y \quad \mathrm{mod}\ d\).
@@ -341,7 +353,7 @@ Soit \(n\) un entier naturel.
 
 \end{enumerate}
 \end{frame}
-\begin{frame}{Congruence}
+\begin{frame}[allowframebreaks]{Congruence}
 On veut déterminer le reste de la division euclidienne de \(7^{100}\) par \(5\).
             
             On a \(7^{100} = (7^2)^{50} = 49^{50}\).
@@ -350,7 +362,8 @@ On veut déterminer le reste de la division euclidienne de \(7^{100}\) par \(5\)
             Il vient que \((7^2)^{50} \equiv (-1)^{50} \quad \mathrm{mod}\ 5\) et donc \(7^{100} \equiv 1 \quad \mathrm{mod}\ 5\).
             Ainsi, le reste de la division euclidienne de \(7^{100}\) par \(5\) est \(1\).
 \end{frame}
-\begin{frame}{Congruence}
+\begin{frame}[allowframebreaks]{Congruence}
+\footnotesize
 On veut déterminer un critère de divisibilité par \(9\).
             
             Soit \(N\) un nombre entier naturel et soit \(a_n a_{n-1} \ldots a_2 a_1 a_0\) son écriture en base 10.
@@ -363,21 +376,25 @@ On veut déterminer un critère de divisibilité par \(9\).
                         10^p &  \equiv 1^p \quad \mathrm{mod}\ 9 \\
                         10^p &  \equiv 1 \quad \mathrm{mod}\ 9   \;.
                   \end{aligned}\]
-                  
-            Ainsi, pour tout \(p\in\mathbb{N}\), on a :
+\end{frame}
+\begin{frame}[allowframebreaks]{Congruence (2)}
+Ainsi, pour tout \(p\in\mathbb{N}\), on a :
                   \[\begin{aligned}
                         10^p &  \equiv 1 \quad \mathrm{mod}\ 9                   \\
                         a_p \cdot 10^p &  \equiv a_p \quad \mathrm{mod}\ 9       \;.
                   \end{aligned}\]
-            En prenant la somme pour \(p\) allant de \(0\) à \(n\), on a :
+
+En prenant la somme pour \(p\) allant de \(0\) à \(n\), on a :
                   \[\begin{aligned}
                         a_n10^n+a_{n-1}10^{n-1}+\cdots+a_110+a_0 \equiv a_n+a_{n-1}+\cdots+a_1+a_0 \quad \mathrm{mod}\ 9      \;.
                   \end{aligned}\]
-            Ainsi, \(N \equiv \sum_{p=0}^n a_p \quad \mathrm{mod}\ 9\).
+\end{frame}
+\begin{frame}[allowframebreaks]{Congruence (3)}
+Ainsi, \(N \equiv \sum_{p=0}^n a_p \quad \mathrm{mod}\ 9\).
             Comme \(9|N \iff N \equiv 0 \quad \mathrm{mod}\ 9\), alors \(9|N \iff \sum_{p=0}^n a_p \equiv 0 \quad \mathrm{mod}\ 9\).
             Ainsi, \(N\) est un multiple de \(9\) si et seulement si la somme de ces chiffres est un multiple de \(9\).
 \end{frame}
-\begin{frame}{Anneau \(\mathbb{Z}/n\mathbb{Z}\)}
+\begin{frame}[allowframebreaks]{Anneau \(\mathbb{Z}/n\mathbb{Z}\)}
 Soient \(n\in\mathbb{N}\), \(n \geq 2\), et \(r\in\mathbb{Z}\).
       On définit la classe d'équivalence de \(r\) comme étant 
       l'ensemble des \(x\in\mathbb{Z}\) tel que \(x \equiv r \quad \mathrm{mod}\ n\), 
@@ -388,22 +405,23 @@ Soient \(n\in\mathbb{N}\), \(n \geq 2\), et \(r\in\mathbb{Z}\).
 Bien qu'une classe d'équivalence peut avoir plusieurs représentants, 
       on préfère prendre \( r \in \mathopen{[\![} 0 ; n-1 \mathclose{]\!]}\).
 \end{frame}
-\begin{frame}{Anneau \(\mathbb{Z}/n\mathbb{Z}\) (2)}
+\begin{frame}[allowframebreaks]{Anneau \(\mathbb{Z}/n\mathbb{Z}\) (2)}
 On note par \(\mathbb{Z}/n\mathbb{Z}\) l'ensemble 
       \(\left\lbrace \overline{0},\ \overline{1},\ \ldots ,\ \overline{n-1} \right\rbrace\).
 \end{frame}
-\begin{frame}{Anneau \(\mathbb{Z}/n\mathbb{Z}\)}
+\begin{frame}[allowframebreaks]{Anneau \(\mathbb{Z}/n\mathbb{Z}\)}
 On définit l'addition et la multiplication dans \(\mathbb{Z}/n\mathbb{Z}\) par :       
       \[\begin{aligned}
             \overline{a} + \overline{b} & = \overline{a+b}       & \overline{a} \cdot \overline{b} = \overline{a\cdot b} \;.
       \end{aligned}\]
-      Ces opérations ne dépendent pas des représentants choisis (compatibilité de la congruence avec l'addition et la multiplication).
+
+Ces opérations ne dépendent pas des représentants choisis (compatibilité de la congruence avec l'addition et la multiplication).
       Muni de ces deux opérations, \(\mathbb{Z}/n\mathbb{Z}\) a une structure d'anneau,
 \end{frame}
-\begin{frame}{Anneau \(\mathbb{Z}/n\mathbb{Z}\)}
+\begin{frame}[allowframebreaks]{Anneau \(\mathbb{Z}/n\mathbb{Z}\)}
 c'est-à-dire que pour tout \(\overline{a}\), \(\overline{b}\) et \(\overline{c}\) de \(\mathbb{Z}/n\mathbb{Z}\), on a :
 \end{frame}
-\begin{frame}{Anneau \(\mathbb{Z}/n\mathbb{Z}\) (2)}
+\begin{frame}[allowframebreaks]{Anneau \(\mathbb{Z}/n\mathbb{Z}\) (2)}
 \begin{itemize}
 \item \(\overline{a} + \overline{b}\) et \(\overline{a} \cdot \overline{b}\) sont bien définie dans \(\mathbb{Z}/n\mathbb{Z}\),
                   
@@ -415,7 +433,7 @@ c'est-à-dire que pour tout \(\overline{a}\), \(\overline{b}\) et \(\overline{c}
 
 \end{itemize}
 \end{frame}
-\begin{frame}{Anneau \(\mathbb{Z}/n\mathbb{Z}\) (3)}
+\begin{frame}[allowframebreaks]{Anneau \(\mathbb{Z}/n\mathbb{Z}\) (3)}
 \begin{itemize}
 \item il existe un élément, noté \(-\overline{a}\) tel que \(\overline{a} + (-\overline{a}) = \overline{0}\),
                   
@@ -425,13 +443,13 @@ c'est-à-dire que pour tout \(\overline{a}\), \(\overline{b}\) et \(\overline{c}
 
 \end{itemize}
 \end{frame}
-\begin{frame}{Anneau \(\mathbb{Z}/n\mathbb{Z}\) (4)}
+\begin{frame}[allowframebreaks]{Anneau \(\mathbb{Z}/n\mathbb{Z}\) (4)}
 \begin{itemize}
 \item \((\overline{b} + \overline{c}) \cdot \overline{a} = \overline{b} \cdot \overline{a} + \overline{c} \cdot \overline{a}\).
 
 \end{itemize}
 \end{frame}
-\begin{frame}{Anneau \(\mathbb{Z}/n\mathbb{Z}\)}
+\begin{frame}[allowframebreaks]{Anneau \(\mathbb{Z}/n\mathbb{Z}\)}
 \(\mathbb{Z}/5\mathbb{Z} = \left\lbrace \overline{0},\ \overline{1},\ \overline{2},\ \overline{3},\ \overline{4} \right\rbrace\).
             Dans ce cas, 
             \[\begin{aligned}
@@ -441,7 +459,10 @@ c'est-à-dire que pour tout \(\overline{a}\), \(\overline{b}\) et \(\overline{c}
                   \overline{3} & = \left\lbrace \ldots ,\ -12,\ -7,\ -2,\ 3,\ 8,\ 13,\ 18,\ \ldots \right\rbrace  ,\\
                   \overline{4} & = \left\lbrace \ldots ,\ -11,\ -6,\ -1,\ 4,\ 9,\ 14,\ 19,\ \ldots \right\rbrace  .
             \end{aligned}\]
-            On a les tables d'additions et de multiplications suivantes :
+\end{frame}
+\begin{frame}[allowframebreaks]{Anneau \(\mathbb{Z}/n\mathbb{Z}\) (2)}
+\footnotesize
+On a les tables d'additions et de multiplications suivantes :
                   \[
                   \begin{array}{|c|c|c|c|c|c|}
                   \hline 
@@ -477,10 +498,11 @@ c'est-à-dire que pour tout \(\overline{a}\), \(\overline{b}\) et \(\overline{c}
                   .
                   \]
 \end{frame}
-\begin{frame}{Anneau \(\mathbb{Z}/n\mathbb{Z}\)}
+\begin{frame}[allowframebreaks]{Anneau \(\mathbb{Z}/n\mathbb{Z}\)}
 Au lieu de \(\mathbb{Z}/n\mathbb{Z}\), on utilise parfois \(\mathbb{Z}_n\).
 \end{frame}
-\begin{frame}{Anneau \(\mathbb{Z}/n\mathbb{Z}\)}
+\begin{frame}[allowframebreaks]{Anneau \(\mathbb{Z}/n\mathbb{Z}\)}
+\footnotesize
 Résolvons dans \(\mathbb{Z}/5\mathbb{Z}\) l'équation \(x+\overline{3} = \overline{2}\).
             Pour celà, additionnons \(\overline{2}\) dans chaque membre de l'égalité, on a alors 
                   \(x + \overline{3} + \overline{2} = \overline{2} + \overline{2} \Rightarrow x = \overline{4}\).
@@ -501,7 +523,9 @@ Résolvons dans \(\mathbb{Z}/5\mathbb{Z}\) l'équation \(x+\overline{3} = \overl
                   \end{array}
             \right.
             \]
-            On peut additionner les deux équations pour avoir 
+\end{frame}
+\begin{frame}[allowframebreaks]{Anneau \(\mathbb{Z}/n\mathbb{Z}\) (2)}
+On peut additionner les deux équations pour avoir 
                 \( ( \overline{3} + \overline{2} ) \, x + ( \overline{2} + \overline{4} ) \, y = \overline{1} + \overline{0} \).
                 Ainsi, \(y = \overline{1}\).
             Pour trouver la valeur de \(x\), on peut commencer par multiplier la première équation par \(\overline{3}\),
@@ -513,10 +537,13 @@ Résolvons dans \(\mathbb{Z}/5\mathbb{Z}\) l'équation \(x+\overline{3} = \overl
                   \end{array}
             \right.
             \]
-            et ensuite additionner les deux équations pour avoir 
+\end{frame}
+\begin{frame}[allowframebreaks]{Anneau \(\mathbb{Z}/n\mathbb{Z}\) (3)}
+et ensuite additionner les deux équations pour avoir 
                   \( x = \overline{3}\).
 \end{frame}
-\begin{frame}{PPCM et PGCD}
+\begin{frame}[allowframebreaks]{PPCM et PGCD}
+\footnotesize
 Soient \(a\) et \(b\) deux entiers naturels non nuls.
       On appelle \textbf{P}lus \textbf{P}etit \textbf{C}ommun \textbf{M}ultiple 
       ,  en abrégé \emph{PPCM} ,  de \(a\) et \(b\) le nombre 
@@ -530,7 +557,7 @@ Soient \(a\) et \(b\) deux entiers naturels non nuls.
       Si \(a\) et \(b\) sont deux entiers relatifs non-nuls, on a aussi :
             \(PPCM(a;b) := \min \left( \left\lbrace m\in\mathbb{N}^* \mid a|m \text{ et } b|m \right\rbrace \right)\).
 \end{frame}
-\begin{frame}{PPCM et PGCD}
+\begin{frame}[allowframebreaks]{PPCM et PGCD}
 Soient \(a\) et \(b\) deux entiers naturels non-nuls.
 
 \begin{itemize}
@@ -544,13 +571,13 @@ Soient \(a\) et \(b\) deux entiers naturels non-nuls.
 
 \end{itemize}
 \end{frame}
-\begin{frame}{PPCM et PGCD}
+\begin{frame}[allowframebreaks]{PPCM et PGCD}
 Pour trouver le PPCM de deux ,  ou de plusieurs ,  nombres, 
             on peut décomposer chacun des nombres en produits de facteurs premiers.
 
 Il suffit ensuite de prendre, pour chaque facteur premier présent, la plus grande puissance.
 \end{frame}
-\begin{frame}{PPCM et PGCD}
+\begin{frame}[allowframebreaks]{PPCM et PGCD}
 Cherchons \(PPCM(28;24;36)\).
                   
                   Comme 
@@ -565,7 +592,7 @@ Cherchons \(PPCM(28;24;36)\).
                   \)
                   le PPCM de ces trois nombres est \(2^3 \cdot 3^2 \cdot 7 = 504\).
 \end{frame}
-\begin{frame}{PPCM et PGCD}
+\begin{frame}[allowframebreaks]{PPCM et PGCD}
 Soient \(a\) et \(b\) deux entiers naturels non tous les deux nuls.
       On appelle \textbf{P}lus \textbf{G}rand \textbf{C}ommun \textbf{D}iviseur
       ,  en abrégé \emph{PGCD} ,  de \(a\) et \(b\) le nombre 
@@ -575,18 +602,18 @@ Soient \(a\) et \(b\) deux entiers naturels non tous les deux nuls.
                   On trouve parfois l'acronyme PGDC 
                   (\textbf{P}lus \textbf{G}rand \textbf{D}iviseur \textbf{C}ommun)
 \end{frame}
-\begin{frame}{PPCM et PGCD (2)}
+\begin{frame}[allowframebreaks]{PPCM et PGCD (2)}
 mais la version la plus répandue est PGCD.
 
       Deux nombres \(a\) et \(b\) sont dits \emph{premiers entre eux} si \(PGCD(a,b) = 1\).
 \end{frame}
-\begin{frame}{PPCM et PGCD}
+\begin{frame}[allowframebreaks]{PPCM et PGCD}
 Tout entier divise \(0\), donc \(D_0 \cap D_0\) n'a pas de plus grand élément ;
             on pose, par convention, \(PGCD(0,0)=0\).
             Pour \(a \neq 0\), on a \(PGCD(a,0) = a\).
             Pour des entiers relatifs, on pose \(PGCD(a,b) = PGCD(|a|,|b|)\).
 \end{frame}
-\begin{frame}{PPCM et PGCD}
+\begin{frame}[allowframebreaks]{PPCM et PGCD}
 Soient \(a\) et \(b\) deux entiers naturels non-nuls.
 
 \begin{itemize}
@@ -600,7 +627,7 @@ Soient \(a\) et \(b\) deux entiers naturels non-nuls.
 
 \end{itemize}
 \end{frame}
-\begin{frame}{PPCM et PGCD}
+\begin{frame}[allowframebreaks]{PPCM et PGCD}
 Soient \(a\) et \(b\) deux nombres entiers naturels non-nuls.
             Soit \(r\) le reste de la division de \(b\) par \(a\).
             
@@ -609,21 +636,21 @@ Soient \(a\) et \(b\) deux nombres entiers naturels non-nuls.
             En fait, on a un résultat plus fort : \(PGCD(a,b) = PGCD(a,r)\)
                        (car \(r = b - qa\) et \(b = qa + r\) : les diviseurs communs de \(a\) et \(b\) sont exactement ceux de \(a\) et \(r\)).
 \end{frame}
-\begin{frame}{PPCM et PGCD}
+\begin{frame}[allowframebreaks]{PPCM et PGCD}
 Soient \(a\) et \(b\) deux entiers naturels non-nuls.
             On a
             \[
                   PPCM(a;b)\cdot PGCD(a,b)=a\cdot b.
             \]
 \end{frame}
-\begin{frame}{PPCM et PGCD}
+\begin{frame}[allowframebreaks]{PPCM et PGCD}
 Pour trouver le PGCD de deux ,  ou de plusieurs ,  nombres, 
             on peut décomposer chacun des nombres en produits de facteurs premiers.
 
 Il suffit ensuite de prendre, pour chaque facteur premier présent, la plus petite puissance
             (éventuellement \(0\)).
 \end{frame}
-\begin{frame}{PPCM et PGCD}
+\begin{frame}[allowframebreaks]{PPCM et PGCD}
 Cherchons \(PGCD(36,56)\).
                   
                   Comme 
@@ -637,7 +664,7 @@ Cherchons \(PGCD(36,56)\).
                   \)
                   le PGCD de ces deux nombres est \(2^2 = 4\).
 \end{frame}
-\begin{frame}{PPCM et PGCD}
+\begin{frame}[allowframebreaks]{PPCM et PGCD}
 Il existe un algorithme ,  celui d'Euclide ,  permettant de trouver le PGCD de deux nombres entiers naturels.
 
 Soient \(a\) et \(b\) deux entiers naturels non-nuls tels que \(a>b\).
@@ -650,11 +677,11 @@ Soient \(a\) et \(b\) deux entiers naturels non-nuls tels que \(a>b\).
               \end{aligned}
             \]
 \end{frame}
-\begin{frame}{PPCM et PGCD (2)}
+\begin{frame}[allowframebreaks]{PPCM et PGCD (2)}
 Les nombres \(q_n\) et \(r_n\) sont respectivement le quotient et le
             reste de la division de \(a_n\) par \(a_{n+1}\).
 \end{frame}
-\begin{frame}{PPCM et PGCD}
+\begin{frame}[allowframebreaks]{PPCM et PGCD}
 On peut dresser le tableau suivant
             \[
             \begin{array}{|c|c|c|c|c|}
@@ -667,11 +694,10 @@ On peut dresser le tableau suivant
             \hline 
             \end{array} 
             \]
-\end{frame}
-\begin{frame}{PPCM et PGCD (2)}
+
 et le dernier reste (c'est dans la dernière ligne) non-nul est le PGCD de \(a\) et \(b\).
 \end{frame}
-\begin{frame}{PPCM et PGCD}
+\begin{frame}[allowframebreaks]{PPCM et PGCD}
 Cherchons le PGCD de \(36\) et \(200\).
                   \[
                   \begin{array}{|c|c|c|c|c|}
@@ -684,9 +710,10 @@ Cherchons le PGCD de \(36\) et \(200\).
                   \hline 
                   \end{array} 
                   \]
-                  Le dernier reste non-nul est \(4\), donc \(PGCD(36,200) = 4\).
+
+Le dernier reste non-nul est \(4\), donc \(PGCD(36,200) = 4\).
 \end{frame}
-\begin{frame}{PPCM et PGCD}
+\begin{frame}[allowframebreaks]{PPCM et PGCD}
 Soient \(a\) et \(b\) deux entiers relatifs non-nuls et notons par \(d\) le PGCD de \(a\) et \(b\).
                   On a alors :
 
@@ -698,46 +725,49 @@ Soient \(a\) et \(b\) deux entiers relatifs non-nuls et notons par \(d\) le PGCD
 
 \end{itemize}
 \end{frame}
-\begin{frame}{PPCM et PGCD (2)}
+\begin{frame}[allowframebreaks]{PPCM et PGCD (2)}
 Les nombres \(u\) et \(v\) sont appelés \emph{coefficients de Bézout},
                   ils ne sont pas uniques.
 \end{frame}
-\begin{frame}{PPCM et PGCD}
+\begin{frame}[allowframebreaks]{PPCM et PGCD}
 On sait que \(PGCD(200,36) = 4\).
                   Cherchons deux entiers relatifs \(u\) et \(v\) tels que \(200 u + 36 v = 4\).
                   
-                  displaymath
-                        array|r@ = l|r@ = l|r@ = l|
-                              
-                              2|c|Division \&
-	                                     2|c|Écriture numérique  \& 
-	                                           2|c|Écriture littérale  
-
-                              200 \& 5  36 + 20 \& 20 \& 200 - 5  36       \& r\_0  \& a   - 5  b    
-
-                              36  \& 1  20 + 16 \& 16 \& 36  - 1  20       \& r\_1  \& b   - 1  r\_0  
-
-                              20  \& 1  16 + 4  \& 4  \& 20  - 1  16       \& r\_2  \& r\_0 - 1  r\_1  
-
-                              16  \& 4  4  + 0  \& 2|c|      \& 2|c|  
-
-                        array
-                  displaymath
-                  Ainsi, on a 
+                  \[
+                        \begin{array}{|r@{\ =\ }l|r@{\ =\ }l|r@{\ =\ }l|}
+                              \hline
+                              \multicolumn{2}{|c|}{\text{Division}} &
+	                                     \multicolumn{2}{|c|}{\text{Écriture numérique} } & 
+	                                           \multicolumn{2}{|c|}{\text{Écriture littérale} } \\
+                              \hline
+                              200 & 5 \cdot 36 + 20 & 20 & 200 - 5 \cdot 36       & r_0  & a   - 5 \cdot b    \\
+                              \hline
+                              36  & 1 \cdot 20 + 16 & 16 & 36  - 1 \cdot 20       & r_1  & b   - 1 \cdot r_0  \\
+                              \hline
+                              20  & 1 \cdot 16 + 4  & 4  & 20  - 1 \cdot 16       & r_2  & r_0 - 1 \cdot r_1  \\
+                              \hline
+                              16  & 4 \cdot 4  + 0  & \multicolumn{2}{|c|}{}      & \multicolumn{2}{|c|}{}  \\
+                              \hline
+                        \end{array}
+                  \]
+\end{frame}
+\begin{frame}[allowframebreaks]{PPCM et PGCD (2)}
+Ainsi, on a 
                         \[\begin{aligned}
                               r_2 & = (a-5b) - (b-r_0)       \\
                                   & = (a-5b) - (b-(a-5b))    \\
                                   & = a-5b-b+a-5b            \\
                                   & = 2a - 11 b              \;.
                         \end{aligned}\]
-                 D'où \(4 = 2 \cdot 200 - 11 \cdot 36\).
+
+D'où \(4 = 2 \cdot 200 - 11 \cdot 36\).
 \end{frame}
-\begin{frame}{PPCM et PGCD}
+\begin{frame}[allowframebreaks]{PPCM et PGCD}
 Il existe une version “\emph{étendue}” de l'algorithme d'Euclide.
 		Elle permet, en même temps que de connaître le PGCD de deux nombres \(a\) et \(b\), 
 		de trouver les coefficients de Bézout \(u\) et \(v\).
 \end{frame}
-\begin{frame}{PPCM et PGCD}
+\begin{frame}[allowframebreaks]{PPCM et PGCD}
 Il est identique au précédent, il faut juste ajouter deux lignes.
 		\[
 			\begin{array}{|c|c|c|c|c|}
@@ -754,92 +784,93 @@ Il est identique au précédent, il faut juste ajouter deux lignes.
 				\hline
 			\end{array} 
 		\]
-\end{frame}
-\begin{frame}{PPCM et PGCD (2)}
+
 Les derniers éléments des deux dernières lignes sont les coefficients \(u\) et \(v\) qu'on cherche.
 \end{frame}
-\begin{frame}{PPCM et PGCD}
+\begin{frame}[allowframebreaks]{PPCM et PGCD}
 En fait, à chaque étape, on a
 		\(
 			r_{n-2} = a_{n} = u_{n} \; a + v_{n} \; b
 		\).
 \end{frame}
-\begin{frame}{PPCM et PGCD}
+\begin{frame}[allowframebreaks]{PPCM et PGCD}
 Revenons à l'exemple précédent.
 		On sait que \(PGCD(200,36) = 4\).
 		On veut utiliser l'algorithme d'Euclide pour trouver les nombres \(u\) et \(v\) tels que 
 		\(200 \, u + 36 \, v = 4\).
 \end{frame}
-\begin{frame}{PPCM et PGCD (2)}
+\begin{frame}[allowframebreaks]{PPCM et PGCD (2)}
 \begin{center}\begin{tabular}{lllll}
- & \(5\) & \(1\) & \(1\) & \(4\) \\ 
-\(200\) & \(36\) & \(20\) & \(16\) & \(4\) \\ 
-\(20\) & \(16\) & \(4\) & \(0\) &  \\ 
-\(1\) & \(0\) & \(1\) & \(-1\) & \(2\) \\ 
-\(0\) & \(1\) & \(-5\) & \(6\) & \(-11\) \\ 
+ & \(5\) & \(1\) & \(1\) & \(4\) \\ {}
+\(200\) & \(36\) & \(20\) & \(16\) & \(4\) \\ {}
+\(20\) & \(16\) & \(4\) & \(0\) &  \\ {}
+\(1\) & \(0\) & \(1\) & \(-1\) & \(2\) \\ {}
+\(0\) & \(1\) & \(-5\) & \(6\) & \(-11\) \\ {}
 \end{tabular}\end{center}
 \end{frame}
-\begin{frame}{PPCM et PGCD (3)}
+\begin{frame}[allowframebreaks]{PPCM et PGCD (3)}
 Ainsi, on retrouve bien \(200 \cdot 2 - 36 \cdot 11 = 4\).
 \end{frame}
-\begin{frame}{PPCM et PGCD}
+\begin{frame}[allowframebreaks]{PPCM et PGCD}
 Soient \(a\), \(b\) et \(c\) trois entiers relatifs tels que \(PGCD(a,c) = 1\).
                   Alors, \(a|bc \Rightarrow a | b\).
 \end{frame}
-\begin{frame}{PPCM et PGCD}
+\begin{frame}[allowframebreaks]{PPCM et PGCD}
 On se propose de résoudre dans \(\mathbb{Z}\times\mathbb{Z}\) l'équation : 
                   \(35 x + 38 y = 1\).
                   
                   Commençons par dresser l'algorithme d'Euclide pour trouver \(PGCD(38,35)\) :
 \end{frame}
-\begin{frame}{PPCM et PGCD (2)}
+\begin{frame}[allowframebreaks]{PPCM et PGCD (2)}
 \begin{center}\begin{tabular}{lllll}
- & \(1\) & \(11\) & \(1\) & \(2\) \\ 
-\(38\) & \(35\) & \(3\) & \(2\) & \(1\) \\ 
-\(3\) & \(2\) & \(1\) & \(0\) &  \\ 
+ & \(1\) & \(11\) & \(1\) & \(2\) \\ {}
+\(38\) & \(35\) & \(3\) & \(2\) & \(1\) \\ {}
+\(3\) & \(2\) & \(1\) & \(0\) &  \\ {}
 \end{tabular}\end{center}
 \end{frame}
-\begin{frame}{PPCM et PGCD (3)}
+\begin{frame}[allowframebreaks]{PPCM et PGCD (3)}
 .
                   
                   On peut alors chercher deux entiers \(u\) et \(v\) tels que \(38 u + 35 v = 1\).
-                                    displaymath
-                        array|r@ = l|r@ = l|r@ = l|
-                              
-                              2|c|Division \&
-                                     2|c|Ecriture numérique  \& 
-                                           2|c|Écriture littérale  
-
-                              38  \& 1  35 + 3 \& 3 \& 38 - 1  35       \& r\_0  \& a   - 1  b    
-
-                              35  \& 11  3 + 2 \& 2 \& 35  - 11  3      \& r\_1  \& b   - 11  r\_0 
-
-                              3   \& 1  2 + 1  \& 1  \& 3  - 1  2       \& r\_2  \& r\_0 - 1  r\_1  
-
-                              2  \& 2  1  + 0  \& 2|c|      \& 2|c|  
-
-                        array
-                  displaymath
-                  Ainsi, on a : 
+                                    \[
+                        \begin{array}{|r@{\ =\ }l|r@{\ =\ }l|r@{\ =\ }l|}
+                              \hline
+                              \multicolumn{2}{|c|}{\text{Division}} &
+                                     \multicolumn{2}{|c|}{\text{Ecriture numérique} } & 
+                                           \multicolumn{2}{|c|}{\text{Écriture littérale} } \\
+                              \hline
+                              38  & 1 \cdot 35 + 3 & 3 & 38 - 1 \cdot 35       & r_0  & a   - 1 \cdot b    \\
+                              \hline
+                              35  & 11 \cdot 3 + 2 & 2 & 35  - 11 \cdot 3      & r_1  & b   - 11 \cdot r_0 \\
+                              \hline
+                              3   & 1 \cdot 2 + 1  & 1  & 3  - 1 \cdot 2       & r_2  & r_0 - 1 \cdot r_1  \\
+                              \hline
+                              2  & 2 \cdot 1  + 0  & \multicolumn{2}{|c|}{}      & \multicolumn{2}{|c|}{}  \\
+                              \hline
+                        \end{array}
+                  \]
+\end{frame}
+\begin{frame}[allowframebreaks]{PPCM et PGCD (4)}
+Ainsi, on a : 
                         \[\begin{aligned}
                               r_2 & = (a - b ) - (b - 11 \cdot r_0) \\
                                   & = a - b - b + 11 (a - b)        \\
                                   & = a - 2 b + 11 a - 11 b         \\
                                   & = 12 a - 13 b                   \;.
                         \end{aligned}\]
-                  
-                  On aurait aussi pu utiliser l'algorithme d'Euclide étendu :
+
+On aurait aussi pu utiliser l'algorithme d'Euclide étendu :
 \end{frame}
-\begin{frame}{PPCM et PGCD (4)}
+\begin{frame}[allowframebreaks]{PPCM et PGCD (5)}
 \begin{center}\begin{tabular}{lllll}
- & \(1\) & \(11\) & \(1\) & \(2\) \\ 
-\(38\) & \(35\) & \(3\) & \(2\) & \(1\) \\ 
-\(3\) & \(2\) & \(1\) & \(0\) &  \\ 
-\(1\) & \(0\) & \(1\) & \(-11\) & \(12\) \\ 
-\(0\) & \(1\) & \(-1\) & \(12\) & \(-13\) \\ 
+ & \(1\) & \(11\) & \(1\) & \(2\) \\ {}
+\(38\) & \(35\) & \(3\) & \(2\) & \(1\) \\ {}
+\(3\) & \(2\) & \(1\) & \(0\) &  \\ {}
+\(1\) & \(0\) & \(1\) & \(-11\) & \(12\) \\ {}
+\(0\) & \(1\) & \(-1\) & \(12\) & \(-13\) \\ {}
 \end{tabular}\end{center}
 \end{frame}
-\begin{frame}{PPCM et PGCD (5)}
+\begin{frame}[allowframebreaks]{PPCM et PGCD (6)}
 On a donc une solution particulière : \(12 \cdot 38 - 13 \cdot 35 = 1\).
                   Si \(u\) et \(v\) sont deux solutions, on a : 
                         \[\begin{aligned}
@@ -854,11 +885,15 @@ On a donc une solution particulière : \(12 \cdot 38 - 13 \cdot 35 = 1\).
                         &     
                                     38 (u - 12) + 35 (v + 13) = 0      \;.
                         \end{aligned}\]
-                        Ainsi,
+
+Ainsi,
                               \[
                                     35 \, (v + 13) = 38 (12 - u) 
                               \]
-                        et donc \(38 | 35 \, (v + 13)\).
+\end{frame}
+\begin{frame}[allowframebreaks]{PPCM et PGCD (7)}
+\footnotesize
+et donc \(38 | 35 \, (v + 13)\).
                         Mais comme \(PGCD(38,35) = 1\), d'après le Lemme de Gauss, \(38 | (v + 13)\).
                         D'où, il existe un entier \(k\) tel que \(v + 13 = 38 \, k\), ou encore \(v = 38\,k - 13\).
                         En portant cette valeur dans l'équation eq:Bezout ex 1, on a 
@@ -870,11 +905,11 @@ On a donc une solution particulière : \(12 \cdot 38 - 13 \cdot 35 = 1\).
                         l'ensemble des solutions est
                               \(\left\lbrace (38\,k-13 ; 12-35\,k) \mid k \in \mathbb{Z} \right\rbrace\).
 \end{frame}
-\begin{frame}{PPCM et PGCD}
+\begin{frame}[allowframebreaks]{PPCM et PGCD}
 Deux entiers relatifs \(a\) et \(b\) sont premiers entre eux si et seulement si
                   il existe deux entiers relatifs \(u\) et \(v\) tels que \(a u + b v = 1\).
 \end{frame}
-\begin{frame}{PPCM et PGCD}
+\begin{frame}[allowframebreaks]{PPCM et PGCD}
 \begin{enumerate}
 \setcounter{enumi}{0}
                         \item Si un nombre premier \(p\) divise un produit \(ab\), alors \(p\) divise \(a\) ou \(p\) divise \(b\).
@@ -883,16 +918,16 @@ Deux entiers relatifs \(a\) et \(b\) sont premiers entre eux si et seulement si
 
 \end{enumerate}
 \end{frame}
-\begin{frame}{PPCM et PGCD}
+\begin{frame}[allowframebreaks]{PPCM et PGCD}
 Soient \(a\) et \(b\) deux entiers relatifs non nuls, \(d = PGCD(a,b)\) et \(c \in \mathbb{Z}\).
 \end{frame}
-\begin{frame}{PPCM et PGCD (2)}
+\begin{frame}[allowframebreaks]{PPCM et PGCD (2)}
 \begin{itemize}
 \item L'équation \(a x + b y = c\) a des solutions dans \(\mathbb{Z}^2\) si et seulement si \(d\) divise \(c\).
 
 \end{itemize}
 \end{frame}
-\begin{frame}{PPCM et PGCD (3)}
+\begin{frame}[allowframebreaks]{PPCM et PGCD (3)}
 \begin{itemize}
 \item Si \(d | c\), on divise par \(d\) : \(a' x + b' y = c'\) avec \(a = d a'\), \(b = d b'\), \(c = d c'\) et \(PGCD(a',b') = 1\).
                         On cherche une solution particulière \((x_0 ; y_0)\) (par exemple en multipliant par \(c'\) des coefficients de Bézout de \(a'\) et \(b'\)),
@@ -903,10 +938,10 @@ Soient \(a\) et \(b\) deux entiers relatifs non nuls, \(d = PGCD(a,b)\) et \(c \
 
 \end{itemize}
 \end{frame}
-\begin{frame}{PPCM et PGCD}
+\begin{frame}[allowframebreaks]{PPCM et PGCD}
 Soient \(n \geq 2\) et \(a\in\mathbb{Z}\).
 \end{frame}
-\begin{frame}{PPCM et PGCD (2)}
+\begin{frame}[allowframebreaks]{PPCM et PGCD (2)}
 \begin{enumerate}
 \setcounter{enumi}{0}\item Il existe \(\overline{u}\) tel que \(\overline{a} \cdot \overline{u} = \overline{1}\) dans \(\mathbb{Z}/n\mathbb{Z}\)
                               si et seulement si \(PGCD(a,n) = 1\) (c'est le théorème de Bézout : \(au + nv = 1\)).
@@ -914,7 +949,7 @@ Soient \(n \geq 2\) et \(a\in\mathbb{Z}\).
 
 \end{enumerate}
 \end{frame}
-\begin{frame}{PPCM et PGCD (3)}
+\begin{frame}[allowframebreaks]{PPCM et PGCD (3)}
 \begin{enumerate}
 \setcounter{enumi}{1}\item Si \(p\) est premier, tout élément non nul de \(\mathbb{Z}/p\mathbb{Z}\) a un inverse, et
                               \(\overline{x} \cdot \overline{y} = \overline{0} \Rightarrow \left( \overline{x} = \overline{0} \text{ ou } \overline{y} = \overline{0} \right)\).

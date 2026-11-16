@@ -237,6 +237,7 @@ def bokiko(s):
     s = re.sub(r'\\begin\{chapter\}', lambda _: '\\chapter', s).replace('\\end{chapter}', '')
     for name, (n, keep) in UNWRAP.items(): s = unwrap(s, name, n, keep)
     s = lead_ins(s); s = tikz_nodes(s)
+    s = s.replace('\\begin{displaymath}', '\\[').replace('\\end{displaymath}', '\\]')   # the slide parser knows \\[ \\], not the environment
     s = s.replace('\\begin{multiform}', '\\left\\{\\begin{array}{l}').replace('\\end{multiform}', '\\end{array}\\right.')
     s = s.replace('\\begin{mitanisa}', '\\begin{tabular}{l}').replace('\\end{mitanisa}', '\\end{tabular}')
     s = re.sub(r'\\begin\{IEEEeqnarray\*\}\{([^}]*)\}(.*?)\\end\{IEEEeqnarray\*\}',   # C (displaystyle c) of tcd-compat.sty -> c

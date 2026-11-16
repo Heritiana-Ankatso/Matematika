@@ -2,7 +2,12 @@
 \makeatletter\IfFileExists{core/beamer/beamerthememx.sty}{\def\mxcorepath{core/}\def\input@path{{core/beamer/}{core/}}}{\def\mxcorepath{../core/}\def\input@path{{../core/beamer/}{../core/}}}\makeatother
 \documentclass[aspectratio=169,10pt,t]{beamer}
 \usetheme{mx}
-\usepackage{graphicx,booktabs}
+\usepackage{graphicx,booktabs,mathtools,array,adjustbox}
+\usepackage[all]{xy}
+\providecommand{\actualtextwidth}{\textwidth}
+\providecommand{\veccor}[2]{\left(\begin{matrix}#1\\#2\end{matrix}\right)}
+\DeclarePairedDelimiter{\VecNorm}{\lVert}{\rVert}
+\providecommand{\ETC}{\ldots}
 \usepackage[english]{babel}
 \setlength{\parskip}{.45em}
 \hypersetup{pdfauthor={},pdfsubject={Lecture slides},pdfkeywords={},pdftitle={GCD, Bézout's and Gauss's theorems}}
@@ -36,13 +41,13 @@
 \author{}
 \begin{document}
 \mxtitleframe
-\begin{frame}{Objectives}
+\begin{frame}[allowframebreaks]{Objectives}
 Find a gcd with Euclid's algorithm; obtain a Bézout pair; use Bézout's and Gauss's theorems; find an inverse modulo \(n\); solve an equation \(ax+by=c\) in integers.
 \end{frame}
-\begin{frame}{Introductory activity}
+\begin{frame}[allowframebreaks]{Introductory activity}
 We have a \(9\)-litre can, a \(7\)-litre can, both without markings, and a water supply. We may fill a can, empty it, or pour one into the other until one is empty or the other is full.
 \end{frame}
-\begin{frame}{Introductory activity (2)}
+\begin{frame}[allowframebreaks]{Introductory activity (2)}
 \begin{enumerate}
 \setcounter{enumi}{0}\item Show that one can get exactly \(2\) litres in the large can.
 
@@ -50,7 +55,7 @@ We have a \(9\)-litre can, a \(7\)-litre can, both without markings, and a water
 
 \end{enumerate}
 \end{frame}
-\begin{frame}{Introductory activity (3)}
+\begin{frame}[allowframebreaks]{Introductory activity (3)}
 \begin{enumerate}
 \setcounter{enumi}{2}\item The cans are replaced by cans of \(6\) and \(9\) litres. Show that every quantity of the form \(6u+9v\), with \(u\) and \(v\) integers, is a multiple of \(3\). Can one get \(1\) litre?
 
@@ -58,44 +63,45 @@ We have a \(9\)-litre can, a \(7\)-litre can, both without markings, and a water
 
 \end{enumerate}
 \end{frame}
-\begin{frame}{Introductory activity (4)}
+\begin{frame}[allowframebreaks]{Introductory activity (4)}
 \emph{Observing is not proving: the properties conjectured here are established in the course.}
 \end{frame}
-\begin{frame}{GCD and Euclid's algorithm}
+\begin{frame}[allowframebreaks]{GCD and Euclid's algorithm}
 Let \(a\) and \(b\) be two integers, not both zero. The set of their positive common divisors is finite and contains \(1\); its largest element is called the \emph{greatest common divisor} of \(a\) and \(b\), written \(\operatorname{gcd}(a,b)\). We say that \(a\) and \(b\) are \emph{coprime} if \(\operatorname{gcd}(a,b)=1\).
 \end{frame}
-\begin{frame}{GCD and Euclid's algorithm}
+\begin{frame}[allowframebreaks]{GCD and Euclid's algorithm}
 Let \(a\) and \(b\) be two integers with \(b\neq0\). For every integer \(k\), the common divisors of \(a\) and \(b\) are those of \(b\) and \(a-kb\). In particular, if \(r\) is the remainder of the division of \(a\) by \(b\ge1\), then \(\operatorname{gcd}(a,b)=\operatorname{gcd}(b,r)\).
 \end{frame}
-\begin{frame}{GCD and Euclid's algorithm}
+\begin{frame}[allowframebreaks]{GCD and Euclid's algorithm}
 If \(d\mid a\) and \(d\mid b\), then \(d\mid a-kb\). Conversely, if \(d\mid b\) and \(d\mid a-kb\), then \(d\mid(a-kb)+kb=a\). The two sets of common divisors are equal, so their largest elements are too.
 \end{frame}
-\begin{frame}{GCD and Euclid's algorithm}
+\begin{frame}[allowframebreaks]{GCD and Euclid's algorithm}
 Replace \((a,b)\) by \((b,r)\) as long as the remainder \(r\) is not zero. The remainders form a strictly decreasing sequence of natural numbers, so the algorithm stops. The gcd is the last nonzero remainder. Example:
 \[1{,}053=3\times325+78,\qquad325=4\times78+13,\qquad78=6\times13+0,\]
+
 so \(\operatorname{gcd}(1{,}053,325)=13\).
 \end{frame}
-\begin{frame}{Bézout's theorem}
+\begin{frame}[allowframebreaks]{Bézout's theorem}
 Let \(a\) and \(b\) be two integers, not both zero. There are integers \(u\) and \(v\) such that \(au+bv=\operatorname{gcd}(a,b)\). Moreover, every common divisor of \(a\) and \(b\) divides \(\operatorname{gcd}(a,b)\).
 \end{frame}
-\begin{frame}{Bézout's theorem}
+\begin{frame}[allowframebreaks]{Bézout's theorem}
 Let \(E\) be the set of positive integers of the form \(au+bv\), with \(u\), \(v\) integers. \(E\) is not empty (it contains \(a^2+b^2\)). Let \(d=au_0+bv_0\) be its smallest element.
 
 Divide \(a\) by \(d\): \(a=dq+r\) with \(0\le r<d\). Then \(r=a-q(au_0+bv_0)=a(1-qu_0)+b(-qv_0)\) is of the form \(au+bv\). If it were positive, it would belong to \(E\) while being smaller than \(d\): impossible. So \(r=0\) and \(d\mid a\). Likewise \(d\mid b\).
 \end{frame}
-\begin{frame}{Bézout's theorem (2)}
+\begin{frame}[allowframebreaks]{Bézout's theorem (2)}
 Finally every common divisor \(c\) of \(a\) and \(b\) divides \(au_0+bv_0=d\), so \(c\le d\). Hence \(d\) is the greatest common divisor: \(d=\operatorname{gcd}(a,b)\).
 \end{frame}
-\begin{frame}{Bézout's theorem}
+\begin{frame}[allowframebreaks]{Bézout's theorem}
 Two integers \(a\) and \(b\) are coprime if and only if there are integers \(u\) and \(v\) such that \(au+bv=1\).
 \end{frame}
-\begin{frame}{Bézout's theorem}
+\begin{frame}[allowframebreaks]{Bézout's theorem}
 If \(\operatorname{gcd}(a,b)=1\), the previous theorem provides \(u\) and \(v\). Conversely, if \(au+bv=1\), every positive common divisor of \(a\) and \(b\) divides \(1\), hence equals \(1\).
 \end{frame}
-\begin{frame}{Bézout's theorem}
+\begin{frame}[allowframebreaks]{Bézout's theorem}
 With the previous example: \(13=325-4\times78=325-4(1{,}053-3\times325)=13\times325-4\times1{,}053\). A suitable pair for \((1{,}053,325)\) is \((-4,13)\).
 \end{frame}
-\begin{frame}{Bézout's theorem}
+\begin{frame}[allowframebreaks]{Bézout's theorem}
 The following function returns \((d,u,v)\) with \(d=\operatorname{gcd}(a,b)=au+bv\), for natural numbers \(a\) and \(b\) not both zero.
 lstlisting
 def euclide\_etendu(a, b):
@@ -109,25 +115,25 @@ def euclide\_etendu(a, b):
 lstlisting
 Let \(a_0\) and \(b_0\) be the initial values. At each step, the variables \texttt{a} and \texttt{b} are equal to \(a_0u_0+b_0v_0\) and \(a_0u_1+b_0v_1\).
 \end{frame}
-\begin{frame}{Gauss's theorem}
+\begin{frame}[allowframebreaks]{Gauss's theorem}
 Let \(a\), \(b\), \(c\) be three integers. If \(a\mid bc\) and \(a\) and \(b\) are coprime, then \(a\mid c\).
 \end{frame}
-\begin{frame}{Gauss's theorem}
+\begin{frame}[allowframebreaks]{Gauss's theorem}
 By Bézout's theorem, there are \(u\) and \(v\) such that \(au+bv=1\). Multiplying by \(c\): \(c=acu+bcv\). Now \(a\mid acu\) and \(a\mid bc\), so \(a\) divides \(acu+bcv=c\).
 \end{frame}
-\begin{frame}{Gauss's theorem}
+\begin{frame}[allowframebreaks]{Gauss's theorem}
 If \(a\) and \(b\) are coprime and both divide \(n\), then \(ab\) divides \(n\).
 \end{frame}
-\begin{frame}{Gauss's theorem}
+\begin{frame}[allowframebreaks]{Gauss's theorem}
 \(n=ak\). Since \(b\mid ak\) and \(\operatorname{gcd}(a,b)=1\), Gauss gives \(b\mid k\): \(k=bk'\) and \(n=abk'\).
 \end{frame}
-\begin{frame}{Gauss's theorem}
+\begin{frame}[allowframebreaks]{Gauss's theorem}
 Let \(n\ge2\) and \(a\) an integer. There is an integer \(u\) such that \(au\equiv1\pmod n\) if and only if \(\operatorname{gcd}(a,n)=1\). Such a \(u\) is an inverse of \(a\) modulo \(n\); it allows us to solve \(ax\equiv b\pmod n\): \(x\equiv ub\pmod n\).
 \end{frame}
-\begin{frame}{Gauss's theorem}
+\begin{frame}[allowframebreaks]{Gauss's theorem}
 \(au\equiv1\pmod n\) is equivalent to the existence of an integer \(v\) such that \(au+nv=1\): this is Bézout's theorem.
 \end{frame}
-\begin{frame}{Gauss's theorem}
+\begin{frame}[allowframebreaks]{Gauss's theorem}
 \begin{enumerate}
 \setcounter{enumi}{0}
 \item It has solutions if and only if \(\operatorname{gcd}(a,b)\) divides \(c\); we then divide by this gcd.
@@ -140,7 +146,7 @@ Let \(n\ge2\) and \(a\) an integer. There is an integer \(u\) such that \(au\equ
 
 \end{enumerate}
 \end{frame}
-\begin{frame}{Gauss's theorem (2)}
+\begin{frame}[allowframebreaks]{Gauss's theorem (2)}
 Example: \(7x+5y=1\) has the particular solution \((-2,3)\); its solutions are the pairs \((-2+5k,3-7k)\), \(k\in\Z\).
 \end{frame}
 \end{document}

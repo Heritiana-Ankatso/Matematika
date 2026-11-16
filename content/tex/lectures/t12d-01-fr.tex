@@ -2,7 +2,12 @@
 \makeatletter\IfFileExists{core/beamer/beamerthememx.sty}{\def\mxcorepath{core/}\def\input@path{{core/beamer/}{core/}}}{\def\mxcorepath{../core/}\def\input@path{{../core/beamer/}{../core/}}}\makeatother
 \documentclass[aspectratio=169,10pt,t]{beamer}
 \usetheme{mx}
-\usepackage{graphicx,booktabs}
+\usepackage{graphicx,booktabs,mathtools,array,adjustbox}
+\usepackage[all]{xy}
+\providecommand{\actualtextwidth}{\textwidth}
+\providecommand{\veccor}[2]{\left(\begin{matrix}#1\\#2\end{matrix}\right)}
+\DeclarePairedDelimiter{\VecNorm}{\lVert}{\rVert}
+\providecommand{\ETC}{\ldots}
 \usepackage[french]{babel}
 \setlength{\parskip}{.45em}
 \hypersetup{pdfauthor={},pdfsubject={Lecture slides},pdfkeywords={},pdftitle={Probabilités}}
@@ -36,12 +41,12 @@
 \author{}
 \begin{document}
 \mxtitleframe
-\begin{frame}{Dénombrement}
+\begin{frame}[allowframebreaks]{Dénombrement}
 On appelle \emph{cardinal} d'un ensemble fini le nombre de ses éléments.
             Si \(X\) est un ensemble alors nous noterons par \(Card(X)\) le cardinal de \(X\).
             Si on se place dans un ensemble \(E\) et si \(A\) est un sous-ensemble de \(E\), alors on note par \(\overline{A}\) le complémentaire de \(A\) dans \(E\), c'est-à-dire l'ensemble des éléments de \(E\) qui ne sont pas dans \(A\).
 \end{frame}
-\begin{frame}{Dénombrement}
+\begin{frame}[allowframebreaks]{Dénombrement}
 Soient \(A\) et \(B\) deux ensembles finis. On a alors :
 
 \begin{itemize}
@@ -54,12 +59,12 @@ Soient \(A\) et \(B\) deux ensembles finis. On a alors :
 
 \end{itemize}
 \end{frame}
-\begin{frame}{Dénombrement}
+\begin{frame}[allowframebreaks]{Dénombrement}
 Soient \(E\) et \(F\) deux ensembles finis non-vides à \(p\) et \(n\) éléments respectivement.
             Notons par \(e_1,\ e_2,\ \ldots\ ,\ e_p\) les éléments de \(E\) 
             et par  \(f_1,\ f_2,\ \ldots\ ,\ f_n\) les éléments de \(F\).
 \end{frame}
-\begin{frame}{Dénombrement}
+\begin{frame}[allowframebreaks]{Dénombrement}
 Si \(\varphi : E \rightarrow F \) 
             est une application, alors :
 
@@ -75,21 +80,21 @@ Si \(\varphi : E \rightarrow F \)
 
 \end{itemize}
 \end{frame}
-\begin{frame}{Dénombrement (2)}
+\begin{frame}[allowframebreaks]{Dénombrement (2)}
 Ainsi, il y a exactement \(n^p\) applications possibles de \(E\) dans \(F\).
 \end{frame}
-\begin{frame}{Dénombrement}
+\begin{frame}[allowframebreaks]{Dénombrement}
 Soient \(E\) un ensemble fini à \(n\) éléments et \(p\) un nombre entier inférieur ou égal à \(n\).
                         On appelle arrangement de \(p\) éléments de \(E\), et on note 
                         \(\displaystyle{A_{n}^{p}}\), le nombre de manières de choisir \(p\) éléments de \(E\) en tenant compte de l'ordre
                         (c'est-à-dire le nombre de listes de \(p\) éléments distincts de \(E\)).
 \end{frame}
-\begin{frame}{Dénombrement}
+\begin{frame}[allowframebreaks]{Dénombrement}
 \[
                   					A_{n}^{p} = \dfrac{n!}{(n-p)!}
                   				\]
 \end{frame}
-\begin{frame}{Dénombrement}
+\begin{frame}[allowframebreaks]{Dénombrement}
 Considérons quatre personnes numérotées de 1 à 4
 							ainsi que six chaises marquées par les lettres a, b, \ldots{}, f.
 							
@@ -97,33 +102,33 @@ Considérons quatre personnes numérotées de 1 à 4
 							peuvent s'asseoir sur les six chaises ;
 							on ne tolère pas que deux personnes s'assoient sur la même chaise.
 \end{frame}
-\begin{frame}{Dénombrement}
+\begin{frame}[allowframebreaks]{Dénombrement}
 Si on prend \(E = F\) dans le cas précédent, alors on se retrouve avec ce que l'on appelle
                   permutation de \(E\).
                   Le nombre de permutations d'un ensemble à \(n\) éléments est \(n!\).
 \end{frame}
-\begin{frame}{Dénombrement}
+\begin{frame}[allowframebreaks]{Dénombrement}
 Considérons une course avec six participants. 
                         A l'issue de la course, on suppose qu'il n'y a pas d'ex aequo.
                         On veut déterminer le nombre de possibilités de résultats pour une telle course.
 \end{frame}
-\begin{frame}{Dénombrement}
+\begin{frame}[allowframebreaks]{Dénombrement}
 Soient \(E\) un ensemble fini à \(n\) éléments et \(p\) un nombre entier naturel inférieur ou égal à \(n\).
 						On appelle nombre de combinaisons de \(p\) éléments de \(E\) le nombre, noté 
 						\(\displaystyle{C_{n}^{p}}\),
 							de manières de choisir \(p\) éléments de \(E\).
 \end{frame}
-\begin{frame}{Dénombrement}
+\begin{frame}[allowframebreaks]{Dénombrement}
 \[
 										C_{n}^{p} = \dfrac{n!}{p!\;(n-p)!}
 									\]
 \end{frame}
-\begin{frame}{Dénombrement}
+\begin{frame}[allowframebreaks]{Dénombrement}
 On dispose d'un dé cubique à six faces, numérotées de \(1\) à \(6\).
  						On veut colorer deux des faces de ce dé, de manière à cacher les numéros y figurant.
  						De combien de manières peut-on le faire ?
 \end{frame}
-\begin{frame}{Notion de probabilité}
+\begin{frame}[allowframebreaks]{Notion de probabilité}
 Une \emph{expérience aléatoire} est une expérience renouvelable
                   dont le résultat ne peut être prévu, et qui, renouvelée dans des conditions identiques
                   ne donne pas forcément le même résultat à chaque renouvellement.
@@ -139,7 +144,7 @@ Une \emph{expérience aléatoire} est une expérience renouvelable
 
                   example
 \end{frame}
-\begin{frame}{Notion de probabilité}
+\begin{frame}[allowframebreaks]{Notion de probabilité}
 L'ensemble de tous les résultats possibles est appelé \emph{univers des éventualités}.
                   L'univers est souvent noté \(\Omega\).
                   
@@ -150,13 +155,13 @@ On appelle \emph{évènement} tout ensemble d'éventualités, c'est-à-dire tout
 Si \(A\) est un évènement, on note par \(\overline{A}\) le complémentaire de \(A\) dans \(\Omega\),
                   \(\overline{A}\) est appelé l'évènement contraire de \(A\).
 \end{frame}
-\begin{frame}{Notion de probabilité (2)}
+\begin{frame}[allowframebreaks]{Notion de probabilité (2)}
 Deux évènements \(A\) et \(B\) sont dits \emph{incompatibles} si \(A\cap B = \emptyset\).
 
 example
                         Considérons les épreuves suivantes :
 \end{frame}
-\begin{frame}{Notion de probabilité (3)}
+\begin{frame}[allowframebreaks]{Notion de probabilité (3)}
 \begin{enumerate}
 \setcounter{enumi}{0}\item Lancer d'un dé à six faces.
                                     L'univers des possibilités est 
@@ -164,7 +169,7 @@ example
 
 \end{enumerate}
 \end{frame}
-\begin{frame}{Notion de probabilité (4)}
+\begin{frame}[allowframebreaks]{Notion de probabilité (4)}
 \begin{enumerate}
 \setcounter{enumi}{1}\item Lancer de deux pièces de monnaie distinctes.
                                     L'univers des possibilités est
@@ -179,22 +184,18 @@ example
 
 \end{enumerate}
 \end{frame}
-\begin{frame}{Notion de probabilité (5)}
+\begin{frame}[allowframebreaks]{Notion de probabilité (5)}
 example
                   
                   example
                         On lance un dé cubique dont les six faces sont numérotées par les nombres 
                         1, 2, 3, 4, 5 et 6.
 \end{frame}
-\begin{frame}{Notion de probabilité (6)}
+\begin{frame}[allowframebreaks]{Notion de probabilité (6)}
 \begin{enumerate}
 \setcounter{enumi}{0}\item L'univers est : \(\Omega = \{1,\ 2,\ 3,\ 4,\ 5,\ 6 \}\).
-
-\end{enumerate}
-\end{frame}
-\begin{frame}{Notion de probabilité (7)}
-\begin{enumerate}
-\setcounter{enumi}{1}\item Considérons les évènements : 
+                              
+\item Considérons les évènements : 
                                     \[\begin{aligned}
                                     A &: \text{<< Obtenir un nombre pair >>} \\
                                     B &: \text{<< Obtenir un nombre inférieur ou égal à 3 >>} .
@@ -203,7 +204,7 @@ example
 
 \end{enumerate}
 \end{frame}
-\begin{frame}{Notion de probabilité (8)}
+\begin{frame}[allowframebreaks]{Notion de probabilité (7)}
 \begin{enumerate}
 \setcounter{enumi}{2}\item L'évènement << \(A\) ou \(B\) >> est \(A \cup B = \{ 1,\ 2,\ 3,\ 4,\ 6 \}\).
                               
@@ -214,20 +215,20 @@ example
 
 \end{enumerate}
 \end{frame}
-\begin{frame}{Notion de probabilité (9)}
+\begin{frame}[allowframebreaks]{Notion de probabilité (8)}
 \begin{enumerate}
 \setcounter{enumi}{5}\item \(A\) et \(\overline{A}\) sont incompatibles.
                                     En fait, quel que soit l'évènement \(X\), \(X\) et \(\overline{X}\) sont toujours incompatibles.
 
 \end{enumerate}
 \end{frame}
-\begin{frame}{Notion de probabilité (10)}
+\begin{frame}[allowframebreaks]{Notion de probabilité (9)}
 example
 \end{frame}
-\begin{frame}{Notion de probabilité}
+\begin{frame}[allowframebreaks]{Notion de probabilité}
 Considérons un univers fini \(\Omega = \{ \omega_1,\ \omega_2,\ \ldots ,\omega_n \}\).
 \end{frame}
-\begin{frame}{Notion de probabilité}
+\begin{frame}[allowframebreaks]{Notion de probabilité}
 On appelle \emph{probabilité} sur \(\Omega\) toute application 
             de l'ensemble des évènements dans \([0 ; 1]\) telle que : 
 
@@ -240,11 +241,11 @@ On appelle \emph{probabilité} sur \(\Omega\) toute application
 
 \end{itemize}
 \end{frame}
-\begin{frame}{Notion de probabilité}
+\begin{frame}[allowframebreaks]{Notion de probabilité}
 Soient \(\Omega\) l'univers et \(A\) et \(B\) deux évènements.
             Soit \(P\) une probabilité sur \(\Omega\). On a :
 \end{frame}
-\begin{frame}{Notion de probabilité (2)}
+\begin{frame}[allowframebreaks]{Notion de probabilité (2)}
 \begin{itemize}
 
                   \item \(P(\emptyset ) = 0\) et \(P(\Omega ) = 1\),
@@ -258,7 +259,7 @@ Soient \(\Omega\) l'univers et \(A\) et \(B\) deux évènements.
 
 \end{itemize}
 \end{frame}
-\begin{frame}{Notion de probabilité}
+\begin{frame}[allowframebreaks]{Notion de probabilité}
 On dit qu'il y a \emph{équiprobabilité} lorsque tous les évènements 
             élémentaires ont la même probabilité.
             Dans le cas équiprobable, si \(\omega\) est un évènement élémentaire, alors
@@ -268,7 +269,7 @@ On dit qu'il y a \emph{équiprobabilité} lorsque tous les évènements
 \[P(A) = \dfrac{\text{Card }A}{\text{Card }\Omega} 
                         = \dfrac{\text{Nombre de cas favorables}}{\text{Nombre de cas possibles}}.\]
 \end{frame}
-\begin{frame}{Probabilité conditionnelle}
+\begin{frame}[allowframebreaks]{Probabilité conditionnelle}
 Considérons un univers \(\Omega\) et soient \(A\) et \(B\) deux évènements.
             Soit \(P\) une probabilité.
             On suppose que \(P(B) \neq 0\).
@@ -278,7 +279,7 @@ Considérons un univers \(\Omega\) et soient \(A\) et \(B\) deux évènements.
                                     P(A|B) = \dfrac{P(A\cap B)}{P(B)}.
                               \]
 \end{frame}
-\begin{frame}{Probabilité conditionnelle}
+\begin{frame}[allowframebreaks]{Probabilité conditionnelle}
 Une urne contient neuf boules indiscernables au toucher.
                   Les boules sont numérotées de 1 à 9.
                   On tire une boule au hasard.
@@ -292,7 +293,8 @@ Une urne contient neuf boules indiscernables au toucher.
 
 \end{enumerate}
 \end{frame}
-\begin{frame}{Probabilité conditionnelle (2)}
+\begin{frame}[allowframebreaks]{Probabilité conditionnelle (2)}
+\footnotesize
 On a \( \Omega = \{ 1,\ 2,\ 3,\ 4,\ 5,\ 6,\ 7,\ 8,\ 9 \}\),
                        \( A = \{ 2,\ 4,\ 6,\ 8 \}\) et
                        \( B = \{ 3,\ 6,\ 9 \}\).
@@ -307,23 +309,24 @@ On a \( \Omega = \{ 1,\ 2,\ 3,\ 4,\ 5,\ 6,\ 7,\ 8,\ 9 \}\),
                         P(A|B) = \dfrac{P(A\cap B)}{P(B)} = \dfrac{\dfrac{1}{9}}{\dfrac{1}{3}} = \dfrac{1}{3}.
                         \]
 \end{frame}
-\begin{frame}{Probabilité conditionnelle}
+\begin{frame}[allowframebreaks]{Probabilité conditionnelle}
 La probabilité de \(A\) sachant \(B\) est aussi parfois noté \(P_B (A)\).
 \end{frame}
-\begin{frame}{Probabilité conditionnelle}
+\begin{frame}[allowframebreaks]{Probabilité conditionnelle}
 Deux évènements \(A\) et \(B\) sont dits \emph{indépendants} si 
                         \[P(A\cap B) = P(A) \cdot P(B).\]
-            Si deux évènements \(A\) et \(B\) sont indépendants, on a :
-                  displaymath
-                        P(A|B) = P(A B)P(B) = P(A)  P(B)P(B) = P(A).
-                  displaymath
+
+Si deux évènements \(A\) et \(B\) sont indépendants, on a :
+                  \[
+                        P(A|B) = \dfrac{P(A\cap B)}{P(B)} = \dfrac{P(A) \cdot P(B)}{P(B)} = P(A).
+                  \]
 \end{frame}
-\begin{frame}{Probabilité conditionnelle}
+\begin{frame}[allowframebreaks]{Probabilité conditionnelle}
 On dispose d'une pièce de monnaie non truquée.
                   On procède à deux lancers successifs.
                   Calculer la probabilité d'obtenir pile puis face.
 \end{frame}
-\begin{frame}{Épreuve de Bernoulli et distribution binomiale}
+\begin{frame}[allowframebreaks]{Épreuve de Bernoulli et distribution binomiale}
 Dans certaines expériences aléatoires, 
                         on s'interesse à la réalisation d'un évènement.
                         On parlera de << \emph{succès} >> si l'évènement se réalise
@@ -334,7 +337,7 @@ Ce type d'expérience est appelé \emph{épreuve de Bernoulli}.
 
 On appelle << \emph{schéma de Bernoulli} >> une succession d'épreuves de ce type, identiques et indépendantes.
 \end{frame}
-\begin{frame}{Épreuve de Bernoulli et distribution binomiale}
+\begin{frame}[allowframebreaks]{Épreuve de Bernoulli et distribution binomiale}
 On lance \(n\) fois une pièce,
                               on considère comme un succès le fait d'obtenir pile
                               (et donc comme échec si on obtient face).
@@ -342,30 +345,32 @@ On lance \(n\) fois une pièce,
                               Le tirage successif et avec remise d'une boule dans une urne.
                               Le succès peut être défini comme l'obtention d'un certain type de boule.
 \end{frame}
-\begin{frame}{Épreuve de Bernoulli et distribution binomiale}
+\begin{frame}[allowframebreaks]{Épreuve de Bernoulli et distribution binomiale}
 Considérons un schéma de Bernoulli qui 
                         consiste à la succession de \(n\) épreuves identiques et indépendantes.
                         Soient \(p\) la probabilité d'un succès et \(q ( = 1-p)\) la probabilité d'un échec.
                         Soit \(k\) un nombre entier naturel compris entre \(0\) et \(n\).
                         On veut connaître la probabilité d'avoir \(k\) succès au cours des \(n\) lancers.
 \end{frame}
-\begin{frame}{Épreuve de Bernoulli et distribution binomiale (2)}
+\begin{frame}[allowframebreaks]{Épreuve de Bernoulli et distribution binomiale (2)}
 La probabilité d'avoir 
                         uniquement des succès au cours des \(k\) premiers lancers
                         et uniquement des échecs au cours des \(n-k\) autres lancers est : 
-                              displaymath
-                                    p\textasciicircum{}k  (1-p)\textasciicircum{}n-k.
-                              displaymath
-                        Il y a \(C_{n}^{k}\) manières de répartir les \(k\) succès parmi les \(n\) épreuves.
+                              \[
+                                    p^k \cdot (1-p)^{n-k}.
+                              \]
+\end{frame}
+\begin{frame}[allowframebreaks]{Épreuve de Bernoulli et distribution binomiale (3)}
+Il y a \(C_{n}^{k}\) manières de répartir les \(k\) succès parmi les \(n\) épreuves.
                         La probabilité d'obtenir \(k\) succès est donc 
                                     \[ C_{n}^{k}\ p^k \cdot (1-p)^{n-k}. \]
 \end{frame}
-\begin{frame}{Épreuve de Bernoulli et distribution binomiale}
+\begin{frame}[allowframebreaks]{Épreuve de Bernoulli et distribution binomiale}
 On jette 100 fois une pièce de monnaie truquée de manière à ce que 
                               la probabilité d'obtenir face soit trois fois celle d'obtenir pile. 
                               Calculer la probabilité d'avoir 25 fois pile.
 \end{frame}
-\begin{frame}{Variable aléatoire}
+\begin{frame}[allowframebreaks]{Variable aléatoire}
 Considérons l'épreuve qui consiste à lancer une pièce trois fois successivement.
                         On note par \(p\) la probabilité d'obtenir pile.
                         Soit \(X\) le nombre de piles obtenues lors des trois lancers.
@@ -377,7 +382,7 @@ Considérons l'épreuve qui consiste à lancer une pièce trois fois successivem
                                     P(X = 3) & = C_{3}^{3}\ p^3 \cdot (1-p)^0 .
                               \end{aligned}\]
 \end{frame}
-\begin{frame}{Variable aléatoire}
+\begin{frame}[allowframebreaks]{Variable aléatoire}
 Plus généralement, si \(\Omega\) est l'univers, 
                   une variable aléatoire est une application qui à chaque éventualité associe un nombre réel.
 
@@ -389,15 +394,15 @@ Pour tout élément \(k\) de l'univers image, l'ensemble des antécédents de \(
                   (c'est-à-dire l'ensemble des \(\omega \in \Omega\) tels que \(X(\omega) = k\))
                   par \(X\) forme un évènement qu'on note \(X=k\).
 \end{frame}
-\begin{frame}{Variable aléatoire (2)}
+\begin{frame}[allowframebreaks]{Variable aléatoire (2)}
 La loi de probabilité de \(X\) est la donnée des probabilités de tous les évènements \((X=k)\).
 \end{frame}
-\begin{frame}{Variable aléatoire}
+\begin{frame}[allowframebreaks]{Variable aléatoire}
 Soit \(X\) une variable aléatoire sur un univers \(\Omega\).
                         La \emph{fonction de répartition} \(F\) de \(X\) est la fonction qui 
                         à tout réel \(x\) associe \(F(x) = P(X \leq x)\).
 \end{frame}
-\begin{frame}{Variable aléatoire}
+\begin{frame}[allowframebreaks]{Variable aléatoire}
 Considérons l'épreuve qui consiste à lancer trois fois successivement une pièce normale.
                               Soit \(X\) la variable aléatoire qui à chaque éventualité associe le 
                               nombre de piles obtenues.
@@ -411,7 +416,9 @@ Considérons l'épreuve qui consiste à lancer trois fois successivement une pi�
                                            \hline
                                     \end{array}
                               \]
-                              ce qui nous donne
+\end{frame}
+\begin{frame}[allowframebreaks]{Variable aléatoire (2)}
+ce qui nous donne
                               \[
                                     \begin{array}{|c|c|c|c|c|c|}
                                           \hline
@@ -421,10 +428,10 @@ Considérons l'épreuve qui consiste à lancer trois fois successivement une pi�
                                           \hline
                                     \end{array}
                               \]
-                              
-                              On constate que :
+
+On constate que :
 \end{frame}
-\begin{frame}{Variable aléatoire (2)}
+\begin{frame}[allowframebreaks]{Variable aléatoire (3)}
 \begin{itemize}
 
                                     \item \(F\) est croissante,
@@ -435,7 +442,7 @@ Considérons l'épreuve qui consiste à lancer trois fois successivement une pi�
 
 \end{itemize}
 \end{frame}
-\begin{frame}{Variable aléatoire}
+\begin{frame}[allowframebreaks]{Variable aléatoire}
 \textbf{Espérance mathématique}
 
  Soit \(X\) une variable aléatoire prenant les valeurs 
@@ -443,14 +450,14 @@ Considérons l'épreuve qui consiste à lancer trois fois successivement une pi�
                               \(p_1,\ p_2,\ \ldots ,\ p_n\).
                               L'\emph{espérance mathématique} de \(X\) est
 \end{frame}
-\begin{frame}{Variable aléatoire (2)}
+\begin{frame}[allowframebreaks]{Variable aléatoire (2)}
 \(\displaystyle
                                           \begin{aligned}
                                                 E[X] &= \sum_{i=1}^{n} x_i\cdot p_i \\
                                                      &= x_1\cdot p_1 + x_2\cdot p_2 + \cdots + x_n\cdot p_n.
                                           \end{aligned}\)
 \end{frame}
-\begin{frame}{Variable aléatoire}
+\begin{frame}[allowframebreaks]{Variable aléatoire}
 Dans l'exemple précédent :
                                     \(E[X] =  0 \cdot \dfrac{1}{8}
                                            + 1 \cdot \dfrac{3}{8}
@@ -460,7 +467,7 @@ Dans l'exemple précédent :
                                           = \dfrac{3}{2}.
                                     \)
 \end{frame}
-\begin{frame}{Variable aléatoire}
+\begin{frame}[allowframebreaks]{Variable aléatoire}
 On lance un dé non truqué.
                                     Soit \(X\) la variable aléatoire qui est égale à \(-1\)
                                     si le résultat est différent de \(6\)
@@ -471,7 +478,7 @@ On lance un dé non truqué.
                                           = -\dfrac{1}{3}.
                                     \)
 \end{frame}
-\begin{frame}{Variable aléatoire}
+\begin{frame}[allowframebreaks]{Variable aléatoire}
 \textbf{Variance et écart-type}
 
  Soit \(X\) une variable aléatoire.
@@ -487,26 +494,27 @@ et l'\emph{écart-type} par
 
 \(\sigma(X)=\sqrt{V(X)}\).
 \end{frame}
-\begin{frame}{Variable aléatoire (2)}
+\begin{frame}[allowframebreaks]{Variable aléatoire (2)}
 Si la variable aléatoire \(X\) prend les valeurs 
                         \(x_1,\ x_2,\ \ldots,\ x_n\) avec les probabilités 
                         \(p_1,\ p_2,\ \ldots,\ p_n\), en notant \(\overline{x} = E[X]\),
                         on a :
-
+\end{frame}
+\begin{frame}[allowframebreaks]{Variable aléatoire (3)}
 \(\displaystyle
                               \begin{aligned}
                               V(X)={}&(x_1-\overline{x})^2p_1+(x_2-\overline{x})^2p_2 \\
                                     &+\cdots+(x_n-\overline{x})^2p_n.
                               \end{aligned}\)
 \end{frame}
-\begin{frame}{Variable aléatoire}
+\begin{frame}[allowframebreaks]{Variable aléatoire}
 On considère \(n\) épreuves de Bernoulli avec une probabilité \(p\) de succès.
                   Soit \(X\) la variable aléatoire correspondant au nombre de succès.
                   L'univers image de \(X\) est alors 
                   \(\{ 0,\ 1,\ \ldots,\ n\}\).
                   On sait que \(P(X = k) = C_{n}^{k}\ p^k \cdot (1-p)^{n-k}\).
 \end{frame}
-\begin{frame}{Variable aléatoire}
+\begin{frame}[allowframebreaks]{Variable aléatoire}
 On a 
                   \[\begin{aligned}
                         E[X] & = \sum_{k=0}^{n} k \cdot P(X=k)                                                
@@ -520,10 +528,11 @@ On a
                                = n p \left(p+(1-p)\right)^{m}                                                 
                                = n p \cdot 1^{m}                                                              \;,
                   \end{aligned}\]
-                  où l'on a posé \(m = n-1\) et \(\ell = k-1\), puis utilisé la formule du binôme de Newton.
+
+où l'on a posé \(m = n-1\) et \(\ell = k-1\), puis utilisé la formule du binôme de Newton.
                   \(E[X] = n p \).
 \end{frame}
-\begin{frame}{Variable aléatoire}
+\begin{frame}[allowframebreaks]{Variable aléatoire}
 On peut aussi démontrer que 
                   \(V(X) = n p (1 - p) \) et donc \( \sigma (X) = \sqrt{n p (1 - p)}\).
 \end{frame}

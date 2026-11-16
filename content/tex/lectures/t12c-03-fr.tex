@@ -2,7 +2,12 @@
 \makeatletter\IfFileExists{core/beamer/beamerthememx.sty}{\def\mxcorepath{core/}\def\input@path{{core/beamer/}{core/}}}{\def\mxcorepath{../core/}\def\input@path{{../core/beamer/}{../core/}}}\makeatother
 \documentclass[aspectratio=169,10pt,t]{beamer}
 \usetheme{mx}
-\usepackage{graphicx,booktabs}
+\usepackage{graphicx,booktabs,mathtools,array,adjustbox}
+\usepackage[all]{xy}
+\providecommand{\actualtextwidth}{\textwidth}
+\providecommand{\veccor}[2]{\left(\begin{matrix}#1\\#2\end{matrix}\right)}
+\DeclarePairedDelimiter{\VecNorm}{\lVert}{\rVert}
+\providecommand{\ETC}{\ldots}
 \usepackage[french]{babel}
 \setlength{\parskip}{.45em}
 \hypersetup{pdfauthor={},pdfsubject={Lecture slides},pdfkeywords={},pdftitle={Systèmes d’équations linéaires dans R\textsuperscript{3}}}
@@ -36,7 +41,7 @@
 \author{}
 \begin{document}
 \mxtitleframe
-\begin{frame}{Introduction}
+\begin{frame}[allowframebreaks]{Introduction}
 On s'intéresse à la résolution de systèmes de trois équations linéaires à trois inconnues ;
 c'est-à-dire à des systèmes de la forme :
 \[
@@ -50,7 +55,7 @@ c'est-à-dire à des systèmes de la forme :
 Ce genre de système peut aisément se généraliser en système de \(n\) équations à \(n\) inconnues, 
 la méthode de résolution étant essentiellement similaire.
 \end{frame}
-\begin{frame}{Résolution de systèmes linéaires}
+\begin{frame}[allowframebreaks]{Résolution de systèmes linéaires}
 Considérons le système suivant :
                               \[
                                     \left\lbrace
@@ -61,11 +66,10 @@ Considérons le système suivant :
                                     \end{array}
                                     \right.
                               \]
-\end{frame}
-\begin{frame}{Résolution de systèmes linéaires (2)}
+
 On choisit une des équations pour être le \emph{pivot}.
 \end{frame}
-\begin{frame}{Résolution de systèmes linéaires (3)}
+\begin{frame}[allowframebreaks]{Résolution de systèmes linéaires (2)}
 On va prendre l'équation \((1)\).
                               \[
                                     \left\lbrace
@@ -79,7 +83,7 @@ On va prendre l'équation \((1)\).
                                     \right.
                               \]
 \end{frame}
-\begin{frame}{Résolution de systèmes linéaires}
+\begin{frame}[allowframebreaks]{Résolution de systèmes linéaires}
 On utilise le pivot pour éliminer une des variables dans les autres équations :
                               \[
                                     \begin{matrix}
@@ -111,7 +115,7 @@ On utilise le pivot pour éliminer une des variables dans les autres équations 
                                     \end{matrix}
                               \]
 \end{frame}
-\begin{frame}{Résolution de systèmes linéaires (2)}
+\begin{frame}[allowframebreaks]{Résolution de systèmes linéaires (2)}
 Ce qui nous donne le nouveau système :
                               \[
                                     \left\lbrace
@@ -125,7 +129,7 @@ Ce qui nous donne le nouveau système :
                                     \right.
                               \]
 \end{frame}
-\begin{frame}{Résolution de systèmes linéaires}
+\begin{frame}[allowframebreaks]{Résolution de systèmes linéaires}
 On choisit alors un nouveau pivot, prenons l'équation \((2')\).
                               \[
                                     \left\lbrace
@@ -139,7 +143,7 @@ On choisit alors un nouveau pivot, prenons l'équation \((2')\).
                                     \right.
                               \]
 \end{frame}
-\begin{frame}{Résolution de systèmes linéaires (2)}
+\begin{frame}[allowframebreaks]{Résolution de systèmes linéaires (2)}
 A l'aide de ce nouveau pivot, on élimine une variable dans toutes les équations,
                               excepté celles qui ont déjà servi de pivots.
                               \[
@@ -158,7 +162,7 @@ A l'aide de ce nouveau pivot, on élimine une variable dans toutes les équation
                                     \end{matrix}
                               \]
 \end{frame}
-\begin{frame}{Résolution de systèmes linéaires (3)}
+\begin{frame}[allowframebreaks]{Résolution de systèmes linéaires (3)}
 On a alors le système suivant : 
                               \[
                                     \left\lbrace
@@ -170,7 +174,7 @@ On a alors le système suivant :
                                     \right.
                               \]
 \end{frame}
-\begin{frame}{Résolution de systèmes linéaires}
+\begin{frame}[allowframebreaks]{Résolution de systèmes linéaires}
 On résout les équations une par une :
                               \[
                                     \left\lbrace
@@ -198,7 +202,7 @@ On résout les équations une par une :
                                     \right.
                               \]
 \end{frame}
-\begin{frame}{Résolution de systèmes linéaires (2)}
+\begin{frame}[allowframebreaks]{Résolution de systèmes linéaires (2)}
 \[
                                     \Rightarrow
                                     \left\lbrace
@@ -226,10 +230,10 @@ On résout les équations une par une :
                                     \right.
                               \]
 \end{frame}
-\begin{frame}{Résolution de systèmes linéaires}
+\begin{frame}[allowframebreaks]{Résolution de systèmes linéaires}
 Ainsi, \((x,y,z) = (2,-1,3)\).
 \end{frame}
-\begin{frame}{Résolution de systèmes linéaires}
+\begin{frame}[allowframebreaks]{Résolution de systèmes linéaires}
 Considérons le système suivant :
 				\[
 					\left\lbrace
@@ -241,7 +245,7 @@ Considérons le système suivant :
 					\right.
 				\]
 \end{frame}
-\begin{frame}{Résolution de systèmes linéaires (2)}
+\begin{frame}[allowframebreaks]{Résolution de systèmes linéaires (2)}
 On choisit une équation et une variable à substituer.
 			Dans notre cas, l'équation \((2)\) donne \(z = 3 x + y - 11\).
 			On a alors 
@@ -263,7 +267,7 @@ On choisit une équation et une variable à substituer.
 
 (Ce système peut être résolu par n'importe quelle méthode.)
 \end{frame}
-\begin{frame}{Résolution de systèmes linéaires}
+\begin{frame}[allowframebreaks]{Résolution de systèmes linéaires}
 On utilise l'équation \((3')\) pour avoir \(x = -3y+11\).
 			Ceci donne 
 			      \[ 
@@ -288,12 +292,12 @@ On a alors :
 
 			La solution est donc \((x,y,z) = (2,3,-2)\).
 \end{frame}
-\begin{frame}{Résolution de systèmes linéaires}
+\begin{frame}[allowframebreaks]{Résolution de systèmes linéaires}
 Un système linéaire de trois équations à trois inconnues a soit une solution unique,
             soit aucune solution (on dit qu'il est \emph{impossible}), soit une infinité de solutions (on dit qu'il est \emph{indéterminé}).
             La méthode de Gauss permet de le savoir : si, au cours des éliminations, on obtient une égalité
 \end{frame}
-\begin{frame}{Résolution de systèmes linéaires (2)}
+\begin{frame}[allowframebreaks]{Résolution de systèmes linéaires (2)}
 \begin{itemize}
 
                   \item fausse, du type \(0 = 5\), le système n'a aucune solution ;
@@ -303,7 +307,8 @@ Un système linéaire de trois équations à trois inconnues a soit une solution
 
 \end{itemize}
 \end{frame}
-\begin{frame}{Résolution de systèmes linéaires}
+\begin{frame}[allowframebreaks]{Résolution de systèmes linéaires}
+\footnotesize
 Considérons
                   \(\left\lbrace
                         \begin{array}{lc}
