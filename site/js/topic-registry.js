@@ -74,6 +74,7 @@ export const PLACEMENTS = Object.fromEntries([
   ['#gallery/four-colours', ['discrete/graphs','foundations/reasoning']],
   ['#gallery/collisions', ['dynamics/motion','geometry/plane']],
   ['#gallery/hundred-boxes', ['probability/experiments','discrete/counting']],
+  ['#gallery/morley', ['geometry/plane']],
   ['#gallery/napkin-ring', ['geometry/space','analysis/integration']],
   ['#university/calculs-algebriques', ['algebra/equations','discrete/counting']],
   ['#university/fourier-periodicite', ['analysis/integration']],
