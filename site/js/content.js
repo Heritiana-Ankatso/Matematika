@@ -1,6 +1,7 @@
 import { university } from './catalogue-data.js';
 import { GALLERY_ADDITIONS } from './gallery/gallery-additions.js';
 import { CURIOSITIES } from './gallery/gallery-curiosities.js';
+import { INTUITION_CURIOSITIES } from './gallery/gallery-intuition.js';
 import { INFERENCE_GALLERY } from './inference-content.js';
 import { FAIR_GALLERY } from './fair-division-content.js';
 import { TOPOLOGY_GALLERY } from './topology-content.js';
@@ -167,7 +168,7 @@ export const labs = [
   },
 ];
 
-labs.push(...GALLERY_ADDITIONS, ...CURIOSITIES, ...INFERENCE_GALLERY, ...DYNAMICS_GALLERY, ...FAIR_GALLERY, ...TOPOLOGY_GALLERY);
+labs.push(...GALLERY_ADDITIONS, ...CURIOSITIES, ...INTUITION_CURIOSITIES, ...INFERENCE_GALLERY, ...DYNAMICS_GALLERY, ...FAIR_GALLERY, ...TOPOLOGY_GALLERY);
 labs.push(GOMBOC_GALLERY);
 // Activities give examples, conditions and a general argument separately.
 const reasoning = {
