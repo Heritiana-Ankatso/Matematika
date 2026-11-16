@@ -123,6 +123,32 @@
         "fr"
       ],
       "language": "fr"
+    },
+    {
+      "id": "t12c",
+      "title": [
+        "T12 série C",
+        "T12 C · Malagasy curriculum"
+      ],
+      "curriculum": "mg",
+      "contentLanguage": "fr",
+      "languages": [
+        "fr"
+      ],
+      "language": "fr"
+    },
+    {
+      "id": "t12d",
+      "title": [
+        "T12 série D",
+        "T12 D · Malagasy curriculum"
+      ],
+      "curriculum": "mg",
+      "contentLanguage": "fr",
+      "languages": [
+        "fr"
+      ],
+      "language": "fr"
     }
   ],
   "chapters": [
@@ -2346,6 +2372,269 @@
       "topic": "random",
       "labs": [
         "probability/run"
+      ]
+    },
+    {
+      "id": "t12c-01",
+      "course": "t12c",
+      "number": 1,
+      "title": [
+        "Arithmétique",
+        "Arithmetic"
+      ],
+      "topic": "arithmetic",
+      "labs": [
+        "euler-primes/hunt"
+      ]
+    },
+    {
+      "id": "t12c-02",
+      "course": "t12c",
+      "number": 2,
+      "title": [
+        "Probabilités",
+        "Probability"
+      ],
+      "topic": "binomial",
+      "labs": [
+        "probability/run"
+      ]
+    },
+    {
+      "id": "t12c-03",
+      "course": "t12c",
+      "number": 3,
+      "title": [
+        "Systèmes d’équations linéaires dans R³",
+        "Linear systems in R³"
+      ],
+      "topic": "algebra",
+      "labs": [
+        "line/direction"
+      ]
+    },
+    {
+      "id": "t12c-04",
+      "course": "t12c",
+      "number": 4,
+      "title": [
+        "Nombres complexes",
+        "Complex numbers"
+      ],
+      "topic": "complex-algebra",
+      "labs": [
+        "complex/scale"
+      ]
+    },
+    {
+      "id": "t12c-05",
+      "course": "t12c",
+      "number": 5,
+      "title": [
+        "Barycentres",
+        "Barycentres"
+      ],
+      "topic": "vectors",
+      "labs": []
+    },
+    {
+      "id": "t12c-06",
+      "course": "t12c",
+      "number": 6,
+      "title": [
+        "Applications affines et isométries",
+        "Affine maps and isometries"
+      ],
+      "topic": "geometry",
+      "labs": []
+    },
+    {
+      "id": "t12c-07",
+      "course": "t12c",
+      "number": 7,
+      "title": [
+        "Similitudes planes",
+        "Plane similarities"
+      ],
+      "topic": "complex-plane",
+      "labs": [
+        "complex/angles"
+      ]
+    },
+    {
+      "id": "t12c-08",
+      "course": "t12c",
+      "number": 8,
+      "title": [
+        "Suites numériques",
+        "Sequences"
+      ],
+      "topic": "sequences",
+      "labs": [
+        "sequences/formula"
+      ]
+    },
+    {
+      "id": "t12c-09",
+      "course": "t12c",
+      "number": 9,
+      "title": [
+        "Limites, continuité et dérivation",
+        "Functions"
+      ],
+      "topic": "functions",
+      "labs": [
+        "derivative/where"
+      ]
+    },
+    {
+      "id": "t12c-10",
+      "course": "t12c",
+      "number": 10,
+      "title": [
+        "Fonctions exponentielle et logarithme",
+        "Exponential and logarithm"
+      ],
+      "topic": "exponential",
+      "labs": []
+    },
+    {
+      "id": "t12c-11",
+      "course": "t12c",
+      "number": 11,
+      "title": [
+        "Primitives et intégrales",
+        "Primitives and integrals"
+      ],
+      "topic": "integral",
+      "labs": [
+        "integral/bound"
+      ]
+    },
+    {
+      "id": "t12c-12",
+      "course": "t12c",
+      "number": 12,
+      "title": [
+        "Équations différentielles",
+        "Differential equations"
+      ],
+      "topic": "differential",
+      "labs": []
+    },
+    {
+      "id": "t12d-01",
+      "course": "t12d",
+      "number": 1,
+      "title": [
+        "Probabilités",
+        "Probability"
+      ],
+      "topic": "binomial",
+      "labs": [
+        "probability/run"
+      ]
+    },
+    {
+      "id": "t12d-02",
+      "course": "t12d",
+      "number": 2,
+      "title": [
+        "Systèmes d’équations linéaires dans R³",
+        "Linear systems in R³"
+      ],
+      "topic": "algebra",
+      "labs": [
+        "line/direction"
+      ]
+    },
+    {
+      "id": "t12d-03",
+      "course": "t12d",
+      "number": 3,
+      "title": [
+        "Nombres complexes",
+        "Complex numbers"
+      ],
+      "topic": "complex-algebra",
+      "labs": [
+        "complex/scale"
+      ]
+    },
+    {
+      "id": "t12d-04",
+      "course": "t12d",
+      "number": 4,
+      "title": [
+        "Similitudes planes",
+        "Plane similarities"
+      ],
+      "topic": "complex-plane",
+      "labs": [
+        "complex/angles"
+      ]
+    },
+    {
+      "id": "t12d-05",
+      "course": "t12d",
+      "number": 5,
+      "title": [
+        "Suites numériques",
+        "Sequences"
+      ],
+      "topic": "sequences",
+      "labs": [
+        "sequences/formula"
+      ]
+    },
+    {
+      "id": "t12d-06",
+      "course": "t12d",
+      "number": 6,
+      "title": [
+        "Limites, continuité et dérivation",
+        "Functions"
+      ],
+      "topic": "functions",
+      "labs": [
+        "derivative/where"
+      ]
+    },
+    {
+      "id": "t12d-07",
+      "course": "t12d",
+      "number": 7,
+      "title": [
+        "Fonctions exponentielle et logarithme",
+        "Exponential and logarithm"
+      ],
+      "topic": "exponential",
+      "labs": []
+    },
+    {
+      "id": "t12d-08",
+      "course": "t12d",
+      "number": 8,
+      "title": [
+        "Statistiques",
+        "Statistics"
+      ],
+      "topic": "statistics",
+      "labs": [
+        "statistics/mean"
+      ]
+    },
+    {
+      "id": "t12d-09",
+      "course": "t12d",
+      "number": 9,
+      "title": [
+        "Primitives et intégrales",
+        "Primitives and integrals"
+      ],
+      "topic": "integral",
+      "labs": [
+        "integral/bound"
       ]
     }
   ],
@@ -31493,6 +31782,1264 @@
       "pages": 4,
       "bytes": 68934,
       "translation": "authored-bilingual"
+    },
+    {
+      "id": "t12c-01-chapter",
+      "chapter": "t12c-01",
+      "course": "t12c",
+      "type": "booklet",
+      "title": [
+        "Chapitre complet · élève",
+        "Complete chapter · student"
+      ],
+      "audience": "student",
+      "format": "PDF",
+      "url": [
+        "./resources/t12c-01/chapter.pdf",
+        null
+      ],
+      "source": "t12-student",
+      "sourcePages": [
+        8,
+        26
+      ],
+      "review": "source-unverified",
+      "editions": {
+        "fr": {
+          "path": "./resources/t12c-01/chapter.pdf",
+          "bytes": 467935,
+          "sha256": "74675bf1563f248f391d10aa062c7a4d59a236be581a271d9c0988336f650a90",
+          "pages": 19
+        }
+      },
+      "languages": [
+        "fr"
+      ],
+      "language": "fr",
+      "pages": 19,
+      "bytes": 467935,
+      "translation": "authored-bilingual"
+    },
+    {
+      "id": "t12c-01-teacher",
+      "chapter": "t12c-01",
+      "course": "t12c",
+      "type": "solutions",
+      "title": [
+        "Chapitre complet · professeur (cours et corrigés)",
+        "Complete chapter · teacher (notes and solutions)"
+      ],
+      "audience": "teacher",
+      "format": "PDF",
+      "url": [
+        "./resources/t12c-01/teacher.pdf",
+        null
+      ],
+      "source": "t12-teacher",
+      "sourcePages": [
+        8,
+        26
+      ],
+      "review": "source-unverified",
+      "editions": {
+        "fr": {
+          "path": "./resources/t12c-01/teacher.pdf",
+          "bytes": 471327,
+          "sha256": "62f928a51540e9f7d94b3fe571d3d207c47210aed9bb1f2079254f302a316b97",
+          "pages": 19
+        }
+      },
+      "languages": [
+        "fr"
+      ],
+      "language": "fr",
+      "pages": 19,
+      "bytes": 471327,
+      "translation": "authored-bilingual"
+    },
+    {
+      "id": "t12c-02-chapter",
+      "chapter": "t12c-02",
+      "course": "t12c",
+      "type": "booklet",
+      "title": [
+        "Chapitre complet · élève",
+        "Complete chapter · student"
+      ],
+      "audience": "student",
+      "format": "PDF",
+      "url": [
+        "./resources/t12c-02/chapter.pdf",
+        null
+      ],
+      "source": "t12-student",
+      "sourcePages": [
+        27,
+        42
+      ],
+      "review": "source-unverified",
+      "editions": {
+        "fr": {
+          "path": "./resources/t12c-02/chapter.pdf",
+          "bytes": 425401,
+          "sha256": "30a82f77bc6f70426c0e80b41833400bd10664f27c1421363d011d0e58b3015b",
+          "pages": 16
+        }
+      },
+      "languages": [
+        "fr"
+      ],
+      "language": "fr",
+      "pages": 16,
+      "bytes": 425401,
+      "translation": "authored-bilingual"
+    },
+    {
+      "id": "t12c-02-teacher",
+      "chapter": "t12c-02",
+      "course": "t12c",
+      "type": "solutions",
+      "title": [
+        "Chapitre complet · professeur (cours et corrigés)",
+        "Complete chapter · teacher (notes and solutions)"
+      ],
+      "audience": "teacher",
+      "format": "PDF",
+      "url": [
+        "./resources/t12c-02/teacher.pdf",
+        null
+      ],
+      "source": "t12-teacher",
+      "sourcePages": [
+        27,
+        48
+      ],
+      "review": "source-unverified",
+      "editions": {
+        "fr": {
+          "path": "./resources/t12c-02/teacher.pdf",
+          "bytes": 467278,
+          "sha256": "78961ef383dcb4daac1de1132a704d85469c29107090da8b14b2da28d9cce82f",
+          "pages": 22
+        }
+      },
+      "languages": [
+        "fr"
+      ],
+      "language": "fr",
+      "pages": 22,
+      "bytes": 467278,
+      "translation": "authored-bilingual"
+    },
+    {
+      "id": "t12c-03-chapter",
+      "chapter": "t12c-03",
+      "course": "t12c",
+      "type": "booklet",
+      "title": [
+        "Chapitre complet · élève",
+        "Complete chapter · student"
+      ],
+      "audience": "student",
+      "format": "PDF",
+      "url": [
+        "./resources/t12c-03/chapter.pdf",
+        null
+      ],
+      "source": "t12-student",
+      "sourcePages": [
+        45,
+        49
+      ],
+      "review": "source-unverified",
+      "editions": {
+        "fr": {
+          "path": "./resources/t12c-03/chapter.pdf",
+          "bytes": 350569,
+          "sha256": "cf91b6f786945bbaef025461ef0ff7c32924e4aa8658beed8a877ccb08da2477",
+          "pages": 5
+        }
+      },
+      "languages": [
+        "fr"
+      ],
+      "language": "fr",
+      "pages": 5,
+      "bytes": 350569,
+      "translation": "authored-bilingual"
+    },
+    {
+      "id": "t12c-04-chapter",
+      "chapter": "t12c-04",
+      "course": "t12c",
+      "type": "booklet",
+      "title": [
+        "Chapitre complet · élève",
+        "Complete chapter · student"
+      ],
+      "audience": "student",
+      "format": "PDF",
+      "url": [
+        "./resources/t12c-04/chapter.pdf",
+        null
+      ],
+      "source": "t12-student",
+      "sourcePages": [
+        50,
+        72
+      ],
+      "review": "source-unverified",
+      "editions": {
+        "fr": {
+          "path": "./resources/t12c-04/chapter.pdf",
+          "bytes": 440722,
+          "sha256": "119874cc21c5854da389e61aef02ea199e0c012a819ee75fa1dbf2c8146f75d0",
+          "pages": 23
+        }
+      },
+      "languages": [
+        "fr"
+      ],
+      "language": "fr",
+      "pages": 23,
+      "bytes": 440722,
+      "translation": "authored-bilingual"
+    },
+    {
+      "id": "t12c-04-teacher",
+      "chapter": "t12c-04",
+      "course": "t12c",
+      "type": "solutions",
+      "title": [
+        "Chapitre complet · professeur (cours et corrigés)",
+        "Complete chapter · teacher (notes and solutions)"
+      ],
+      "audience": "teacher",
+      "format": "PDF",
+      "url": [
+        "./resources/t12c-04/teacher.pdf",
+        null
+      ],
+      "source": "t12-teacher",
+      "sourcePages": [
+        56,
+        83
+      ],
+      "review": "source-unverified",
+      "editions": {
+        "fr": {
+          "path": "./resources/t12c-04/teacher.pdf",
+          "bytes": 472263,
+          "sha256": "122a5c5d6f50cd4eb33438f803288e4e9a3bbf2d81cca02763f924ac855ba330",
+          "pages": 28
+        }
+      },
+      "languages": [
+        "fr"
+      ],
+      "language": "fr",
+      "pages": 28,
+      "bytes": 472263,
+      "translation": "authored-bilingual"
+    },
+    {
+      "id": "t12c-05-chapter",
+      "chapter": "t12c-05",
+      "course": "t12c",
+      "type": "booklet",
+      "title": [
+        "Chapitre complet · élève",
+        "Complete chapter · student"
+      ],
+      "audience": "student",
+      "format": "PDF",
+      "url": [
+        "./resources/t12c-05/chapter.pdf",
+        null
+      ],
+      "source": "t12-student",
+      "sourcePages": [
+        73,
+        82
+      ],
+      "review": "source-unverified",
+      "editions": {
+        "fr": {
+          "path": "./resources/t12c-05/chapter.pdf",
+          "bytes": 385979,
+          "sha256": "d5569f52741128c611fa0f5b9523d5d6de1ea2e1165e3def248e0453efef845a",
+          "pages": 10
+        }
+      },
+      "languages": [
+        "fr"
+      ],
+      "language": "fr",
+      "pages": 10,
+      "bytes": 385979,
+      "translation": "authored-bilingual"
+    },
+    {
+      "id": "t12c-05-teacher",
+      "chapter": "t12c-05",
+      "course": "t12c",
+      "type": "solutions",
+      "title": [
+        "Chapitre complet · professeur (cours et corrigés)",
+        "Complete chapter · teacher (notes and solutions)"
+      ],
+      "audience": "teacher",
+      "format": "PDF",
+      "url": [
+        "./resources/t12c-05/teacher.pdf",
+        null
+      ],
+      "source": "t12-teacher",
+      "sourcePages": [
+        84,
+        95
+      ],
+      "review": "source-unverified",
+      "editions": {
+        "fr": {
+          "path": "./resources/t12c-05/teacher.pdf",
+          "bytes": 405939,
+          "sha256": "c95a737f919759a26abe75b9ea7865b305ccb4a02ec544bf64841876f4b40df6",
+          "pages": 12
+        }
+      },
+      "languages": [
+        "fr"
+      ],
+      "language": "fr",
+      "pages": 12,
+      "bytes": 405939,
+      "translation": "authored-bilingual"
+    },
+    {
+      "id": "t12c-06-chapter",
+      "chapter": "t12c-06",
+      "course": "t12c",
+      "type": "booklet",
+      "title": [
+        "Chapitre complet · élève",
+        "Complete chapter · student"
+      ],
+      "audience": "student",
+      "format": "PDF",
+      "url": [
+        "./resources/t12c-06/chapter.pdf",
+        null
+      ],
+      "source": "t12-student",
+      "sourcePages": [
+        83,
+        94
+      ],
+      "review": "source-unverified",
+      "editions": {
+        "fr": {
+          "path": "./resources/t12c-06/chapter.pdf",
+          "bytes": 427756,
+          "sha256": "a75a4abde2521cda4b2deed2a0e0bc9919fdccfde4510b9bc5b02a300bda7f87",
+          "pages": 12
+        }
+      },
+      "languages": [
+        "fr"
+      ],
+      "language": "fr",
+      "pages": 12,
+      "bytes": 427756,
+      "translation": "authored-bilingual"
+    },
+    {
+      "id": "t12c-06-teacher",
+      "chapter": "t12c-06",
+      "course": "t12c",
+      "type": "solutions",
+      "title": [
+        "Chapitre complet · professeur (cours et corrigés)",
+        "Complete chapter · teacher (notes and solutions)"
+      ],
+      "audience": "teacher",
+      "format": "PDF",
+      "url": [
+        "./resources/t12c-06/teacher.pdf",
+        null
+      ],
+      "source": "t12-teacher",
+      "sourcePages": [
+        96,
+        111
+      ],
+      "review": "source-unverified",
+      "editions": {
+        "fr": {
+          "path": "./resources/t12c-06/teacher.pdf",
+          "bytes": 460995,
+          "sha256": "c3c3b790a97899a9a9c57c15e5f8e035c4bfe4d3399a3d834b1052bf2c677c98",
+          "pages": 16
+        }
+      },
+      "languages": [
+        "fr"
+      ],
+      "language": "fr",
+      "pages": 16,
+      "bytes": 460995,
+      "translation": "authored-bilingual"
+    },
+    {
+      "id": "t12c-07-chapter",
+      "chapter": "t12c-07",
+      "course": "t12c",
+      "type": "booklet",
+      "title": [
+        "Chapitre complet · élève",
+        "Complete chapter · student"
+      ],
+      "audience": "student",
+      "format": "PDF",
+      "url": [
+        "./resources/t12c-07/chapter.pdf",
+        null
+      ],
+      "source": "t12-student",
+      "sourcePages": [
+        95,
+        101
+      ],
+      "review": "source-unverified",
+      "editions": {
+        "fr": {
+          "path": "./resources/t12c-07/chapter.pdf",
+          "bytes": 389391,
+          "sha256": "14157cb3c9d7dc5e85d1a458328efdef23e77c9e7cc6669a193d685a840d35dd",
+          "pages": 7
+        }
+      },
+      "languages": [
+        "fr"
+      ],
+      "language": "fr",
+      "pages": 7,
+      "bytes": 389391,
+      "translation": "authored-bilingual"
+    },
+    {
+      "id": "t12c-07-teacher",
+      "chapter": "t12c-07",
+      "course": "t12c",
+      "type": "solutions",
+      "title": [
+        "Chapitre complet · professeur (cours et corrigés)",
+        "Complete chapter · teacher (notes and solutions)"
+      ],
+      "audience": "teacher",
+      "format": "PDF",
+      "url": [
+        "./resources/t12c-07/teacher.pdf",
+        null
+      ],
+      "source": "t12-teacher",
+      "sourcePages": [
+        112,
+        123
+      ],
+      "review": "source-unverified",
+      "editions": {
+        "fr": {
+          "path": "./resources/t12c-07/teacher.pdf",
+          "bytes": 442306,
+          "sha256": "ac7df204f647a63fad0e456ff5d4fc35cb3b2bc7d0949dda1418f8523826ce75",
+          "pages": 12
+        }
+      },
+      "languages": [
+        "fr"
+      ],
+      "language": "fr",
+      "pages": 12,
+      "bytes": 442306,
+      "translation": "authored-bilingual"
+    },
+    {
+      "id": "t12c-08-chapter",
+      "chapter": "t12c-08",
+      "course": "t12c",
+      "type": "booklet",
+      "title": [
+        "Chapitre complet · élève",
+        "Complete chapter · student"
+      ],
+      "audience": "student",
+      "format": "PDF",
+      "url": [
+        "./resources/t12c-08/chapter.pdf",
+        null
+      ],
+      "source": "t12-student",
+      "sourcePages": [
+        104,
+        114
+      ],
+      "review": "source-unverified",
+      "editions": {
+        "fr": {
+          "path": "./resources/t12c-08/chapter.pdf",
+          "bytes": 402714,
+          "sha256": "d19ca22a38f797c7fd303b9b2a3d33cbd731eb3a2e64cd086ded82d46c018979",
+          "pages": 11
+        }
+      },
+      "languages": [
+        "fr"
+      ],
+      "language": "fr",
+      "pages": 11,
+      "bytes": 402714,
+      "translation": "authored-bilingual"
+    },
+    {
+      "id": "t12c-08-teacher",
+      "chapter": "t12c-08",
+      "course": "t12c",
+      "type": "solutions",
+      "title": [
+        "Chapitre complet · professeur (cours et corrigés)",
+        "Complete chapter · teacher (notes and solutions)"
+      ],
+      "audience": "teacher",
+      "format": "PDF",
+      "url": [
+        "./resources/t12c-08/teacher.pdf",
+        null
+      ],
+      "source": "t12-teacher",
+      "sourcePages": [
+        126,
+        137
+      ],
+      "review": "source-unverified",
+      "editions": {
+        "fr": {
+          "path": "./resources/t12c-08/teacher.pdf",
+          "bytes": 408241,
+          "sha256": "b695f62ebfebe81dd7a5facbf6e42196eb14013d87bb4a1e94b918c4a52beef0",
+          "pages": 12
+        }
+      },
+      "languages": [
+        "fr"
+      ],
+      "language": "fr",
+      "pages": 12,
+      "bytes": 408241,
+      "translation": "authored-bilingual"
+    },
+    {
+      "id": "t12c-09-chapter",
+      "chapter": "t12c-09",
+      "course": "t12c",
+      "type": "booklet",
+      "title": [
+        "Chapitre complet · élève",
+        "Complete chapter · student"
+      ],
+      "audience": "student",
+      "format": "PDF",
+      "url": [
+        "./resources/t12c-09/chapter.pdf",
+        null
+      ],
+      "source": "t12-student",
+      "sourcePages": [
+        115,
+        128
+      ],
+      "review": "source-unverified",
+      "editions": {
+        "fr": {
+          "path": "./resources/t12c-09/chapter.pdf",
+          "bytes": 486443,
+          "sha256": "393576adb78290770931b65d27436c64ea1b9ea46f7dea3066aa3f06d66253d2",
+          "pages": 14
+        }
+      },
+      "languages": [
+        "fr"
+      ],
+      "language": "fr",
+      "pages": 14,
+      "bytes": 486443,
+      "translation": "authored-bilingual"
+    },
+    {
+      "id": "t12c-10-chapter",
+      "chapter": "t12c-10",
+      "course": "t12c",
+      "type": "booklet",
+      "title": [
+        "Chapitre complet · élève",
+        "Complete chapter · student"
+      ],
+      "audience": "student",
+      "format": "PDF",
+      "url": [
+        "./resources/t12c-10/chapter.pdf",
+        null
+      ],
+      "source": "t12-student",
+      "sourcePages": [
+        129,
+        139
+      ],
+      "review": "source-unverified",
+      "editions": {
+        "fr": {
+          "path": "./resources/t12c-10/chapter.pdf",
+          "bytes": 351795,
+          "sha256": "07369279e3c4b0bda1dc5de43135055a475f2450e5c490fbed8fae3b49b26e3b",
+          "pages": 11
+        }
+      },
+      "languages": [
+        "fr"
+      ],
+      "language": "fr",
+      "pages": 11,
+      "bytes": 351795,
+      "translation": "authored-bilingual"
+    },
+    {
+      "id": "t12c-11-chapter",
+      "chapter": "t12c-11",
+      "course": "t12c",
+      "type": "booklet",
+      "title": [
+        "Chapitre complet · élève",
+        "Complete chapter · student"
+      ],
+      "audience": "student",
+      "format": "PDF",
+      "url": [
+        "./resources/t12c-11/chapter.pdf",
+        null
+      ],
+      "source": "t12-student",
+      "sourcePages": [
+        153,
+        161
+      ],
+      "review": "source-unverified",
+      "editions": {
+        "fr": {
+          "path": "./resources/t12c-11/chapter.pdf",
+          "bytes": 412714,
+          "sha256": "887d3dd43318da7164123d46c5ec48beb05e4ea56ce64cd9c7d64920b84cac04",
+          "pages": 9
+        }
+      },
+      "languages": [
+        "fr"
+      ],
+      "language": "fr",
+      "pages": 9,
+      "bytes": 412714,
+      "translation": "authored-bilingual"
+    },
+    {
+      "id": "t12c-12-chapter",
+      "chapter": "t12c-12",
+      "course": "t12c",
+      "type": "booklet",
+      "title": [
+        "Chapitre complet · élève",
+        "Complete chapter · student"
+      ],
+      "audience": "student",
+      "format": "PDF",
+      "url": [
+        "./resources/t12c-12/chapter.pdf",
+        null
+      ],
+      "source": "t12-student",
+      "sourcePages": [
+        162,
+        167
+      ],
+      "review": "source-unverified",
+      "editions": {
+        "fr": {
+          "path": "./resources/t12c-12/chapter.pdf",
+          "bytes": 314316,
+          "sha256": "b4845165899beb1bc8853c3fd0c547b7569635b13ea40a16a80cb985ae3473a3",
+          "pages": 6
+        }
+      },
+      "languages": [
+        "fr"
+      ],
+      "language": "fr",
+      "pages": 6,
+      "bytes": 314316,
+      "translation": "authored-bilingual"
+    },
+    {
+      "id": "t12c-12-teacher",
+      "chapter": "t12c-12",
+      "course": "t12c",
+      "type": "solutions",
+      "title": [
+        "Chapitre complet · professeur (cours et corrigés)",
+        "Complete chapter · teacher (notes and solutions)"
+      ],
+      "audience": "teacher",
+      "format": "PDF",
+      "url": [
+        "./resources/t12c-12/teacher.pdf",
+        null
+      ],
+      "source": "t12-teacher",
+      "sourcePages": [
+        188,
+        195
+      ],
+      "review": "source-unverified",
+      "editions": {
+        "fr": {
+          "path": "./resources/t12c-12/teacher.pdf",
+          "bytes": 334344,
+          "sha256": "b2bdb46cdd8cb73c5878d531bbeb34811c2b2f747ea6bb1502abeecee9d652b5",
+          "pages": 8
+        }
+      },
+      "languages": [
+        "fr"
+      ],
+      "language": "fr",
+      "pages": 8,
+      "bytes": 334344,
+      "translation": "authored-bilingual"
+    },
+    {
+      "id": "t12d-01-chapter",
+      "chapter": "t12d-01",
+      "course": "t12d",
+      "type": "booklet",
+      "title": [
+        "Chapitre complet · élève",
+        "Complete chapter · student"
+      ],
+      "audience": "student",
+      "format": "PDF",
+      "url": [
+        "./resources/t12d-01/chapter.pdf",
+        null
+      ],
+      "source": "t12-student",
+      "sourcePages": [
+        27,
+        42
+      ],
+      "review": "source-unverified",
+      "editions": {
+        "fr": {
+          "path": "./resources/t12d-01/chapter.pdf",
+          "bytes": 425401,
+          "sha256": "30a82f77bc6f70426c0e80b41833400bd10664f27c1421363d011d0e58b3015b",
+          "pages": 16
+        }
+      },
+      "languages": [
+        "fr"
+      ],
+      "language": "fr",
+      "pages": 16,
+      "bytes": 425401,
+      "translation": "authored-bilingual"
+    },
+    {
+      "id": "t12d-01-teacher",
+      "chapter": "t12d-01",
+      "course": "t12d",
+      "type": "solutions",
+      "title": [
+        "Chapitre complet · professeur (cours et corrigés)",
+        "Complete chapter · teacher (notes and solutions)"
+      ],
+      "audience": "teacher",
+      "format": "PDF",
+      "url": [
+        "./resources/t12d-01/teacher.pdf",
+        null
+      ],
+      "source": "t12-teacher",
+      "sourcePages": [
+        27,
+        48
+      ],
+      "review": "source-unverified",
+      "editions": {
+        "fr": {
+          "path": "./resources/t12d-01/teacher.pdf",
+          "bytes": 467278,
+          "sha256": "78961ef383dcb4daac1de1132a704d85469c29107090da8b14b2da28d9cce82f",
+          "pages": 22
+        }
+      },
+      "languages": [
+        "fr"
+      ],
+      "language": "fr",
+      "pages": 22,
+      "bytes": 467278,
+      "translation": "authored-bilingual"
+    },
+    {
+      "id": "t12d-02-chapter",
+      "chapter": "t12d-02",
+      "course": "t12d",
+      "type": "booklet",
+      "title": [
+        "Chapitre complet · élève",
+        "Complete chapter · student"
+      ],
+      "audience": "student",
+      "format": "PDF",
+      "url": [
+        "./resources/t12d-02/chapter.pdf",
+        null
+      ],
+      "source": "t12-student",
+      "sourcePages": [
+        45,
+        49
+      ],
+      "review": "source-unverified",
+      "editions": {
+        "fr": {
+          "path": "./resources/t12d-02/chapter.pdf",
+          "bytes": 350569,
+          "sha256": "cf91b6f786945bbaef025461ef0ff7c32924e4aa8658beed8a877ccb08da2477",
+          "pages": 5
+        }
+      },
+      "languages": [
+        "fr"
+      ],
+      "language": "fr",
+      "pages": 5,
+      "bytes": 350569,
+      "translation": "authored-bilingual"
+    },
+    {
+      "id": "t12d-03-chapter",
+      "chapter": "t12d-03",
+      "course": "t12d",
+      "type": "booklet",
+      "title": [
+        "Chapitre complet · élève",
+        "Complete chapter · student"
+      ],
+      "audience": "student",
+      "format": "PDF",
+      "url": [
+        "./resources/t12d-03/chapter.pdf",
+        null
+      ],
+      "source": "t12-student",
+      "sourcePages": [
+        50,
+        72
+      ],
+      "review": "source-unverified",
+      "editions": {
+        "fr": {
+          "path": "./resources/t12d-03/chapter.pdf",
+          "bytes": 440722,
+          "sha256": "119874cc21c5854da389e61aef02ea199e0c012a819ee75fa1dbf2c8146f75d0",
+          "pages": 23
+        }
+      },
+      "languages": [
+        "fr"
+      ],
+      "language": "fr",
+      "pages": 23,
+      "bytes": 440722,
+      "translation": "authored-bilingual"
+    },
+    {
+      "id": "t12d-03-teacher",
+      "chapter": "t12d-03",
+      "course": "t12d",
+      "type": "solutions",
+      "title": [
+        "Chapitre complet · professeur (cours et corrigés)",
+        "Complete chapter · teacher (notes and solutions)"
+      ],
+      "audience": "teacher",
+      "format": "PDF",
+      "url": [
+        "./resources/t12d-03/teacher.pdf",
+        null
+      ],
+      "source": "t12-teacher",
+      "sourcePages": [
+        56,
+        83
+      ],
+      "review": "source-unverified",
+      "editions": {
+        "fr": {
+          "path": "./resources/t12d-03/teacher.pdf",
+          "bytes": 472263,
+          "sha256": "122a5c5d6f50cd4eb33438f803288e4e9a3bbf2d81cca02763f924ac855ba330",
+          "pages": 28
+        }
+      },
+      "languages": [
+        "fr"
+      ],
+      "language": "fr",
+      "pages": 28,
+      "bytes": 472263,
+      "translation": "authored-bilingual"
+    },
+    {
+      "id": "t12d-04-chapter",
+      "chapter": "t12d-04",
+      "course": "t12d",
+      "type": "booklet",
+      "title": [
+        "Chapitre complet · élève",
+        "Complete chapter · student"
+      ],
+      "audience": "student",
+      "format": "PDF",
+      "url": [
+        "./resources/t12d-04/chapter.pdf",
+        null
+      ],
+      "source": "t12-student",
+      "sourcePages": [
+        95,
+        101
+      ],
+      "review": "source-unverified",
+      "editions": {
+        "fr": {
+          "path": "./resources/t12d-04/chapter.pdf",
+          "bytes": 389391,
+          "sha256": "14157cb3c9d7dc5e85d1a458328efdef23e77c9e7cc6669a193d685a840d35dd",
+          "pages": 7
+        }
+      },
+      "languages": [
+        "fr"
+      ],
+      "language": "fr",
+      "pages": 7,
+      "bytes": 389391,
+      "translation": "authored-bilingual"
+    },
+    {
+      "id": "t12d-04-teacher",
+      "chapter": "t12d-04",
+      "course": "t12d",
+      "type": "solutions",
+      "title": [
+        "Chapitre complet · professeur (cours et corrigés)",
+        "Complete chapter · teacher (notes and solutions)"
+      ],
+      "audience": "teacher",
+      "format": "PDF",
+      "url": [
+        "./resources/t12d-04/teacher.pdf",
+        null
+      ],
+      "source": "t12-teacher",
+      "sourcePages": [
+        112,
+        123
+      ],
+      "review": "source-unverified",
+      "editions": {
+        "fr": {
+          "path": "./resources/t12d-04/teacher.pdf",
+          "bytes": 442306,
+          "sha256": "ac7df204f647a63fad0e456ff5d4fc35cb3b2bc7d0949dda1418f8523826ce75",
+          "pages": 12
+        }
+      },
+      "languages": [
+        "fr"
+      ],
+      "language": "fr",
+      "pages": 12,
+      "bytes": 442306,
+      "translation": "authored-bilingual"
+    },
+    {
+      "id": "t12d-05-chapter",
+      "chapter": "t12d-05",
+      "course": "t12d",
+      "type": "booklet",
+      "title": [
+        "Chapitre complet · élève",
+        "Complete chapter · student"
+      ],
+      "audience": "student",
+      "format": "PDF",
+      "url": [
+        "./resources/t12d-05/chapter.pdf",
+        null
+      ],
+      "source": "t12-student",
+      "sourcePages": [
+        104,
+        114
+      ],
+      "review": "source-unverified",
+      "editions": {
+        "fr": {
+          "path": "./resources/t12d-05/chapter.pdf",
+          "bytes": 402714,
+          "sha256": "d19ca22a38f797c7fd303b9b2a3d33cbd731eb3a2e64cd086ded82d46c018979",
+          "pages": 11
+        }
+      },
+      "languages": [
+        "fr"
+      ],
+      "language": "fr",
+      "pages": 11,
+      "bytes": 402714,
+      "translation": "authored-bilingual"
+    },
+    {
+      "id": "t12d-05-teacher",
+      "chapter": "t12d-05",
+      "course": "t12d",
+      "type": "solutions",
+      "title": [
+        "Chapitre complet · professeur (cours et corrigés)",
+        "Complete chapter · teacher (notes and solutions)"
+      ],
+      "audience": "teacher",
+      "format": "PDF",
+      "url": [
+        "./resources/t12d-05/teacher.pdf",
+        null
+      ],
+      "source": "t12-teacher",
+      "sourcePages": [
+        126,
+        137
+      ],
+      "review": "source-unverified",
+      "editions": {
+        "fr": {
+          "path": "./resources/t12d-05/teacher.pdf",
+          "bytes": 408241,
+          "sha256": "b695f62ebfebe81dd7a5facbf6e42196eb14013d87bb4a1e94b918c4a52beef0",
+          "pages": 12
+        }
+      },
+      "languages": [
+        "fr"
+      ],
+      "language": "fr",
+      "pages": 12,
+      "bytes": 408241,
+      "translation": "authored-bilingual"
+    },
+    {
+      "id": "t12d-06-chapter",
+      "chapter": "t12d-06",
+      "course": "t12d",
+      "type": "booklet",
+      "title": [
+        "Chapitre complet · élève",
+        "Complete chapter · student"
+      ],
+      "audience": "student",
+      "format": "PDF",
+      "url": [
+        "./resources/t12d-06/chapter.pdf",
+        null
+      ],
+      "source": "t12-student",
+      "sourcePages": [
+        115,
+        128
+      ],
+      "review": "source-unverified",
+      "editions": {
+        "fr": {
+          "path": "./resources/t12d-06/chapter.pdf",
+          "bytes": 486443,
+          "sha256": "393576adb78290770931b65d27436c64ea1b9ea46f7dea3066aa3f06d66253d2",
+          "pages": 14
+        }
+      },
+      "languages": [
+        "fr"
+      ],
+      "language": "fr",
+      "pages": 14,
+      "bytes": 486443,
+      "translation": "authored-bilingual"
+    },
+    {
+      "id": "t12d-07-chapter",
+      "chapter": "t12d-07",
+      "course": "t12d",
+      "type": "booklet",
+      "title": [
+        "Chapitre complet · élève",
+        "Complete chapter · student"
+      ],
+      "audience": "student",
+      "format": "PDF",
+      "url": [
+        "./resources/t12d-07/chapter.pdf",
+        null
+      ],
+      "source": "t12-student",
+      "sourcePages": [
+        129,
+        139
+      ],
+      "review": "source-unverified",
+      "editions": {
+        "fr": {
+          "path": "./resources/t12d-07/chapter.pdf",
+          "bytes": 351795,
+          "sha256": "07369279e3c4b0bda1dc5de43135055a475f2450e5c490fbed8fae3b49b26e3b",
+          "pages": 11
+        }
+      },
+      "languages": [
+        "fr"
+      ],
+      "language": "fr",
+      "pages": 11,
+      "bytes": 351795,
+      "translation": "authored-bilingual"
+    },
+    {
+      "id": "t12d-08-chapter",
+      "chapter": "t12d-08",
+      "course": "t12d",
+      "type": "booklet",
+      "title": [
+        "Chapitre complet · élève",
+        "Complete chapter · student"
+      ],
+      "audience": "student",
+      "format": "PDF",
+      "url": [
+        "./resources/t12d-08/chapter.pdf",
+        null
+      ],
+      "source": "t12-student",
+      "sourcePages": [
+        140,
+        152
+      ],
+      "review": "source-unverified",
+      "editions": {
+        "fr": {
+          "path": "./resources/t12d-08/chapter.pdf",
+          "bytes": 390322,
+          "sha256": "dc5c24a234b67480a7fda3483e39f0db4247d363e8706ba72fe6ed79b709f3e3",
+          "pages": 13
+        }
+      },
+      "languages": [
+        "fr"
+      ],
+      "language": "fr",
+      "pages": 13,
+      "bytes": 390322,
+      "translation": "authored-bilingual"
+    },
+    {
+      "id": "t12d-08-teacher",
+      "chapter": "t12d-08",
+      "course": "t12d",
+      "type": "solutions",
+      "title": [
+        "Chapitre complet · professeur (cours et corrigés)",
+        "Complete chapter · teacher (notes and solutions)"
+      ],
+      "audience": "teacher",
+      "format": "PDF",
+      "url": [
+        "./resources/t12d-08/teacher.pdf",
+        null
+      ],
+      "source": "t12-teacher",
+      "sourcePages": [
+        163,
+        178
+      ],
+      "review": "source-unverified",
+      "editions": {
+        "fr": {
+          "path": "./resources/t12d-08/teacher.pdf",
+          "bytes": 415917,
+          "sha256": "8ab933d19c93b2cb6404cefa3e09ad4ab2eb4bd2171c14680f1132ddafa45288",
+          "pages": 16
+        }
+      },
+      "languages": [
+        "fr"
+      ],
+      "language": "fr",
+      "pages": 16,
+      "bytes": 415917,
+      "translation": "authored-bilingual"
+    },
+    {
+      "id": "t12d-09-chapter",
+      "chapter": "t12d-09",
+      "course": "t12d",
+      "type": "booklet",
+      "title": [
+        "Chapitre complet · élève",
+        "Complete chapter · student"
+      ],
+      "audience": "student",
+      "format": "PDF",
+      "url": [
+        "./resources/t12d-09/chapter.pdf",
+        null
+      ],
+      "source": "t12-student",
+      "sourcePages": [
+        153,
+        161
+      ],
+      "review": "source-unverified",
+      "editions": {
+        "fr": {
+          "path": "./resources/t12d-09/chapter.pdf",
+          "bytes": 412714,
+          "sha256": "887d3dd43318da7164123d46c5ec48beb05e4ea56ce64cd9c7d64920b84cac04",
+          "pages": 9
+        }
+      },
+      "languages": [
+        "fr"
+      ],
+      "language": "fr",
+      "pages": 9,
+      "bytes": 412714,
+      "translation": "authored-bilingual"
     }
   ],
   "sources": [
@@ -31642,6 +33189,20 @@
       "modified": "2026-11-01T12:50:32.000Z",
       "sha256": "f83402b5986241bd0d4016583b0bc0684a5bcf442f460b041d1a618fba89983c",
       "bytes": 694538
+    },
+    {
+      "name": "t12-student",
+      "title": "Manuel de mathématiques T12 C et D, édition élève",
+      "modified": "2026-11-14T14:39:38.000Z",
+      "sha256": "24943b10c78b859c4b57e4e0578e951bc0496ef2e3b6f4d5fad151197ac7df24",
+      "bytes": 1664740
+    },
+    {
+      "name": "t12-teacher",
+      "title": "Manuel de mathématiques T12 C et D, édition professeur",
+      "modified": "2026-11-14T14:39:38.000Z",
+      "sha256": "6ea650b84323b7de90bcc935343e6227e4fc8cd183fa986b1b3e193033be52f3",
+      "bytes": 2031737
     }
   ]
 }

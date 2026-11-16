@@ -20,6 +20,7 @@ The pipeline package. Run with `PYTHONPATH=build python3 -m mxbuild <command>` o
 | `twin.py` | French-to-English twin generation and checked standby snapshots (`docs/ADR-0001-tex-i18n.md`) | |
 | `notation.py` | web side of `mx-notation.sty`, slide MathJax table | |
 | `mada.py` | the Malagasy books' LaTeX (`content/tex/mada/`; T10, T11 S and the vocabulary of the T12 C/D book, class bokiko) rewritten for the slide parser: macros expanded (`\providecommand` and chapter definitions included), boxes unwrapped, teacher material, figures, exercises and answers dropped; tests `tests/test_mada.py` | slides |
+| `t12.py` | build-only compile helper of the T12 C/D book (`content/tex/mada/t12/`): copies the source to `build/t12/`, stands in for missing fonts (mathpazo, mathrsfs, wasysym, helvet), compiles both editions with pdfLaTeX (3 passes, fixed dates), and `check_pdf` (footer and anonymity of every page); the source is never changed; job `t12` of `refresh.py` runs `scripts/build-mada.py --t12`; tests `tests/test_t12_pdfs.py` | `make site` |
 | `enrichment.py` | enrichment TeX units from `content/data/enrichment.json` | |
 | `migrate.py` | one-off migration of a course to the TeX system (historical) | |
 

@@ -85,6 +85,16 @@ export const resourceCatalog = {
       "name": "t11s-prof.pdf",
       "title": "Manuel de mathématiques T11 S, édition professeur",
       "modified": "2026-11-01T12:50:32.000Z"
+    },
+    {
+      "name": "t12-eleve.pdf",
+      "title": "Manuel de mathématiques T12 C et D, édition élève",
+      "modified": "2026-11-14T14:39:38.000Z"
+    },
+    {
+      "name": "t12-prof.pdf",
+      "title": "Manuel de mathématiques T12 C et D, édition professeur",
+      "modified": "2026-11-14T14:39:38.000Z"
     }
   ],
   "chapters": [
@@ -7164,6 +7174,957 @@ export const resourceCatalog = {
       "labs": [
         "probability/run"
       ]
+    },
+    {
+      "id": "t12c-01",
+      "course": "t12c",
+      "number": 1,
+      "title": [
+        "Arithmétique",
+        "Arithmetic"
+      ],
+      "topic": "arithmetic",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 8,
+          "path": "resources/t12c-01/chapter.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-01/chapter.pdf",
+              "bytes": 467935,
+              "sha256": "74675bf1563f248f391d10aa062c7a4d59a236be581a271d9c0988336f650a90",
+              "pages": 19,
+              "start": 8,
+              "end": 26
+            }
+          },
+          "pages": 19,
+          "bytes": 467935,
+          "end": 26
+        },
+        {
+          "kind": "teacher",
+          "source": "t12-prof.pdf",
+          "start": 8,
+          "path": "resources/t12c-01/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-01/teacher.pdf",
+              "bytes": 471327,
+              "sha256": "62f928a51540e9f7d94b3fe571d3d207c47210aed9bb1f2079254f302a316b97",
+              "pages": 19,
+              "start": 8,
+              "end": 26
+            }
+          },
+          "pages": 19,
+          "bytes": 471327,
+          "end": 26
+        }
+      ],
+      "labs": [
+        "euler-primes/hunt"
+      ]
+    },
+    {
+      "id": "t12c-02",
+      "course": "t12c",
+      "number": 2,
+      "title": [
+        "Probabilités",
+        "Probability"
+      ],
+      "topic": "binomial",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 27,
+          "path": "resources/t12c-02/chapter.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-02/chapter.pdf",
+              "bytes": 425401,
+              "sha256": "30a82f77bc6f70426c0e80b41833400bd10664f27c1421363d011d0e58b3015b",
+              "pages": 16,
+              "start": 27,
+              "end": 42
+            }
+          },
+          "pages": 16,
+          "bytes": 425401,
+          "end": 42
+        },
+        {
+          "kind": "teacher",
+          "source": "t12-prof.pdf",
+          "start": 27,
+          "path": "resources/t12c-02/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-02/teacher.pdf",
+              "bytes": 467278,
+              "sha256": "78961ef383dcb4daac1de1132a704d85469c29107090da8b14b2da28d9cce82f",
+              "pages": 22,
+              "start": 27,
+              "end": 48
+            }
+          },
+          "pages": 22,
+          "bytes": 467278,
+          "end": 48
+        }
+      ],
+      "labs": [
+        "probability/run"
+      ]
+    },
+    {
+      "id": "t12c-03",
+      "course": "t12c",
+      "number": 3,
+      "title": [
+        "Systèmes d’équations linéaires dans R³",
+        "Linear systems in R³"
+      ],
+      "topic": "algebra",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 45,
+          "path": "resources/t12c-03/chapter.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-03/chapter.pdf",
+              "bytes": 350569,
+              "sha256": "cf91b6f786945bbaef025461ef0ff7c32924e4aa8658beed8a877ccb08da2477",
+              "pages": 5,
+              "start": 45,
+              "end": 49
+            }
+          },
+          "pages": 5,
+          "bytes": 350569,
+          "end": 49
+        }
+      ],
+      "labs": [
+        "line/direction"
+      ]
+    },
+    {
+      "id": "t12c-04",
+      "course": "t12c",
+      "number": 4,
+      "title": [
+        "Nombres complexes",
+        "Complex numbers"
+      ],
+      "topic": "complex-algebra",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 50,
+          "path": "resources/t12c-04/chapter.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-04/chapter.pdf",
+              "bytes": 440722,
+              "sha256": "119874cc21c5854da389e61aef02ea199e0c012a819ee75fa1dbf2c8146f75d0",
+              "pages": 23,
+              "start": 50,
+              "end": 72
+            }
+          },
+          "pages": 23,
+          "bytes": 440722,
+          "end": 72
+        },
+        {
+          "kind": "teacher",
+          "source": "t12-prof.pdf",
+          "start": 56,
+          "path": "resources/t12c-04/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-04/teacher.pdf",
+              "bytes": 472263,
+              "sha256": "122a5c5d6f50cd4eb33438f803288e4e9a3bbf2d81cca02763f924ac855ba330",
+              "pages": 28,
+              "start": 56,
+              "end": 83
+            }
+          },
+          "pages": 28,
+          "bytes": 472263,
+          "end": 83
+        }
+      ],
+      "labs": [
+        "complex/scale"
+      ]
+    },
+    {
+      "id": "t12c-05",
+      "course": "t12c",
+      "number": 5,
+      "title": [
+        "Barycentres",
+        "Barycentres"
+      ],
+      "topic": "vectors",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 73,
+          "path": "resources/t12c-05/chapter.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-05/chapter.pdf",
+              "bytes": 385979,
+              "sha256": "d5569f52741128c611fa0f5b9523d5d6de1ea2e1165e3def248e0453efef845a",
+              "pages": 10,
+              "start": 73,
+              "end": 82
+            }
+          },
+          "pages": 10,
+          "bytes": 385979,
+          "end": 82
+        },
+        {
+          "kind": "teacher",
+          "source": "t12-prof.pdf",
+          "start": 84,
+          "path": "resources/t12c-05/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-05/teacher.pdf",
+              "bytes": 405939,
+              "sha256": "c95a737f919759a26abe75b9ea7865b305ccb4a02ec544bf64841876f4b40df6",
+              "pages": 12,
+              "start": 84,
+              "end": 95
+            }
+          },
+          "pages": 12,
+          "bytes": 405939,
+          "end": 95
+        }
+      ],
+      "labs": []
+    },
+    {
+      "id": "t12c-06",
+      "course": "t12c",
+      "number": 6,
+      "title": [
+        "Applications affines et isométries",
+        "Affine maps and isometries"
+      ],
+      "topic": "lines",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 83,
+          "path": "resources/t12c-06/chapter.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-06/chapter.pdf",
+              "bytes": 427756,
+              "sha256": "a75a4abde2521cda4b2deed2a0e0bc9919fdccfde4510b9bc5b02a300bda7f87",
+              "pages": 12,
+              "start": 83,
+              "end": 94
+            }
+          },
+          "pages": 12,
+          "bytes": 427756,
+          "end": 94
+        },
+        {
+          "kind": "teacher",
+          "source": "t12-prof.pdf",
+          "start": 96,
+          "path": "resources/t12c-06/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-06/teacher.pdf",
+              "bytes": 460995,
+              "sha256": "c3c3b790a97899a9a9c57c15e5f8e035c4bfe4d3399a3d834b1052bf2c677c98",
+              "pages": 16,
+              "start": 96,
+              "end": 111
+            }
+          },
+          "pages": 16,
+          "bytes": 460995,
+          "end": 111
+        }
+      ],
+      "labs": []
+    },
+    {
+      "id": "t12c-07",
+      "course": "t12c",
+      "number": 7,
+      "title": [
+        "Similitudes planes",
+        "Plane similarities"
+      ],
+      "topic": "complex-plane",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 95,
+          "path": "resources/t12c-07/chapter.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-07/chapter.pdf",
+              "bytes": 389391,
+              "sha256": "14157cb3c9d7dc5e85d1a458328efdef23e77c9e7cc6669a193d685a840d35dd",
+              "pages": 7,
+              "start": 95,
+              "end": 101
+            }
+          },
+          "pages": 7,
+          "bytes": 389391,
+          "end": 101
+        },
+        {
+          "kind": "teacher",
+          "source": "t12-prof.pdf",
+          "start": 112,
+          "path": "resources/t12c-07/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-07/teacher.pdf",
+              "bytes": 442306,
+              "sha256": "ac7df204f647a63fad0e456ff5d4fc35cb3b2bc7d0949dda1418f8523826ce75",
+              "pages": 12,
+              "start": 112,
+              "end": 123
+            }
+          },
+          "pages": 12,
+          "bytes": 442306,
+          "end": 123
+        }
+      ],
+      "labs": [
+        "complex/angles"
+      ]
+    },
+    {
+      "id": "t12c-08",
+      "course": "t12c",
+      "number": 8,
+      "title": [
+        "Suites numériques",
+        "Sequences"
+      ],
+      "topic": "sequences",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 104,
+          "path": "resources/t12c-08/chapter.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-08/chapter.pdf",
+              "bytes": 402714,
+              "sha256": "d19ca22a38f797c7fd303b9b2a3d33cbd731eb3a2e64cd086ded82d46c018979",
+              "pages": 11,
+              "start": 104,
+              "end": 114
+            }
+          },
+          "pages": 11,
+          "bytes": 402714,
+          "end": 114
+        },
+        {
+          "kind": "teacher",
+          "source": "t12-prof.pdf",
+          "start": 126,
+          "path": "resources/t12c-08/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-08/teacher.pdf",
+              "bytes": 408241,
+              "sha256": "b695f62ebfebe81dd7a5facbf6e42196eb14013d87bb4a1e94b918c4a52beef0",
+              "pages": 12,
+              "start": 126,
+              "end": 137
+            }
+          },
+          "pages": 12,
+          "bytes": 408241,
+          "end": 137
+        }
+      ],
+      "labs": [
+        "sequences/formula"
+      ]
+    },
+    {
+      "id": "t12c-09",
+      "course": "t12c",
+      "number": 9,
+      "title": [
+        "Limites, continuité et dérivation",
+        "Functions"
+      ],
+      "topic": "functions",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 115,
+          "path": "resources/t12c-09/chapter.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-09/chapter.pdf",
+              "bytes": 486443,
+              "sha256": "393576adb78290770931b65d27436c64ea1b9ea46f7dea3066aa3f06d66253d2",
+              "pages": 14,
+              "start": 115,
+              "end": 128
+            }
+          },
+          "pages": 14,
+          "bytes": 486443,
+          "end": 128
+        }
+      ],
+      "labs": [
+        "derivative/where"
+      ]
+    },
+    {
+      "id": "t12c-10",
+      "course": "t12c",
+      "number": 10,
+      "title": [
+        "Fonctions exponentielle et logarithme",
+        "Exponential and logarithm"
+      ],
+      "topic": "exponential",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 129,
+          "path": "resources/t12c-10/chapter.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-10/chapter.pdf",
+              "bytes": 351795,
+              "sha256": "07369279e3c4b0bda1dc5de43135055a475f2450e5c490fbed8fae3b49b26e3b",
+              "pages": 11,
+              "start": 129,
+              "end": 139
+            }
+          },
+          "pages": 11,
+          "bytes": 351795,
+          "end": 139
+        }
+      ],
+      "labs": []
+    },
+    {
+      "id": "t12c-11",
+      "course": "t12c",
+      "number": 11,
+      "title": [
+        "Primitives et intégrales",
+        "Primitives and integrals"
+      ],
+      "topic": "integral",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 153,
+          "path": "resources/t12c-11/chapter.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-11/chapter.pdf",
+              "bytes": 412714,
+              "sha256": "887d3dd43318da7164123d46c5ec48beb05e4ea56ce64cd9c7d64920b84cac04",
+              "pages": 9,
+              "start": 153,
+              "end": 161
+            }
+          },
+          "pages": 9,
+          "bytes": 412714,
+          "end": 161
+        }
+      ],
+      "labs": [
+        "integral/bound"
+      ]
+    },
+    {
+      "id": "t12c-12",
+      "course": "t12c",
+      "number": 12,
+      "title": [
+        "Équations différentielles",
+        "Differential equations"
+      ],
+      "topic": "primitives",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 162,
+          "path": "resources/t12c-12/chapter.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-12/chapter.pdf",
+              "bytes": 314316,
+              "sha256": "b4845165899beb1bc8853c3fd0c547b7569635b13ea40a16a80cb985ae3473a3",
+              "pages": 6,
+              "start": 162,
+              "end": 167
+            }
+          },
+          "pages": 6,
+          "bytes": 314316,
+          "end": 167
+        },
+        {
+          "kind": "teacher",
+          "source": "t12-prof.pdf",
+          "start": 188,
+          "path": "resources/t12c-12/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-12/teacher.pdf",
+              "bytes": 334344,
+              "sha256": "b2bdb46cdd8cb73c5878d531bbeb34811c2b2f747ea6bb1502abeecee9d652b5",
+              "pages": 8,
+              "start": 188,
+              "end": 195
+            }
+          },
+          "pages": 8,
+          "bytes": 334344,
+          "end": 195
+        }
+      ],
+      "labs": []
+    },
+    {
+      "id": "t12d-01",
+      "course": "t12d",
+      "number": 1,
+      "title": [
+        "Probabilités",
+        "Probability"
+      ],
+      "topic": "binomial",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 27,
+          "path": "resources/t12d-01/chapter.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12d-01/chapter.pdf",
+              "bytes": 425401,
+              "sha256": "30a82f77bc6f70426c0e80b41833400bd10664f27c1421363d011d0e58b3015b",
+              "pages": 16,
+              "start": 27,
+              "end": 42
+            }
+          },
+          "pages": 16,
+          "bytes": 425401,
+          "end": 42
+        },
+        {
+          "kind": "teacher",
+          "source": "t12-prof.pdf",
+          "start": 27,
+          "path": "resources/t12d-01/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12d-01/teacher.pdf",
+              "bytes": 467278,
+              "sha256": "78961ef383dcb4daac1de1132a704d85469c29107090da8b14b2da28d9cce82f",
+              "pages": 22,
+              "start": 27,
+              "end": 48
+            }
+          },
+          "pages": 22,
+          "bytes": 467278,
+          "end": 48
+        }
+      ],
+      "labs": [
+        "probability/run"
+      ]
+    },
+    {
+      "id": "t12d-02",
+      "course": "t12d",
+      "number": 2,
+      "title": [
+        "Systèmes d’équations linéaires dans R³",
+        "Linear systems in R³"
+      ],
+      "topic": "algebra",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 45,
+          "path": "resources/t12d-02/chapter.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12d-02/chapter.pdf",
+              "bytes": 350569,
+              "sha256": "cf91b6f786945bbaef025461ef0ff7c32924e4aa8658beed8a877ccb08da2477",
+              "pages": 5,
+              "start": 45,
+              "end": 49
+            }
+          },
+          "pages": 5,
+          "bytes": 350569,
+          "end": 49
+        }
+      ],
+      "labs": [
+        "line/direction"
+      ]
+    },
+    {
+      "id": "t12d-03",
+      "course": "t12d",
+      "number": 3,
+      "title": [
+        "Nombres complexes",
+        "Complex numbers"
+      ],
+      "topic": "complex-algebra",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 50,
+          "path": "resources/t12d-03/chapter.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12d-03/chapter.pdf",
+              "bytes": 440722,
+              "sha256": "119874cc21c5854da389e61aef02ea199e0c012a819ee75fa1dbf2c8146f75d0",
+              "pages": 23,
+              "start": 50,
+              "end": 72
+            }
+          },
+          "pages": 23,
+          "bytes": 440722,
+          "end": 72
+        },
+        {
+          "kind": "teacher",
+          "source": "t12-prof.pdf",
+          "start": 56,
+          "path": "resources/t12d-03/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12d-03/teacher.pdf",
+              "bytes": 472263,
+              "sha256": "122a5c5d6f50cd4eb33438f803288e4e9a3bbf2d81cca02763f924ac855ba330",
+              "pages": 28,
+              "start": 56,
+              "end": 83
+            }
+          },
+          "pages": 28,
+          "bytes": 472263,
+          "end": 83
+        }
+      ],
+      "labs": [
+        "complex/scale"
+      ]
+    },
+    {
+      "id": "t12d-04",
+      "course": "t12d",
+      "number": 4,
+      "title": [
+        "Similitudes planes",
+        "Plane similarities"
+      ],
+      "topic": "complex-plane",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 95,
+          "path": "resources/t12d-04/chapter.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12d-04/chapter.pdf",
+              "bytes": 389391,
+              "sha256": "14157cb3c9d7dc5e85d1a458328efdef23e77c9e7cc6669a193d685a840d35dd",
+              "pages": 7,
+              "start": 95,
+              "end": 101
+            }
+          },
+          "pages": 7,
+          "bytes": 389391,
+          "end": 101
+        },
+        {
+          "kind": "teacher",
+          "source": "t12-prof.pdf",
+          "start": 112,
+          "path": "resources/t12d-04/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12d-04/teacher.pdf",
+              "bytes": 442306,
+              "sha256": "ac7df204f647a63fad0e456ff5d4fc35cb3b2bc7d0949dda1418f8523826ce75",
+              "pages": 12,
+              "start": 112,
+              "end": 123
+            }
+          },
+          "pages": 12,
+          "bytes": 442306,
+          "end": 123
+        }
+      ],
+      "labs": [
+        "complex/angles"
+      ]
+    },
+    {
+      "id": "t12d-05",
+      "course": "t12d",
+      "number": 5,
+      "title": [
+        "Suites numériques",
+        "Sequences"
+      ],
+      "topic": "sequences",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 104,
+          "path": "resources/t12d-05/chapter.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12d-05/chapter.pdf",
+              "bytes": 402714,
+              "sha256": "d19ca22a38f797c7fd303b9b2a3d33cbd731eb3a2e64cd086ded82d46c018979",
+              "pages": 11,
+              "start": 104,
+              "end": 114
+            }
+          },
+          "pages": 11,
+          "bytes": 402714,
+          "end": 114
+        },
+        {
+          "kind": "teacher",
+          "source": "t12-prof.pdf",
+          "start": 126,
+          "path": "resources/t12d-05/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12d-05/teacher.pdf",
+              "bytes": 408241,
+              "sha256": "b695f62ebfebe81dd7a5facbf6e42196eb14013d87bb4a1e94b918c4a52beef0",
+              "pages": 12,
+              "start": 126,
+              "end": 137
+            }
+          },
+          "pages": 12,
+          "bytes": 408241,
+          "end": 137
+        }
+      ],
+      "labs": [
+        "sequences/formula"
+      ]
+    },
+    {
+      "id": "t12d-06",
+      "course": "t12d",
+      "number": 6,
+      "title": [
+        "Limites, continuité et dérivation",
+        "Functions"
+      ],
+      "topic": "functions",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 115,
+          "path": "resources/t12d-06/chapter.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12d-06/chapter.pdf",
+              "bytes": 486443,
+              "sha256": "393576adb78290770931b65d27436c64ea1b9ea46f7dea3066aa3f06d66253d2",
+              "pages": 14,
+              "start": 115,
+              "end": 128
+            }
+          },
+          "pages": 14,
+          "bytes": 486443,
+          "end": 128
+        }
+      ],
+      "labs": [
+        "derivative/where"
+      ]
+    },
+    {
+      "id": "t12d-07",
+      "course": "t12d",
+      "number": 7,
+      "title": [
+        "Fonctions exponentielle et logarithme",
+        "Exponential and logarithm"
+      ],
+      "topic": "exponential",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 129,
+          "path": "resources/t12d-07/chapter.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12d-07/chapter.pdf",
+              "bytes": 351795,
+              "sha256": "07369279e3c4b0bda1dc5de43135055a475f2450e5c490fbed8fae3b49b26e3b",
+              "pages": 11,
+              "start": 129,
+              "end": 139
+            }
+          },
+          "pages": 11,
+          "bytes": 351795,
+          "end": 139
+        }
+      ],
+      "labs": []
+    },
+    {
+      "id": "t12d-08",
+      "course": "t12d",
+      "number": 8,
+      "title": [
+        "Statistiques",
+        "Statistics"
+      ],
+      "topic": "statistics",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 140,
+          "path": "resources/t12d-08/chapter.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12d-08/chapter.pdf",
+              "bytes": 390322,
+              "sha256": "dc5c24a234b67480a7fda3483e39f0db4247d363e8706ba72fe6ed79b709f3e3",
+              "pages": 13,
+              "start": 140,
+              "end": 152
+            }
+          },
+          "pages": 13,
+          "bytes": 390322,
+          "end": 152
+        },
+        {
+          "kind": "teacher",
+          "source": "t12-prof.pdf",
+          "start": 163,
+          "path": "resources/t12d-08/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12d-08/teacher.pdf",
+              "bytes": 415917,
+              "sha256": "8ab933d19c93b2cb6404cefa3e09ad4ab2eb4bd2171c14680f1132ddafa45288",
+              "pages": 16,
+              "start": 163,
+              "end": 178
+            }
+          },
+          "pages": 16,
+          "bytes": 415917,
+          "end": 178
+        }
+      ],
+      "labs": [
+        "statistics/mean"
+      ]
+    },
+    {
+      "id": "t12d-09",
+      "course": "t12d",
+      "number": 9,
+      "title": [
+        "Primitives et intégrales",
+        "Primitives and integrals"
+      ],
+      "topic": "integral",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 153,
+          "path": "resources/t12d-09/chapter.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12d-09/chapter.pdf",
+              "bytes": 412714,
+              "sha256": "887d3dd43318da7164123d46c5ec48beb05e4ea56ce64cd9c7d64920b84cac04",
+              "pages": 9,
+              "start": 153,
+              "end": 161
+            }
+          },
+          "pages": 9,
+          "bytes": 412714,
+          "end": 161
+        }
+      ],
+      "labs": [
+        "integral/bound"
+      ]
     }
   ],
   "supplements": [
@@ -8192,6 +9153,1143 @@ export const resourceCatalog = {
           "pages": 2,
           "bytes": 56033,
           "end": 150
+        }
+      ]
+    },
+    {
+      "id": "t12c-problems",
+      "course": "t12c",
+      "kind": "problems",
+      "title": [
+        "Problèmes de synthèse",
+        "Synthesis problems"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 168,
+          "path": "resources/t12c-problems-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-problems-eleve.pdf",
+              "bytes": 291843,
+              "sha256": "90d0b5ec3e8162915a55622695bfa56b737e4e0a2bec829f95b5177434043556",
+              "pages": 8,
+              "start": 168,
+              "end": 175
+            }
+          },
+          "pages": 8,
+          "bytes": 291843,
+          "end": 175
+        }
+      ]
+    },
+    {
+      "id": "t12c-annexes",
+      "course": "t12c",
+      "kind": "annexes",
+      "title": [
+        "Annexes : rappels",
+        "Appendices: reminders"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 242,
+          "path": "resources/t12c-annexes-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-annexes-eleve.pdf",
+              "bytes": 379669,
+              "sha256": "41bf571be0ba75b178c69ee0a86952261af14470c84b6aac13af67e9db9f263e",
+              "pages": 10,
+              "start": 242,
+              "end": 251
+            }
+          },
+          "pages": 10,
+          "bytes": 379669,
+          "end": 251
+        }
+      ]
+    },
+    {
+      "id": "t12c-bac-2018",
+      "course": "t12c",
+      "kind": "bac",
+      "title": [
+        "Baccalauréat série C 2018",
+        "Baccalauréat (Madagascar), series C, 2018"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 178,
+          "path": "resources/t12c-bac-2018-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-bac-2018-eleve.pdf",
+              "bytes": 258781,
+              "sha256": "8a7a14ec1fb4f2720787084d17dc828847286e24dc0d9c1aa3db554111eb505c",
+              "pages": 2,
+              "start": 178,
+              "end": 179
+            }
+          },
+          "pages": 2,
+          "bytes": 258781,
+          "end": 179
+        }
+      ]
+    },
+    {
+      "id": "t12c-bac-2017",
+      "course": "t12c",
+      "kind": "bac",
+      "title": [
+        "Baccalauréat série C 2017",
+        "Baccalauréat (Madagascar), series C, 2017"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 180,
+          "path": "resources/t12c-bac-2017-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-bac-2017-eleve.pdf",
+              "bytes": 259488,
+              "sha256": "aeaae150667462606d90898945134c37a836f6cdb92a5f1f26a8d22815628900",
+              "pages": 2,
+              "start": 180,
+              "end": 181
+            }
+          },
+          "pages": 2,
+          "bytes": 259488,
+          "end": 181
+        }
+      ]
+    },
+    {
+      "id": "t12c-bac-2016",
+      "course": "t12c",
+      "kind": "bac",
+      "title": [
+        "Baccalauréat série C 2016",
+        "Baccalauréat (Madagascar), series C, 2016"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 182,
+          "path": "resources/t12c-bac-2016-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-bac-2016-eleve.pdf",
+              "bytes": 261096,
+              "sha256": "c6b1334850ecfb259b302b5ce32942fce6702d03d2a900a461f5563111cfa8fa",
+              "pages": 2,
+              "start": 182,
+              "end": 183
+            }
+          },
+          "pages": 2,
+          "bytes": 261096,
+          "end": 183
+        }
+      ]
+    },
+    {
+      "id": "t12c-bac-2015",
+      "course": "t12c",
+      "kind": "bac",
+      "title": [
+        "Baccalauréat série C 2015",
+        "Baccalauréat (Madagascar), series C, 2015"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 184,
+          "path": "resources/t12c-bac-2015-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-bac-2015-eleve.pdf",
+              "bytes": 262355,
+              "sha256": "7f531bbcd14cc736efbc302cafcb2a3aebec3445e06dc218c5ad126ed55b88cb",
+              "pages": 3,
+              "start": 184,
+              "end": 186
+            }
+          },
+          "pages": 3,
+          "bytes": 262355,
+          "end": 186
+        }
+      ]
+    },
+    {
+      "id": "t12c-bac-2014",
+      "course": "t12c",
+      "kind": "bac",
+      "title": [
+        "Baccalauréat série C 2014",
+        "Baccalauréat (Madagascar), series C, 2014"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 187,
+          "path": "resources/t12c-bac-2014-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-bac-2014-eleve.pdf",
+              "bytes": 262622,
+              "sha256": "64a68e66b2ccdbfeb96a82b59d9c997cbf3a82371475af564d6b53cd43133f47",
+              "pages": 2,
+              "start": 187,
+              "end": 188
+            }
+          },
+          "pages": 2,
+          "bytes": 262622,
+          "end": 188
+        }
+      ]
+    },
+    {
+      "id": "t12c-bac-2013",
+      "course": "t12c",
+      "kind": "bac",
+      "title": [
+        "Baccalauréat série C 2013",
+        "Baccalauréat (Madagascar), series C, 2013"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 189,
+          "path": "resources/t12c-bac-2013-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-bac-2013-eleve.pdf",
+              "bytes": 262197,
+              "sha256": "f0d4c4abfe83c1806850b6315486c20df03ebeeb20efdcd6be5fc019df0e96db",
+              "pages": 2,
+              "start": 189,
+              "end": 190
+            }
+          },
+          "pages": 2,
+          "bytes": 262197,
+          "end": 190
+        }
+      ]
+    },
+    {
+      "id": "t12c-bac-2012",
+      "course": "t12c",
+      "kind": "bac",
+      "title": [
+        "Baccalauréat série C 2012",
+        "Baccalauréat (Madagascar), series C, 2012"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 191,
+          "path": "resources/t12c-bac-2012-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-bac-2012-eleve.pdf",
+              "bytes": 260244,
+              "sha256": "fbeb06634956fa8e9cd2df0a3bd3c1b5d3b0b93df0b914a243807581fe4360e0",
+              "pages": 2,
+              "start": 191,
+              "end": 192
+            }
+          },
+          "pages": 2,
+          "bytes": 260244,
+          "end": 192
+        }
+      ]
+    },
+    {
+      "id": "t12c-bac-2011",
+      "course": "t12c",
+      "kind": "bac",
+      "title": [
+        "Baccalauréat série C 2011",
+        "Baccalauréat (Madagascar), series C, 2011"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 193,
+          "path": "resources/t12c-bac-2011-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-bac-2011-eleve.pdf",
+              "bytes": 260585,
+              "sha256": "6ab3c9bf36463b19c4ca6d9421c9168537a6390de7051293d7bec7a14244b935",
+              "pages": 2,
+              "start": 193,
+              "end": 194
+            }
+          },
+          "pages": 2,
+          "bytes": 260585,
+          "end": 194
+        }
+      ]
+    },
+    {
+      "id": "t12c-bac-2010",
+      "course": "t12c",
+      "kind": "bac",
+      "title": [
+        "Baccalauréat série C 2010",
+        "Baccalauréat (Madagascar), series C, 2010"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 195,
+          "path": "resources/t12c-bac-2010-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-bac-2010-eleve.pdf",
+              "bytes": 259484,
+              "sha256": "92f695ab59c943833f793099fec22708ea3fbd79b2d18c966430da88f314ac28",
+              "pages": 2,
+              "start": 195,
+              "end": 196
+            }
+          },
+          "pages": 2,
+          "bytes": 259484,
+          "end": 196
+        }
+      ]
+    },
+    {
+      "id": "t12c-bac-2009",
+      "course": "t12c",
+      "kind": "bac",
+      "title": [
+        "Baccalauréat série C 2009",
+        "Baccalauréat (Madagascar), series C, 2009"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 197,
+          "path": "resources/t12c-bac-2009-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-bac-2009-eleve.pdf",
+              "bytes": 294956,
+              "sha256": "ea90a7d4c7ebd32921a02e8fbea64a178eb3bba8c6a44eb998d6baf203e82109",
+              "pages": 2,
+              "start": 197,
+              "end": 198
+            }
+          },
+          "pages": 2,
+          "bytes": 294956,
+          "end": 198
+        }
+      ]
+    },
+    {
+      "id": "t12c-bac-2008",
+      "course": "t12c",
+      "kind": "bac",
+      "title": [
+        "Baccalauréat série C 2008",
+        "Baccalauréat (Madagascar), series C, 2008"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 199,
+          "path": "resources/t12c-bac-2008-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-bac-2008-eleve.pdf",
+              "bytes": 260143,
+              "sha256": "1846138825bd41b8f1a63676aa2ac3afc655b9d3cc07e9ab2b4b49155cece627",
+              "pages": 2,
+              "start": 199,
+              "end": 200
+            }
+          },
+          "pages": 2,
+          "bytes": 260143,
+          "end": 200
+        }
+      ]
+    },
+    {
+      "id": "t12c-bac-2007",
+      "course": "t12c",
+      "kind": "bac",
+      "title": [
+        "Baccalauréat série C 2007",
+        "Baccalauréat (Madagascar), series C, 2007"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 201,
+          "path": "resources/t12c-bac-2007-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-bac-2007-eleve.pdf",
+              "bytes": 261564,
+              "sha256": "8b8fa0e443d66406698610afc16340c8edf68cb54d940cdd8f4fcd7d16be3250",
+              "pages": 2,
+              "start": 201,
+              "end": 202
+            }
+          },
+          "pages": 2,
+          "bytes": 261564,
+          "end": 202
+        }
+      ]
+    },
+    {
+      "id": "t12c-bac-2006",
+      "course": "t12c",
+      "kind": "bac",
+      "title": [
+        "Baccalauréat série C 2006",
+        "Baccalauréat (Madagascar), series C, 2006"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 203,
+          "path": "resources/t12c-bac-2006-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-bac-2006-eleve.pdf",
+              "bytes": 259656,
+              "sha256": "1b4882cc52982c5bd91706cd45a75152ec77f5ad9c41c816f968b7729c01da0d",
+              "pages": 2,
+              "start": 203,
+              "end": 204
+            }
+          },
+          "pages": 2,
+          "bytes": 259656,
+          "end": 204
+        }
+      ]
+    },
+    {
+      "id": "t12c-bac-2005",
+      "course": "t12c",
+      "kind": "bac",
+      "title": [
+        "Baccalauréat série C 2005",
+        "Baccalauréat (Madagascar), series C, 2005"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 205,
+          "path": "resources/t12c-bac-2005-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-bac-2005-eleve.pdf",
+              "bytes": 261559,
+              "sha256": "897087fb50ad35ca6ca7557c64df9ebfcbe3e889ec2ad0c50f68bbd09f7b5bd1",
+              "pages": 2,
+              "start": 205,
+              "end": 206
+            }
+          },
+          "pages": 2,
+          "bytes": 261559,
+          "end": 206
+        },
+        {
+          "kind": "teacher",
+          "source": "t12-prof.pdf",
+          "start": 233,
+          "path": "resources/t12c-bac-2005-prof.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-bac-2005-prof.pdf",
+              "bytes": 324581,
+              "sha256": "e535e7fc0992fbda78078608bd1d2846369a0c75b52c05af41e9c747a6513b32",
+              "pages": 7,
+              "start": 233,
+              "end": 239
+            }
+          },
+          "pages": 7,
+          "bytes": 324581,
+          "end": 239
+        }
+      ]
+    },
+    {
+      "id": "t12c-bac-2004",
+      "course": "t12c",
+      "kind": "bac",
+      "title": [
+        "Baccalauréat série C 2004",
+        "Baccalauréat (Madagascar), series C, 2004"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 207,
+          "path": "resources/t12c-bac-2004-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-bac-2004-eleve.pdf",
+              "bytes": 260412,
+              "sha256": "006bdf2f927baacf659ee0fa59b7d704f5ce90e1dbab88410cf4664f0e7bb004",
+              "pages": 2,
+              "start": 207,
+              "end": 208
+            }
+          },
+          "pages": 2,
+          "bytes": 260412,
+          "end": 208
+        },
+        {
+          "kind": "teacher",
+          "source": "t12-prof.pdf",
+          "start": 235,
+          "path": "resources/t12c-bac-2004-prof.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-bac-2004-prof.pdf",
+              "bytes": 347542,
+              "sha256": "9182e688914b8aaef029290cf6f3f026d845f790a337303d2d099ecbfc1087b9",
+              "pages": 10,
+              "start": 235,
+              "end": 244
+            }
+          },
+          "pages": 10,
+          "bytes": 347542,
+          "end": 244
+        }
+      ]
+    },
+    {
+      "id": "t12c-bac-2003",
+      "course": "t12c",
+      "kind": "bac",
+      "title": [
+        "Baccalauréat série C 2003",
+        "Baccalauréat (Madagascar), series C, 2003"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 209,
+          "path": "resources/t12c-bac-2003-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-bac-2003-eleve.pdf",
+              "bytes": 260193,
+              "sha256": "20553c91cd20f8b897a038020c3db73145f03a33264680cda46cc3ea723f92c9",
+              "pages": 2,
+              "start": 209,
+              "end": 210
+            }
+          },
+          "pages": 2,
+          "bytes": 260193,
+          "end": 210
+        },
+        {
+          "kind": "teacher",
+          "source": "t12-prof.pdf",
+          "start": 237,
+          "path": "resources/t12c-bac-2003-prof.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-bac-2003-prof.pdf",
+              "bytes": 369615,
+              "sha256": "53cd62fb199c6dc1454e90f9d8d1df3349e8712b7e9a5ee0efd8eb808308acb2",
+              "pages": 11,
+              "start": 237,
+              "end": 247
+            }
+          },
+          "pages": 11,
+          "bytes": 369615,
+          "end": 247
+        }
+      ]
+    },
+    {
+      "id": "t12d-problems",
+      "course": "t12d",
+      "kind": "problems",
+      "title": [
+        "Problèmes de synthèse",
+        "Synthesis problems"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 168,
+          "path": "resources/t12d-problems-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12d-problems-eleve.pdf",
+              "bytes": 291843,
+              "sha256": "90d0b5ec3e8162915a55622695bfa56b737e4e0a2bec829f95b5177434043556",
+              "pages": 8,
+              "start": 168,
+              "end": 175
+            }
+          },
+          "pages": 8,
+          "bytes": 291843,
+          "end": 175
+        }
+      ]
+    },
+    {
+      "id": "t12d-annexes",
+      "course": "t12d",
+      "kind": "annexes",
+      "title": [
+        "Annexes : rappels",
+        "Appendices: reminders"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 242,
+          "path": "resources/t12d-annexes-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12d-annexes-eleve.pdf",
+              "bytes": 379669,
+              "sha256": "41bf571be0ba75b178c69ee0a86952261af14470c84b6aac13af67e9db9f263e",
+              "pages": 10,
+              "start": 242,
+              "end": 251
+            }
+          },
+          "pages": 10,
+          "bytes": 379669,
+          "end": 251
+        }
+      ]
+    },
+    {
+      "id": "t12d-bac-2018",
+      "course": "t12d",
+      "kind": "bac",
+      "title": [
+        "Baccalauréat série D 2018",
+        "Baccalauréat (Madagascar), series D, 2018"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 211,
+          "path": "resources/t12d-bac-2018-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12d-bac-2018-eleve.pdf",
+              "bytes": 207432,
+              "sha256": "5b578aeec0477e3986565cd1629e186f83f0dd7baee7e62a4ae8d2340b8c71dc",
+              "pages": 2,
+              "start": 211,
+              "end": 212
+            }
+          },
+          "pages": 2,
+          "bytes": 207432,
+          "end": 212
+        }
+      ]
+    },
+    {
+      "id": "t12d-bac-2017",
+      "course": "t12d",
+      "kind": "bac",
+      "title": [
+        "Baccalauréat série D 2017",
+        "Baccalauréat (Madagascar), series D, 2017"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 213,
+          "path": "resources/t12d-bac-2017-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12d-bac-2017-eleve.pdf",
+              "bytes": 259087,
+              "sha256": "3cf74980436802bc6e6d62d4fc4a0bb24631b3c9379f9bae815bd36fd25a6ed5",
+              "pages": 2,
+              "start": 213,
+              "end": 214
+            }
+          },
+          "pages": 2,
+          "bytes": 259087,
+          "end": 214
+        }
+      ]
+    },
+    {
+      "id": "t12d-bac-2016",
+      "course": "t12d",
+      "kind": "bac",
+      "title": [
+        "Baccalauréat série D 2016",
+        "Baccalauréat (Madagascar), series D, 2016"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 215,
+          "path": "resources/t12d-bac-2016-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12d-bac-2016-eleve.pdf",
+              "bytes": 250974,
+              "sha256": "ccf222675f313404c9e366a6e6494944c82e91cf1793ebc473cde0193b0461e7",
+              "pages": 2,
+              "start": 215,
+              "end": 216
+            }
+          },
+          "pages": 2,
+          "bytes": 250974,
+          "end": 216
+        }
+      ]
+    },
+    {
+      "id": "t12d-bac-2015",
+      "course": "t12d",
+      "kind": "bac",
+      "title": [
+        "Baccalauréat série D 2015",
+        "Baccalauréat (Madagascar), series D, 2015"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 217,
+          "path": "resources/t12d-bac-2015-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12d-bac-2015-eleve.pdf",
+              "bytes": 247164,
+              "sha256": "cf508098f39ab18db4b037c79094ed012c4d40d39a379738c67d4ffdee12417e",
+              "pages": 2,
+              "start": 217,
+              "end": 218
+            }
+          },
+          "pages": 2,
+          "bytes": 247164,
+          "end": 218
+        }
+      ]
+    },
+    {
+      "id": "t12d-bac-2014",
+      "course": "t12d",
+      "kind": "bac",
+      "title": [
+        "Baccalauréat série D 2014",
+        "Baccalauréat (Madagascar), series D, 2014"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 219,
+          "path": "resources/t12d-bac-2014-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12d-bac-2014-eleve.pdf",
+              "bytes": 207823,
+              "sha256": "ede83aa82f50aafcff810e933e6639ae8c3c45cafa69b3d41941a408e8a706e5",
+              "pages": 2,
+              "start": 219,
+              "end": 220
+            }
+          },
+          "pages": 2,
+          "bytes": 207823,
+          "end": 220
+        }
+      ]
+    },
+    {
+      "id": "t12d-bac-2013",
+      "course": "t12d",
+      "kind": "bac",
+      "title": [
+        "Baccalauréat série D 2013",
+        "Baccalauréat (Madagascar), series D, 2013"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 221,
+          "path": "resources/t12d-bac-2013-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12d-bac-2013-eleve.pdf",
+              "bytes": 257539,
+              "sha256": "58dd7a6a11a2865e9ef74e26bff1340ca7f3a48521fcf31698cc5a5a02339a55",
+              "pages": 2,
+              "start": 221,
+              "end": 222
+            }
+          },
+          "pages": 2,
+          "bytes": 257539,
+          "end": 222
+        }
+      ]
+    },
+    {
+      "id": "t12d-bac-2012",
+      "course": "t12d",
+      "kind": "bac",
+      "title": [
+        "Baccalauréat série D 2012",
+        "Baccalauréat (Madagascar), series D, 2012"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 223,
+          "path": "resources/t12d-bac-2012-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12d-bac-2012-eleve.pdf",
+              "bytes": 256606,
+              "sha256": "fdb3f89c1343012c69ecc522d2b115f1f36a6e8ef88cc34470d8fbb619bd6601",
+              "pages": 2,
+              "start": 223,
+              "end": 224
+            }
+          },
+          "pages": 2,
+          "bytes": 256606,
+          "end": 224
+        }
+      ]
+    },
+    {
+      "id": "t12d-bac-2011",
+      "course": "t12d",
+      "kind": "bac",
+      "title": [
+        "Baccalauréat série D 2011",
+        "Baccalauréat (Madagascar), series D, 2011"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 225,
+          "path": "resources/t12d-bac-2011-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12d-bac-2011-eleve.pdf",
+              "bytes": 259792,
+              "sha256": "86abb254f0654050fa4ad942170d44bc3ca7a56a4901532ec0e8ab5bbe6457c7",
+              "pages": 2,
+              "start": 225,
+              "end": 226
+            }
+          },
+          "pages": 2,
+          "bytes": 259792,
+          "end": 226
+        }
+      ]
+    },
+    {
+      "id": "t12d-bac-2010",
+      "course": "t12d",
+      "kind": "bac",
+      "title": [
+        "Baccalauréat série D 2010",
+        "Baccalauréat (Madagascar), series D, 2010"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 227,
+          "path": "resources/t12d-bac-2010-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12d-bac-2010-eleve.pdf",
+              "bytes": 206017,
+              "sha256": "68cbbae90084c665cea81ebd6c0dfc0d859aaf104ef91aa6663b955282ee1af0",
+              "pages": 2,
+              "start": 227,
+              "end": 228
+            }
+          },
+          "pages": 2,
+          "bytes": 206017,
+          "end": 228
+        }
+      ]
+    },
+    {
+      "id": "t12d-bac-2009",
+      "course": "t12d",
+      "kind": "bac",
+      "title": [
+        "Baccalauréat série D 2009",
+        "Baccalauréat (Madagascar), series D, 2009"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 229,
+          "path": "resources/t12d-bac-2009-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12d-bac-2009-eleve.pdf",
+              "bytes": 206782,
+              "sha256": "c9fd63cf5d5f39939aae4ca9a52be9e7f60b74cb92396c3dcf16fb1e7f55554b",
+              "pages": 2,
+              "start": 229,
+              "end": 230
+            }
+          },
+          "pages": 2,
+          "bytes": 206782,
+          "end": 230
+        }
+      ]
+    },
+    {
+      "id": "t12d-bac-2008",
+      "course": "t12d",
+      "kind": "bac",
+      "title": [
+        "Baccalauréat série D 2008",
+        "Baccalauréat (Madagascar), series D, 2008"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 231,
+          "path": "resources/t12d-bac-2008-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12d-bac-2008-eleve.pdf",
+              "bytes": 256008,
+              "sha256": "2c3c561c0e0d926bc75056d573def318dec92a136f4d6dbba22cf5f3bed6de53",
+              "pages": 1,
+              "start": 231,
+              "end": 231
+            }
+          },
+          "pages": 1,
+          "bytes": 256008,
+          "end": 231
+        }
+      ]
+    },
+    {
+      "id": "t12d-bac-2007",
+      "course": "t12d",
+      "kind": "bac",
+      "title": [
+        "Baccalauréat série D 2007",
+        "Baccalauréat (Madagascar), series D, 2007"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 232,
+          "path": "resources/t12d-bac-2007-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12d-bac-2007-eleve.pdf",
+              "bytes": 259665,
+              "sha256": "18eef33fed8d02275700f37f0a76f4b8473eed5f591e8d22e3164125383017bc",
+              "pages": 2,
+              "start": 232,
+              "end": 233
+            }
+          },
+          "pages": 2,
+          "bytes": 259665,
+          "end": 233
+        }
+      ]
+    },
+    {
+      "id": "t12d-bac-2006",
+      "course": "t12d",
+      "kind": "bac",
+      "title": [
+        "Baccalauréat série D 2006",
+        "Baccalauréat (Madagascar), series D, 2006"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 234,
+          "path": "resources/t12d-bac-2006-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12d-bac-2006-eleve.pdf",
+              "bytes": 207161,
+              "sha256": "aaf66b15e76a409a06c81718497a4b0891bc8899b1f4b38dd31ff1da2c1e472a",
+              "pages": 2,
+              "start": 234,
+              "end": 235
+            }
+          },
+          "pages": 2,
+          "bytes": 207161,
+          "end": 235
+        }
+      ]
+    },
+    {
+      "id": "t12d-bac-2005",
+      "course": "t12d",
+      "kind": "bac",
+      "title": [
+        "Baccalauréat série D 2005",
+        "Baccalauréat (Madagascar), series D, 2005"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 236,
+          "path": "resources/t12d-bac-2005-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12d-bac-2005-eleve.pdf",
+              "bytes": 208174,
+              "sha256": "ee33d5363d4dbbc683afd76da6dc6619d8938b8a1c0ef4da4da37d2328916512",
+              "pages": 2,
+              "start": 236,
+              "end": 237
+            }
+          },
+          "pages": 2,
+          "bytes": 208174,
+          "end": 237
+        }
+      ]
+    },
+    {
+      "id": "t12d-bac-2004",
+      "course": "t12d",
+      "kind": "bac",
+      "title": [
+        "Baccalauréat série D 2004",
+        "Baccalauréat (Madagascar), series D, 2004"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 238,
+          "path": "resources/t12d-bac-2004-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12d-bac-2004-eleve.pdf",
+              "bytes": 259583,
+              "sha256": "fae87a4632c123b993672b8e99a0bcce996102721de7d2b4a025b4178e6849c0",
+              "pages": 2,
+              "start": 238,
+              "end": 239
+            }
+          },
+          "pages": 2,
+          "bytes": 259583,
+          "end": 239
+        }
+      ]
+    },
+    {
+      "id": "t12d-bac-2003",
+      "course": "t12d",
+      "kind": "bac",
+      "title": [
+        "Baccalauréat série D 2003",
+        "Baccalauréat (Madagascar), series D, 2003"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 240,
+          "path": "resources/t12d-bac-2003-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12d-bac-2003-eleve.pdf",
+              "bytes": 242385,
+              "sha256": "c7fe1c266f2e861e5a9289e4d87c1de6827b66a9dcbc9706fbeb1f562982ca15",
+              "pages": 2,
+              "start": 240,
+              "end": 241
+            }
+          },
+          "pages": 2,
+          "bytes": 242385,
+          "end": 241
         }
       ]
     }

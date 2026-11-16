@@ -1,5 +1,467 @@
 [
  {
+  "id": "t12c-01",
+  "course": "t12c",
+  "number": 1,
+  "title": [
+   "Arithmétique",
+   "Arithmetic"
+  ],
+  "slides": 53,
+  "kind": "extracted",
+  "languages": [
+   "fr"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/t12c-01.json",
+    "bytes": 93312,
+    "sha256": "9c49ea619ec46549eb7a06d843b87ae3ad92af662d96102059661f486330867d",
+    "slides": 53
+   }
+  }
+ },
+ {
+  "id": "t12c-02",
+  "course": "t12c",
+  "number": 2,
+  "title": [
+   "Probabilités",
+   "Probability"
+  ],
+  "slides": 40,
+  "kind": "extracted",
+  "languages": [
+   "fr"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/t12c-02.json",
+    "bytes": 51251,
+    "sha256": "2bf463f23db8fdaf7a0b36af82417a33e0eadc566bfec0d388ab955687ea3487",
+    "slides": 40
+   }
+  }
+ },
+ {
+  "id": "t12c-03",
+  "course": "t12c",
+  "number": 3,
+  "title": [
+   "Systèmes d’équations linéaires dans R³",
+   "Linear systems in R³"
+  ],
+  "slides": 12,
+  "kind": "extracted",
+  "languages": [
+   "fr"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/t12c-03.json",
+    "bytes": 28852,
+    "sha256": "14fb59fa5550ccae83a1a5b1a1b95a8520513acb0bfa1d8c2420caa769d3ecf7",
+    "slides": 12
+   }
+  }
+ },
+ {
+  "id": "t12c-04",
+  "course": "t12c",
+  "number": 4,
+  "title": [
+   "Nombres complexes",
+   "Complex numbers"
+  ],
+  "slides": 50,
+  "kind": "extracted",
+  "languages": [
+   "fr"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/t12c-04.json",
+    "bytes": 63281,
+    "sha256": "51758400880875072af5b1723fd3c4e9c94e626950aff7208a1852000c260f51",
+    "slides": 50
+   }
+  }
+ },
+ {
+  "id": "t12c-05",
+  "course": "t12c",
+  "number": 5,
+  "title": [
+   "Barycentres",
+   "Barycentres"
+  ],
+  "slides": 36,
+  "kind": "extracted",
+  "languages": [
+   "fr"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/t12c-05.json",
+    "bytes": 52307,
+    "sha256": "59662d6b79166db834ce2b48f9614cef7bb43897a7bf2e763cf505e18c6eda42",
+    "slides": 36
+   }
+  }
+ },
+ {
+  "id": "t12c-06",
+  "course": "t12c",
+  "number": 6,
+  "title": [
+   "Applications affines et isométries",
+   "Affine maps and isometries"
+  ],
+  "slides": 31,
+  "kind": "extracted",
+  "languages": [
+   "fr"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/t12c-06.json",
+    "bytes": 56014,
+    "sha256": "7a903c025bf96abd4bd5e6c02e7a260194c18fdd20b174a4a5a1b8db0478be44",
+    "slides": 31
+   }
+  }
+ },
+ {
+  "id": "t12c-07",
+  "course": "t12c",
+  "number": 7,
+  "title": [
+   "Similitudes planes",
+   "Plane similarities"
+  ],
+  "slides": 12,
+  "kind": "extracted",
+  "languages": [
+   "fr"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/t12c-07.json",
+    "bytes": 20697,
+    "sha256": "be93603a48d478191cbd4b76d4142bff2b8df1b71d6f19d72fbf592c8ecfebcd",
+    "slides": 12
+   }
+  }
+ },
+ {
+  "id": "t12c-08",
+  "course": "t12c",
+  "number": 8,
+  "title": [
+   "Suites numériques",
+   "Sequences"
+  ],
+  "slides": 44,
+  "kind": "extracted",
+  "languages": [
+   "fr"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/t12c-08.json",
+    "bytes": 43418,
+    "sha256": "37766720da67ddc5b12b40cde221bb2ae0443054bc82d25c87573adf6c670fe0",
+    "slides": 44
+   }
+  }
+ },
+ {
+  "id": "t12c-09",
+  "course": "t12c",
+  "number": 9,
+  "title": [
+   "Limites, continuité et dérivation",
+   "Functions"
+  ],
+  "slides": 35,
+  "kind": "extracted",
+  "languages": [
+   "fr"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/t12c-09.json",
+    "bytes": 59967,
+    "sha256": "d377373e96a790eee369a7a0f5b029f9c03ee6204fa36daf563fa54f0d593c29",
+    "slides": 35
+   }
+  }
+ },
+ {
+  "id": "t12c-10",
+  "course": "t12c",
+  "number": 10,
+  "title": [
+   "Fonctions exponentielle et logarithme",
+   "Exponential and logarithm"
+  ],
+  "slides": 23,
+  "kind": "extracted",
+  "languages": [
+   "fr"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/t12c-10.json",
+    "bytes": 35354,
+    "sha256": "52b338127e76744a98eaeafae4a2aa3b13d778b37597bfb544e0af2b2fce20c6",
+    "slides": 23
+   }
+  }
+ },
+ {
+  "id": "t12c-11",
+  "course": "t12c",
+  "number": 11,
+  "title": [
+   "Primitives et intégrales",
+   "Primitives and integrals"
+  ],
+  "slides": 19,
+  "kind": "extracted",
+  "languages": [
+   "fr"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/t12c-11.json",
+    "bytes": 43739,
+    "sha256": "bce4dfc7f1cd7e191571298f41218bd8a4041c480dc441634ea2fd8e64c577b5",
+    "slides": 19
+   }
+  }
+ },
+ {
+  "id": "t12c-12",
+  "course": "t12c",
+  "number": 12,
+  "title": [
+   "Équations différentielles",
+   "Differential equations"
+  ],
+  "slides": 16,
+  "kind": "extracted",
+  "languages": [
+   "fr"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/t12c-12.json",
+    "bytes": 21915,
+    "sha256": "2e254b29a06e5c65ad2181bf0a8d34179d8c5d253e606977504660dbb3f33392",
+    "slides": 16
+   }
+  }
+ },
+ {
+  "id": "t12d-01",
+  "course": "t12d",
+  "number": 1,
+  "title": [
+   "Probabilités",
+   "Probability"
+  ],
+  "slides": 40,
+  "kind": "extracted",
+  "languages": [
+   "fr"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/t12d-01.json",
+    "bytes": 51251,
+    "sha256": "d27cbd64b3807361f76653c920526ea35cd4faeb3c9f6f176155ade41c152f0a",
+    "slides": 40
+   }
+  }
+ },
+ {
+  "id": "t12d-02",
+  "course": "t12d",
+  "number": 2,
+  "title": [
+   "Systèmes d’équations linéaires dans R³",
+   "Linear systems in R³"
+  ],
+  "slides": 12,
+  "kind": "extracted",
+  "languages": [
+   "fr"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/t12d-02.json",
+    "bytes": 28852,
+    "sha256": "bfaf795b8aaacd69b4dfba2336db7d577575bc9603afafb4c26f3d55953eaa85",
+    "slides": 12
+   }
+  }
+ },
+ {
+  "id": "t12d-03",
+  "course": "t12d",
+  "number": 3,
+  "title": [
+   "Nombres complexes",
+   "Complex numbers"
+  ],
+  "slides": 50,
+  "kind": "extracted",
+  "languages": [
+   "fr"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/t12d-03.json",
+    "bytes": 63281,
+    "sha256": "016399b8e4d18dfdcef25d480d8e87ee9cae061775b3a0e70f6395238f85f9ea",
+    "slides": 50
+   }
+  }
+ },
+ {
+  "id": "t12d-04",
+  "course": "t12d",
+  "number": 4,
+  "title": [
+   "Similitudes planes",
+   "Plane similarities"
+  ],
+  "slides": 12,
+  "kind": "extracted",
+  "languages": [
+   "fr"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/t12d-04.json",
+    "bytes": 20697,
+    "sha256": "661fe1031054e233f21c93dc26c1047c4adcfc7732988e9fa584939aadc1912b",
+    "slides": 12
+   }
+  }
+ },
+ {
+  "id": "t12d-05",
+  "course": "t12d",
+  "number": 5,
+  "title": [
+   "Suites numériques",
+   "Sequences"
+  ],
+  "slides": 44,
+  "kind": "extracted",
+  "languages": [
+   "fr"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/t12d-05.json",
+    "bytes": 43418,
+    "sha256": "09d8c975fa5c8d51c96d43ca3984c6d4808f0e0672009e4d18cb63bbeb38518e",
+    "slides": 44
+   }
+  }
+ },
+ {
+  "id": "t12d-06",
+  "course": "t12d",
+  "number": 6,
+  "title": [
+   "Limites, continuité et dérivation",
+   "Functions"
+  ],
+  "slides": 35,
+  "kind": "extracted",
+  "languages": [
+   "fr"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/t12d-06.json",
+    "bytes": 59967,
+    "sha256": "abf7473c5857b294619e004278afed210f7485d2c70a6be1c07b56acf60e8c95",
+    "slides": 35
+   }
+  }
+ },
+ {
+  "id": "t12d-07",
+  "course": "t12d",
+  "number": 7,
+  "title": [
+   "Fonctions exponentielle et logarithme",
+   "Exponential and logarithm"
+  ],
+  "slides": 23,
+  "kind": "extracted",
+  "languages": [
+   "fr"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/t12d-07.json",
+    "bytes": 35353,
+    "sha256": "f3a3d93ad1d7c0e2df63afe1d55ac6f32d181d8a1edaa2f0e7b5c3924bc877cf",
+    "slides": 23
+   }
+  }
+ },
+ {
+  "id": "t12d-08",
+  "course": "t12d",
+  "number": 8,
+  "title": [
+   "Statistiques",
+   "Statistics"
+  ],
+  "slides": 24,
+  "kind": "extracted",
+  "languages": [
+   "fr"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/t12d-08.json",
+    "bytes": 75237,
+    "sha256": "a3f63e4af86aa5a6dd67ee9465d6e856312389ffa71f861f7266bd96ff03c1dc",
+    "slides": 24
+   }
+  }
+ },
+ {
+  "id": "t12d-09",
+  "course": "t12d",
+  "number": 9,
+  "title": [
+   "Primitives et intégrales",
+   "Primitives and integrals"
+  ],
+  "slides": 19,
+  "kind": "extracted",
+  "languages": [
+   "fr"
+  ],
+  "editions": {
+   "fr": {
+    "path": "slides/data/t12d-09.json",
+    "bytes": 43738,
+    "sha256": "cc113db35255338dad0aa1108cfc32529b6dfa92c60cfc0dd28ca301b17eaf80",
+    "slides": 19
+   }
+  }
+ },
+ {
   "id": "t10-01",
   "course": "t10",
   "number": 1,

@@ -274,8 +274,90 @@ def hoist_proofs(s):
     return ''.join(out) + s[pos:]
 
 
-def prepare(src, defs, number, title):
-    """One chapter of a book -> canonical TeX: a title unit, then its sections."""
+EXERCISE_TITLE = re.compile(r'(Exercices?|Solutions?|Corrig|Problèmes?|Défis|Pour s.entraîner|Fiches?)\b')
+SECTIONING = re.compile(r'\\(section|subsection|subsubsection|paragraph)\{')
+LESSON_BOXES = ('objectives', 'definition', 'theorem', 'keypoint', 'proof', 'example', 'method', 'activity', 'pitfall', 'summary')
+PROSE_CHARS = 700   # a prose run longer than this is cut at a paragraph break: one slide, one idea
+
+
+def cut_exercises(s):
+    """T12 chapters: the sections Exercices, Solutions, Problèmes (or a subsection of the same name) up to the next section of
+    the lesson, wherever the book puts them (a subsection of the last lesson section included)."""
+    out, pos = [], 0
+    for m in SECTIONING.finditer(s):
+        if m.start() < pos or m[1] not in ('section', 'subsection'): continue
+        j = _group(s, m.end() - 1)
+        if not EXERCISE_TITLE.match(s[m.end():j - 1].strip()): continue
+        nxt = next((n for n in SECTIONING.finditer(s, j) if n[1] == 'section' and not EXERCISE_TITLE.match(s[n.end():_group(s, n.end() - 1) - 1].strip())), None)
+        out.append(s[pos:m.start()]); pos = nxt.start() if nxt else len(s)
+    return ''.join(out) + s[pos:]
+
+
+def uncolour(s):
+    """Colours have no place in a slide (MathJax does not know the books' colour names): \\textcolor{c}{x} -> x, \\cellcolor[m]{c}, \\color{c} dropped."""
+    for _ in range(4): s = unwrap(s, 'textcolor', 2, 2)
+    return re.sub(r'\\(?:cell|row|col)?color(?:\[[^\]]*\])?\{[^}]*\}(?:\{[^}]*\})?', '', s)
+
+
+def paragraph_chunks(text):
+    """A prose run cut into slides: atoms end at a blank line or after a display formula (outside any environment), and atoms
+    are grouped until about PROSE_CHARS characters of source (spaces collapsed); one atom is never cut."""
+    atoms, depth, cur = [], 0, ''
+    for line in text.split('\n'):
+        cur += line + '\n'
+        depth += len(re.findall(r'\\begin\{', line)) - len(re.findall(r'\\end\{', line)) + line.count('\\[') - line.count('\\]')
+        if depth <= 0 and (not line.strip() or line.rstrip().endswith('\\]')):
+            if cur.strip(): atoms.append(cur.strip())
+            cur = ''
+    if cur.strip(): atoms.append(cur.strip())
+    size = lambda x: len(re.sub(r'\s+', ' ', x))
+    chunks, group = [], []
+    for atom in atoms:
+        if group and sum(size(x) for x in group) + size(atom) > PROSE_CHARS: chunks.append('\n\n'.join(group)); group = []
+        group.append(atom)
+    if group: chunks.append('\n\n'.join(group))
+    return chunks
+
+
+def lesson_prose(s):
+    """The T12 chapters explain their lesson in running text between the boxes (some have hardly a box): that text becomes
+    slides of its own (environment summary, a key idea slide, cut at paragraph breaks), a \\paragraph heading becomes the bold
+    lead-in of the text after it, and text before the first section gets a section Introduction (no slide has an empty title)."""
+    boxes = '|'.join(LESSON_BOXES)
+    token = re.compile(r'\\mxunit\{|\\(section|subsection)\{|\\(subsubsection|paragraph)\{|\\begin\{(' + boxes + r')\}')
+    out, i, lead, in_section = [], 0, '', False
+
+    def prose(text):
+        nonlocal lead, in_section
+        text = text.strip()
+        if not re.sub(r'\\(?:index|label)\{[^}]*\}|\\\\|\\[A-Za-z]+\*?|[\s~]', '', text): return
+        if not in_section: out.append('\\section{Introduction}\n'); in_section = True
+        for k, chunk in enumerate(paragraph_chunks(text)):
+            out.append('\\begin{summary}\n' + (lead if k == 0 else '') + chunk + '\n\\end{summary}\n')
+        lead = ''
+
+    while True:
+        m = token.search(s, i)
+        prose(s[i:m.start() if m else len(s)])
+        if not m: return ''.join(out)
+        if m[0].startswith('\\mxunit'):
+            j = _group(s, _group(s, m.end() - 1)); out.append(s[m.start():j]); i = j; in_section = False
+        elif m[1]:
+            j = _group(s, m.end() - 1); out.append(s[m.start():j]); i = j; in_section = True; lead = ''
+        elif m[2]:
+            j = _group(s, m.end() - 1); lead = '\\textbf{' + s[m.end():j - 1] + '}\\\\ '; i = j
+        else:
+            if not in_section: out.append('\\section{Introduction}\n'); in_section = True
+            depth, j = 0, len(s)
+            for e in re.finditer(r'\\(begin|end)\{' + m[3] + r'\}', s[m.start():]):
+                depth += 1 if e[1] == 'begin' else -1
+                if depth == 0: j = m.start() + e.end(); break
+            out.append(s[m.start():j]); i = j
+
+
+def prepare(src, defs, number, title, t12=False):
+    """One chapter of a book -> canonical TeX: a title unit, then its sections. t12: the T12 book (lesson text between boxes
+    becomes key idea slides; exercise and solution sections are cut wherever they sit; colours dropped)."""
     s = re.sub(r'(?<!\\)%.*', '', src)                          # comments
     defs = macros(s, base=defs); s = strip_definitions(s)      # the chapter's own definitions
     for a, b in ACCENTS.items(): s = s.replace(a, b)
@@ -283,6 +365,7 @@ def prepare(src, defs, number, title):
     s = bokiko(s)
     s = re.sub(r'\\(begin|end)\{exercice\}', r'\\\1{exo}', s)
     s = drop_envs(s, DROP)
+    if t12: s = cut_exercises(s)
     s = re.sub(r'\\begin\{center\}\s*\\end\{center\}', '', s)
     # T11 S: \bmtchapitre{title}{goals}{part}; T10: \chapter{title}
     m = re.search(r'\\bmtchapitre\{', s)
@@ -308,6 +391,7 @@ def prepare(src, defs, number, title):
     s = re.sub(r'\\cline\{[^}]*\}', '', s)   # MathJax arrays have no \\cline
     s = drop_commands(s)
     s = expand(s, defs)
+    if t12: s = lesson_prose(uncolour(s))
     for a, b in MATHJAX.items(): s = re.sub(re.escape(a) + r'(?![A-Za-z])', lambda _: b, s)
     s = re.sub(r'\$\$(.+?)\$\$', r'\\[\1\\]', s, flags=re.S)
     return s

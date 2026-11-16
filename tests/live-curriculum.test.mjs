@@ -14,13 +14,13 @@ test('the live catalogues retain every French chapter without changing the archi
   // Limited edition: the French curriculum only. Full edition: every course of the catalogue.
   if (FULL_EDITION) {
     assert.deepEqual(liveCourses.map(c => c.id), courses.map(c => c.id));
-    assert.ok(['t10', 't11s'].every(id => liveCourses.some(c => c.id === id)));
-    assert.equal(companion.chapters.length, 87);
+    assert.ok(['t10', 't11s', 't12c', 't12d'].every(id => liveCourses.some(c => c.id === id)));
+    assert.equal(companion.chapters.length, 108);
   } else {
     assert.deepEqual(liveCourses.map(c => c.id), ['seconde', 'premiere', 'terminale', 'expertes', 'stmg']);
     assert.equal(companion.chapters.length, 58);
   }
-  assert.equal(resourceCatalog.chapters.length, 87);
+  assert.equal(resourceCatalog.chapters.length, 108);
   assert.ok(catalog.courses.some(c => c.id === 't10'));
   assert.ok(live.resources.length > 0);
   for (const list of [live.chapters, live.resources, companion.chapters, companion.supplements]) {
