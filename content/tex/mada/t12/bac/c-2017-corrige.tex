@@ -1,0 +1,259 @@
+% Baccalauréat malgache, série C, 2017 : corrigé.
+\TCDBacAttribution{C}{2017}
+\providecommand{\cm}{~\mathrm{cm}}
+\providecommand{\dx}{~\mathrm{d}x}
+\providecommand{\Courben}{(\mathscr{C}_n)}
+\providecommand{\CourbeU}{(\mathscr{C}_1)}
+\providecommand{\CourbeD}{(\mathscr{C}_2)}
+\providecommand{\Angl}[2]{\left( \overrightarrow{#1} ; \overrightarrow{#2} \right)}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\noindent \underline{\textsc{\textbf{Exercice}}} (4 points)
+\begin{description}
+	\item[I. Arithmétique :]
+	\begin{enumerate}
+		\item
+		\begin{enumerate}
+			\item \vln{Parité :}
+				$(x + y) - (x - y) = 2y$ est pair : la différence de $x + y$ et $x - y$ est paire.
+				\par\noindent\ansbox{$x + y$ et $x - y$ ont la même parité.}
+			\item \vln{Équation $x^2 = y^2 + 8$ :}
+				Elle s'écrit $(x - y)(x + y) = 8$ ; comme $x + y \geq 0$ et le produit est positif, $x - y > 0$ et $x - y \leq x + y$.
+				Les décompositions $8 = 1 \times 8 = 2 \times 4$ ; d'après (a) les deux facteurs ont la même parité, ce qui exclut $1 \times 8$.
+				Donc $x - y = 2$ et $x + y = 4$.
+				\par\noindent\ansbox{$S = \{(3 \, ; 1)\}$} ($9 = 1 + 8$).
+		\end{enumerate}
+		\item
+		\begin{enumerate}
+			\item \vln{$5x \equiv 1 \ [3]$ :}
+				$5 \equiv 2$, donc $2x \equiv 1 \ [3]$ ; en multipliant par $2$ ($2 \times 2 = 4 \equiv 1$) : $x \equiv 2 \ [3]$.
+				\par\noindent\ansbox{$x = 2 + 3k$, $k \in \mathbb{N}$.}
+			\item \vln{Solution particulière :}
+				Pour $x = 2$ : $5 \times 2 - 1 = 9 = 3 \times 3$. \par\noindent\ansbox{$(2 \, ; 3)$ est solution de $5x - 3y = 1$.}
+			\item \vln{Résolution dans $\mathbb{N}^2$ :}
+				$5x - 3y = 1 = 5 \times 2 - 3 \times 3 \iff 5(x - 2) = 3(y - 3)$ ; par le théorème de Gauss $3 \mid x - 2$ : $x = 2 + 3k$, $y = 3 + 5k$, $k \in \mathbb{Z}$.
+				$x \geq 0$ et $y \geq 0$ imposent $k \geq 0$ (pour $k = -1$, $x = -1$).
+				\par\noindent\ansbox{$S = \{(2 + 3k \, ; 3 + 5k) \mid k \in \mathbb{N}\}$.}
+		\end{enumerate}
+	\end{enumerate}
+	\item[II. Probabilité :] L'urne contient $n + 3$ boules.
+	\begin{enumerate}
+		\item Tirage simultané de deux boules : $\Comb{n+3}{2} = \frac{(n+3)(n+2)}{2}$ tirages équiprobables.
+		\begin{enumerate}
+			\item \vln{$P(A_n)$ :}
+				$\overline{A_n}$ = « deux boules blanches », $\Comb{3}{2} = 3$ tirages.
+				\par\noindent\ansbox{$P(A_n) = 1 - \frac{6}{(n+2)(n+3)}$.}
+			\item \vln{Limite :}
+				\ansbox{$\lim_{n\to+\infty} P(A_n) = 1$.}
+			\item \vln{$P(A_n) \leq 0{,}99$ :}
+				$\iff \frac{6}{(n+2)(n+3)} \geq \frac{1}{100} \iff (n+2)(n+3) \leq 600$.
+				La suite $(n+2)(n+3)$ est croissante ; $24 \times 25 = 600$ (pour $n = 22$) et $25 \times 26 = 650$ (pour $n = 23$).
+				\par\noindent\ansbox{$P(A_n) \leq 0{,}99 \iff 3 \leq n \leq 22$.}
+		\end{enumerate}
+		\item Trois tirages indépendants avec remise ; à chaque tirage la probabilité d'une boule blanche est $\frac{3}{n+3}$.
+		\begin{enumerate}
+			\item \vln{$P(B_n)$ :}
+				\ansbox{$P(B_n) = \left(\frac{3}{n+3}\right)^3 = \frac{27}{(n+3)^3}$.}
+			\item \vln{Valeur de $n$ :}
+				$\frac{27}{(n+3)^3} = \frac{27}{1000} \iff (n+3)^3 = 1000 \iff n + 3 = 10$. \par\noindent\ansbox{$n = 7$.}
+		\end{enumerate}
+	\end{enumerate}
+\end{description}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\noindent \underline{\textsc{\textbf{PROBLEME I}}} (7 points) \newline
+Le triangle $ABC$ est équilatéral de côté $4\cm$ ; $I$ est le milieu de $[BC]$ (pied de la hauteur issue de $A$).
+La droite passant par $C$ parallèle à $(AI)$ est perpendiculaire à $(BC)$ en $C$ ; dans le triangle $B C \Omega$ rectangle en $C$, $\widehat{CB\Omega} = \frac{\pi}{3}$, donc $B\Omega = 2BC = 8\cm$ : $A$ est le milieu de $[B\Omega]$.
+\begin{description}
+	\item[Partie A]
+	\begin{enumerate}
+		\item \vln{Figure} (avec les points de la question 4) :
+			\begin{center}
+			\begin{tikzpicture}[scale=.5]
+				\coordinate (B) at (0,0); \coordinate (I) at (3,0); \coordinate (C) at (6,0); \coordinate (D) at (12,0);
+				\coordinate (A) at (3,5.196); \coordinate (W) at (6,10.392); \coordinate (A1) at (9,5.196); \coordinate (C1) at (15,5.196);
+				\draw (B) -- (D); \draw (A) -- (B) -- (W); \draw (A) -- (C); \draw[dashed] (A) -- (I); \draw[dashed] (C) -- (W);
+				\draw[blue] (A1) -- (D) -- (C1) -- cycle;
+				\draw[gray] (W) -- (D);
+				\foreach \P/\L/\pos in {B/B/below,I/I/below,C/C/below,A/A/left,W/\Omega/above,A1/A'/right,C1/C'/right}
+					\fill (\P) circle (3pt) node[\pos] {$\L$};
+				\fill (D) circle (3pt) node[below] {$D = B'$};
+			\end{tikzpicture}
+			\end{center}
+		\item
+		\begin{enumerate}
+			\item \vln{Décomposition de $t$ :}
+				$(AI) \perp (BC)$. Soit $\Delta$ la droite parallèle à $(AI)$ passant par $C$, c'est-à-dire $(C\Omega)$ : elle se déduit de $(AI)$ par la translation de vecteur $\overrightarrow{IC} = \frac{1}{2}\overrightarrow{BC}$.
+				\par\noindent\ansbox{$t = S_{(C\Omega)} \circ S_{(AI)}$.}
+			\item \vln{Décomposition de $r$ :}
+				$(AI)$ est la bissectrice de l'angle $\widehat{BAC}$ : $\left((AB),(AI)\right) = \frac{\pi}{6}$ (de même sens que $\Angl{AB}{AC} = \frac{\pi}{3}$, le triangle $ABC$ étant direct puisque $\Angl{BC}{BA} = \frac{\pi}{3}$).
+				\par\noindent\ansbox{$r = S_{(AI)} \circ S_{(AB)}$.}
+			\item \vln{Nature de $f$ :}
+				$f = t \circ r = S_{(C\Omega)} \circ S_{(AI)} \circ S_{(AI)} \circ S_{(AB)} = S_{(C\Omega)} \circ S_{(AB)}$.
+				Ces droites se coupent en $\Omega$ et $\left((AB),(C\Omega)\right) = \left((AB),(AI)\right) = \frac{\pi}{6}$.
+				\par\noindent\ansbox{$f$ est la rotation de centre $\Omega$ et d'angle $\frac{\pi}{3}$.}
+		\end{enumerate}
+		\item
+		\begin{enumerate}
+			\item \vln{$g(B)$ :}
+				$r_1(B) = B$, donc $g(B) = f(B)$. Le triangle $\Omega BD$ a $B\Omega = BD = 8\cm$ et un angle de $\frac{\pi}{3}$ en $B$ : il est équilatéral, et $\Angl{\Omega B}{\Omega D} = \frac{\pi}{3}$.
+				\par\noindent\ansbox{$g(B) = f(B) = D$.}
+			\item \vln{Nature de $g$ :}
+				$g$ est un déplacement d'angle $\frac{\pi}{3} - \frac{\pi}{3} = 0$ : une translation ; elle envoie $B$ sur $D$.
+				\par\noindent\ansbox{$g$ est la translation de vecteur $\overrightarrow{BD} = 2\overrightarrow{BC}$.}
+		\end{enumerate}
+		\item
+		\begin{enumerate}
+			\item Les points sont placés sur la figure ($B' = D$).
+			\item \vln{Nature de $A'B'C'$ :}
+				Une rotation conserve les distances et les angles orientés.
+				\par\noindent\ansbox{$A'B'C'$ est un triangle équilatéral direct de côté $4\cm$.}
+			\item \vln{Alignement :}
+				$A$ est le milieu de $[\Omega B]$ ; la rotation $f$ conserve les milieux, $f(\Omega) = \Omega$ et $f(B) = B' = D$ : $A'$ est le milieu de $[\Omega B']$.
+				\par\noindent\ansbox{$\Omega$, $A'$, $B'$ sont alignés.}
+		\end{enumerate}
+	\end{enumerate}
+	\item[Partie B] On a $BI = 2\cm$ et $IA = 2\sqrt{3}\cm$ : $\|\vec{u}\| = \|\vec{v}\| = \frac{2}{3}\cm$, ce qui est l'unité du repère.
+	\begin{enumerate}
+		\item
+		\begin{enumerate}
+			\item \vln{$\overrightarrow{BA}$ :}
+				$\overrightarrow{BA} = \overrightarrow{BI} + \overrightarrow{IA}$, soit \par\noindent\ansbox{$\overrightarrow{BA} = 3\vec{u} + 3\sqrt{3}\,\vec{v}$.}
+			\item \vln{Affixes :}
+				\ansbox{$z_B = 0$, $z_A = 3 + 3\sqrt{3}\,i$, $z_C = 6$} (car $\overrightarrow{BC} = 2\overrightarrow{BI}$). Aussi $z_D = 12$ et $z_\Omega = 2z_A = 6 + 6\sqrt{3}\,i$.
+		\end{enumerate}
+		\item
+		\begin{enumerate}
+			\item \vln{Expressions complexes :}
+				$t : z' = z + 6$. $r : z' = \expo{i\frac{\pi}{3}}(z - z_A) + z_A$ ; or $z_A\left(1 - \expo{i\frac{\pi}{3}}\right) = (3 + 3\sqrt{3}\,i)\left(\frac{1}{2} - \frac{\sqrt{3}}{2}i\right) = \frac{3}{2} + \frac{9}{2} = 6$.
+				\par\noindent\ansbox{$t : z' = z + 6$ ; $r : z' = \expo{i\frac{\pi}{3}}z + 6$ ; $r_1 : z' = \expo{-i\frac{\pi}{3}}z$.}
+			\item \vln{$f$ et $g$ :}
+				$f(z) = \expo{i\frac{\pi}{3}}z + 6 + 6$ et $g(z) = f\left(\expo{-i\frac{\pi}{3}}z\right) = z + 12$.
+				\par\noindent\ansbox{$f : z' = \left(\frac{1}{2} + \frac{\sqrt{3}}{2}i\right)z + 12$ ; $g : z' = z + 12$.}
+			\item \vln{Natures :}
+				$f$ : rotation d'angle $\frac{\pi}{3}$ ; centre : $\omega = \frac{12}{1 - \expo{i\frac{\pi}{3}}} = \frac{12}{\expo{-i\frac{\pi}{3}}} = 12\,\expo{i\frac{\pi}{3}} = 6 + 6\sqrt{3}\,i = z_\Omega$.
+				$g$ : translation de vecteur d'affixe $12 = z_D - z_B$.
+				\par\noindent\ansbox{$f$ : rotation de centre $\Omega$ et d'angle $\frac{\pi}{3}$ ; $g$ : translation de vecteur $\overrightarrow{BD}$.}
+				(On retrouve $z_{A'} = 9 + 3\sqrt{3}\,i = \frac{z_\Omega + z_D}{2}$ et $z_{C'} = 15 + 3\sqrt{3}\,i$.)
+		\end{enumerate}
+	\end{enumerate}
+\end{description}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\noindent \underline{\textsc{\textbf{PROBLEME II}}} (9 points)
+\begin{description}
+	\item[Partie A]
+	\begin{enumerate}
+		\item
+		\begin{enumerate}
+			\item \vln{Limites :}
+				En $+\infty$ : $\expo{-x} \to 0$ et $(1+x)^n \to +\infty$ : $f_n(x) \to 0$.
+				En $-\infty$ : avec $X = -x \to +\infty$, $|f_n(x)| = \frac{\expo{X}}{|1 - X|^n} = \frac{\expo{X}}{X^n}\cdot\frac{X^n}{|X - 1|^n} \to +\infty$ ; le signe est celui de $(1+x)^n$.
+				En $-1$ : $\expo{-x} \to e$ et $(1+x)^n \to 0$.
+				\begin{itemize}
+					\item $n$ pair : $\lim_{-\infty} f_n = +\infty$ ; $\lim_{x\to -1} f_n(x) = +\infty$ (des deux côtés) ; $\lim_{+\infty} f_n = 0$.
+					\item $n$ impair : $\lim_{-\infty} f_n = -\infty$ ; $\lim_{x\to -1^-} f_n(x) = -\infty$, $\lim_{x\to -1^+} f_n(x) = +\infty$ ; $\lim_{+\infty} f_n = 0$.
+				\end{itemize}
+			\item \vln{Dérivée :}
+				$f_n'(x) = \frac{-\expo{-x}(1+x)^n - n(1+x)^{n-1}\expo{-x}}{(1+x)^{2n}}$, d'où
+				\par\noindent\ansbox{$f_n'(x) = -\frac{(x + n + 1)\,\expo{-x}}{(1+x)^{n+1}}$.}
+			\item \vln{Tableaux de variation :}
+				\textbf{$n$ impair} : $(1+x)^{n+1} > 0$, $f_n'$ a le signe de $-(x + n + 1)$. $f_n(-n-1) = \frac{\expo{n+1}}{(-n)^n} = -\frac{\expo{n+1}}{n^n}$.
+				\[
+				\begin{array}{c|ccccccc}
+					x & -\infty & & -n-1 & & -1 \ \| & & +\infty \\ \hline
+					f_n'(x) & & + & 0 & - & \| & - & \\ \hline
+					 & & & -\frac{\expo{n+1}}{n^n} & & \| \ +\infty & & \\
+					f_n & & \nearrow & & \searrow & \| & \searrow & \\
+					 & -\infty & & & -\infty & \| & & 0
+				\end{array}
+				\]
+				\textbf{$n$ pair} : $(1+x)^{n+1}$ a le signe de $1 + x$. $f_n(-n-1) = \frac{\expo{n+1}}{n^n}$.
+				\[
+				\begin{array}{c|ccccccc}
+					x & -\infty & & -n-1 & & -1 \ \| & & +\infty \\ \hline
+					f_n'(x) & & - & 0 & + & \| & - & \\ \hline
+					 & +\infty & & & +\infty & \| \ +\infty & & \\
+					f_n & & \searrow & & \nearrow & \| & \searrow & \\
+					 & & & \frac{\expo{n+1}}{n^n} & & \| & & 0
+				\end{array}
+				\]
+		\end{enumerate}
+		\item \vln{Point fixe :}
+			$f_n(0) = \frac{1}{1} = 1$ pour tout $n$. \par\noindent\ansbox{Toutes les courbes $\Courben$ passent par le point $(0;1)$.}
+		\item \vln{Limite de $\frac{f_n(x)}{x}$ en $-\infty$} (l'énoncé écrit $f$ pour $f_n$) :
+			$\left|\frac{f_n(x)}{x}\right| = \frac{\expo{-x}}{|x|\,|1+x|^n} \to +\infty$ (l'exponentielle l'emporte sur les puissances).
+			Le signe est celui de $\frac{(1+x)^n}{x}$ pour $x < -1$ : négatif si $n$ est pair, positif si $n$ est impair.
+			\par\noindent\ansbox{$n$ pair : $\lim_{x\to-\infty}\frac{f_n(x)}{x} = -\infty$ ; $n$ impair : $+\infty$. Branche parabolique de direction $(Oy)$.}
+		\item
+		\begin{enumerate}
+			\item \vln{Position de $\CourbeU$ et $\CourbeD$ :}
+				$f_1(x) - f_2(x) = \expo{-x}\left(\frac{1}{1+x} - \frac{1}{(1+x)^2}\right) = \frac{x\,\expo{-x}}{(1+x)^2}$, du signe de $x$.
+				\par\noindent\ansbox{$\CourbeU$ est au-dessous de $\CourbeD$ pour $x < 0$ ($x \neq -1$), au-dessus pour $x > 0$ ; elles se coupent en $(0;1)$.}
+			\item \vln{Tracé} ($1\cm$ en abscisse, $0{,}5\cm$ en ordonnée) : $f_1$ a un maximum $-e^2 \approx -7{,}4$ en $-2$, $f_2$ un minimum $\frac{e^3}{4} \approx 5{,}0$ en $-3$ ; asymptote verticale $x = -1$, horizontale $y = 0$ en $+\infty$.
+				\begin{center}
+				\begin{tikzpicture}[x=1cm,y=.5cm,>=stealth]
+					\begin{scope}
+					\clip (-5.5,-10.5) rectangle (4.5,10.5);
+					\draw[->] (-5.5,0) -- (4.5,0) node[below left] {$x$};
+					\draw[->] (0,-10.5) -- (0,10.5) node[below left] {$y$};
+					\foreach \t in {-5,-4,-3,-2,1,2,3,4} \draw (\t,0.1) -- (\t,-0.1) node[below] {\small $\t$};
+					\foreach \t in {-8,-4,4,8} \draw (0.05,\t) -- (-0.05,\t) node[left] {\small $\t$};
+					\draw[gray,dashed] (-1,-10.5) -- (-1,10.5);
+					\draw[blue,thick] plot[domain=-5.5:-1.1,samples=100] (\x,{exp(-\x)/(1+\x)});
+					\draw[blue,thick] plot[domain=-0.91:4.5,samples=100] (\x,{exp(-\x)/(1+\x)});
+					\draw[red,thick] plot[domain=-5.5:-1.27,samples=100] (\x,{exp(-\x)/((1+\x)*(1+\x))});
+					\draw[red,thick] plot[domain=-0.7:4.5,samples=100] (\x,{exp(-\x)/((1+\x)*(1+\x))});
+					\end{scope}
+					\node[blue] at (-4.2,-9) {$\CourbeU$}; \node[red] at (-4.6,8.5) {$\CourbeD$};
+					\fill (0,1) circle (1.5pt);
+				\end{tikzpicture}
+				\end{center}
+		\end{enumerate}
+	\end{enumerate}
+	\item[Partie B]
+	\begin{enumerate}
+		\item \vln{$f_n'$ en fonction de $f_n$ et $f_{n+1}$ :}
+			$f_n'(x) = -\frac{\expo{-x}}{(1+x)^n} - \frac{n\,\expo{-x}}{(1+x)^{n+1}}$, soit \par\noindent\ansbox{$f_n' = -f_n - n f_{n+1}$.}
+		\item
+		\begin{enumerate}
+			\item \vln{Décroissance :}
+				Pour $0 \leq x \leq 1$, $1 + x \geq 1$, donc $(1+x)^{n+1} \geq (1+x)^n$ et $0 < f_{n+1}(x) \leq f_n(x)$. En intégrant :
+				\par\noindent\ansbox{$I_{n+1} \leq I_n$ : $(I_n)$ est décroissante.}
+			\item \vln{Convergence :}
+				$f_n > 0$ sur $[0;1]$, donc $I_n \geq 0$ : la suite est décroissante et minorée par $0$, \par\noindent\ansbox{$(I_n)$ converge.}
+		\end{enumerate}
+		\item
+		\begin{enumerate}
+			\item \vln{Encadrement de $f_n$ :}
+				Pour $0 \leq x \leq 1$ : $-1 \leq -x \leq 0$, donc $\expo{-1} \leq \expo{-x} \leq 1$ ; on multiplie par $\frac{1}{(1+x)^n} > 0$.
+				\par\noindent\ansbox{$\frac{\expo{-1}}{(1+x)^n} \leq f_n(x) \leq \frac{1}{(1+x)^n}$.}
+			\item \vln{Encadrement de $I_n$ :}
+				Pour $n > 1$ : $\int_0^1 \frac{\dx}{(1+x)^n} = \left[-\frac{1}{(n-1)(1+x)^{n-1}}\right]_0^1 = \frac{1}{n-1}\left[1 - \frac{1}{2^{n-1}}\right]$. En intégrant (a) :
+				\par\noindent\ansbox{$\frac{\expo{-1}}{n-1}\left[1 - \frac{1}{2^{n-1}}\right] \leq I_n \leq \frac{1}{n-1}\left[1 - \frac{1}{2^{n-1}}\right]$.}
+			\item \vln{Limite :}
+				Les deux bornes tendent vers $0$. \par\noindent\ansbox{$\lim_{n\to+\infty} I_n = 0$.}
+		\end{enumerate}
+		\item
+		\begin{enumerate}
+			\item \vln{Relation :}
+				On intègre $f_n' = -f_n - nf_{n+1}$ sur $[0;1]$ : $f_n(1) - f_n(0) = -I_n - nI_{n+1}$, avec $f_n(0) = 1$ et $f_n(1) = \frac{\expo{-1}}{2^n}$.
+				\par\noindent\ansbox{$I_n + nI_{n+1} = 1 - \frac{\expo{-1}}{2^n}$.}
+			\item \vln{Limite de $nI_{n+1}$ :}
+				$nI_{n+1} = 1 - \frac{\expo{-1}}{2^n} - I_n \to 1 - 0 - 0$. \par\noindent\ansbox{$\lim_{n\to+\infty} nI_{n+1} = 1$.}
+		\end{enumerate}
+	\end{enumerate}
+	\item[Partie C]
+	\begin{enumerate}
+		\item \vln{Signe :}
+			$x^{n+1} - x^n = x^n(x - 1)$ avec $x^n \geq 0$ et $x - 1 \leq 0$ sur $[0;1]$. \par\noindent\ansbox{$x^{n+1} - x^n \leq 0$ sur $[0;1]$.}
+		\item \vln{Sens de variation :}
+			$U_{n+1} - U_n = \int_0^1 (x^{n+1} - x^n)\ln(x+1)\dx$ et $\ln(x + 1) \geq 0$ sur $[0;1]$ : l'intégrande est négatif.
+			\par\noindent\ansbox{$(U_n)$ est décroissante.}
+		\item \vln{Convergence :}
+			$x^n\ln(x+1) \geq 0$ sur $[0;1]$, donc $U_n \geq 0$. \par\noindent\ansbox{$(U_n)$, décroissante et minorée par $0$, est convergente.}
+		\item \vln{Encadrement :}
+			Sur $[0;1]$, $0 \leq \ln(x+1) \leq \ln 2$, donc $0 \leq x^n\ln(x+1) \leq x^n\ln 2$ ; et $\int_0^1 x^n\dx = \frac{1}{n+1}$.
+			\par\noindent\ansbox{$0 \leq U_n \leq \frac{\ln 2}{n+1}$.}
+		\item \vln{Limite :}
+			Par les gendarmes, \par\noindent\ansbox{$\lim_{n\to+\infty} U_n = 0$.}
+	\end{enumerate}
+\end{description}

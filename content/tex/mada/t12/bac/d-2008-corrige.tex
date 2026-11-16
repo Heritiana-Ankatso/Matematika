@@ -1,0 +1,188 @@
+% Baccalauréat malgache, série D, 2008 : corrigé.
+\TCDBacAttribution{D}{2008}
+\providecommand{\Plan}{(\mathscr{P})}
+\providecommand{\Ouv}{(O ; \vec{u} , \vec{v})}
+\providecommand{\Courbe}{(\mathscr{C})}
+\providecommand{\cm}{~\mathrm{cm}}
+\providecommand{\dx}{~\mathrm{d}x}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\noindent \underline{\textsc{\textbf{Exercice I}}} (5 points)
+\begin{enumerate}
+   \item \vln{R\'esolution de $z^2 - (1 - 3i)z - 4 = 0$ :}
+      $\Delta = (1 - 3i)^2 + 16 = 1 - 6i - 9 + 16 = 8 - 6i$. On cherche $\delta = a + ib$ : $a^2 - b^2 = 8$,
+      $a^2 + b^2 = |\Delta| = 10$, $ab = -3$ ; d'o\`u $a^2 = 9$, $b^2 = 1$ et $\delta = 3 - i$.
+      \[
+         z_1 = \frac{1 - 3i + 3 - i}{2} = 2 - 2i, \qquad z_2 = \frac{1 - 3i - 3 + i}{2} = -1 - i.
+      \]
+      \par\noindent\ansbox{$S_{\mathbb{C}} = \{ 2 - 2i \,;\, -1 - i \}$} (affixes de $D$ et de $B$).
+   \item
+      \begin{enumerate}
+         \item \vln{Affixe de $C$ :}
+            \par\noindent\ansbox{$z_C = \frac{z_B + z_D}{2} = \frac{1 - 3i}{2} = \frac{1}{2} - \frac{3}{2}i$.} (Figure ci-dessous.)
+         \item \vln{Ensemble $(\Delta)$ :}
+            Pour $z \neq z_D$ : $\left|\frac{z + 1 + i}{z - 2 + 2i}\right| = 1 \iff |z - z_B| = |z - z_D| \iff MB = MD$.
+            \par\noindent\ansbox{$(\Delta)$ est la m\'ediatrice du segment $[BD]$.}
+            Elle passe par le milieu $C$ et a pour vecteur normal $\overrightarrow{BD}(3 ; -1)$ : $3x - y - 3 = 0$.
+         \item \vln{$A \in (\Delta)$ :}
+            $AB = |1 + 1 + i| = |2 + i| = \sqrt{5}$ et $AD = |1 - 2 + 2i| = |-1 + 2i| = \sqrt{5}$ : $AB = AD$, donc
+            \par\noindent\ansbox{$A \in (\Delta)$ ; $(\Delta)$ est la droite $(AC)$.}
+            \begin{center}
+            \begin{tikzpicture}[scale=1,>=stealth]
+               \draw[very thin,gray!30] (-2,-3) grid (3,2);
+               \draw[->] (-2,0) -- (3,0) node[below left] {$x$};
+               \draw[->] (0,-3) -- (0,2) node[below left] {$y$};
+               \foreach \t in {-1,1,2} \draw (\t,0.05) -- (\t,-0.05) node[below] {\scriptsize $\t$};
+               \foreach \t in {-2,-1,1} \draw (0.05,\t) -- (-0.05,\t) node[left] {\scriptsize $\t$};
+               \begin{scope}
+                  \clip (-2,-3) rectangle (3,2);
+                  \draw[loko1,thick] plot[domain=-1:3] (\x,{3*\x-3});
+               \end{scope}
+               \draw[dashed] (-1,-1) -- (2,-2);
+               \fill (1,0) circle (1.8pt) node[above left] {$A$};
+               \fill (-1,-1) circle (1.8pt) node[left] {$B$};
+               \fill (2,-2) circle (1.8pt) node[right] {$D$};
+               \fill (0.5,-1.5) circle (1.8pt) node[left] {$C$};
+               \node[loko1] at (1.85,1.6) {$(\Delta)$};
+            \end{tikzpicture}
+            \end{center}
+      \end{enumerate}
+   \item \vln{\'El\'ements caract\'eristiques de $S$ :}
+      $S(B) = B$ : $B$ est le centre. $S : z' - z_B = a(z - z_B)$ avec
+      \[
+         a = \frac{z_D - z_B}{z_A - z_B} = \frac{3 - i}{2 + i} = \frac{(3 - i)(2 - i)}{5} = \frac{5 - 5i}{5} = 1 - i = \sqrt{2}\,\expo{-i\frac{\pi}{4}}.
+      \]
+      \par\noindent\ansbox{$S$ : similitude directe de centre $B(-1 ; -1)$, de rapport $\sqrt{2}$ et d'angle $-\frac{\pi}{4}$.}
+      Son expression complexe est $z' = (1 - i)z + 1 - i$.
+\end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\noindent \underline{\textsc{\textbf{Exercice II}}} (5 points)
+\begin{description}
+   \item[A.]
+      \begin{enumerate}
+         \item \vln{Un lancer :}
+            Les faces 3, 4, 5, 6 conviennent : \ansbox{$P = \frac{4}{6} = \frac{2}{3}$.}
+         \item Deux lancers : $36$ couples $(a, b)$ \'equiprobables.
+            \begin{enumerate}
+               \item \vln{Univers image :} $|a - b|$ varie de $0$ \`a $6 - 1 = 5$ : \ansbox{$X(\Omega) = \{0 ; 1 ; 2 ; 3 ; 4 ; 5\}$.}
+               \item \vln{Loi de $X$ :}
+                  Pour $k \geq 1$, il y a $6 - k$ couples avec $a - b = k$ et autant avec $b - a = k$, soit $2(6 - k)$ couples ;
+                  pour $k = 0$, il y a $6$ couples.
+                  \[
+                     \begin{array}{|c|c|c|c|c|c|c|}
+                        \hline
+                        k & 0 & 1 & 2 & 3 & 4 & 5 \\ \hline
+                        P(X = k) & \frac{1}{6} & \frac{5}{18} & \frac{2}{9} & \frac{1}{6} & \frac{1}{9} & \frac{1}{18} \\ \hline
+                     \end{array}
+                  \]
+                  (Effectifs $6, 10, 8, 6, 4, 2$, de somme $36$.)
+            \end{enumerate}
+      \end{enumerate}
+   \item[B.]
+      \begin{enumerate}
+         \item \vln{Calcul de $\alpha$ et $\beta$ :}
+            $\bar{x} = \frac{\alpha + 3 + 6 + 9}{4} = 5$ donne $\alpha + 18 = 20$, \ansbox{$\alpha = 2$} ;
+            $\bar{y} = \frac{2 + 4 + 5 + \beta}{4} = 4{,}5$ donne $11 + \beta = 18$, \ansbox{$\beta = 7$.}
+         \item \vln{Coefficient de corr\'elation :}
+            S\'erie : $x_i = 2, 3, 6, 9$ et $y_i = 2, 4, 5, 7$. \'Ecarts au point moyen :
+            $x_i - \bar{x} = -3, -2, 1, 4$ et $y_i - \bar{y} = -2{,}5 ; -0{,}5 ; 0{,}5 ; 2{,}5$.
+            \[
+               \mathrm{cov}(x, y) = \frac{7{,}5 + 1 + 0{,}5 + 10}{4} = \frac{19}{4}, \]\[
+               V(x) = \frac{9 + 4 + 1 + 16}{4} = \frac{15}{2}, \quad
+               V(y) = \frac{6{,}25 + 0{,}25 + 0{,}25 + 6{,}25}{4} = \frac{13}{4}.
+            \]
+            $r = \dfrac{\mathrm{cov}(x, y)}{\sqrt{V(x)\,V(y)}} = \dfrac{19}{\sqrt{390}}$, \ansbox{$r \simeq 0{,}962$.}
+            $r$ est proche de $1$ : il existe une forte corr\'elation lin\'eaire positive entre les notes de musique et de chant
+            (un ajustement affine est justifi\'e).
+         \item \vln{Droite de r\'egression de $y$ en $x$ :}
+            $a = \dfrac{\mathrm{cov}(x, y)}{V(x)} = \dfrac{19/4}{15/2} = \dfrac{19}{30}$ et $b = \bar{y} - a\bar{x} = 4{,}5 - \dfrac{19}{6} = \dfrac{4}{3}$.
+            \par\noindent\ansbox{$y = \frac{19}{30}x + \frac{4}{3}$, soit $y \simeq 0{,}63\,x + 1{,}33$.}
+      \end{enumerate}
+\end{description}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\noindent \underline{\textsc{\textbf{Probl\`eme}}} (10 points)
+\begin{description}
+   \item[I.] $g(x) = x^2 + \ln x$ sur $]0 ; +\infty[$.
+      \begin{enumerate}
+         \item \vln{Tableau de variation de $g$ :}
+            $g'(x) = 2x + \frac{1}{x} > 0$. En $0^+$ : $x^2 \to 0$ et $\ln x \to -\infty$ ; en $+\infty$ : $g(x) \to +\infty$.
+            \[
+               \begin{array}{c|ccc}
+                  x & 0 & & +\infty \\ \hline
+                  g'(x) & & + & \\ \hline
+                  & & & +\infty \\
+                  g & & \nearrow & \\
+                  & -\infty & &
+               \end{array}
+            \]
+         \item \vln{Existence et unicit\'e de $\alpha$ :}
+            $g$ est continue et strictement croissante de $]0 ; +\infty[$ sur $]-\infty ; +\infty[$ : elle prend une fois et une seule
+            la valeur $0$. \ansbox{Il existe un unique $\alpha > 0$ tel que $g(\alpha) = 0$.}
+            Comme $g(0{,}6) \simeq -0{,}15 < 0$ et $g(0{,}7) \simeq 0{,}13 > 0$ : $0{,}6 < \alpha < 0{,}7$ ($\alpha \simeq 0{,}65$).
+         \item \vln{Signe de $g$ :}
+            \par\noindent\ansbox{$g(x) < 0$ sur $]0 ; \alpha[$, $g(\alpha) = 0$, $g(x) > 0$ sur $]\alpha ; +\infty[$.}
+      \end{enumerate}
+   \item[II.] $f(x) = x + 1 - \dfrac{1 + \ln x}{x}$.
+      \begin{enumerate}
+         \item
+            \begin{enumerate}
+               \item \vln{D\'eriv\'ee :}
+                  $\left(\frac{1 + \ln x}{x}\right)' = \frac{\frac{1}{x}\cdot x - (1 + \ln x)}{x^2} = \frac{-\ln x}{x^2}$, donc
+                  $f'(x) = 1 + \frac{\ln x}{x^2} = \frac{x^2 + \ln x}{x^2}$, \ansbox{$f'(x) = \frac{g(x)}{x^2}$.}
+               \item \vln{Signe :} $x^2 > 0$, donc \ansbox{$f'(x)$ a le m\^eme signe que $g(x)$.}
+            \end{enumerate}
+         \item
+            \begin{enumerate}
+               \item \vln{Limites :}
+                  En $0^+$ : $1 + \ln x \to -\infty$ et $\frac{1}{x} \to +\infty$, donc $-\frac{1 + \ln x}{x} \to +\infty$ :
+                  \par\noindent\ansbox{$\lim\limits_{x\to0^+} f(x) = +\infty$} (asymptote verticale $x = 0$).
+                  En $+\infty$ : $\frac{1}{x} \to 0$ et $\frac{\ln x}{x} \to 0$, donc \ansbox{$\lim\limits_{x\to+\infty} f(x) = +\infty$.}
+               \item \vln{Tableau de variation :}
+                  Avec $\ln\alpha = -\alpha^2$ : $f(\alpha) = \alpha + 1 - \frac{1 - \alpha^2}{\alpha} = 2\alpha + 1 - \frac{1}{\alpha} \simeq 0{,}77$.
+                  \[
+                     \begin{array}{c|ccccc}
+                        x & 0 & & \alpha & & +\infty \\ \hline
+                        f'(x) & & - & 0 & + & \\ \hline
+                        & +\infty & & & & +\infty \\
+                        f & & \searrow & & \nearrow & \\
+                        & & & f(\alpha) & &
+                     \end{array}
+                  \]
+            \end{enumerate}
+         \item
+            \begin{enumerate}
+               \item \vln{Asymptote $(\Delta)$ :}
+                  $f(x) - (x + 1) = -\frac{1 + \ln x}{x} = -\frac{1}{x} - \frac{\ln x}{x} \to 0$ en $+\infty$ :
+                  \par\noindent\ansbox{$(\Delta) : y = x + 1$ est asymptote oblique \`a $\Courbe$ en $+\infty$.}
+               \item \vln{Point $A$ :}
+                  $f(x) = x + 1 \iff 1 + \ln x = 0 \iff x = \expo{-1}$. \ansbox{$A$ a pour abscisse $\frac{1}{e}$} (et pour ordonn\'ee $1 + \frac{1}{e}$).
+                  $\Courbe$ est au-dessus de $(\Delta)$ sur $\left]0 ; \frac{1}{e}\right[$ et au-dessous sur $\left]\frac{1}{e} ; +\infty\right[$.
+            \end{enumerate}
+         \item \vln{Trac\'e} (figure r\'eduite ; unit\'e de l'\'enonc\'e : $4\cm$) :
+            \begin{center}
+            \begin{tikzpicture}[scale=1.6,>=stealth]
+               \draw[very thin,gray!30,step=0.5] (-0.2,-0.2) grid (3.5,4.5);
+               \draw[->] (-0.2,0) -- (3.5,0) node[below left] {$x$};
+               \draw[->] (0,-0.2) -- (0,4.5) node[below left] {$y$};
+               \foreach \t in {1,2,3} \draw (\t,0.04) -- (\t,-0.04) node[below] {\scriptsize $\t$};
+               \foreach \t in {1,2,3,4} \draw (0.04,\t) -- (-0.04,\t) node[left] {\scriptsize $\t$};
+               \begin{scope}
+                  \clip (-0.2,-0.2) rectangle (3.5,4.5);
+                  \draw[loko4,thick] plot[domain=-0.2:3.5] (\x,{\x+1});
+                  \draw[loko1,very thick,smooth,samples=150] plot[domain=0.19:3.5] (\x,{\x+1-(1+ln(\x))/\x});
+               \end{scope}
+               \draw[dashed] (0.653,0) node[below] {\scriptsize $\alpha$} -- (0.653,0.774);
+               \fill (0.3679,1.3679) circle (1.2pt) node[above left] {$A$};
+               \node[loko4] at (3.2,3.85) {$(\Delta)$};
+               \node[loko1] at (3.2,2.9) {$\Courbe$};
+            \end{tikzpicture}
+            \end{center}
+         \item \vln{Calcul de $I$ :}
+            $\frac{1 + \ln x}{x} = \frac{1}{x} + \frac{1}{x}\ln x$, de primitive $\ln x + \frac{(\ln x)^2}{2}$ :
+            \[
+               I = \left[\ln x + \frac{(\ln x)^2}{2}\right]_1^e = 1 + \frac{1}{2},
+               \quad \ansbox{$I = \frac{3}{2}$.}
+            \]
+            (Interpr\'etation : $I$ est l'aire, en unit\'es d'aire, entre $(\Delta)$ et $\Courbe$ pour $1 \leq x \leq e$, soit $\frac{3}{2} \times 16 = 24\cm^2$.)
+      \end{enumerate}
+\end{description}

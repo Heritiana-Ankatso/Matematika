@@ -20,7 +20,7 @@
     "C",
     "D"
    ],
-   "answers": false
+   "answers": true
   },
   {
    "number": 3,
@@ -32,7 +32,7 @@
     "D"
    ],
    "verify": "no Bac C or D question uses it: placement in C and D to check against the official programme",
-   "answers": false
+   "answers": true
   },
   {
    "number": 4,
@@ -53,7 +53,7 @@
    "series": [
     "C"
    ],
-   "answers": false
+   "answers": true
   },
   {
    "number": 6,
@@ -63,7 +63,7 @@
    "series": [
     "C"
    ],
-   "answers": false
+   "answers": true
   },
   {
    "number": 7,
@@ -75,7 +75,7 @@
     "D"
    ],
    "verify": "Bac D uses direct similitudes (complex form) only; the indirect similitudes section is for C",
-   "answers": false
+   "answers": true
   },
   {
    "number": 8,
@@ -97,7 +97,7 @@
     "C",
     "D"
    ],
-   "answers": false
+   "answers": true
   },
   {
    "number": 10,
@@ -108,7 +108,7 @@
     "C",
     "D"
    ],
-   "answers": false
+   "answers": true
   },
   {
    "number": 11,
@@ -119,7 +119,7 @@
     "D"
    ],
    "verify": "no Bac C paper 2003-2018 has statistics: check the C programme",
-   "answers": false
+   "answers": true
   },
   {
    "number": 12,
@@ -130,7 +130,7 @@
     "C",
     "D"
    ],
-   "answers": false
+   "answers": true
   },
   {
    "number": 13,
@@ -141,7 +141,7 @@
     "C"
    ],
    "verify": "Bac C only (2003, 2006, 2008, 2012, 2014 to 2016): check the D programme",
-   "answers": false
+   "answers": true
   }
  ],
  "courses": {
@@ -173,6 +173,8 @@
  },
  "supplements": [
   "supplements/problemes.tex",
+  "supplements/sujets-type-c.tex",
+  "supplements/sujets-type-d.tex",
   "supplements/annexes.tex"
  ],
  "bac": [
@@ -200,147 +202,205 @@
   {
    "series": "C",
    "year": 2006,
-   "statement": "bac/c-2006.tex"
+   "statement": "bac/c-2006.tex",
+   "solution": "bac/c-2006-corrige.tex",
+   "partial": false
   },
   {
    "series": "C",
    "year": 2007,
-   "statement": "bac/c-2007.tex"
+   "statement": "bac/c-2007.tex",
+   "solution": "bac/c-2007-corrige.tex",
+   "partial": false
   },
   {
    "series": "C",
    "year": 2008,
-   "statement": "bac/c-2008.tex"
+   "statement": "bac/c-2008.tex",
+   "solution": "bac/c-2008-corrige.tex",
+   "partial": false
   },
   {
    "series": "C",
    "year": 2009,
-   "statement": "bac/c-2009.tex"
+   "statement": "bac/c-2009.tex",
+   "solution": "bac/c-2009-corrige.tex",
+   "partial": false
   },
   {
    "series": "C",
    "year": 2010,
-   "statement": "bac/c-2010.tex"
+   "statement": "bac/c-2010.tex",
+   "solution": "bac/c-2010-corrige.tex",
+   "partial": false
   },
   {
    "series": "C",
    "year": 2011,
-   "statement": "bac/c-2011.tex"
+   "statement": "bac/c-2011.tex",
+   "solution": "bac/c-2011-corrige.tex",
+   "partial": false
   },
   {
    "series": "C",
    "year": 2012,
-   "statement": "bac/c-2012.tex"
+   "statement": "bac/c-2012.tex",
+   "solution": "bac/c-2012-corrige.tex",
+   "partial": false
   },
   {
    "series": "C",
    "year": 2013,
-   "statement": "bac/c-2013.tex"
+   "statement": "bac/c-2013.tex",
+   "solution": "bac/c-2013-corrige.tex",
+   "partial": false
   },
   {
    "series": "C",
    "year": 2014,
-   "statement": "bac/c-2014.tex"
+   "statement": "bac/c-2014.tex",
+   "solution": "bac/c-2014-corrige.tex",
+   "partial": false
   },
   {
    "series": "C",
    "year": 2015,
-   "statement": "bac/c-2015.tex"
+   "statement": "bac/c-2015.tex",
+   "solution": "bac/c-2015-corrige.tex",
+   "partial": false
   },
   {
    "series": "C",
    "year": 2016,
-   "statement": "bac/c-2016.tex"
+   "statement": "bac/c-2016.tex",
+   "solution": "bac/c-2016-corrige.tex",
+   "partial": false
   },
   {
    "series": "C",
    "year": 2017,
-   "statement": "bac/c-2017.tex"
+   "statement": "bac/c-2017.tex",
+   "solution": "bac/c-2017-corrige.tex",
+   "partial": false
   },
   {
    "series": "C",
    "year": 2018,
-   "statement": "bac/c-2018.tex"
+   "statement": "bac/c-2018.tex",
+   "solution": "bac/c-2018-corrige.tex",
+   "partial": false
   },
   {
    "series": "D",
    "year": 2003,
-   "statement": "bac/d-2003.tex"
+   "statement": "bac/d-2003.tex",
+   "solution": "bac/d-2003-corrige.tex",
+   "partial": false
   },
   {
    "series": "D",
    "year": 2004,
-   "statement": "bac/d-2004.tex"
+   "statement": "bac/d-2004.tex",
+   "solution": "bac/d-2004-corrige.tex",
+   "partial": false
   },
   {
    "series": "D",
    "year": 2005,
-   "statement": "bac/d-2005.tex"
+   "statement": "bac/d-2005.tex",
+   "solution": "bac/d-2005-corrige.tex",
+   "partial": false
   },
   {
    "series": "D",
    "year": 2006,
-   "statement": "bac/d-2006.tex"
+   "statement": "bac/d-2006.tex",
+   "solution": "bac/d-2006-corrige.tex",
+   "partial": false
   },
   {
    "series": "D",
    "year": 2007,
-   "statement": "bac/d-2007.tex"
+   "statement": "bac/d-2007.tex",
+   "solution": "bac/d-2007-corrige.tex",
+   "partial": false
   },
   {
    "series": "D",
    "year": 2008,
-   "statement": "bac/d-2008.tex"
+   "statement": "bac/d-2008.tex",
+   "solution": "bac/d-2008-corrige.tex",
+   "partial": false
   },
   {
    "series": "D",
    "year": 2009,
-   "statement": "bac/d-2009.tex"
+   "statement": "bac/d-2009.tex",
+   "solution": "bac/d-2009-corrige.tex",
+   "partial": false
   },
   {
    "series": "D",
    "year": 2010,
-   "statement": "bac/d-2010.tex"
+   "statement": "bac/d-2010.tex",
+   "solution": "bac/d-2010-corrige.tex",
+   "partial": false
   },
   {
    "series": "D",
    "year": 2011,
-   "statement": "bac/d-2011.tex"
+   "statement": "bac/d-2011.tex",
+   "solution": "bac/d-2011-corrige.tex",
+   "partial": false
   },
   {
    "series": "D",
    "year": 2012,
-   "statement": "bac/d-2012.tex"
+   "statement": "bac/d-2012.tex",
+   "solution": "bac/d-2012-corrige.tex",
+   "partial": false
   },
   {
    "series": "D",
    "year": 2013,
-   "statement": "bac/d-2013.tex"
+   "statement": "bac/d-2013.tex",
+   "solution": "bac/d-2013-corrige.tex",
+   "partial": false
   },
   {
    "series": "D",
    "year": 2014,
-   "statement": "bac/d-2014.tex"
+   "statement": "bac/d-2014.tex",
+   "solution": "bac/d-2014-corrige.tex",
+   "partial": false
   },
   {
    "series": "D",
    "year": 2015,
-   "statement": "bac/d-2015.tex"
+   "statement": "bac/d-2015.tex",
+   "solution": "bac/d-2015-corrige.tex",
+   "partial": false
   },
   {
    "series": "D",
    "year": 2016,
-   "statement": "bac/d-2016.tex"
+   "statement": "bac/d-2016.tex",
+   "solution": "bac/d-2016-corrige.tex",
+   "partial": false
   },
   {
    "series": "D",
    "year": 2017,
-   "statement": "bac/d-2017.tex"
+   "statement": "bac/d-2017.tex",
+   "solution": "bac/d-2017-corrige.tex",
+   "partial": false
   },
   {
    "series": "D",
    "year": 2018,
-   "statement": "bac/d-2018.tex"
+   "statement": "bac/d-2018.tex",
+   "solution": "bac/d-2018-corrige.tex",
+   "partial": false
   }
  ]
 }

@@ -1,0 +1,944 @@
+% T12 C/D : six sujets d'entraînement de série C, originaux (écrits le 16 novembre 2026 sur le modèle des épreuves du
+% baccalauréat série C : un exercice et deux problèmes, sur 20 points). Les corrigés ne s'impriment que dans l'édition du professeur.
+\chapter{Sujets d'entra\^inement, s\'erie C}
+\label{chap:sujets entrainement C}
+Les six sujets suivants sont construits sur le mod\`ele de l'\'epreuve de math\'ematiques du baccalaur\'eat s\'erie C :
+un exercice (arithm\'etique et probabilit\'es), un probl\`eme de g\'eom\'etrie et un probl\`eme d'analyse.
+Dur\'ee conseill\'ee : 4 heures. Le bar\`eme est indiqu\'e pour chaque partie (total : 20 points).
+La calculatrice scientifique est autoris\'ee.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Sujet C1}
+\noindent \underline{\textsc{Exercice}} (4 points)
+\begin{description}
+\item[I. \underline{Arithm\'etique :}]
+      \begin{enumerate}
+      \item V\'erifier que $(6 ; 9)$ est une solution de l'\'equation $(E) : 11x - 7y = 3$, o\`u $(x , y) \in \mathbb{Z}^2$.
+      \item R\'esoudre $(E)$.
+      \item D\'eterminer les entiers naturels $N$ compris entre 100 et 300 dont le reste est 2 dans la division euclidienne par 11
+            et 5 dans la division euclidienne par 7.
+      \end{enumerate}
+\item[II. \underline{Probabilit\'e :}]
+      On \'ecrit au hasard un mot (ayant un sens ou non) form\'e des douze lettres du mot MADAGASIKARA.
+      \begin{enumerate}
+      \item Combien de mots diff\'erents peut-on former\,?
+      \item Calculer la probabilit\'e que le mot commence et finisse par la lettre A.
+      \item Calculer la probabilit\'e que les cinq lettres A soient c\^ote \`a c\^ote.
+      \end{enumerate}
+\end{description}
+
+\noindent \underline{\textsc{Probl\`eme I}} (7 points) \newline
+Dans le plan orient\'e, $ABC$ est un triangle \'equilat\'eral direct : $(\overrightarrow{AB}, \overrightarrow{AC}) = \frac{\pi}{3}$, et $AB = 1$.
+On note $G$ son centre de gravit\'e, $r_A$ la rotation de centre $A$ et d'angle $\frac{\pi}{3}$, $r_B$ la rotation de centre $B$ et
+d'angle $\frac{\pi}{3}$, et $f = r_B \circ r_A$.
+
+\underline{\textbf{Partie A :} M\'ethode g\'eom\'etrique}
+\begin{enumerate}
+      \item D\'eterminer $r_A(B)$ puis $f(B)$.
+      \item \begin{enumerate}
+            \item On note $(d_1)$ la droite passant par $A$ telle que $\left((d_1) , (AB)\right) = \frac{\pi}{6}$ et $(d_2)$ la droite
+                  passant par $B$ telle que $\left((AB) , (d_2)\right) = \frac{\pi}{6}$ (angles de droites, modulo $\pi$).
+                  D\'ecomposer $r_A$ et $r_B$ \`a l'aide de la sym\'etrie orthogonale d'axe $(AB)$ et en d\'eduire que $f$ est
+                  une rotation d'angle $\frac{2\pi}{3}$ dont le centre $K$ est le point d'intersection de $(d_1)$ et $(d_2)$.
+            \item Soit $E$ le sym\'etrique de $C$ par rapport \`a $(AB)$. Montrer que $K$ est le centre de gravit\'e du triangle
+                  \'equilat\'eral $ABE$, c'est-\`a-dire le sym\'etrique de $G$ par rapport \`a $(AB)$.
+            \end{enumerate}
+\end{enumerate}
+\underline{\textbf{Partie B :} Utilisation des nombres complexes} \newline
+On munit le plan du rep\`ere orthonorm\'e direct $(A ; \overrightarrow{AB}, \vec{v})$.
+\begin{enumerate}
+      \item Donner les affixes de $A$, $B$, $C$ et $G$.
+      \item \'Ecrire les expressions complexes de $r_A$, $r_B$ puis de $f$.
+      \item Retrouver l'angle et le centre $K$ de $f$ et v\'erifier que $z_K = \overline{z_G}$.
+\end{enumerate}
+\underline{\textbf{Partie C :} Lignes de niveau}
+\begin{enumerate}
+      \item D\'emontrer que pour tout point $M$ du plan : $MA^2 + MB^2 + MC^2 = 3MG^2 + GA^2 + GB^2 + GC^2$.
+            En d\'eduire que $MA^2 + MB^2 + MC^2 = 3MG^2 + 1$.
+      \item Pour un r\'eel $k$, d\'eterminer suivant les valeurs de $k$ l'ensemble $(\Gamma_k)$ des points $M$ tels que
+            $MA^2 + MB^2 + MC^2 = k$. Reconna\^itre $(\Gamma_2)$.
+      \item V\'erifier que $K$ appartient \`a $(\Gamma_2)$.
+\end{enumerate}
+
+\noindent \underline{\textsc{Probl\`eme II}} (9 points) \newline
+\underline{\textbf{Partie A}} \newline
+On consid\`ere l'\'equation diff\'erentielle $(E) : y'' + 2y' + y = 0$.
+\begin{enumerate}
+      \item R\'esoudre $(E)$.
+      \item D\'eterminer la solution $\varphi$ de $(E)$ telle que $\varphi(0) = 0$ et $\varphi'(0) = 1$.
+\end{enumerate}
+\underline{\textbf{Partie B}} \newline
+Soit $f$ la fonction d\'efinie sur $\mathbb{R}$ par $f(x) = x - 1 + x\,\expo{-x}$, c'est-\`a-dire $f(x) = x - 1 + \varphi(x)$,
+et $(\mathscr{C})$ sa courbe dans un rep\`ere orthonorm\'e (unit\'e 2~cm).
+\begin{enumerate}
+      \item Soit $g(x) = \expo{x} + 1 - x$. \'Etudier les variations de $g$ et montrer que $g(x) > 0$ pour tout r\'eel $x$.
+      \item Montrer que $f'(x) = g(x)\,\expo{-x}$. Calculer les limites de $f$ en $-\infty$ et en $+\infty$ et dresser son tableau de variations.
+      \item Montrer que la droite $(D) : y = x - 1$ est asymptote \`a $(\mathscr{C})$ en $+\infty$ et \'etudier leur position relative.
+            \'Etudier la branche infinie de $(\mathscr{C})$ en $-\infty$.
+      \item Montrer que l'\'equation $f(x) = 0$ admet une unique solution $\alpha$ et que $0{,}6 < \alpha < 0{,}7$. Tracer $(D)$ et $(\mathscr{C})$.
+\end{enumerate}
+\underline{\textbf{Partie C : approximation de $\alpha$}} \newline
+Soit $h$ la fonction d\'efinie sur $\mathbb{R}$ par $h(x) = \dfrac{1}{1 + \expo{-x}}$ et $I = \left[\frac{1}{2} ; 1\right]$.
+\begin{enumerate}
+      \item Montrer que $f(x) = 0$ \'equivaut \`a $h(x) = x$.
+      \item Montrer que $h$ est croissante sur $\mathbb{R}$, que $h(I) \subset I$ et que, pour tout r\'eel $x$, $0 < h'(x) \leq \frac{1}{4}$.
+      \item On d\'efinit la suite $(u_n)$ par $u_0 = \frac{1}{2}$ et $u_{n+1} = h(u_n)$.
+            \begin{enumerate}
+            \item Montrer par r\'ecurrence que $u_n \in I$ pour tout $n$.
+            \item \`A l'aide de l'in\'egalit\'e des accroissements finis, montrer que $|u_{n+1} - \alpha| \leq \frac{1}{4}|u_n - \alpha|$,
+                  puis que $|u_n - \alpha| \leq \frac{1}{2}\left(\frac{1}{4}\right)^n$.
+            \item En d\'eduire que $(u_n)$ converge vers $\alpha$ et donner un entier $n_0$ tel que $u_{n_0}$ soit une valeur
+                  approch\'ee de $\alpha$ \`a $10^{-3}$ pr\`es.
+            \end{enumerate}
+\end{enumerate}
+\underline{\textbf{Partie D}} \newline
+\begin{enumerate}
+      \item V\'erifier, \`a l'aide de la partie A, que $\Phi = -\varphi' - 2\varphi$ est une primitive de $\varphi$, et l'expliciter.
+      \item Soit $\lambda > 0$. Calculer, en cm$^2$, l'aire $\mathscr{A}(\lambda)$ du domaine limit\'e par $(\mathscr{C})$, $(D)$ et les
+            droites d'\'equations $x = 0$ et $x = \lambda$. Calculer $\lim\limits_{\lambda \to +\infty} \mathscr{A}(\lambda)$.
+\end{enumerate}
+\begin{center}
+On donne : $\expo{-0{,}5} \approx 0{,}607$ ; $\expo{-0{,}6} \approx 0{,}549$ ; $\expo{-0{,}7} \approx 0{,}497$ ; $\expo{-1} \approx 0{,}368$ ;
+$\ln 2 \approx 0{,}693$ ; $\ln 5 \approx 1{,}609$.
+\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section{Sujet C2}
+\noindent \underline{\textsc{Exercice}} (4 points)
+\begin{description}
+\item[I. \underline{Arithm\'etique :}]
+      \begin{enumerate}
+      \item Montrer que $3^6 \equiv 1 \pmod 7$. Quel est le reste de la division euclidienne de $2026^{2026}$ par 7\,?
+      \item Dresser le tableau des restes de $3^n$ modulo 7 et d\'eterminer les entiers naturels $n$ tels que $3^n + 4$ soit divisible par 7.
+      \end{enumerate}
+\item[II. \underline{Probabilit\'e :}]
+      Une urne contient six boules indiscernables au toucher : deux portent le num\'ero 1, trois le num\'ero 2 et une le num\'ero 3.
+      On tire successivement et sans remise deux boules ; $X$ est la somme des deux num\'eros obtenus.
+      \begin{enumerate}
+      \item D\'eterminer la loi de probabilit\'e de $X$.
+      \item Calculer l'esp\'erance math\'ematique et la variance de $X$.
+      \end{enumerate}
+\end{description}
+
+\noindent \underline{\textsc{Probl\`eme I}} (7 points) \newline
+Le plan est rapport\'e \`a un rep\`ere orthonorm\'e direct $(O ; \vec{u}, \vec{v})$ (unit\'e 1~cm).
+
+\underline{\textbf{Partie A :} Une similitude indirecte} \newline
+Soit $f$ l'application qui \`a tout point $M(z)$ associe $M'(z')$ tel que $z' = 2i\,\overline{z} - 1 - i$.
+\begin{enumerate}
+      \item Montrer que $f$ admet un unique point fixe $\Omega$, dont on donnera l'affixe $\omega$.
+      \item D\'eterminer l'expression complexe de $f \circ f$ et reconna\^itre cette transformation.
+      \item \begin{enumerate}
+            \item V\'erifier que, pour tout $z$, $z' - \omega = 2i\,\overline{(z - \omega)}$.
+            \item Soit $s$ l'application d\'efinie par $z' - \omega = i\,\overline{(z - \omega)}$. Montrer que $s$ est la sym\'etrie
+                  orthogonale d'axe la droite $(\Delta) : y = x$.
+            \item En d\'eduire que $f = h \circ s$, o\`u $h$ est une homoth\'etie que l'on pr\'ecisera. Quelle est la nature de $f$\,?
+            \end{enumerate}
+      \item D\'eterminer l'image par $f$ du point $O$, puis l'image de la droite $(\Delta)$.
+\end{enumerate}
+\underline{\textbf{Partie B :} Une ligne de niveau} \newline
+On consid\`ere les points $A(0)$, $B(4)$ et $C(4i)$.
+\begin{enumerate}
+      \item Le syst\`eme $\{(A ; 2), (B ; -1), (C ; -1)\}$ admet-il un barycentre\,? Montrer que le vecteur
+            $\vec{w} = 2\overrightarrow{MA} - \overrightarrow{MB} - \overrightarrow{MC}$ ne d\'epend pas du point $M$ et le d\'eterminer.
+      \item Pour $M(x ; y)$, exprimer $\varphi(M) = 2MA^2 - MB^2 - MC^2$ en fonction de $x$ et $y$.
+      \item D\'eterminer, suivant $k$, l'ensemble $(E_k)$ des points $M$ tels que $\varphi(M) = k$. Reconna\^itre $(E_0)$.
+      \item D\'eterminer l'image de $(E_0)$ par la transformation $f$ de la partie A.
+\end{enumerate}
+
+\noindent \underline{\textsc{Probl\`eme II}} (9 points) \newline
+\underline{\textbf{Partie A}} \newline
+Soit $g$ la fonction d\'efinie sur $[0 ; +\infty[$ par $g(x) = x\ln x - x + 1$ si $x > 0$ et $g(0) = 1$. On admet que
+$\lim\limits_{x \to 0^+} x\ln x = 0$. On note $(\mathscr{C})$ sa courbe dans un rep\`ere orthonorm\'e (unit\'e 2~cm).
+\begin{enumerate}
+      \item \'Etudier la continuit\'e et la d\'erivabilit\'e de $g$ en $0$. Interpr\'eter.
+      \item Calculer $g'(x)$, \'etudier les variations de $g$ et ses limites en $+\infty$ (on \'etudiera la branche infinie).
+            En d\'eduire que $g(x) \geq 0$ pour tout $x \geq 0$.
+      \item En d\'eduire que, pour tout $x > 0$, $\ln x \geq 1 - \frac{1}{x}$.
+      \item Tracer $(\mathscr{C})$.
+      \item Calculer, en cm$^2$, l'aire du domaine limit\'e par $(\mathscr{C})$, l'axe des abscisses et les droites
+            d'\'equations $x = 1$ et $x = \expo{}$.
+\end{enumerate}
+\underline{\textbf{Partie B}} \newline
+Pour tout entier naturel $n$, on pose $I_n = \displaystyle\int_1^{\expo{}} (\ln x)^n\,\mathrm{d}x$ ; ainsi $I_0 = \expo{} - 1$.
+\begin{enumerate}
+      \item Calculer $I_1$.
+      \item \`A l'aide d'une int\'egration par parties, montrer que $I_{n+1} = \expo{} - (n+1)\,I_n$ pour tout $n$. Calculer $I_2$ et $I_3$.
+      \item Montrer que, pour tout $n$, $I_n \geq 0$ et $I_{n+1} \leq I_n$. En d\'eduire que la suite $(I_n)$ est convergente.
+      \item Montrer que $I_n \leq \frac{\expo{}}{n+1}$ et en d\'eduire $\lim\limits_{n \to +\infty} I_n$.
+      \item D\'eterminer $\lim\limits_{n \to +\infty} n I_n$.
+\end{enumerate}
+\begin{center}
+On donne : $\expo{} \approx 2{,}718$ ; $\expo{2} \approx 7{,}389$.
+\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section{Sujet C3}
+\noindent \underline{\textsc{Exercice}} (4 points)
+\begin{description}
+\item[I. \underline{Arithm\'etique :}]
+      \begin{enumerate}
+      \item D\'eterminer les couples $(a , b)$ d'entiers naturels tels que $a + b = 144$ et $\mathrm{PGCD}(a , b) = 12$.
+      \item \'Ecrire le nombre 2026 dans le syst\`eme de num\'eration de base six.
+      \end{enumerate}
+\item[II. \underline{Probabilit\'e :}]
+      L'urne $U_1$ contient 3 boules blanches et 2 noires ; l'urne $U_2$ contient 1 boule blanche et 4 noires.
+      On lance un d\'e cubique \'equilibr\'e : si l'on obtient 6, on tire une boule de $U_2$, sinon une boule de $U_1$.
+      \begin{enumerate}
+      \item Calculer la probabilit\'e de tirer une boule blanche.
+      \item La boule tir\'ee est blanche. Quelle est la probabilit\'e qu'elle provienne de $U_2$\,?
+      \item On r\'ep\`ete l'exp\'erience trois fois (en remettant la boule). Quelle est la probabilit\'e d'obtenir
+            exactement deux boules blanches\,?
+      \end{enumerate}
+\end{description}
+
+\noindent \underline{\textsc{Probl\`eme I}} (7 points) \newline
+Dans le plan orient\'e, $ABCD$ est un rectangle direct tel que $AB = \sqrt{3}$ et $AD = 1$.
+On note $S_{(\Delta)}$ la sym\'etrie orthogonale d'axe $(\Delta)$ et $t_{\vec{w}}$ la translation de vecteur $\vec{w}$.
+
+\underline{\textbf{Partie A :} M\'ethode g\'eom\'etrique}
+\begin{enumerate}
+      \item Montrer que $(\overrightarrow{AB}, \overrightarrow{AC}) = \frac{\pi}{6}$.
+      \item D\'eterminer la nature et les \'el\'ements caract\'eristiques de $r = S_{(AC)} \circ S_{(AB)}$ et de $t = S_{(CD)} \circ S_{(AB)}$.
+      \item Montrer que $h = S_{(CD)} \circ S_{(AC)}$ est une rotation dont on pr\'ecisera le centre et l'angle.
+      \item Sans calcul, d\'emontrer que $h \circ r = t$.
+\end{enumerate}
+\underline{\textbf{Partie B :} Utilisation des nombres complexes} \newline
+On munit le plan du rep\`ere orthonorm\'e direct $\left(A ; \vec{u}, \vec{v}\right)$ avec $\vec{u} = \frac{1}{\sqrt{3}}\overrightarrow{AB}$
+et $\vec{v} = \overrightarrow{AD}$.
+\begin{enumerate}
+      \item Donner les affixes de $A$, $B$, $C$, $D$.
+      \item Justifier que les expressions complexes de $S_{(AB)}$, $S_{(AC)}$ et $S_{(CD)}$ sont respectivement
+            $z' = \overline{z}$, $z' = \expo{i\frac{\pi}{3}}\,\overline{z}$ et $z' = \overline{z} + 2i$.
+      \item Retrouver les r\'esultats de la partie A (expressions de $r$, $h$, $h \circ r$).
+      \item Soit $S$ la similitude directe telle que $S(A) = B$ et $S(B) = C$.
+            \begin{enumerate}
+            \item D\'eterminer l'expression complexe de $S$, son rapport et son angle.
+            \item Calculer l'affixe de son centre $\Omega$. Montrer que $\Omega$ est le pied de la hauteur issue de $B$
+                  dans le triangle $ABC$.
+            \item Calculer l'affixe de $S(C)$ et v\'erifier que ce point est sur la droite $(CD)$.
+            \end{enumerate}
+\end{enumerate}
+
+\noindent \underline{\textsc{Probl\`eme II}} (9 points) \newline
+Soit $f$ la fonction d\'efinie sur $\mathbb{R}$ par $f(x) = \ln(\expo{x} + 1) - \dfrac{x}{2}$ et $(\mathscr{C})$ sa courbe
+dans un rep\`ere orthonorm\'e (unit\'e 2~cm).
+
+\underline{\textbf{Partie A}}
+\begin{enumerate}
+      \item Montrer que $f$ est paire.
+      \item Montrer que $f(x) = \frac{x}{2} + \ln(1 + \expo{-x})$. En d\'eduire la limite de $f$ en $+\infty$, l'asymptote $(D)$ de
+            $(\mathscr{C})$ en $+\infty$ et la position de $(\mathscr{C})$ par rapport \`a $(D)$. Quelle est l'asymptote en $-\infty$\,?
+      \item Calculer $f'(x)$ et dresser le tableau de variations de $f$. Tracer $(\mathscr{C})$ et ses asymptotes.
+\end{enumerate}
+\underline{\textbf{Partie B}}
+\begin{enumerate}
+      \item Montrer que pour tout $t \geq 0$ : $t - \dfrac{t^2}{2} \leq \ln(1 + t) \leq t$.
+      \item Pour $\lambda > 0$, on note $\mathscr{A}(\lambda) = \displaystyle\int_0^\lambda \ln(1 + \expo{-x})\,\mathrm{d}x$.
+            Interpr\'eter g\'eom\'etriquement $\mathscr{A}(\lambda)$ et montrer que
+            \[
+            1 - \expo{-\lambda} - \frac{1 - \expo{-2\lambda}}{4} \leq \mathscr{A}(\lambda) \leq 1 - \expo{-\lambda} .
+            \]
+      \item On admet que $\mathscr{A}(\lambda)$ admet une limite $L$ quand $\lambda$ tend vers $+\infty$. Donner un encadrement de $L$.
+\end{enumerate}
+\underline{\textbf{Partie C}} \newline
+Soit $g$ la restriction de $f$ \`a $[0 ; +\infty[$.
+\begin{enumerate}
+      \item Montrer que $g$ est une bijection de $[0 ; +\infty[$ sur un intervalle $J$ \`a pr\'eciser.
+      \item Soit $y \in J$. En posant $X = \expo{\frac{x}{2}}$, montrer que $g(x) = y$ \'equivaut \`a $X^2 - \expo{y} X + 1 = 0$ avec $X \geq 1$.
+            En d\'eduire l'expression de $g^{-1}(y)$.
+\end{enumerate}
+\begin{center}
+On donne : $\ln 2 \approx 0{,}69$.
+\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section{Sujet C4}
+\noindent \underline{\textsc{Exercice}} (4 points)
+\begin{description}
+\item[I. \underline{Arithm\'etique :}] Soit $n$ un entier relatif.
+      \begin{enumerate}
+      \item \`A l'aide d'un tableau de congruences, montrer que $n^5 \equiv n \pmod 5$, puis que $n^5 \equiv n \pmod 2$ et $n^5 \equiv n \pmod 3$.
+      \item En d\'eduire que $n^5 - n$ est divisible par 30.
+      \item Application : montrer que $n^5$ et $n$ ont le m\^eme chiffre des unit\'es pour tout entier naturel $n$.
+      \end{enumerate}
+\item[II. \underline{Probabilit\'e :}]
+      Un joueur lance deux d\'es cubiques \'equilibr\'es. Si la somme est 7, il gagne 1\,000~Ar ; s'il obtient un double, il gagne
+      3\,000~Ar ; dans les autres cas, il perd $m$ ariary ($m > 0$). On note $G$ son gain alg\'ebrique.
+      \begin{enumerate}
+      \item Donner la loi de probabilit\'e de $G$ et calculer $E(G)$ en fonction de $m$.
+      \item Pour quelle valeur de $m$ le jeu est-il \'equitable\,? Que se passe-t-il si $m = 1\,200$\,?
+      \end{enumerate}
+\end{description}
+
+\noindent \underline{\textsc{Probl\`eme I}} (7 points) \newline
+Le plan est rapport\'e \`a un rep\`ere orthonorm\'e direct $(O ; \vec{u}, \vec{v})$ (unit\'e 1~cm). On consid\`ere le carr\'e $OABC$
+avec $A(4)$, $B(4 + 4i)$, $C(4i)$, son centre $\Omega$, et les milieux $I$, $J$, $K$, $L$ des c\^ot\'es $[AB]$, $[BC]$, $[CO]$, $[OA]$.
+
+\underline{\textbf{Partie A :} Lignes de niveau}
+\begin{enumerate}
+      \item D\'emontrer que pour tout point $M$ du plan, $MO^2 + MB^2 = 2M\Omega^2 + \frac{OB^2}{2}$.
+            En d\'eduire que $MO^2 + MB^2 = MA^2 + MC^2$ pour tout point $M$.
+      \item D\'eterminer et construire l'ensemble des points $M$ tels que $MO^2 + MB^2 = 40$.
+      \item D\'emontrer que $MO^2 - MB^2 = 2\,\overrightarrow{M\Omega} \cdot \overrightarrow{BO}$. En d\'eduire l'ensemble des points $M$ tels que
+            $MO^2 - MB^2 = 16$ et en donner une \'equation.
+\end{enumerate}
+\underline{\textbf{Partie B :} Une suite de carr\'es}
+\begin{enumerate}
+      \item Donner les affixes de $\Omega$, $I$, $J$, $K$, $L$.
+      \item Soit $s$ la similitude directe telle que $s(O) = I$ et $s(A) = J$.
+            \begin{enumerate}
+            \item D\'eterminer l'expression complexe de $s$, puis son rapport, son angle et son centre.
+            \item Calculer $s(B)$ et $s(C)$. Quelle est l'image du carr\'e $OABC$ par $s$\,?
+            \end{enumerate}
+      \item On note $\mathscr{Q}_0 = OABC$ et $\mathscr{Q}_{n+1} = s(\mathscr{Q}_n)$ ; $a_n$ est l'aire de $\mathscr{Q}_n$.
+            Exprimer $a_n$ en fonction de $n$, puis calculer $S_n = a_0 + a_1 + \cdots + a_{n-1}$ et sa limite.
+      \item D\'eterminer l'image par $s$ de l'ensemble trouv\'e en A.2.
+\end{enumerate}
+
+\noindent \underline{\textsc{Probl\`eme II}} (9 points) \newline
+\underline{\textbf{Partie A}} \newline
+On consid\`ere l'\'equation diff\'erentielle $(E) : y'' - 2y' + y = x - 2$.
+\begin{enumerate}
+      \item D\'eterminer une fonction affine $p$ solution de $(E)$.
+      \item R\'esoudre l'\'equation $y'' - 2y' + y = 0$, puis en d\'eduire les solutions de $(E)$.
+      \item D\'eterminer la solution $f$ de $(E)$ telle que $f(0) = 0$ et $f'(0) = 0$.
+\end{enumerate}
+\underline{\textbf{Partie B}} \newline
+Soit $f$ la fonction d\'efinie sur $\mathbb{R}$ par $f(x) = x(1 - \expo{x})$ et $(\mathscr{C})$ sa courbe dans un rep\`ere orthonorm\'e (unit\'e 2~cm).
+\begin{enumerate}
+      \item \'Etudier le signe de $f(x)$.
+      \item Soit $g(x) = 1 - (1 + x)\expo{x}$. \'Etudier les variations de $g$ (limite en $-\infty$ comprise), calculer $g(0)$ et en d\'eduire
+            le signe de $g(x)$.
+      \item V\'erifier que $f'(x) = g(x)$ et dresser le tableau de variations de $f$.
+      \item Montrer que la droite $(D) : y = x$ est asymptote \`a $(\mathscr{C})$ en $-\infty$ et pr\'eciser leur position relative.
+            \'Etudier la branche infinie en $+\infty$.
+      \item Montrer que l'\'equation $f(x) = -1$ admet exactement deux solutions, dont une, $\alpha$, est dans $]0{,}8 ; 0{,}9[$.
+      \item Tracer $(D)$ et $(\mathscr{C})$.
+\end{enumerate}
+\underline{\textbf{Partie C}} \newline
+Soit $\lambda < 0$. Calculer, en cm$^2$, l'aire $\mathscr{A}(\lambda)$ du domaine limit\'e par $(\mathscr{C})$, $(D)$ et les droites d'\'equations
+$x = \lambda$ et $x = 0$, puis sa limite quand $\lambda$ tend vers $-\infty$.
+\begin{center}
+On donne : $\expo{0{,}8} \approx 2{,}23$ ; $\expo{0{,}9} \approx 2{,}46$.
+\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section{Sujet C5}
+\noindent \underline{\textsc{Exercice}} (4 points)
+\begin{description}
+\item[I. \underline{Arithm\'etique :}]
+      D\'emontrer par r\'ecurrence que, pour tout entier naturel $n$, $4^n + 15n - 1$ est divisible par 9.
+\item[II. \underline{Probabilit\'e :}]
+      Une classe compte 12 filles et 8 gar\c{c}ons.
+      \begin{enumerate}
+      \item On choisit au hasard un comit\'e de 4 \'el\`eves. Calculer la probabilit\'e que le comit\'e comporte exactement deux filles,
+            puis la probabilit\'e qu'il comporte au moins un gar\c{c}on.
+      \item On \'elit au hasard un bureau compos\'e d'un pr\'esident, d'un secr\'etaire et d'un tr\'esorier (trois \'el\`eves distincts).
+            Combien de bureaux sont possibles\,? Quelle est la probabilit\'e que le pr\'esident soit une fille et le tr\'esorier un gar\c{c}on\,?
+      \end{enumerate}
+\end{description}
+
+\noindent \underline{\textsc{Probl\`eme I}} (7 points) \newline
+Le plan est rapport\'e \`a un rep\`ere orthonorm\'e direct $(O ; \vec{u}, \vec{v})$.
+
+\underline{\textbf{Partie A :} Une application affine} \newline
+Soit $f$ l'application qui \`a tout point $M(x ; y)$ associe le point $M'(x' ; y')$ tel que $x' = x$ et $y' = 2x - y + 2$.
+\begin{enumerate}
+      \item Montrer que $f \circ f$ est l'application identique.
+      \item D\'eterminer l'ensemble $(\Delta)$ des points invariants par $f$.
+      \item Pour $M$ non invariant, montrer que $\overrightarrow{MM'}$ est colin\'eaire \`a $\vec{v}$ et que le milieu de $[MM']$ appartient \`a $(\Delta)$.
+            En d\'eduire la nature de $f$.
+      \item $f$ est-elle une isom\'etrie\,? (On pourra calculer les images de $O$ et de $E(1 ; 0)$.)
+      \item D\'eterminer l'image par $f$ de la droite d'\'equation $y = -x$, et v\'erifier que les deux droites se coupent sur $(\Delta)$.
+\end{enumerate}
+\underline{\textbf{Partie B :} Isom\'etries et nombres complexes}
+\begin{enumerate}
+      \item Soit $\sigma$ l'application d'expression complexe $z' = -i\,\overline{z} + 1 + i$.
+            \begin{enumerate}
+            \item Montrer que $\sigma$ conserve les distances et que $\sigma \circ \sigma$ est l'identit\'e.
+            \item D\'eterminer l'ensemble des points invariants par $\sigma$ et en d\'eduire la nature de $\sigma$.
+            \end{enumerate}
+      \item Soit $g$ l'application d'expression complexe $z' = -i\,\overline{z} + 3 + i$.
+            \begin{enumerate}
+            \item Montrer que $g = t \circ \sigma$, o\`u $t$ est une translation \`a pr\'eciser. $g$ a-t-elle des points invariants\,?
+            \item Calculer l'expression de $g \circ g$.
+            \item Montrer que $g = t_{\vec{w}} \circ S_{(\Delta')}$, o\`u $(\Delta')$ est la droite d'\'equation $x + y = 2$ et
+                  $\vec{w}$ le vecteur d'affixe $1 - i$. V\'erifier que $\vec{w}$ dirige $(\Delta')$ et conclure sur la nature de $g$.
+            \end{enumerate}
+\end{enumerate}
+
+\noindent \underline{\textsc{Probl\`eme II}} (9 points) \newline
+\underline{\textbf{Partie A : in\'egalit\'es}} \newline
+Montrer que, pour tout $x \geq 0$ :
+\begin{enumerate}
+      \item $x - \dfrac{x^2}{2} \leq \ln(1 + x) \leq x - \dfrac{x^2}{2} + \dfrac{x^3}{3}$
+            (on \'etudiera $x \mapsto \ln(1+x) - x + \frac{x^2}{2}$ et $x \mapsto \ln(1+x) - x + \frac{x^2}{2} - \frac{x^3}{3}$) ;
+      \item $\ln(1 + x) \geq \dfrac{x}{1 + x}$, avec \'egalit\'e seulement pour $x = 0$.
+\end{enumerate}
+\underline{\textbf{Partie B}} \newline
+Soit $f$ la fonction d\'efinie sur $[0 ; +\infty[$ par $f(x) = \dfrac{\ln(1 + x)}{x}$ si $x > 0$ et $f(0) = 1$, et $(\mathscr{C})$ sa courbe
+(unit\'es : 2~cm en abscisse, 4~cm en ordonn\'ee).
+\begin{enumerate}
+      \item Montrer que $f$ est continue en $0$.
+      \item Montrer que $f$ est d\'erivable en $0$ et que $f'(0) = -\frac{1}{2}$. Donner la tangente $(T)$ \`a $(\mathscr{C})$ en $0$
+            et la position de $(\mathscr{C})$ par rapport \`a $(T)$.
+      \item Calculer $f'(x)$ pour $x > 0$ et montrer que $f$ est strictement d\'ecroissante.
+      \item Calculer la limite de $f$ en $+\infty$. Tracer $(T)$ et $(\mathscr{C})$.
+\end{enumerate}
+\underline{\textbf{Partie C}} \newline
+Pour tout entier naturel $n$, on pose $u_n = \displaystyle\int_0^1 \frac{x^n}{1 + x}\,\mathrm{d}x$.
+\begin{enumerate}
+      \item Calculer $u_0$.
+      \item Calculer $u_n + u_{n+1}$.
+      \item Montrer que $0 \leq u_n \leq \dfrac{1}{n+1}$ et en d\'eduire la limite de $(u_n)$.
+      \item Pour $n \geq 1$, on pose $S_n = 1 - \frac{1}{2} + \frac{1}{3} - \cdots + \frac{(-1)^{n+1}}{n} = \displaystyle\sum_{k=1}^{n} \frac{(-1)^{k+1}}{k}$.
+            Montrer par r\'ecurrence que $S_n = \ln 2 + (-1)^{n+1} u_n$. En d\'eduire la limite de $(S_n)$.
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section{Sujet C6}
+\noindent \underline{\textsc{Exercice}} (4 points)
+\begin{description}
+\item[I. \underline{Arithm\'etique :}]
+      Un entier naturel $N$ s'\'ecrit $\overline{abc}$ en base sept et $\overline{cba}$ en base neuf, o\`u $a$, $b$, $c$ sont des chiffres
+      et $a \neq 0$, $c \neq 0$.
+      \begin{enumerate}
+      \item Montrer que $b = 8(3a - 5c)$.
+      \item En d\'eduire $a$, $b$, $c$ puis $N$ en base dix.
+      \end{enumerate}
+\item[II. \underline{Probabilit\'e :}]
+      Une graine germe avec la probabilit\'e $0{,}8$, ind\'ependamment des autres. On s\`eme 10 graines ; $X$ est le nombre de graines
+      qui germent.
+      \begin{enumerate}
+      \item Calculer $P(X = 8)$ et $P(X \geq 9)$ (\`a $10^{-3}$ pr\`es), puis $E(X)$.
+      \item Combien de graines faut-il semer au minimum pour que la probabilit\'e qu'au moins une germe d\'epasse $0{,}9999$\,?
+      \end{enumerate}
+\end{description}
+
+\noindent \underline{\textsc{Probl\`eme I}} (7 points) \newline
+Le plan est rapport\'e \`a un rep\`ere orthonorm\'e direct $(O ; \vec{u}, \vec{v})$ (unit\'e 1~cm). On consid\`ere les points $A(-1)$ et $B(3)$.
+
+\underline{\textbf{Partie A :} Un cercle d'Apollonius}
+\begin{enumerate}
+      \item Construire le barycentre $I$ de $\{(A ; 1), (B ; 3)\}$ et le barycentre $J$ de $\{(A ; 1), (B ; -3)\}$ ; donner leurs affixes.
+      \item D\'emontrer que pour tout point $M$ : $MA^2 - 9MB^2 = -8\,\overrightarrow{MI} \cdot \overrightarrow{MJ}$.
+      \item En d\'eduire que l'ensemble $(\Gamma)$ des points $M$ tels que $MA = 3MB$ est un cercle dont on pr\'ecisera le centre $K$ et le rayon.
+\end{enumerate}
+\underline{\textbf{Partie B :} Image par une similitude} \newline
+Soit $s$ l'application d'expression complexe $z' = (1 + i)z - 3i$.
+\begin{enumerate}
+      \item Montrer que $s$ est une similitude directe de centre $B$ dont on donnera le rapport et l'angle.
+      \item Calculer les affixes de $A' = s(A)$, $s(I)$ et $s(J)$.
+      \item D\'eterminer l'image $(\Gamma')$ de $(\Gamma)$ par $s$ (centre et rayon).
+      \item Soit $M$ un point de $(\Gamma)$ et $M' = s(M)$. Montrer que $M'A' = 3M'B$.
+            En d\'eduire une autre description de $(\Gamma')$ comme ensemble de points.
+\end{enumerate}
+
+\noindent \underline{\textsc{Probl\`eme II}} (9 points) \newline
+\underline{\textbf{Partie A}} \newline
+On consid\`ere l'\'equation diff\'erentielle $(E) : y'' - y = 0$.
+\begin{enumerate}
+      \item R\'esoudre $(E)$.
+      \item D\'eterminer la solution $\varphi$ de $(E)$ telle que $\varphi(0) = 0$ et $\varphi'(0) = 1$, puis la solution $\psi$ telle que
+            $\psi(0) = 1$ et $\psi'(0) = 0$.
+      \item V\'erifier que $\varphi' = \psi$ et que $\psi^2 - \varphi^2 = 1$.
+\end{enumerate}
+\underline{\textbf{Partie B}} \newline
+On a $\varphi(x) = \dfrac{\expo{x} - \expo{-x}}{2}$ ; on note $(\mathscr{C})$ sa courbe dans un rep\`ere orthonorm\'e (unit\'e 2~cm).
+\begin{enumerate}
+      \item \'Etudier la parit\'e de $\varphi$, ses variations et ses limites en $\pm\infty$ (branches infinies comprises).
+      \item Donner la tangente $(T)$ \`a $(\mathscr{C})$ en $O$. En \'etudiant $d(x) = \varphi(x) - x$, pr\'eciser la position de $(\mathscr{C})$ par rapport
+            \`a $(T)$ (on montrera que $\psi(x) \geq 1$).
+      \item Montrer que $\varphi$ est une bijection de $\mathbb{R}$ sur $\mathbb{R}$ et que, pour tout r\'eel $y$,
+            $\varphi^{-1}(y) = \ln\left(y + \sqrt{y^2 + 1}\right)$.
+      \item Montrer que $\varphi^{-1}$ est d\'erivable et que $(\varphi^{-1})'(y) = \dfrac{1}{\sqrt{1 + y^2}}$
+            (on pourra utiliser $\psi = \sqrt{1 + \varphi^2}$).
+      \item Tracer $(T)$, $(\mathscr{C})$ et la courbe $(\mathscr{C}')$ de $\varphi^{-1}$ dans le m\^eme rep\`ere.
+\end{enumerate}
+\underline{\textbf{Partie C}}
+\begin{enumerate}
+      \item Calculer $\displaystyle\int_0^1 \frac{\mathrm{d}x}{\sqrt{1 + x^2}}$.
+      \item Pour $n \geq 1$, on pose $v_n = \varphi^{-1}(n) - \ln(2n)$. Montrer que $v_n = \ln\left(\dfrac{1 + \sqrt{1 + \frac{1}{n^2}}}{2}\right)$
+            et calculer la limite de $(v_n)$.
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                      CORRIGÉS (édition du professeur)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{corrige}
+\newpage
+\section{Corrig\'es des sujets d'entra\^inement de s\'erie C}
+\subsection{Corrig\'e du sujet C1}
+\noindent \underline{\textsc{Exercice}}
+\begin{description}
+\item[I.] \begin{enumerate}
+      \item $11 \times 6 - 7 \times 9 = 66 - 63 = 3$.
+      \item Si $11x - 7y = 3 = 11 \times 6 - 7 \times 9$, alors $11(x - 6) = 7(y - 9)$. 7 divise $11(x - 6)$ et
+            $\mathrm{PGCD}(7 , 11) = 1$, donc (th\'eor\`eme de Gauss) 7 divise $x - 6$ : $x = 6 + 7k$, $k \in \mathbb{Z}$, puis $y = 9 + 11k$.
+            R\'eciproquement ces couples conviennent : $S = \{(6 + 7k ; 9 + 11k), k \in \mathbb{Z}\}$.
+      \item $N = 11x + 2 = 7y + 5$ \'equivaut \`a $11x - 7y = 3$, donc $x = 6 + 7k$ et $N = 11(6 + 7k) + 2 = 68 + 77k$.
+            Entre 100 et 300 : $N \in \{145 ; 222 ; 299\}$.
+      \end{enumerate}
+\item[II.] Le mot MADAGASIKARA a 12 lettres : cinq A et sept lettres distinctes M, D, G, S, I, K, R.
+      \begin{enumerate}
+      \item Nombre de mots (permutations avec r\'ep\'etition) : $\frac{12!}{5!} = 3\,991\,680$.
+      \item On place un A au d\'ebut et un A \`a la fin ; il reste 10 lettres dont trois A : $\frac{10!}{3!} = 604\,800$ mots.
+            $P = \frac{604\,800}{3\,991\,680} = \frac{5}{33}$ (ou directement $\frac{5}{12} \times \frac{4}{11}$).
+      \item Le bloc AAAAA et les sept autres lettres forment 8 objets distincts : $8! = 40\,320$ mots ; $P = \frac{40\,320}{3\,991\,680} = \frac{1}{99}$.
+      \end{enumerate}
+\end{description}
+
+\noindent \underline{\textsc{Probl\`eme I}} \newline
+\underline{Partie A}
+\begin{enumerate}
+\item $AB = AC$ et $(\overrightarrow{AB}, \overrightarrow{AC}) = \frac{\pi}{3}$, donc $r_A(B) = C$. De m\^eme $BC = BA$ et
+      $(\overrightarrow{BC}, \overrightarrow{BA}) = \frac{\pi}{3}$ (triangle direct), donc $r_B(C) = A$ et $f(B) = r_B(C) = A$.
+\item \begin{enumerate}
+      \item Une rotation de centre $A$ et d'angle $\theta$ est la compos\'ee $S_{(d')} \circ S_{(d)}$ de deux sym\'etries d'axes passant par $A$
+            avec $((d) , (d')) = \frac{\theta}{2}$. Ainsi $r_A = S_{(AB)} \circ S_{(d_1)}$ et $r_B = S_{(d_2)} \circ S_{(AB)}$. Donc
+            $f = S_{(d_2)} \circ S_{(AB)} \circ S_{(AB)} \circ S_{(d_1)} = S_{(d_2)} \circ S_{(d_1)}$. Les droites $(d_1)$ et $(d_2)$ ne sont pas
+            parall\`eles ($((d_1),(d_2)) = \frac{\pi}{6} + \frac{\pi}{6} = \frac{\pi}{3}$), elles se coupent en $K$ et $f$ est la rotation de centre
+            $K$ et d'angle $2 \times \frac{\pi}{3} = \frac{2\pi}{3}$.
+      \item $(d_1)$ et $(d_2)$ font avec $(AB)$ des angles de $\frac{\pi}{6}$, du c\^ot\'e oppos\'e \`a $C$ : le triangle $ABK$ est isoc\`ele
+            en $K$ avec des angles de base $\frac{\pi}{6}$. Or $E$ v\'erifie $\widehat{EAB} = \widehat{EBA} = \frac{\pi}{3}$ et $ABE$ est \'equilat\'eral ;
+            ses bissectrices issues de $A$ et $B$ font avec $(AB)$ l'angle $\frac{\pi}{6}$ : ce sont $(d_1)$ et $(d_2)$.
+            Donc $K$ est le centre de gravit\'e (aussi centre du cercle circonscrit) de $ABE$, sym\'etrique de $G$ par rapport \`a $(AB)$.
+      \end{enumerate}
+\end{enumerate}
+\underline{Partie B}
+\begin{enumerate}
+\item $z_A = 0$, $z_B = 1$, $z_C = \expo{i\frac{\pi}{3}} = \frac{1}{2} + \frac{\sqrt{3}}{2}i$,
+      $z_G = \frac{z_A + z_B + z_C}{3} = \frac{1}{2} + \frac{\sqrt{3}}{6}i$.
+\item $r_A : z' = \expo{i\frac{\pi}{3}} z$ ; $r_B : z' = \expo{i\frac{\pi}{3}}(z - 1) + 1$ ;
+      $f : z' = \expo{i\frac{\pi}{3}}\left(\expo{i\frac{\pi}{3}} z - 1\right) + 1 = \expo{i\frac{2\pi}{3}} z + 1 - \expo{i\frac{\pi}{3}}$.
+\item Le coefficient $\expo{i\frac{2\pi}{3}}$ donne l'angle $\frac{2\pi}{3}$. Le centre v\'erifie $z_K = \frac{1 - \expo{i\pi/3}}{1 - \expo{2i\pi/3}}$ ;
+      $1 - \expo{i\frac{\pi}{3}} = \frac{1}{2} - \frac{\sqrt{3}}{2}i = \expo{-i\frac{\pi}{3}}$ et
+      $1 - \expo{i\frac{2\pi}{3}} = \frac{3}{2} - \frac{\sqrt{3}}{2}i = \sqrt{3}\,\expo{-i\frac{\pi}{6}}$, donc
+      $z_K = \frac{1}{\sqrt{3}}\expo{-i\frac{\pi}{6}} = \frac{1}{2} - \frac{\sqrt{3}}{6}i = \overline{z_G}$.
+\end{enumerate}
+\underline{Partie C}
+\begin{enumerate}
+\item $MA^2 = (\overrightarrow{MG} + \overrightarrow{GA})^2 = MG^2 + 2\overrightarrow{MG}\cdot\overrightarrow{GA} + GA^2$, et de m\^eme pour $B$ et $C$.
+      En sommant, et comme $\overrightarrow{GA} + \overrightarrow{GB} + \overrightarrow{GC} = \vec{0}$ ($G$ isobarycentre) :
+      $MA^2 + MB^2 + MC^2 = 3MG^2 + GA^2 + GB^2 + GC^2$. Dans un triangle \'equilat\'eral de c\^ot\'e 1,
+      $GA = GB = GC = \frac{2}{3} \times \frac{\sqrt{3}}{2} = \frac{1}{\sqrt{3}}$, d'o\`u $MA^2 + MB^2 + MC^2 = 3MG^2 + 1$.
+\item $3MG^2 + 1 = k \iff MG^2 = \frac{k - 1}{3}$. Si $k < 1$ : $(\Gamma_k) = \varnothing$ ; si $k = 1$ : $(\Gamma_1) = \{G\}$ ;
+      si $k > 1$ : cercle de centre $G$ et de rayon $\sqrt{\frac{k-1}{3}}$. $(\Gamma_2)$ est le cercle de centre $G$ et de rayon
+      $\frac{1}{\sqrt{3}} = GA$ : c'est le cercle circonscrit au triangle $ABC$.
+\item $KA = KB = \frac{1}{\sqrt{3}}$ (sym\'etrie) et $KC = |z_C - z_K| = \left|\frac{2\sqrt{3}}{3}i\right| = \frac{2}{\sqrt{3}}$, d'o\`u
+      $KA^2 + KB^2 + KC^2 = \frac{1}{3} + \frac{1}{3} + \frac{4}{3} = 2$ : $K \in (\Gamma_2)$.
+\end{enumerate}
+
+\noindent \underline{\textsc{Probl\`eme II}} \newline
+\underline{Partie A}
+\begin{enumerate}
+\item $r^2 + 2r + 1 = (r+1)^2$, racine double $-1$ : les solutions sont $y(x) = (Ax + B)\expo{-x}$, $(A , B) \in \mathbb{R}^2$.
+\item $\varphi(0) = B = 0$ ; $\varphi'(x) = (A - Ax - B)\expo{-x}$, $\varphi'(0) = A - B = 1$, donc $A = 1$ : $\varphi(x) = x\,\expo{-x}$.
+\end{enumerate}
+\underline{Partie B}
+\begin{enumerate}
+\item $g'(x) = \expo{x} - 1$ : $g$ est d\'ecroissante sur $]-\infty ; 0]$, croissante sur $[0 ; +\infty[$, de minimum $g(0) = 2 > 0$.
+\item $f'(x) = 1 + \expo{-x} - x\expo{-x} = (\expo{x} + 1 - x)\expo{-x} = g(x)\expo{-x} > 0$ : $f$ est strictement croissante.
+      En $+\infty$ : $x\expo{-x} \to 0$, $f(x) \to +\infty$. En $-\infty$ : $f(x) = x(1 + \expo{-x}) - 1 \to -\infty$.
+      $f$ cro\^it de $-\infty$ \`a $+\infty$, avec $f(0) = -1$.
+\item $f(x) - (x - 1) = x\expo{-x} \to 0$ en $+\infty$ : $(D)$ est asymptote ; cette diff\'erence a le signe de $x$ : $(\mathscr{C})$ est
+      au-dessus de $(D)$ sur $]0 ; +\infty[$, au-dessous sur $]-\infty ; 0[$, et les coupe en $(0 ; -1)$.
+      En $-\infty$, $\frac{f(x)}{x} = 1 - \frac{1}{x} + \expo{-x} \to +\infty$ : branche parabolique de direction $(Oy)$.
+\item $f$ est une bijection continue strictement croissante de $\mathbb{R}$ sur $\mathbb{R}$ : unique solution $\alpha$.
+      $f(0{,}6) \approx -0{,}4 + 0{,}6 \times 0{,}549 \approx -0{,}07 < 0$ et $f(0{,}7) \approx -0{,}3 + 0{,}7 \times 0{,}497 \approx 0{,}05 > 0$ :
+      $0{,}6 < \alpha < 0{,}7$ ($\alpha \approx 0{,}659$).
+\end{enumerate}
+\underline{Partie C}
+\begin{enumerate}
+\item $f(x) = 0 \iff x(1 + \expo{-x}) = 1 \iff x = \frac{1}{1 + \expo{-x}} = h(x)$ (car $1 + \expo{-x} > 0$).
+\item $h'(x) = \frac{\expo{-x}}{(1 + \expo{-x})^2} > 0$ : $h$ est croissante. Comme $(1 + \expo{-x})^2 - 4\expo{-x} = (1 - \expo{-x})^2 \geq 0$,
+      on a $h'(x) \leq \frac{1}{4}$. $h(I) = [h(\frac{1}{2}) ; h(1)] \approx [0{,}622 ; 0{,}731] \subset I$.
+\item \begin{enumerate}
+      \item $u_0 = \frac{1}{2} \in I$ ; si $u_n \in I$, alors $u_{n+1} = h(u_n) \in h(I) \subset I$.
+      \item $\alpha$ et $u_n$ sont dans $I$ et $|h'| \leq \frac{1}{4}$ sur $I$ : $|h(u_n) - h(\alpha)| \leq \frac{1}{4}|u_n - \alpha|$, soit
+            $|u_{n+1} - \alpha| \leq \frac{1}{4}|u_n - \alpha|$ (car $h(\alpha) = \alpha$). Par r\'ecurrence,
+            $|u_n - \alpha| \leq \left(\frac{1}{4}\right)^n|u_0 - \alpha| \leq \frac{1}{2}\left(\frac{1}{4}\right)^n$ car $u_0$ et $\alpha$ sont dans $I$,
+            de longueur $\frac{1}{2}$.
+      \item $\left(\frac{1}{4}\right)^n \to 0$, donc $u_n \to \alpha$. $\frac{1}{2}\left(\frac{1}{4}\right)^n \leq 10^{-3} \iff 4^n \geq 500 \iff
+            n \geq \frac{\ln 500}{\ln 4} \approx 4{,}5$ : $n_0 = 5$ convient.
+      \end{enumerate}
+\end{enumerate}
+\underline{Partie D}
+\begin{enumerate}
+\item $\Phi' = -\varphi'' - 2\varphi' = \varphi$ d'apr\`es $(E)$. $\Phi(x) = -(1 - x)\expo{-x} - 2x\expo{-x} = -(x + 1)\expo{-x}$.
+\item Sur $[0 ; \lambda]$, $(\mathscr{C})$ est au-dessus de $(D)$ : $\mathscr{A}(\lambda) = \displaystyle\int_0^\lambda x\expo{-x}\,\mathrm{d}x = \Phi(\lambda) - \Phi(0)
+      = 1 - (\lambda + 1)\expo{-\lambda}$ unit\'es d'aire, soit $4\left[1 - (\lambda + 1)\expo{-\lambda}\right]$ cm$^2$ ; la limite est $4$~cm$^2$.
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Corrig\'e du sujet C2}
+\noindent \underline{\textsc{Exercice}}
+\begin{description}
+\item[I.] \begin{enumerate}
+      \item $3^3 = 27 \equiv -1 \pmod 7$, donc $3^6 \equiv 1 \pmod 7$. $2026 = 7 \times 289 + 3$, donc $2026 \equiv 3 \pmod 7$ ;
+            $2026 = 6 \times 337 + 4$, donc $2026^{2026} \equiv 3^{2026} = (3^6)^{337} \times 3^4 \equiv 81 \equiv 4 \pmod 7$. Le reste est 4.
+      \item Restes de $3^n$ modulo 7 pour $n = 0, 1, \ldots, 5$ : $1, 3, 2, 6, 4, 5$, puis le cycle recommence (p\'eriode 6).
+            $3^n + 4 \equiv 0 \iff 3^n \equiv 3 \pmod 7 \iff n \equiv 1 \pmod 6$ : $n = 6k + 1$, $k \in \mathbb{N}$.
+      \end{enumerate}
+\item[II.] Il y a $6 \times 5 = 30$ tirages ordonn\'es \'equiprobables.
+      \begin{enumerate}
+      \item $X = 2$ : deux 1, $2 \times 1 = 2$ tirages ; $X = 3$ : un 1 et un 2, $2 \times (2 \times 3) = 12$ ; $X = 4$ : deux 2 ($3 \times 2 = 6$)
+            ou un 1 et le 3 ($2 \times 2 = 4$), soit 10 ; $X = 5$ : un 2 et le 3, $2 \times 3 = 6$.
+            Loi : $P(X = 2) = \frac{1}{15}$, $P(X = 3) = \frac{2}{5}$, $P(X = 4) = \frac{1}{3}$, $P(X = 5) = \frac{1}{5}$.
+      \item $E(X) = \frac{4 + 36 + 40 + 30}{30} = \frac{110}{30} = \frac{11}{3}$ ; $E(X^2) = \frac{8 + 108 + 160 + 150}{30} = \frac{71}{5}$ ;
+            $V(X) = \frac{71}{5} - \frac{121}{9} = \frac{34}{45}$.
+      \end{enumerate}
+\end{description}
+
+\noindent \underline{\textsc{Probl\`eme I}} \newline
+\underline{Partie A}
+\begin{enumerate}
+\item Avec $z = x + iy$ : $2i\overline{z} - 1 - i = (2y - 1) + i(2x - 1)$. $z$ est fixe si et seulement si $x = 2y - 1$ et $y = 2x - 1$,
+      d'o\`u $x = 4x - 3$, $x = 1$, $y = 1$ : unique point fixe $\Omega(1 + i)$.
+\item $f \circ f(z) = 2i\,\overline{(2i\overline{z} - 1 - i)} - 1 - i = 2i(-2iz - 1 + i) - 1 - i = 4z - 3 - 3i$ : c'est l'homoth\'etie de centre
+      $\Omega$ ($4\omega - 3 - 3i = \omega$) et de rapport $4$.
+\item \begin{enumerate}
+      \item $2i\,\overline{(z - \omega)} = 2i\overline{z} - 2i(1 - i) = 2i\overline{z} - 2 - 2i = z' - \omega$.
+      \item $s$ conserve les distances ($|i| = 1$) et $s \circ s(z) - \omega = i\,\overline{i\,\overline{(z - \omega)}} = -i \cdot i(z - \omega) = z - \omega$.
+            Ses points fixes : $z - \omega = t\expo{i\frac{\pi}{4}}$ donne $i\,\overline{t\expo{i\pi/4}} = t\,\expo{i\frac{\pi}{2}}\expo{-i\frac{\pi}{4}} = t\expo{i\frac{\pi}{4}}$ :
+            tous les points de la droite passant par $\Omega$ et dirig\'ee par $\expo{i\frac{\pi}{4}}$, c'est-\`a-dire $(\Delta) : y = x$, sont fixes.
+            Une isom\'etrie involutive non identique fixant une droite est la sym\'etrie orthogonale d'axe cette droite.
+      \item Avec $h : z' - \omega = 2(z - \omega)$ (homoth\'etie de centre $\Omega$, rapport 2) : $h \circ s(z) - \omega = 2i\,\overline{(z - \omega)}$, donc $f = h \circ s$.
+            $f$ est une similitude indirecte de centre $\Omega$, de rapport 2 et d'axe $(\Delta)$.
+      \end{enumerate}
+\item $f(O)$ a pour affixe $-1 - i$ ($O \in (\Delta)$ et $\overrightarrow{\Omega O'} = 2\overrightarrow{\Omega O}$). $s$ laisse $(\Delta)$ invariante point par point et
+      $h$ laisse invariante toute droite passant par $\Omega$ : $f(\Delta) = \Delta$.
+\end{enumerate}
+\underline{Partie B}
+\begin{enumerate}
+\item La somme des coefficients est $2 - 1 - 1 = 0$ : pas de barycentre.
+      $\vec{w} = 2(\overrightarrow{MA}) - (\overrightarrow{MA} + \overrightarrow{AB}) - (\overrightarrow{MA} + \overrightarrow{AC}) = -\overrightarrow{AB} - \overrightarrow{AC}$,
+      vecteur constant d'affixe $-4 - 4i$.
+\item $\varphi(M) = 2(x^2 + y^2) - \left[(x - 4)^2 + y^2\right] - \left[x^2 + (y - 4)^2\right] = 8x + 8y - 32$.
+\item $\varphi(M) = k \iff x + y = 4 + \frac{k}{8}$ : $(E_k)$ est une droite (orthogonale \`a $\vec{w}$).
+      $(E_0)$ : $x + y = 4$, qui passe par $B(4 ; 0)$ et $C(0 ; 4)$ : $(E_0) = (BC)$.
+\item $f$ transforme une droite en une droite : $f(B)$ a pour affixe $2i \times 4 - 1 - i = -1 + 7i$ et $f(C)$ a pour affixe $2i(-4i) - 1 - i = 7 - i$.
+      L'image de $(BC)$ est la droite passant par $(-1 ; 7)$ et $(7 ; -1)$ : $x + y = 6$.
+\end{enumerate}
+
+\noindent \underline{\textsc{Probl\`eme II}} \newline
+\underline{Partie A}
+\begin{enumerate}
+\item $\lim_{0^+} g(x) = 0 - 0 + 1 = 1 = g(0)$ : continuit\'e. $\frac{g(x) - g(0)}{x} = \ln x - 1 \to -\infty$ : $g$ n'est pas d\'erivable en $0$,
+      demi-tangente verticale au point $(0 ; 1)$.
+\item $g'(x) = \ln x + 1 - 1 = \ln x$ : $g$ d\'ecro\^it sur $[0 ; 1]$, cro\^it sur $[1 ; +\infty[$, minimum $g(1) = 0$. Donc $g \geq 0$.
+      $g(x) = x(\ln x - 1) + 1 \to +\infty$ et $\frac{g(x)}{x} = \ln x - 1 + \frac{1}{x} \to +\infty$ : branche parabolique de direction $(Oy)$.
+\item Pour $x > 0$, $g(x) \geq 0$ divis\'e par $x > 0$ donne $\ln x - 1 + \frac{1}{x} \geq 0$.
+\item Trac\'e : point $(0 ; 1)$ avec demi-tangente verticale, minimum $(1 ; 0)$ tangent \`a l'axe des abscisses.
+\item Une primitive de $x\ln x$ est $\frac{x^2}{2}\ln x - \frac{x^2}{4}$ (int\'egration par parties).
+      $\displaystyle\int_1^{\expo{}} g = \left[\frac{x^2}{2}\ln x - \frac{x^2}{4} - \frac{x^2}{2} + x\right]_1^{\expo{}}
+      = \left(\expo{} - \frac{\expo{2}}{4}\right) - \frac{1}{4} = \frac{4\expo{} - \expo{2} - 1}{4}$ unit\'es d'aire, soit
+      $\boxed{(4\expo{} - \expo{2} - 1) \text{ cm}^2} \approx 2{,}48$~cm$^2$.
+\end{enumerate}
+\underline{Partie B}
+\begin{enumerate}
+\item $I_1 = \left[x\ln x - x\right]_1^{\expo{}} = 0 - (-1) = 1$.
+\item $u = (\ln x)^{n+1}$, $v' = 1$ : $I_{n+1} = \left[x(\ln x)^{n+1}\right]_1^{\expo{}} - \displaystyle\int_1^{\expo{}} x \cdot \frac{(n+1)(\ln x)^n}{x}\,\mathrm{d}x = \expo{} - (n+1)I_n$.
+      $I_2 = \expo{} - 2$ ; $I_3 = \expo{} - 3(\expo{} - 2) = 6 - 2\expo{}$.
+\item Sur $[1 ; \expo{}]$, $0 \leq \ln x \leq 1$ : $(\ln x)^n \geq 0$ et $(\ln x)^{n+1} \leq (\ln x)^n$, d'o\`u $I_n \geq 0$ et $I_{n+1} \leq I_n$.
+      Suite d\'ecroissante minor\'ee par 0 : convergente.
+\item $I_{n+1} \geq 0$ donne $(n+1)I_n = \expo{} - I_{n+1} \leq \expo{}$. Ainsi $0 \leq I_n \leq \frac{\expo{}}{n+1}$ et $\lim I_n = 0$.
+\item $(n+1)I_n = \expo{} - I_{n+1} \to \expo{}$, et $nI_n = (n+1)I_n - I_n \to \expo{}$.
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Corrig\'e du sujet C3}
+\noindent \underline{\textsc{Exercice}}
+\begin{description}
+\item[I.] \begin{enumerate}
+      \item $a = 12a'$, $b = 12b'$ avec $\mathrm{PGCD}(a' , b') = 1$ et $a' + b' = 12$. Couples premiers entre eux de somme 12 :
+            $(1 , 11)$, $(5 , 7)$, $(7 , 5)$, $(11 , 1)$ (les autres ont un diviseur commun). D'o\`u
+            $(a , b) \in \{(12 , 132) ; (60 , 84) ; (84 , 60) ; (132 , 12)\}$.
+      \item $2026 = 1 \times 6^4 + 3 \times 6^3 + 2 \times 6^2 + 1 \times 6 + 4$ (divisions successives par 6 : restes 4, 1, 2, 3, 1),
+            donc $2026 = \overline{13214}_{6}$.
+      \end{enumerate}
+\item[II.] On note $B$ << boule blanche >>.
+      \begin{enumerate}
+      \item $P(B) = \frac{5}{6} \times \frac{3}{5} + \frac{1}{6} \times \frac{1}{5} = \frac{1}{2} + \frac{1}{30} = \frac{8}{15}$.
+      \item $P_B(U_2) = \frac{1/30}{8/15} = \frac{1}{16}$.
+      \item Sch\'ema de Bernoulli $\mathscr{B}\left(3 ; \frac{8}{15}\right)$ : $P = \mathrm{C}_3^2\left(\frac{8}{15}\right)^2\frac{7}{15} = \frac{1\,344}{3\,375} = \frac{448}{1\,125}$.
+      \end{enumerate}
+\end{description}
+
+\noindent \underline{\textsc{Probl\`eme I}} \newline
+\underline{Partie A}
+\begin{enumerate}
+\item Dans le triangle $ABC$ rectangle en $B$, $\tan\widehat{BAC} = \frac{BC}{AB} = \frac{1}{\sqrt{3}}$, donc $\widehat{BAC} = \frac{\pi}{6}$ ;
+      le rectangle \'etant direct, $(\overrightarrow{AB}, \overrightarrow{AC}) = \frac{\pi}{6}$.
+\item $(AB)$ et $(AC)$ se coupent en $A$ : $r$ est la rotation de centre $A$ et d'angle $2 \times \frac{\pi}{6} = \frac{\pi}{3}$.
+      $(AB)$ et $(CD)$ sont parall\`eles, \`a la distance $AD = 1$ : $t$ est la translation de vecteur $2\overrightarrow{AD}$.
+\item $(AC)$ et $(CD)$ se coupent en $C$ ; comme $(CD) \parallel (AB)$, $((AC) , (CD)) = ((AC) , (AB)) = -\frac{\pi}{6}$ :
+      $h$ est la rotation de centre $C$ et d'angle $-\frac{\pi}{3}$.
+\item $h \circ r = S_{(CD)} \circ S_{(AC)} \circ S_{(AC)} \circ S_{(AB)} = S_{(CD)} \circ S_{(AB)} = t$, car $S_{(AC)} \circ S_{(AC)}$ est l'identit\'e.
+\end{enumerate}
+\underline{Partie B}
+\begin{enumerate}
+\item $z_A = 0$, $z_B = \sqrt{3}$, $z_C = \sqrt{3} + i$, $z_D = i$.
+\item $(AB)$ est l'axe r\'eel : $z' = \overline{z}$. $(AC)$ passe par $O = A$ avec l'angle $\frac{\pi}{6}$ : la sym\'etrie s'\'ecrit
+      $z' = \expo{2i\frac{\pi}{6}}\,\overline{z} = \expo{i\frac{\pi}{3}}\overline{z}$ (elle fixe $t\expo{i\pi/6}$, $t$ r\'eel).
+      $(CD)$ : $y = 1$ ; le sym\'etrique de $(x ; y)$ est $(x ; 2 - y)$, soit $z' = \overline{z} + 2i$.
+\item $r(z) = \expo{i\frac{\pi}{3}}\,\overline{\overline{z}} = \expo{i\frac{\pi}{3}} z$ : rotation de centre $A$, d'angle $\frac{\pi}{3}$.
+      $h(z) = \overline{\expo{i\pi/3}\overline{z}} + 2i = \expo{-i\frac{\pi}{3}} z + 2i$ : rotation d'angle $-\frac{\pi}{3}$, de centre
+      $\frac{2i}{1 - \expo{-i\pi/3}} = \frac{2i}{\expo{i\pi/3}} = 2\expo{i\frac{\pi}{6}} = \sqrt{3} + i = z_C$.
+      $h \circ r(z) = \expo{-i\frac{\pi}{3}}\expo{i\frac{\pi}{3}} z + 2i = z + 2i$ : translation de vecteur $2\overrightarrow{AD}$.
+\item \begin{enumerate}
+      \item $S : z' = az + b$ avec $a = \frac{z_C - z_B}{z_B - z_A} = \frac{i}{\sqrt{3}}$ et $b = z_B - a z_A = \sqrt{3}$ :
+            $z' = \frac{i}{\sqrt{3}}z + \sqrt{3}$. Rapport $\frac{1}{\sqrt{3}}$, angle $\frac{\pi}{2}$.
+      \item $\omega = \frac{\sqrt{3}}{1 - \frac{i}{\sqrt{3}}} = \frac{3}{\sqrt{3} - i} = \frac{3(\sqrt{3} + i)}{4}$.
+            $\omega = \frac{3}{4}z_C$ : $\Omega \in (AC)$. $\omega - z_B = -\frac{\sqrt{3}}{4} + \frac{3}{4}i$ et
+            $\overrightarrow{B\Omega}\cdot\overrightarrow{AC} = -\frac{\sqrt{3}}{4}\times\sqrt{3} + \frac{3}{4}\times 1 = 0$ : $(B\Omega) \perp (AC)$.
+            Donc $\Omega$ est le pied de la hauteur issue de $B$.
+      \item $S(C)$ : $\frac{i}{\sqrt{3}}(\sqrt{3} + i) + \sqrt{3} = i - \frac{1}{\sqrt{3}} + \sqrt{3} = \frac{2\sqrt{3}}{3} + i$, d'ordonn\'ee 1 :
+            ce point est sur $(CD)$.
+      \end{enumerate}
+\end{enumerate}
+
+\noindent \underline{\textsc{Probl\`eme II}} \newline
+\underline{Partie A}
+\begin{enumerate}
+\item $f(-x) = \ln(\expo{-x} + 1) + \frac{x}{2} = \ln\left(\expo{-x}(1 + \expo{x})\right) + \frac{x}{2} = -x + \ln(1 + \expo{x}) + \frac{x}{2} = f(x)$.
+\item $\ln(\expo{x} + 1) = \ln\left(\expo{x}(1 + \expo{-x})\right) = x + \ln(1 + \expo{-x})$, d'o\`u la formule.
+      En $+\infty$, $\ln(1 + \expo{-x}) \to 0$ : $f(x) \to +\infty$ et $(D) : y = \frac{x}{2}$ est asymptote ;
+      $\ln(1 + \expo{-x}) > 0$ : $(\mathscr{C})$ est au-dessus de $(D)$. Par parit\'e, $y = -\frac{x}{2}$ est asymptote en $-\infty$.
+\item $f'(x) = \frac{\expo{x}}{\expo{x} + 1} - \frac{1}{2} = \frac{\expo{x} - 1}{2(\expo{x} + 1)}$ : $f$ d\'ecro\^it sur $]-\infty ; 0]$, cro\^it sur $[0 ; +\infty[$,
+      minimum $f(0) = \ln 2$.
+\end{enumerate}
+\underline{Partie B}
+\begin{enumerate}
+\item $u(t) = t - \ln(1 + t)$ : $u'(t) = \frac{t}{1 + t} \geq 0$, $u(0) = 0$, donc $u \geq 0$.
+      $w(t) = \ln(1 + t) - t + \frac{t^2}{2}$ : $w'(t) = \frac{1}{1 + t} - 1 + t = \frac{t^2}{1 + t} \geq 0$, $w(0) = 0$, donc $w \geq 0$.
+\item $\mathscr{A}(\lambda)$ est l'aire (en unit\'es d'aire) entre $(\mathscr{C})$ et $(D)$ pour $0 \leq x \leq \lambda$. Avec $t = \expo{-x} \geq 0$ :
+      $\expo{-x} - \frac{\expo{-2x}}{2} \leq \ln(1 + \expo{-x}) \leq \expo{-x}$. En int\'egrant sur $[0 ; \lambda]$ :
+      $\int_0^\lambda \expo{-x}\,\mathrm{d}x = 1 - \expo{-\lambda}$ et $\int_0^\lambda \frac{\expo{-2x}}{2}\,\mathrm{d}x = \frac{1 - \expo{-2\lambda}}{4}$,
+      d'o\`u l'encadrement.
+\item Quand $\lambda \to +\infty$, les bornes tendent vers $1 - \frac{1}{4} = \frac{3}{4}$ et $1$ : $\frac{3}{4} \leq L \leq 1$
+      (soit entre $3$ et $4$~cm$^2$).
+\end{enumerate}
+\underline{Partie C}
+\begin{enumerate}
+\item $g$ est continue et strictement croissante sur $[0 ; +\infty[$ : bijection sur $J = [\ln 2 ; +\infty[$.
+\item $f(x) = \ln\left(\expo{-x/2}(\expo{x} + 1)\right) = \ln\left(\expo{x/2} + \expo{-x/2}\right)$. Donc $g(x) = y \iff X + \frac{1}{X} = \expo{y}$
+      $\iff X^2 - \expo{y}X + 1 = 0$, avec $X = \expo{x/2} \geq 1$ pour $x \geq 0$. Le discriminant $\expo{2y} - 4$ est $\geq 0$ car $y \geq \ln 2$ ;
+      les racines ont pour produit 1, la plus grande est $\geq 1$ : $X = \frac{\expo{y} + \sqrt{\expo{2y} - 4}}{2}$.
+      Ainsi $\boxed{g^{-1}(y) = 2\ln\left(\frac{\expo{y} + \sqrt{\expo{2y} - 4}}{2}\right)}$.
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Corrig\'e du sujet C4}
+\noindent \underline{\textsc{Exercice}}
+\begin{description}
+\item[I.] \begin{enumerate}
+      \item Modulo 5 : $n \equiv 0, 1, 2, 3, 4$ donne $n^5 \equiv 0, 1, 32 \equiv 2, 243 \equiv 3, 1\,024 \equiv 4$ : $n^5 \equiv n$.
+            Modulo 2 : $0^5 = 0$, $1^5 = 1$. Modulo 3 : $0, 1, 2^5 = 32 \equiv 2$. Donc $n^5 \equiv n$ modulo 2, 3 et 5.
+      \item $n^5 - n$ est divisible par 2, 3 et 5, nombres premiers entre eux deux \`a deux : il est divisible par $2 \times 3 \times 5 = 30$.
+      \item En particulier $10$ divise $n^5 - n$ : $n^5$ et $n$ ont le m\^eme chiffre des unit\'es.
+      \end{enumerate}
+\item[II.] 36 issues \'equiprobables : 6 donnent une somme 7, 6 donnent un double (aucun double n'a pour somme 7), 24 les autres cas.
+      \begin{enumerate}
+      \item $P(G = 1\,000) = \frac{1}{6}$, $P(G = 3\,000) = \frac{1}{6}$, $P(G = -m) = \frac{2}{3}$ ;
+            $E(G) = \frac{1\,000 + 3\,000}{6} - \frac{2m}{3} = \frac{2(1\,000 - m)}{3}$.
+      \item \'Equitable si $E(G) = 0$, soit $m = 1\,000$~Ar. Pour $m = 1\,200$ : $E(G) = -\frac{400}{3} \approx -133$~Ar, d\'efavorable au joueur.
+      \end{enumerate}
+\end{description}
+
+\noindent \underline{\textsc{Probl\`eme I}} \newline
+\underline{Partie A}
+\begin{enumerate}
+\item $\Omega$ est le milieu de $[OB]$ : $\overrightarrow{\Omega O} + \overrightarrow{\Omega B} = \vec{0}$.
+      $MO^2 + MB^2 = (\overrightarrow{M\Omega} + \overrightarrow{\Omega O})^2 + (\overrightarrow{M\Omega} + \overrightarrow{\Omega B})^2 = 2M\Omega^2 + \Omega O^2 + \Omega B^2 = 2M\Omega^2 + \frac{OB^2}{2}$.
+      $\Omega$ est aussi le milieu de $[AC]$ et $AC = OB$ (diagonales du carr\'e), d'o\`u $MA^2 + MC^2 = 2M\Omega^2 + \frac{AC^2}{2} = MO^2 + MB^2$.
+\item $OB^2 = 32$ : $2M\Omega^2 + 16 = 40 \iff M\Omega = 2\sqrt{3}$ : cercle de centre $\Omega(2 + 2i)$ et de rayon $2\sqrt{3}$.
+\item $MO^2 - MB^2 = (\overrightarrow{MO} - \overrightarrow{MB})\cdot(\overrightarrow{MO} + \overrightarrow{MB}) = \overrightarrow{BO}\cdot 2\overrightarrow{M\Omega}$.
+      En coordonn\'ees, $MO^2 - MB^2 = 8x + 8y - 32 = 16 \iff x + y = 6$ : droite perpendiculaire \`a $(OB)$.
+\end{enumerate}
+\underline{Partie B}
+\begin{enumerate}
+\item $\omega = 2 + 2i$, $z_I = 4 + 2i$, $z_J = 2 + 4i$, $z_K = 2i$, $z_L = 2$.
+\item \begin{enumerate}
+      \item $s : z' = az + b$ avec $a = \frac{z_J - z_I}{z_A - z_O} = \frac{-2 + 2i}{4} = \frac{-1 + i}{2}$ et $b = z_I = 4 + 2i$.
+            $a = \frac{\sqrt{2}}{2}\expo{i\frac{3\pi}{4}}$ : rapport $\frac{\sqrt{2}}{2}$, angle $\frac{3\pi}{4}$ ; centre
+            $\frac{b}{1 - a} = \frac{4 + 2i}{\frac{3 - i}{2}} = \frac{2(4 + 2i)(3 + i)}{10} = 2 + 2i$ : c'est $\Omega$.
+      \item $s(B)$ : $\frac{-1 + i}{2}(4 + 4i) + 4 + 2i = -4 + 4 + 2i = 2i = z_K$ ; $s(C)$ : $\frac{-1 + i}{2}(4i) + 4 + 2i = -2 - 2i + 4 + 2i = 2 = z_L$.
+            L'image du carr\'e $OABC$ est le carr\'e $IJKL$.
+      \end{enumerate}
+\item Une similitude de rapport $k$ multiplie les aires par $k^2 = \frac{1}{2}$ : $a_n = 16\left(\frac{1}{2}\right)^n$ et
+      $S_n = 16\,\frac{1 - (1/2)^n}{1 - 1/2} = 32\left(1 - \frac{1}{2^n}\right) \to 32$~cm$^2$.
+\item Le cercle de centre $\Omega$ (fixe) et de rayon $2\sqrt{3}$ a pour image le cercle de centre $\Omega$ et de rayon $2\sqrt{3}\times\frac{\sqrt{2}}{2} = \sqrt{6}$.
+\end{enumerate}
+
+\noindent \underline{\textsc{Probl\`eme II}} \newline
+\underline{Partie A}
+\begin{enumerate}
+\item $p(x) = ax + b$ : $p'' - 2p' + p = -2a + ax + b = x - 2$ si $a = 1$ et $b - 2a = -2$, soit $b = 0$ : $p(x) = x$.
+\item $r^2 - 2r + 1 = (r - 1)^2$ : solutions $(Ax + B)\expo{x}$. Les solutions de $(E)$ sont $y(x) = x + (Ax + B)\expo{x}$.
+\item $f(0) = B = 0$ ; $f'(x) = 1 + (Ax + A + B)\expo{x}$, $f'(0) = 1 + A + B = 0$, donc $A = -1$ : $f(x) = x - x\expo{x} = x(1 - \expo{x})$.
+\end{enumerate}
+\underline{Partie B}
+\begin{enumerate}
+\item $x$ et $1 - \expo{x}$ sont de signes contraires (tous deux nuls en 0) : $f(x) \leq 0$, avec \'egalit\'e seulement en $0$.
+\item $g'(x) = -\expo{x} - (1 + x)\expo{x} = -(x + 2)\expo{x}$ : $g$ cro\^it sur $]-\infty ; -2]$, d\'ecro\^it sur $[-2 ; +\infty[$.
+      $\lim_{-\infty} g = 1$ (car $x\expo{x} \to 0$), $g(-2) = 1 + \expo{-2}$, $g(0) = 0$. Donc $g(x) > 0$ sur $]-\infty ; 0[$ et $g(x) < 0$ sur $]0 ; +\infty[$.
+\item $f'(x) = 1 - \expo{x} - x\expo{x} = g(x)$ : $f$ cro\^it sur $]-\infty ; 0]$, d\'ecro\^it sur $[0 ; +\infty[$, maximum $f(0) = 0$ ;
+      $\lim_{-\infty} f = -\infty$, $\lim_{+\infty} f = -\infty$.
+\item $f(x) - x = -x\expo{x} \to 0$ en $-\infty$ : $(D)$ est asymptote, et $-x\expo{x} > 0$ pour $x < 0$ : $(\mathscr{C})$ est au-dessus de $(D)$ sur $]-\infty ; 0[$.
+      En $+\infty$, $\frac{f(x)}{x} = 1 - \expo{x} \to -\infty$ : branche parabolique de direction $(Oy)$.
+\item Sur $]-\infty ; 0]$, $f$ cro\^it strictement de $-\infty$ \`a $0$ : une solution ; sur $[0 ; +\infty[$, $f$ d\'ecro\^it strictement de $0$ \`a $-\infty$ :
+      une solution $\alpha$. $f(0{,}8) \approx 0{,}8(1 - 2{,}23) \approx -0{,}98 > -1$ et $f(0{,}9) \approx 0{,}9(1 - 2{,}46) \approx -1{,}31 < -1$ :
+      $\alpha \in\ ]0{,}8 ; 0{,}9[$ ($\alpha \approx 0{,}806$).
+\item Trac\'e : maximum en $O$ (tangente horizontale), asymptote $(D)$ en $-\infty$.
+\end{enumerate}
+\underline{Partie C} \newline
+Sur $[\lambda ; 0]$, $(\mathscr{C})$ est au-dessus de $(D)$ : $\mathscr{A}(\lambda) = \displaystyle\int_\lambda^0 -x\expo{x}\,\mathrm{d}x$.
+Par parties ($u = -x$, $v' = \expo{x}$) : une primitive de $-x\expo{x}$ est $(1 - x)\expo{x}$, d'o\`u
+$\mathscr{A}(\lambda) = 1 - (1 - \lambda)\expo{\lambda}$ unit\'es d'aire, soit $4\left[1 + (\lambda - 1)\expo{\lambda}\right]$ cm$^2$.
+Comme $\lambda\expo{\lambda} \to 0$ et $\expo{\lambda} \to 0$ en $-\infty$, la limite est $4$~cm$^2$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Corrig\'e du sujet C5}
+\noindent \underline{\textsc{Exercice}}
+\begin{description}
+\item[I.] Soit $u_n = 4^n + 15n - 1$. $u_0 = 0$ est divisible par 9. Si $9 \mid u_n$, alors
+      $u_{n+1} = 4 \cdot 4^n + 15n + 14 = 4(4^n + 15n - 1) - 45n + 18 = 4u_n - 9(5n - 2)$ est divisible par 9.
+      Par r\'ecurrence, $9 \mid u_n$ pour tout $n$.
+\item[II.] \begin{enumerate}
+      \item $\mathrm{C}_{20}^4 = 4\,845$ comit\'es \'equiprobables. $P(\text{2 filles}) = \frac{\mathrm{C}_{12}^2\mathrm{C}_8^2}{4\,845} = \frac{66 \times 28}{4\,845} = \frac{616}{1\,615}$.
+            $P(\text{au moins un gar\c{c}on}) = 1 - \frac{\mathrm{C}_{12}^4}{4\,845} = 1 - \frac{495}{4\,845} = \frac{290}{323}$.
+      \item $\mathrm{A}_{20}^3 = 20 \times 19 \times 18 = 6\,840$ bureaux. Pr\'esident fille (12 choix), tr\'esorier gar\c{c}on (8 choix),
+            secr\'etaire parmi les 18 restants : $12 \times 8 \times 18 = 1\,728$ ; $P = \frac{1\,728}{6\,840} = \frac{24}{95}$.
+      \end{enumerate}
+\end{description}
+
+\noindent \underline{\textsc{Probl\`eme I}} \newline
+\underline{Partie A}
+\begin{enumerate}
+\item $f \circ f$ : $x'' = x' = x$ et $y'' = 2x' - y' + 2 = 2x - (2x - y + 2) + 2 = y$.
+\item $M$ invariant $\iff y = 2x - y + 2 \iff y = x + 1$ : $(\Delta)$ est la droite d'\'equation $y = x + 1$.
+\item $\overrightarrow{MM'}(0 ; 2x - 2y + 2)$ est colin\'eaire \`a $\vec{v}$. Le milieu de $[MM']$ est $\left(x ; \frac{y + 2x - y + 2}{2}\right) = (x ; x + 1) \in (\Delta)$.
+      $f$ est la sym\'etrie (oblique) d'axe $(\Delta)$ et de direction $(Oy)$.
+\item $f(O) = (0 ; 2)$ et $f(E) = (1 ; 4)$ : $OE = 1$ mais $f(O)f(E) = \sqrt{1 + 4} = \sqrt{5}$ : $f$ n'est pas une isom\'etrie.
+\item Le point $(t ; -t)$ a pour image $(t ; 2t + t + 2) = (t ; 3t + 2)$ : l'image est la droite $y = 3x + 2$.
+      $y = -x$ et $y = x + 1$ se coupent en $\left(-\frac{1}{2} ; \frac{1}{2}\right)$, qui v\'erifie $3\left(-\frac{1}{2}\right) + 2 = \frac{1}{2}$ :
+      les deux droites se coupent sur $(\Delta)$ (ce point est invariant).
+\end{enumerate}
+\underline{Partie B}
+\begin{enumerate}
+\item \begin{enumerate}
+      \item $|\sigma(z_1) - \sigma(z_2)| = |-i|\,|\overline{z_1 - z_2}| = |z_1 - z_2|$.
+            $\sigma \circ \sigma(z) = -i\,\overline{(-i\overline{z} + 1 + i)} + 1 + i = -i(iz + 1 - i) + 1 + i = z - i - 1 + 1 + i = z$.
+      \item $x + iy = -i(x - iy) + 1 + i = (1 - y) + i(1 - x)$ \'equivaut \`a $x + y = 1$. $\sigma$ est une isom\'etrie involutive, non identique,
+            qui fixe la droite $(D) : x + y = 1$ : c'est la sym\'etrie orthogonale d'axe $(D)$.
+      \end{enumerate}
+\item \begin{enumerate}
+      \item $g(z) = \sigma(z) + 2$ : $g = t \circ \sigma$ avec $t$ translation de vecteur d'affixe $2$. Points fixes : $x + iy = (3 - y) + i(1 - x)$
+            donne $x + y = 3$ et $x + y = 1$ : impossible, $g$ n'a aucun point invariant.
+      \item $g \circ g(z) = -i\,\overline{(-i\overline{z} + 3 + i)} + 3 + i = -i(iz + 3 - i) + 3 + i = z - 3i - 1 + 3 + i = z + 2 - 2i$ : translation.
+      \item $S_{(\Delta')}$ : $z' = -i\overline{z} + 2 + 2i$ (m\^eme calcul qu'au 1, ses points fixes sont ceux de $x + y = 2$). Alors
+            $t_{\vec{w}} \circ S_{(\Delta')}(z) = -i\overline{z} + 2 + 2i + 1 - i = -i\overline{z} + 3 + i = g(z)$.
+            $\vec{w}(1 ; -1)$ dirige la droite $x + y = 2$. $g$ est donc une sym\'etrie gliss\'ee d'axe $(\Delta')$ et de vecteur $\vec{w}$
+            (et $g \circ g = t_{2\vec{w}}$, conform\'ement au b).
+      \end{enumerate}
+\end{enumerate}
+
+\noindent \underline{\textsc{Probl\`eme II}} \newline
+\underline{Partie A}
+\begin{enumerate}
+\item $k_1(x) = \ln(1 + x) - x + \frac{x^2}{2}$ : $k_1'(x) = \frac{1}{1 + x} - 1 + x = \frac{x^2}{1 + x} \geq 0$, $k_1(0) = 0$, donc $k_1 \geq 0$.
+      $k_2(x) = k_1(x) - \frac{x^3}{3}$ : $k_2'(x) = \frac{x^2}{1 + x} - x^2 = -\frac{x^3}{1 + x} \leq 0$, $k_2(0) = 0$, donc $k_2 \leq 0$.
+\item $m(x) = \ln(1 + x) - \frac{x}{1 + x}$ : $m'(x) = \frac{1}{1 + x} - \frac{1}{(1 + x)^2} = \frac{x}{(1 + x)^2} > 0$ pour $x > 0$ et $m(0) = 0$,
+      donc $m(x) > 0$ pour $x > 0$.
+\end{enumerate}
+\underline{Partie B}
+\begin{enumerate}
+\item En divisant A.1 par $x > 0$ : $1 - \frac{x}{2} \leq f(x) \leq 1 - \frac{x}{2} + \frac{x^2}{3}$ ; par encadrement, $\lim_{0^+} f = 1 = f(0)$.
+\item $\frac{f(x) - 1}{x} = \frac{\ln(1 + x) - x}{x^2} \in \left[-\frac{1}{2} ; -\frac{1}{2} + \frac{x}{3}\right]$, qui tend vers $-\frac{1}{2}$ : $f'(0) = -\frac{1}{2}$.
+      $(T) : y = 1 - \frac{x}{2}$ ; comme $f(x) \geq 1 - \frac{x}{2}$, $(\mathscr{C})$ est au-dessus de $(T)$.
+\item $f'(x) = \frac{\frac{x}{1 + x} - \ln(1 + x)}{x^2} = -\frac{m(x)}{x^2} < 0$ : $f$ est strictement d\'ecroissante.
+\item $f(x) = \frac{\ln(1 + x)}{1 + x}\cdot\frac{1 + x}{x} \to 0 \times 1 = 0$ : l'axe des abscisses est asymptote en $+\infty$.
+\end{enumerate}
+\underline{Partie C}
+\begin{enumerate}
+\item $u_0 = \left[\ln(1 + x)\right]_0^1 = \ln 2$.
+\item $u_n + u_{n+1} = \displaystyle\int_0^1 \frac{x^n(1 + x)}{1 + x}\,\mathrm{d}x = \int_0^1 x^n\,\mathrm{d}x = \frac{1}{n+1}$.
+\item Sur $[0 ; 1]$, $0 \leq \frac{x^n}{1 + x} \leq x^n$, d'o\`u $0 \leq u_n \leq \frac{1}{n+1}$, et $\lim u_n = 0$.
+\item Pour $n = 1$ : $S_1 = 1$ et $\ln 2 + u_1 = u_0 + u_1 = 1$. Si $S_n = \ln 2 + (-1)^{n+1}u_n$, alors
+      $S_{n+1} = S_n + \frac{(-1)^{n+2}}{n+1} = \ln 2 + (-1)^{n+1}u_n + (-1)^{n}(u_n + u_{n+1}) = \ln 2 + (-1)^n u_{n+1} = \ln 2 + (-1)^{n+2}u_{n+1}$.
+      Comme $|S_n - \ln 2| = u_n \leq \frac{1}{n+1}$, $\lim S_n = \ln 2$.
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Corrig\'e du sujet C6}
+\noindent \underline{\textsc{Exercice}}
+\begin{description}
+\item[I.] \begin{enumerate}
+      \item Les chiffres sont des chiffres de base sept : $1 \leq a \leq 6$, $0 \leq b \leq 6$, $1 \leq c \leq 6$.
+            $49a + 7b + c = 81c + 9b + a$ donne $48a - 2b - 80c = 0$, soit $b = 24a - 40c = 8(3a - 5c)$.
+      \item $b$ est un multiple de 8 compris entre 0 et 6 : $b = 0$, donc $3a = 5c$ ; 5 divise $3a$ et $\mathrm{PGCD}(3,5) = 1$, donc 5 divise $a$ :
+            $a = 5$, $c = 3$. $N = \overline{503}_7 = 5 \times 49 + 3 = 248$ (et $\overline{305}_9 = 243 + 5 = 248$).
+      \end{enumerate}
+\item[II.] $X \sim \mathscr{B}(10 ; 0{,}8)$.
+      \begin{enumerate}
+      \item $P(X = 8) = \mathrm{C}_{10}^8\, 0{,}8^8\, 0{,}2^2 = 45 \times 0{,}8^8 \times 0{,}04 \approx 0{,}302$ ;
+            $P(X \geq 9) = 10 \times 0{,}8^9 \times 0{,}2 + 0{,}8^{10} \approx 0{,}268 + 0{,}107 = 0{,}376$ ; $E(X) = 10 \times 0{,}8 = 8$.
+      \item $1 - 0{,}2^n \geq 0{,}9999 \iff 0{,}2^n \leq 10^{-4} \iff n \geq \frac{\ln 10^{-4}}{\ln 0{,}2} \approx 5{,}72$ : au moins 6 graines.
+      \end{enumerate}
+\end{description}
+
+\noindent \underline{\textsc{Probl\`eme I}} \newline
+\underline{Partie A}
+\begin{enumerate}
+\item $z_I = \frac{1 \times (-1) + 3 \times 3}{4} = 2$ et $z_J = \frac{1 \times (-1) - 3 \times 3}{1 - 3} = 5$.
+\item $\overrightarrow{MA} + 3\overrightarrow{MB} = 4\overrightarrow{MI}$ et $\overrightarrow{MA} - 3\overrightarrow{MB} = -2\overrightarrow{MJ}$, donc
+      $MA^2 - 9MB^2 = (\overrightarrow{MA} - 3\overrightarrow{MB})\cdot(\overrightarrow{MA} + 3\overrightarrow{MB}) = -8\,\overrightarrow{MI}\cdot\overrightarrow{MJ}$.
+\item $MA = 3MB \iff MA^2 - 9MB^2 = 0 \iff \overrightarrow{MI}\cdot\overrightarrow{MJ} = 0$ : $(\Gamma)$ est le cercle de diam\`etre $[IJ]$,
+      de centre $K\left(\frac{7}{2}\right)$ et de rayon $\frac{3}{2}$.
+\end{enumerate}
+\underline{Partie B}
+\begin{enumerate}
+\item $1 + i = \sqrt{2}\,\expo{i\frac{\pi}{4}}$ ; point fixe : $z = (1 + i)z - 3i \iff iz = 3i \iff z = 3$. $s$ est la similitude directe de centre $B$,
+      de rapport $\sqrt{2}$ et d'angle $\frac{\pi}{4}$.
+\item $z_{A'} = (1 + i)(-1) - 3i = -1 - 4i$ ; $s(I)$ : $2 + 2i - 3i = 2 - i$ ; $s(J)$ : $5 + 5i - 3i = 5 + 2i$.
+\item $(\Gamma')$ est le cercle de diam\`etre $[s(I)s(J)]$ : centre $s(K) = \frac{7}{2} + \frac{1}{2}i$, rayon $\frac{3}{2}\sqrt{2} = \frac{3\sqrt{2}}{2}$.
+\item $s$ multiplie les distances par $\sqrt{2}$ et $s(B) = B$ : $M'A' = \sqrt{2}\,MA = 3\sqrt{2}\,MB = 3\,M'B$.
+      Comme $s$ est bijective, $(\Gamma')$ est exactement l'ensemble des points $N$ tels que $NA' = 3NB$.
+\end{enumerate}
+
+\noindent \underline{\textsc{Probl\`eme II}} \newline
+\underline{Partie A}
+\begin{enumerate}
+\item $r^2 - 1 = 0$ : $r = \pm 1$. Solutions : $y(x) = A\expo{x} + B\expo{-x}$.
+\item $\varphi$ : $A + B = 0$, $A - B = 1$, d'o\`u $\varphi(x) = \frac{\expo{x} - \expo{-x}}{2}$. $\psi$ : $A + B = 1$, $A - B = 0$, d'o\`u
+      $\psi(x) = \frac{\expo{x} + \expo{-x}}{2}$.
+\item $\varphi'(x) = \frac{\expo{x} + \expo{-x}}{2} = \psi(x)$. $\psi^2 - \varphi^2 = (\psi - \varphi)(\psi + \varphi) = \expo{-x}\,\expo{x} = 1$.
+\end{enumerate}
+\underline{Partie B}
+\begin{enumerate}
+\item $\varphi(-x) = -\varphi(x)$ : $\varphi$ est impaire. $\varphi' = \psi > 0$ : $\varphi$ est strictement croissante.
+      $\lim_{+\infty}\varphi = +\infty$, $\lim_{-\infty}\varphi = -\infty$ ; $\frac{\varphi(x)}{x} \to +\infty$ en $\pm\infty$ : branches paraboliques de direction $(Oy)$.
+\item $\varphi(0) = 0$, $\varphi'(0) = 1$ : $(T) : y = x$. $\psi(x) - 1 = \frac{(\expo{x/2} - \expo{-x/2})^2}{2} \geq 0$, donc $d'(x) = \psi(x) - 1 \geq 0$ :
+      $d$ est croissante et $d(0) = 0$. $(\mathscr{C})$ est au-dessous de $(T)$ pour $x < 0$ et au-dessus pour $x > 0$ : $O$ est un point d'inflexion.
+\item $\varphi$ est continue strictement croissante de $\mathbb{R}$ sur $\mathbb{R}$ : bijection. $\varphi(x) = y \iff \expo{x} - \expo{-x} = 2y \iff X^2 - 2yX - 1 = 0$
+      avec $X = \expo{x} > 0$. Les racines sont $y \pm \sqrt{y^2 + 1}$, de produit $-1$ ; la racine positive est $y + \sqrt{y^2 + 1}$.
+      Donc $\varphi^{-1}(y) = \ln\left(y + \sqrt{y^2 + 1}\right)$.
+\item $\varphi$ est d\'erivable et $\varphi' = \psi$ ne s'annule pas : $\varphi^{-1}$ est d\'erivable et
+      $(\varphi^{-1})'(y) = \frac{1}{\psi(\varphi^{-1}(y))}$. Comme $\psi > 0$ et $\psi^2 = 1 + \varphi^2$, $\psi(\varphi^{-1}(y)) = \sqrt{1 + y^2}$, d'o\`u le r\'esultat.
+\item Trac\'e : $(\mathscr{C}')$ est la sym\'etrique de $(\mathscr{C})$ par rapport \`a la droite $y = x$, qui est aussi la tangente en $O$ aux deux courbes.
+\end{enumerate}
+\underline{Partie C}
+\begin{enumerate}
+\item D'apr\`es B.4, $\varphi^{-1}$ est une primitive de $x \mapsto \frac{1}{\sqrt{1 + x^2}}$ :
+      $\displaystyle\int_0^1 \frac{\mathrm{d}x}{\sqrt{1 + x^2}} = \varphi^{-1}(1) - \varphi^{-1}(0) = \ln(1 + \sqrt{2}) \approx 0{,}881$.
+\item $v_n = \ln\left(n + \sqrt{n^2 + 1}\right) - \ln(2n) = \ln\frac{n + n\sqrt{1 + 1/n^2}}{2n} = \ln\frac{1 + \sqrt{1 + \frac{1}{n^2}}}{2}$
+      (car $n > 0$), qui tend vers $\ln 1 = 0$.
+\end{enumerate}
+\end{corrige}

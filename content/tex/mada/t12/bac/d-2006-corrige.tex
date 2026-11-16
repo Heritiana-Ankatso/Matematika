@@ -1,0 +1,202 @@
+% Baccalauréat malgache, série D, 2006 : corrigé.
+\TCDBacAttribution{D}{2006}
+\providecommand{\Plan}{(\mathscr{P})}
+\providecommand{\Ouv}{(O ; \vec{u} , \vec{v})}
+\providecommand{\Courbe}{(\mathscr{C})}
+\providecommand{\cm}{~\mathrm{cm}}
+\providecommand{\dx}{~\mathrm{d}x}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\noindent \underline{\textsc{\textbf{Exercice I}}} (5 points)
+\begin{enumerate}
+   \item \vln{R\'esolution de $z^2 - (1 + i)z + 2 + i = 0$ :}
+      \emph{Remarque : telle qu'elle est \'ecrite, l'\'equation n'a pas de racines simples ; il est probable que le sujet
+      original portait $2 + 2i$, dont les racines $2i = z_C$ et $1 - i = z_B$ sont des points de l'exercice. On traite
+      les deux.}
+
+      \emph{\'Equation \'ecrite.} $\Delta = (1+i)^2 - 4(2 + i) = 2i - 8 - 4i = -8 - 2i$.
+      Cherchons $\delta = a + ib$ avec $\delta^2 = \Delta$ : $a^2 - b^2 = -8$, $a^2 + b^2 = |\Delta| = \sqrt{68} = 2\sqrt{17}$, $ab = -1$.
+      Donc $a^2 = \sqrt{17} - 4$, $b^2 = \sqrt{17} + 4$ et, comme $ab < 0$,
+      $\delta = \sqrt{\sqrt{17} - 4} - i\sqrt{\sqrt{17} + 4}$ (on v\'erifie $ab = -\sqrt{17 - 16} = -1$).
+      \par\noindent\ansbox{$z = \dfrac{1 \pm \sqrt{\sqrt{17} - 4}}{2} + i\,\dfrac{1 \mp \sqrt{\sqrt{17} + 4}}{2}$, soit $z \simeq 0{,}675 - 0{,}925\,i$ ou $z \simeq 0{,}325 + 1{,}925\,i$.}
+
+      \emph{\'Equation probablement voulue} $z^2 - (1+i)z + 2 + 2i = 0$ : $\Delta = 2i - 8 - 8i = -8 - 6i = (1 - 3i)^2$,
+      d'o\`u $z = \frac{1 + i \pm (1 - 3i)}{2}$ : \ansbox{$S_{\mathbb{C}} = \{1 - i \,;\, 2i\}$.}
+   \item
+      \begin{enumerate}
+         \item \vln{Placement des points :} voir la figure de la question 3.
+         \item \vln{Expression complexe de $S$ :}
+            $S : z' = az + b$ avec $z_A = a z_D + b$ et $z_B = a z_C + b$. Par soustraction :
+            \[
+               a = \frac{z_A - z_B}{z_D - z_C} = \frac{-2 + 2i}{4 + 4i} = \frac{(-1 + i)(1 - i)}{2 \times 2} = \frac{2i}{4} = \frac{i}{2},
+            \]
+            et $b = z_B - a z_C = 1 - i - \frac{i}{2}\cdot 2i = 1 - i + 1 = 2 - i$.
+            \par\noindent\ansbox{$S : z' = \frac{i}{2}\,z + 2 - i$.}
+            (V\'erification : $\frac{i}{2}(4 + 6i) + 2 - i = 2i - 3 + 2 - i = -1 + i = z_A$.)
+         \item \vln{\'El\'ements caract\'eristiques :}
+            $a = \frac{i}{2} = \frac{1}{2}\expo{i\frac{\pi}{2}}$ : rapport $\frac{1}{2}$, angle $\frac{\pi}{2}$ ;
+            centre $\omega = \dfrac{b}{1 - a} = \dfrac{2 - i}{1 - \frac{i}{2}} = \dfrac{2(2 - i)}{2 - i} = 2$.
+            \par\noindent\ansbox{$S$ : similitude directe de centre $\Omega(2 ; 0)$, de rapport $\frac{1}{2}$ et d'angle $\frac{\pi}{2}$.}
+      \end{enumerate}
+   \item
+      \begin{enumerate}
+         \item \vln{$OM_1 = \frac{2\,CM}{DM}$ :}
+            $z_1 = \dfrac{2z - 4i}{z - 4 - 6i} = \dfrac{2(z - 2i)}{z - z_D} = \dfrac{2(z - z_C)}{z - z_D}$. Donc
+            $OM_1 = |z_1| = \dfrac{2\,|z - z_C|}{|z - z_D|}$, \ansbox{$OM_1 = \dfrac{2\,CM}{DM}$.}
+         \item \vln{Ensemble $(\Gamma)$ :}
+            $|z_1| = 2 \iff \frac{2\,CM}{DM} = 2 \iff CM = DM$ ($M \neq D$ ; un point \'equidistant de $C$ et $D$ n'est jamais $D$).
+            $(\Gamma)$ est la m\'ediatrice de $[CD]$. Son milieu est $(2 ; 4)$ et $\overrightarrow{CD}(4 ; 4)$ en est un vecteur normal :
+            \par\noindent\ansbox{$(\Gamma)$ : m\'ediatrice de $[CD]$, d'\'equation $x + y - 6 = 0$.}
+
+            \vln{Ensemble $(\Gamma')$ :}
+            Une similitude conserve les rapports de distances : si $MC = MD$, alors $S(M)S(C) = S(M)S(D)$, c'est-\`a-dire
+            $M'B = M'A$. Donc l'image de la m\'ediatrice de $[CD]$ est la m\'ediatrice de $[S(D)\,S(C)] = [AB]$.
+            Le milieu de $[AB]$ est $O$ et $\overrightarrow{AB}(2 ; -2)$ est normal :
+            \par\noindent\ansbox{$(\Gamma')$ : m\'ediatrice de $[AB]$, la droite $y = x$.}
+            (Contr\^ole : les points $6$ et $6i$ de $(\Gamma)$ ont pour images $2 + 2i$ et $-1 - i$, sur $y = x$.)
+            \begin{center}
+            \begin{tikzpicture}[scale=0.55,>=stealth]
+               \draw[very thin,gray!30] (-3,-3) grid (7,8);
+               \draw[->] (-3,0) -- (7,0) node[below left] {$x$};
+               \draw[->] (0,-3) -- (0,8) node[below left] {$y$};
+               \foreach \t in {-2,2,4,6} \draw (\t,0.1) -- (\t,-0.1) node[below] {\tiny $\t$};
+               \foreach \t in {-2,2,4,6} \draw (0.1,\t) -- (-0.1,\t) node[left] {\tiny $\t$};
+               \begin{scope}
+                  \clip (-3,-3) rectangle (7,8);
+                  \draw[loko1,thick] plot[domain=-2:7] (\x,{6-\x});
+                  \draw[loko4,thick] plot[domain=-3:7] (\x,\x);
+               \end{scope}
+               \draw[dashed] (0,2) -- (4,6);
+               \fill (-1,1) circle (2.5pt) node[left] {$A$};
+               \fill (1,-1) circle (2.5pt) node[below right] {$B$};
+               \fill (0,2) circle (2.5pt) node[left] {$C$};
+               \fill (4,6) circle (2.5pt) node[above left] {$D$};
+               \fill (2,0) circle (2.5pt) node[below] {$\Omega$};
+               \node[loko1] at (-1.5,7.3) {$(\Gamma)$};
+               \node[loko4] at (6.2,7.3) {$(\Gamma')$};
+            \end{tikzpicture}
+            \end{center}
+      \end{enumerate}
+\end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\noindent \underline{\textsc{\textbf{Exercice II}}} (5 points) \newline
+Un tirage est une partie \`a 3 \'el\'ements de l'ensemble des 6 boules : $\mathrm{C}_6^3 = 20$ tirages \'equiprobables.
+\begin{enumerate}
+   \item \vln{Probabilit\'es de $A$ et $B$ :}
+      Il n'y a que 2 boules rouges : trois boules de m\^eme couleur sont forc\'ement trois vertes, $\mathrm{C}_4^3 = 4$ cas.
+      \par\noindent\ansbox{$P(A) = \frac{4}{20} = \frac{1}{5}$.}
+
+      Trois num\'eros distincts de $\{0, 1, 2, 3, 4, 5\}$ de somme $6$ : $\{0, 1, 5\}$, $\{0, 2, 4\}$, $\{1, 2, 3\}$.
+      \par\noindent\ansbox{$P(B) = \frac{3}{20}$.}
+   \item
+      \begin{enumerate}
+         \item \vln{Univers image :}
+            Le plus grand de trois num\'eros distincts est au moins $2$ : \ansbox{$X(\Omega) = \{2 ; 3 ; 4 ; 5\}$.}
+         \item \vln{Loi de $X$ :}
+            $X \leq k$ signifie que les trois boules sont prises parmi les $k + 1$ boules num\'erot\'ees $0, \dots, k$ :
+            $P(X \leq k) = \frac{\mathrm{C}_{k+1}^3}{20}$, puis $P(X = k) = P(X \leq k) - P(X \leq k - 1)$.
+            Ainsi $P(X = 2) = \frac{1}{20}$, $P(X = 3) = \frac{4 - 1}{20}$, $P(X = 4) = \frac{10 - 4}{20}$, $P(X = 5) = \frac{20 - 10}{20}$.
+            \[
+               \begin{array}{|c|c|c|c|c|}
+                  \hline
+                  k & 2 & 3 & 4 & 5 \\ \hline
+                  P(X = k) & \frac{1}{20} & \frac{3}{20} & \frac{3}{10} & \frac{1}{2} \\ \hline
+               \end{array}
+            \]
+      \end{enumerate}
+   \item
+      \begin{enumerate}
+         \item \vln{Probabilit\'e $p_n$ :}
+            L'\'ev\`enement contraire de $A_n$ est << aucun succ\`es en $n$ \'epreuves ind\'ependantes >>, de probabilit\'e $\left(\frac{4}{5}\right)^n$.
+            \par\noindent\ansbox{$p_n = 1 - \left(\frac{4}{5}\right)^n$.}
+         \item \vln{Nombre minimum d'\'epreuves :}
+            \[
+               p_n > 0{,}99 \iff \left(\tfrac{4}{5}\right)^n < 0{,}01 \iff n\ln\tfrac{4}{5} < -\ln 100
+               \iff n\ln\tfrac{5}{4} > 2\ln 10 \iff n > \frac{2\ln 10}{\ln\frac{5}{4}}.
+            \]
+            Avec les valeurs donn\'ees, $\frac{2 \times 2{,}30}{0{,}22} \simeq 20{,}9$ (valeur plus pr\'ecise : $20{,}6$).
+            \par\noindent\ansbox{Il faut au moins $n = 21$ \'epreuves.}
+            (Contr\^ole : $0{,}8^{20} \simeq 0{,}0115 > 0{,}01$ et $0{,}8^{21} \simeq 0{,}0092 < 0{,}01$.)
+      \end{enumerate}
+\end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\noindent \underline{\textsc{\textbf{Probl\`eme}}} (10 points)
+\begin{enumerate}
+   \item
+      \begin{enumerate}
+         \item \vln{Sens de variation de $g$ :}
+            $g'(x) = -\frac{2}{x} - e < 0$ sur $]0 ; +\infty[$. \ansbox{$g$ est strictement d\'ecroissante sur $]0 ; +\infty[$.}
+         \item \vln{Solution unique dans $\left]\frac{1}{2} ; 1\right[$ :}
+            $g\left(\frac{1}{2}\right) = 2\ln 2 - \frac{e}{2} + 1 \simeq 1{,}03 > 0$ et $g(1) = 1 - e < 0$.
+            $g$ est continue et strictement d\'ecroissante sur $\left[\frac{1}{2} ; 1\right]$ : par le th\'eor\`eme des valeurs
+            interm\'ediaires, \ansbox{$g(x) = 0$ a une unique solution $\alpha \in \left]\frac{1}{2} ; 1\right[$} ($\alpha \simeq 0{,}67$),
+            unique aussi sur $]0 ; +\infty[$ par stricte monotonie.
+         \item \vln{Signe de $g$ :}
+            $g$ est strictement d\'ecroissante et $g(\alpha) = 0$ : si $0 < x < \alpha$, $g(x) > g(\alpha) = 0$ ; si $x > \alpha$, $g(x) < 0$.
+         \item \vln{Expression de $f(\alpha)$ :}
+            $g(\alpha) = 0$ donne $\ln\alpha = \frac{1 - \alpha e}{2}$. Donc
+            $f(\alpha) = \frac{e}{\alpha} + \frac{1 - \alpha e}{2\alpha^2} = \frac{2\alpha e + 1 - \alpha e}{2\alpha^2}$,
+            \par\noindent\ansbox{$f(\alpha) = \frac{1 + \alpha e}{2\alpha^2}$} ($\simeq 3{,}17$).
+      \end{enumerate}
+   \item
+      \begin{enumerate}
+         \item \vln{Limites :}
+            $f(x) = \frac{ex + \ln x}{x^2}$. En $0^+$ : $ex + \ln x \to -\infty$ et $x^2 \to 0^+$, \ansbox{$\lim\limits_{x\to0^+} f(x) = -\infty$}
+            (asymptote verticale $x = 0$).
+            En $+\infty$ : $\frac{e}{x} \to 0$ et $\frac{\ln x}{x^2} = \frac{1}{x}\cdot\frac{\ln x}{x} \to 0$, \ansbox{$\lim\limits_{x\to+\infty} f(x) = 0$}
+            (asymptote horizontale $y = 0$).
+         \item \vln{D\'eriv\'ee :}
+            $\left(\frac{\ln x}{x^2}\right)' = \frac{\frac{1}{x}x^2 - 2x\ln x}{x^4} = \frac{1 - 2\ln x}{x^3}$, donc
+            $f'(x) = -\frac{e}{x^2} + \frac{1 - 2\ln x}{x^3} = \frac{-ex + 1 - 2\ln x}{x^3}$, \ansbox{$f'(x) = \frac{g(x)}{x^3}$.}
+         \item \vln{Tableau de variation :} $x^3 > 0$, donc $f'(x)$ a le signe de $g(x)$.
+            \[
+               \begin{array}{c|ccccc}
+                  x & 0 & & \alpha & & +\infty \\ \hline
+                  f'(x) & & + & 0 & - & \\ \hline
+                  & & & f(\alpha) & & \\
+                  f & & \nearrow & & \searrow & \\
+                  & -\infty & & & & 0
+               \end{array}
+            \]
+      \end{enumerate}
+   \item \vln{Trac\'e de $\Courbe$} (figure r\'eduite) :
+      Branches infinies : asymptote verticale $x = 0$ (vers le bas), asymptote horizontale $y = 0$ en $+\infty$ (la courbe reste au-dessus, car $f(x) > 0$ pour $x \geq 1$).
+      $\Courbe$ coupe l'axe des abscisses en $x = \frac{1}{e}$, puisque $f\left(\frac{1}{e}\right) = e^2 - e^2 = 0$.
+      Quelques valeurs : $f(1) = e \simeq 2{,}72$, $f(2) \simeq 1{,}53$, $f(4) \simeq 0{,}77$.
+      \begin{center}
+      \begin{tikzpicture}[x=1.2cm,y=0.6cm,>=stealth]
+         \draw[very thin,gray!30] (-0.3,-4) grid (7,4);
+         \draw[->] (-0.3,0) -- (7,0) node[below left] {$x$};
+         \draw[->] (0,-4) -- (0,4) node[below left] {$y$};
+         \foreach \t in {1,2,3,4,5,6} \draw (\t,0.1) -- (\t,-0.1) node[below] {\scriptsize $\t$};
+         \foreach \t in {-3,-2,-1,1,2,3} \draw (0.05,\t) -- (-0.05,\t) node[left] {\scriptsize $\t$};
+         \begin{scope}
+            \clip (-0.3,-4) rectangle (7,4);
+            \draw[loko1,very thick,smooth,samples=150] plot[domain=0.25:7] (\x,{2.71828/\x+ln(\x)/(\x*\x)});
+         \end{scope}
+         \draw[dashed] (0.666,0) -- (0.666,3.165) -- (0,3.165) node[left] {\scriptsize $f(\alpha)$};
+         \fill (0.3679,0) circle (1.5pt) node[below right] {\scriptsize $\frac{1}{e}$};
+         \node[loko1] at (5,1.2) {$\Courbe$};
+      \end{tikzpicture}
+      \end{center}
+   \item
+      \emph{Remarque : l'\'enonc\'e note deux fois $I_n$ ; la seconde int\'egrale, $\int_{\expo{n}}^{\expo{n+1}} f(x)\dx$, est \`a noter $A_n$,
+      comme le confirme la question (b).}
+      \begin{enumerate}
+         \item \vln{Calcul de $I_n$ par parties :}
+            On pose $u(x) = \ln x$, $v'(x) = \frac{1}{x^2}$, d'o\`u $u'(x) = \frac{1}{x}$, $v(x) = -\frac{1}{x}$ :
+            \[
+               I_n = \left[-\frac{\ln x}{x}\right]_{\expo{n}}^{\expo{n+1}} + \int_{\expo{n}}^{\expo{n+1}} \frac{1}{x^2}\dx
+                   = \left[-\frac{1 + \ln x}{x}\right]_{\expo{n}}^{\expo{n+1}}
+                   = -\frac{n + 2}{\expo{n+1}} + \frac{n + 1}{\expo{n}}.
+            \]
+            \par\noindent\ansbox{$I_n = \frac{n + 1}{\expo{n}} - \frac{n + 2}{\expo{n+1}}$.}
+         \item \vln{$A_n = I_n + e$ :}
+            $A_n = \int_{\expo{n}}^{\expo{n+1}} \frac{e}{x}\dx + I_n = e\big[\ln x\big]_{\expo{n}}^{\expo{n+1}} + I_n = e\,(n + 1 - n) + I_n$,
+            \par\noindent\ansbox{$A_n = I_n + e$.}
+         \item \vln{Aire entre $x = 1$ et $x = e$ :}
+            Sur $[1 ; e]$, $f(x) > 0$ (somme de deux termes positifs, le premier strictement). L'aire vaut $A_0$ unit\'es d'aire,
+            avec $A_0 = I_0 + e = 1 - \frac{2}{e} + e$. L'unit\'e d'aire vaut $2\cm \times 1\cm = 2\cm^2$ :
+            \par\noindent\ansbox{$\mathscr{A} = 2\left(e + 1 - \frac{2}{e}\right)\cm^2 = \left(2e + 2 - \frac{4}{e}\right)\cm^2 \simeq 5{,}97\cm^2$.}
+      \end{enumerate}
+\end{enumerate}
