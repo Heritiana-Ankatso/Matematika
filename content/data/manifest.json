@@ -28910,6 +28910,128 @@
     ],
     "sections": [
       {
+        "id": "algebre-1",
+        "title": [
+          "Algèbre 1",
+          "Algebra 1"
+        ],
+        "intro": [
+          "Le cours complet de première année : ensembles, matrices et élimination, espaces vectoriels, groupes, anneaux. Définitions, démonstrations, figures à manipuler et exercices corrigés classés par niveau. Cours en français.",
+          "The complete first-year course: sets, matrices and elimination, vector spaces, groups, rings. Definitions, proofs, interactive figures and graded exercises with full solutions. Course in French."
+        ],
+        "language": "fr",
+        "audience": [
+          "Licence 1 : mathématiques, informatique, physique.",
+          "First university year: mathematics, computer science, physics."
+        ],
+        "lessonSource": "content/data/algebre1-build.json",
+        "sequences": [
+          {
+            "id": "algebre-1-guide",
+            "slide": "index.html",
+            "folder": "lecons",
+            "source": "00-guide.tex",
+            "edition": "lesson"
+          },
+          {
+            "id": "algebre-1-ensembles",
+            "slide": "ch1-ensembles.html",
+            "folder": "lecons",
+            "source": "01-ensembles.tex",
+            "edition": "lesson"
+          },
+          {
+            "id": "algebre-1-matrices",
+            "slide": "ch2-matrices.html",
+            "folder": "lecons",
+            "source": "02-matrices.tex",
+            "edition": "lesson"
+          },
+          {
+            "id": "algebre-1-espaces",
+            "slide": "ch3-espaces-vectoriels.html",
+            "folder": "lecons",
+            "source": "03-espaces-vectoriels.tex",
+            "edition": "lesson"
+          },
+          {
+            "id": "algebre-1-groupes",
+            "slide": "ch4-groupes.html",
+            "folder": "lecons",
+            "source": "04-groupes.tex",
+            "edition": "lesson"
+          },
+          {
+            "id": "algebre-1-anneaux",
+            "slide": "ch5-anneaux.html",
+            "folder": "lecons",
+            "source": "05-anneaux.tex",
+            "edition": "lesson"
+          },
+          {
+            "id": "algebre-1-synthese",
+            "slide": "synthese.html",
+            "folder": "lecons",
+            "source": "06-synthese.tex",
+            "edition": "lesson"
+          }
+        ],
+        "documents": [
+          {
+            "key": "algebre-1-cours",
+            "label": [
+              "Cours complet (PDF)",
+              "Full course (PDF)"
+            ],
+            "path": "resources/university/algebre-1/cours.pdf"
+          },
+          {
+            "key": "algebre-1-exercices",
+            "label": [
+              "Exercices avec indications",
+              "Exercises with hints"
+            ],
+            "path": "resources/university/algebre-1/exercices.pdf"
+          },
+          {
+            "key": "algebre-1-corriges",
+            "label": [
+              "Exercices corrigés",
+              "Exercises with solutions"
+            ],
+            "path": "resources/university/algebre-1/corriges.pdf"
+          },
+          {
+            "key": "algebre-1-tex",
+            "label": [
+              "Sources LaTeX",
+              "LaTeX sources"
+            ],
+            "path": "resources/university/algebre-1/sources-latex.zip"
+          }
+        ],
+        "studyDocuments": [
+          {
+            "key": "algebre-1-cours",
+            "label": [
+              "Cours complet (PDF)",
+              "Full course (PDF)"
+            ]
+          },
+          {
+            "key": "algebre-1-corriges",
+            "label": [
+              "Exercices corrigés (PDF)",
+              "Exercises with solutions (PDF)"
+            ]
+          }
+        ],
+        "note": [
+          "Chaque leçon web réunit le cours, les figures interactives et les exercices corrigés, filtrables par niveau et par rubrique ; ta progression reste sur cet appareil. Les PDF reprennent le même texte.",
+          "Each web lesson holds the course, the interactive figures and the exercises with solutions, filterable by level and type; your progress stays on this device. The PDFs carry the same text, in French."
+        ]
+      },
+      {
         "id": "foundations",
         "title": [
           "Fondements mathématiques",

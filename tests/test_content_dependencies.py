@@ -13,22 +13,22 @@ class Dependencies(unittest.TestCase):
     def measure(self,p):
         return {'path':p.relative_to(content_index.DIST).as_posix(),'bytes':1,'sha256':'test'}
     def test_sequence_add_rename_reorder_remove(self):
-        m=copy.deepcopy(self.manifest);sec=m['university']['sections'][0]
+        m=copy.deepcopy(self.manifest);sec=next(s for s in m['university']['sections'] if s['id']=='foundations')
         new=copy.deepcopy(sec['sequences'][0]);new.update(id='mutation-new',slide='new.html',title=['Nouveau','New'])
         sec['sequences'].insert(0,new)
         result=content_index.university_index(m,{},self.measure)
-        self.assertEqual(result['sections'][0]['sequences'][0]['number'],1)
+        self.assertEqual(next(s for s in result['sections'] if s['id']=='foundations')['sequences'][0]['number'],1)
         self.assertIn('mutation-new',result['files'])
         original=sec['sequences'][1];source=original['sourceDeck'];chapter=original['pdfChapter']
         sec['sequences'].reverse();original['title']=['Renommé','Renamed']
         result=content_index.university_index(m,result,self.measure)
-        found=next(q for q in result['sections'][0]['sequences'] if q['id']==original['id'])
+        found=next(q for q in next(s for s in result['sections'] if s['id']=='foundations')['sequences'] if q['id']==original['id'])
         self.assertEqual((found['sourceDeck'],found['pdfChapter']),(source,chapter))
         sec['sequences']=[q for q in sec['sequences'] if q['id']!='mutation-new']
         result=content_index.university_index(m,result,self.measure)
         self.assertNotIn('mutation-new',result['files'])
     def test_duplicate_ids_fail(self):
-        m=copy.deepcopy(self.manifest);sec=m['university']['sections'][0]
+        m=copy.deepcopy(self.manifest);sec=next(s for s in m['university']['sections'] if s['id']=='foundations')
         sec['sequences'].append(copy.deepcopy(sec['sequences'][0]))
         with self.assertRaisesRegex(ValueError,'Duplicate sequence'):content_index.university_index(m,{},self.measure)
     def test_engine_and_course_metadata_invalidate_slides(self):

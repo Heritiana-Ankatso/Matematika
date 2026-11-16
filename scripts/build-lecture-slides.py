@@ -56,7 +56,19 @@ def weight(html_text):
     return len(re.sub('<[^>]*>','',html_text))+80*html_text.count('<tr')+30*html_text.count('<li')
 def chunks(fragment,limit=540):
     # Keep displayed maths and list items intact. A lecture page has a reading order, no live control instructions.
-    pieces=re.split(r'(?:<br\s*/?>\s*){2,}|(?<=</p>)\s*|(?=<(?:ul|ol)[ >])|(?<=</ul>)|(?<=</ol>)',fragment)
+    # Split only at top level: a list nested inside an item must stay with its parent <li>.
+    depth=0;marked=[]
+    for m in re.finditer(r'<(/?)(ul|ol)(?=[ >])',fragment):
+        if m.group(1):
+            depth-=1
+            if depth==0:marked.append(fragment.index('>',m.start())+1)
+        else:
+            if depth==0:marked.append(m.start())
+            depth+=1
+    cuts=sorted(set(marked));glued=[];last=0
+    for c in cuts:glued.append(fragment[last:c]);last=c
+    glued.append(fragment[last:])
+    pieces=[q for g in glued for q in ([g] if re.match(r'\s*<(?:ul|ol)[ >]',g) else re.split(r'(?:<br\s*/?>\s*){2,}|(?<=</p>)\s*',g))]
     out=[];current=''
     for piece in pieces:
         if not piece.strip():continue

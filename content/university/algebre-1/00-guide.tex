@@ -1,0 +1,118 @@
+\chapitre[None: start here.]{Guide}{Mode d'emploi et plan du cours}{How to use this course}
+\resume{Ce que contient le cours d'Algèbre 1, dans quel ordre l'étudier, comment travailler les exercices et comment savoir qu'une notion est acquise.}
+\summary{What the Algebra 1 course contains, in which order to study it, how to work through the exercises and how to tell that a notion is mastered.}
+\begin{objectifs}
+\item Voir d'un coup d'œil le fil du cours : ensemble, puis matrices, puis espace vectoriel, puis groupe, puis anneau.
+\item Savoir lire une leçon : définitions, résultats, démonstrations, figures, exercices.
+\item Connaître le critère de maîtrise et les réflexes de rédaction attendus partout.
+\end{objectifs}
+\begin{prerequis}
+Les mathématiques du lycée. Le cours utilise aussi, sans les redémontrer en détail, la division euclidienne, le pgcd, l'algorithme d'Euclide et le théorème de Bézout (rappelés au chapitre 1), les nombres complexes (module, conjugué) et la notion de polynôme.
+\end{prerequis}
+
+\section{Le fil du cours}
+L'algèbre étudie des \emph{structures} : des ensembles munis d'opérations qui obéissent à des règles. Le cours monte d'un étage à chaque chapitre, et chaque étage réutilise le précédent.
+
+\begin{tabular}{lll}
+Chapitre & Objet & Ce qu'on y gagne \\
+1. Théorie naïve des ensembles & ensembles, applications, relations, $\Z/n\Z$ & le langage de tout le cours ; la notion de quotient \\
+2. Équations linéaires et matrices & vecteurs de $\R^n$, produit matriciel, élimination & l'outil de calcul : $PA=LU$ \\
+3. Espaces vectoriels & sous-espaces, bases, dimension, rang, déterminant & la structure derrière les calculs du chapitre 2 \\
+4. Théorie des groupes & groupes, sous-groupes, homomorphismes, quotients, $S_n$ & une seule loi, étudiée pour elle-même \\
+5. Théorie des anneaux & anneaux, idéaux, anneaux quotients & deux lois : le cadre de l'arithmétique \\
+\end{tabular}
+
+Trois fils traversent les chapitres ; la leçon \og Synthèse \fg{} les reprend avec des problèmes transversaux.
+\begin{itemize}
+\item \textbf{Les quotients.} Une relation d'équivalence découpe un ensemble en classes (chapitre 1). Si l'on veut que les classes forment un groupe, il faut un sous-groupe \emph{normal} (chapitre 4) ; pour un anneau, un \emph{idéal} (chapitre 5). Le même schéma, \og même image par $f$ \fg, donne à chaque étage un théorème d'isomorphisme.
+\item \textbf{$\Z/n\Z$ de bout en bout.} Ensemble quotient au chapitre 1, groupe cyclique au chapitre 4, anneau au chapitre 5, corps exactement quand $n$ est premier.
+\item \textbf{L'élimination comme moteur.} Les matrices d'élimination donnent $PA=LU$ (chapitre 2), donc le rang, des bases, le déterminant et l'inverse (chapitre 3) ; les matrices de permutation et le déterminant reviennent comme homomorphismes au chapitre 4.
+\end{itemize}
+
+\section{Lire une leçon}
+Chaque leçon commence par ses objectifs et ses prérequis, puis alterne quatre sortes de blocs, reconnaissables à leur couleur.
+\begin{definition}[Un bloc de définition]
+Il fixe le sens d'un mot. On l'apprend \emph{mot pour mot}, avec ses quantificateurs : une définition approximative rend toute démonstration impossible.
+\end{definition}
+\begin{theoreme}[Un bloc de résultat]
+Théorème, proposition, lemme ou corollaire : un énoncé démontré. La plupart sont suivis de leur démonstration, à lire stylo en main. L'étiquette \og réf. \fg{} donne le numéro du même énoncé dans le polycopié universitaire de référence, \emph{Cours d'Algèbre 1}.
+\end{theoreme}
+\begin{methode}
+Une procédure à appliquer, avec le théorème qui la justifie.
+\end{methode}
+\begin{attention}
+Un piège classique, presque toujours accompagné d'un contre-exemple.
+\end{attention}
+Les blocs \og Intuition \fg{} expliquent d'où vient une définition avant de la formaliser ; les figures \og Manipuler \fg{} permettent de faire varier un exemple et d'observer ce qui reste vrai. Une figure ne démontre rien : elle sert à formuler une conjecture et à trouver un contre-exemple, la preuve vient ensuite.
+
+\section{Travailler les exercices}
+Les exercices de chaque chapitre sont rangés en quatre rubriques.
+\begin{tabular}{ll}
+Rubrique & Ce qu'elle entraîne \\
+A. Techniques & les calculs et procédures à faire sans hésiter, sans notes \\
+B. Preuves types & les démonstrations à savoir rédiger seul, sur un énoncé nouveau de la même famille \\
+C. Décisions et contre-exemples & dire vrai ou faux, et le justifier par une preuve ou un contre-exemple \\
+D. Problèmes de synthèse & combiner plusieurs notions du chapitre \\
+\end{tabular}
+Chaque exercice porte un niveau : \textbf{S} (socle : indispensable pour valider le cours), \textbf{A} (approfondissement), \textbf{D} (défi). Commence par tous les exercices S d'un chapitre avant de passer aux A.
+
+\begin{methode}[Comment utiliser une correction]
+\begin{enumerate}
+\item Cherche au moins dix minutes sans rien ouvrir. Écris ce que tu sais, même partiel.
+\item Si tu bloques, ouvre l'\emph{indication}, puis cherche de nouveau.
+\item Rédige une solution complète \emph{avant} de lire le corrigé.
+\item Compare : as-tu cité les bons résultats ? vérifié toutes les hypothèses ? traité tous les cas ?
+\item Coche \og je sais le refaire seul \fg{} seulement après l'avoir refait de mémoire un autre jour.
+\end{enumerate}
+\end{methode}
+
+\begin{essentiel}[Critère de maîtrise]
+Une compétence est acquise lorsqu'on sait :
+\begin{enumerate}
+\item l'exécuter sur une instance \emph{nouvelle} (autres nombres, autre ensemble) ;
+\item dire \emph{pourquoi} la méthode est correcte, c'est-à-dire quel théorème la justifie ;
+\item repérer quand elle \emph{ne s'applique pas}, parce qu'une hypothèse manque.
+\end{enumerate}
+\end{essentiel}
+
+\section{Réflexes de rédaction}
+Ces règles valent dans tous les chapitres ; les corrigés les appliquent systématiquement.
+\begin{itemize}
+\item Pour montrer qu'un objet est une structure (sous-espace, sous-groupe, idéal, relation d'équivalence), \textbf{utiliser le critère du cours} plutôt que revérifier tous les axiomes.
+\item Pour une \textbf{application définie sur un quotient}, démontrer d'abord qu'elle est \emph{bien définie}, c'est-à-dire indépendante du représentant choisi.
+\item Pour une \textbf{égalité d'ensembles}, une double inclusion. Pour une \textbf{équivalence}, les deux sens, rédigés séparément.
+\item Un \textbf{contre-exemple} est un objet explicite, de petite taille, vérifié entièrement.
+\item Dire dans quel ensemble on travaille : $\Z$ ou $\Z/n\Z$ ; $\R$ ou $\C$ comme corps des scalaires ; le zéro de $V$ ou celui de $\K$.
+\end{itemize}
+
+\section{Conventions}
+\begin{itemize}
+\item $\K$ désigne $\R$ ou $\C$, le corps des scalaires, sauf mention contraire.
+\item Les vecteurs de $\K^n$ s'écrivent en colonnes.
+\item Les permutations se composent \textbf{de droite à gauche} : $\sigma\circ\tau$ applique d'abord $\tau$, puis $\sigma$.
+\item La matrice de passage d'une base $B$ à une base $B'$ a pour colonnes les coordonnées des vecteurs de $B'$ dans $B$.
+\item Produit scalaire complexe : $z\cdot w=\sum_i z_i\overline{w_i}$ (conjugaison sur le second facteur).
+\item \og Dénombrable \fg{} signifie \og s'injecte dans $\N$ \fg{} : les ensembles finis sont dénombrables.
+\end{itemize}
+
+\section{Corrections apportées au texte de référence}
+Si tu travailles aussi avec ce polycopié, voici les énoncés qu'il faut lire sous leur forme corrigée ; ce cours utilise toujours la version correcte.
+\begin{tabular}{lll}
+Où (réf.) & Le polycopié écrit & Version correcte \\
+Déf. 1.2.3 & bijective = injective et bijective & injective \textbf{et surjective} \\
+p. 14, bornes & $\sup$ et $\inf$ = plus grand élément des majorants & $\sup A$ = \textbf{plus petit} majorant ; $\inf A$ = \textbf{plus grand} minorant \\
+Prop. 2.3.33 & $P^n=I_n$ & l'ordre de $P$ divise $n!$ (un 3-cycle dans $\Mat_4$ réfute $P^4=I_4$) \\
+Ex. 3.5.22 & $\dim_{\R}\C^n=n^2$ & $\dim_{\R}\C^n=2n$ \\
+Thm 3.5.28 & $\K^n=N(A)\oplus R(A)$ aussi sur $\C$ & vrai sur $\R$ seulement ; les formules de dimension valent partout \\
+Prop. 3.5.18 & coordonnées incohérentes & $x=Px'$, donc $x'=P^{-1}x$ \\
+Prop. 3.5.20 & orthonormées $\iff AA\tr=I_n$ & $A\tr A=I_n$ (équivalent pour $A$ carrée) \\
+Propr. 3.7.2 & $f(O_1)=f(O_2)$ & $f(0_{V_1})=0_{V_2}$ \\
+Ex. 4.1.4 & $(\Z/n\Z\setminus\{\cl0\},\times)$ monoïde & pas une loi interne si $n$ composé \\
+Prop. 4.2.10 & l'image d'un sous-groupe n'est pas un sous-groupe en général & c'est \textbf{toujours} un sous-groupe \\
+Prop. 4.3.13 & $\det P=1$ pour toute matrice de permutation & $\det P_\sigma=\sgn(\sigma)$ \\
+Rem. 2.3.26 & $x\cdot y=x\tr y$ sur $\C$ & $x\cdot y=x\tr\,\overline{y}$ sur $\C$ \\
+Déf. 5.3.1 & $I$ premier si $A/I$ intègre & exiger aussi $I\neq A$ \\
+\end{tabular}
+
+\section{Le chapitre 5 et au-delà}
+Le polycopié de référence s'arrête au début des idéaux premiers. Le chapitre 5 de ce cours complète les sections annoncées (idéaux premiers et maximaux, homomorphismes d'anneaux, exemples) avec les résultats standard d'un cours de première année ; ils sont signalés \og complément \fg.
