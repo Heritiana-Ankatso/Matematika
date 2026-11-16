@@ -170,6 +170,7 @@ To add a generator: write `make` in the class file, give it a manifest chapter, 
 | `js/pack-builder.js` | `#pack` custom pack builder, `#sources` LaTeX sources |
 | `js/slides-page.js` | `#slides` deck index (HTML and lecture PDF editions) |
 | `js/university.js`, `js/university-model.js` | `#university` pages and pathway summaries |
+| `js/algebra1-model.js`, `js/algebra1-widgets.js`, `styles/algebra1.css` | Algèbre 1 lessons (`dist/resources/university/algebre-1/lecons/`, built by `scripts/build-algebre1.py`): pure maths of the interactives (set expressions, finite maps, Z/nZ and extended Euclid, exact elimination PA = LU, Cayley tables, permutations, D_n) and the seven figures mounted on `[data-a1-widget]`; the lesson page style (Pavage tokens repeated for these standalone pages) |
 | `js/quadratic-workshop.js` | `#workshop/quadratic` five-stage workshop |
 | `resources/document-theme.css` | style of generated HTML resource pages |
 | `js/basics-page.js` | `#basics` as data: `BASICS_GROUPS` (groups of lessons), derived numbers and previous/next, `basicsPage` (grouped index and lesson page), `bindBasics` (theme and height of the iframe), `discoveryLessons` (lessons placed in the topic browser). `js/app.js` only imports it; add a lesson here |

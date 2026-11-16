@@ -1,0 +1,580 @@
+\chapitre[Chapter 2: matrices, elimination and PA = LU.]{3}{Espaces vectoriels et sous-espaces vectoriels}{Vector spaces and subspaces}
+\resume{Les huit règles de $\R^n$ deviennent des axiomes : espaces vectoriels, sous-espaces, familles génératrices et libres, bases et dimension. L'élimination du chapitre 2 calcule tout : rang, bases des quatre sous-espaces d'une matrice, déterminant. On termine par les applications linéaires.}
+\summary{The eight rules of R^n become axioms: vector spaces, subspaces, spanning and free families, bases and dimension. Chapter 2's elimination computes everything: rank, bases of a matrix's four subspaces, determinant. The chapter ends with linear maps.}
+\begin{objectifs}
+\item Reconnaître un espace vectoriel et un sous-espace vectoriel avec le critère du cours.
+\item Trouver une famille génératrice, une base et la dimension d'un sous-espace donné par équations ou par générateurs.
+\item Calculer le rang et des bases de $C(A)$, $R(A)$, $N(A)$, $N(A\tr)$ à partir de $PA=LU$ ; énoncer le théorème fondamental.
+\item Calculer un déterminant à partir de ses propriétés et le relier aux pivots.
+\item Écrire la matrice d'une application linéaire, son noyau et son image ; changer de base.
+\end{objectifs}
+\begin{prerequis}
+Chapitre 2 : produit matriciel, inverses, élimination et factorisation $PA=LU$. Chapitre 1 : applications, bijections.
+\end{prerequis}
+
+\section{Espaces vectoriels}
+\begin{intuition}
+Les vecteurs de $\R^n$, les matrices, les polynômes, les fonctions de $\R$ dans $\R$ s'additionnent et se multiplient par des nombres en obéissant aux mêmes huit règles. Plutôt que de redémontrer chaque résultat pour chacun, on démontre une fois pour toutes ce qui découle des seules règles : c'est la méthode axiomatique.
+\end{intuition}
+\begin{definition}[Espace vectoriel][réf. Déf. 3.1.1]\label{def-ev}
+Un \textbf{espace vectoriel} sur $\K$ (ou $\K$-espace vectoriel) est un ensemble non vide $V$ muni
+\begin{itemize}
+\item d'une loi interne $V\times V\to V$, $(u,v)\mapsto u+v$, et d'un élément $\mathbf 0\in V$ ;
+\item d'une multiplication par les scalaires $\K\times V\to V$, $(k,v)\mapsto kv$ ;
+\end{itemize}
+qui vérifient, pour tous $u,v,w\in V$ et $k,l\in\K$ : (1) $(u+v)+w=u+(v+w)$ ; (2) $u+v=v+u$ ; (3) $u+\mathbf 0=u$ ; (4) tout $u$ a un opposé $-u$ avec $u+(-u)=\mathbf 0$ ; (5) $k(u+v)=ku+kv$ ; (6) $(k+l)u=ku+lu$ ; (7) $(kl)u=k(lu)$ ; (8) $1u=u$. Les éléments de $V$ sont appelés \textbf{vecteurs}, ceux de $\K$ \textbf{scalaires}.
+\end{definition}
+\begin{remarque}[réf. Rem. 3.1.2]
+Les axiomes (1) à (4) disent que $(V,+)$ est un \textbf{groupe abélien} (chapitre 4). On distingue soigneusement le zéro $0$ de $\K$ et le vecteur nul $\mathbf 0$ de $V$.
+\end{remarque}
+\begin{exemple}[Les exemples fondamentaux][réf. 3.1]
+Avec les opérations usuelles, sont des $\K$-espaces vectoriels : $\K^n$ ; $\Mat_{m\times n}(\K)$ ; l'ensemble $\K[X]$ des polynômes ; l'ensemble $\mathcal F(E,\K)$ des fonctions d'un ensemble $E$ dans $\K$, avec $(f+g)(x)=f(x)+g(x)$ et $(kf)(x)=kf(x)$. Dans le dernier cas, le vecteur nul est la fonction nulle, et chaque axiome se vérifie \og point par point \fg.
+\end{exemple}
+\begin{proposition}[Unicités][réf. Prop. 3.1.4, Cor. 3.1.5]
+Dans un espace vectoriel, le vecteur nul est unique, l'opposé d'un vecteur est unique, et l'on peut simplifier : $u+v=u+w\Rightarrow v=w$.
+\end{proposition}
+\begin{preuve}
+Si $\mathbf 0$ et $\mathbf 0'$ sont neutres, $\mathbf 0=\mathbf 0+\mathbf 0'=\mathbf 0'$. Si $v$ et $v'$ sont opposés de $u$, $v=v+(u+v')=(v+u)+v'=v'$. Enfin, on ajoute $-u$ aux deux membres de $u+v=u+w$ et on utilise l'associativité.
+\end{preuve}
+\begin{theoreme}[Calcul avec zéro][réf. Thm 3.1.6]\label{thm-zero}
+Pour $u\in V$ et $k\in\K$ : (a) $k\mathbf 0=\mathbf 0$ ; (b) $0u=\mathbf 0$ ; (c) si $ku=\mathbf 0$, alors $k=0$ ou $u=\mathbf 0$ ; (d) $(-k)u=k(-u)=-(ku)$.
+\end{theoreme}
+\begin{preuve}
+(a) $k\mathbf 0=k(\mathbf 0+\mathbf 0)=k\mathbf 0+k\mathbf 0$, et l'on simplifie par $k\mathbf 0$. (b) $0u=(0+0)u=0u+0u$, même argument. (c) Si $ku=\mathbf 0$ et $k\neq0$, alors $u=1u=(k^{-1}k)u=k^{-1}(ku)=k^{-1}\mathbf 0=\mathbf 0$ par (a). C'est ici qu'on utilise que $\K$ est un corps. (d) $ku+(-k)u=(k+(-k))u=0u=\mathbf 0$, donc $(-k)u$ est l'opposé de $ku$ (unicité) ; de même $ku+k(-u)=k(u+(-u))=k\mathbf 0=\mathbf 0$.
+\end{preuve}
+
+\section{Sous-espaces vectoriels}
+\begin{definition}[Sous-espace vectoriel][réf. Déf. 3.2.1]
+Une partie $W$ de $V$ est un \textbf{sous-espace vectoriel} si elle contient $\mathbf 0$ et si elle est elle-même un espace vectoriel pour les lois de $V$. Les sous-espaces $\ens{\mathbf 0}$ et $V$ sont dits \textbf{triviaux}.
+\end{definition}
+\begin{theoreme}[Critère de sous-espace][réf. Thm 3.2.2, Cor. 3.2.3]\label{thm-critere-sev}
+$W\subset V$ est un sous-espace vectoriel si et seulement si
+\begin{enumerate}
+\item $\mathbf 0\in W$ (ou seulement $W\neq\varnothing$) ;
+\item $W$ est stable par addition : $u,v\in W\Rightarrow u+v\in W$ ;
+\item $W$ est stable par multiplication par un scalaire : $k\in\K$, $u\in W\Rightarrow ku\in W$.
+\end{enumerate}
+De façon équivalente : $\mathbf 0\in W$ et $ku+lv\in W$ pour tous $u,v\in W$ et $k,l\in\K$.
+\end{theoreme}
+\begin{preuve}
+Les conditions sont nécessaires. Réciproquement, (2) et (3) font de $+$ et de la multiplication des lois sur $W$. Les axiomes (1), (2), (5) à (8) sont des égalités vraies dans $V$, donc dans $W$. Le neutre : si $u\in W$, alors $0u=\mathbf 0\in W$ par (3) et le Théorème \voir{thm-zero} ; c'est pourquoi \og non vide \fg{} suffit. L'opposé : $-u=(-1)u\in W$.
+\end{preuve}
+\begin{methode}[Montrer qu'une partie est un sous-espace, ou non]
+\begin{itemize}
+\item \textbf{Oui} : appliquer le critère, ou reconnaître un sous-espace connu (espace nul d'une matrice, sous-espace engendré, intersection de sous-espaces, noyau ou image d'une application linéaire).
+\item \textbf{Non} : souvent $\mathbf 0\notin W$ (équation non homogène) ; sinon exhiber deux vecteurs de $W$ dont la somme sort de $W$, ou un vecteur et un scalaire dont le produit en sort.
+\end{itemize}
+\end{methode}
+\begin{exemple}[réf. Ex. 3.2.4 à 3.2.6]
+Dans $\K^n$, les vecteurs de dernière composante nulle forment un sous-espace. Dans $\Mat_n(\K)$, les matrices symétriques forment un sous-espace, car $(kA+lB)\tr=kA\tr+lB\tr$. Dans $\K[X]$, les polynômes de degré au plus $n$ forment un sous-espace $\K_n[X]$ ; ceux de degré exactement $n$ non, car ils ne contiennent pas $0$ et $X^n+(-X^n)=0$.
+\end{exemple}
+\begin{proposition}[Intersections et réunions][réf. Thm 3.2.7, Rem. 3.2.8]\label{prop-inter-sev}
+Toute intersection de sous-espaces de $V$ est un sous-espace. Une réunion de deux sous-espaces n'en est pas un en général ; c'en est un si et seulement si l'un contient l'autre.
+\end{proposition}
+\begin{preuve}
+$\mathbf 0$ est dans chacun, donc dans l'intersection ; si $u,v$ sont dans chacun, $ku+lv$ aussi. Pour la réunion de $U$ et $W$ : si $U\not\subset W$ et $W\not\subset U$, prenons $u\in U\setminus W$ et $w\in W\setminus U$. Si $u+w$ était dans $U$, alors $w=(u+w)-u\in U$ ; s'il était dans $W$, alors $u\in W$ ; donc $u+w\notin U\cup W$. Exemple : dans $\R^2$, la réunion des deux axes contient $(1,0)$ et $(0,1)$ mais pas $(1,1)$.
+\end{preuve}
+
+\section{Combinaisons linéaires et familles génératrices}
+\begin{definition}[Sous-espace engendré][réf. 3.3, Déf. 3.3.2]
+Une \textbf{combinaison linéaire} d'éléments de $S\subset V$ est un vecteur $k_1s_1+\dots+k_rs_r$ avec $r\ge0$ fini, $s_i\in S$, $k_i\in\K$ (la combinaison vide vaut $\mathbf 0$). Le \textbf{sous-espace engendré} par $S$, noté $\Vect(S)$ ou $L(S)$, est le plus petit sous-espace contenant $S$. $S$ est une \textbf{famille génératrice} de $V$ si $\Vect(S)=V$. $V$ est \textbf{de type fini} s'il est engendré par une famille finie.
+\end{definition}
+\begin{theoreme}[réf. Thm 3.3.3, Thm 3.3.4]\label{thm-engendre}
+$\Vect(S)$ est l'ensemble de toutes les combinaisons linéaires d'éléments de $S$ ; c'est aussi l'intersection de tous les sous-espaces contenant $S$. En particulier $\Vect(\varnothing)=\ens{\mathbf 0}$.
+\end{theoreme}
+\begin{preuve}
+Soit $C$ l'ensemble des combinaisons linéaires d'éléments de $S$. $C$ contient $\mathbf 0$ (combinaison vide) et $S$ ; une combinaison de deux combinaisons est une combinaison, donc $C$ est un sous-espace contenant $S$. Tout sous-espace contenant $S$ contient, par stabilité, toutes les combinaisons d'éléments de $S$, donc contient $C$. Ainsi $C$ est le plus petit sous-espace contenant $S$. Enfin l'intersection $I$ de tous les sous-espaces contenant $S$ est un sous-espace contenant $S$ (\voir{prop-inter-sev}), contenu dans chacun d'eux, donc dans $C$, et qui contient $C$ par minimalité de $C$.
+\end{preuve}
+\begin{exemple}[réf. Ex. 3.3.5 à 3.3.9]
+$\Vect(u)$ est une droite si $u\neq\mathbf 0$ ; $\Vect(u,v)$ est un plan si $u,v$ ne sont pas colinéaires. Les vecteurs $e_1,\dots,e_n$ (colonnes de $I_n$) engendrent $\K^n$ : $(x_1,\dots,x_n)=\sum x_ie_i$. $\ens{1,i}$ engendre $\C$ vu comme $\R$-espace vectoriel. $1,X,X^2,\dots$ engendrent $\K[X]$.
+\end{exemple}
+
+\section{Les espaces associés à une matrice}
+\begin{definition}[Espace colonne, espace ligne, espace nul][réf. 3.4]
+Pour $A\in\Mat_{m\times n}(\K)$ :
+\begin{itemize}
+\item l'\textbf{espace colonne} $C(A)\subset\K^m$ est le sous-espace engendré par les colonnes de $A$ ;
+\item l'\textbf{espace ligne} $R(A)\subset\K^n$ est le sous-espace engendré par les lignes de $A$ (écrites en colonnes) : $R(A)=C(A\tr)$ ;
+\item l'\textbf{espace nul} $N(A)=\ens{x\in\K^n\mid Ax=\mathbf 0}$.
+\end{itemize}
+\end{definition}
+\begin{proposition}[réf. Prop. 3.4.2, Thm 3.4.8]\label{prop-CA}
+$Ax=b$ a une solution si et seulement si $b\in C(A)$. L'espace nul $N(A)$ est un sous-espace de $\K^n$.
+\end{proposition}
+\begin{preuve}
+$Ax=x_1a_1+\dots+x_na_n$ parcourt exactement les combinaisons des colonnes. Ensuite $A\mathbf 0=\mathbf 0$ et $A(kx+ly)=kAx+lAy=\mathbf 0$ si $x,y\in N(A)$.
+\end{preuve}
+\begin{methode}[Un sous-espace par ses équations]
+Une partie de $\K^n$ définie par des équations linéaires \emph{homogènes} est l'espace nul d'une matrice, donc un sous-espace. Le plan $2x+y-3z=0$ est $N\begin{pmatrix}2&1&-3\end{pmatrix}$. On montrera (exercice \voir{exo-deux-descriptions}) que tout sous-espace de $\K^n$ s'obtient ainsi.
+\end{methode}
+\begin{theoreme}[Les opérations sur les lignes ne changent pas l'espace ligne][réf. Thm 3.4.6]\label{thm-espace-ligne}
+Pour toute matrice de permutation $P$ et toute matrice d'élimination $E$ : $R(PA)=R(EA)=R(A)$. En particulier si $PA=LU$, alors $R(A)=R(U)$ et $N(A)=N(U)$.
+\end{theoreme}
+\begin{preuve}
+Les lignes de $EA$ sont des combinaisons des lignes de $A$, donc $R(EA)\subset R(A)$ ; comme $A=E^{-1}(EA)$, de même $R(A)\subset R(EA)$. Même argument pour $P$. Ensuite $U=L^{-1}PA$ avec $L^{-1}$ produit de matrices d'élimination. Enfin $Ax=\mathbf 0\iff L^{-1}PAx=\mathbf 0$ car $L^{-1}P$ est inversible.
+\end{preuve}
+\begin{attention}
+L'espace \emph{colonne}, lui, change en général : pour $A=\begin{pmatrix}1&1\\1&1\end{pmatrix}$, l'élimination donne $U=\begin{pmatrix}1&1\\0&0\end{pmatrix}$, et $C(A)=\Vect(1,1)\neq C(U)=\Vect(1,0)$.
+\end{attention}
+
+\section{Sommes, familles libres, bases}
+\subsection{Somme et somme directe}
+\begin{definition}[Somme, somme directe][réf. Déf. 3.5.1, 3.5.3]
+Pour des sous-espaces $U,W$ de $V$, $U+W=\ens{u+w\mid u\in U,\ w\in W}$ ; c'est un sous-espace (le plus petit qui contient $U$ et $W$). La somme est \textbf{directe}, notée $U\oplus W$, si tout élément de $U+W$ s'écrit de façon \emph{unique} $u+w$. Si $V=U\oplus W$, on dit que $U$ et $W$ sont \textbf{supplémentaires}.
+\end{definition}
+\begin{theoreme}[réf. Thm 3.5.4]\label{thm-somme-directe}
+La somme $U+W$ est directe si et seulement si $U\cap W=\ens{\mathbf 0}$. Ainsi $V=U\oplus W\iff V=U+W$ et $U\cap W=\ens{\mathbf 0}$.
+\end{theoreme}
+\begin{preuve}
+Si la somme est directe et $x\in U\cap W$, alors $x=x+\mathbf 0=\mathbf 0+x$ sont deux écritures de $x$ ; l'unicité donne $x=\mathbf 0$. Réciproquement, si $u+w=u'+w'$, alors $u-u'=w'-w\in U\cap W=\ens{\mathbf 0}$, d'où $u=u'$ et $w=w'$.
+\end{preuve}
+\subsection{Familles libres}
+\begin{definition}[Famille libre, liée][réf. Déf. 3.5.5]
+Une famille $E$ (finie ou infinie) de vecteurs de $V$ est \textbf{libre} si toute combinaison linéaire nulle d'éléments distincts de $E$ a tous ses coefficients nuls ; sinon elle est \textbf{liée}. Une famille contenant $\mathbf 0$ est liée.
+\end{definition}
+\begin{proposition}[réf. Prop. 3.5.8]\label{prop-liee}
+Pour $m\ge2$, $v_1,\dots,v_m$ sont liés si et seulement si l'un d'eux est combinaison linéaire des autres.
+\end{proposition}
+\begin{preuve}
+Si $\sum x_iv_i=\mathbf 0$ avec $x_j\neq0$, alors $v_j=-\sum_{i\neq j}\frac{x_i}{x_j}v_i$. Réciproquement $v_j=\sum_{i\neq j}y_iv_i$ donne la combinaison nulle $\sum_{i\neq j}y_iv_i-v_j=\mathbf 0$, dont le coefficient de $v_j$ vaut $-1\neq0$.
+\end{preuve}
+\subsection{Bases}
+\begin{definition}[Base, coordonnées][réf. Déf. 3.5.9, Prop. 3.5.10]\label{def-base}
+Une \textbf{base} de $V$ est une famille à la fois \textbf{génératrice} et \textbf{libre}. Si $B=(b_1,\dots,b_n)$ est une base, tout $v\in V$ s'écrit de façon unique $v=x_1b_1+\dots+x_nb_n$ ; les $x_i$ sont les \textbf{coordonnées} de $v$ dans $B$.
+\end{definition}
+\begin{exemple}[réf. Ex. 3.5.11, 3.5.12]
+$(e_1,\dots,e_n)$ est la \textbf{base canonique} de $\K^n$. $(X^i)_{i\ge0}$ est une base (infinie) de $\K[X]$. $(1,i)$ est une base de $\C$ sur $\R$ : les coordonnées de $a+ib$ sont $(a,b)$.
+\end{exemple}
+\begin{lemme}[Lemme d'échange][réf. Lemme 3.5.13]\label{lem-echange}
+Soit $(w_1,\dots,w_n)$ une base de $V$ et $\omega=a_1w_1+\dots+a_nw_n$ avec $a_j\neq0$. En remplaçant $w_j$ par $\omega$, on obtient encore une base.
+\end{lemme}
+\begin{preuve}
+On a $w_j=\frac1{a_j}\left(\omega-\sum_{i\neq j}a_iw_i\right)$ : $w_j$ est combinaison de la nouvelle famille, qui engendre donc tous les $w_i$, donc $V$. Elle est libre : si $c\,\omega+\sum_{i\neq j}c_iw_i=\mathbf 0$, en développant $\omega$, le coefficient de $w_j$ est $ca_j$, qui doit être nul par liberté des $w_i$, donc $c=0$ ; puis tous les $c_i$ sont nuls.
+\end{preuve}
+\begin{theoreme}[Quatre caractérisations d'une base][réf. Thm 3.5.14]\label{thm-base}
+Pour une famille finie $B=(v_1,\dots,v_n)$ de $V$, les propriétés suivantes sont équivalentes :
+\begin{enumerate}
+\item $B$ est une base ;
+\item $B$ est \textbf{génératrice minimale} : elle engendre $V$, mais aucune sous-famille stricte ne l'engendre ;
+\item tout $v\in V$ s'écrit de façon \textbf{unique} comme combinaison des $v_i$ ;
+\item $B$ est \textbf{libre maximale} : elle est libre, mais ne l'est plus si on lui ajoute n'importe quel vecteur.
+\end{enumerate}
+\end{theoreme}
+\begin{preuve}
+(1)$\Rightarrow$(3) : l'existence vient de \og génératrice \fg ; si $\sum x_iv_i=\sum y_iv_i$, alors $\sum(x_i-y_i)v_i=\mathbf 0$ et la liberté donne $x_i=y_i$.
+(3)$\Rightarrow$(1) : génératrice par l'existence ; libre car $\mathbf 0=\sum0v_i$ est l'unique écriture de $\mathbf 0$.
+(1)$\Rightarrow$(2) : si l'on retire $v_j$ et que le reste engendre encore, $v_j$ est combinaison des autres, et la famille est liée (\voir{prop-liee}). (2)$\Rightarrow$(1) : si $B$ était liée, un $v_j$ serait combinaison des autres (\voir{prop-liee}), et on pourrait le retirer sans changer l'espace engendré.
+(1)$\Rightarrow$(4) : tout $v$ ajouté est combinaison des $v_i$, donc la famille agrandie est liée. (4)$\Rightarrow$(1) : pour $v\in V$, la famille $(v_1,\dots,v_n,v)$ est liée : $\sum x_iv_i+xv=\mathbf 0$ avec des coefficients non tous nuls ; $x\neq0$ car sinon les $v_i$ seraient liés ; donc $v$ est combinaison des $v_i$, qui engendrent $V$.
+\end{preuve}
+\begin{corollaire}[Extraire une base][réf. Cor. 3.5.15]\label{cor-extraire}
+Toute famille génératrice finie d'un espace contient une base. En particulier tout espace de type fini $V\neq\ens{\mathbf 0}$ a une base finie.
+\end{corollaire}
+\begin{preuve}
+Tant que la famille est liée, un de ses vecteurs est combinaison des autres (\voir{prop-liee}) : on le retire, ce qui ne change pas l'espace engendré. Le processus s'arrête (la famille est finie) sur une famille génératrice libre.
+\end{preuve}
+\begin{theoreme}[Lemme de Steinitz, invariance de la dimension][réf. Cor. 3.5.16]\label{thm-steinitz}
+Si $V$ est engendré par $n$ vecteurs, toute famille libre de $V$ a au plus $n$ éléments. En conséquence, deux bases finies de $V$ ont le même nombre d'éléments.
+\end{theoreme}
+\begin{preuve}
+Le polycopié de référence l'énonce sans démonstration ; voici celle par le lemme d'échange. Soit $(w_1,\dots,w_n)$ génératrice ; quitte à en extraire une base (\voir{cor-extraire}), on peut la supposer base, de taille $n'\le n$. Soit $(u_1,\dots,u_m)$ libre. On remplace un à un des $w$ par des $u$. Écrivons $u_1=\sum a_iw_i$ : les $a_i$ ne sont pas tous nuls (sinon $u_1=\mathbf 0$), et le Lemme \voir{lem-echange} permet d'échanger un $w_j$ contre $u_1$. Supposons qu'après $k$ échanges la famille $(u_1,\dots,u_k,w_{k+1},\dots,w_{n'})$ (à renumérotation près) soit une base. Si $k<m$, on écrit $u_{k+1}=\sum_{i\le k}b_iu_i+\sum_{i>k}c_iw_i$ ; si tous les $c_i$ étaient nuls, $u_{k+1}$ serait combinaison de $u_1,\dots,u_k$, contredisant la liberté. Un $c_j\neq0$ permet d'échanger $w_j$ contre $u_{k+1}$. Chaque échange consomme un $w$ : on ne peut en faire que $n'$, donc $m\le n'\le n$. Enfin, si $B$ et $B'$ sont deux bases, $B'$ libre et $B$ génératrice donnent $\Card B'\le\Card B$, et symétriquement.
+\end{preuve}
+\begin{definition}[Dimension][réf. Déf. 3.5.21]
+La \textbf{dimension} d'un espace de type fini $V$ est le nombre d'éléments de n'importe laquelle de ses bases (avec $\dim\ens{\mathbf 0}=0$). Un espace qui n'est pas de type fini est dit de dimension infinie.
+\end{definition}
+\begin{exemple}[réf. Ex. 3.5.22, corrigé]
+$\dim_{\K}\K^n=n$ ; $\dim\Mat_{m\times n}(\K)=mn$ (base des matrices $E_{ij}$) ; $\dim\K_n[X]=n+1$ ; $\K[X]$ est de dimension infinie. Attention : $\dim_{\C}\C^n=n$ mais $\dim_{\R}\C^n=2n$, une base sur $\R$ étant $(e_1,ie_1,\dots,e_n,ie_n)$.
+\end{exemple}
+\begin{corollaire}[Compter suffit]\label{cor-compter}
+Dans un espace de dimension $n$ : une famille libre a au plus $n$ éléments, une famille génératrice au moins $n$ ; une famille libre de $n$ éléments est une base, une famille génératrice de $n$ éléments aussi. Toute famille libre se complète en une base, et un sous-espace $W$ vérifie $\dim W\le n$, avec égalité si et seulement si $W=V$.
+\end{corollaire}
+\begin{preuve}
+Les deux premiers points sont le Théorème \voir{thm-steinitz}. Une famille libre de $n$ éléments est libre maximale (on ne peut pas avoir $n+1$ vecteurs libres), donc une base (\voir{thm-base}) ; une génératrice de $n$ éléments est génératrice minimale (une sous-famille stricte génératrice contiendrait une base de moins de $n$ éléments). Pour compléter une famille libre, on lui ajoute un vecteur hors de l'espace qu'elle engendre (elle reste libre), tant que c'est possible ; cela s'arrête après au plus $n$ étapes, sur une famille libre maximale. Enfin une base de $W$ est libre dans $V$, et si elle a $n$ éléments, c'est une base de $V$.
+\end{preuve}
+\begin{proposition}[Formule de Grassmann][réf. Prop. 3.5.24]\label{prop-grassmann}
+Pour $U,W$ sous-espaces de dimension finie : $\dim(U+W)+\dim(U\cap W)=\dim U+\dim W$.
+\end{proposition}
+\begin{preuve}
+Soit $(c_1,\dots,c_k)$ une base de $U\cap W$, complétée en une base $(c,a_1,\dots,a_p)$ de $U$ et en une base $(c,b_1,\dots,b_q)$ de $W$. La famille $(c,a,b)$ engendre $U+W$. Elle est libre : si $\sum\gamma_ic_i+\sum\alpha_ia_i+\sum\beta_ib_i=\mathbf 0$, le vecteur $\sum\beta_ib_i=-\sum\gamma_ic_i-\sum\alpha_ia_i$ est dans $W\cap U$, donc combinaison des $c_i$ ; par liberté de $(c,b)$, les $\beta_i$ sont nuls ; puis la liberté de $(c,a)$ annule tout le reste. Donc $\dim(U+W)=k+p+q=(k+p)+(k+q)-k$.
+\end{preuve}
+\begin{proposition}[Sous-espaces de matrices][réf. Prop. 3.5.23]
+Dans $\Mat_n(\K)$ : les matrices diagonales forment un sous-espace de dimension $n$ ; les triangulaires supérieures, de dimension $\frac{n(n+1)}2$ ; les symétriques, de dimension $\frac{n(n+1)}2$ ; les antisymétriques, de dimension $\frac{n(n-1)}2$ (exercice \voir{exo-dim-matrices}).
+\end{proposition}
+
+\section{Rang et théorème fondamental}
+\begin{definition}[Rang][réf. Déf. 3.5.25, Rem. 3.5.26]
+Pour $A\in\Mat_{m\times n}(\K)$, l'élimination avec échanges donne $PA=LU$ où $U$ est \textbf{échelonnée} : chaque ligne non nulle commence par un \textbf{pivot} non nul, situé strictement à droite du pivot de la ligne précédente, et les lignes nulles sont en bas. Le \textbf{rang} de $A$ est le nombre de pivots, c'est-à-dire le nombre de lignes non nulles de $U$.
+\end{definition}
+\begin{proposition}[Base d'un sous-espace engendré][réf. Prop. 3.5.27]\label{prop-base-engendre}
+Les lignes non nulles de $U$ forment une base de $R(A)$. Ainsi $\dim\Vect(v_1,\dots,v_m)$ est le rang de la matrice de lignes $v_1,\dots,v_m$.
+\end{proposition}
+\begin{preuve}
+$R(A)=R(U)$ (\voir{thm-espace-ligne}) est engendré par les lignes non nulles de $U$. Elles sont libres : dans une combinaison nulle, regardons la colonne du premier pivot ; seule la première ligne y a un coefficient non nul, donc son coefficient est nul ; on recommence avec la colonne du deuxième pivot, et ainsi de suite.
+\end{preuve}
+\begin{theoreme}[Théorème fondamental de l'algèbre linéaire][réf. Thm 3.5.28, corrigé]\label{thm-fondamental}
+Soit $A\in\Mat_{m\times n}(\K)$ de rang $r$.
+\begin{enumerate}
+\item $\dim R(A)=\dim C(A)=r$ ; les colonnes de $A$ situées aux positions des pivots forment une base de $C(A)$.
+\item $\dim N(A)=n-r$ et $\dim N(A\tr)=m-r$.
+\item Si $\K=\R$ : $N(A)$ et $R(A)$ sont orthogonaux et $\R^n=N(A)\oplus R(A)$ ; de même $\R^m=N(A\tr)\oplus C(A)$.
+\end{enumerate}
+\end{theoreme}
+\begin{preuve}
+(1) $\dim R(A)=r$ par \voir{prop-base-engendre}. Comme $Ax=\mathbf 0\iff Ux=\mathbf 0$, les colonnes de $A$ vérifient \emph{exactement les mêmes relations linéaires} que celles de $U$. Dans $U$, les colonnes pivots sont libres (même argument qu'en \voir{prop-base-engendre}, lu de bas en haut) et chaque autre colonne est combinaison des colonnes pivots qui la précèdent (les coefficients se trouvent par remontée). Il en va donc de même dans $A$ : les $r$ colonnes pivots de $A$ forment une base de $C(A)$.
+(2) Les solutions de $Ux=\mathbf 0$ se paramètrent par les $n-r$ variables sans pivot (\og libres \fg) : pour chacune, la \emph{solution spéciale} obtenue en lui donnant la valeur $1$ et aux autres variables libres la valeur $0$ ; toute solution est la combinaison des solutions spéciales pondérée par ses valeurs libres, et ces solutions spéciales sont libres (regarder les coordonnées libres). Donc $\dim N(A)=n-r$. Appliqué à $A\tr$, dont le rang est $\dim R(A\tr)=\dim C(A)=r$, cela donne $\dim N(A\tr)=m-r$.
+(3) $x\in N(A)$ signifie que $x$ est orthogonal à chaque ligne de $A$, donc à toute combinaison des lignes : $N(A)\perp R(A)$. Si $x\in N(A)\cap R(A)$, alors $x\cdot x=0$, donc $x=\mathbf 0$ sur $\R$. La formule de Grassmann donne $\dim(N(A)+R(A))=(n-r)+r=n$, donc $N(A)+R(A)=\R^n$ (\voir{cor-compter}). Même chose pour $A\tr$.
+\end{preuve}
+\begin{attention}[Sur $\C$, la décomposition orthogonale échoue avec ce produit]
+Les formules de dimension valent sur tout corps, mais pas (3) avec le produit $x\tr y$. Pour $A=\begin{pmatrix}1&i\\i&-1\end{pmatrix}$ (rang $1$), $N(A)=\Vect(1,i)$ et $R(A)=\Vect(1,i)$ : ils sont égaux, non nuls. La raison : $(1,i)$ est \og orthogonal à lui-même \fg{} pour la forme bilinéaire, $1+i^2=0$. Avec le produit hermitien $x\cdot y=\sum x_i\overline{y_i}$, l'énoncé correct est $\C^n=N(A)\oplus R(\overline A)$.
+\end{attention}
+\widget{lu}
+
+\section{Changement de base et bases orthonormées}
+\begin{essentiel}[réf. Remarque « très importante » 3.5]
+Une base $B=(b_1,\dots,b_n)$ de $V$ fournit une bijection $V\to\K^n$, $v\mapsto$ ses coordonnées. Grâce à elle, tout calcul dans un espace de dimension $n$ (polynômes, matrices, fonctions) se ramène à un calcul dans $\K^n$, c'est-à-dire à des matrices.
+\end{essentiel}
+\begin{proposition}[Changement de base][réf. Prop. 3.5.18, corrigée]\label{prop-passage}
+Soient $B=(b_1,\dots,b_n)$ et $B'=(b'_1,\dots,b'_n)$ deux bases de $V$. La \textbf{matrice de passage} $P$ de $B$ à $B'$ a pour $j$-ème colonne les coordonnées de $b'_j$ dans $B$. Elle est inversible et, si $x$ et $x'$ sont les coordonnées d'un même vecteur dans $B$ et $B'$,
+\[x=Px',\qquad x'=P^{-1}x.\]
+\end{proposition}
+\begin{preuve}
+$b'_j=\sum_ip_{ij}b_i$. Si $v=\sum_jx'_jb'_j=\sum_j x'_j\sum_ip_{ij}b_i=\sum_i\left(\sum_jp_{ij}x'_j\right)b_i$, l'unicité des coordonnées dans $B$ donne $x_i=\sum_jp_{ij}x'_j$, soit $x=Px'$. Si $Px'=\mathbf 0$, le vecteur de coordonnées $x'$ dans $B'$ est nul, donc $x'=\mathbf 0$ : $P$ est inversible (\voir{thm-caract-inv}).
+\end{preuve}
+\begin{attention}
+Les colonnes de $P$ expriment la \emph{nouvelle} base dans l'\emph{ancienne}, mais $P$ transforme les \emph{nouvelles} coordonnées en \emph{anciennes}. Pour obtenir les nouvelles coordonnées, il faut $P^{-1}$. C'est la source d'erreur la plus fréquente ; contrôler toujours sur un vecteur de base.
+\end{attention}
+\begin{definition}[Orthogonalité, bases orthonormées][réf. Déf. 3.5.19]
+Dans $\R^n$, deux sous-espaces $U,W$ sont \textbf{orthogonaux} si $u\cdot w=0$ pour tous $u\in U$, $w\in W$. Une base est \textbf{orthogonale} si ses vecteurs sont deux à deux orthogonaux, \textbf{orthonormée} si de plus ils sont unitaires. Une matrice carrée réelle $Q$ est \textbf{orthogonale} si $Q\tr Q=I_n$.
+\end{definition}
+\begin{proposition}[réf. Prop. 3.5.20, corrigée]\label{prop-orthogonale}
+Pour $Q\in\Mat_n(\R)$, les colonnes de $Q$ forment une base orthonormée si et seulement si $Q\tr Q=I_n$, ce qui équivaut à $QQ\tr=I_n$ et à $Q^{-1}=Q\tr$. Une matrice orthogonale conserve le produit scalaire : $(Qx)\cdot(Qy)=x\cdot y$. Les coordonnées dans une base orthonormée $(q_j)$ se calculent par $x_j=v\cdot q_j$.
+\end{proposition}
+\begin{preuve}
+Le coefficient $(i,j)$ de $Q\tr Q$ est $q_i\cdot q_j$ : il vaut $1$ si $i=j$ et $0$ sinon exactement quand la famille est orthonormée. $Q\tr Q=I_n$ fait de $Q\tr$ un inverse à gauche, donc l'inverse (\voir{thm-caract-inv}). Ensuite $(Qx)\tr(Qy)=x\tr Q\tr Qy=x\tr y$. Enfin si $v=\sum x_jq_j$, alors $v\cdot q_k=\sum x_j\,q_j\cdot q_k=x_k$.
+\end{preuve}
+
+\section{Déterminants}
+\begin{intuition}
+Le déterminant de $n$ vecteurs de $\R^n$ est le volume orienté du parallélépipède qu'ils forment. Plutôt que de partir d'une formule, on le définit par trois propriétés évidentes pour un volume : le cube unité a volume $1$, échanger deux vecteurs change l'orientation, et le volume est linéaire en chaque vecteur. Tout le reste s'en déduit, et l'élimination fournit l'algorithme de calcul.
+\end{intuition}
+\begin{definition}[Propriétés définissantes][réf. 3.6]\label{def-det}
+Le \textbf{déterminant} est l'unique application $\det:\Mat_n(\K)\to\K$ qui, en notant $v_i$ la ligne $i$ de $A$, vérifie :
+\begin{itemize}
+\item \textbf{P1} : $\det I_n=1$ ;
+\item \textbf{P2} : échanger deux lignes change le signe : $\det(P_{ij}A)=-\det A$ ;
+\item \textbf{P3} : linéarité par rapport à chaque ligne : si la ligne $i$ vaut $\lambda v+\mu w$, alors $\det A=\lambda\det A_v+\mu\det A_w$, où $A_v$, $A_w$ ont $v$, $w$ en ligne $i$ et les autres lignes de $A$.
+\end{itemize}
+\end{definition}
+\begin{proposition}[Propriétés dérivées]\label{prop-det}
+\begin{enumerate}
+\item \textbf{P4} : si deux lignes sont égales, $\det A=0$. Si une ligne est nulle, $\det A=0$.
+\item \textbf{P5} : remplacer $v_i$ par $v_i+\lambda v_j$ ($j\neq i$) ne change pas le déterminant ; donc $\det(EA)=\det A$ pour une matrice d'élimination $E$.
+\item \textbf{P6} : si $A$ est triangulaire, $\det A=a_{11}a_{22}\cdots a_{nn}$.
+\item Si $PA=LU$ où $P$ résulte de $t$ échanges de lignes et $U$ a pour diagonale $d_1,\dots,d_n$, alors $\det A=(-1)^td_1\cdots d_n$ (réf. Prop. 3.6.3).
+\item \textbf{P7} : $A$ est inversible si et seulement si $\det A\neq0$.
+\end{enumerate}
+\end{proposition}
+\begin{preuve}
+(1) Échanger les deux lignes égales ne change pas $A$ mais change le signe : $\det A=-\det A$, d'où $\det A=0$ (si $1+1\neq0$ dans $\K$, ce qui est le cas sur $\R$ et $\C$). Une ligne nulle vaut $0\cdot v$ : P3 donne $\det A=0\cdot\det A_v=0$.
+(2) Par P3, $\det(\dots,v_i+\lambda v_j,\dots)=\det A+\lambda\det(\dots,v_j,\dots,v_j,\dots)=\det A+0$ par P4.
+(3) Si $A$ est triangulaire supérieure à diagonale non nulle, des opérations P5 (soustraire des multiples des lignes du bas) la rendent diagonale sans changer le déterminant ; P3 permet de sortir chaque $a_{ii}$, et P1 conclut. Si un $a_{ii}$ est nul, l'élimination produit une ligne nulle, et $\det A=0$. Même raisonnement pour une triangulaire inférieure.
+(4) Les éliminations ne changent rien (P5), chaque échange change le signe (P2), et $\det U=d_1\cdots d_n$ (P6).
+(5) Par (4), $\det A\neq0$ si et seulement si tous les pivots sont non nuls, c'est-à-dire $A$ inversible (\voir{thm-caract-inv}).
+\end{preuve}
+\begin{remarque}[Existence et unicité]
+Le point (4) montre que P1 à P3 \emph{imposent} la valeur de $\det A$ : il y a au plus un déterminant. Son existence se démontre par une formule explicite (somme sur les permutations, chapitre 4) qui vérifie P1 à P3. On admet ce point.
+\end{remarque}
+\begin{exemple}[Le cas $2\times2$][réf. Ex. 3.6.2]
+La ligne 1 vaut $ae_1+be_2$ et la ligne 2 vaut $ce_1+de_2$. En développant par P3 sur chaque ligne :
+\[\det\begin{pmatrix}a&b\\c&d\end{pmatrix}=ac\det\begin{pmatrix}1&0\\1&0\end{pmatrix}+ad\det\begin{pmatrix}1&0\\0&1\end{pmatrix}+bc\det\begin{pmatrix}0&1\\1&0\end{pmatrix}+bd\det\begin{pmatrix}0&1\\0&1\end{pmatrix}=ad-bc,\]
+grâce à P4 (premier et dernier termes), P1 et P2.
+\end{exemple}
+\begin{theoreme}[Produit et transposée][réf. Prop. 3.6.4]\label{thm-det-produit}
+\textbf{P8} : $\det(AB)=\det A\,\det B$ ; en particulier $\det A^{-1}=1/\det A$. \textbf{P9} : $\det A\tr=\det A$ ; toutes les règles valent donc aussi pour les colonnes.
+\end{theoreme}
+\begin{preuve}
+P8. Si $\det B=0$, $B$ est singulière : il existe $x\neq\mathbf 0$ avec $Bx=\mathbf 0$, donc $ABx=\mathbf 0$ et $\det(AB)=0$. Sinon, posons $D(A)=\det(AB)/\det B$. Alors $D(I_n)=1$ ; échanger deux lignes de $A$ échange les mêmes lignes de $AB$ ; la ligne $i$ de $AB$ est (ligne $i$ de $A$)$B$, qui dépend linéairement de la ligne $i$ de $A$. Donc $D$ vérifie P1 à P3, et par unicité $D=\det$.
+P9. Écrivons $PA=LU$, d'où $A\tr P\tr=U\tr L\tr$. Comme $P\tr=P^{-1}$, P8 donne $\det P\tr=1/\det P=\det P$ (car $\det P=\pm1$). Les matrices $L$, $L\tr$ sont triangulaires de diagonale $1$, et $U$, $U\tr$ ont la même diagonale ; par P6 et P8 : $\det A\tr\det P=\det U=\det P\det A$.
+\end{preuve}
+
+\section{Applications linéaires}
+\begin{definition}[Application linéaire][réf. Déf. 3.7.1]
+Soient $V_1$, $V_2$ deux $\K$-espaces vectoriels. $f:V_1\to V_2$ est \textbf{linéaire} si $f(\lambda v+\mu w)=\lambda f(v)+\mu f(w)$ pour tous $v,w\in V_1$ et $\lambda,\mu\in\K$. Un \textbf{endomorphisme} est une application linéaire de $V$ dans $V$. Le \textbf{noyau} est $\Ker f=\ens{v\mid f(v)=\mathbf 0}$ et l'\textbf{image} est $\Img f=f(V_1)$.
+\end{definition}
+\begin{proposition}[réf. Propriétés 3.7.2, corrigées]\label{prop-lineaire}
+Soit $f:V_1\to V_2$ linéaire.
+\begin{enumerate}
+\item $f(\mathbf 0_{V_1})=\mathbf 0_{V_2}$ et $f(\sum\lambda_iv_i)=\sum\lambda_if(v_i)$.
+\item $\Ker f$ est un sous-espace de $V_1$ et $\Img f$ un sous-espace de $V_2$.
+\item $f$ est injective si et seulement si $\Ker f=\ens{\mathbf 0}$.
+\item Si $(b_1,\dots,b_n)$ est une base de $V_1$, pour tous $w_1,\dots,w_n\in V_2$ il existe une \emph{unique} application linéaire avec $f(b_j)=w_j$ : une application linéaire est déterminée par les images d'une base.
+\end{enumerate}
+\end{proposition}
+\begin{preuve}
+(1) $f(\mathbf 0)=f(0\cdot\mathbf 0)=0\,f(\mathbf 0)=\mathbf 0$ ; la seconde formule par récurrence sur le nombre de termes. (2) Si $f(v)=f(w)=\mathbf 0$, alors $f(\lambda v+\mu w)=\mathbf 0$ ; et $\lambda f(v)+\mu f(w)=f(\lambda v+\mu w)\in\Img f$. (3) Si $\Ker f=\ens{\mathbf 0}$ et $f(v)=f(w)$, alors $f(v-w)=\mathbf 0$, donc $v=w$. Réciproquement, si $f$ est injective et $f(v)=\mathbf 0=f(\mathbf 0)$, alors $v=\mathbf 0$. (4) Unicité : par (1), $f(\sum x_jb_j)=\sum x_jw_j$ est imposé. Existence : cette formule définit bien $f$ (coordonnées uniques) et elle est linéaire.
+\end{preuve}
+\begin{definition}[Matrice d'une application linéaire]
+Soient $B=(b_1,\dots,b_n)$ une base de $V_1$ et $B'$ une base de $V_2$ de dimension $m$. La \textbf{matrice} de $f$ dans ces bases est la matrice $m\times n$ dont la $j$-ème colonne contient les coordonnées de $f(b_j)$ dans $B'$. Si $x$ sont les coordonnées de $v$, celles de $f(v)$ sont $Ax$. Ainsi $\Ker f$ correspond à $N(A)$ et $\Img f$ à $C(A)$.
+\end{definition}
+\begin{theoreme}[Théorème du rang]\label{thm-rang}
+Si $V_1$ est de dimension finie, $\dim\Ker f+\dim\Img f=\dim V_1$.
+\end{theoreme}
+\begin{preuve}
+Avec la matrice $A$ de $f$ : $\dim N(A)+\dim C(A)=(n-r)+r=n$ par le Théorème \voir{thm-fondamental}, et les coordonnées sont des bijections linéaires qui conservent les dimensions.
+\end{preuve}
+\begin{exemple}[réf. Ex. 3.7.3]
+Une homothétie $v\mapsto kv$ et une rotation de centre l'origine sont linéaires. Une translation $v\mapsto v+a$ avec $a\neq\mathbf 0$ ne l'est pas : elle n'envoie pas $\mathbf 0$ sur $\mathbf 0$. La dérivation $P\mapsto P'$ est linéaire sur $\K[X]$, de noyau les constantes.
+\end{exemple}
+
+\begin{erreurs}
+\item Oublier de vérifier que $\mathbf 0\in W$ ; ne vérifier qu'une des deux stabilités.
+\item Confondre famille libre et famille génératrice.
+\item Calculer le rang avec les colonnes de $U$ au lieu des pivots ; prendre les colonnes de $U$ (au lieu de celles de $A$) comme base de $C(A)$.
+\item Mélanger les conventions de la matrice de passage ; utiliser $P$ au lieu de $P^{-1}$.
+\item Appliquer P2 sans tenir compte du signe ; écrire $\det(A+B)=\det A+\det B$ ou $\det(kA)=k\det A$ (c'est $k^n\det A$).
+\item Conclure $\dim(U+W)=\dim U+\dim W$ sans savoir que $U\cap W=\ens{\mathbf 0}$.
+\end{erreurs}
+
+\exercices
+\rubrique{A}
+\begin{exo}[S][Sous-espace ou non ?]
+Dire, en justifiant, si chaque partie est un sous-espace vectoriel. Dans $\R^3$ : (a) $\ens{x+2y-z=0}$ ; (b) $\ens{x+y+z=1}$ ; (c) $\ens{x\ge0}$ ; (d) $\ens{xy=0}$ ; (e) $\ens{x=2y \text{ et } z=0}$. Dans $\R[X]$ : (f) $\ens{P\mid P(1)=0}$ ; (g) $\ens{P\mid P(0)=1}$. Dans $\Mat_2(\R)$ : (h) les matrices inversibles ; (i) les matrices de trace nulle.
+\begin{corrige}
+(a) Oui : $N\begin{pmatrix}1&2&-1\end{pmatrix}$. (b) Non : $\mathbf 0$ n'y est pas. (c) Non : $(1,0,0)$ y est mais pas $-1\cdot(1,0,0)$. (d) Non : $(1,0,0)$ et $(0,1,0)$ y sont, pas leur somme. (e) Oui : $N\begin{pmatrix}1&-2&0\\0&0&1\end{pmatrix}$. (f) Oui : $0$ y est, et $(\lambda P+\mu Q)(1)=\lambda P(1)+\mu Q(1)=0$. (g) Non : $0(0)=0\neq1$. (h) Non : $0$ n'est pas inversible (et $I+(-I)=0$). (i) Oui : la trace est linéaire, c'est le noyau d'une forme linéaire.
+\end{corrige}
+\end{exo}
+\begin{exo}[S][Base et dimension]
+(a) Trouver une base et la dimension de $W=\ens{(x,y,z,t)\in\R^4\mid x+y+z+t=0}$.
+(b) Soient $v_1=(1,2,1)$, $v_2=(2,1,0)$, $v_3=(1,-1,-1)$. Trouver une base et la dimension de $\Vect(v_1,v_2,v_3)$ et une équation de ce sous-espace.
+(c) Le vecteur $(1,0,-1)$ appartient-il à ce sous-espace ? Et $(3,3,1)$ ?
+\begin{corrige}
+(a) $x=-y-z-t$ avec $y,z,t$ libres : $W=\Vect\big((-1,1,0,0),(-1,0,1,0),(-1,0,0,1)\big)$, famille libre (regarder les trois dernières coordonnées) ; $\dim W=3$ (cohérent avec $4-\text{rang}=4-1$).
+(b) Élimination sur la matrice de lignes $v_1,v_2,v_3$ : $L_2-2L_1=(0,-3,-2)$, $L_3-L_1=(0,-3,-2)$, puis $L_3-L_2=0$. Rang $2$ ; base $(1,2,1),(0,-3,-2)$, ou $(v_1,v_2)$ (en effet $v_3=v_2-v_1$). Dimension $2$. Un vecteur normal : $v_1\wedge v_2=(-1,2,-3)$, d'où l'équation $-x+2y-3z=0$ (contrôle sur $v_1$ : $-1+4-3=0$).
+(c) $-1+0+3=2\neq0$ : non. $-3+6-3=0$ : oui, et $(3,3,1)=v_1+v_2$.
+\end{corrige}
+\end{exo}
+\begin{exo}[S][Libre, extraire, compléter]
+(a) La famille $(1,1,0),(0,1,1),(1,0,-1)$ de $\R^3$ est-elle libre ? En extraire une base de l'espace qu'elle engendre.
+(b) Compléter $(1,1,0),(0,1,1)$ en une base de $\R^3$.
+(c) Dans $\R_2[X]$, montrer que $(1,\ 1+X,\ (1+X)^2)$ est une base et donner les coordonnées de $X^2$.
+\begin{corrige}
+(a) $(1,0,-1)=(1,1,0)-(0,1,1)$ : liée. Les deux premiers vecteurs, non colinéaires, forment une base de l'espace engendré (un plan).
+(b) Ajoutons $e_1=(1,0,0)$ : si $a(1,1,0)+b(0,1,1)+c(1,0,0)=\mathbf 0$, la troisième coordonnée donne $b=0$, la deuxième $a=0$, la première $c=0$. Trois vecteurs libres en dimension 3 : une base (\voir{cor-compter}).
+(c) La matrice des coordonnées dans $(1,X,X^2)$ est triangulaire de diagonale $1,1,1$ : la famille est libre, de 3 éléments en dimension 3, donc une base. $X^2=(1+X)^2-2(1+X)+1$ : coordonnées $(1,-2,1)$.
+\end{corrige}
+\end{exo}
+\begin{exo}[S][Rang et dimensions]
+Calculer le rang de $A=\begin{pmatrix}1&2&3\\2&4&6\\1&0&1\end{pmatrix}$ et de $B=\begin{pmatrix}1&1&1&1\\1&2&3&4\end{pmatrix}$. Donner $\dim N$, $\dim C$, $\dim R$ et $\dim N(\cdot\tr)$ pour chacune.
+\begin{corrige}
+$A$ : $L_2-2L_1=0$, $L_3-L_1=(0,-2,-2)$ ; après échange, deux pivots : rang $2$. $\dim R(A)=\dim C(A)=2$, $\dim N(A)=3-2=1$, $\dim N(A\tr)=3-2=1$. $B$ : $L_2-L_1=(0,1,2,3)$ : rang $2$. $\dim R(B)=\dim C(B)=2$ (donc $C(B)=\R^2$), $\dim N(B)=4-2=2$, $\dim N(B\tr)=2-2=0$.
+\end{corrige}
+\end{exo}
+\begin{exo}[S][Coordonnées et changement de base]
+Dans $\R^2$, soient $B$ la base canonique et $B'=(u_1,u_2)$ avec $u_1=(1,1)$, $u_2=(1,-1)$. (a) Écrire la matrice de passage $P$ de $B$ à $B'$. (b) Calculer les coordonnées de $v=(3,1)$ dans $B'$. (c) Quel est le vecteur de coordonnées $(2,-5)$ dans $B'$ ? (d) La base $B'$ est-elle orthonormée ? Que faudrait-il changer ?
+\begin{corrige}
+(a) $P=\begin{pmatrix}1&1\\1&-1\end{pmatrix}$ (colonnes : $u_1$, $u_2$ dans $B$). (b) $x'=P^{-1}x$, $P^{-1}=\frac12\begin{pmatrix}1&1\\1&-1\end{pmatrix}$, $x'=(2,1)$ ; contrôle $2u_1+u_2=(3,1)$. (c) $x=Px'=(2-5,2+5)=(-3,7)$. (d) Orthogonale ($u_1\cdot u_2=0$) mais non normée ($\norm{u_i}=\sqrt2$). Avec $u_i/\sqrt2$, la matrice de passage devient orthogonale et $P^{-1}=P\tr$.
+\end{corrige}
+\end{exo}
+\begin{exo}[S][Déterminants par élimination]
+Calculer, en justifiant chaque étape par P1 à P9 :
+(a) $\det\begin{pmatrix}2&1&1\\4&-6&0\\-2&7&2\end{pmatrix}$ ; (b) $\det\begin{pmatrix}0&2&1\\1&1&1\\2&0&3\end{pmatrix}$ ; (c) $\det\begin{pmatrix}1&1&1&1\\1&2&2&2\\1&2&3&3\\1&2&3&4\end{pmatrix}$ ; (d) $\det(2A)$ et $\det(A^{-1})$ si $A$ est $3\times3$ avec $\det A=5$ ; (e) $\det\begin{pmatrix}1&2&3\\4&5&6\\7&8&9\end{pmatrix}$.
+\begin{corrige}
+(a) Pivots $2,-8,1$ sans échange (exemple du chapitre 2) : $-16$. (b) Un échange puis pivots $1,2,2$ : $(-1)\cdot4=-4$. (c) Les opérations $L_4-L_3$, puis $L_3-L_2$, puis $L_2-L_1$ (P5, effectuées de bas en haut pour utiliser à chaque fois une ligne encore intacte) donnent $\begin{pmatrix}1&1&1&1\\0&1&1&1\\0&0&1&1\\0&0&0&1\end{pmatrix}$, de déterminant $1$ (P6). (d) $2A$ multiplie chacune des 3 lignes par 2 : $2^3\cdot5=40$ (P3 trois fois). $\det A^{-1}=\frac15$ (P8). (e) $L_3-L_2=L_2-L_1=(3,3,3)$ : après élimination deux lignes égales, donc $0$ (P5 puis P4).
+\end{corrige}
+\end{exo}
+\begin{exo}[S][Matrice d'une application linéaire]
+(a) Soit $f:\R^3\to\R^2$, $(x,y,z)\mapsto(x+y,\ y-z)$. Écrire sa matrice dans les bases canoniques, puis son noyau, son image, et vérifier le théorème du rang.
+(b) Soit $D:\R_2[X]\to\R_2[X]$, $P\mapsto P'$. Écrire sa matrice dans la base $(1,X,X^2)$, son noyau, son image et son rang.
+(c) Existe-t-il une application linéaire $g:\R^2\to\R^2$ avec $g(1,0)=(1,2)$, $g(0,1)=(3,4)$, $g(1,1)=(4,5)$ ?
+\begin{corrige}
+(a) $A=\begin{pmatrix}1&1&0\\0&1&-1\end{pmatrix}$, rang 2. Noyau : $x=-y$, $z=y$ : $\Vect(-1,1,1)$, dimension $1$. Image : $C(A)=\R^2$. $1+2=3$.
+(b) $D(1)=0$, $D(X)=1$, $D(X^2)=2X$ : $\begin{pmatrix}0&1&0\\0&0&2\\0&0&0\end{pmatrix}$. Noyau : les constantes ; image : $\R_1[X]$ ; rang 2, et $1+2=3$.
+(c) Non : la linéarité imposerait $g(1,1)=g(1,0)+g(0,1)=(4,6)\neq(4,5)$. Les images de la base $(1,0),(0,1)$ déterminent $g$ (\voir{prop-lineaire}).
+\end{corrige}
+\end{exo}
+\begin{exo}[A][Sommes et sommes directes]
+Dans $\R^3$, soient $U=\ens{z=0}$, $D=\Vect(1,1,1)$ et $W=\ens{x=0}$. (a) Montrer que $\R^3=U\oplus D$ et décomposer $v=(1,2,3)$. (b) Calculer $U\cap W$, $\dim(U+W)$ ; la somme $U+W$ est-elle directe ? (c) Trouver un supplémentaire du plan $P=\ens{x+y+z=0}$.
+\begin{corrige}
+(a) $U\cap D$ : $t(1,1,1)$ avec $t=0$, donc $\ens{\mathbf 0}$ ; Grassmann donne $\dim(U+D)=2+1=3$, donc $U\oplus D=\R^3$. $v=(1,2,3)=(-2,-1,0)+3(1,1,1)$.
+(b) $U\cap W=\ens{x=z=0}=\Vect(e_2)$ ; $\dim(U+W)=2+2-1=3$ : $U+W=\R^3$, mais la somme n'est pas directe.
+(c) $D=\Vect(1,1,1)$ : $(1,1,1)\notin P$ car $3\neq0$, donc $P\cap D=\ens{\mathbf 0}$ et $\dim(P+D)=3$. (C'est même le supplémentaire orthogonal : $D=R\begin{pmatrix}1&1&1\end{pmatrix}$ et $P=N\begin{pmatrix}1&1&1\end{pmatrix}$.)
+\end{corrige}
+\end{exo}
+
+\rubrique{B}
+\begin{exo}[S][Depuis les axiomes]
+Dans un espace vectoriel $V$, démontrer en citant à chaque ligne l'axiome utilisé : (a) l'unicité de $\mathbf 0$ et de l'opposé ; (b) $0u=\mathbf 0$ et $k\mathbf 0=\mathbf 0$ ; (c) $ku=\mathbf 0\Rightarrow k=0$ ou $u=\mathbf 0$ ; (d) $(-1)u=-u$.
+\begin{corrige}
+Voir la Proposition des unicités et le Théorème \voir{thm-zero}. Dans (c), noter que l'on utilise l'existence de $k^{-1}$ dans $\K$ et l'axiome (8) : $u=1u$. Pour (d), $u+(-1)u=1u+(-1)u=(1-1)u=0u=\mathbf 0$ (axiomes 8 et 6), puis l'unicité de l'opposé.
+\end{corrige}
+\end{exo}
+\begin{exo}[S][Le critère et ses usages]
+(a) Démontrer le critère de sous-espace. (b) En déduire que $N(A)$ est un sous-espace, que l'intersection de deux sous-espaces en est un, et que $\Ker f$ et $\Img f$ en sont pour $f$ linéaire. (c) Montrer que $Ax=b$ a une solution si et seulement si $b\in C(A)$.
+\begin{corrige}
+Voir \voir{thm-critere-sev}, \voir{prop-CA}, \voir{prop-inter-sev} et \voir{prop-lineaire}. Dans chaque cas, la rédaction attendue est : \og $\mathbf 0$ appartient à ... car ... ; soient $u,v$ dans ... et $k,l\in\K$ ; alors $ku+lv$ ... ; d'après le critère, ... est un sous-espace \fg.
+\end{corrige}
+\end{exo}
+\begin{exo}[S][Le sous-espace engendré]
+Démontrer que $\Vect(S)$, défini comme l'ensemble des combinaisons linéaires d'éléments de $S$, est le plus petit sous-espace contenant $S$ et qu'il est égal à l'intersection de tous les sous-espaces contenant $S$. En déduire que $\Vect(S)=\Vect(S')$ si chaque élément de $S'$ est combinaison de $S$ et réciproquement.
+\begin{corrige}
+Voir \voir{thm-engendre}. Pour la conséquence : si chaque élément de $S'$ est combinaison d'éléments de $S$, alors $S'\subset\Vect(S)$, donc $\Vect(S')\subset\Vect(S)$ par minimalité ; et réciproquement.
+\end{corrige}
+\end{exo}
+\begin{exo}[S][Bases : équivalences et échange]
+(a) Démontrer l'équivalence entre \og base \fg{} et \og tout vecteur s'écrit de façon unique \fg. (b) Démontrer qu'une famille génératrice minimale est libre. (c) Énoncer et démontrer le lemme d'échange. (d) Application : $(1,1,0),(0,1,1),(1,0,1)$ est une base de $\R^3$ ; on remplace le premier vecteur par $\omega=(2,3,1)$. Obtient-on une base ?
+\begin{corrige}
+(a), (b), (c) : voir \voir{thm-base} et \voir{lem-echange}. (d) On écrit $\omega=a(1,1,0)+b(0,1,1)+c(1,0,1)$ : $a+c=2$, $a+b=3$, $b+c=1$, d'où (en sommant) $a+b+c=3$, puis $c=0$, $a=2$, $b=1$. Le coefficient de $(1,1,0)$ est $a=2\neq0$ : le lemme d'échange garantit que $(\omega,(0,1,1),(1,0,1))$ est une base. (Si l'on avait voulu remplacer $(1,0,1)$, de coefficient $c=0$, cela aurait échoué : $\omega$ serait dans le plan des deux autres.)
+\end{corrige}
+\end{exo}
+\begin{exo}[S][Pourquoi la dimension est bien définie]
+Rédiger la démonstration du Théorème \voir{thm-steinitz} : dans un espace engendré par $n$ vecteurs, une famille libre a au plus $n$ éléments. Identifier précisément où l'on utilise la liberté de la famille $(u_i)$ et où l'on utilise le lemme d'échange.
+\begin{corrige}
+Voir la preuve du cours. La liberté sert à chaque étape pour affirmer qu'un coefficient $c_j$ devant un $w$ \emph{restant} est non nul : sinon $u_{k+1}$ serait combinaison des $u$ déjà placés. Le lemme d'échange sert à garantir que la famille reste une base après chaque remplacement. S'il restait des $u$ alors que tous les $w$ ont été remplacés, $u_{k+1}$ serait combinaison de $u_1,\dots,u_k$ : contradiction ; c'est l'argument de comptage final.
+\end{corrige}
+\end{exo}
+\begin{exo}[S][Somme directe]
+Démontrer le Théorème \voir{thm-somme-directe}. Montrer ensuite que si $V=U\oplus W$, une base de $U$ réunie à une base de $W$ forme une base de $V$, et que $\dim V=\dim U+\dim W$.
+\begin{corrige}
+Voir le cours pour la première partie. La réunion engendre $U+W=V$. Si $\sum\alpha_iu_i+\sum\beta_jw_j=\mathbf 0$, alors $\sum\alpha_iu_i=-\sum\beta_jw_j\in U\cap W=\ens{\mathbf 0}$, et la liberté de chaque base annule les coefficients. Le nombre d'éléments donne la formule (cas particulier de Grassmann).
+\end{corrige}
+\end{exo}
+\begin{exo}[S][L'espace ligne est invariant]
+Montrer que $R(EA)=R(A)$ pour toute matrice $E$ inversible, puis que deux matrices échelonnées issues de $A$ par élimination ont le même nombre de lignes non nulles. Donner un exemple où $C(EA)\neq C(A)$.
+\begin{corrige}
+Les lignes de $EA$ sont des combinaisons des lignes de $A$ (lecture par lignes du produit), donc $R(EA)\subset R(A)$, et $A=E^{-1}(EA)$ donne l'autre inclusion. Deux formes échelonnées $U_1,U_2$ ont $R(U_1)=R(U_2)=R(A)$, et le nombre de lignes non nulles est la dimension de cet espace (\voir{prop-base-engendre}) : le rang ne dépend pas des choix faits pendant l'élimination. Exemple : $A=\begin{pmatrix}1\\1\end{pmatrix}$, $E=\begin{pmatrix}1&0\\-1&1\end{pmatrix}$, $EA=\begin{pmatrix}1\\0\end{pmatrix}$, et $C(A)=\Vect(1,1)\neq\Vect(1,0)$.
+\end{corrige}
+\end{exo}
+\begin{exo}[S][Applications linéaires]
+Soit $f:V_1\to V_2$ linéaire. Démontrer que $f(\mathbf 0)=\mathbf 0$, que $\Ker f$ et $\Img f$ sont des sous-espaces, et que $f$ est injective si et seulement si $\Ker f=\ens{\mathbf 0}$. En déduire qu'une application linéaire injective envoie une famille libre sur une famille libre.
+\begin{corrige}
+Voir \voir{prop-lineaire}. Si $(v_i)$ est libre et $\sum\lambda_if(v_i)=\mathbf 0$, alors $f(\sum\lambda_iv_i)=\mathbf 0$, donc $\sum\lambda_iv_i\in\Ker f=\ens{\mathbf 0}$, et tous les $\lambda_i$ sont nuls.
+\end{corrige}
+\end{exo}
+\begin{exo}[A][Dimensions de sous-espaces de matrices]\label{exo-dim-matrices}
+Exhiber une base et en déduire la dimension : (a) des matrices diagonales ; (b) des triangulaires supérieures ; (c) des symétriques ; (d) des antisymétriques de $\Mat_n(\R)$. Vérifier que $\Mat_n(\R)=\mathcal S_n\oplus\mathcal A_n$ est cohérent avec les dimensions.
+\begin{corrige}
+(a) $(E_{ii})_{1\le i\le n}$ : dimension $n$. (b) $(E_{ij})_{i\le j}$ : $n+(n-1)+\dots+1=\frac{n(n+1)}2$. (c) $(E_{ij}+E_{ji})_{i<j}$ et $(E_{ii})$ : une symétrique s'écrit $\sum_ia_{ii}E_{ii}+\sum_{i<j}a_{ij}(E_{ij}+E_{ji})$, de façon unique ; dimension $\frac{n(n-1)}2+n=\frac{n(n+1)}2$. (d) $(E_{ij}-E_{ji})_{i<j}$ : dimension $\frac{n(n-1)}2$ (la diagonale est nulle car $a_{ii}=-a_{ii}$). On a bien $\frac{n(n+1)}2+\frac{n(n-1)}2=n^2$, avec $\mathcal S_n\cap\mathcal A_n=\ens{0}$ (si $A\tr=A=-A$ alors $A=0$) et la décomposition du chapitre 2.
+\end{corrige}
+\end{exo}
+\begin{exo}[A][Le déterminant depuis ses propriétés]
+(a) Retrouver $\det\begin{pmatrix}a&b\\c&d\end{pmatrix}=ad-bc$ à partir de P1 à P4. (b) Démontrer P5 et P6. (c) Démontrer que $\det A=(-1)^td_1\cdots d_n$, puis que $A$ est inversible si et seulement si $\det A\neq0$.
+\begin{corrige}
+Voir l'exemple $2\times2$ et la Proposition \voir{prop-det}. Pour (c), la rédaction doit dire d'où vient chaque facteur : les éliminations ne changent pas le déterminant (P5), chaque échange introduit un facteur $-1$ (P2), puis P6 sur $U$.
+\end{corrige}
+\end{exo}
+\begin{exo}[A][Le théorème fondamental, partie réelle]
+Pour $A\in\Mat_{m\times n}(\R)$, démontrer que $N(A)\perp R(A)$, que $N(A)\cap R(A)=\ens{\mathbf 0}$, puis que $\R^n=N(A)\oplus R(A)$. En déduire que tout $x\in\R^n$ s'écrit $x=x_N+x_R$ et que $Ax=Ax_R$.
+\begin{corrige}
+Voir \voir{thm-fondamental}. Pour la dernière partie : $Ax=Ax_N+Ax_R=\mathbf 0+Ax_R$. Toute l'action de $A$ se passe sur l'espace ligne ; restreinte à $R(A)$, $A$ est même injective (si $x_R\in R(A)$ et $Ax_R=\mathbf 0$, alors $x_R\in N(A)\cap R(A)=\ens{\mathbf 0}$), donc réalise une bijection de $R(A)$ sur $C(A)$.
+\end{corrige}
+\end{exo}
+\begin{exo}[D][Produit et transposée]
+(a) Démontrer P8 : $\det(AB)=\det A\det B$. (b) En déduire $\det A^{-1}=1/\det A$ et que $\det(P^{-1}AP)=\det A$. (c) Démontrer P9 à l'aide de $PA=LU$.
+\begin{corrige}
+(a) et (c) : voir \voir{thm-det-produit} ; il faut bien traiter à part le cas $\det B=0$, car la fonction $D$ y est indéfinie. (b) $\det A\det A^{-1}=\det I_n=1$, puis $\det(P^{-1}AP)=\det P^{-1}\det A\det P=\det A$. Ainsi deux matrices qui représentent le même endomorphisme dans deux bases ont le même déterminant : on peut parler du déterminant d'un endomorphisme.
+\end{corrige}
+\end{exo}
+
+\rubrique{C}
+\begin{exo}[S][Réunions et complémentaires]
+Vrai ou faux ? (a) La réunion de deux droites vectorielles de $\R^2$ est un sous-espace. (b) Le complémentaire d'un sous-espace $W\neq V$ est un sous-espace. (c) L'ensemble des solutions de $Ax=b$, $b\neq\mathbf 0$, est un sous-espace. (d) $\ens{(x,y)\mid x^2=y^2}$ est un sous-espace de $\R^2$.
+\begin{corrige}
+(a) Faux si les droites sont distinctes (\voir{prop-inter-sev}). (b) Faux : il ne contient pas $\mathbf 0$. (c) Faux : $\mathbf 0$ n'est pas solution. (d) Faux : c'est la réunion des droites $y=x$ et $y=-x$ ; $(1,1)+(1,-1)=(2,0)$ en sort.
+\end{corrige}
+\end{exo}
+\begin{exo}[S][Lois inhabituelles]
+Pour chaque structure, vérifier les huit axiomes et nommer ceux qui échouent.
+(a) $\R^2$ avec l'addition usuelle et $k\odot(x,y)=(kx,0)$.
+(b) $\R^2$ avec l'addition usuelle et $k\odot(x,y)=(k^2x,k^2y)$.
+(c) $\R_+^*$ avec $x\oplus y=xy$ et $k\odot x=x^k$.
+\begin{corrige}
+(a) Les axiomes (1) à (7) sont vrais ; (8) échoue : $1\odot(0,1)=(0,0)\neq(0,1)$.
+(b) (6) échoue : $(1+1)\odot u=4u$ alors que $1\odot u\oplus1\odot u=2u$, différents pour $u\neq\mathbf 0$. Les autres sont vrais (en particulier (7) : $(kl)^2=k^2l^2$).
+(c) C'est un espace vectoriel réel ! Le \og vecteur nul \fg{} est $1$, l'opposé de $x$ est $1/x$, et par exemple (5) : $k\odot(x\oplus y)=(xy)^k=x^ky^k$ ; (6) : $x^{k+l}=x^kx^l$ ; (7) : $x^{kl}=(x^l)^k$ ; (8) : $x^1=x$. Le logarithme en est un isomorphisme vers $(\R,+,\cdot)$.
+\end{corrige}
+\end{exo}
+\begin{exo}[S][Ce que préservent les opérations]
+Soit $B$ obtenue à partir de $A$ par une opération élémentaire. Comparer $C(A)$ et $C(B)$, $R(A)$ et $R(B)$, $N(A)$ et $N(B)$, et le rang, (a) si l'opération porte sur les lignes, (b) si elle porte sur les colonnes. Donner un contre-exemple pour chaque égalité qui n'est pas garantie.
+\begin{corrige}
+(a) Lignes ($B=EA$) : $R$ et $N$ inchangés, rang inchangé ; $C$ change en général (contre-exemple de l'Attention avec $\begin{pmatrix}1&1\\1&1\end{pmatrix}$). (b) Colonnes ($B=AE$, $E$ inversible) : $C(AE)=C(A)$ (mêmes arguments) et rang inchangé ; $R$ et $N$ changent en général : $A=\begin{pmatrix}1&1\end{pmatrix}$, $B=\begin{pmatrix}1&0\end{pmatrix}$ (on retranche la colonne 1 de la colonne 2) : $N(A)=\Vect(1,-1)$ mais $N(B)=\Vect(0,1)$.
+\end{corrige}
+\end{exo}
+\begin{exo}[S][Familles liées]
+Vrai ou faux ? (a) Une famille contenant le vecteur nul est liée. (b) Deux vecteurs sont liés si et seulement si l'un est multiple de l'autre. (c) Trois vecteurs deux à deux non colinéaires sont libres. (d) Une sous-famille d'une famille libre est libre. (e) Une famille qui contient une famille liée est liée.
+\begin{corrige}
+(a) Vrai : $1\cdot\mathbf 0=\mathbf 0$ est une combinaison nulle à coefficient non nul. (b) Vrai (\voir{prop-liee} pour $m=2$). (c) Faux : $(1,0)$, $(0,1)$, $(1,1)$ dans $\R^2$. (d) Vrai : une relation sur la sous-famille en est une sur la famille. (e) Vrai, par contraposée de (d).
+\end{corrige}
+\end{exo}
+\begin{exo}[A][Même ensemble, deux corps]
+(a) Montrer que $\dim_{\C}\C^n=n$ et $\dim_{\R}\C^n=2n$ en exhibant des bases. (b) Les vecteurs $(1,i)$ et $(i,-1)$ de $\C^2$ sont-ils libres sur $\C$ ? sur $\R$ ? (c) Les sous-espaces de $\C$ vu comme $\R$-espace vectoriel sont-ils tous des sous-espaces de $\C$ vu comme $\C$-espace vectoriel ?
+\begin{corrige}
+(a) $(e_1,\dots,e_n)$ sur $\C$ ; $(e_1,ie_1,\dots,e_n,ie_n)$ sur $\R$ : tout $z=\sum(a_k+ib_k)e_k=\sum a_ke_k+\sum b_k(ie_k)$ de façon unique avec $a_k,b_k$ réels. (b) $(i,-1)=i(1,i)$ : liés sur $\C$. Sur $\R$ : $a(1,i)+b(i,-1)=(a+ib,\,ia-b)=\mathbf 0$ avec $a,b$ réels impose $a=b=0$ : libres. (c) Non : $\R\subset\C$ est un sous-espace réel (de dimension 1) mais pas un sous-espace complexe, puisque $i\cdot1\notin\R$. Les sous-espaces complexes de $\C$ sont seulement $\ens0$ et $\C$.
+\end{corrige}
+\end{exo}
+\begin{exo}[A][La décomposition échoue sur $\C$]
+Pour $A=\begin{pmatrix}1&i\\i&-1\end{pmatrix}$ : (a) calculer le rang, $N(A)$ et $R(A)$ ; (b) expliquer pourquoi $\C^2\neq N(A)\oplus R(A)$ ; (c) quelle hypothèse de la preuve du Théorème \voir{thm-fondamental} n'est plus vérifiée ?
+\begin{corrige}
+(a) La ligne 2 vaut $i$ fois la ligne 1 : rang 1. $N(A)$ : $x+iy=0$, $N(A)=\Vect(-i,1)=\Vect(1,i)$ (multiplier par $i$). $R(A)=\Vect(1,i)$. (b) $N(A)=R(A)$, donc $N(A)\cap R(A)\neq\ens{\mathbf 0}$ et $N(A)+R(A)$ est une droite. (c) L'étape \og $x\cdot x=0\Rightarrow x=\mathbf 0$ \fg, fausse pour la forme $x\tr y$ sur $\C$ : $(1,i)\tr(1,i)=1+i^2=0$.
+\end{corrige}
+\end{exo}
+\begin{exo}[A][En dimension infinie]
+(a) Montrer que $(X^k)_{k\ge0}$ est une base de $\K[X]$ et que $\K[X]$ n'est pas de dimension finie. (b) Dans l'espace $\R^{\N}$ des suites réelles, soit $e_k$ la suite valant $1$ au rang $k$ et $0$ ailleurs. La famille $(e_k)$ est-elle libre ? génératrice ? (c) Une famille libre maximale de $\K[X]$ est-elle une base ? Le Corollaire \voir{cor-compter} a-t-il encore un sens ?
+\begin{corrige}
+(a) Tout polynôme est une combinaison finie des $X^k$, de façon unique (égalité de polynômes = égalité des coefficients). Si $\K[X]$ était engendré par $P_1,\dots,P_m$, de degrés au plus $d$, tout polynôme serait de degré au plus $d$ : faux pour $X^{d+1}$.
+(b) Libre : une combinaison (finie !) $\sum_{k\le N}\lambda_ke_k$ nulle a ses coefficients nuls. Pas génératrice : $\Vect(e_k)$ est formé des suites nulles à partir d'un certain rang, et la suite constante $1$ n'en fait pas partie.
+(c) Oui : la preuve de (4)$\Rightarrow$(1) du Théorème \voir{thm-base} n'utilise pas la finitude. En revanche les énoncés de comptage (\og libre de $n$ éléments $\Rightarrow$ base \fg) n'ont plus de sens : $(X^{2k})$ est libre, infinie, et pas génératrice.
+\end{corrige}
+\end{exo}
+
+\rubrique{D}
+\begin{exo}[S][Les quatre sous-espaces]
+Soit $A=\begin{pmatrix}1&2&0&1\\2&4&1&3\\3&6&1&4\end{pmatrix}$.
+(a) Calculer $PA=LU$ et le rang. (b) Donner une base de $R(A)$, $C(A)$, $N(A)$ et $N(A\tr)$. (c) Vérifier les formules de dimension et les orthogonalités $N(A)\perp R(A)$, $N(A\tr)\perp C(A)$. (d) Pour quels $b$ le système $Ax=b$ a-t-il une solution ?
+\begin{corrige}
+(a) $L_2-2L_1=(0,0,1,1)$, $L_3-3L_1=(0,0,1,1)$, puis $L_3-L_2=0$. Aucun échange : $L=\begin{pmatrix}1&0&0\\2&1&0\\3&1&1\end{pmatrix}$, $U=\begin{pmatrix}1&2&0&1\\0&0&1&1\\0&0&0&0\end{pmatrix}$. Pivots en colonnes 1 et 3 : rang 2.
+(b) $R(A)$ : $(1,2,0,1)$, $(0,0,1,1)$. $C(A)$ : colonnes 1 et 3 de $A$, $(1,2,3)$ et $(0,1,1)$. $N(A)$ : variables libres $x_2=s$, $x_4=t$ ; $x_3=-t$, $x_1=-2s-t$ ; base $(-2,1,0,0)$, $(-1,0,-1,1)$. $N(A\tr)$ : la dernière ligne de $L^{-1}$ donne la relation entre lignes : $L_3=L_1+L_2$, d'où $y=(1,1,-1)$.
+(c) $2+2=4=n$ et $2+1=3=m$. Produits : $(-2,1,0,0)\cdot(1,2,0,1)=0$, $(-2,1,0,0)\cdot(0,0,1,1)=0$, $(-1,0,-1,1)\cdot(1,2,0,1)=0$, $(-1,0,-1,1)\cdot(0,0,1,1)=0$ ; $y\cdot(1,2,3)=0$, $y\cdot(0,1,1)=0$.
+(d) $b\in C(A)=N(A\tr)^\perp$ : $b_1+b_2-b_3=0$.
+\end{corrige}
+\end{exo}
+\begin{exo}[S][Deux descriptions d'un sous-espace]\label{exo-deux-descriptions}
+(a) Donner des équations de $W=\Vect\big((1,0,1,0),(0,1,1,1)\big)\subset\R^4$. (b) Donner une base de $W'=\ens{x\in\R^4\mid x_1+x_2-x_3=0,\ x_2-x_4=0}$. (c) Comparer $W$ et $W'$. (d) Expliquer pourquoi tout sous-espace de $\K^n$ est l'espace nul d'une matrice.
+\begin{corrige}
+(a) Les équations cherchées sont les $y\cdot x=0$ pour $y\in N(M)$, où $M$ a pour lignes les générateurs : $y_1+y_3=0$, $y_2+y_3+y_4=0$, d'où $N(M)=\Vect\big((-1,-1,1,0),(0,-1,0,1)\big)$. Équations : $-x_1-x_2+x_3=0$ et $-x_2+x_4=0$.
+(b) $x_4=x_2$, $x_3=x_1+x_2$ : base $(1,0,1,0)$, $(0,1,1,1)$.
+(c) $W=W'$ : ce sont les deux descriptions du même plan.
+(d) Si $W$ a une base $w_1,\dots,w_k$, soit $M$ la matrice de lignes $w_i$ et $Y$ une matrice dont les lignes forment une base de $N(M)$ (de dimension $n-k$). Chaque ligne $y$ de $Y$ vérifie $My=\mathbf 0$, c'est-à-dire $w_i\tr y=0$ pour tout $i$ ; donc $Yw_i=\mathbf 0$ et $W\subset N(Y)$. Les lignes de $Y$ sont libres, donc $Y$ est de rang $n-k$ et $\dim N(Y)=n-(n-k)=k=\dim W$ (\voir{thm-fondamental}). D'où $W=N(Y)$, sur n'importe quel corps.
+\end{corrige}
+\end{exo}
+\begin{exo}[A][Polynômes sous conditions]
+Soit $W=\ens{P\in\R_3[X]\mid P(1)=0,\ P'(1)=0}$. (a) Montrer que $W$ est un sous-espace. (b) Trouver sa dimension par le théorème du rang. (c) En donner une base. (d) Même travail pour $\ens{P\in\R_3[X]\mid P(0)=P(1)=P(2)}$.
+\begin{corrige}
+(a) $W$ est le noyau de l'application linéaire $\varphi:P\mapsto(P(1),P'(1))$ de $\R_3[X]$ dans $\R^2$. (b) $\varphi$ est surjective ($\varphi(1)=(1,0)$, $\varphi(X-1)=(0,1)$), donc $\dim W=4-2=2$. (c) $(X-1)^2$ et $X(X-1)^2$ sont dans $W$ (racine double en $1$) et libres (degrés différents) : base. (d) Noyau de $P\mapsto(P(1)-P(0),P(2)-P(0))$, surjective (images de $X$ : $(1,2)$, de $X^2$ : $(1,4)$, non colinéaires) : dimension $2$, base $1$ et $X(X-1)(X-2)$.
+\end{corrige}
+\end{exo}
+\begin{exo}[A][Espaces de suites]
+Dans $\R^{\N}$, on considère $c_{00}$ (suites nulles à partir d'un certain rang), $\ell^\infty$ (suites bornées) et $c$ (suites convergentes). (a) Montrer que ce sont des sous-espaces et que $c_{00}\subset c\subset\ell^\infty$. (b) Montrer qu'ils sont de dimension infinie. (c) Les suites vérifiant $u_{n+2}=u_{n+1}+u_n$ forment-elles un sous-espace ? de quelle dimension ?
+\begin{corrige}
+(a) Critère : la suite nulle est dans chacun, et une combinaison de suites nulles à partir d'un rang (resp. bornées, convergentes) l'est encore (prendre le plus grand des deux rangs ; $\abs{\lambda u_n+\mu v_n}\le\abs\lambda M+\abs\mu M'$ ; limites des sommes). Les inclusions sont classiques. (b) Les $e_k$ sont dans $c_{00}$, donc dans les trois, et forment une famille libre infinie. (c) Oui (relation linéaire homogène) ; l'application $u\mapsto(u_0,u_1)$ est linéaire et bijective sur ce sous-espace (une suite est déterminée par ses deux premiers termes, qu'on choisit librement) : dimension $2$.
+\end{corrige}
+\end{exo}
+\begin{exo}[A][Une matrice orthogonale]
+Soit $Q=\frac13\begin{pmatrix}1&2&2\\2&1&-2\\2&-2&1\end{pmatrix}$. (a) Vérifier que $Q$ est orthogonale et calculer $Q^{-1}$. (b) Donner les coordonnées de $v=(3,0,3)$ dans la base orthonormée formée des colonnes de $Q$, de deux façons. (c) Vérifier que $\norm{Qv}=\norm v$. (d) Calculer $\det Q$ ; quelles valeurs le déterminant d'une matrice orthogonale peut-il prendre ?
+\begin{corrige}
+(a) Les colonnes sont unitaires ($\frac{1+4+4}9=1$) et deux à deux orthogonales ($\frac{2+2-4}9=0$, $\frac{2-4+2}9=0$, $\frac{4-2-2}9=0$) ; $Q^{-1}=Q\tr=Q$ ($Q$ est symétrique). (b) Par produits scalaires : $v\cdot q_1=\frac{3+6}3=3$, $v\cdot q_2=\frac{6-6}3=0$, $v\cdot q_3=\frac{6+3}3=3$ ; ou par $Q^{-1}v=Qv$ : même résultat $(3,0,3)$. (c) $\norm{Qv}=\norm{(3,0,3)}=\norm v$. (d) $\det(Q\tr Q)=(\det Q)^2=1$, donc $\det Q=\pm1$. Ici $Q$ est symétrique, orthogonale, de trace $1$ : c'est une symétrie orthogonale par rapport à un plan, et $\det Q=-1$ (calcul : $\frac1{27}(1\cdot(1-4)-2(2+4)+2(-4-2))=\frac{-27}{27}$).
+\end{corrige}
+\end{exo}
+\begin{exo}[D][Somme directe sans orthogonalité]
+(a) Construire deux sous-espaces de $\R^2$ en somme directe, égale à $\R^2$, mais non orthogonaux. (b) Construire deux sous-espaces de $\R^3$ d'intersection nulle dont la somme n'est pas $\R^3$. (c) Montrer que si $U\perp W$ dans $\R^n$, la somme est directe. (d) Étant donné un sous-espace $U$ de $\R^n$, combien a-t-il de supplémentaires ? combien de supplémentaires orthogonaux ?
+\begin{corrige}
+(a) $U=\Vect(1,0)$ et $W=\Vect(1,1)$ : $U\cap W=\ens{\mathbf 0}$, dimensions $1+1=2$, mais $(1,0)\cdot(1,1)=1\neq0$. (b) Deux droites distinctes, par exemple $\Vect(e_1)$ et $\Vect(e_2)$ : somme de dimension 2. (c) Si $x\in U\cap W$, alors $x\cdot x=0$, donc $x=\mathbf 0$. (d) Si $\ens{\mathbf 0}\neq U\neq\R^n$, une infinité de supplémentaires (en (a), toute droite autre que $U$), mais un seul supplémentaire orthogonal : $U^\perp=N(M)$ où $M$ a pour lignes une base de $U$ (Théorème \voir{thm-fondamental}).
+\end{corrige}
+\end{exo}
+
+\begin{bilan}
+\item Appliquer le critère de sous-espace ; reconnaître un espace nul ou un noyau.
+\item Trouver base et dimension de $C(A)$, $R(A)$, $N(A)$, $N(A\tr)$ via $PA=LU$ ; vérifier les formules de dimension.
+\item Rédiger l'équivalence des caractérisations d'une base et le lemme d'échange.
+\item Utiliser la formule de Grassmann et le critère de somme directe.
+\item Calculer un déterminant par P1 à P9 en justifiant chaque pas.
+\item Écrire la matrice d'une application linéaire ; changer de base avec la bonne convention.
+\end{bilan}

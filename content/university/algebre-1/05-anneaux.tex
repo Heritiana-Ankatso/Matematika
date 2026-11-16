@@ -1,0 +1,337 @@
+\chapitre[Chapters 1 and 4: Z/nZ, groups, normal subgroups and quotients.]{5}{Introduction à la théorie des anneaux}{Introduction to ring theory}
+\resume{Deux lois liées par la distributivité : anneaux, inversibles et corps, idéaux et anneaux quotients, anneaux intègres et principaux, idéaux premiers et maximaux, homomorphismes d'anneaux, et deux familles d'exemples, $\Z/n\Z$ et les quotients d'anneaux de polynômes, qui fabriquent des corps finis.}
+\summary{Two laws tied by distributivity: rings, units and fields, ideals and quotient rings, integral and principal domains, prime and maximal ideals, ring homomorphisms, and two families of examples, Z/nZ and quotients of polynomial rings, which produce finite fields.}
+\begin{objectifs}
+\item Reconnaître un anneau, un anneau commutatif, un corps ; calculer les inversibles d'un anneau usuel.
+\item Décrire les idéaux de $\Z$ et calculer $I+J$, $I\cap J$, $IJ$ ; reconnaître un idéal.
+\item Construire un anneau quotient et décider s'il est intègre ou si c'est un corps.
+\item Décider si un idéal de $\Z$ ou de $\K[X]$ est premier ou maximal ; décrire $\K[X]/(P)$.
+\item Mettre en parallèle groupes et anneaux : sous-groupe normal et idéal, quotients, premier théorème d'isomorphisme.
+\end{objectifs}
+\begin{prerequis}
+Chapitre 4 : groupes, sous-groupes normaux, groupes quotients, premier théorème d'isomorphisme. Chapitre 1 : $\Z/n\Z$ et ses inversibles. Polynômes à une indéterminée, division euclidienne des polynômes.
+\end{prerequis}
+\begin{remarque}[Ce chapitre et le polycopié]
+Le polycopié de référence rédige les sections 5.1 et 5.2 et la définition d'idéal premier ; les sections sur les idéaux maximaux, les homomorphismes d'anneaux et les exemples y sont annoncées mais vides. Elles sont complétées ici par les résultats standard d'un cours de première année, signalés \og complément \fg.
+\end{remarque}
+
+\section{Anneaux, inversibles, corps}
+\begin{intuition}
+$\Z$, $\Q$, $\R$, $\C$, $\Mat_n(\R)$, $\R[X]$ ont deux opérations : une addition qui en fait un groupe abélien, une multiplication associative avec un neutre $1$, et la distributivité qui les relie. C'est le cadre naturel de l'arithmétique : divisibilité, pgcd, nombres premiers ont un sens dans un anneau.
+\end{intuition}
+\begin{definition}[Anneau, corps][réf. Déf. 5.1.1]\label{def-anneau}
+Un \textbf{anneau} est un ensemble $A$ muni de deux lois $+$ et $\cdot$ telles que :
+\begin{itemize}
+\item $(A,+)$ est un groupe abélien, de neutre $0$ ;
+\item $(A,\cdot)$ est un monoïde, de neutre $1$ (multiplication associative) ;
+\item la multiplication est distributive : $a(b+c)=ab+ac$ et $(a+b)c=ac+bc$.
+\end{itemize}
+L'anneau est \textbf{commutatif} si la multiplication l'est. Un élément $a$ est \textbf{inversible} s'il existe $b$ avec $ab=ba=1$ ; les inversibles forment un groupe multiplicatif, noté $A^\times$. Un \textbf{corps} est un anneau commutatif où $1\neq0$ et où tout élément non nul est inversible : $A^\times=A\setminus\ens0$.
+\end{definition}
+\begin{proposition}[Règles de calcul]
+Dans un anneau : $0\cdot a=a\cdot0=0$ ; $(-a)b=a(-b)=-(ab)$ ; si $1=0$, alors $A=\ens0$ (l'anneau nul). $A^\times$ est un groupe.
+\end{proposition}
+\begin{preuve}
+$0a=(0+0)a=0a+0a$, et l'on simplifie dans le groupe $(A,+)$. Puis $ab+(-a)b=(a-a)b=0$. Si $1=0$, $a=1a=0a=0$. Enfin si $a,b$ sont inversibles, $b^{-1}a^{-1}$ est inverse de $ab$ ; $1\in A^\times$ ; et $a^{-1}$ est inversible d'inverse $a$.
+\end{preuve}
+\begin{exemple}[réf. Ex. 5.1.2]
+$\Z,\Q,\R,\C$, $\R[X]$, $\Z/n\Z$ sont des anneaux commutatifs ; $\Q,\R,\C$ et $\Z/p\Z$ ($p$ premier) sont des corps ; $\Z^\times=\ens{\pm1}$. $\Mat_n(\R)$ est un anneau non commutatif pour $n\ge2$, et $\Mat_n(\R)^\times=\GL_n(\R)$. L'anneau $\Z[i]=\ens{a+bi\mid a,b\in\Z}$ des \textbf{entiers de Gauss} est un sous-anneau de $\C$ ; les polynômes à plusieurs indéterminées $\R[X,Y]$ forment un anneau commutatif.
+\end{exemple}
+\begin{proposition}[Les inversibles de $\Z[i]$]\label{prop-gauss}
+$\Z[i]^\times=\ens{1,-1,i,-i}$.
+\end{proposition}
+\begin{preuve}
+La norme $N(z)=z\overline z=a^2+b^2$ est un entier positif et $N(zw)=N(z)N(w)$. Si $zw=1$, alors $N(z)N(w)=1$, donc $N(z)=1$, c'est-à-dire $a^2+b^2=1$ : $(a,b)\in\ens{(\pm1,0),(0,\pm1)}$. Ces quatre éléments sont bien inversibles.
+\end{preuve}
+\begin{remarque}[Non commutativité][réf. Rem. 5.1.3]
+Dans un anneau non commutatif, un élément peut avoir un inverse d'un seul côté. Dans $\Mat_n(\K)$ ce n'est pas le cas (un inverse d'un côté est un inverse des deux côtés, chapitre 2), mais dans l'anneau des endomorphismes de l'espace des suites, le décalage $(u_0,u_1,\dots)\mapsto(u_1,u_2,\dots)$ a un inverse à droite et pas d'inverse à gauche.
+\end{remarque}
+\begin{proposition}[Produit d'anneaux][réf. Prop. 5.1.4]
+Si $A$ et $B$ sont des anneaux, $A\times B$ muni des lois composante par composante est un anneau, de neutres $(0,0)$ et $(1,1)$, et $(A\times B)^\times=A^\times\times B^\times$. Il n'est jamais intègre si $A,B\neq\ens0$ : $(1,0)(0,1)=(0,0)$.
+\end{proposition}
+
+\section{Idéaux et anneaux quotients}
+\begin{intuition}
+On veut fabriquer de nouveaux anneaux en \og quotientant \fg, comme $\Z/n\Z$ à partir de $\Z$. Pour l'addition, il suffit de quotienter par un sous-groupe (tout sous-groupe de $(A,+)$ est normal, $A$ étant abélien pour $+$). Mais la multiplication des classes $(x+I)(y+I)=xy+I$ doit aussi être bien définie : cela impose à $I$ d'\emph{absorber} la multiplication.
+\end{intuition}
+\begin{definition}[Idéal][réf. Déf. 5.2.1]
+Un sous-groupe $I$ de $(A,+)$ est un \textbf{idéal à gauche} si $aI\subset I$ pour tout $a\in A$, un \textbf{idéal à droite} si $Ia\subset I$, un \textbf{idéal bilatère} s'il est les deux. Dans un anneau commutatif, on dit simplement \textbf{idéal}. Critère : $I$ est un idéal (bilatère) si $0\in I$, $x-y\in I$ et $ax,xa\in I$ pour tous $x,y\in I$ et $a\in A$.
+\end{definition}
+\begin{theoreme}[Anneau quotient][réf. Prop. 5.2.2, TD 15.4]\label{thm-anneau-quotient}
+Soit $I$ un sous-groupe de $(A,+)$. Les formules $(x+I)+(y+I)=(x+y)+I$ et $(x+I)(y+I)=xy+I$ définissent une structure d'anneau sur $A/I$ si et seulement si $I$ est un idéal bilatère. L'anneau $A/I$ a pour zéro $0+I=I$ et pour unité $1+I$, et la projection $A\to A/I$ respecte les deux lois.
+\end{theoreme}
+\begin{preuve}
+L'addition est bien définie et fait de $A/I$ un groupe abélien (chapitre 4). \emph{Si $I$ est un idéal}, soient $x'=x+i$, $y'=y+j$ avec $i,j\in I$ : $x'y'=xy+(xj+iy+ij)$, et $xj\in I$, $iy\in I$, $ij\in I$ par absorption ; donc $x'y'+I=xy+I$. Associativité, distributivité et neutre $1+I$ se déduisent de celles de $A$. \emph{Réciproquement}, si le produit est bien défini, comparons les représentants $0$ et $i\in I$ de la classe $I$ : $(a+I)(0+I)=a\cdot0+I=I$ et $(a+I)(i+I)=ai+I$ doivent être égaux, donc $ai\in I$ ; de même $ia\in I$.
+\end{preuve}
+\begin{exemple}[réf. Ex. 5.2.3]
+Les idéaux triviaux sont $\ens0$ et $A$. Les idéaux de $\Z$ sont les $n\Z$ : ce sont ses sous-groupes (\voir{thm-sg-Z}), et ils absorbent la multiplication. Ainsi $\Z/n\Z$ est un anneau quotient. Dans $\Mat_n(\R)$, si $M$ est non nulle et singulière, l'ensemble des $X$ telles que $Xv=\mathbf 0$ pour tout $v\in N(M)$ est un idéal à gauche, et l'ensemble des $X$ dont les colonnes sont dans $C(M)$ un idéal à droite ; aucun n'est bilatère. Cas concret : les matrices $2\times2$ de deuxième colonne nulle (exercice \voir{exo-ideal-gauche}).
+\end{exemple}
+\begin{proposition}[Opérations sur les idéaux][réf. Propriétés 5.2.4]\label{prop-op-ideaux}
+Soient $I,J$ des idéaux d'un anneau commutatif $A$. Alors $I\cap J$, $I+J=\ens{x+y}$ et $IJ$ (ensemble des sommes finies $\sum x_ky_k$, $x_k\in I$, $y_k\in J$) sont des idéaux, et $IJ\subset I\cap J\subset I\subset I+J$. La réunion $I\cup J$ n'est pas un idéal en général. Dans $\Z$ : $a\Z+b\Z=\pgcd(a,b)\Z$, $a\Z\cap b\Z=\ppcm(a,b)\Z$ et $(a\Z)(b\Z)=ab\Z$.
+\end{proposition}
+\begin{preuve}
+Le critère se vérifie directement ; par exemple $a(x+y)=ax+ay\in I+J$. Chaque $x_ky_k$ est dans $I$ (absorption par $I$) et dans $J$ : $IJ\subset I\cap J$. Pour $\Z$ : $a\Z+b\Z$ est un sous-groupe de $\Z$, égal à $\pgcd(a,b)\Z$ (Bézout, chapitre 4) ; $m\in a\Z\cap b\Z$ si et seulement si $m$ est un multiple commun de $a$ et $b$, donc un multiple de $\ppcm(a,b)$ ; les sommes de produits $ak\cdot bl$ sont les multiples de $ab$. Réunion : $2\Z\cup3\Z$ ne contient pas $5$.
+\end{preuve}
+\begin{definition}[Anneau intègre][réf. Déf. 5.2.5]
+Un anneau commutatif $A\neq\ens0$ est \textbf{intègre} si $ab=0\Rightarrow a=0$ ou $b=0$. Un $a\neq0$ tel que $ab=0$ pour un $b\neq0$ est un \textbf{diviseur de zéro}.
+\end{definition}
+\begin{proposition}[réf. Ex. 5.2.6]\label{prop-integre}
+\begin{enumerate}
+\item $\Z$ est intègre ; tout corps est intègre ; dans un anneau intègre, on peut simplifier : $ab=ac$ et $a\neq0$ entraînent $b=c$.
+\item $\Z/n\Z$ est intègre si et seulement si $n$ est premier, si et seulement si c'est un corps.
+\item $\Mat_n(\R)$ ($n\ge2$) n'est pas intègre.
+\item $A[X]$ est intègre si et seulement si $A$ l'est ; alors $\deg(PQ)=\deg P+\deg Q$ et $(A[X])^\times=A^\times$.
+\end{enumerate}
+\end{proposition}
+\begin{preuve}
+(1) Dans un corps, $ab=0$ et $a\neq0$ donnent $b=a^{-1}ab=0$. Simplification : $a(b-c)=0$. (2) Si $n=rs$ avec $1<r,s<n$, $\cl r\,\cl s=\cl0$ ; si $n$ est premier, $\Z/n\Z$ est un corps (\voir{thm-inversibles}), donc intègre. (Pour $n=1$, l'anneau est nul, exclu.) (3) $\begin{pmatrix}1&0\\0&0\end{pmatrix}\begin{pmatrix}0&0\\0&1\end{pmatrix}=0$. (4) Si $A$ est intègre et $P,Q\neq0$ de coefficients dominants $a_p,b_q$, le coefficient de degré $p+q$ de $PQ$ est $a_pb_q\neq0$. Ainsi $PQ=1$ impose $\deg P=\deg Q=0$. Si $A$ n'est pas intègre, $A\subset A[X]$ ne l'est pas non plus.
+\end{preuve}
+\begin{definition}[Idéal principal, anneau principal][réf. Déf. 5.2.7]
+Dans un anneau commutatif, l'idéal engendré par $a$ est $(a)=aA=\ens{ab\mid b\in A}$, le plus petit idéal contenant $a$ ; un idéal de cette forme est \textbf{principal}. Un anneau \textbf{principal} est un anneau intègre dont tous les idéaux sont principaux.
+\end{definition}
+\begin{theoreme}[réf. Ex. 5.2.9]\label{thm-principaux}
+$\Z$ et $\K[X]$ sont principaux. $\R[X,Y]$ ne l'est pas.
+\end{theoreme}
+\begin{preuve}
+Pour $\Z$, voir \voir{thm-sg-Z}. Pour $\K[X]$ : soit $I\neq\ens0$ un idéal et $P\in I$ non nul de degré minimal. Pour $Q\in I$, la division euclidienne $Q=PS+R$ avec $\deg R<\deg P$ donne $R=Q-PS\in I$, donc $R=0$ par minimalité : $I=(P)$. Pour $\R[X,Y]$, voir l'exercice \voir{exo-xy}.
+\end{preuve}
+\begin{definition}[Divisibilité][réf. Déf. 5.2.10, 5.2.13]
+Dans un anneau intègre $A$ : $b$ \textbf{divise} $a$ si $a\in(b)$, c'est-à-dire $(a)\subset(b)$ ; $a$ et $b$ sont \textbf{associés} si $a\mid b$ et $b\mid a$, c'est-à-dire $(a)=(b)$. Un élément $a$ est \textbf{irréductible} s'il est non nul, non inversible, et si $a=bc$ entraîne que $b$ ou $c$ est inversible.
+\end{definition}
+\begin{proposition}[réf. Prop. 5.2.11, Rem. 5.2.12]\label{prop-associes}
+$(a)=A$ si et seulement si $a$ est inversible. Dans un anneau intègre, $a$ et $b$ sont associés si et seulement s'il existe $u\in A^\times$ avec $a=ub$. Les irréductibles de $\Z$ sont les $\pm p$, $p$ premier ; ceux de $\K[X]$ de degré $2$ ou $3$ sont ceux qui n'ont pas de racine dans $\K$.
+\end{proposition}
+\begin{preuve}
+$(a)=A\iff1\in(a)\iff\exists b,\ ab=1$. Si $a=ub$ et $b=va$ (associés, $a\neq0$), alors $a=uva$, et la simplification donne $uv=1$. La réciproque est claire. Pour $\K[X]$ : un polynôme de degré 2 ou 3 qui se factorise en produit de non-inversibles (polynômes de degré au moins 1, \voir{prop-integre}) a un facteur de degré 1, donc une racine ; réciproquement une racine $\alpha$ donne le facteur $X-\alpha$.
+\end{preuve}
+\begin{attention}
+Le critère \og pas de racine \fg{} ne vaut qu'en degré $2$ et $3$ : $(X^2+1)^2$ n'a pas de racine réelle mais n'est pas irréductible dans $\R[X]$.
+\end{attention}
+\widget[ring]{zn}
+
+\section{Idéaux premiers et maximaux}
+\begin{definition}[Idéal premier, idéal maximal][réf. Déf. 5.3.1, corrigée ; complément]
+Soit $A$ un anneau commutatif et $I\neq A$ un idéal. $I$ est \textbf{premier} si $A/I$ est intègre, c'est-à-dire si $ab\in I\Rightarrow a\in I$ ou $b\in I$. $I$ est \textbf{maximal} s'il n'existe aucun idéal $J$ avec $I\subsetneq J\subsetneq A$.
+\end{definition}
+\begin{theoreme}[Complément]\label{thm-maximal}
+$I$ est maximal si et seulement si $A/I$ est un corps. En particulier tout idéal maximal est premier.
+\end{theoreme}
+\begin{preuve}
+Pour $a\notin I$, l'idéal $I+(a)$ contient strictement $I$. Si $I$ est maximal, $I+(a)=A$ : il existe $i\in I$, $b\in A$ avec $i+ab=1$, donc $(a+I)(b+I)=1+I$ : toute classe non nulle est inversible, et $A/I$ est un corps ($1\notin I$ car $I\neq A$). Réciproquement, si $A/I$ est un corps et $J\supsetneq I$ un idéal, prenons $a\in J\setminus I$ ; il existe $b$ avec $ab-1\in I\subset J$, donc $1=ab-(ab-1)\in J$ et $J=A$. Un corps est intègre, d'où la seconde phrase.
+\end{preuve}
+\begin{proposition}[Dans $\Z$ et dans $\K[X]$ ; complément]\label{prop-premiers-Z}
+Dans $\Z$ : $(n)$ est premier si et seulement si $n=0$ ou $\abs n$ est premier ; $(p)$ est maximal pour $p$ premier, $(0)$ est premier non maximal. Dans $\K[X]$ : $(P)$, $P\neq0$, est maximal si et seulement si $P$ est irréductible, et alors $\K[X]/(P)$ est un corps.
+\end{proposition}
+\begin{preuve}
+$\Z/(0)\simeq\Z$ est intègre mais pas un corps. Pour $n\ge2$, $\Z/n\Z$ intègre $\iff$ corps $\iff$ $n$ premier (\voir{prop-integre}). Dans $\K[X]$ principal, les idéaux contenant $(P)$ sont les $(D)$ avec $D\mid P$ ; $(P)$ est maximal si et seulement si les seuls diviseurs de $P$ sont les constantes non nulles et les associés de $P$, c'est-à-dire si $P$ est irréductible.
+\end{preuve}
+
+\section{Homomorphismes d'anneaux}
+\begin{definition}[Complément]
+Une application $f:A\to B$ entre anneaux est un \textbf{homomorphisme d'anneaux} si $f(x+y)=f(x)+f(y)$, $f(xy)=f(x)f(y)$ et $f(1_A)=1_B$. Son noyau est $\Ker f=f^{-1}(\ens0)$ et son image $\Img f=f(A)$.
+\end{definition}
+\begin{theoreme}[Premier théorème d'isomorphisme pour les anneaux ; complément]\label{thm-iso-anneaux}
+Si $f:A\to B$ est un homomorphisme d'anneaux, $\Ker f$ est un idéal bilatère de $A$, $\Img f$ est un sous-anneau de $B$, et $\overline f:A/\Ker f\to\Img f$, $x+\Ker f\mapsto f(x)$ est un isomorphisme d'anneaux. Pour tout idéal $I$, la projection $A\to A/I$ est un homomorphisme surjectif de noyau $I$ ; les idéaux de $A/I$ correspondent bijectivement aux idéaux de $A$ contenant $I$.
+\end{theoreme}
+\begin{preuve}
+$\Ker f$ est un sous-groupe additif (chapitre 4) et si $f(x)=0$, alors $f(ax)=f(a)\cdot0=0$ et $f(xa)=0$. Le premier théorème pour les groupes additifs donne un isomorphisme de groupes $\overline f$ ; il respecte le produit, car $\overline f((x+K)(y+K))=f(xy)=f(x)f(y)$, et $\overline f(1+K)=1$. Correspondance : à $J\supset I$ on associe $J/I$, et à un idéal $\mathcal J$ de $A/I$ son image réciproque par la projection ; on vérifie que ces deux opérations sont réciproques.
+\end{preuve}
+\begin{essentiel}[Groupes et anneaux, en parallèle]
+\begin{tabular}{ll}
+Groupes & Anneaux \\
+sous-groupe & sous-anneau (contient $1$, stable par $+$, $-$, $\times$) \\
+sous-groupe normal ($xHx^{-1}\subset H$) & idéal ($aI\subset I$, $Ia\subset I$) \\
+groupe quotient $G/H$ & anneau quotient $A/I$ \\
+noyau d'un homomorphisme : normal & noyau : idéal \\
+$G/\Ker f\simeq\Img f$ & $A/\Ker f\simeq\Img f$ \\
+\end{tabular}
+Où l'analogie s'arrête : un idéal n'est presque jamais un sous-anneau (s'il contient $1$, il est égal à $A$), et un sous-anneau n'est presque jamais un idéal ($\Z\subset\Q$). Ce n'est pas la stabilité par produit qui compte pour un idéal, mais l'\emph{absorption} : le produit par \emph{tout} élément de $A$.
+\end{essentiel}
+
+\section{Exemples d'anneaux}
+\subsection{$\Z$ et ses quotients}
+\begin{theoreme}[Théorème chinois ; complément]\label{thm-chinois}
+Si $\pgcd(m,n)=1$, l'application $\Z/mn\Z\to\Z/m\Z\times\Z/n\Z$, $\cl k\mapsto(\cl k,\cl k)$ est un isomorphisme d'anneaux. En particulier $\varphi(mn)=\varphi(m)\varphi(n)$.
+\end{theoreme}
+\begin{preuve}
+$k\mapsto(\cl k,\cl k)$ est un homomorphisme d'anneaux $\Z\to\Z/m\Z\times\Z/n\Z$, de noyau $m\Z\cap n\Z=mn\Z$ (\voir{prop-op-ideaux}). Le premier théorème donne une injection de $\Z/mn\Z$ dans un anneau à $mn$ éléments : c'est une bijection. Les inversibles se correspondent : $(\Z/mn\Z)^\times\simeq(\Z/m\Z)^\times\times(\Z/n\Z)^\times$.
+\end{preuve}
+\begin{exemple}
+$\Z/6\Z\simeq\Z/2\Z\times\Z/3\Z$ (avec $\cl1\mapsto(\cl1,\cl1)$, $\cl3\mapsto(\cl1,\cl0)$, $\cl4\mapsto(\cl0,\cl1)$). En revanche $\Z/4\Z\not\simeq\Z/2\Z\times\Z/2\Z$ : le premier a un élément d'ordre additif 4.
+\end{exemple}
+\subsection{Polynômes et corps finis}
+\begin{proposition}[Structure de $\K[X]/(P)$ ; complément]\label{prop-kxp}
+Soit $P\in\K[X]$ de degré $d\ge1$. Tout élément de $\K[X]/(P)$ s'écrit de façon unique $\cl R$ avec $\deg R<d$ (le reste de la division par $P$) : $\K[X]/(P)$ est un $\K$-espace vectoriel de base $\cl1,\cl X,\dots,\cl X^{d-1}$. Si $\K=\Z/p\Z$, il a $p^d$ éléments. C'est un corps si et seulement si $P$ est irréductible.
+\end{proposition}
+\begin{preuve}
+Existence : division euclidienne. Unicité : si $R-R'\in(P)$ avec $\deg(R-R')<d$, alors $R=R'$. Le dernier point est \voir{prop-premiers-Z}.
+\end{preuve}
+\begin{exemple}[Les nombres complexes, le corps à 4 éléments]
+$X^2+1$ est irréductible sur $\R$, et $\R[X]/(X^2+1)$ est un corps de base $\cl1,\cl X$ où $\cl X^2=-\cl1$ : c'est $\C$, avec $\cl X$ dans le rôle de $i$. Sur $\Z/2\Z$, $X^2+X+1$ n'a pas de racine ($0\mapsto1$, $1\mapsto1$), donc est irréductible, et $\mathbb F_4=(\Z/2\Z)[X]/(X^2+X+1)=\ens{0,1,\alpha,\alpha+1}$ avec $\alpha^2=\alpha+1$ est un corps à 4 éléments. Sa table de multiplication : $\alpha\cdot\alpha=\alpha+1$, $\alpha(\alpha+1)=\alpha^2+\alpha=1$, $(\alpha+1)^2=\alpha^2+1=\alpha$.
+\end{exemple}
+\begin{attention}
+$\mathbb F_4$ n'est pas $\Z/4\Z$ : ce dernier n'est même pas intègre ($\cl2\cdot\cl2=\cl0$).
+\end{attention}
+\subsection{Algèbres d'Ore}
+\begin{remarque}[Pour aller plus loin]
+Le plan du polycopié annonce une introduction aux algèbres d'Ore. Il s'agit d'anneaux de polynômes \og tordus \fg{} $A[\partial;\sigma,\delta]$ où l'indéterminée ne commute plus avec les coefficients : $\partial a=\sigma(a)\partial+\delta(a)$. Avec $A=\R[x]$, $\sigma=\id$ et $\delta=\frac{d}{dx}$, on obtient l'anneau des opérateurs différentiels, où $\partial x=x\partial+1$ (règle du produit : $(xf)'=xf'+f$). Avec $\sigma(a)(x)=a(x+1)$ et $\delta=0$, on obtient les opérateurs aux différences. Ces anneaux non commutatifs servent au calcul formel sur les équations différentielles ; ils dépassent le cadre de ce cours.
+\end{remarque}
+
+\begin{erreurs}
+\item Confondre sous-anneau et idéal.
+\item Oublier qu'un idéal doit absorber la multiplication par \emph{tout} élément de l'anneau, pas seulement par ses propres éléments.
+\item Penser qu'\og idéal premier \fg{} a le même sens que \og nombre premier \fg{} hors de $\Z$ ; oublier d'exclure $I=A$.
+\item Appliquer le critère \og pas de racine $\Rightarrow$ irréductible \fg{} en degré $4$ ou plus.
+\item Confondre $\Z/p^d\Z$ et le corps à $p^d$ éléments.
+\end{erreurs}
+
+\exercices
+\rubrique{A}
+\begin{exo}[S][Inversibles]
+Déterminer les inversibles de : (a) $\Z/12\Z$ ; (b) $\Z[i]$ ; (c) $\R[X]$ ; (d) $(\Z/4\Z)[X]$, en montrant que $\cl1+\cl2X$ est inversible ; (e) $\Z\times\Z$ ; (f) $\Z[\sqrt2]=\ens{a+b\sqrt2\mid a,b\in\Z}$, en montrant que $1+\sqrt2$ est inversible.
+\begin{corrige}
+(a) $\ens{\cl1,\cl5,\cl7,\cl{11}}$. (b) $\ens{\pm1,\pm i}$ (\voir{prop-gauss}). (c) Les constantes non nulles (\voir{prop-integre}, $\R$ intègre). (d) $(\cl1+\cl2X)^2=\cl1+\cl4X+\cl4X^2=\cl1$ : un polynôme de degré 1 inversible, ce qui est possible car $\Z/4\Z$ n'est pas intègre. (e) $\ens{(\pm1,\pm1)}$. (f) $(1+\sqrt2)(-1+\sqrt2)=2-1=1$ ; les puissances $(1+\sqrt2)^k$ sont inversibles et deux à deux distinctes (suite strictement croissante, car $1+\sqrt2>1$) : $\Z[\sqrt2]^\times$ est infini.
+\end{corrige}
+\end{exo}
+\begin{exo}[S][Idéaux de $\Z$]
+Décrire : (a) $(12)+(18)$ ; (b) $(12)\cap(18)$ ; (c) $(12)(18)$ ; (d) $(4)+(9)$. Quels idéaux de $\Z$ contiennent $(12)$ ? Lesquels sont premiers, lesquels maximaux ?
+\begin{corrige}
+(a) $(6)$ ; (b) $(36)$ ; (c) $(216)$ ; (d) $(1)=\Z$. Les idéaux contenant $(12)$ sont les $(d)$ avec $d\mid12$ : $(1),(2),(3),(4),(6),(12)$. Parmi eux, $(2)$ et $(3)$ sont premiers et maximaux ; $(1)=\Z$ n'est ni l'un ni l'autre (on exclut $I=A$) ; les autres ne sont pas premiers.
+\end{corrige}
+\end{exo}
+\begin{exo}[S][Intègre ou corps]
+Pour $n=7,9,12$, dire si $\Z/n\Z$ est un corps, s'il est intègre, et lister ses diviseurs de zéro. Vérifier avec la figure.
+\begin{corrige}
+$n=7$ : corps, donc intègre, pas de diviseur de zéro. $n=9$ : ni corps ni intègre, diviseurs de zéro $\cl3,\cl6$ ($\cl3\cdot\cl3=\cl0$). $n=12$ : diviseurs de zéro $\cl2,\cl3,\cl4,\cl6,\cl8,\cl9,\cl{10}$ (les classes non nulles non premières avec 12).
+\end{corrige}
+\end{exo}
+\begin{exo}[A][Polynômes irréductibles sur $\Z/p\Z$]
+(a) Lister les polynômes unitaires de degré 2 de $(\Z/2\Z)[X]$ et dire lesquels sont irréductibles. (b) Même question en degré 3. (c) Trouver les polynômes unitaires irréductibles de degré 2 sur $\Z/3\Z$.
+\begin{corrige}
+(a) $X^2$, $X^2+1=(X+1)^2$, $X^2+X=X(X+1)$, $X^2+X+1$ (pas de racine : irréductible). (b) Les 8 unitaires de degré 3 ; sans racine (ni $0$ : constante non nulle ; ni $1$ : nombre impair de termes non nuls) : $X^3+X+1$ et $X^3+X^2+1$. (c) Il y a 9 unitaires de degré 2 ; sans racine dans $\ens{0,1,2}$ : $X^2+1$ (valeurs $1,2,2$), $X^2+X+2$ (valeurs $2,1,2$), $X^2+2X+2$ (valeurs $2,2,1$).
+\end{corrige}
+\end{exo}
+\begin{exo}[A][Premier, maximal, quotients]
+Dire si l'idéal est premier, maximal, et décrire le quotient (base, nombre d'éléments, corps ou non) : (a) $(6)\subset\Z$ ; (b) $(5)\subset\Z$ ; (c) $(0)\subset\Z$ ; (d) $(X^2+1)\subset\R[X]$ ; (e) $(X^2-1)\subset\R[X]$ ; (f) $(X^2+X+1)\subset(\Z/2\Z)[X]$ ; (g) $(X)\subset\Z[X]$.
+\begin{corrige}
+(a) Non premier ($2\cdot3\in(6)$), quotient $\Z/6\Z$. (b) Maximal, $\Z/5\Z$ corps. (c) Premier non maximal ($(0)\subset(2)$), quotient $\Z$ intègre. (d) Maximal, quotient $\simeq\C$, base $\cl1,\cl X$. (e) Non premier : $(X-1)(X+1)\in(X^2-1)$ ; quotient de dimension 2, isomorphe à $\R\times\R$ par $\cl P\mapsto(P(1),P(-1))$. (f) Maximal, $\mathbb F_4$ à 4 éléments. (g) Le quotient est $\Z$ (évaluation $P\mapsto P(0)$, de noyau $(X)$) : premier, non maximal.
+\end{corrige}
+\end{exo}
+
+\rubrique{B}
+\begin{exo}[S][Vérifier les axiomes]
+(a) Montrer que $\Z[i]$ est un sous-anneau de $\C$, c'est-à-dire contient $1$ et est stable par $+$, $-$ et $\times$. En déduire que c'est un anneau commutatif intègre. (b) Montrer que $A\times B$ est un anneau.
+\begin{corrige}
+(a) $1=1+0i$ ; $(a+bi)\pm(c+di)$ et $(a+bi)(c+di)=(ac-bd)+(ad+bc)i$ sont à coefficients entiers. Les axiomes d'anneau sont des égalités vraies dans $\C$, donc dans $\Z[i]$ ; et $\C$ étant un corps, $\Z[i]\subset\C$ n'a pas de diviseur de zéro. (b) Composante par composante.
+\end{corrige}
+\end{exo}
+\begin{exo}[S][Quotient et idéal]
+Démontrer le Théorème \voir{thm-anneau-quotient} dans les deux sens. Pourquoi faut-il l'absorption par \emph{tout} élément de $A$, et pas seulement $II\subset I$ ?
+\begin{corrige}
+Voir le cours. Dans la preuve du sens direct, les termes $xj$ et $iy$ font intervenir des éléments $x,y$ \emph{quelconques} de $A$ : la stabilité $II\subset I$ ne contrôle que $ij$. Le sens réciproque montre que l'absorption par tout $a\in A$ est même nécessaire.
+\end{corrige}
+\end{exo}
+\begin{exo}[S][Opérations sur les idéaux]
+Démontrer que $I\cap J$, $I+J$ et $IJ$ sont des idéaux, que $IJ\subset I\cap J$, et que $I\cup J$ est un idéal si et seulement si $I\subset J$ ou $J\subset I$. Donner un exemple où $IJ\neq I\cap J$.
+\begin{corrige}
+Voir \voir{prop-op-ideaux} ; la réunion se traite comme pour les sous-groupes. Exemple : $I=J=(2)$ dans $\Z$ : $IJ=(4)\neq(2)=I\cap J$.
+\end{corrige}
+\end{exo}
+\begin{exo}[S][Corps et nombres premiers]
+Démontrer que $\Z/n\Z$ est un corps si et seulement si $n$ est premier, si et seulement s'il est intègre. Démontrer que les irréductibles de $\Z$ sont les $\pm p$.
+\begin{corrige}
+Voir \voir{prop-integre}. Irréductibles : $\Z^\times=\ens{\pm1}$, et $a=bc$ avec $b,c\neq\pm1$ est exactement une factorisation non triviale de $\abs a$ ; donc $a$ est irréductible si et seulement si $\abs a$ est premier.
+\end{corrige}
+\end{exo}
+\begin{exo}[S][Inversibles et associés]
+Démontrer que $(a)=A$ si et seulement si $a$ est inversible, et que dans un anneau intègre $(a)=(b)$ si et seulement si $a=ub$ avec $u$ inversible. Décrire les associés de $3+4i$ dans $\Z[i]$ et de $2X+4$ dans $\R[X]$.
+\begin{corrige}
+Voir \voir{prop-associes}. Associés de $3+4i$ : $\pm(3+4i)$, $\pm i(3+4i)=\pm(-4+3i)$. Associés de $2X+4$ : les $c(X+2)$, $c\in\R^*$ ; le représentant unitaire est $X+2$.
+\end{corrige}
+\end{exo}
+\begin{exo}[A][Polynômes]
+(a) Montrer que $\K[X]^\times=\K^*$. (b) Montrer qu'un polynôme de degré 1 est irréductible, et qu'un polynôme de degré 2 ou 3 est irréductible si et seulement s'il n'a pas de racine. (c) Montrer que $A[X]$ est intègre si et seulement si $A$ l'est.
+\begin{corrige}
+Voir \voir{prop-integre} et \voir{prop-associes}. Pour (b), degré 1 : une factorisation $P=QR$ donne $\deg Q+\deg R=1$, donc l'un est de degré 0, constante non nulle, inversible.
+\end{corrige}
+\end{exo}
+\begin{exo}[A][Maximal, premier, noyau]
+(a) Démontrer : $I$ maximal $\iff A/I$ corps ; $I$ premier $\iff A/I$ intègre ; maximal $\Rightarrow$ premier. (b) Démontrer que le noyau d'un homomorphisme d'anneaux est un idéal, et le premier théorème d'isomorphisme pour les anneaux. (c) Application : l'évaluation $\R[X]\to\C$, $P\mapsto P(i)$ ; noyau, image, quotient.
+\begin{corrige}
+(a), (b) : voir \voir{thm-maximal} et \voir{thm-iso-anneaux}. (c) Homomorphisme d'anneaux surjectif ($a+bX\mapsto a+bi$). Son noyau contient $X^2+1$ et est principal, égal à $(D)$ avec $D\mid X^2+1$. Ce n'est pas $\R[X]$ (car $1\mapsto1$), et il ne contient aucun polynôme non nul de degré au plus 1 (car $a+bX\mapsto a+bi=0$ impose $a=b=0$) ; donc $\deg D=2$ et le noyau est $(X^2+1)$. Donc $\R[X]/(X^2+1)\simeq\C$.
+\end{corrige}
+\end{exo}
+
+\rubrique{C}
+\begin{exo}[S][Les matrices]
+(a) Montrer que $\Mat_2(\R)$ n'est ni commutatif ni intègre. (b) Trouver $A\neq0$ avec $A^2=0$. (c) Le centre de $\Mat_2(\R)$ est-il un sous-anneau ? un idéal ?
+\begin{corrige}
+(a) Contre-exemples du chapitre 2 : $AB\neq BA$ et $\begin{pmatrix}1&0\\0&0\end{pmatrix}\begin{pmatrix}0&0\\0&1\end{pmatrix}=0$. (b) $\begin{pmatrix}0&1\\0&0\end{pmatrix}$ (nilpotent). (c) Le centre $\ens{kI_2}$ (chapitre 2) contient $I_2$ et est stable : sous-anneau, isomorphe à $\R$. Pas un idéal : $I_2\cdot\begin{pmatrix}1&0\\0&0\end{pmatrix}$ n'est pas dans le centre.
+\end{corrige}
+\end{exo}
+\begin{exo}[S][Unités finies ou infinies]
+Vrai ou faux ? (a) $\Z[i]$ a une infinité d'inversibles. (b) $\Z[\sqrt2]$ a une infinité d'inversibles. (c) Dans un anneau intègre, un élément de norme 1 est inversible (pour la norme $N(a+b\sqrt d)=a^2-db^2$ sur $\Z[\sqrt d]$).
+\begin{corrige}
+(a) Faux : quatre (\voir{prop-gauss}). (b) Vrai : les $(1+\sqrt2)^k$. (c) Vrai et même plus : $(a+b\sqrt d)(a-b\sqrt d)=N$, donc si $N=\pm1$ l'élément est inversible, d'inverse $\pm(a-b\sqrt d)$ ; réciproquement un inversible a une norme inversible dans $\Z$, donc $\pm1$.
+\end{corrige}
+\end{exo}
+\begin{exo}[A][$\R{[X,Y]}$ n'est pas principal]\label{exo-xy}
+Soit $I=(X,Y)=\ens{XP+YQ\mid P,Q\in\R[X,Y]}$. (a) Montrer que $I$ est l'ensemble des polynômes de terme constant nul, et que $I\neq\R[X,Y]$. (b) Montrer que $I$ n'est pas principal. (c) $I$ est-il maximal ?
+\begin{corrige}
+(a) Un polynôme de terme constant nul se regroupe en (termes contenant $X$) $+$ (termes sans $X$, donc contenant $Y$) ; réciproquement $XP+YQ$ a un terme constant nul. $1\notin I$.
+(b) Si $I=(R)$, alors $R\mid X$. Les degrés s'ajoutent ($\R[X,Y]$ est intègre), donc $R$ est une constante non nulle ou $cX$. Une constante non nulle donnerait $I=\R[X,Y]$ ; $R=cX$ ne divise pas $Y$ (en posant $X=0$, on obtiendrait $Y=0$). Contradiction.
+(c) Oui : $P\mapsto P(0,0)$ est un homomorphisme surjectif sur $\R$ de noyau $I$, et $\R$ est un corps.
+\end{corrige}
+\end{exo}
+\begin{exo}[A][Idéal à gauche, pas à droite]\label{exo-ideal-gauche}
+Dans $\Mat_2(\R)$, soit $I$ l'ensemble des matrices dont la deuxième colonne est nulle. (a) Montrer que $I$ est un idéal à gauche mais pas à droite. (b) Montrer que $\Mat_2(\R)$ n'a pas d'idéal bilatère autre que $\ens0$ et lui-même (indication : avec les $E_{ij}$, montrer qu'un idéal bilatère contenant une matrice non nulle contient $I_2$). (c) La réunion de deux idéaux de $\Z$ est-elle un idéal ?
+\begin{corrige}
+(a) $I$ est un sous-groupe. Si $M\in I$, la deuxième colonne de $AM$ est $A$ fois celle de $M$, donc nulle : idéal à gauche. Mais $E_{11}E_{12}=E_{12}\notin I$ alors que $E_{11}\in I$ : pas à droite.
+(b) Si $J$ contient $M=(m_{kl})$ avec $m_{kl}\neq0$, alors $E_{ik}ME_{lj}=m_{kl}E_{ij}\in J$ pour tous $i,j$ ; donc $E_{ij}\in J$ et $I_2=E_{11}+E_{22}\in J$, d'où $J=\Mat_2(\R)$. (On dit que $\Mat_2(\R)$ est un anneau simple.)
+(c) Non en général : $2\Z\cup3\Z$.
+\end{corrige}
+\end{exo}
+\begin{exo}[S][Sous-anneau ou idéal]
+Vrai ou faux ? (a) $\Z$ est un idéal de $\Q$. (b) $2\Z$ est un sous-anneau de $\Z$. (c) Un idéal qui contient un inversible est l'anneau entier. (d) Un corps n'a que deux idéaux.
+\begin{corrige}
+(a) Faux : $\frac12\cdot1\notin\Z$ (c'est un sous-anneau). (b) Faux avec notre convention : $1\notin2\Z$ (c'est un idéal). (c) Vrai : si $u\in I$ inversible, $a=(au^{-1})u\in I$ pour tout $a$. (d) Vrai : $\ens0$ et le corps, par (c).
+\end{corrige}
+\end{exo}
+
+\rubrique{D}
+\begin{exo}[S][De $\Z$ à $\Z/12\Z$, côté anneau]
+(a) Lister les idéaux de $\Z/12\Z$ et les quotients correspondants. (b) Lister les inversibles et les diviseurs de zéro ; vérifier que tout élément non nul est l'un ou l'autre. (c) Dresser le parallèle avec les sous-groupes de $(\Z/12\Z,+)$ du chapitre 4 : qu'est-ce qui est identique, qu'est-ce qui est nouveau ? (d) Quels idéaux de $\Z/12\Z$ sont premiers ? maximaux ?
+\begin{corrige}
+(a) Les idéaux sont les sous-groupes additifs (tout sous-groupe $\langle\cl d\rangle$ absorbe la multiplication) : $(\cl d)$ pour $d\in\ens{1,2,3,4,6,12}$, avec quotients $\Z/d\Z$ (troisième théorème, ici pour les anneaux). (b) Inversibles $\cl1,\cl5,\cl7,\cl{11}$ ; diviseurs de zéro : les 7 autres classes non nulles. (c) Les idéaux coïncident avec les sous-groupes (phénomène propre à $\Z/n\Z$ : un sous-groupe engendré par $\cl d$ absorbe la multiplication) ; la nouveauté est la multiplication sur les quotients, qui distingue les quotients intègres. (d) $(\cl2)$ et $(\cl3)$, de quotients $\Z/2\Z$ et $\Z/3\Z$, corps : premiers et maximaux. Les autres idéaux propres ne sont pas premiers.
+\end{corrige}
+\end{exo}
+\begin{exo}[A][Le parallèle groupes et anneaux]
+Rédiger en une page le parallèle sous-groupe normal / idéal, groupe quotient / anneau quotient, premier théorème d'isomorphisme, en démontrant à chaque étage la propriété qui assure la \og bonne définition \fg. Indiquer un énoncé vrai pour les groupes dont l'analogue pour les anneaux est faux.
+\begin{corrige}
+Voir le tableau du cours et le schéma de la leçon Synthèse. Exemples d'énoncés qui ne passent pas : \og l'intersection d'un sous-groupe avec un autre sous-groupe est un sous-groupe \fg{} passe, mais \og le noyau contient le neutre de la seconde loi \fg{} est faux (le noyau ne contient $1$ que si l'anneau d'arrivée est nul) ; \og tout sous-groupe d'un groupe abélien est normal \fg{} n'a pas d'analogue : un sous-anneau d'un anneau commutatif n'est pas un idéal en général ($\Z\subset\Q$).
+\end{corrige}
+\end{exo}
+\begin{exo}[D][Construire des corps finis]
+(a) Dresser les tables d'addition et de multiplication de $\mathbb F_4=(\Z/2\Z)[X]/(X^2+X+1)$ et vérifier que c'est un corps. (b) Construire un corps à 8 éléments et un corps à 9 éléments. (c) Montrer qu'un corps fini $F$ a pour cardinal une puissance d'un nombre premier.
+\begin{indication}
+(c) L'application $\Z\to F$, $k\mapsto k\cdot1$ a pour noyau un idéal premier non nul $p\Z$, et $F$ est alors un espace vectoriel sur $\Z/p\Z$.
+\end{indication}
+\begin{corrige}
+(a) Éléments $0,1,\alpha,\alpha+1$ ; addition composante par composante dans la base $(1,\alpha)$ (par exemple $\alpha+(\alpha+1)=1$) ; multiplication : $\alpha^2=\alpha+1$, $\alpha(\alpha+1)=1$, $(\alpha+1)^2=\alpha$. Les trois éléments non nuls sont inversibles ($\alpha^{-1}=\alpha+1$) : c'est un corps (\voir{prop-kxp}).
+(b) $(\Z/2\Z)[X]/(X^3+X+1)$ (8 éléments) et $(\Z/3\Z)[X]/(X^2+1)$ (9 éléments), les polynômes étant irréductibles par l'exercice sur les irréductibles.
+(c) Le noyau de $k\mapsto k\cdot1$ n'est pas nul (sinon $\Z$ s'injecterait dans $F$ fini). L'image est un sous-anneau de $F$, intègre, isomorphe à $\Z/p\Z$ : le noyau $p\Z$ est premier, donc $p$ est premier. $F$ est un espace vectoriel de dimension finie $d$ sur ce sous-corps, donc a $p^d$ éléments.
+\end{corrige}
+\end{exo}
+\begin{exo}[A][Théorème chinois]
+(a) Démontrer le théorème chinois pour les anneaux. (b) Écrire explicitement l'isomorphisme $\Z/15\Z\to\Z/3\Z\times\Z/5\Z$ et son inverse : quel est l'antécédent de $(\cl2,\cl3)$ ? (c) Résoudre le système $x\equiv2\pmod3$, $x\equiv3\pmod5$. (d) $\Z/4\Z$ et $\Z/2\Z\times\Z/2\Z$ sont-ils isomorphes comme anneaux ?
+\begin{corrige}
+(a) Voir \voir{thm-chinois}. (b) $\cl k\mapsto(\cl k,\cl k)$. Inverse : $1=2\cdot3-1\cdot5$ (Bézout), donc $e_1=-5\equiv10$ vérifie $e_1\equiv1\pmod3$, $e_1\equiv0\pmod5$, et $e_2=6$ vérifie $e_2\equiv0\pmod3$, $e_2\equiv1\pmod5$ ; l'antécédent de $(\cl a,\cl b)$ est $\cl{10a+6b}$. Pour $(\cl2,\cl3)$ : $\cl{38}=\cl8$. (c) $x\equiv8\pmod{15}$ ; contrôle $8=2\cdot3+2=5+3$. (d) Non : même pas comme groupes additifs.
+\end{corrige}
+\end{exo}
+
+\begin{bilan}
+\item Démontrer : $I$ idéal $\iff A/I$ anneau ; $\Z/n\Z$ corps $\iff n$ premier.
+\item Décrire les idéaux de $\Z$ ; calculer $I+J$, $I\cap J$, $IJ$ ; reconnaître inversibles et irréductibles.
+\item Décider si un idéal de $\Z$ ou de $\K[X]$ est premier ou maximal ; décrire $\K[X]/(P)$.
+\item Dresser le parallèle groupes et anneaux, et dire où il s'arrête.
+\end{bilan}

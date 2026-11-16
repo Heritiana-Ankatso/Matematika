@@ -26,7 +26,7 @@ The pipeline package. Run with `PYTHONPATH=build python3 -m mxbuild <command>` o
 Without `pdflatex` (a sandbox) `make site` fails in the `slides` job as soon as `scripts/build-slides.py`, `content/slides/` or a course
 source changed, because the deck builder compiles the figures; the job leaves a stub `_figs_*.tex` and empties `dist/slides/data/`
 (restore with `git checkout dist/slides/data`, delete the stub). The `slide-exports` job (`scripts/export-slides.py`) needs no TeX; its
-fingerprint covers `site/slides/`, `site/js/lab/` and the helpers the bundled laboratory imports. Where TeX is missing, run
+fingerprint covers `site/slides/`, `site/js/lab/` and the helpers the bundled laboratory imports. Lab decks also embed `catalogue-data.js` (without asset versions), so `refresh.py` reruns the exports at the end whenever the catalogue content changed (for example a new university collection). Where TeX is missing, run
 `build-slides.py` with `compile_figs` replaced by "the committed SVG exists", then `export-slides.py`, then
 `PYTHONPATH=build python3 -m mxbuild.refresh --adopt` (the figures are unchanged, so the decks equal a real build); say so in the report.
 

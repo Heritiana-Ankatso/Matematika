@@ -1,0 +1,174 @@
+{
+  "sourceDigest": "02b8ff20b7c39cdf353493ea0b88bf97ba12741132f23f9be472fc78e121264e",
+  "sequences": {
+    "algebre-1-guide": {
+      "title": [
+        "Mode d'emploi et plan du cours",
+        "How to use this course"
+      ],
+      "summary": [
+        "Ce que contient le cours d'Algèbre 1, dans quel ordre l'étudier, comment travailler les exercices et comment savoir qu'une notion est acquise.",
+        "What the Algebra 1 course contains, in which order to study it, how to work through the exercises and how to tell that a notion is mastered."
+      ],
+      "prerequisites": [
+        "Les mathématiques du lycée. Le cours utilise aussi, sans les redémontrer en détail, la division euclidienne, le pgcd, l'algorithme d'Euclide et le théorème de Bézout (rappelés au chapitre 1), les nombres complexes (module, conjugué) et la notion de polynôme.",
+        "None: start here."
+      ],
+      "outline": [
+        "Le fil du cours",
+        "Lire une leçon",
+        "Travailler les exercices",
+        "Réflexes de rédaction",
+        "Conventions",
+        "Corrections apportées au texte de référence",
+        "Le chapitre 5 et au-delà"
+      ]
+    },
+    "algebre-1-ensembles": {
+      "title": [
+        "Théorie naïve des ensembles",
+        "Naive set theory"
+      ],
+      "summary": [
+        "Le langage commun de toute l'algèbre : ensembles et opérations, applications (injectives, surjectives, bijectives), relations d'équivalence et quotients, l'ensemble ℤ/nℤ, les ordres, et la comparaison des ensembles infinis.",
+        "The common language of algebra: sets and operations, maps (injective, surjective, bijective), equivalence relations and quotients, the set Z/nZ, orders, and comparing infinite sets."
+      ],
+      "prerequisites": [
+        "Logique élémentaire (implication, équivalence, quantificateurs, contraposée, raisonnement par l'absurde et par récurrence). Division euclidienne dans ℤ.",
+        "Secondary-school mathematics; basic logic."
+      ],
+      "outline": [
+        "Ensembles et opérations",
+        "Applications",
+        "Relations binaires",
+        "Ensembles infinis et dénombrabilité"
+      ]
+    },
+    "algebre-1-matrices": {
+      "title": [
+        "Équations linéaires et matrices",
+        "Linear equations and matrices"
+      ],
+      "summary": [
+        "Vecteurs de ℝ^n et de ℂ^n, produit scalaire et inégalité de Cauchy, Schwarz ; matrices lues par leurs colonnes, produit, inverse, indépendance ; puis l'élimination de Gauss écrite avec des matrices, qui aboutit à la factorisation PA=LU.",
+        "Vectors in R^n and C^n, dot product and the Cauchy-Schwarz inequality; matrices read through their columns, product, inverse, independence; then Gaussian elimination written with matrices, leading to the factorisation PA = LU."
+      ],
+      "prerequisites": [
+        "Chapitre 1 (applications, bijections). Résolution de petits systèmes linéaires par substitution. Nombres complexes : module et conjugué.",
+        "Chapter 1: sets and maps. Solving small linear systems by substitution."
+      ],
+      "outline": [
+        "Vecteurs de ℝ^n",
+        "Produit scalaire, norme et distance",
+        "Vecteurs de ℂ^n",
+        "Matrices et produit matriciel",
+        "Inverses",
+        "Dépendance et indépendance linéaires",
+        "Transposition et permutations",
+        "Élimination et factorisation LU"
+      ]
+    },
+    "algebre-1-espaces": {
+      "title": [
+        "Espaces vectoriels et sous-espaces vectoriels",
+        "Vector spaces and subspaces"
+      ],
+      "summary": [
+        "Les huit règles de ℝ^n deviennent des axiomes : espaces vectoriels, sous-espaces, familles génératrices et libres, bases et dimension. L'élimination du chapitre 2 calcule tout : rang, bases des quatre sous-espaces d'une matrice, déterminant. On termine par les applications linéaires.",
+        "The eight rules of R^n become axioms: vector spaces, subspaces, spanning and free families, bases and dimension. Chapter 2's elimination computes everything: rank, bases of a matrix's four subspaces, determinant. The chapter ends with linear maps."
+      ],
+      "prerequisites": [
+        "Chapitre 2 : produit matriciel, inverses, élimination et factorisation PA=LU. Chapitre 1 : applications, bijections.",
+        "Chapter 2: matrices, elimination and PA = LU."
+      ],
+      "outline": [
+        "Espaces vectoriels",
+        "Sous-espaces vectoriels",
+        "Combinaisons linéaires et familles génératrices",
+        "Les espaces associés à une matrice",
+        "Sommes, familles libres, bases",
+        "Rang et théorème fondamental",
+        "Changement de base et bases orthonormées",
+        "Déterminants",
+        "Applications linéaires"
+      ]
+    },
+    "algebre-1-groupes": {
+      "title": [
+        "Introduction à la théorie des groupes",
+        "Introduction to group theory"
+      ],
+      "summary": [
+        "Une seule loi, étudiée pour elle-même : groupes, sous-groupes et ordre, homomorphismes, classes et théorème de Lagrange, sous-groupes normaux, groupes quotients et théorèmes d'isomorphisme ; puis trois familles d'exemples, les permutations Sₙ, les groupes diédraux Dₙ et les groupes de matrices.",
+        "One law studied for its own sake: groups, subgroups and order, homomorphisms, cosets and Lagrange's theorem, normal subgroups, quotient groups and isomorphism theorems; then three families of examples, the permutation groups S_n, the dihedral groups D_n and matrix groups."
+      ],
+      "prerequisites": [
+        "Chapitre 1 : applications bijectives, relations d'équivalence, quotient, ℤ/nℤ, factorisation canonique. Chapitres 2 et 3 : matrices inversibles, déterminant, matrices de permutation.",
+        "Chapters 1 to 3: maps, equivalence relations, Z/nZ, matrices and determinants."
+      ],
+      "outline": [
+        "Lois et structures algébriques",
+        "Sous-groupes, ordre, groupes cycliques",
+        "Homomorphismes",
+        "Classes à gauche et théorème de Lagrange",
+        "Sous-groupes normaux et groupes quotients",
+        "Théorèmes d'isomorphisme",
+        "Le groupe symétrique Sₙ",
+        "Le groupe diédral Dₙ",
+        "Groupes de matrices"
+      ]
+    },
+    "algebre-1-anneaux": {
+      "title": [
+        "Introduction à la théorie des anneaux",
+        "Introduction to ring theory"
+      ],
+      "summary": [
+        "Deux lois liées par la distributivité : anneaux, inversibles et corps, idéaux et anneaux quotients, anneaux intègres et principaux, idéaux premiers et maximaux, homomorphismes d'anneaux, et deux familles d'exemples, ℤ/nℤ et les quotients d'anneaux de polynômes, qui fabriquent des corps finis.",
+        "Two laws tied by distributivity: rings, units and fields, ideals and quotient rings, integral and principal domains, prime and maximal ideals, ring homomorphisms, and two families of examples, Z/nZ and quotients of polynomial rings, which produce finite fields."
+      ],
+      "prerequisites": [
+        "Chapitre 4 : groupes, sous-groupes normaux, groupes quotients, premier théorème d'isomorphisme. Chapitre 1 : ℤ/nℤ et ses inversibles. Polynômes à une indéterminée, division euclidienne des polynômes.",
+        "Chapters 1 and 4: Z/nZ, groups, normal subgroups and quotients."
+      ],
+      "outline": [
+        "Anneaux, inversibles, corps",
+        "Idéaux et anneaux quotients",
+        "Idéaux premiers et maximaux",
+        "Homomorphismes d'anneaux",
+        "Exemples d'anneaux"
+      ]
+    },
+    "algebre-1-synthese": {
+      "title": [
+        "Problèmes transversaux et auto-évaluation",
+        "Cross-chapter problems and self-assessment"
+      ],
+      "summary": [
+        "Cinq fils relient les chapitres : les quotients, ℤ/nℤ, le groupe GLₙ, les permutations et l'élimination. Pour chacun, un rappel du schéma commun puis des problèmes qui obligent à passer d'un langage à l'autre ; enfin la liste de contrôle de tout le cours.",
+        "Five threads link the chapters: quotients, Z/nZ, the group GL_n, permutations and elimination. For each, a reminder of the common pattern, then problems that force you to move between languages; finally the checklist for the whole course."
+      ],
+      "prerequisites": [
+        "Les chapitres 1 à 5. Ces problèmes sont le meilleur test de maîtrise : il faut savoir passer d'un langage à l'autre.",
+        "All five chapters."
+      ],
+      "outline": [
+        "Le schéma des quotients",
+        "Les autres fils"
+      ]
+    }
+  },
+  "outputs": {
+    "dist/resources/university/algebre-1/corriges.pdf": "cf6863cb399c5bfa5aa33b22c6dbaee5b5dafdb8fca2023cb4439f1b50a3f480",
+    "dist/resources/university/algebre-1/cours.pdf": "3897df89f9be209359c74dc2bfd3f99613a8d86f2d0589d16fa368c841e956d3",
+    "dist/resources/university/algebre-1/exercices.pdf": "9e75366d5c62fcc9848b25e4d2263de018c99c75c8f77577378c5e117c15f8fc",
+    "dist/resources/university/algebre-1/lecons/ch1-ensembles.html": "f6ce358b01f8a88969125ff5097ccc92d3675a1c0bd0a9b3778b9c7d891466db",
+    "dist/resources/university/algebre-1/lecons/ch2-matrices.html": "779c79f933c6533ca66531ee5b466c837076bac02e5fc83336315efa02f89933",
+    "dist/resources/university/algebre-1/lecons/ch3-espaces-vectoriels.html": "e27122dfee1e04a31d0066bb1c60513fca3afaed7887e5711312023af5516fd6",
+    "dist/resources/university/algebre-1/lecons/ch4-groupes.html": "3628e9d94a28c4ad16beeb0ad5cde8f83a70b79976c727bdba9a19b848d49471",
+    "dist/resources/university/algebre-1/lecons/ch5-anneaux.html": "71007ba6ca5c08b78d1017c80323fb8ad54c817a713dbf1fc199cc280c160a5e",
+    "dist/resources/university/algebre-1/lecons/index.html": "4879e1a4ddc0d7ab9a6ea272bbb5b1d9bf86c3182a99ba152942bdfa88aed348",
+    "dist/resources/university/algebre-1/lecons/synthese.html": "d6424674f378c43e2109cfcf5527274636eeb088b96e442d5ebbc8549bf372c2",
+    "dist/resources/university/algebre-1/sources-latex.zip": "ed3b93b3ddfaa2cdad02cbdbcf6f706091f125f4197ec76329af1c297679b3c1"
+  }
+}
