@@ -21470,7 +21470,7 @@
         "source": "t12-student",
         "sourcePages": [
           8,
-          26
+          27
         ],
         "review": "source-unverified",
         "editions": {
@@ -21493,8 +21493,8 @@
         "url": "./resources/t12c-01/teacher.pdf",
         "source": "t12-teacher",
         "sourcePages": [
-          8,
-          26
+          10,
+          35
         ],
         "review": "source-unverified",
         "editions": {
@@ -21517,8 +21517,8 @@
         "url": "./resources/t12c-02/chapter.pdf",
         "source": "t12-student",
         "sourcePages": [
-          27,
-          42
+          28,
+          43
         ],
         "review": "source-unverified",
         "editions": {
@@ -21541,8 +21541,8 @@
         "url": "./resources/t12c-02/teacher.pdf",
         "source": "t12-teacher",
         "sourcePages": [
-          27,
-          48
+          36,
+          57
         ],
         "review": "source-unverified",
         "editions": {
@@ -21565,13 +21565,37 @@
         "url": "./resources/t12c-03/chapter.pdf",
         "source": "t12-student",
         "sourcePages": [
-          45,
-          49
+          46,
+          51
         ],
         "review": "source-unverified",
         "editions": {
           "fr": {
             "path": "./resources/t12c-03/chapter.pdf"
+          }
+        }
+      },
+      {
+        "id": "t12c-03-teacher",
+        "chapter": "t12c-03",
+        "course": "t12c",
+        "type": "solutions",
+        "title": [
+          "Chapitre complet · professeur (cours et corrigés)",
+          "Complete chapter · teacher (notes and solutions)"
+        ],
+        "audience": "teacher",
+        "format": "PDF",
+        "url": "./resources/t12c-03/teacher.pdf",
+        "source": "t12-teacher",
+        "sourcePages": [
+          60,
+          66
+        ],
+        "review": "source-unverified",
+        "editions": {
+          "fr": {
+            "path": "./resources/t12c-03/teacher.pdf"
           }
         }
       },
@@ -21589,8 +21613,8 @@
         "url": "./resources/t12c-04/chapter.pdf",
         "source": "t12-student",
         "sourcePages": [
-          50,
-          72
+          52,
+          75
         ],
         "review": "source-unverified",
         "editions": {
@@ -21613,8 +21637,8 @@
         "url": "./resources/t12c-04/teacher.pdf",
         "source": "t12-teacher",
         "sourcePages": [
-          56,
-          83
+          67,
+          105
         ],
         "review": "source-unverified",
         "editions": {
@@ -21637,8 +21661,8 @@
         "url": "./resources/t12c-05/chapter.pdf",
         "source": "t12-student",
         "sourcePages": [
-          73,
-          82
+          76,
+          85
         ],
         "review": "source-unverified",
         "editions": {
@@ -21661,8 +21685,8 @@
         "url": "./resources/t12c-05/teacher.pdf",
         "source": "t12-teacher",
         "sourcePages": [
-          84,
-          95
+          106,
+          117
         ],
         "review": "source-unverified",
         "editions": {
@@ -21685,8 +21709,8 @@
         "url": "./resources/t12c-06/chapter.pdf",
         "source": "t12-student",
         "sourcePages": [
-          83,
-          94
+          86,
+          97
         ],
         "review": "source-unverified",
         "editions": {
@@ -21709,8 +21733,8 @@
         "url": "./resources/t12c-06/teacher.pdf",
         "source": "t12-teacher",
         "sourcePages": [
-          96,
-          111
+          118,
+          133
         ],
         "review": "source-unverified",
         "editions": {
@@ -21733,8 +21757,8 @@
         "url": "./resources/t12c-07/chapter.pdf",
         "source": "t12-student",
         "sourcePages": [
-          95,
-          101
+          98,
+          104
         ],
         "review": "source-unverified",
         "editions": {
@@ -21757,8 +21781,8 @@
         "url": "./resources/t12c-07/teacher.pdf",
         "source": "t12-teacher",
         "sourcePages": [
-          112,
-          123
+          134,
+          145
         ],
         "review": "source-unverified",
         "editions": {
@@ -21781,8 +21805,8 @@
         "url": "./resources/t12c-08/chapter.pdf",
         "source": "t12-student",
         "sourcePages": [
-          104,
-          114
+          107,
+          117
         ],
         "review": "source-unverified",
         "editions": {
@@ -21805,8 +21829,8 @@
         "url": "./resources/t12c-08/teacher.pdf",
         "source": "t12-teacher",
         "sourcePages": [
-          126,
-          137
+          148,
+          160
         ],
         "review": "source-unverified",
         "editions": {
@@ -21829,13 +21853,37 @@
         "url": "./resources/t12c-09/chapter.pdf",
         "source": "t12-student",
         "sourcePages": [
-          115,
-          128
+          118,
+          131
         ],
         "review": "source-unverified",
         "editions": {
           "fr": {
             "path": "./resources/t12c-09/chapter.pdf"
+          }
+        }
+      },
+      {
+        "id": "t12c-09-teacher",
+        "chapter": "t12c-09",
+        "course": "t12c",
+        "type": "solutions",
+        "title": [
+          "Chapitre complet · professeur (cours et corrigés)",
+          "Complete chapter · teacher (notes and solutions)"
+        ],
+        "audience": "teacher",
+        "format": "PDF",
+        "url": "./resources/t12c-09/teacher.pdf",
+        "source": "t12-teacher",
+        "sourcePages": [
+          161,
+          180
+        ],
+        "review": "source-unverified",
+        "editions": {
+          "fr": {
+            "path": "./resources/t12c-09/teacher.pdf"
           }
         }
       },
@@ -21853,13 +21901,37 @@
         "url": "./resources/t12c-10/chapter.pdf",
         "source": "t12-student",
         "sourcePages": [
-          129,
-          139
+          132,
+          142
         ],
         "review": "source-unverified",
         "editions": {
           "fr": {
             "path": "./resources/t12c-10/chapter.pdf"
+          }
+        }
+      },
+      {
+        "id": "t12c-10-teacher",
+        "chapter": "t12c-10",
+        "course": "t12c",
+        "type": "solutions",
+        "title": [
+          "Chapitre complet · professeur (cours et corrigés)",
+          "Complete chapter · teacher (notes and solutions)"
+        ],
+        "audience": "teacher",
+        "format": "PDF",
+        "url": "./resources/t12c-10/teacher.pdf",
+        "source": "t12-teacher",
+        "sourcePages": [
+          181,
+          199
+        ],
+        "review": "source-unverified",
+        "editions": {
+          "fr": {
+            "path": "./resources/t12c-10/teacher.pdf"
           }
         }
       },
@@ -21877,13 +21949,37 @@
         "url": "./resources/t12c-11/chapter.pdf",
         "source": "t12-student",
         "sourcePages": [
-          153,
-          161
+          156,
+          165
         ],
         "review": "source-unverified",
         "editions": {
           "fr": {
             "path": "./resources/t12c-11/chapter.pdf"
+          }
+        }
+      },
+      {
+        "id": "t12c-11-teacher",
+        "chapter": "t12c-11",
+        "course": "t12c",
+        "type": "solutions",
+        "title": [
+          "Chapitre complet · professeur (cours et corrigés)",
+          "Complete chapter · teacher (notes and solutions)"
+        ],
+        "audience": "teacher",
+        "format": "PDF",
+        "url": "./resources/t12c-11/teacher.pdf",
+        "source": "t12-teacher",
+        "sourcePages": [
+          216,
+          228
+        ],
+        "review": "source-unverified",
+        "editions": {
+          "fr": {
+            "path": "./resources/t12c-11/teacher.pdf"
           }
         }
       },
@@ -21901,8 +21997,8 @@
         "url": "./resources/t12c-12/chapter.pdf",
         "source": "t12-student",
         "sourcePages": [
-          162,
-          167
+          166,
+          171
         ],
         "review": "source-unverified",
         "editions": {
@@ -21925,8 +22021,8 @@
         "url": "./resources/t12c-12/teacher.pdf",
         "source": "t12-teacher",
         "sourcePages": [
-          188,
-          195
+          229,
+          236
         ],
         "review": "source-unverified",
         "editions": {
@@ -21949,8 +22045,8 @@
         "url": "./resources/t12d-01/chapter.pdf",
         "source": "t12-student",
         "sourcePages": [
-          27,
-          42
+          28,
+          43
         ],
         "review": "source-unverified",
         "editions": {
@@ -21973,8 +22069,8 @@
         "url": "./resources/t12d-01/teacher.pdf",
         "source": "t12-teacher",
         "sourcePages": [
-          27,
-          48
+          36,
+          57
         ],
         "review": "source-unverified",
         "editions": {
@@ -21997,13 +22093,37 @@
         "url": "./resources/t12d-02/chapter.pdf",
         "source": "t12-student",
         "sourcePages": [
-          45,
-          49
+          46,
+          51
         ],
         "review": "source-unverified",
         "editions": {
           "fr": {
             "path": "./resources/t12d-02/chapter.pdf"
+          }
+        }
+      },
+      {
+        "id": "t12d-02-teacher",
+        "chapter": "t12d-02",
+        "course": "t12d",
+        "type": "solutions",
+        "title": [
+          "Chapitre complet · professeur (cours et corrigés)",
+          "Complete chapter · teacher (notes and solutions)"
+        ],
+        "audience": "teacher",
+        "format": "PDF",
+        "url": "./resources/t12d-02/teacher.pdf",
+        "source": "t12-teacher",
+        "sourcePages": [
+          60,
+          66
+        ],
+        "review": "source-unverified",
+        "editions": {
+          "fr": {
+            "path": "./resources/t12d-02/teacher.pdf"
           }
         }
       },
@@ -22021,8 +22141,8 @@
         "url": "./resources/t12d-03/chapter.pdf",
         "source": "t12-student",
         "sourcePages": [
-          50,
-          72
+          52,
+          75
         ],
         "review": "source-unverified",
         "editions": {
@@ -22045,8 +22165,8 @@
         "url": "./resources/t12d-03/teacher.pdf",
         "source": "t12-teacher",
         "sourcePages": [
-          56,
-          83
+          67,
+          105
         ],
         "review": "source-unverified",
         "editions": {
@@ -22069,8 +22189,8 @@
         "url": "./resources/t12d-04/chapter.pdf",
         "source": "t12-student",
         "sourcePages": [
-          95,
-          101
+          98,
+          104
         ],
         "review": "source-unverified",
         "editions": {
@@ -22093,8 +22213,8 @@
         "url": "./resources/t12d-04/teacher.pdf",
         "source": "t12-teacher",
         "sourcePages": [
-          112,
-          123
+          134,
+          145
         ],
         "review": "source-unverified",
         "editions": {
@@ -22117,8 +22237,8 @@
         "url": "./resources/t12d-05/chapter.pdf",
         "source": "t12-student",
         "sourcePages": [
-          104,
-          114
+          107,
+          117
         ],
         "review": "source-unverified",
         "editions": {
@@ -22141,8 +22261,8 @@
         "url": "./resources/t12d-05/teacher.pdf",
         "source": "t12-teacher",
         "sourcePages": [
-          126,
-          137
+          148,
+          160
         ],
         "review": "source-unverified",
         "editions": {
@@ -22165,13 +22285,37 @@
         "url": "./resources/t12d-06/chapter.pdf",
         "source": "t12-student",
         "sourcePages": [
-          115,
-          128
+          118,
+          131
         ],
         "review": "source-unverified",
         "editions": {
           "fr": {
             "path": "./resources/t12d-06/chapter.pdf"
+          }
+        }
+      },
+      {
+        "id": "t12d-06-teacher",
+        "chapter": "t12d-06",
+        "course": "t12d",
+        "type": "solutions",
+        "title": [
+          "Chapitre complet · professeur (cours et corrigés)",
+          "Complete chapter · teacher (notes and solutions)"
+        ],
+        "audience": "teacher",
+        "format": "PDF",
+        "url": "./resources/t12d-06/teacher.pdf",
+        "source": "t12-teacher",
+        "sourcePages": [
+          161,
+          180
+        ],
+        "review": "source-unverified",
+        "editions": {
+          "fr": {
+            "path": "./resources/t12d-06/teacher.pdf"
           }
         }
       },
@@ -22189,13 +22333,37 @@
         "url": "./resources/t12d-07/chapter.pdf",
         "source": "t12-student",
         "sourcePages": [
-          129,
-          139
+          132,
+          142
         ],
         "review": "source-unverified",
         "editions": {
           "fr": {
             "path": "./resources/t12d-07/chapter.pdf"
+          }
+        }
+      },
+      {
+        "id": "t12d-07-teacher",
+        "chapter": "t12d-07",
+        "course": "t12d",
+        "type": "solutions",
+        "title": [
+          "Chapitre complet · professeur (cours et corrigés)",
+          "Complete chapter · teacher (notes and solutions)"
+        ],
+        "audience": "teacher",
+        "format": "PDF",
+        "url": "./resources/t12d-07/teacher.pdf",
+        "source": "t12-teacher",
+        "sourcePages": [
+          181,
+          199
+        ],
+        "review": "source-unverified",
+        "editions": {
+          "fr": {
+            "path": "./resources/t12d-07/teacher.pdf"
           }
         }
       },
@@ -22213,8 +22381,8 @@
         "url": "./resources/t12d-08/chapter.pdf",
         "source": "t12-student",
         "sourcePages": [
-          140,
-          152
+          143,
+          155
         ],
         "review": "source-unverified",
         "editions": {
@@ -22237,8 +22405,8 @@
         "url": "./resources/t12d-08/teacher.pdf",
         "source": "t12-teacher",
         "sourcePages": [
-          163,
-          178
+          200,
+          215
         ],
         "review": "source-unverified",
         "editions": {
@@ -22261,13 +22429,37 @@
         "url": "./resources/t12d-09/chapter.pdf",
         "source": "t12-student",
         "sourcePages": [
-          153,
-          161
+          156,
+          165
         ],
         "review": "source-unverified",
         "editions": {
           "fr": {
             "path": "./resources/t12d-09/chapter.pdf"
+          }
+        }
+      },
+      {
+        "id": "t12d-09-teacher",
+        "chapter": "t12d-09",
+        "course": "t12d",
+        "type": "solutions",
+        "title": [
+          "Chapitre complet · professeur (cours et corrigés)",
+          "Complete chapter · teacher (notes and solutions)"
+        ],
+        "audience": "teacher",
+        "format": "PDF",
+        "url": "./resources/t12d-09/teacher.pdf",
+        "source": "t12-teacher",
+        "sourcePages": [
+          216,
+          228
+        ],
+        "review": "source-unverified",
+        "editions": {
+          "fr": {
+            "path": "./resources/t12d-09/teacher.pdf"
           }
         }
       }
@@ -22423,16 +22615,16 @@
       {
         "name": "t12-student",
         "title": "Manuel de mathématiques T12 C et D, édition élève",
-        "modified": "2026-11-14T14:39:38.000Z",
-        "sha256": "24943b10c78b859c4b57e4e0578e951bc0496ef2e3b6f4d5fad151197ac7df24",
-        "bytes": 1664740
+        "modified": "2026-11-16T08:26:20.000Z",
+        "sha256": "7072627d42aff1bd92a71cb8ebb9fb45e4322380ad3645b246bc640c62de03de",
+        "bytes": 1780978
       },
       {
         "name": "t12-teacher",
         "title": "Manuel de mathématiques T12 C et D, édition professeur",
-        "modified": "2026-11-14T14:39:38.000Z",
-        "sha256": "6ea650b84323b7de90bcc935343e6227e4fc8cd183fa986b1b3e193033be52f3",
-        "bytes": 2031737
+        "modified": "2026-11-16T08:26:20.000Z",
+        "sha256": "e07fec325ddd262aedcd4a0e97a373fe3498b5f775138abe3cc372987e89bc25",
+        "bytes": 3410610
       }
     ]
   },
@@ -22527,12 +22719,12 @@
       {
         "name": "t12-eleve.pdf",
         "title": "Manuel de mathématiques T12 C et D, édition élève",
-        "modified": "2026-11-14T14:39:38.000Z"
+        "modified": "2026-11-16T08:26:20.000Z"
       },
       {
         "name": "t12-prof.pdf",
         "title": "Manuel de mathématiques T12 C et D, édition professeur",
-        "modified": "2026-11-14T14:39:38.000Z"
+        "modified": "2026-11-16T08:26:20.000Z"
       }
     ],
     "chapters": [
@@ -26633,7 +26825,7 @@
           {
             "kind": "teacher",
             "source": "t12-prof.pdf",
-            "start": 8,
+            "start": 10,
             "path": "resources/t12c-01/teacher.pdf",
             "editions": {
               "fr": {
@@ -26656,7 +26848,7 @@
           {
             "kind": "chapter",
             "source": "t12-eleve.pdf",
-            "start": 27,
+            "start": 28,
             "path": "resources/t12c-02/chapter.pdf",
             "editions": {
               "fr": {
@@ -26667,7 +26859,7 @@
           {
             "kind": "teacher",
             "source": "t12-prof.pdf",
-            "start": 27,
+            "start": 36,
             "path": "resources/t12c-02/teacher.pdf",
             "editions": {
               "fr": {
@@ -26690,11 +26882,22 @@
           {
             "kind": "chapter",
             "source": "t12-eleve.pdf",
-            "start": 45,
+            "start": 46,
             "path": "resources/t12c-03/chapter.pdf",
             "editions": {
               "fr": {
                 "path": "resources/t12c-03/chapter.pdf"
+              }
+            }
+          },
+          {
+            "kind": "teacher",
+            "source": "t12-prof.pdf",
+            "start": 60,
+            "path": "resources/t12c-03/teacher.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12c-03/teacher.pdf"
               }
             }
           }
@@ -26713,7 +26916,7 @@
           {
             "kind": "chapter",
             "source": "t12-eleve.pdf",
-            "start": 50,
+            "start": 52,
             "path": "resources/t12c-04/chapter.pdf",
             "editions": {
               "fr": {
@@ -26724,7 +26927,7 @@
           {
             "kind": "teacher",
             "source": "t12-prof.pdf",
-            "start": 56,
+            "start": 67,
             "path": "resources/t12c-04/teacher.pdf",
             "editions": {
               "fr": {
@@ -26747,7 +26950,7 @@
           {
             "kind": "chapter",
             "source": "t12-eleve.pdf",
-            "start": 73,
+            "start": 76,
             "path": "resources/t12c-05/chapter.pdf",
             "editions": {
               "fr": {
@@ -26758,7 +26961,7 @@
           {
             "kind": "teacher",
             "source": "t12-prof.pdf",
-            "start": 84,
+            "start": 106,
             "path": "resources/t12c-05/teacher.pdf",
             "editions": {
               "fr": {
@@ -26781,7 +26984,7 @@
           {
             "kind": "chapter",
             "source": "t12-eleve.pdf",
-            "start": 83,
+            "start": 86,
             "path": "resources/t12c-06/chapter.pdf",
             "editions": {
               "fr": {
@@ -26792,7 +26995,7 @@
           {
             "kind": "teacher",
             "source": "t12-prof.pdf",
-            "start": 96,
+            "start": 118,
             "path": "resources/t12c-06/teacher.pdf",
             "editions": {
               "fr": {
@@ -26815,7 +27018,7 @@
           {
             "kind": "chapter",
             "source": "t12-eleve.pdf",
-            "start": 95,
+            "start": 98,
             "path": "resources/t12c-07/chapter.pdf",
             "editions": {
               "fr": {
@@ -26826,7 +27029,7 @@
           {
             "kind": "teacher",
             "source": "t12-prof.pdf",
-            "start": 112,
+            "start": 134,
             "path": "resources/t12c-07/teacher.pdf",
             "editions": {
               "fr": {
@@ -26849,7 +27052,7 @@
           {
             "kind": "chapter",
             "source": "t12-eleve.pdf",
-            "start": 104,
+            "start": 107,
             "path": "resources/t12c-08/chapter.pdf",
             "editions": {
               "fr": {
@@ -26860,7 +27063,7 @@
           {
             "kind": "teacher",
             "source": "t12-prof.pdf",
-            "start": 126,
+            "start": 148,
             "path": "resources/t12c-08/teacher.pdf",
             "editions": {
               "fr": {
@@ -26883,11 +27086,22 @@
           {
             "kind": "chapter",
             "source": "t12-eleve.pdf",
-            "start": 115,
+            "start": 118,
             "path": "resources/t12c-09/chapter.pdf",
             "editions": {
               "fr": {
                 "path": "resources/t12c-09/chapter.pdf"
+              }
+            }
+          },
+          {
+            "kind": "teacher",
+            "source": "t12-prof.pdf",
+            "start": 161,
+            "path": "resources/t12c-09/teacher.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12c-09/teacher.pdf"
               }
             }
           }
@@ -26906,11 +27120,22 @@
           {
             "kind": "chapter",
             "source": "t12-eleve.pdf",
-            "start": 129,
+            "start": 132,
             "path": "resources/t12c-10/chapter.pdf",
             "editions": {
               "fr": {
                 "path": "resources/t12c-10/chapter.pdf"
+              }
+            }
+          },
+          {
+            "kind": "teacher",
+            "source": "t12-prof.pdf",
+            "start": 181,
+            "path": "resources/t12c-10/teacher.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12c-10/teacher.pdf"
               }
             }
           }
@@ -26929,11 +27154,22 @@
           {
             "kind": "chapter",
             "source": "t12-eleve.pdf",
-            "start": 153,
+            "start": 156,
             "path": "resources/t12c-11/chapter.pdf",
             "editions": {
               "fr": {
                 "path": "resources/t12c-11/chapter.pdf"
+              }
+            }
+          },
+          {
+            "kind": "teacher",
+            "source": "t12-prof.pdf",
+            "start": 216,
+            "path": "resources/t12c-11/teacher.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12c-11/teacher.pdf"
               }
             }
           }
@@ -26952,7 +27188,7 @@
           {
             "kind": "chapter",
             "source": "t12-eleve.pdf",
-            "start": 162,
+            "start": 166,
             "path": "resources/t12c-12/chapter.pdf",
             "editions": {
               "fr": {
@@ -26963,7 +27199,7 @@
           {
             "kind": "teacher",
             "source": "t12-prof.pdf",
-            "start": 188,
+            "start": 229,
             "path": "resources/t12c-12/teacher.pdf",
             "editions": {
               "fr": {
@@ -26986,7 +27222,7 @@
           {
             "kind": "chapter",
             "source": "t12-eleve.pdf",
-            "start": 27,
+            "start": 28,
             "path": "resources/t12d-01/chapter.pdf",
             "editions": {
               "fr": {
@@ -26997,7 +27233,7 @@
           {
             "kind": "teacher",
             "source": "t12-prof.pdf",
-            "start": 27,
+            "start": 36,
             "path": "resources/t12d-01/teacher.pdf",
             "editions": {
               "fr": {
@@ -27020,11 +27256,22 @@
           {
             "kind": "chapter",
             "source": "t12-eleve.pdf",
-            "start": 45,
+            "start": 46,
             "path": "resources/t12d-02/chapter.pdf",
             "editions": {
               "fr": {
                 "path": "resources/t12d-02/chapter.pdf"
+              }
+            }
+          },
+          {
+            "kind": "teacher",
+            "source": "t12-prof.pdf",
+            "start": 60,
+            "path": "resources/t12d-02/teacher.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12d-02/teacher.pdf"
               }
             }
           }
@@ -27043,7 +27290,7 @@
           {
             "kind": "chapter",
             "source": "t12-eleve.pdf",
-            "start": 50,
+            "start": 52,
             "path": "resources/t12d-03/chapter.pdf",
             "editions": {
               "fr": {
@@ -27054,7 +27301,7 @@
           {
             "kind": "teacher",
             "source": "t12-prof.pdf",
-            "start": 56,
+            "start": 67,
             "path": "resources/t12d-03/teacher.pdf",
             "editions": {
               "fr": {
@@ -27077,7 +27324,7 @@
           {
             "kind": "chapter",
             "source": "t12-eleve.pdf",
-            "start": 95,
+            "start": 98,
             "path": "resources/t12d-04/chapter.pdf",
             "editions": {
               "fr": {
@@ -27088,7 +27335,7 @@
           {
             "kind": "teacher",
             "source": "t12-prof.pdf",
-            "start": 112,
+            "start": 134,
             "path": "resources/t12d-04/teacher.pdf",
             "editions": {
               "fr": {
@@ -27111,7 +27358,7 @@
           {
             "kind": "chapter",
             "source": "t12-eleve.pdf",
-            "start": 104,
+            "start": 107,
             "path": "resources/t12d-05/chapter.pdf",
             "editions": {
               "fr": {
@@ -27122,7 +27369,7 @@
           {
             "kind": "teacher",
             "source": "t12-prof.pdf",
-            "start": 126,
+            "start": 148,
             "path": "resources/t12d-05/teacher.pdf",
             "editions": {
               "fr": {
@@ -27145,11 +27392,22 @@
           {
             "kind": "chapter",
             "source": "t12-eleve.pdf",
-            "start": 115,
+            "start": 118,
             "path": "resources/t12d-06/chapter.pdf",
             "editions": {
               "fr": {
                 "path": "resources/t12d-06/chapter.pdf"
+              }
+            }
+          },
+          {
+            "kind": "teacher",
+            "source": "t12-prof.pdf",
+            "start": 161,
+            "path": "resources/t12d-06/teacher.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12d-06/teacher.pdf"
               }
             }
           }
@@ -27168,11 +27426,22 @@
           {
             "kind": "chapter",
             "source": "t12-eleve.pdf",
-            "start": 129,
+            "start": 132,
             "path": "resources/t12d-07/chapter.pdf",
             "editions": {
               "fr": {
                 "path": "resources/t12d-07/chapter.pdf"
+              }
+            }
+          },
+          {
+            "kind": "teacher",
+            "source": "t12-prof.pdf",
+            "start": 181,
+            "path": "resources/t12d-07/teacher.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12d-07/teacher.pdf"
               }
             }
           }
@@ -27191,7 +27460,7 @@
           {
             "kind": "chapter",
             "source": "t12-eleve.pdf",
-            "start": 140,
+            "start": 143,
             "path": "resources/t12d-08/chapter.pdf",
             "editions": {
               "fr": {
@@ -27202,7 +27471,7 @@
           {
             "kind": "teacher",
             "source": "t12-prof.pdf",
-            "start": 163,
+            "start": 200,
             "path": "resources/t12d-08/teacher.pdf",
             "editions": {
               "fr": {
@@ -27225,11 +27494,22 @@
           {
             "kind": "chapter",
             "source": "t12-eleve.pdf",
-            "start": 153,
+            "start": 156,
             "path": "resources/t12d-09/chapter.pdf",
             "editions": {
               "fr": {
                 "path": "resources/t12d-09/chapter.pdf"
+              }
+            }
+          },
+          {
+            "kind": "teacher",
+            "source": "t12-prof.pdf",
+            "start": 216,
+            "path": "resources/t12d-09/teacher.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12d-09/teacher.pdf"
               }
             }
           }
@@ -27859,11 +28139,22 @@
           {
             "kind": "chapter",
             "source": "t12-eleve.pdf",
-            "start": 168,
+            "start": 172,
             "path": "resources/t12c-problems-eleve.pdf",
             "editions": {
               "fr": {
                 "path": "resources/t12c-problems-eleve.pdf"
+              }
+            }
+          },
+          {
+            "kind": "teacher",
+            "source": "t12-prof.pdf",
+            "start": 237,
+            "path": "resources/t12c-problems-prof.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12c-problems-prof.pdf"
               }
             }
           }
@@ -27881,7 +28172,7 @@
           {
             "kind": "chapter",
             "source": "t12-eleve.pdf",
-            "start": 242,
+            "start": 265,
             "path": "resources/t12c-annexes-eleve.pdf",
             "editions": {
               "fr": {
@@ -27903,7 +28194,7 @@
           {
             "kind": "chapter",
             "source": "t12-eleve.pdf",
-            "start": 178,
+            "start": 181,
             "path": "resources/t12c-bac-2018-eleve.pdf",
             "editions": {
               "fr": {
@@ -27925,7 +28216,7 @@
           {
             "kind": "chapter",
             "source": "t12-eleve.pdf",
-            "start": 180,
+            "start": 183,
             "path": "resources/t12c-bac-2017-eleve.pdf",
             "editions": {
               "fr": {
@@ -27947,7 +28238,7 @@
           {
             "kind": "chapter",
             "source": "t12-eleve.pdf",
-            "start": 182,
+            "start": 185,
             "path": "resources/t12c-bac-2016-eleve.pdf",
             "editions": {
               "fr": {
@@ -27969,7 +28260,7 @@
           {
             "kind": "chapter",
             "source": "t12-eleve.pdf",
-            "start": 184,
+            "start": 187,
             "path": "resources/t12c-bac-2015-eleve.pdf",
             "editions": {
               "fr": {
@@ -27991,7 +28282,7 @@
           {
             "kind": "chapter",
             "source": "t12-eleve.pdf",
-            "start": 187,
+            "start": 190,
             "path": "resources/t12c-bac-2014-eleve.pdf",
             "editions": {
               "fr": {
@@ -28013,7 +28304,7 @@
           {
             "kind": "chapter",
             "source": "t12-eleve.pdf",
-            "start": 189,
+            "start": 192,
             "path": "resources/t12c-bac-2013-eleve.pdf",
             "editions": {
               "fr": {
@@ -28035,7 +28326,7 @@
           {
             "kind": "chapter",
             "source": "t12-eleve.pdf",
-            "start": 191,
+            "start": 194,
             "path": "resources/t12c-bac-2012-eleve.pdf",
             "editions": {
               "fr": {
@@ -28057,7 +28348,7 @@
           {
             "kind": "chapter",
             "source": "t12-eleve.pdf",
-            "start": 193,
+            "start": 196,
             "path": "resources/t12c-bac-2011-eleve.pdf",
             "editions": {
               "fr": {
@@ -28079,7 +28370,7 @@
           {
             "kind": "chapter",
             "source": "t12-eleve.pdf",
-            "start": 195,
+            "start": 198,
             "path": "resources/t12c-bac-2010-eleve.pdf",
             "editions": {
               "fr": {
@@ -28101,7 +28392,7 @@
           {
             "kind": "chapter",
             "source": "t12-eleve.pdf",
-            "start": 197,
+            "start": 200,
             "path": "resources/t12c-bac-2009-eleve.pdf",
             "editions": {
               "fr": {
@@ -28123,7 +28414,7 @@
           {
             "kind": "chapter",
             "source": "t12-eleve.pdf",
-            "start": 199,
+            "start": 202,
             "path": "resources/t12c-bac-2008-eleve.pdf",
             "editions": {
               "fr": {
@@ -28145,7 +28436,7 @@
           {
             "kind": "chapter",
             "source": "t12-eleve.pdf",
-            "start": 201,
+            "start": 204,
             "path": "resources/t12c-bac-2007-eleve.pdf",
             "editions": {
               "fr": {
@@ -28167,7 +28458,7 @@
           {
             "kind": "chapter",
             "source": "t12-eleve.pdf",
-            "start": 203,
+            "start": 206,
             "path": "resources/t12c-bac-2006-eleve.pdf",
             "editions": {
               "fr": {
@@ -28189,22 +28480,11 @@
           {
             "kind": "chapter",
             "source": "t12-eleve.pdf",
-            "start": 205,
+            "start": 208,
             "path": "resources/t12c-bac-2005-eleve.pdf",
             "editions": {
               "fr": {
                 "path": "resources/t12c-bac-2005-eleve.pdf"
-              }
-            }
-          },
-          {
-            "kind": "teacher",
-            "source": "t12-prof.pdf",
-            "start": 233,
-            "path": "resources/t12c-bac-2005-prof.pdf",
-            "editions": {
-              "fr": {
-                "path": "resources/t12c-bac-2005-prof.pdf"
               }
             }
           }
@@ -28222,22 +28502,11 @@
           {
             "kind": "chapter",
             "source": "t12-eleve.pdf",
-            "start": 207,
+            "start": 210,
             "path": "resources/t12c-bac-2004-eleve.pdf",
             "editions": {
               "fr": {
                 "path": "resources/t12c-bac-2004-eleve.pdf"
-              }
-            }
-          },
-          {
-            "kind": "teacher",
-            "source": "t12-prof.pdf",
-            "start": 235,
-            "path": "resources/t12c-bac-2004-prof.pdf",
-            "editions": {
-              "fr": {
-                "path": "resources/t12c-bac-2004-prof.pdf"
               }
             }
           }
@@ -28255,22 +28524,143 @@
           {
             "kind": "chapter",
             "source": "t12-eleve.pdf",
-            "start": 209,
+            "start": 212,
             "path": "resources/t12c-bac-2003-eleve.pdf",
             "editions": {
               "fr": {
                 "path": "resources/t12c-bac-2003-eleve.pdf"
               }
             }
-          },
+          }
+        ]
+      },
+      {
+        "id": "t12c-practice-Sujet C6",
+        "course": "t12c",
+        "kind": "practice",
+        "title": [
+          "Sujet type C Sujet C6",
+          "Practice paper type C Sujet C6"
+        ],
+        "files": [
           {
-            "kind": "teacher",
-            "source": "t12-prof.pdf",
-            "start": 237,
-            "path": "resources/t12c-bac-2003-prof.pdf",
+            "kind": "chapter",
+            "source": "t12-eleve.pdf",
+            "start": 255,
+            "path": "resources/t12c-practice-Sujet C6-eleve.pdf",
             "editions": {
               "fr": {
-                "path": "resources/t12c-bac-2003-prof.pdf"
+                "path": "resources/t12c-practice-Sujet C6-eleve.pdf"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "t12c-practice-Sujet C5",
+        "course": "t12c",
+        "kind": "practice",
+        "title": [
+          "Sujet type C Sujet C5",
+          "Practice paper type C Sujet C5"
+        ],
+        "files": [
+          {
+            "kind": "chapter",
+            "source": "t12-eleve.pdf",
+            "start": 253,
+            "path": "resources/t12c-practice-Sujet C5-eleve.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12c-practice-Sujet C5-eleve.pdf"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "t12c-practice-Sujet C4",
+        "course": "t12c",
+        "kind": "practice",
+        "title": [
+          "Sujet type C Sujet C4",
+          "Practice paper type C Sujet C4"
+        ],
+        "files": [
+          {
+            "kind": "chapter",
+            "source": "t12-eleve.pdf",
+            "start": 251,
+            "path": "resources/t12c-practice-Sujet C4-eleve.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12c-practice-Sujet C4-eleve.pdf"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "t12c-practice-Sujet C3",
+        "course": "t12c",
+        "kind": "practice",
+        "title": [
+          "Sujet type C Sujet C3",
+          "Practice paper type C Sujet C3"
+        ],
+        "files": [
+          {
+            "kind": "chapter",
+            "source": "t12-eleve.pdf",
+            "start": 249,
+            "path": "resources/t12c-practice-Sujet C3-eleve.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12c-practice-Sujet C3-eleve.pdf"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "t12c-practice-Sujet C2",
+        "course": "t12c",
+        "kind": "practice",
+        "title": [
+          "Sujet type C Sujet C2",
+          "Practice paper type C Sujet C2"
+        ],
+        "files": [
+          {
+            "kind": "chapter",
+            "source": "t12-eleve.pdf",
+            "start": 247,
+            "path": "resources/t12c-practice-Sujet C2-eleve.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12c-practice-Sujet C2-eleve.pdf"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "t12c-practice-Sujet C1",
+        "course": "t12c",
+        "kind": "practice",
+        "title": [
+          "Sujet type C Sujet C1",
+          "Practice paper type C Sujet C1"
+        ],
+        "files": [
+          {
+            "kind": "chapter",
+            "source": "t12-eleve.pdf",
+            "start": 245,
+            "path": "resources/t12c-practice-Sujet C1-eleve.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12c-practice-Sujet C1-eleve.pdf"
               }
             }
           }
@@ -28288,11 +28678,22 @@
           {
             "kind": "chapter",
             "source": "t12-eleve.pdf",
-            "start": 168,
+            "start": 172,
             "path": "resources/t12d-problems-eleve.pdf",
             "editions": {
               "fr": {
                 "path": "resources/t12d-problems-eleve.pdf"
+              }
+            }
+          },
+          {
+            "kind": "teacher",
+            "source": "t12-prof.pdf",
+            "start": 237,
+            "path": "resources/t12d-problems-prof.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12d-problems-prof.pdf"
               }
             }
           }
@@ -28310,7 +28711,7 @@
           {
             "kind": "chapter",
             "source": "t12-eleve.pdf",
-            "start": 242,
+            "start": 265,
             "path": "resources/t12d-annexes-eleve.pdf",
             "editions": {
               "fr": {
@@ -28332,7 +28733,7 @@
           {
             "kind": "chapter",
             "source": "t12-eleve.pdf",
-            "start": 211,
+            "start": 214,
             "path": "resources/t12d-bac-2018-eleve.pdf",
             "editions": {
               "fr": {
@@ -28354,7 +28755,7 @@
           {
             "kind": "chapter",
             "source": "t12-eleve.pdf",
-            "start": 213,
+            "start": 216,
             "path": "resources/t12d-bac-2017-eleve.pdf",
             "editions": {
               "fr": {
@@ -28376,7 +28777,7 @@
           {
             "kind": "chapter",
             "source": "t12-eleve.pdf",
-            "start": 215,
+            "start": 218,
             "path": "resources/t12d-bac-2016-eleve.pdf",
             "editions": {
               "fr": {
@@ -28398,7 +28799,7 @@
           {
             "kind": "chapter",
             "source": "t12-eleve.pdf",
-            "start": 217,
+            "start": 220,
             "path": "resources/t12d-bac-2015-eleve.pdf",
             "editions": {
               "fr": {
@@ -28420,7 +28821,7 @@
           {
             "kind": "chapter",
             "source": "t12-eleve.pdf",
-            "start": 219,
+            "start": 222,
             "path": "resources/t12d-bac-2014-eleve.pdf",
             "editions": {
               "fr": {
@@ -28442,7 +28843,7 @@
           {
             "kind": "chapter",
             "source": "t12-eleve.pdf",
-            "start": 221,
+            "start": 224,
             "path": "resources/t12d-bac-2013-eleve.pdf",
             "editions": {
               "fr": {
@@ -28464,7 +28865,7 @@
           {
             "kind": "chapter",
             "source": "t12-eleve.pdf",
-            "start": 223,
+            "start": 226,
             "path": "resources/t12d-bac-2012-eleve.pdf",
             "editions": {
               "fr": {
@@ -28486,7 +28887,7 @@
           {
             "kind": "chapter",
             "source": "t12-eleve.pdf",
-            "start": 225,
+            "start": 228,
             "path": "resources/t12d-bac-2011-eleve.pdf",
             "editions": {
               "fr": {
@@ -28508,7 +28909,7 @@
           {
             "kind": "chapter",
             "source": "t12-eleve.pdf",
-            "start": 227,
+            "start": 230,
             "path": "resources/t12d-bac-2010-eleve.pdf",
             "editions": {
               "fr": {
@@ -28530,7 +28931,7 @@
           {
             "kind": "chapter",
             "source": "t12-eleve.pdf",
-            "start": 229,
+            "start": 232,
             "path": "resources/t12d-bac-2009-eleve.pdf",
             "editions": {
               "fr": {
@@ -28552,7 +28953,7 @@
           {
             "kind": "chapter",
             "source": "t12-eleve.pdf",
-            "start": 231,
+            "start": 234,
             "path": "resources/t12d-bac-2008-eleve.pdf",
             "editions": {
               "fr": {
@@ -28574,7 +28975,7 @@
           {
             "kind": "chapter",
             "source": "t12-eleve.pdf",
-            "start": 232,
+            "start": 235,
             "path": "resources/t12d-bac-2007-eleve.pdf",
             "editions": {
               "fr": {
@@ -28596,7 +28997,7 @@
           {
             "kind": "chapter",
             "source": "t12-eleve.pdf",
-            "start": 234,
+            "start": 237,
             "path": "resources/t12d-bac-2006-eleve.pdf",
             "editions": {
               "fr": {
@@ -28618,7 +29019,7 @@
           {
             "kind": "chapter",
             "source": "t12-eleve.pdf",
-            "start": 236,
+            "start": 239,
             "path": "resources/t12d-bac-2005-eleve.pdf",
             "editions": {
               "fr": {
@@ -28640,7 +29041,7 @@
           {
             "kind": "chapter",
             "source": "t12-eleve.pdf",
-            "start": 238,
+            "start": 241,
             "path": "resources/t12d-bac-2004-eleve.pdf",
             "editions": {
               "fr": {
@@ -28662,11 +29063,143 @@
           {
             "kind": "chapter",
             "source": "t12-eleve.pdf",
-            "start": 240,
+            "start": 243,
             "path": "resources/t12d-bac-2003-eleve.pdf",
             "editions": {
               "fr": {
                 "path": "resources/t12d-bac-2003-eleve.pdf"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "t12d-practice-Sujet D6",
+        "course": "t12d",
+        "kind": "practice",
+        "title": [
+          "Sujet type D Sujet D6",
+          "Practice paper type D Sujet D6"
+        ],
+        "files": [
+          {
+            "kind": "chapter",
+            "source": "t12-eleve.pdf",
+            "start": 264,
+            "path": "resources/t12d-practice-Sujet D6-eleve.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12d-practice-Sujet D6-eleve.pdf"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "t12d-practice-Sujet D5",
+        "course": "t12d",
+        "kind": "practice",
+        "title": [
+          "Sujet type D Sujet D5",
+          "Practice paper type D Sujet D5"
+        ],
+        "files": [
+          {
+            "kind": "chapter",
+            "source": "t12-eleve.pdf",
+            "start": 263,
+            "path": "resources/t12d-practice-Sujet D5-eleve.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12d-practice-Sujet D5-eleve.pdf"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "t12d-practice-Sujet D4",
+        "course": "t12d",
+        "kind": "practice",
+        "title": [
+          "Sujet type D Sujet D4",
+          "Practice paper type D Sujet D4"
+        ],
+        "files": [
+          {
+            "kind": "chapter",
+            "source": "t12-eleve.pdf",
+            "start": 262,
+            "path": "resources/t12d-practice-Sujet D4-eleve.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12d-practice-Sujet D4-eleve.pdf"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "t12d-practice-Sujet D3",
+        "course": "t12d",
+        "kind": "practice",
+        "title": [
+          "Sujet type D Sujet D3",
+          "Practice paper type D Sujet D3"
+        ],
+        "files": [
+          {
+            "kind": "chapter",
+            "source": "t12-eleve.pdf",
+            "start": 261,
+            "path": "resources/t12d-practice-Sujet D3-eleve.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12d-practice-Sujet D3-eleve.pdf"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "t12d-practice-Sujet D2",
+        "course": "t12d",
+        "kind": "practice",
+        "title": [
+          "Sujet type D Sujet D2",
+          "Practice paper type D Sujet D2"
+        ],
+        "files": [
+          {
+            "kind": "chapter",
+            "source": "t12-eleve.pdf",
+            "start": 259,
+            "path": "resources/t12d-practice-Sujet D2-eleve.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12d-practice-Sujet D2-eleve.pdf"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "t12d-practice-Sujet D1",
+        "course": "t12d",
+        "kind": "practice",
+        "title": [
+          "Sujet type D Sujet D1",
+          "Practice paper type D Sujet D1"
+        ],
+        "files": [
+          {
+            "kind": "chapter",
+            "source": "t12-eleve.pdf",
+            "start": 257,
+            "path": "resources/t12d-practice-Sujet D1-eleve.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12d-practice-Sujet D1-eleve.pdf"
               }
             }
           }
