@@ -8,7 +8,7 @@
     "course:terminale": "493c67bbe073a398468de7e029a4a9bf5ddbafb89ba18e5f9febb6390b656b0f",
     "course:expertes": "14f64099f447091e19654533a667c16e32b8073d52ba1fa6bbce2745860396ab",
     "course:enrichment": "0ce445b3d545dfedfe7ceee6b2878beea8385d15470087fca8bbbb1419e967e4",
-    "t12": "64081c968dff80525de4c3ecf912a36d93a30a7bb7b97515c7cbcc39ab268dfd",
+    "t12": "53b8987064ad013f3cbd79525cdcfdccc6775056b7da802e9abc7f05be289079",
     "annals": "bb9bef55ccfa0a697de93997094ca7d64a1982fc806a420b9b7afe301be68661",
     "static-site": "b89a957f7b565d0c222b97aa34eacc4ea0d9122480e8ffc1b9a79d63a390d693",
     "fourier": "fcbfcba2394a03a443b98b1aebac6fcf58cbbde9da37fb32cc0eed80689559e1",
@@ -20,7 +20,7 @@
     "slide-exports": "8f4306aa06ba0e45aee115023719863e9bd12f1cb8c97153bc18249e372456cd",
     "lectures": "e4c5241b7c109e389759108b2c5da7702272e12e2d1b03cd7db55714493490e6",
     "sources": "1c2bc0afa8625b435fe45933499505aa12b86ab72ea6c09e50025b112a25eecf",
-    "mada": "b9d500ba932a87a8932c36910e1993dc188332e1718299e84d96f629d2b7bc1b"
+    "mada": "8486cb1e5e03467bb17664a04fe92cac32eaf1704c14093d3ca543aa4f1f83ef"
   },
   "outputs": {
     "dist/resources/annals/bac_2021_01_sujet0_1.cor.tex": "3b4bde12db543be27e93159ca0cb4b71b336d0c37e624e4c3bef43e0824b6c59",

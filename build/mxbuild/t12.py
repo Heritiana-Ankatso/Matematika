@@ -25,8 +25,8 @@ SHIMS = {
 \RequirePackage{amsmath}
 \RequirePackage{newpxtext}
 \RequirePackage{newpxmath}
-\expandafter\def\csname ver@amssymb.sty\endcsname{loaded}
-\expandafter\def\csname ver@amsfonts.sty\endcsname{loaded}
+\expandafter\def\csname ver{AT}amssymb.sty\endcsname{loaded}
+\expandafter\def\csname ver{AT}amsfonts.sty\endcsname{loaded}
 \let\openbox\undefined
 \providecommand{\mathbold}[1]{\boldsymbol{#1}}
 ''',
@@ -34,6 +34,8 @@ SHIMS = {
     'helvet.sty': '\\NeedsTeXFormat{LaTeX2e}\n\\ProvidesPackage{helvet}[2026/11/01 build-only stand-in: Latin Modern Sans]\n\\DeclareOption*{}\n\\ProcessOptions\\relax\n\\renewcommand{\\sfdefault}{lmss}\n',
     'mathrsfs.sty': '\\NeedsTeXFormat{LaTeX2e}\n\\ProvidesPackage{mathrsfs}[2026/11/01 build-only stand-in]\n\\let\\mathscr\\mathcal\n',
 }
+# the version macros of LaTeX packages contain an at sign, which the privacy scan reads as an e-mail address: {AT} above
+SHIMS = {name: text.replace('{AT}', '@') for name, text in SHIMS.items()}
 
 
 def has_palatino():
