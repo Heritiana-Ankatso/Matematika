@@ -35,7 +35,7 @@ export function mountWidget(kind, host, lang) {
     if (kind === 'nearest') {
       const pts = state.pts, t = nearest(pts), dry = new Set(untargeted(pts));
       pts.forEach((a, i) => { const b = pts[t[i]], ang = Math.atan2(b[1] - a[1], b[0] - a[0]), L = Math.hypot(b[0] - a[0], b[1] - a[1]) - 10;
-        g.strokeStyle = t[t[i]] === i ? p.accent : p.muted; g.beginPath(); g.moveTo(a[0], a[1]); const e = [a[0] + L * Math.cos(ang), a[1] + L * Math.sin(ang)]; g.lineTo(...e); g.stroke();
+        g.strokeStyle = t[t[i]] === i ? p.object : p.muted; g.beginPath(); g.moveTo(a[0], a[1]); const e = [a[0] + L * Math.cos(ang), a[1] + L * Math.sin(ang)]; g.lineTo(...e); g.stroke();
         g.beginPath(); g.moveTo(...e); g.lineTo(e[0] - 10 * Math.cos(ang - 0.4), e[1] - 10 * Math.sin(ang - 0.4)); g.lineTo(e[0] - 10 * Math.cos(ang + 0.4), e[1] - 10 * Math.sin(ang + 0.4)); g.closePath(); g.fillStyle = g.strokeStyle; g.fill(); });
       pts.forEach((a, i) => dot(a[0], a[1], dry.has(i) ? p.pos : p.ink));
       handles = pts.map((a) => ({ get: () => a, set: (x, y) => { a[0] = Math.max(10, Math.min(o.W - 10, x)); a[1] = Math.max(10, Math.min(o.H - 10, y)); } }));
@@ -44,18 +44,18 @@ export function mountWidget(kind, host, lang) {
     } else if (kind === 'inscribed') {
       const M = onCircle(state.t), A = onCircle(state.a), B = onCircle(state.b), O = [C.x, C.y];
       g.strokeStyle = p.line; g.beginPath(); g.arc(C.x, C.y, C.r, 0, 7); g.stroke();
-      g.strokeStyle = p.accent; g.beginPath(); g.moveTo(...A); g.lineTo(...M); g.lineTo(...B); g.stroke();
+      g.strokeStyle = p.object; g.beginPath(); g.moveTo(...A); g.lineTo(...M); g.lineTo(...B); g.stroke();
       g.strokeStyle = p.obj2; g.setLineDash([6, 5]); g.beginPath(); g.moveTo(...A); g.lineTo(...O); g.lineTo(...B); g.stroke(); g.setLineDash([]);
-      dot(...A, p.ink, 'A'); dot(...B, p.ink, 'B'); dot(...M, p.accent, 'M'); dot(...O, p.obj2, 'O');
+      dot(...A, p.ink, 'A'); dot(...B, p.ink, 'B'); dot(...M, p.object, 'M'); dot(...O, p.obj2, 'O');
       const inscribed = deg(angleAt(M, A, B)), central = deg(angleAt(O, A, B));
       handles = [['t', M], ['a', A], ['b', B]].map(([k]) => ({ get: () => onCircle(state[k]), set: (x, y) => { state[k] = Math.atan2(C.y - y, x - C.x); } }));
       read.textContent = T(`Angle inscrit AMB : ${fmt(inscribed, 1, en)}°. Angle au centre AOB : ${fmt(central, 1, en)}°. Déplacez M : tant qu’il reste sur le même arc, l’angle ne bouge pas, et il vaut la moitié de l’angle au centre (ou son supplément de l’autre côté).`,
         `Inscribed angle AMB: ${fmt(inscribed, 1, en)}°. Central angle AOB: ${fmt(central, 1, en)}°. Move M: while it stays on the same arc the angle does not change, and it is half the central angle (or its supplement on the other side).`);
     } else {
       const P = 20, r = rectangle(P, state.w), k = 26, x0 = 60, y0 = o.H - 40;
-      g.fillStyle = p.accent; g.strokeStyle = p.accent; g.globalAlpha = 0.2; g.fillRect(x0, y0 - r.h * k, r.w * k, r.h * k); g.globalAlpha = 1; g.strokeRect(x0, y0 - r.h * k, r.w * k, r.h * k);
+      g.fillStyle = p.object; g.strokeStyle = p.object; g.globalAlpha = 0.2; g.fillRect(x0, y0 - r.h * k, r.w * k, r.h * k); g.globalAlpha = 1; g.strokeRect(x0, y0 - r.h * k, r.w * k, r.h * k);
       const s = P / 4, x1 = o.W - 60 - s * k; g.strokeStyle = p.obj2; g.setLineDash([6, 5]); g.strokeRect(x1, y0 - s * k, s * k, s * k); g.setLineDash([]);
-      dot(x0 + r.w * k, y0 - r.h * k, p.accent);
+      dot(x0 + r.w * k, y0 - r.h * k, p.object);
       g.fillStyle = p.ink; g.fillText(`${fmt(r.w, 1, en)} × ${fmt(r.h, 1, en)}`, x0, y0 + 24); g.fillText(T('carré 5 × 5', 'square 5 × 5'), x1, y0 + 24);
       handles = [{ get: () => [x0 + state.w * k, y0 - (P / 2 - state.w) * k], set: (x) => { state.w = Math.max(0.5, Math.min(9.5, Math.round(((x - x0) / k) * 10) / 10)); } }];
       read.textContent = T(`Périmètre 20. Rectangle ${fmt(r.w, 1, en)} sur ${fmt(r.h, 1, en)} : aire ${fmt(r.area, 2, en)}, au plus ${fmt(r.square, 0, en)}, l’aire du carré. Écart : ${fmt(r.square - r.area, 2, en)} = (largeur - 5)².`,
