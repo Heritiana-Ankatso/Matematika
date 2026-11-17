@@ -173,7 +173,7 @@ input[type="checkbox"] { accent-color: var(--accent); }
 .a1w-region { fill: transparent; }
 .a1w-region.is-on { fill: var(--object); opacity: .55; }
 .a1w-region2 { fill: transparent; }
-.a1w-region2.is-on { fill: var(--accent); fill-opacity: .3; }
+.a1w-region2.is-on { fill: var(--object-ink); fill-opacity: .3; }
 .a1w-circle { fill: none; stroke: var(--ink); stroke-width: 2; }
 .a1w-lab { font-weight: 700; font-size: 18px !important; font-style: italic; }
 .a1w-legend { font-size: .85rem; color: var(--muted); }
@@ -186,7 +186,7 @@ input[type="checkbox"] { accent-color: var(--accent); }
 .a1w-node { cursor: pointer; }
 .a1w-node circle { fill: var(--surface); stroke: var(--ink); stroke-width: 2; }
 .a1w-node.is-hot circle { fill: var(--object); }
-.a1w-node.is-sel circle { stroke: var(--accent); stroke-width: 4; }
+.a1w-node.is-sel circle { stroke: var(--object-ink); stroke-width: 4; }
 .a1w-node:focus-visible { outline: none; }
 .a1w-node:focus-visible circle { stroke: var(--accent); stroke-width: 4; }
 .a1w-checks { display: flex; flex-wrap: wrap; gap: 4px 12px; }
@@ -244,7 +244,7 @@ input[type="checkbox"] { accent-color: var(--accent); }
 .a1w-pow { font-family: var(--math); }
 .a1w-axis { stroke: var(--line-strong); stroke-dasharray: 4 4; }
 .a1w-ghost { fill: none; stroke: var(--line); stroke-width: 2; stroke-dasharray: 3 3; }
-.a1w-shape { fill: var(--accent-soft); stroke: var(--accent); stroke-width: 2.5; }
+.a1w-shape { fill: var(--object-soft); stroke: var(--object-ink); stroke-width: 2.5; }
 .a1w-euclid td { text-align: right; }
 .a1w details { margin-top: 8px; }
 .a1w summary { cursor: pointer; font-family: var(--display); font-size: .85rem; font-weight: 600; min-height: 36px; display: flex; align-items: center; }
