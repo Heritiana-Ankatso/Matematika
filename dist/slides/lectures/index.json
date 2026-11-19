@@ -91,11 +91,11 @@
    "fr": {
     "pages": 74,
     "pdf": "t12c-04-fr.pdf",
-    "bytes": 152991,
+    "bytes": 152896,
     "source": "t12c-04-fr-source.zip",
-    "sourceBytes": 14484,
-    "sourceSha256": "f9b495b37f38f3860a7ce9c020439a7a236e366f9870db913f8b0a2544fafc3f",
-    "sha256": "42e74791ca89427257f0654593d3721429b05f32922e62fa506ef341a87d2f00"
+    "sourceBytes": 14453,
+    "sourceSha256": "14877f0666891007b3eb51a099f16e384f6bfe5105fe8b5b47c76f1b6bb938d6",
+    "sha256": "7f3bbb254474538a38e9049ccaf9383dd4386333878f60333f504ea46ce0efa2"
    }
   }
  },
@@ -366,11 +366,11 @@
    "fr": {
     "pages": 74,
     "pdf": "t12d-03-fr.pdf",
-    "bytes": 152991,
+    "bytes": 152896,
     "source": "t12d-03-fr-source.zip",
-    "sourceBytes": 14484,
-    "sourceSha256": "f9b495b37f38f3860a7ce9c020439a7a236e366f9870db913f8b0a2544fafc3f",
-    "sha256": "c67ef082814f13cfedb7f6a7703d0468540a7949264ed377bf1f835f738ee805"
+    "sourceBytes": 14453,
+    "sourceSha256": "14877f0666891007b3eb51a099f16e384f6bfe5105fe8b5b47c76f1b6bb938d6",
+    "sha256": "7f3bbb254474538a38e9049ccaf9383dd4386333878f60333f504ea46ce0efa2"
    }
   }
  },

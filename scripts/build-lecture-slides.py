@@ -60,6 +60,7 @@ def convert(fragment):
     maths=[]
     def save(m):maths.append(fit_math(re.sub(r'(\\(?:cdot|times|circ))(?=[A-Z])',r'\1 ',re.sub(r'\n[ \t]*\n','\n',html.unescape(m[0]))).replace(r'\frac',r'\dfrac')));return f'MXMATH{len(maths)-1}TOKEN'
     fragment=re.sub(r'\d\.\d+!(?=\\\(\\xymatrix)','',fragment)
+    fragment=re.sub(r'\s*\((?:Voir|See) Fig\.? fig:[\w:.-]+\)','',fragment)  # an unresolved \ref to a figure the slide does not carry
     fragment=re.sub(r'\\\([\s\S]*?\\\)|\\\[[\s\S]*?\\\]',save,fragment)
     root=dom.fragment_fromstring(fragment,create_parent='div')
     def walk(node):
