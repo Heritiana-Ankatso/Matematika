@@ -22,7 +22,7 @@ On appelle \emph{barycentre} du syst\`eme $\{ (A,\alpha) ; (B,\beta) \}$ le poin
 \subsection{Coordonn\'ees du barycentre}
 Dans le plan $(O, \vec{\imath} , \vec{\jmath})$, soit $\{ (A,\alpha) ; (B,\beta) \}$ un syst\'eme pond\'er\'e non nul et soit $G$ le barycentre de ce syst\'eme.
 
-On sait que $ \alpha \overrightarrow{GA} + \beta \overrightarrow{GB} = 0$.
+On sait que $ \alpha \overrightarrow{GA} + \beta \overrightarrow{GB} = \vec{0}$.
 A l'aide de la relation de Chasles, on a
 \begin{align*}
 \alpha ( \overrightarrow{GO} + \overrightarrow{OA} ) + \beta ( \overrightarrow{GO} + \overrightarrow{OB} ) & = \vec{0} \\
@@ -116,17 +116,18 @@ Ainsi, $x_g = 3 $ et $y_g = 3$.
 	Si $G$ est le barycentre du syst\`eme pond\'er\'e non nul $\{ (A,\alpha) , (B,\beta) \}$ 
 	alors $G$ appartient \`a la droite $(AB)$.
 	
-	Si, de plus, $G $ appartient au segment $[AB]$ alors $\alpha et \beta$ sont de m\^eme signe.
+	Si, de plus, $G$ appartient au segment $[AB]$ et est distinct de $A$ et de $B$, alors $\alpha$ et $\beta$ sont non nuls et de m\^eme signe.
 %
 	\begin{proof}
 		Comme $G$ est le barycentre du syst\`eme pond\'er\'e $\{ (A,\alpha) , (B,\beta) \}$, 
-		alors $\alpha \overrightarrow{GA} + \beta \overrightarrow{GB} = \vec{0}$
-		ce qui nous donne $\alpha \overrightarrow{GA} = -\beta \overrightarrow{GB}$
+		alors $\alpha \overrightarrow{GA} + \beta \overrightarrow{GB} = \vec{0}$.
+		Si $\alpha = 0$, alors $\beta \neq 0$ et $\beta \overrightarrow{GB} = \vec{0}$, donc $G = B$, qui appartient \`a $(AB)$.
+		Supposons d\'esormais $\alpha \neq 0$ ; l'\'egalit\'e pr\'ec\'edente nous donne $\alpha \overrightarrow{GA} = -\beta \overrightarrow{GB}$
 		ou encore $\overrightarrow{GA} = - \frac{\beta}{\alpha} \overrightarrow{GB}$
-		ce qui prouve que $\overrightarrow{GA}$ et $\overrightarrow{GB}$ sont colin\'eaires.
+		ce qui prouve que $\overrightarrow{GA}$ et $\overrightarrow{GB}$ sont colin\'eaires, donc que $G$ appartient \`a la droite $(AB)$.
 		
-		Si, de plus, $G \in [AB]$, alors $\overrightarrow{GA}$ et $\overrightarrow{GB}$ 
-		sont de sens oppos\'es ce qui se traduit par le fait que 
+		Si, de plus, $G \in [AB]$ avec $G \neq A$ et $G \neq B$, alors $\alpha \neq 0$ (sinon $G = B$), $\beta \neq 0$ (sinon $G = A$), et $\overrightarrow{GA}$ et $\overrightarrow{GB}$ 
+		sont non nuls et de sens oppos\'es ce qui se traduit par le fait que 
 		$\overrightarrow{GA} = k \overrightarrow{GB}$ o\`u $k$ est un nombre n\'egatif.
 		Comme on sait que $\overrightarrow{GA} = - \frac{\beta}{\alpha} \overrightarrow{GB}$, 
 		alors $- \frac{\beta}{\alpha}$ est un nombre n\'egatif ; cela entra\^ine que  
@@ -338,9 +339,9 @@ Posons $m = \sum_{i = 1}^{n} \alpha_i$.
 \begin{prp} \label{prp:fonction vectorielle}
 	Selon la valeur de $\sum_{i = 1}^{n} \alpha_i$, on distingue deux cas : 
 	\begin{enumerate}
-	\item \textbf{Si $\mathbold{\sum_{i = 1}^{n} \alpha_i = 0}$ } alors la fonction $\vec{f}$ est constante.
+	\item \textbf{Si $\boldsymbol{\sum_{i = 1}^{n} \alpha_i = 0}$ } alors la fonction $\vec{f}$ est constante.
 	\item \label{prp: fonction vectorielle 2}
-		\textbf{Si $\mathbold{\sum_{i = 1}^{n} \alpha_i \neq 0}$ } alors il existe un point $G$ tel que $\vec{f}(G) = \vec{0}$. De plus, pour tout point $M$ on a $\vec{f}(M) = (\sum_{i = 1}^{n} \alpha_i) \; \overrightarrow{MG}$.
+		\textbf{Si $\boldsymbol{\sum_{i = 1}^{n} \alpha_i \neq 0}$ } alors il existe un point $G$ tel que $\vec{f}(G) = \vec{0}$. De plus, pour tout point $M$ on a $\vec{f}(M) = (\sum_{i = 1}^{n} \alpha_i) \; \overrightarrow{MG}$.
 	\end{enumerate}
 	\begin{proof}
 		\begin{enumerate}
@@ -469,8 +470,10 @@ et on distingue alors deux cas suivant la valeur de $m$.
       $
       et l'ensemble des points $M$ tels que $\varphi (M) = k$ n'est autre que l'ensemble des points $M$ tels que 
       $\overrightarrow{MA} \cdot \vec{v} = 0$ (ce qui est possible seulement quand $\overrightarrow{MA} \perp \vec{v}$). 
-      Autrement dit, la ligne de niveau $k$ est la 
+      Autrement dit, si $\vec{v} \neq \vec{0}$, la ligne de niveau $k$ est la 
       \propbox{droite passant par $A$ et de direction perpendiculaire \`a $\vec{v}$}.
+      (Lorsque $\vec{v} \neq \vec{0}$, une telle ligne de niveau n'est jamais vide : la fonction $M \mapsto 2 \overrightarrow{MN} \cdot \vec{v} + \varphi(N)$ prend toutes les valeurs r\'eelles.)
+      Si $\vec{v} = \vec{0}$, la fonction $\varphi$ est constante : la ligne de niveau $k$ est le plan tout entier si $k$ est cette constante, et l'ensemble vide sinon.
       
 \item \textbf{Si $\mathbf{m \neq 0}$ }
       alors, le syst\`eme $(A_i , \alpha_i)_{1\leq i\leq n}$ admet un barycentre $G$ ; on obtient alors : 
@@ -533,7 +536,7 @@ et on distingue alors deux cas suivant la valeur de $m$.
 \providecommand{\Plan}{(\mathscr{P})}
 \providecommand{\mes}[2]{\mathrm{mes}\left( \widehat{ \overrightarrow{#1} , \overrightarrow{#2} } \right)}
 \section{Exercices}
-\begin{exo}
+\begin{exo}\label{exo:bary-1}
       Soit $ABC$ un triangle rectangle direct en $A$ tel que $AB = 2AC$. 
       Pour chacune des questions suivantes, d\'eterminer et construire le barycentre $G$ du syst\`eme $[(A,\alpha) ; (B,\beta) ; (C,\gamma) ]$.
       \begin{enumerate}
@@ -544,7 +547,7 @@ et on distingue alors deux cas suivant la valeur de $m$.
       \end{enumerate}
 \end{exo}
 %
-\begin{exo}
+\begin{exo}\label{exo:bary-2}
       Soient $A$, $B$ et $C$ trois points du plan affine euclidien.
       D\'eterminer les coefficients $a$ et $b$ pour que le point $C$ soit le barycentre du syst\`eme $[(A,a);(B,b)]$.
       \begin{enumerate}
@@ -554,7 +557,7 @@ et on distingue alors deux cas suivant la valeur de $m$.
       \end{enumerate}
 \end{exo}
 %
-\begin{exo}
+\begin{exo}\label{exo:bary-3}
       Soit $ABC$ un triangle quelconque.
       \begin{enumerate}
             \item Construire les points $I$, $J$ et $K$ ; milieux respectifs de $[BC]$, $[CA]$ et $[AB]$.
@@ -563,7 +566,7 @@ et on distingue alors deux cas suivant la valeur de $m$.
       \end{enumerate}
 \end{exo}
 %
-\begin{exo}
+\begin{exo}\label{exo:bary-4}
       Soient $A$, $B$, $C$ et $D$ quatre points du plan affine r\'eel $\mathcal{E}$.
       On d\'esigne par $I$ et $J$ les milieux respectifs de $[AB]$ et $[CD]$.
       Soit $G$ le barycentre de $(I,\alpha)$ et $(J,\beta)$ avec $\alpha + \beta \neq 0$.
@@ -579,7 +582,7 @@ et on distingue alors deux cas suivant la valeur de $m$.
       \end{enumerate}
 \end{exo}
 %
-\begin{exo}
+\begin{exo}\label{exo:bary-5}
       On donne un triangle $ABC$.
       $\alpha$ et $\beta$ sont deux nombres r\'eels tels que $\alpha + \beta \neq 0$.
       Soient $C'$ le barycentre de $(A,\alpha)$ et $(B,\beta)$,
@@ -594,7 +597,7 @@ et on distingue alors deux cas suivant la valeur de $m$.
       \end{enumerate}
 \end{exo}
 %
-\begin{exo}
+\begin{exo}\label{exo:bary-6}
       Dans le plan affine euclidien, on consid\`ere trois points $A$, $B$ et $C$ non align\'es.
       Soit $M$ un point quelconque du plan.
             \begin{enumerate}
@@ -610,7 +613,7 @@ et on distingue alors deux cas suivant la valeur de $m$.
             \end{enumerate}
 \end{exo}
 %
-\begin{exo}
+\begin{exo}\label{exo:bary-7}
       Dans le plan affine euclidien, on consid\`ere un triangle $ABC$.
       Soit $G$ le barycentre du syst\`eme $[(A,1) ; (B,2) ; (C,-1)]$.
       \`A tout point $M$ du plan, on associe les vecteurs 
@@ -625,7 +628,7 @@ et on distingue alors deux cas suivant la valeur de $m$.
             \end{enumerate}
 \end{exo}
 %
-\begin{exo}
+\begin{exo}\label{exo:bary-8}
       Soit, dans le plan affine euclidien un carr\'e $ABCD$.
       \begin{enumerate}
             \item D\'eterminer un syst\`eme de coordonn\'ees barycentriques de $A$ dans le rep\`ere affine $(B,C,D)$.
@@ -634,7 +637,7 @@ et on distingue alors deux cas suivant la valeur de $m$.
       \end{enumerate}
 \end{exo}
 %
-\begin{exo}
+\begin{exo}\label{exo:bary-9}
       On se place dans le plan affine euclidien.
       Soit $a$ un nombre r\'eel positif.
       On consid\`ere le triangle $ABC$ tel que : $AB = 3a$, $AC = 4a$ et $BC = 5a$.
@@ -647,7 +650,7 @@ et on distingue alors deux cas suivant la valeur de $m$.
       \end{enumerate}
 \end{exo}
 %
-\begin{exo}
+\begin{exo}\label{exo:bary-10}
       Soit $ABC$ un triangle rectangle isoc\`ele en $A$ tel que 
       $AB = AC = a$ o\`u $a$ est un r\'eel strictement positif.
       On appelle $\varphi$ et $\psi$ les applications du plan dans $\mathbb{R}$ qui, 
@@ -661,6 +664,27 @@ et on distingue alors deux cas suivant la valeur de $m$.
             \item D\'eterminer l'ensemble $D$ des points $M$ du plan tels que $\psi (M) = \psi (A)$.
       \end{enumerate}
 \end{exo}
+\begin{exo}\label{exo:bary-11}
+      Soit $ABC$ un triangle. On consid\`ere les points
+      \begin{align*}
+            G&=\mathrm{bar}\left\lbrace(A,2);(B,3);(C,1)\right\rbrace, &
+            I&=\mathrm{bar}\left\lbrace(B,3);(C,1)\right\rbrace,\\
+            J&=\mathrm{bar}\left\lbrace(A,2);(C,1)\right\rbrace, &
+            K&=\mathrm{bar}\left\lbrace(A,2);(B,3)\right\rbrace.
+      \end{align*}
+      \begin{enumerate}
+            \item Exprimer $\overrightarrow{BI}$, $\overrightarrow{AJ}$ et $\overrightarrow{AK}$ en fonction de
+                  $\overrightarrow{BC}$, $\overrightarrow{AC}$ et $\overrightarrow{AB}$, puis placer $I$, $J$ et $K$ sur une figure.
+            \item D\'emontrer que les droites $(AI)$, $(BJ)$ et $(CK)$ sont concourantes en $G$.
+                  Pr\'eciser la position de $G$ sur chacun des segments $[AI]$, $[BJ]$ et $[CK]$.
+            \item D\'emontrer que $\overrightarrow{IG} = \frac{1}{3}\,\overrightarrow{IA}$.
+                  En d\'eduire que $G$ est l'image de $A$ par une homoth\'etie $h$ dont on pr\'ecisera le centre et le rapport.
+            \item Dans cette question, les points $B$ et $C$ sont fixes, avec $BC = 6$~cm, et le point $A$ d\'ecrit le cercle $\Gamma$
+                  de centre $B$ et de rayon $BC$, priv\'e des points de la droite $(BC)$ (pour que $ABC$ reste un triangle).
+                  D\'eterminer et construire l'ensemble $\mathcal{E}$ d\'ecrit par le point $G$.
+      \end{enumerate}
+\end{exo}
+%
 %%%%%%%%%%%%%%%%%% MBA ATAOVY ALOHA ITO IZAY VAO OMENA MPIANATRA %%%%%%%%%%%%%%%%%% 
 %\begin{exo}
 %      Dans le plan $\Plan$ on consid\`ere le triangle \'equilat\'eral $ABC$.
@@ -685,21 +709,182 @@ et on distingue alors deux cas suivant la valeur de $m$.
 %      \end{enumerate}
 %\end{exo}
 
+\begin{corrige}
+\section{Solution des exercices}
+Dans tout ce corrig\'e, on utilise la formule du cours : si $\alpha + \beta + \gamma \neq 0$ et
+$G = \mathrm{bar}\{(A,\alpha);(B,\beta);(C,\gamma)\}$, alors (en prenant $A$ comme origine)
+$\overrightarrow{AG} = \dfrac{\beta\,\overrightarrow{AB} + \gamma\,\overrightarrow{AC}}{\alpha+\beta+\gamma}$.
+%
+\begin{sol} (Exercice \ref{exo:bary-1}.)
+Pour construire, on peut utiliser le rep\`ere $\left(A ; \frac{1}{2}\overrightarrow{AB}, \overrightarrow{AC}\right)$, orthonorm\'e car $AB = 2AC$ ;
+on y a $B(2;0)$ et $C(0;1)$.
+\begin{enumerate}
+\item Somme $2$ : $\overrightarrow{AG} = \frac{-2\overrightarrow{AB} + 3\overrightarrow{AC}}{2} = -\overrightarrow{AB} + \frac{3}{2}\overrightarrow{AC}$, soit $G(-2 ; \frac{3}{2})$.
+\item Somme $1$ : $\overrightarrow{AG} = -\overrightarrow{AB} + 3\overrightarrow{AC}$, soit $G(-2 ; 3)$.
+\item Somme $2$ : $\overrightarrow{AG} = -\frac{1}{2}\overrightarrow{AB} + \overrightarrow{AC}$, soit $G(-1 ; 1)$.
+\item Somme $\frac{1}{2}$ : $\overrightarrow{AG} = 2\left(-\overrightarrow{AB} + \overrightarrow{AC}\right) = 2\,\overrightarrow{BC}$, soit $G(-4 ; 2)$ :
+      $G$ est l'image de $A$ par la translation de vecteur $2\overrightarrow{BC}$.
+\end{enumerate}
+\end{sol}
+%
+\begin{sol} (Exercice \ref{exo:bary-2}.)
+On suppose $A \neq B$. $C = \mathrm{bar}\{(A,a);(B,b)\}$ (avec $a+b\neq 0$) \'equivaut \`a $\overrightarrow{AC} = \frac{b}{a+b}\overrightarrow{AB}$.
+Les coefficients sont d\'efinis \`a un facteur non nul pr\`es.
+\begin{enumerate}
+\item $\overrightarrow{AC} = -\frac{2}{3}\overrightarrow{AB}$ : $\frac{b}{a+b} = -\frac{2}{3}$, soit $5b = -2a$. On peut prendre $(a,b) = (5,-2)$.
+\item $12\,\overrightarrow{BC} + 2\,\overrightarrow{BA} = \vec{0}$ donne $\overrightarrow{BC} = -\frac{1}{6}\overrightarrow{BA}$, et
+      $C = \mathrm{bar}\{(A,a);(B,b)\}$ \'equivaut \`a $\overrightarrow{BC} = \frac{a}{a+b}\overrightarrow{BA}$ :
+      $\frac{a}{a+b} = -\frac{1}{6}$, soit $b = -7a$. On peut prendre $(a,b) = (1,-7)$.
+\item $\overrightarrow{AC} = \frac{5}{2}\overrightarrow{BA} = -\frac{5}{2}\overrightarrow{AB}$ : $\frac{b}{a+b} = -\frac{5}{2}$, soit $7b = -5a$.
+      On peut prendre $(a,b) = (7,-5)$.
+\end{enumerate}
+\end{sol}
+%
+\begin{sol} (Exercice \ref{exo:bary-3}.)
+\begin{enumerate}
+\item $I$, $J$, $K$ sont les isobarycentres de $\{B,C\}$, $\{C,A\}$, $\{A,B\}$.
+\item $\overrightarrow{AG} = \frac{1}{3}\left(\overrightarrow{AB} + \overrightarrow{AC}\right) = \frac{2}{3}\overrightarrow{AI}$.
+\item Par associativit\'e, $G = \mathrm{bar}\{(A,1);(B,1);(C,1)\} = \mathrm{bar}\{(A,1);(I,2)\}$, donc $G \in (AI)$.
+      De m\^eme $G = \mathrm{bar}\{(B,1);(J,2)\}\in(BJ)$ et $G = \mathrm{bar}\{(C,1);(K,2)\}\in(CK)$.
+      Les trois m\'edianes passent par $G$ : elles sont concourantes en $G$, situ\'e aux deux tiers de chaque m\'ediane \`a partir du sommet.
+\end{enumerate}
+\end{sol}
+%
+\begin{sol} (Exercice \ref{exo:bary-4}.)
+\begin{enumerate}
+\item Pour tout point $M$, $\overrightarrow{MA} + \overrightarrow{MB} = 2\overrightarrow{MI}$ et $\overrightarrow{MC} + \overrightarrow{MD} = 2\overrightarrow{MJ}$, donc
+      \[
+      \vec{V}(M) = \alpha\left(\overrightarrow{MA} + \overrightarrow{MB}\right) + \beta\left(\overrightarrow{MC} + \overrightarrow{MD}\right)
+      = 2\left(\alpha\overrightarrow{MI} + \beta\overrightarrow{MJ}\right) = 2(\alpha+\beta)\,\overrightarrow{MG},
+      \]
+      la derni\`ere \'egalit\'e venant de $G = \mathrm{bar}\{(I,\alpha);(J,\beta)\}$.
+      En particulier $\vec{V}(G) = \vec{0}$ ; comme $\alpha+\alpha+\beta+\beta = 2(\alpha+\beta) \neq 0$, $G$ est le barycentre de
+      $\{(A,\alpha);(B,\alpha);(C,\beta);(D,\beta)\}$, et $\vec{V}(M) = 2(\alpha+\beta)\overrightarrow{MG}$.
+\item $\vec{u}$ et $\vec{V}(M)$ sont li\'es si et seulement si $\vec{u}$ et $\overrightarrow{MG}$ le sont (car $2(\alpha+\beta)\neq 0$).
+      Si $\vec{u} = \vec{0}$, c'est le cas pour tout $M$ : l'ensemble est le plan.
+      Si $\vec{u}\neq\vec{0}$, l'ensemble est la droite passant par $G$ et de vecteur directeur $\vec{u}$.
+\end{enumerate}
+\end{sol}
+%
+\begin{sol} (Exercice \ref{exo:bary-5}.)
+\begin{enumerate}
+\item $\overrightarrow{AC'} = \frac{\beta}{\alpha+\beta}\overrightarrow{AB}$, $\overrightarrow{AB'} = \frac{\alpha}{\alpha+\beta}\overrightarrow{AC}$ et, $G$ \'etant l'isobarycentre de $A$, $B'$, $C'$,
+      \[
+      \overrightarrow{AG} = \frac{1}{3}\left(\overrightarrow{AA} + \overrightarrow{AB'} + \overrightarrow{AC'}\right) = \frac{\beta\,\overrightarrow{AB} + \alpha\,\overrightarrow{AC}}{3(\alpha+\beta)} .
+      \]
+\item Si $\alpha+\beta = 1$, $\overrightarrow{AG} = \frac{\beta}{3}\overrightarrow{AB} + \frac{\alpha}{3}\overrightarrow{AC}$ : dans le rep\`ere $(A,\overrightarrow{AB},\overrightarrow{AC})$,
+      $G\left(\frac{\beta}{3} ; \frac{\alpha}{3}\right)$, et $x_G + y_G = \frac{1}{3}$.
+      R\'eciproquement, tout point $(x ; y)$ v\'erifiant $x + y = \frac{1}{3}$ est obtenu avec $\beta = 3x$ et $\alpha = 3y$.
+      L'ensemble des points $G$ est la droite d'\'equation $x + y = \frac{1}{3}$.
+\item On a $\overrightarrow{AB_1} = \frac{1}{3}\overrightarrow{AB}$ et $\overrightarrow{AC_1} = \frac{1}{3}\overrightarrow{AC}$, donc
+      $\overrightarrow{AG} = \beta\,\overrightarrow{AB_1} + \alpha\,\overrightarrow{AC_1}$ avec $\alpha + \beta = 1$ :
+      $G = \mathrm{bar}\{(B_1,\beta);(C_1,\alpha)\}$. Quand $(\alpha,\beta)$ d\'ecrit les couples de somme $1$, $G$ d\'ecrit toute la droite $(B_1C_1)$
+      (c'est bien la droite $x + y = \frac{1}{3}$ : $B_1(\frac{1}{3};0)$, $C_1(0;\frac{1}{3})$).
+\end{enumerate}
+\end{sol}
+%
+\begin{sol} (Exercice \ref{exo:bary-6}.)
+\begin{enumerate}
+\item La somme des coefficients est $2 + 1 - 3 = 0$ : d'apr\`es le cours, $M\mapsto\vec{v}_M$ est constante. En prenant $M = A$ :
+      $\vec{v} = \overrightarrow{AB} - 3\overrightarrow{AC}$.
+\item Soit $U = \mathrm{bar}\{(B,1);(C,-3)\}$ (somme $-2\neq 0$) : $\overrightarrow{UB} - 3\overrightarrow{UC} = \vec{0}$, $U \in (BC)$, et
+      $\overrightarrow{AU} = \frac{\overrightarrow{AB} - 3\overrightarrow{AC}}{-2} = -\frac{1}{2}\vec{v}$, donc $U \in (AP)$.
+      Les droites $(AP)$ et $(BC)$ ne sont pas parall\`eles : si l'on avait $\overrightarrow{AB} - 3\overrightarrow{AC} = k(\overrightarrow{AC} - \overrightarrow{AB})$, on aurait
+      $(1+k)\overrightarrow{AB} = (3+k)\overrightarrow{AC}$, donc $k = -1$ et $k = -3$ ($\overrightarrow{AB}$, $\overrightarrow{AC}$ non colin\'eaires), impossible.
+      Leur point commun est donc ce point $U$, et $\overrightarrow{UB} = 3\overrightarrow{UC}$.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+      $\overrightarrow{UA} = \frac{1}{2}\vec{v}$ et $\overrightarrow{UP} = \overrightarrow{UA} + \overrightarrow{AP} = \frac{3}{2}\vec{v}$, d'o\`u $\overrightarrow{UP} = 3\,\overrightarrow{UA}$.
+      $\overrightarrow{PB} = \overrightarrow{PA} + \overrightarrow{AB} = -\overrightarrow{AB} + 3\overrightarrow{AC} + \overrightarrow{AB} = 3\,\overrightarrow{AC}$.
+\item Soit $R$ le rayon du cercle circonscrit : $OA = OB = OC = R$. Pour $X \in \{A,B,C\}$,
+      $MX^2 = \left(\overrightarrow{MO} + \overrightarrow{OX}\right)^2 = MO^2 + 2\,\overrightarrow{MO}\cdot\overrightarrow{OX} + R^2$. Donc
+      \[
+      2MA^2 + MB^2 - 3MC^2 = (2+1-3)(MO^2 + R^2) + 2\,\overrightarrow{MO}\cdot\left(2\overrightarrow{OA} + \overrightarrow{OB} - 3\overrightarrow{OC}\right)
+      = 2\,\overrightarrow{MO}\cdot\vec{v},
+      \]
+      car $2\overrightarrow{OA} + \overrightarrow{OB} - 3\overrightarrow{OC} = \vec{v}_O = \vec{v}$.
+      Ainsi $2MA^2 + MB^2 - 3MC^2 = 0 \iff \overrightarrow{OM}\cdot\vec{v} = 0$ ; comme $\vec{v} \neq \vec{0}$ (question 2),
+      l'ensemble cherch\'e est la droite passant par $O$ et perpendiculaire \`a $\vec{v}$, c'est-\`a-dire perpendiculaire \`a $(AU)$.
+\end{enumerate}
+\end{sol}
+%
+\begin{sol} (Exercice \ref{exo:bary-7}.)
+Notons $I$ le milieu de $[BC]$.
+\begin{enumerate}
+\item Somme $2$ : $\overrightarrow{AG} = \frac{2\overrightarrow{AB} - \overrightarrow{AC}}{2} = \overrightarrow{AB} - \frac{1}{2}\overrightarrow{AC}$.
+      Par le cours, $\vec{u}_M = 2\,\overrightarrow{MG}$ pour tout $M$.
+\item La somme des coefficients de $\vec{v}$ est nulle, donc $\vec{v}$ ne d\'epend pas de $M$ ; avec $M = A$ :
+      $\vec{v} = -\overrightarrow{AB} - \overrightarrow{AC} = -2\overrightarrow{AI} = 2\overrightarrow{IA} \neq \vec{0}$.
+      $\vec{u}_M$ et $\vec{v}$ sont li\'es $\iff$ $\overrightarrow{MG}$ et $\overrightarrow{IA}$ sont colin\'eaires :
+      $D$ est la droite passant par $G$ et parall\`ele \`a $(AI)$.
+\item $\vec{u}_M\cdot\vec{v} = 4\,\overrightarrow{MG}\cdot\overrightarrow{IA} = 0$ : $\Delta$ est la droite passant par $G$ et perpendiculaire \`a $(AI)$.
+\item $\|\vec{u}_M\| = \|\vec{v}\| \iff 2MG = 2IA \iff MG = AI$ : $\Gamma$ est le cercle de centre $G$ et de rayon $AI$.
+\end{enumerate}
+\end{sol}
+%
+\begin{sol} (Exercice \ref{exo:bary-8}.)
+\begin{enumerate}
+\item $ABCD$ est un carr\'e (donc un parall\'elogramme) : $\overrightarrow{AD} = \overrightarrow{BC}$, d'o\`u
+      $\overrightarrow{AB} - \overrightarrow{AC} + \overrightarrow{AD} = \overrightarrow{AB} + \overrightarrow{CA} + \overrightarrow{AD} = \overrightarrow{CB} + \overrightarrow{BC} = \vec{0}$.
+      Donc $A = \mathrm{bar}\{(B,1);(C,-1);(D,1)\}$ : $(1,-1,1)$ est un syst\`eme de coordonn\'ees barycentriques de $A$.
+\item $\overrightarrow{MC}\cdot\overrightarrow{MB} + \overrightarrow{MC}\cdot\overrightarrow{MD} - MC^2 = \overrightarrow{MC}\cdot\left(\overrightarrow{MB} - \overrightarrow{MC} + \overrightarrow{MD}\right)
+      = \overrightarrow{MC}\cdot\overrightarrow{MA}$, car la somme des coefficients vaut $1$ et le barycentre est $A$.
+      La condition s'\'ecrit $\overrightarrow{MA}\cdot\overrightarrow{MC} = 0$ : l'ensemble est le cercle de diam\`etre $[AC]$,
+      c'est-\`a-dire le cercle circonscrit au carr\'e.
+\end{enumerate}
+\end{sol}
+%
+\begin{sol} (Exercice \ref{exo:bary-9}.)
+$AB^2 + AC^2 = 9a^2 + 16a^2 = 25a^2 = BC^2$ : le triangle est rectangle en $A$ (on suppose $a > 0$).
+On travaille dans le rep\`ere orthonorm\'e d'origine $A$ o\`u $B(3a;0)$ et $C(0;4a)$.
+\begin{enumerate}
+\item Somme $-5 + 4 + 3 = 2$ : $\overrightarrow{AG} = \frac{4\overrightarrow{AB} + 3\overrightarrow{AC}}{2} = 2\overrightarrow{AB} + \frac{3}{2}\overrightarrow{AC}$, soit $G(6a;6a)$.
+\item $GA = \sqrt{36a^2 + 36a^2} = 6\sqrt{2}\,a$, $GB = \sqrt{9a^2 + 36a^2} = 3\sqrt{5}\,a$, $GC = \sqrt{36a^2 + 4a^2} = 2\sqrt{10}\,a$.
+\item Soit $\varphi(M) = 4MB^2 + 3MC^2 - 5MA^2$ ; par le cours, $\varphi(M) = 2MG^2 + \varphi(G)$ avec
+      $\varphi(G) = 4\times 45a^2 + 3\times 40a^2 - 5\times 72a^2 = -60a^2$.
+      L'\'equation devient $MG^2 = \frac{(k+60)\,a^2}{2}$.
+      \begin{itemize}
+      \item Si $k < -60$ : l'ensemble est vide.
+      \item Si $k = -60$ : l'ensemble est $\{G\}$.
+      \item Si $k > -60$ : c'est le cercle de centre $G$ et de rayon $a\sqrt{\frac{k+60}{2}}$.
+      \end{itemize}
+\end{enumerate}
+\end{sol}
+%
+\begin{sol} (Exercice \ref{exo:bary-10}.)
+Rep\`ere orthonorm\'e d'origine $A$ : $B(a;0)$, $C(0;a)$.
+\begin{enumerate}
+\item Somme $1 - 1 - 1 = -1$ : $\overrightarrow{AG} = \frac{-\overrightarrow{AB} - \overrightarrow{AC}}{-1} = \overrightarrow{AB} + \overrightarrow{AC}$ ;
+      $G(a;a)$ et $ABGC$ est un carr\'e. Par le cours, $\varphi(M) = -MG^2 + \varphi(G)$ avec
+      $\varphi(G) = GA^2 - GB^2 - GC^2 = 2a^2 - a^2 - a^2 = 0$. Donc $\varphi(M) = -MG^2$.
+\item Les coefficients de $\psi$ ont pour somme $1 + 1 - 2 = 0$ ; la propri\'et\'e du cours appliqu\'ee avec $N = A$ donne
+      $\psi(M) - \psi(A) = 2\,\overrightarrow{MA}\cdot\left(\overrightarrow{AA} + \overrightarrow{AB} - 2\overrightarrow{AC}\right) = 2\,\overrightarrow{MA}\cdot\left(\overrightarrow{AB} - 2\overrightarrow{AC}\right)$.
+\item $\varphi(M) = -a^2 \iff MG^2 = a^2 \iff MG = a$ : $\Sigma$ est le cercle de centre $G$ et de rayon $a$ (il passe par $B$ et $C$).
+\item $\psi(M) = \psi(A) \iff \overrightarrow{AM}\cdot\vec{w} = 0$ avec $\vec{w} = \overrightarrow{AB} - 2\overrightarrow{AC}$, de coordonn\'ees $(a ; -2a)$ :
+      $D$ est la droite passant par $A$ et perpendiculaire \`a $\vec{w}$, d'\'equation $x - 2y = 0$.
+      Elle passe par le point $(a ; \frac{a}{2})$, milieu de $[BG]$.
+\end{enumerate}
+\end{sol}
+%
+\begin{sol} (Exercice \ref{exo:bary-11}.)
+\begin{enumerate}
+\item $\overrightarrow{BI} = \frac{1}{4}\overrightarrow{BC}$ ; $\overrightarrow{AJ} = \frac{1}{3}\overrightarrow{AC}$ ; $\overrightarrow{AK} = \frac{3}{5}\overrightarrow{AB}$.
+\item Les sommes partielles $3+1$, $2+1$, $2+3$ sont non nulles ; par associativit\'e :
+      \begin{itemize}
+      \item $G = \mathrm{bar}\{(A,2);(I,4)\}$, donc $G\in(AI)$ et $\overrightarrow{AG} = \frac{4}{6}\overrightarrow{AI} = \frac{2}{3}\overrightarrow{AI}$ ;
+      \item $G = \mathrm{bar}\{(J,3);(B,3)\}$, donc $G\in(BJ)$ et $G$ est le milieu de $[BJ]$ ;
+      \item $G = \mathrm{bar}\{(K,5);(C,1)\}$, donc $G\in(CK)$ et $\overrightarrow{CG} = \frac{5}{6}\overrightarrow{CK}$.
+      \end{itemize}
+      Les trois droites passent par $G$ : elles sont concourantes en $G$.
+\item De $2\overrightarrow{GA} + 4\overrightarrow{GI} = \vec{0}$ et de la relation de Chasles $\overrightarrow{GA} = \overrightarrow{GI} + \overrightarrow{IA}$ :
+      $6\,\overrightarrow{GI} + 2\,\overrightarrow{IA} = \vec{0}$, soit $\overrightarrow{IG} = \frac{1}{3}\overrightarrow{IA}$.
+      Le point $I$ ne d\'epend que de $B$ et $C$ : $G = h(A)$ o\`u $h$ est l'homoth\'etie de centre $I$ et de rapport $\frac{1}{3}$.
+\item $B$ et $C$ \'etant fixes, $I$ est fixe ($BI = 1{,}5$~cm) et $G = h(A)$.
+      L'image du cercle $\Gamma$ par $h$ est le cercle de centre $B' = h(B)$ et de rayon $\frac{1}{3}\times 6 = 2$~cm,
+      o\`u $\overrightarrow{IB'} = \frac{1}{3}\overrightarrow{IB}$, c'est-\`a-dire $\overrightarrow{BB'} = \frac{1}{6}\overrightarrow{BC}$ ($B'$ sur $[BC]$ \`a $1$~cm de $B$).
+      Il faut retirer les images des deux points exclus de $\Gamma$, \`a savoir $C$ et le sym\'etrique $C_1$ de $C$ par rapport \`a $B$ :
+      $h(C)$ est le milieu $P$ de $[BC]$ (car $\overrightarrow{IP} = \frac{1}{4}\overrightarrow{BC} = \frac{1}{3}\overrightarrow{IC}$), et $h(C_1)$ est le point $Q$ tel que
+      $\overrightarrow{BQ} = -\frac{1}{6}\overrightarrow{BC}$.
+      L'ensemble $\mathcal{E}$ est le cercle de centre $B'$ et de rayon $2$~cm, priv\'e des deux points $P$ et $Q$ o\`u il coupe la droite $(BC)$.
+\end{enumerate}
+\end{sol}
+\end{corrige}

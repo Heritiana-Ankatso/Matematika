@@ -2,7 +2,12 @@
 \makeatletter\IfFileExists{core/beamer/beamerthememx.sty}{\def\mxcorepath{core/}\def\input@path{{core/beamer/}{core/}}}{\def\mxcorepath{../core/}\def\input@path{{../core/beamer/}{../core/}}}\makeatother
 \documentclass[aspectratio=169,10pt,t]{beamer}
 \usetheme{mx}
-\usepackage{graphicx,booktabs}
+\usepackage{graphicx,booktabs,mathtools,array,adjustbox}
+\usepackage[all]{xy}
+\providecommand{\actualtextwidth}{\textwidth}
+\providecommand{\veccor}[2]{\left(\begin{matrix}#1\\#2\end{matrix}\right)}
+\DeclarePairedDelimiter{\VecNorm}{\lVert}{\rVert}
+\providecommand{\ETC}{\ldots}
 \usepackage[french]{babel}
 \setlength{\parskip}{.45em}
 \hypersetup{pdfauthor={},pdfsubject={Lecture slides},pdfkeywords={},pdftitle={Combinatoire et dénombrement}}
@@ -36,55 +41,57 @@
 \author{}
 \begin{document}
 \mxtitleframe
-\begin{frame}{Objectifs}
+\begin{frame}[allowframebreaks]{Objectifs}
 Choisir un modèle de comptage ; distinguer ordre et répétition ; utiliser coefficients binomiaux et relation de Pascal.
 \end{frame}
-\begin{frame}{Additionner ou multiplier}
+\begin{frame}[allowframebreaks]{Additionner ou multiplier}
 Pour des ensembles finis deux à deux disjoints \(A_i\), \(|\bigcup A_i|=\sum|A_i|\). Si les cas se recouvrent, il faut corriger le double comptage : \(|A\cup B|=|A|+|B|-|A\cap B|\).
 Le nombre d'éléments du produit cartésien \(A\times B\) est \(|A||B|\). Pour une suite de choix, multiplier les nombres de possibilités à chaque étape, à condition que ces nombres soient valables pour chaque choix antérieur considéré.
 \end{frame}
-\begin{frame}{Additionner ou multiplier}
+\begin{frame}[allowframebreaks]{Additionner ou multiplier}
 Un code de deux lettres choisies parmi \(26\), suivies de trois chiffres, avec répétition autorisée, peut prendre \(26^2\times10^3\) valeurs. Un nombre à trois chiffres ne commence pas par \(0\) : il y en a \(9\times10^2\).
 \end{frame}
-\begin{frame}{Listes et parties}
+\begin{frame}[allowframebreaks]{Listes et parties}
 Dans un ensemble de \(n\) éléments, il y a \(n^k\) listes ordonnées de longueur \(k\) avec répétition ; \(n(n-1)\cdots(n-k+1)=\dfrac{n!}{(n-k)!}\) listes de \(k\) éléments distincts, si \(0\le k\le n\) ; \(n!\) permutations de tous les éléments. On pose \(0!=1\).
 \end{frame}
-\begin{frame}{Listes et parties}
+\begin{frame}[allowframebreaks]{Listes et parties}
 Une combinaison de \(k\) éléments parmi \(n\) est une partie à \(k\) éléments ; l'ordre n'intervient pas.
 \[\binom nk=\dfrac{n!}{k!(n-k)!},\quad\binom n0=\binom nn=1,\quad\binom n1=n,\quad\binom n2=\dfrac{n(n-1)}2.\]
 \end{frame}
-\begin{frame}{Listes et parties}
+\begin{frame}[allowframebreaks]{Listes et parties}
 Chaque partie de taille \(k\) donne exactement \(k!\) listes distinctes selon l'ordre de ses éléments. Le nombre de listes sans répétition est donc \(k!\binom nk\).
 \end{frame}
-\begin{frame}{Identités et démonstrations}
+\begin{frame}[allowframebreaks]{Identités et démonstrations}
 \[\binom nk=\binom n{n-k},\qquad \binom nk+\binom n{k+1}=\binom{n+1}{k+1},\qquad\sum_{k=0}^n\binom nk=2^n.\]
+
 La relation de Pascal ci-dessus s'utilise pour \(0\le k<n\) ; les formules au bord se lisent directement avec les valeurs \(1\).
 \end{frame}
-\begin{frame}{Identités et démonstrations}
+\begin{frame}[allowframebreaks]{Identités et démonstrations}
 Prendre le complémentaire établit une correspondance entre les parties de taille \(k\) et celles de taille \(n-k\).
 \end{frame}
-\begin{frame}{Identités et démonstrations}
+\begin{frame}[allowframebreaks]{Identités et démonstrations}
 Dans un ensemble de \(n+1\) éléments, fixer un élément \(a\). Une partie de taille \(k+1\) contient \(a\) (choisir \(k\) autres éléments parmi \(n\)) ou ne le contient pas (choisir \(k+1\) éléments parmi \(n\)). Les deux cas sont disjoints et couvrent toutes les possibilités.
 \end{frame}
-\begin{frame}{Identités et démonstrations}
+\begin{frame}[allowframebreaks]{Identités et démonstrations}
 Pour \(0\le k<n\), mettre au même dénominateur :
 \[\dfrac{n!}{k!(n-k)!}+\dfrac{n!}{(k+1)!(n-k-1)!}
 =\dfrac{n!((k+1)+(n-k))}{(k+1)!(n-k)!}
 =\dfrac{(n+1)!}{(k+1)!(n-k)!}.\]
+
 Les cas au bord se traitent directement.
 \end{frame}
-\begin{frame}{Identités et démonstrations}
+\begin{frame}[allowframebreaks]{Identités et démonstrations}
 Pour chacun des \(n\) éléments, choisir « présent » ou « absent » donne \(2^n\) parties. En les classant par taille, on en compte \(\sum_{k=0}^n\binom nk\) : les deux comptages sont égaux.
 \end{frame}
-\begin{frame}{Identités et démonstrations}
+\begin{frame}[allowframebreaks]{Identités et démonstrations}
 Le développement \((a+b)^n=\sum_{k=0}^n\binom nk a^{n-k}b^k\) se comprend en choisissant, dans chacun des \(n\) facteurs, le terme \(a\) ou \(b\). Cette formule n'est pas utilisée comme prérequis des DS de ce livret.
 \end{frame}
-\begin{frame}{Activité de recherche}
+\begin{frame}[allowframebreaks]{Activité de recherche}
 \textbf{Ordre et répétition dans un dénombrement - 30 min.}
 
 Six élèves distincts se portent volontaires pour organiser un débat.
 \end{frame}
-\begin{frame}{Activité de recherche (2)}
+\begin{frame}[allowframebreaks]{Activité de recherche (2)}
 \begin{enumerate}
 \setcounter{enumi}{0}\item On choisit deux élèves pour former un binôme sans attribuer de rôle. Combien de binômes peut-on former ?
 
@@ -94,7 +101,7 @@ Six élèves distincts se portent volontaires pour organiser un débat.
 
 \end{enumerate}
 \end{frame}
-\begin{frame}{Activité de recherche (3)}
+\begin{frame}[allowframebreaks]{Activité de recherche (3)}
 \begin{enumerate}
 \setcounter{enumi}{3}\item On recommence avec quatre élèves seulement, désignés par \(A\), \(B\), \(C\) et \(D\). Écrire tous les binômes et toutes les attributions des deux rôles. Expliquer ensuite pourquoi il existe \(64\) programmes de trois interventions, sans les énumérer.
 

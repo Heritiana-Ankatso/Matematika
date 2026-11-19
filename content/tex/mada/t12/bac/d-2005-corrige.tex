@@ -1,0 +1,188 @@
+% Baccalauréat malgache, série D, 2005 : corrigé.
+\TCDBacAttribution{D}{2005}
+\providecommand{\Plan}{(\mathscr{P})}
+\providecommand{\Ouv}{(O ; \vec{u} , \vec{v})}
+\providecommand{\Courbe}{(\mathscr{C})}
+\providecommand{\CourbeP}{(\mathscr{C}')}
+\providecommand{\D}{(\mathscr{D})}
+\providecommand{\cm}{~\mathrm{cm}}
+\providecommand{\dx}{~\mathrm{d}x}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\noindent \underline{\textsc{\textbf{Exercice I}}} (5 points)
+\begin{enumerate}
+   \item \vln{R\'esolution de $\frac{iz - 2 + 4i}{z - i} = z$ :}
+      L'\'equation n'a de sens que pour $z \neq i$. Pour $z \neq i$, elle \'equivaut \`a
+      $iz - 2 + 4i = z^2 - iz$, soit $z^2 - 2iz + 2 - 4i = 0$.
+      $\Delta = (-2i)^2 - 4(2 - 4i) = -12 + 16i = (2 + 4i)^2$ (en effet $(2+4i)^2 = 4 + 16i - 16$). D'o\`u
+      \[
+         z_1 = \frac{2i + 2 + 4i}{2} = 1 + 3i, \qquad z_2 = \frac{2i - 2 - 4i}{2} = -1 - i,
+      \]
+      toutes deux diff\'erentes de $i$. \ansbox{$S_{\mathbb{C}} = \{ 1 + 3i \,;\, -1 - i \}$.}
+   \item
+      \begin{enumerate}
+         \item \vln{Expression de $z' - i$ :}
+            $z' - i = \dfrac{iz - 2 + 4i - i(z - i)}{z - i} = \dfrac{iz - 2 + 4i - iz - 1}{z - i}$, donc
+            \par\noindent\ansbox{$z' - i = \dfrac{-3 + 4i}{z - i}$.}
+         \item \vln{Produit :} en multipliant par $z - i \neq 0$ : \ansbox{$(z' - i)(z - i) = -3 + 4i$.}
+         \item \vln{Produit des modules :}
+            $|z' - i|\cdot|z - i| = |-3 + 4i| = \sqrt{9 + 16}$, \ansbox{$|z' - i|\cdot|z - i| = 5$}, c'est-\`a-dire $AM' \cdot AM = 5$.
+         \item \vln{Ensemble $\Courbe$ :}
+            $|z - i| = \sqrt{10} \iff AM = \sqrt{10}$ : \ansbox{$\Courbe$ est le cercle de centre $A(0 ; 1)$ et de rayon $\sqrt{10}$.}
+         \item \vln{Image d'un point de $\Courbe$ :}
+            Si $M \in \Courbe$, alors $AM = \sqrt{10}$ (et $M \neq A$), donc $AM' = \frac{5}{AM} = \frac{5}{\sqrt{10}} = \frac{\sqrt{10}}{2}$.
+            \par\noindent\ansbox{$M'$ appartient au cercle $\CourbeP$ de centre $A$ et de rayon $\frac{\sqrt{10}}{2}$.}
+      \end{enumerate}
+   \item
+      \begin{enumerate}
+         \item \vln{Expression complexe de $S$ :}
+            $\sqrt{2}\,\expo{i\frac{5\pi}{4}} = \sqrt{2}\left(-\frac{\sqrt{2}}{2} - i\frac{\sqrt{2}}{2}\right) = -1 - i$.
+            $S$ a pour centre $A(i)$ : $z' - i = (-1 - i)(z - i)$, soit $z' = (-1-i)z + (-1-i)(-i) + i = (-1 - i)z - 1 + 2i$.
+            \par\noindent\ansbox{$S : z' = (-1 - i)\,z - 1 + 2i$.}
+         \item \vln{Image de $B(1 + 3i)$ :}
+            $z_{B'} = (-1 - i)(1 + 3i) - 1 + 2i = (2 - 4i) - 1 + 2i$, \ansbox{$z_{B'} = 1 - 2i$.}
+            Alors $|z_{B'} - i| = |1 - 3i| = \sqrt{10}$ : \ansbox{$AB' = \sqrt{10}$, donc $B' \in \Courbe$.}
+            (On le retrouve aussi par $AB' = \sqrt{2}\,AB = \sqrt{2}\,|1 + 2i| = \sqrt{2}\sqrt{5}$.)
+      \end{enumerate}
+\end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\noindent \underline{\textsc{\textbf{Exercice II}}} (5 points) \newline
+Chaque d\'e est parfait : chaque face a la probabilit\'e $\frac{1}{6}$. Donc, pour un d\'e,
+$P(\text{<< 1 >>}) = \frac{3}{6} = \frac{1}{2}$, $P(\text{<< 2 >>}) = \frac{2}{6} = \frac{1}{3}$, $P(\text{<< 5 >>}) = \frac{1}{6}$.
+\begin{enumerate}
+   \item \vln{Un lancer de $D_1$ :}
+      $A$ est r\'ealis\'e par les faces 1 et 5 : \ansbox{$P(A) = \frac{3 + 1}{6} = \frac{2}{3}$} ; \ansbox{$P(B) = \frac{3}{6} = \frac{1}{2}$.}
+   \item Les deux d\'es sont ind\'ependants.
+      \begin{enumerate}
+         \item \vln{\'Ev\`enement $C$ :}
+            Les sommes possibles sont $1+1$, $1+2$, $2+2$, $1+5$, $2+5$, $5+5$ ; seule $2 + 2$ donne $4$.
+            $P(C) = \frac{1}{3}\times\frac{1}{3}$, \ansbox{$P(C) = \frac{1}{9}$.}
+         \item \vln{\'Ev\`enement $E$ :}
+            $P(E) = \left(\frac{1}{2}\right)^2 + \left(\frac{1}{3}\right)^2 + \left(\frac{1}{6}\right)^2 = \frac{9 + 4 + 1}{36} = \frac{14}{36}$,
+            \par\noindent\ansbox{$P(E) = \frac{7}{18}$.}
+         \item \vln{Loi de $X$ :}
+            $X(\Omega) = \{2 ; 3 ; 4 ; 6 ; 7 ; 10\}$. Pour une somme obtenue avec deux num\'eros diff\'erents, il y a deux ordres possibles :
+            $P(X = 3) = 2\cdot\frac{1}{2}\cdot\frac{1}{3}$, $P(X = 6) = 2\cdot\frac{1}{2}\cdot\frac{1}{6}$, $P(X = 7) = 2\cdot\frac{1}{3}\cdot\frac{1}{6}$.
+            \[
+               \begin{array}{|c|c|c|c|c|c|c|}
+                  \hline
+                  k & 2 & 3 & 4 & 6 & 7 & 10 \\ \hline
+                  P(X = k) & \frac{1}{4} & \frac{1}{3} & \frac{1}{9} & \frac{1}{6} & \frac{1}{9} & \frac{1}{36} \\ \hline
+               \end{array}
+            \]
+            (V\'erification : $\frac{9 + 12 + 4 + 6 + 4 + 1}{36} = 1$.)
+      \end{enumerate}
+   \item
+      \begin{enumerate}
+         \item \vln{Univers image de $Y$ :}
+            Les 4 \'epreuves sont ind\'ependantes et $C$ a la probabilit\'e $\frac{1}{9}$ \`a chacune :
+            $Y$ suit la loi binomiale $\mathscr{B}\left(4 ; \frac{1}{9}\right)$ et \ansbox{$Y(\Omega) = \{0 ; 1 ; 2 ; 3 ; 4\}$.}
+         \item \vln{Esp\'erance et variance :}
+            \par\noindent\ansbox{$E(Y) = 4 \times \frac{1}{9} = \frac{4}{9}$ et $V(Y) = 4 \times \frac{1}{9} \times \frac{8}{9} = \frac{32}{81}$.}
+         \item \vln{$P(Y = 3)$ :}
+            $P(Y = 3) = \mathrm{C}_4^3 \left(\frac{1}{9}\right)^3 \frac{8}{9} = \frac{4 \times 8}{9^4}$, \ansbox{$P(Y = 3) = \frac{32}{6561}$.}
+      \end{enumerate}
+\end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\noindent \underline{\textsc{\textbf{Probl\`eme}}} (10 points)
+\begin{enumerate}
+   \item
+      \begin{enumerate}
+         \item \vln{Continuit\'e en $0$ :}
+            $f(0) = 0 - 1 + \expo{0} = 0$. \`A gauche : $\lim\limits_{x\to0^-}\big(-x + 2\ln(x+1)\big) = 0 + 2\ln 1 = 0 = f(0)$.
+            \`A droite, $x \mapsto x - 1 + \expo{-x}$ est continue et vaut $f(0)$ en $0$.
+            \par\noindent\ansbox{$f$ est continue en $0$.}
+         \item \vln{Taux d'accroissement en $0$ :}
+            Pour $x < 0$ : $\dfrac{f(x) - f(0)}{x} = -1 + 2\,\dfrac{\ln(1 + x)}{x} \xrightarrow[x\to0^-]{} -1 + 2 = 1$
+            (car $\lim\limits_{x\to0}\frac{\ln(1+x)}{x} = 1$).
+
+            Pour $x > 0$ : $\dfrac{f(x) - f(0)}{x} = 1 + \dfrac{\expo{-x} - 1}{x} \xrightarrow[x\to0^+]{} 1 - 1 = 0$
+            (car $\lim\limits_{x\to0}\frac{\expo{-x} - 1}{x} = -1$, nombre d\'eriv\'e de $x \mapsto \expo{-x}$ en $0$).
+
+            \par\noindent\ansbox{$f$ est d\'erivable \`a gauche ($f'_g(0) = 1$) et \`a droite ($f'_d(0) = 0$) en $0$, mais pas d\'erivable en $0$.}
+            Le point $O$ est un point anguleux de $\Courbe$, avec deux demi-tangentes : $y = x$ ($x \leq 0$) et $y = 0$ ($x \geq 0$).
+      \end{enumerate}
+   \item
+      \begin{enumerate}
+         \item \vln{Limites :}
+            L'\'enonc\'e demande la limite en $0^+$ ; par continuit\'e elle vaut $f(0) = 0$. La limite utile pour le tableau
+            est celle \`a la borne $-1$ du domaine (l'\'enonc\'e voulait sans doute \'ecrire $x \to -1^+$) :
+            $\ln(x + 1) \to -\infty$ quand $x \to -1^+$, donc \ansbox{$\lim\limits_{x\to-1^+} f(x) = -\infty$} : la droite $x = -1$ est asymptote verticale.
+            En $+\infty$ : $\expo{-x} \to 0$ et $x - 1 \to +\infty$, \ansbox{$\lim\limits_{x\to+\infty} f(x) = +\infty$.}
+         \item \vln{D\'eriv\'ee sur $]-1 ; 0[$ :}
+            \par\noindent\ansbox{$f'(x) = -1 + \dfrac{2}{x + 1} = \dfrac{1 - x}{1 + x}$.}
+            Sur $]-1 ; 0[$, $1 - x > 0$ et $1 + x > 0$ : $f'(x) > 0$.
+         \item \vln{D\'eriv\'ee sur $]0 ; +\infty[$ :}
+            \par\noindent\ansbox{$f'(x) = 1 - \expo{-x}$.} Pour $x > 0$, $\expo{-x} < 1$ donc $f'(x) > 0$.
+         \item \vln{Tableau de variation :}
+            \[
+               \begin{array}{c|ccccc}
+                  x & -1 & & 0 & & +\infty \\ \hline
+                  f'(x) & & + & 1 \;\|\; 0 & + & \\ \hline
+                  & & & & & +\infty \\
+                  f & & \nearrow & 0 & \nearrow & \\
+                  & -\infty & & & &
+               \end{array}
+            \]
+            $f$ est strictement croissante sur $]-1 ; +\infty[$ (les nombres d\'eriv\'es \`a gauche et \`a droite en $0$ sont indiqu\'es).
+      \end{enumerate}
+   \item \vln{Asymptote $\D$ :}
+      Pour $x \geq 0$, $f(x) - (x - 1) = \expo{-x}$, qui tend vers $0$ en $+\infty$ :
+      \par\noindent\ansbox{$\D : y = x - 1$ est asymptote \`a $\Courbe$ en $+\infty$}, et $\Courbe$ est au-dessus de $\D$ (car $\expo{-x} > 0$).
+   \item \vln{Trac\'e} (figure r\'eduite ; on y a aussi trac\'e la courbe de $g^{-1}$ de la question 7) :
+      \begin{center}
+      \begin{tikzpicture}[scale=1.1,>=stealth]
+         \draw[very thin,gray!30] (-1.5,-3) grid (5,5);
+         \draw[->] (-1.5,0) -- (5,0) node[below left] {$x$};
+         \draw[->] (0,-3) -- (0,5) node[below left] {$y$};
+         \foreach \t in {-1,1,2,3,4} \draw (\t,0.06) -- (\t,-0.06) node[below] {\scriptsize $\t$};
+         \foreach \t in {-2,-1,1,2,3,4} \draw (0.06,\t) -- (-0.06,\t) node[left] {\scriptsize $\t$};
+         \begin{scope}
+            \clip (-1.5,-3) rectangle (5,5);
+            \draw[dashed,gray] (-1,-3) -- (-1,5);
+            \draw[loko4,thick] plot[domain=-1.5:5] (\x,{\x-1});
+            \draw[loko4,thick,dotted] plot[domain=-1.5:4] (\x,{\x+1});
+            \draw[gray,thin] plot[domain=-1.5:5] (\x,\x);
+            \draw[loko1,very thick,smooth,samples=100] plot[domain=-0.95:0] (\x,{-\x+2*ln(\x+1)});
+            \draw[loko1,very thick,smooth,samples=100] plot[domain=0:5] (\x,{\x-1+exp(-\x)});
+            \draw[loko3,very thick,smooth,samples=100] plot[domain=0:4.5] ({\x-1+exp(-\x)},\x);
+            \draw[loko1,->] (0,0) -- (-0.6,-0.6);
+         \end{scope}
+         \node[loko1] at (4.4,2.9) {$\Courbe$};
+         \node[loko4] at (4.6,3.2) {$\D$};
+         \node[loko3] at (2.4,4.5) {$(\Gamma)$};
+         \node[loko4] at (3.4,4.7) {\scriptsize $y = x + 1$};
+      \end{tikzpicture}
+      \end{center}
+      En $O$ : demi-tangente de pente $1$ \`a gauche, demi-tangente horizontale \`a droite.
+   \item
+      \begin{enumerate}
+         \item \vln{Aire $A(\alpha)$ :}
+            Sur $[1 ; \alpha]$, $\Courbe$ est au-dessus de $\D$ et l'\'ecart vaut $\expo{-x}$. L'unit\'e d'aire vaut $2\cm\times2\cm = 4\cm^2$ :
+            \[
+               A(\alpha) = 4\int_1^\alpha \expo{-x}\dx = 4\Big[-\expo{-x}\Big]_1^\alpha,
+               \quad \ansbox{$A(\alpha) = 4\left(\expo{-1} - \expo{-\alpha}\right)\cm^2$.}
+            \]
+         \item \vln{Limite :} $\expo{-\alpha} \to 0$ quand $\alpha \to +\infty$, \ansbox{$\lim\limits_{\alpha\to+\infty} A(\alpha) = \frac{4}{e}\cm^2 \simeq 1{,}47\cm^2$.}
+      \end{enumerate}
+   \item
+      \begin{enumerate}
+         \item \vln{Expression de $U_n$ :}
+            Pour $n \in \mathbb{N}$ et $x \in [n ; n+1] \subset [0 ; +\infty[$, $f(x) - (x - 1) = \expo{-x}$, donc
+            $U_n = \Big[-\expo{-x}\Big]_n^{n+1} = \expo{-n} - \expo{-n-1}$, \ansbox{$U_n = \expo{-n}\left(1 - \expo{-1}\right) = \left(1 - \frac{1}{e}\right)\expo{-n}$.}
+         \item \vln{Suite g\'eom\'etrique :}
+            $U_n > 0$ et $\dfrac{U_{n+1}}{U_n} = \dfrac{\expo{-n-1}}{\expo{-n}} = \expo{-1}$ pour tout $n$.
+            \par\noindent\ansbox{$(U_n)$ est g\'eom\'etrique de raison $\frac{1}{e}$ et de premier terme $U_0 = 1 - \frac{1}{e}$.}
+      \end{enumerate}
+   \item
+      \begin{enumerate}
+         \item \vln{R\'eciproque de $g$ :}
+            Sur $I = [0 ; +\infty[$, $g(x) = x - 1 + \expo{-x}$ est continue et strictement croissante ($g'(x) = 1 - \expo{-x} > 0$ pour $x > 0$),
+            avec $g(0) = 0$ et $\lim\limits_{+\infty} g = +\infty$. Donc $g$ est une bijection de $[0 ; +\infty[$ sur $[0 ; +\infty[$ :
+            \par\noindent\ansbox{$g$ admet une fonction r\'eciproque $g^{-1} : [0 ; +\infty[ \to [0 ; +\infty[$.}
+         \item \vln{Courbe $(\Gamma)$ de $g^{-1}$ :}
+            $(\Gamma)$ est la sym\'etrique de la partie de $\Courbe$ situ\'ee sur $[0 ; +\infty[$ par rapport \`a la droite $y = x$
+            (voir la figure). Comme la demi-tangente de $\Courbe$ en $O$ est horizontale, $(\Gamma)$ a une demi-tangente verticale en $O$ ;
+            l'asymptote $\D$ a pour sym\'etrique la droite $y = x + 1$, asymptote \`a $(\Gamma)$.
+      \end{enumerate}
+\end{enumerate}

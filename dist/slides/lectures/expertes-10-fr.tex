@@ -2,7 +2,12 @@
 \makeatletter\IfFileExists{core/beamer/beamerthememx.sty}{\def\mxcorepath{core/}\def\input@path{{core/beamer/}{core/}}}{\def\mxcorepath{../core/}\def\input@path{{../core/beamer/}{../core/}}}\makeatother
 \documentclass[aspectratio=169,10pt,t]{beamer}
 \usetheme{mx}
-\usepackage{graphicx,booktabs}
+\usepackage{graphicx,booktabs,mathtools,array,adjustbox}
+\usepackage[all]{xy}
+\providecommand{\actualtextwidth}{\textwidth}
+\providecommand{\veccor}[2]{\left(\begin{matrix}#1\\#2\end{matrix}\right)}
+\DeclarePairedDelimiter{\VecNorm}{\lVert}{\rVert}
+\providecommand{\ETC}{\ldots}
 \usepackage[french]{babel}
 \setlength{\parskip}{.45em}
 \hypersetup{pdfauthor={},pdfsubject={Lecture slides},pdfkeywords={},pdftitle={Graphes}}
@@ -36,13 +41,13 @@
 \author{}
 \begin{document}
 \mxtitleframe
-\begin{frame}{Objectifs}
+\begin{frame}[allowframebreaks]{Objectifs}
 Modéliser une situation par un graphe ; utiliser le vocabulaire des graphes (ordre, degré, chaîne, cycle, connexité, graphe complet, graphe orienté) ; écrire la matrice d'adjacence d'un graphe ; dénombrer les chaînes de longueur donnée à l'aide des puissances de cette matrice.
 \end{frame}
-\begin{frame}{Activité d'introduction}
+\begin{frame}[allowframebreaks]{Activité d'introduction}
 Cinq villes \(A\), \(B\), \(C\), \(D\), \(E\) sont reliées par des lignes directes de taxi-brousse, dans les deux sens : \(A\)-\(B\), \(A\)-\(C\), \(A\)-\(D\), \(B\)-\(C\), \(C\)-\(D\) et \(D\)-\(E\).
 \end{frame}
-\begin{frame}{Activité d'introduction (2)}
+\begin{frame}[allowframebreaks]{Activité d'introduction (2)}
 \begin{enumerate}
 \setcounter{enumi}{0}\item Représenter le réseau par un schéma : un point par ville, un trait par ligne.
 
@@ -52,7 +57,7 @@ Cinq villes \(A\), \(B\), \(C\), \(D\), \(E\) sont reliées par des lignes direc
 
 \end{enumerate}
 \end{frame}
-\begin{frame}{Activité d'introduction (3)}
+\begin{frame}[allowframebreaks]{Activité d'introduction (3)}
 \begin{enumerate}
 \setcounter{enumi}{3}\item Même question pour les trajets de \(A\) à \(E\) en exactement trois lignes.
 
@@ -62,10 +67,10 @@ Cinq villes \(A\), \(B\), \(C\), \(D\), \(E\) sont reliées par des lignes direc
 
 \end{enumerate}
 \end{frame}
-\begin{frame}{Activité d'introduction (4)}
+\begin{frame}[allowframebreaks]{Activité d'introduction (4)}
 \emph{Observer n'est pas démontrer : les propriétés conjecturées ici sont établies dans le cours.}
 \end{frame}
-\begin{frame}{Vocabulaire}
+\begin{frame}[allowframebreaks]{Vocabulaire}
 Un \emph{graphe} (non orienté) est formé d'un ensemble fini de \emph{sommets} et d'un ensemble d'\emph{arêtes}, chaque arête reliant deux sommets distincts ; deux sommets reliés sont \emph{adjacents}. On considère des graphes sans arête multiple. L'\emph{ordre} du graphe est son nombre de sommets. Le \emph{degré} d'un sommet est le nombre d'arêtes dont il est une extrémité. Un graphe est \emph{complet} si deux sommets distincts quelconques sont adjacents.
 \end{frame}
 \begin{frame}{Vocabulaire}
@@ -79,33 +84,34 @@ Une \emph{chaîne} est une suite de sommets dans laquelle deux sommets consécut
 \end{column}
 \end{columns}
 \end{frame}
-\begin{frame}{Vocabulaire}
+\begin{frame}[allowframebreaks]{Vocabulaire}
 Dans un graphe, la somme des degrés des sommets est égale au double du nombre d'arêtes. Par conséquent, le nombre de sommets de degré impair est pair.
 \end{frame}
-\begin{frame}{Vocabulaire}
+\begin{frame}[allowframebreaks]{Vocabulaire}
 Chaque arête a deux extrémités : elle est comptée deux fois dans la somme des degrés. La somme des degrés est paire ; or une somme d'entiers est paire si et seulement si elle contient un nombre pair de termes impairs.
 \end{frame}
-\begin{frame}{Vocabulaire}
+\begin{frame}[allowframebreaks]{Vocabulaire}
 Le graphe complet d'ordre \(n\) a \(\binom n2=\dfrac{n(n-1)}2\) arêtes.
 \end{frame}
-\begin{frame}{Vocabulaire}
+\begin{frame}[allowframebreaks]{Vocabulaire}
 Dans un graphe \emph{orienté}, les liaisons, appelées \emph{arcs}, ont un sens : l'arc \((X,Y)\) va de \(X\) vers \(Y\). Un \emph{chemin} est une suite de sommets dans laquelle chacun est relié au suivant par un arc. Un graphe est \emph{pondéré} lorsque chaque arête ou arc porte un nombre, appelé poids.
 \end{frame}
-\begin{frame}{Matrice d'adjacence}
+\begin{frame}[allowframebreaks]{Matrice d'adjacence}
 Les sommets d'un graphe d'ordre \(n\) étant numérotés de \(1\) à \(n\), sa \emph{matrice d'adjacence} est la matrice carrée \(M\) d'ordre \(n\) dont le coefficient \(m_{ij}\) vaut \(1\) si les sommets \(i\) et \(j\) sont reliés (par une arête, ou par un arc de \(i\) vers \(j\) pour un graphe orienté), et \(0\) sinon. Pour un graphe non orienté, \(M\) est symétrique : \(m_{ij}=m_{ji}\).
 \end{frame}
-\begin{frame}{Matrice d'adjacence}
+\begin{frame}[allowframebreaks]{Matrice d'adjacence}
 Soit \(M\) la matrice d'adjacence d'un graphe et \(n\ge1\) un entier. Le coefficient de ligne \(i\) et de colonne \(j\) de \(M^n\) est égal au nombre de chaînes (de chemins, pour un graphe orienté) de longueur \(n\) allant du sommet \(i\) au sommet \(j\).
 \end{frame}
-\begin{frame}{Matrice d'adjacence}
+\begin{frame}[allowframebreaks]{Matrice d'adjacence}
 Notons \(m^{(n)}_{ij}\) les coefficients de \(M^n\) et \(c^{(n)}_{ij}\) le nombre de chaînes de longueur \(n\) de \(i\) à \(j\). Pour \(n=1\), une chaîne de longueur \(1\) de \(i\) à \(j\) est une arête : \(c^{(1)}_{ij}=m_{ij}\).
 \end{frame}
-\begin{frame}{Matrice d'adjacence (2)}
+\begin{frame}[allowframebreaks]{Matrice d'adjacence (2)}
 Supposons \(m^{(n)}_{ij}=c^{(n)}_{ij}\) pour tous \(i\), \(j\). Une chaîne de longueur \(n+1\) de \(i\) à \(j\) est formée d'une chaîne de longueur \(n\) de \(i\) à un sommet \(k\), suivie d'une arête de \(k\) à \(j\). En classant ces chaînes selon l'avant-dernier sommet \(k\), on obtient
 \[c^{(n+1)}_{ij}=\sum_{k=1}^{p}c^{(n)}_{ik}\,m_{kj}=\sum_{k=1}^{p}m^{(n)}_{ik}\,m_{kj}=m^{(n+1)}_{ij},\]
+
 où \(p\) est l'ordre du graphe, car \(M^{n+1}=M^nM\). La propriété est vraie au rang \(n+1\).
 \end{frame}
-\begin{frame}{Matrice d'adjacence}
+\begin{frame}[allowframebreaks]{Matrice d'adjacence}
 Le coefficient diagonal \(\left(M^2\right)_{ii}\) est le degré du sommet \(i\) (graphe non orienté).
 \end{frame}
 \end{document}

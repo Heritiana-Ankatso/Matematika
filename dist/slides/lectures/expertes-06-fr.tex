@@ -2,7 +2,12 @@
 \makeatletter\IfFileExists{core/beamer/beamerthememx.sty}{\def\mxcorepath{core/}\def\input@path{{core/beamer/}{core/}}}{\def\mxcorepath{../core/}\def\input@path{{../core/beamer/}{../core/}}}\makeatother
 \documentclass[aspectratio=169,10pt,t]{beamer}
 \usetheme{mx}
-\usepackage{graphicx,booktabs}
+\usepackage{graphicx,booktabs,mathtools,array,adjustbox}
+\usepackage[all]{xy}
+\providecommand{\actualtextwidth}{\textwidth}
+\providecommand{\veccor}[2]{\left(\begin{matrix}#1\\#2\end{matrix}\right)}
+\DeclarePairedDelimiter{\VecNorm}{\lVert}{\rVert}
+\providecommand{\ETC}{\ldots}
 \usepackage[french]{babel}
 \setlength{\parskip}{.45em}
 \hypersetup{pdfauthor={},pdfsubject={Lecture slides},pdfkeywords={},pdftitle={Divisibilité et congruences}}
@@ -38,13 +43,13 @@
 \author{}
 \begin{document}
 \mxtitleframe
-\begin{frame}{Objectifs}
+\begin{frame}[allowframebreaks]{Objectifs}
 Utiliser la divisibilité dans \(\Z\) et ses propriétés ; effectuer une division euclidienne ; calculer avec des congruences ; établir un critère de divisibilité ; étudier des restes de puissances.
 \end{frame}
-\begin{frame}{Activité d'introduction}
+\begin{frame}[allowframebreaks]{Activité d'introduction}
 Le 17 octobre 2026 est un samedi. On numérote les jours de la semaine de \(0\) (samedi) à \(6\) (vendredi) : dimanche porte le numéro \(1\), lundi le numéro \(2\), etc.
 \end{frame}
-\begin{frame}{Activité d'introduction (2)}
+\begin{frame}[allowframebreaks]{Activité d'introduction (2)}
 \begin{enumerate}
 \setcounter{enumi}{0}\item Quel jour de la semaine sera-t-il \(7\) jours plus tard ? \(14\) jours ? \(700\) jours ?
 
@@ -56,7 +61,7 @@ Le 17 octobre 2026 est un samedi. On numérote les jours de la semaine de \(0\) 
 
 \end{enumerate}
 \end{frame}
-\begin{frame}{Activité d'introduction (3)}
+\begin{frame}[allowframebreaks]{Activité d'introduction (3)}
 \begin{enumerate}
 \setcounter{enumi}{4}\item Le 1er janvier 2027 arrive \(76\) jours après le 17 octobre 2026. Quel jour sera-t-il ?
 
@@ -64,13 +69,13 @@ Le 17 octobre 2026 est un samedi. On numérote les jours de la semaine de \(0\) 
 
 \end{enumerate}
 \end{frame}
-\begin{frame}{Activité d'introduction (4)}
+\begin{frame}[allowframebreaks]{Activité d'introduction (4)}
 \emph{Observer n'est pas démontrer : les propriétés conjecturées ici sont établies dans le cours.}
 \end{frame}
-\begin{frame}{Divisibilité dans \(\Z\)}
+\begin{frame}[allowframebreaks]{Divisibilité dans \(\Z\)}
 Soit \(a\) et \(b\) deux entiers relatifs. On dit que \(a\) \emph{divise} \(b\), et on note \(a\mid b\), s'il existe un entier relatif \(k\) tel que \(b=ka\). On dit aussi que \(a\) est un \emph{diviseur} de \(b\), ou que \(b\) est un \emph{multiple} de \(a\).
 \end{frame}
-\begin{frame}{Divisibilité dans \(\Z\)}
+\begin{frame}[allowframebreaks]{Divisibilité dans \(\Z\)}
 Soit \(a\), \(b\), \(c\) des entiers relatifs.
 
 \begin{enumerate}
@@ -83,47 +88,48 @@ Soit \(a\), \(b\), \(c\) des entiers relatifs.
 
 \end{enumerate}
 \end{frame}
-\begin{frame}{Divisibilité dans \(\Z\)}
+\begin{frame}[allowframebreaks]{Divisibilité dans \(\Z\)}
 1. \(b=ka\) et \(c=k'b\) donnent \(c=(k'k)a\). 2. \(b=ka\) et \(c=k'a\) donnent \(bu+cv=(ku+k'v)a\). 3. \(b=ka\) avec \(k\neq0\), donc \(\abs k\ge1\) et \(\abs b=\abs k\abs a\ge\abs a\).
 \end{frame}
-\begin{frame}{Divisibilité dans \(\Z\)}
+\begin{frame}[allowframebreaks]{Divisibilité dans \(\Z\)}
 Soit \(a\in\Z\) et \(b\in\N\), \(b\ge1\). Il existe un unique couple d'entiers \((q;r)\) tel que \(a=bq+r\) et \(0\le r<b\). On appelle \(q\) le \emph{quotient} et \(r\) le \emph{reste}.
 \end{frame}
-\begin{frame}{Divisibilité dans \(\Z\)}
+\begin{frame}[allowframebreaks]{Divisibilité dans \(\Z\)}
 \emph{Existence.} Posons \(q=\left\lfloor\dfrac ab\right\rfloor\), le plus grand entier inférieur ou égal à \(\dfrac ab\). Alors \(q\le\dfrac ab<q+1\), donc \(bq\le a<bq+b\), et \(r=a-bq\) vérifie \(0\le r<b\).
 
 \emph{Unicité.} Si \(a=bq+r=bq'+r'\) avec \(0\le r,r'<b\), alors \(b(q-q')=r'-r\) et \(-b<r'-r<b\). Le seul multiple de \(b\) strictement compris entre \(-b\) et \(b\) est \(0\), donc \(r=r'\) puis \(q=q'\).
 \end{frame}
-\begin{frame}{Divisibilité dans \(\Z\)}
+\begin{frame}[allowframebreaks]{Divisibilité dans \(\Z\)}
 Le reste est toujours positif : \(-47=5\times(-10)+3\), donc la division de \(-47\) par \(5\) a pour quotient \(-10\) et pour reste \(3\), et non \(-9\) et \(-2\).
 \end{frame}
-\begin{frame}{Congruences}
+\begin{frame}[allowframebreaks]{Congruences}
 Soit \(n\ge2\) un entier. Deux entiers relatifs \(a\) et \(b\) sont congrus modulo \(n\), ce que l'on note \(a\equiv b\pmod n\), si \(n\mid a-b\).
 \end{frame}
-\begin{frame}{Congruences}
+\begin{frame}[allowframebreaks]{Congruences}
 \(a\equiv b\pmod n\) si et seulement si \(a\) et \(b\) ont le même reste dans la division euclidienne par \(n\). En particulier, tout entier est congru modulo \(n\) à son reste, qui appartient à \(\llbracket 0;n-1\rrbracket\).
 \end{frame}
-\begin{frame}{Congruences}
+\begin{frame}[allowframebreaks]{Congruences}
 Écrivons \(a=nq+r\) et \(b=nq'+r'\) avec \(0\le r,r'<n\). Alors \(a-b=n(q-q')+(r-r')\) et \(-n<r-r'<n\). Donc \(n\mid a-b\) si et seulement si \(n\mid r-r'\), si et seulement si \(r=r'\).
 \end{frame}
-\begin{frame}{Congruences}
+\begin{frame}[allowframebreaks]{Congruences}
 Si \(a\equiv b\pmod n\) et \(c\equiv d\pmod n\), alors
 \[a+c\equiv b+d,\qquad a-c\equiv b-d,\qquad ac\equiv bd,\qquad a^k\equiv b^k\pmod n\]
+
 pour tout entier naturel \(k\). La relation est aussi transitive : si \(a\equiv b\) et \(b\equiv c\pmod n\), alors \(a\equiv c\pmod n\).
 \end{frame}
-\begin{frame}{Congruences}
+\begin{frame}[allowframebreaks]{Congruences}
 Somme : \((a+c)-(b+d)=(a-b)+(c-d)\) est somme de deux multiples de \(n\). Produit : \(ac-bd=a(c-d)+d(a-b)\), multiple de \(n\). Puissance : récurrence sur \(k\) à partir du produit. Transitivité : \(a-c=(a-b)+(b-c)\).
 \end{frame}
-\begin{frame}{Congruences}
+\begin{frame}[allowframebreaks]{Congruences}
 On ne simplifie pas une congruence comme une égalité : \(2\times3\equiv2\times1\pmod4\), mais \(3\not\equiv1\pmod4\). La division n'est possible que dans des cas précis (chapitre 7).
 \end{frame}
-\begin{frame}{Congruences}
+\begin{frame}[allowframebreaks]{Congruences}
 On cherche une puissance congrue à \(1\) (ou à \(-1\)), puis on utilise la division euclidienne de l'exposant. Exemple : \(2^3=8\equiv1\pmod7\) et \(2\,026=3\times675+1\), donc \(2^{2026}=\left(2^3\right)^{675}\times2\equiv1^{675}\times2=2\pmod7\).
 \end{frame}
-\begin{frame}{Congruences}
+\begin{frame}[allowframebreaks]{Congruences}
 Pour étudier une expression modulo \(n\), on dresse un tableau donnant sa valeur modulo \(n\) pour chaque reste possible de \(x\). Exemple : modulo \(4\), \(x\equiv0,1,2,3\) donne \(x^2\equiv0,1,0,1\). Un carré est donc congru à \(0\) ou \(1\) modulo \(4\).
 \end{frame}
-\begin{frame}{Congruences}
+\begin{frame}[allowframebreaks]{Congruences}
 Si \(N=\sum_{k=0}^{p}a_k10^k\) s'écrit avec les chiffres \(a_0,\dots,a_p\), comme \(10\equiv1\pmod9\), on a \(10^k\equiv1\) et \(N\equiv a_0+a_1+\dots+a_p\pmod9\). Un entier est divisible par \(9\) si et seulement si la somme de ses chiffres l'est.
 \end{frame}
 \end{document}

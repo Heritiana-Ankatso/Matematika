@@ -34,7 +34,7 @@ L'ensemble des diviseurs de $a$ est not\'e $D_{(a)}$ ou $D_a$.
                   \begin{itemize}
                         \item Tout nombre entier naturel $n > 1$ qui n'est pas premier 
                               admet au moins un diviseur premier $p \leq \sqrt{n}$.
-                        \item Tout nombre entier naturel peut se d\'ecomposer en produit de facteurs premiers,
+                        \item Tout nombre entier naturel $n \geq 2$ peut se d\'ecomposer en produit de facteurs premiers,
                               cette d\'ecomposition est unique \`a l'ordre pr\`es.
                   \end{itemize}
             %
@@ -75,7 +75,7 @@ L'ensemble des diviseurs de $a$ est not\'e $D_{(a)}$ ou $D_a$.
                         On conclut que $139$ est premier.
                   \end{ex}
             %
-                  \begin{exe}
+                  \begin{exe}\label{exe:arith-1}
                         Lesquels des nombres suivants sont premiers : 
                               527, 769, 1249 et 
                               57.
@@ -143,7 +143,7 @@ L'ensemble des diviseurs de $a$ est not\'e $D_{(a)}$ ou $D_a$.
       \filldraw[color = loko3] (\x-51,5) rectangle (\x-50,4);
 \foreach \x in {60,63,...,70}
       \filldraw[color = loko3] (\x-61,4) rectangle (\x-60,3);
-\foreach \x in {72,74,...,80}
+\foreach \x in {72,75,...,80}
       \filldraw[color = loko3] (\x-71,3) rectangle (\x-70,2);
 \foreach \x in {81,84,...,90}
       \filldraw[color = loko3] (\x-81,2) rectangle (\x-80,1);
@@ -272,7 +272,8 @@ L'ensemble des diviseurs de $a$ est not\'e $D_{(a)}$ ou $D_a$.
             On raye le nombre $1$ puisqu'il n'est pas premier.
             Le prochain nombre non-ray\'es est premier, on le prend et on raye tous ses multiples.
             On recommence le proc\'ed\'e sur toute la premi\`ere ligne.
-            \`A la fin de l'algorithme, tout les nombres restant sont premiers.
+            On s'arr\^ete apr\`es avoir trait\'e les nombres premiers inf\'erieurs ou \'egaux \`a $\sqrt{n}$.
+            \`A la fin de l'algorithme, tous les nombres non ray\'es sont premiers.
 %                  
 \section{Diviseurs et multiples d'un nombre entier relatif}
 \begin{defi}[Divisibilit\'e] 
@@ -457,7 +458,7 @@ $b|a$ si et seulement si $r=0$.
             }{Ainsi, $1\,304\,748 = \overline{52B090}^{_{(12)}}$.}
       \end{conversionexample}
       %
-      \begin{exe}
+      \begin{exe}\label{exe:arith-2}
             \'Ecrire les nombres suivants en base dix (num\'eration d\'ecimale) :
 \index{Numeration@Num\'eration!decimale@d\'ecimale}
 \index{Numeration@Num\'eration!base 10}
@@ -466,15 +467,15 @@ $b|a$ si et seulement si $r=0$.
       %
       \warning{%
             Il existe d'autres notations pour les nombres en base autres que dix.
-            Le nombre $42$ peut par exemple \^etre not\'e 
-                  $ \overline{101100}^{_{(2)}} $,
-                  $ \overline{101100}^{_{2}} $,
-                  $ (\overline{101100})_{2} $,
-                  $ {101100}_{2} $, 
+            Le nombre $42$ peut par exemple \^etre not\'e
+                  $ \overline{101010}^{_{(2)}} $,
+                  $ \overline{101010}^{_{2}} $,
+                  $ (\overline{101010})_{2} $,
+                  $ {101010}_{2} $,
                   \ldots.
-            On choisira, dans ce cours, d'\^etre consistent et utiliser la notation $ \overline{101100}^{_{(2)}} $.
+            On choisira, dans ce cours, d'utiliser toujours la notation $ \overline{101010}^{_{(2)}} $.
             \newline
-            Pour les base sup\'erieurs \`a dix,
+            Pour les bases sup\'erieures \`a dix,
             on ajoute souvent des lettres de l'alphabet latin dans l'ordre.
             On peut utiliser des lettres minuscules aussi bien que capitales.
       }
@@ -482,7 +483,7 @@ $b|a$ si et seulement si $r=0$.
 \index{Congruence}
       \begin{defi}
             Soient $(x,y) \in \mathbb{Z}^2$ et $n\in\mathbb{N}$.
-            On dit que \emph{$x$ congru \`a $y$ modulo $n$} si 
+            On dit que \emph{$x$ est congru \`a $y$ modulo $n$} si
             \emph{$n$ divise $x-y$}. 
             On note \defbox{$x \equiv y \quad \mathrm{mod}\ n$} ou \defbox{$x \equiv y \ [n]$}.
             %On note $\congru{x}{y}{n}$.
@@ -535,7 +536,7 @@ $b|a$ si et seulement si $r=0$.
       \begin{prop}
             \begin{enumerate}
                   \item Si $d|n$ et $\congru{x}{y}{n}$, alors $\congru{x}{y}{d}$.
-                  \item Soit $n\in\mathbb{N}$.
+                  \item Soit $n\in\mathbb{N}^*$.
                         Pour tout $x\in\mathbb{Z}$, il existe un unique $r\in\mathbb{N}$ tel que
                         $0\leq r < n$ et $\congru{x}{r}{n}$.
             \end{enumerate}
@@ -551,7 +552,7 @@ $b|a$ si et seulement si $r=0$.
             Ainsi, le reste de la division euclidienne de $7^{100}$ par $5$ est $1$.
       \end{ex}
       %
-      \begin{exe}
+      \begin{exe}\label{exe:arith-3}
             \begin{enumerate}
                   \item D\'eterminer le reste de la division euclidienne de $5^{2018}$ par $13$.
                   \item D\'eterminer le reste de la division euclidienne de $2^{2019}$ par $7$.
@@ -588,7 +589,7 @@ $b|a$ si et seulement si $r=0$.
             Ainsi, $N$ est un multiple de $9$ si et seulement si la somme de ces chiffres est un multiple de $9$.
       \end{ex}
       %
-      \begin{exe}
+      \begin{exe}\label{exe:arith-4}
             Soit $N$ un nombre entier naturel et soit $a_n a_{n-1} \ldots a_2 a_1 a_0$ son \'ecriture en base 10.
             \begin{enumerate}
                   \item Montrer que $N$ est divisible par $2$ si et seulement si $\congru{a_0}{0}{2}$.
@@ -600,7 +601,7 @@ $b|a$ si et seulement si $r=0$.
       \section{Anneau $\mathbb{Z}/n\mathbb{Z}$}
 \index{Anneau}
 \index{Z/nZ@$\mathbb{Z}/n\mathbb{Z}$}
-      Soient $n\in\mathbb{N}$ et $r\in\mathbb{Z}$.
+      Soient $n\in\mathbb{N}$, $n \geq 2$, et $r\in\mathbb{Z}$.
       On d\'efinit la classe d'\'equivalence de $r$ comme \'etant 
       l'ensemble des $x\in\mathbb{Z}$ tel que $\congru{x}{r}{n}$, 
       on la note par \defbox{$\bar{r}$} ou \defbox{$\dot{r}$}.
@@ -618,7 +619,8 @@ $b|a$ si et seulement si $r=0$.
       \begin{align*}
             \bar{a} + \bar{b} & = \bar{a+b}       & \bar{a} \cdot \bar{b} = \bar{a\cdot b} \;.
       \end{align*}
-      Muni de ces deux op\'erations, $\mathbb{Z}/n\mathbb{Z}$ \`a une structure d'anneau, 
+      Ces op\'erations ne d\'ependent pas des repr\'esentants choisis (compatibilit\'e de la congruence avec l'addition et la multiplication).
+      Muni de ces deux op\'erations, $\mathbb{Z}/n\mathbb{Z}$ a une structure d'anneau,
 \index{Anneau}
       c'est-\`a-dire que pour tout $\bar{a}$, $\bar{b}$ et $\bar{c}$ de $\mathbb{Z}/n\mathbb{Z}$, on a :
             \begin{itemize}
@@ -626,7 +628,7 @@ $b|a$ si et seulement si $r=0$.
                   \item $(\bar{a} + \bar{b}) + \bar{c} = \bar{a} + (\bar{b} + \bar{c})$,
                   \item $\bar{a} + \bar{b} = \bar{b} + \bar{a}$,
                   \item $\bar{a} + \bar{0} = \bar{a}$,
-                  \item il existe un \'el\'ement, not\'e $-\bar{a}$ tel que $\bar{a} + (-\bar{a}) = 0$,
+                  \item il existe un \'el\'ement, not\'e $-\bar{a}$ tel que $\bar{a} + (-\bar{a}) = \bar{0}$,
                   \item $(\bar{a} \cdot \bar{b}) \cdot \bar{c} = \bar{a} \cdot (\bar{b} \cdot \bar{c})$,
                   \item $\bar{a} \cdot (\bar{b} + \bar{c}) = \bar{a} \cdot \bar{b} + \bar{a} \cdot \bar{c}$,
                   \item $(\bar{b} + \bar{c}) \cdot \bar{a} = \bar{b} \cdot \bar{a} + \bar{c} \cdot \bar{a}$.
@@ -718,7 +720,7 @@ $b|a$ si et seulement si $r=0$.
                   $ x = \bar{3}$.            
       \end{ex}
       %
-      \begin{exe}
+      \begin{exe}\label{exe:arith-5}
             \begin{enumerate}
             \item R\'esoudre dans $\mathbb{Z}/7\mathbb{Z}$ les \'equations suivantes : 
                   \begin{enumerate}
@@ -766,7 +768,7 @@ $b|a$ si et seulement si $r=0$.
       \subsection{PPCM}
       \begin{defi}
 \index{PPCM}
-      Soient $a$ et $b$ deux entiers naturels.
+      Soient $a$ et $b$ deux entiers naturels non nuls.
       On appelle \textbf{P}lus \textbf{P}etit \textbf{C}ommun \textbf{M}ultiple 
       --- en abr\'eg\'e \emph{PPCM} --- de $a$ et $b$ le nombre 
             \defbox{$PPCM(a;b) := \min \left( a\mathbb{N}^* \cap b\mathbb{N}^* \right)$}
@@ -787,7 +789,7 @@ $b|a$ si et seulement si $r=0$.
             \begin{itemize}
                   \item Si $a|b$ alors $PPCM(a;b) = b$,
                   \item si $k\in\mathbb{N}^*$ alors $PPCM(ka;kb) = k \cdot PPCM(a;b)$,
-                  \item si $c\in\mathbb{N}$, $PPCM(a;b;c) = PPCM(PPCM(a;b);c) = PPCM(a;PPCM(b;c))$
+                  \item si $c\in\mathbb{N}^*$, $PPCM(a;b;c) = PPCM(PPCM(a;b);c) = PPCM(a;PPCM(b;c))$
                         (on peut \'etendre \`a un nombre arbitraire d'\'el\'ements).
             \end{itemize}
       \end{prop}
@@ -811,13 +813,13 @@ $b|a$ si et seulement si $r=0$.
                   \end{array}
                   \right.
                   $
-                  le PPCM de ces trois nombres est $2^3 \cdot 3 \cdot 7 = 168$.
+                  le PPCM de ces trois nombres est $2^3 \cdot 3^2 \cdot 7 = 504$.
             \end{ex}
 
       \subsection{PGCD}
       \begin{defi}
 \index{PGCD}
-      Soient $a$ et $b$ deux entiers naturels.
+      Soient $a$ et $b$ deux entiers naturels non tous les deux nuls.
       On appelle \textbf{P}lus \textbf{G}rand \textbf{C}ommun \textbf{D}iviseur
       --- en abr\'eg\'e \emph{PGCD} --- de $a$ et $b$ le nombre 
             \defbox{$\pgcd{a}{b} := \max \left( D_a \cap D_b \right)$}.
@@ -834,7 +836,10 @@ $b|a$ si et seulement si $r=0$.
 \index{Premiers entre eux}
       \end{defi}
       \begin{rmk}
-            On a $\pgcd{0}{0}=0$.
+            Tout entier divise $0$, donc $D_0 \cap D_0$ n'a pas de plus grand \'el\'ement ;
+            on pose, par convention, $\pgcd{0}{0}=0$.
+            Pour $a \neq 0$, on a $\pgcd{a}{0} = a$.
+            Pour des entiers relatifs, on pose $\pgcd{a}{b} = \pgcd{|a|}{|b|}$.
       \end{rmk}
       %
       \begin{prop}
@@ -842,7 +847,7 @@ $b|a$ si et seulement si $r=0$.
             \begin{itemize}
                   \item Si $a|b$ alors $\pgcd{a}{b} = a$,
                   \item si $k\in\mathbb{N}^*$ alors $\pgcd{ka}{kb} = k \cdot \pgcd{a}{b}$,
-                  \item si $c\in\mathbb{N}$, $\mathrm{PGCD}(a,b,c) = \pgcd{\pgcd{a}{b}}{c} = \pgcd{a}{\pgcd{b}{c}}$
+                  \item si $c\in\mathbb{N}^*$, $\mathrm{PGCD}(a,b,c) = \pgcd{\pgcd{a}{b}}{c} = \pgcd{a}{\pgcd{b}{c}}$
                         (on peut \'etendre \`a un nombre arbitraire d'\'el\'ements).
             \end{itemize}
       \end{prop}
@@ -853,14 +858,15 @@ $b|a$ si et seulement si $r=0$.
             %
             Alors $\pgcd{a}{b}$ divise $r$.
             
-            \smallnota{En fait, on a un r\'esultat plus fort : \thmbox{$\pgcd{a}{b} = \pgcd{b}{r}$}.}
+            \smallnota{En fait, on a un r\'esultat plus fort : \thmbox{$\pgcd{a}{b} = \pgcd{a}{r}$}
+                       (car $r = b - qa$ et $b = qa + r$ : les diviseurs communs de $a$ et $b$ sont exactement ceux de $a$ et $r$).}
       \end{thm}
       %
       \begin{thm}
             Soient $a$ et $b$ deux entiers naturels non-nuls.
             On a
             \[
-                  \thmbox{PPCM(a;b)\cdot\pgcd{a}{b}=a\cdot b}.
+                  \thmbox{PPCM(a;b)\cdot \pgcd{a}{b}=a\cdot b}.
             \]
       \end{thm}
       %
@@ -933,7 +939,7 @@ $b|a$ si et seulement si $r=0$.
                   Le dernier reste non-nul est $4$, donc $\pgcd{36}{200} = 4$.
             \end{ex}
             %
-            \begin{exe}
+            \begin{exe}\label{exe:arith-6}
                   Calculer :
                   \begin{enumerate}[label=\alph*)]
                         \item $\pgcd{51\,959}{47\,897}$ ;
@@ -995,7 +1001,7 @@ $b|a$ si et seulement si $r=0$.
                  D'o\`u $4 = 2 \cdot 200 - 11 \cdot 36$.
             \end{ex}
             %
-            \begin{exe}
+            \begin{exe}\label{exe:arith-7}
                   Pour chacun des couples $(a,b)$ suivants trouver $\pgcd{a}{b}$ :
                   %
                   \begin{enumerate}
@@ -1009,7 +1015,7 @@ $b|a$ si et seulement si $r=0$.
                   $au + bv = \pgcd{a}{b}$.
             \end{exe}
 %
-		\subsection*{Algorithme d'Euclide \'etendue}
+		\subsection*{Algorithme d'Euclide \'etendu}
 \index{Algorithme d'Euclide!etendu@\'etendu}
 \index{Euclide!Algorithme etendue d'@Algorithme \'etendu d'}
 		Il existe une version ``\emph{\'etendue}'' de l'algorithme d'Euclide.
@@ -1026,9 +1032,9 @@ $b|a$ si et seulement si $r=0$.
 				\hline 
 					r_0 = r & r_1 = a_1 - a_2 \cdot q_1 & r_2 = a_2 - a_3 \cdot q_2 & r_3 = a_3 - a_4 \cdot q_3 & \cdots \\ 
 				\hline
-					\mathbold{u_0 = 1} & \mathbold{u_1 = 0} & u_2 = u_0 - (q_0 \cdot u_1) & u_3 = u_1 - (q_1 \cdot u_2) & \cdots\\
+					\boldsymbol{u_0 = 1} & \boldsymbol{u_1 = 0} & u_2 = u_0 - (q_0 \cdot u_1) & u_3 = u_1 - (q_1 \cdot u_2) & \cdots\\
 				\hline
-					\mathbold{v_0 = 0} & \mathbold{v_1 = 1} & v_2 = v_0 - (q_0 \cdot v_1) & v_3 = v_1 - (q_1 \cdot v_2) & \cdots\\
+					\boldsymbol{v_0 = 0} & \boldsymbol{v_1 = 1} & v_2 = v_0 - (q_0 \cdot v_1) & v_3 = v_1 - (q_1 \cdot v_2) & \cdots\\
 				\hline
 			\end{array} 
 		\]
@@ -1053,7 +1059,7 @@ $b|a$ si et seulement si $r=0$.
 			$0$		& $1$	& $-5$	& $6$	& $-11$	\\ \hline
 			\end{tabular}
 		
-		Ainsi, on retrouve bien $200 \; 2 - 36 \; 11 = 4$.
+		Ainsi, on retrouve bien $200 \cdot 2 - 36 \cdot 11 = 4$.
 		\end{ex}
             %
             \begin{thm}[Lemme de Gauss]
@@ -1102,7 +1108,7 @@ $b|a$ si et seulement si $r=0$.
                                   & = 12 a - 13 b                   \;.
                         \end{align*}
                   
-                  On aurait aussi peu utiliser l'algorithme d'Euclide \'etendu :
+                  On aurait aussi pu utiliser l'algorithme d'Euclide \'etendu :
                   \begin{center}
 							\begin{tabular}{|r|r|r|r|r|} \hline
 							  & $1$ & $11$ & $1$ & $2$ \\ \hline
@@ -1132,14 +1138,54 @@ $b|a$ si et seulement si $r=0$.
                                     35 \, (v + 13) = 38 (12 - u) \label{eq:Bezout ex 1}
                               \end{equation}
                         et donc $38 | 35 \, (v + 13)$.
-                        Mais comme $\pgcd{38}{5} = 1$, d'apr\`es le Lemme~de~Gauss, $38 | (v + 13)$.
+                        Mais comme $\pgcd{38}{35} = 1$, d'apr\`es le Lemme~de~Gauss, $38 | (v + 13)$.
                         D'o\`u, il existe un entier $k$ tel que $v + 13 = 38 \, k$, ou encore $v = 38\,k - 13$.
                         En portant cette valeur dans l'\'equation~\eqref{eq:Bezout ex 1}, on a 
                               $38 \, (12 - u) = 35 \cdot 38 \cdot k$ et donc 
                               $u = - 35 \, k + 12$.
-                        Ainsi, l'ensemble des solutions est 
-                              $\left\lbrace (-35\,k-12 ; 38\,k-13) \mid k \in \mathbb{Z} \right\rbrace$.
+                        R\'eciproquement, pour tout $k\in\mathbb{Z}$, le couple $(u ; v) = (12 - 35\,k ; 38\,k - 13)$ v\'erifie
+                        $38\,(12-35\,k) + 35\,(38\,k-13) = 456 - 455 = 1$.
+                        Comme $x = v$ et $y = u$ (l'\'equation de d\'epart est $35 x + 38 y = 1$),
+                        l'ensemble des solutions est
+                              $\left\lbrace (38\,k-13 ; 12-35\,k) \mid k \in \mathbb{Z} \right\rbrace$.
             \end{ex}
+            %
+            \begin{thm}[Th\'eor\`eme de B\'ezout]
+\index{Bezout@B\'ezout!Theoreme de@Th\'eor\`eme de}
+                  Deux entiers relatifs $a$ et $b$ sont premiers entre eux si et seulement si
+                  il existe deux entiers relatifs $u$ et $v$ tels que \thmbox{$a u + b v = 1$}.
+            \end{thm}
+            %
+            \begin{prop}[Cons\'equences du lemme de Gauss]
+                  \begin{enumerate}
+                        \item Si un nombre premier $p$ divise un produit $ab$, alors $p$ divise $a$ ou $p$ divise $b$.
+                        \item Si $a | n$, $b | n$ et $\pgcd{a}{b} = 1$, alors $ab | n$.
+                  \end{enumerate}
+            \end{prop}
+            %
+            \subsection*{\'Equations du type $a x + b y = c$}
+            Soient $a$ et $b$ deux entiers relatifs non nuls, $d = \pgcd{a}{b}$ et $c \in \mathbb{Z}$.
+            \begin{itemize}
+                  \item L'\'equation $a x + b y = c$ a des solutions dans $\mathbb{Z}^2$ si et seulement si $d$ divise $c$.
+                  \item Si $d | c$, on divise par $d$ : $a' x + b' y = c'$ avec $a = d a'$, $b = d b'$, $c = d c'$ et $\pgcd{a'}{b'} = 1$.
+                        On cherche une solution particuli\`ere $(x_0 ; y_0)$ (par exemple en multipliant par $c'$ des coefficients de B\'ezout de $a'$ et $b'$),
+                        puis le lemme de Gauss donne toutes les solutions :
+                        \[
+                              x = x_0 + b' k , \qquad y = y_0 - a' k , \qquad k \in \mathbb{Z} .
+                        \]
+            \end{itemize}
+            %
+            \begin{prop}[Inverses dans $\mathbb{Z}/n\mathbb{Z}$]
+                  Soient $n \geq 2$ et $a\in\mathbb{Z}$.
+                  \begin{enumerate}
+                        \item Il existe $\bar{u}$ tel que $\bar{a} \cdot \bar{u} = \bar{1}$ dans $\mathbb{Z}/n\mathbb{Z}$
+                              si et seulement si $\pgcd{a}{n} = 1$ (c'est le th\'eor\`eme de B\'ezout : $au + nv = 1$).
+                              On peut alors r\'esoudre $\bar{a}\,x = \bar{b}$ en multipliant par $\bar{u}$ : $x = \bar{u}\,\bar{b}$.
+                        \item Si $p$ est premier, tout \'el\'ement non nul de $\mathbb{Z}/p\mathbb{Z}$ a un inverse, et
+                              $\bar{x} \cdot \bar{y} = \bar{0} \Rightarrow \left( \bar{x} = \bar{0} \text{ ou } \bar{y} = \bar{0} \right)$.
+                              Ce n'est plus vrai si $n$ n'est pas premier : dans $\mathbb{Z}/6\mathbb{Z}$, $\bar{2}\cdot\bar{3} = \bar{0}$.
+                  \end{enumerate}
+            \end{prop}
 
 
 \TCDLessonStyleOff
@@ -1149,7 +1195,7 @@ $b|a$ si et seulement si $r=0$.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Exercices}
 %
-\begin{exo}
+\begin{exo}\label{exo:arith-1}
 	Pour chacun des couples $(a,b)$ suivants, effectuer la division euclidienne de $a$ par $b$ :
 		\begin{enumerate}
 			\item $(a,b) = (22,4)$,
@@ -1163,7 +1209,7 @@ $b|a$ si et seulement si $r=0$.
 		\end{enumerate}
 \end{exo}
 %
-\begin{exo}
+\begin{exo}\label{exo:arith-2}
 	\begin{enumerate}
 		\item Convertir le nombre $\base{100}{2}$ en base $ 10 $.
 		\item Convertir le nombre $\base{1011}{2}$ en base $ 10 $.
@@ -1176,7 +1222,7 @@ $b|a$ si et seulement si $r=0$.
 	\end{enumerate}
 \end{exo}
 %
-\begin{exo}
+\begin{exo}\label{exo:arith-3}
 	\begin{enumerate}
 		\item Convertir le nombre $\base{1222}{3}$ en base $ 10 $.
 		\item Convertir le nombre $\base{1133}{5}$ en base $ 10 $.
@@ -1189,7 +1235,7 @@ $b|a$ si et seulement si $r=0$.
 	\end{enumerate}
 \end{exo}
 %
-\begin{exo}
+\begin{exo}\label{exo:arith-4}
 	\begin{enumerate}
 		\item Convertir le nombre $\base{122}{3}$ en base $ 5 $.
 		\item Convertir le nombre $\base{31130}{4}$ en base $ 3 $.
@@ -1200,19 +1246,19 @@ $b|a$ si et seulement si $r=0$.
 	\end{enumerate}
 \end{exo}
 %
-\begin{exo}
+\begin{exo}\label{exo:arith-5}
       \begin{enumerate}
             \item D\'emontrer que la somme de trois entiers relatifs cons\'ecutifs est divisible par $3$.
             \item D\'emontrer que le produit de trois entiers relatifs cons\'ecutifs est divisible par $3$.
       \end{enumerate}
 \end{exo}
 %
-\begin{exo}
-      Montrer que tout nombre premier sup\'erieur \`a $4$ est 
-      soit de la forme $6 k + 1$ soit de la forme $6 k -1$ o\`u $k\in\mathbb{Z}$.
+\begin{exo}\label{exo:arith-6}
+      Montrer que tout nombre premier sup\'erieur ou \'egal \`a $5$ est 
+      soit de la forme $6 k + 1$ soit de la forme $6 k -1$ o\`u $k\in\mathbb{N}^*$.
 \end{exo}
 %
-\begin{exo}
+\begin{exo}\label{exo:arith-7}
       \begin{enumerate}
             \item D\'eterminer les entiers naturels non nuls $n$ dont 
                   la division par 16 donne un reste \'egal au carr\'e du quotient.
@@ -1221,7 +1267,7 @@ $b|a$ si et seulement si $r=0$.
       \end{enumerate}
 \end{exo}
 %
-\begin{exo}
+\begin{exo}\label{exo:arith-8}
       \begin{enumerate}
             \item Soit $n$ un entier naturel sup\'erieur ou \'egal \`a 3. 
                   D\'eterminer le reste de la division de $n^3 - 2 $ par $n-2$.
@@ -1229,7 +1275,7 @@ $b|a$ si et seulement si $r=0$.
       \end{enumerate}
 \end{exo}
 %
-\begin{exo}
+\begin{exo}\label{exo:arith-9}
       Soit $n$ un entier naturel et soit $r$ le reste de la division de $2^n $ par 7.
       \begin{enumerate}
             \item D\'eterminer le reste de la division de $2^{n+3}$ par 7 et en d\'eduire en fonction de $n$, 
@@ -1238,7 +1284,7 @@ $b|a$ si et seulement si $r=0$.
       \end{enumerate}
 \end{exo}
 %
-\begin{exo}
+\begin{exo}\label{exo:arith-10}
       \begin{enumerate}
             \item D\'eterminer le reste de la division de $2^n$ par 7 pour $n \in \{ 1, \ 2, \ 3, \ 4, \ 5, \ 6 \}$.
             \item Montrer que 7 divise $2^{n+3} - 2^n$. 
@@ -1248,61 +1294,62 @@ $b|a$ si et seulement si $r=0$.
       \end{enumerate}
 \end{exo}
 %
-\begin{exo}
-      Soit $E$ l'ensemble des nombres entiers naturels $N$ qui s'\'ecrit 
-      sous la forme $N = \bar{ababab}$ en base 10 avec $a$ non nul.
+\begin{exo}\label{exo:arith-11}
+      Soit $E$ l'ensemble des nombres entiers naturels $N$ qui s'\'ecrivent 
+      sous la forme $N = \overline{ababab}$ en base 10, o\`u $a$ et $b$ sont des chiffres et $a$ est non nul.
       \begin{enumerate}
-            \item Combien y a-t-il de nombre $N$ dans $E$\,? 
-            \item Montrer que tout les nombres de $E$ sont multiples de $10101$.
+            \item Combien y a-t-il de nombres $N$ dans $E$\,? 
+            \item Montrer que tous les nombres de $E$ sont multiples de $10101$.
       \end{enumerate}
 \end{exo}
 %
-\begin{exo}
+\begin{exo}\label{exo:arith-12}
       \begin{enumerate}
             \item Calculer pour $p = 0$, puis pour $p$ entier strictement positif, le reste de la division de $10^p$ par 6.
             \item Soit $n$ un entier sup\'erieur ou \'egal \`a 1. 
-                  Un entier $x$ s'\'ecrit $\bar{a_n \, a_{n-1} \, \dots \, a_1 \, a_0} $ 
-                  dans le syst\`eme d'\'enum\'eration en base 10.
+                  Un entier $x$ s'\'ecrit $\overline{a_n \, a_{n-1} \, \dots \, a_1 \, a_0} $ 
+                  dans le syst\`eme de num\'eration en base 10.
                   D\'emontrer que 6 divise $x$ si et seulement si 6 divise $4 \; (a_n + a_{n-1} + \cdots + a_2 + a_1 ) + a_0$.
       \end{enumerate}
 \end{exo}
 %
-\begin{exo}
+\begin{exo}\label{exo:arith-13}
       \begin{enumerate}
             \item Soit $N$ un entier relatif impair. 
                   En \'ecrivant $N = 2\ k + 1 \ (k \in \mathbb{Z})$, d\'eterminer le reste de la division de $N^2$ par 8.
             \item R\'esoudre dans $\mathbb{Z} \times \mathbb{Z}$ 
                   l'\'equation $x^2 = 8 \, y + 1$ o\`u $x$ et $y$ sont les inconnues. 
-            \item En d\'eduire que la parabole $(P)$ d\'equation $y = \frac{x^2 - 1}{8}$ 
+            \item En d\'eduire que la parabole $(P)$ d'\'equation $y = \frac{x^2 - 1}{8}$ 
                   passe par une infinit\'e de points de coordonn\'ees enti\`eres.
       \end{enumerate}
 \end{exo}
 %
-\begin{exo}
-      Soit $\{0,\ 1,\ 2,\ 3,\ 4,\ 5,\ 6,\ 7,\ 8,\ 9,\ a,\ b \}$ 
-      l'ensemble des `chiffres' qu'on utilise dans l'\'ecriture en base 12 des nombres.
-      Un nombre $N$ s'\'ecrit $N = \bar{a_n \, a_{n-1} \, \dots \, a_1 \, a_0}$ en base 12 $(n \geq 1)$.
+\begin{exo}\label{exo:arith-14}
+      Soit $\{0,\ 1,\ 2,\ 3,\ 4,\ 5,\ 6,\ 7,\ 8,\ 9,\ A,\ B \}$ 
+      l'ensemble des << chiffres >> qu'on utilise dans l'\'ecriture en base 12 des nombres ($A$ vaut dix et $B$ vaut onze).
+      Un nombre $N$ s'\'ecrit $N = \overline{a_n \, a_{n-1} \, \dots \, a_1 \, a_0}^{_{(12)}}$ en base 12 $(n \geq 1)$.
       \begin{enumerate}
             \item Montrer que $\congru{N}{a_n + a_{n-1} + \cdots + a_2 + a_1  + a_0}{11}$.
-            \item En d\'eduire une crit\`ere de divisibilit\'e par 11 de ce nombre $N$ en base 12.
-            \item Un nombre $N$ s'\'ecrit $\bar{xy4}$ en base 12 et $\bar{3yx}$ en base 10.
+            \item En d\'eduire un crit\`ere de divisibilit\'e par 11 d'un nombre $N$ \'ecrit en base 12.
+            \item Un nombre $N$ s'\'ecrit $\overline{xy4}^{_{(12)}}$ en base 12 et $\overline{3yx}$ en base 10,
+                  o\`u $x$ et $y$ sont des chiffres de $0$ \`a $9$, $x \neq 0$.
                   De plus, $N$ est divisible par 11.
                   D\'eterminer $N$.
       \end{enumerate}
 \end{exo}
 %
-\begin{exo}
+\begin{exo}\label{exo:arith-15}
       \begin{enumerate}
             \item V\'erifier que 7 divise les nombres $2^6 -1$ , $3^6 - 1$, $4^6 - 1$ et $5^6 - 1$.
             \item Pour tout entier naturel $n$, on d\'efinit le nombre $A_n$ par $A_n = 2^n + 3^n + 4^n + 5^n$.
                   Montrer que $A_{n+6} - A_n$ est divisible par 7.
             \item Soit $n$ un entier naturel, soient $q$ et $r$ son quotient et son reste respectivement par la division par 6.
                   Montrer que $A_n$ et $A_r$ ont m\^eme reste par la division par 7.
-            \item D\'eterminer les valeurs de $n$ pour lesquels $A_n$ est divisible par 7.
+            \item D\'eterminer les valeurs de $n$ pour lesquelles $A_n$ est divisible par 7.
       \end{enumerate}
 \end{exo}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{exo}
+\begin{exo}\label{exo:arith-16}
       Trouver le PGCD de chacun des couples $(a;b)$ suivants :
       \begin{enumerate}
             \item $(a;b) = (499877;797111)$,
@@ -1313,8 +1360,8 @@ $b|a$ si et seulement si $r=0$.
       \end{enumerate}
 \end{exo}
 %
-\begin{exo}
-      Pour chacun des couples $(a;b)$ suivant, d\'eterminer un couple $(u;v)$ tels que
+\begin{exo}\label{exo:arith-17}
+      Pour chacun des couples $(a;b)$ suivants, d\'eterminer un couple $(u;v)$ tel que
       $a\,u + b\,v = \pgcd{a}{b}$.
       \begin{enumerate}
             \item $(a;b) = (699 ; 624)$,
@@ -1325,7 +1372,7 @@ $b|a$ si et seulement si $r=0$.
       \end{enumerate}
 \end{exo}
 %
-\begin{exo}
+\begin{exo}\label{exo:arith-18}
       R\'esoudre dans $\mathbb{Z}^2$ les \'equations suivantes : 
       \begin{enumerate}
             \item $3 u + 5 v = 1$,
@@ -1339,15 +1386,19 @@ $b|a$ si et seulement si $r=0$.
       \end{enumerate}
 \end{exo}
 %
-\begin{exo}
-      Soient $a$ et $b$ deux entiers relatifs non nuls et $n$ un entier naturel sup\'erieur \`a $1$.
+\begin{exo}\label{exo:arith-19}
+      Soient $a$ et $b$ deux entiers relatifs non nuls et $n$ un entier naturel.
       \begin{enumerate}
             \item Montrer que si $a$ et $b$ sont premiers entre eux alors $5a + 3b$ et $3a + 2b$ sont aussi premiers entre eux.
-            \item Montrer que $n^2 + 1$ et $n+1$ sont premiers entre eux.
+            \item \begin{enumerate}
+                  \item Montrer que $\pgcd{n^2 + 1}{n+1}$ divise $2$.
+                  \item En d\'eduire que $n^2 + 1$ et $n+1$ sont premiers entre eux lorsque $n$ est pair.
+                        Que vaut ce PGCD lorsque $n$ est impair\,?
+                  \end{enumerate}
       \end{enumerate}
 \end{exo}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{exo}% ~ \newline
+\begin{exo}\label{exo:arith-20}% ~ \newline
 \begin{enumerate}
 \item D\'eterminer l'ensemble des entiers relatifs $x$ tels que : $123 \cdot x \equiv 456 \quad [7]$.
 \item \begin{enumerate}
@@ -1358,7 +1409,7 @@ $b|a$ si et seulement si $r=0$.
 \end{enumerate}
 \end{exo}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{exo}%~\newline
+\begin{exo}\label{exo:arith-21}%~\newline
 \begin{enumerate}
 \item Trouver tous les nombres entiers naturels ayant 3 chiffres et divisibles \`a la fois par 14 et par 34.
 \item Trouver deux entiers naturels $a$ et $b$ tels que : 
@@ -1375,9 +1426,9 @@ $b|a$ si et seulement si $r=0$.
 \end{enumerate}
 \end{exo}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{exo}
+\begin{exo}\label{exo:arith-22}
       \begin{enumerate}
-            \item Montrer par r\'ecurrence que $9^n - 2^n$ est divisible par $7$ pour tout $n \in \mathbb{N}^*$.
+            \item Montrer par r\'ecurrence que $9^n - 2^n$ est divisible par $7$ pour tout $n \in \mathbb{N}$.
             \item Montrer que, pour tout entier naturel $n$ non-nul, $3n-2$ et $5n-3$ sont premiers entre eux.
             \item On consid\`ere dans $\mathbb{Z} / 7 \mathbb{Z}$, l'\'equation : 
                   \begin{equation}
@@ -1394,7 +1445,7 @@ $b|a$ si et seulement si $r=0$.
       \end{enumerate}
 \end{exo}
 %
-\begin{exo}
+\begin{exo}\label{exo:arith-23}
       \begin{enumerate}
             \item Calculer $PGCD(319,232,145)$ puis r\'esoudre dans $\mathbb{Z} \times \mathbb{Z}$
                   l'\'equation $319 x + 232 y = 145$.
@@ -1403,28 +1454,28 @@ $b|a$ si et seulement si $r=0$.
       \end{enumerate}
 \end{exo}
 
-\begin{exo}
-	Montrer que $n^2 + n + 2$ n'est jamais divisible par $3$.
+\begin{exo}\label{exo:arith-24}
+	Montrer que, pour tout entier relatif $n$, $n^2 + n + 2$ n'est pas divisible par $3$.
 \end{exo}
 %
-\begin{exo}[Bac 2004]
+\begin{exo}\label{exo:arith-25}
       \begin{enumerate}
             \item \begin{enumerate}
-                        \item Convertir en base 10 l'entier $x$ qui s'\'ecrit dans le syst\`eme binaire :
-                              $x = \overline{10101}_2$.
-                        \item Convertir en binaire l'entier $y$ qui s'\'ecrit $y = 23$ dans la base 10.
+                        \item \'Ecrire en base $10$ le nombre $N = \base{21012}{3}$.
+                        \item \'Ecrire le nombre $100$ en base $3$.
+                        \item Comment reconna\^it-on, sur son \'ecriture en base $3$, qu'un entier naturel est divisible par $3$\,?
+                              par $9$\,?
                   \end{enumerate}
             \item \begin{enumerate}
-                        \item Dresser la table de multiplication et la table d'addition dans $\mathbb{Z}/2\mathbb{Z}$.
-                        \item R\'esoudre dans $\mathbb{Z}/2\mathbb{Z}$ l'\'equation \`a une inconnue $x$ :
-                              $x^2 + x + \bar{2} = \bar{0}$.
-                        \item R\'esoudre dans $\mathbb{Z}/2\mathbb{Z}$ le syst\`eme de deux \'equations \`a 
-                              deux inconnues $x$ et $y$ : 
+                        \item Dresser les tables d'addition et de multiplication de $\mathbb{Z}/3\mathbb{Z}$.
+                        \item Montrer que l'\'equation $x^2 + x + \bar{2} = \bar{0}$ n'a pas de solution dans $\mathbb{Z}/3\mathbb{Z}$.
+                        \item R\'esoudre dans $\mathbb{Z}/3\mathbb{Z}$ l'\'equation $x^2 + \bar{2}\,x + \bar{1} = \bar{0}$.
+                        \item R\'esoudre dans $\mathbb{Z}/3\mathbb{Z} \times \mathbb{Z}/3\mathbb{Z}$ le syst\`eme
                               \[
                                     \left\lbrace
                                           \begin{array}{l}
-                                                \bar{2} x + y = \bar{0} \\
-                                                x + \bar{3} y = \bar{0} \;.
+                                                x + y = \bar{2} \\
+                                                x + \bar{2}\, y = \bar{0} \;.
                                           \end{array}
                                     \right.
                               \]
@@ -1432,23 +1483,29 @@ $b|a$ si et seulement si $r=0$.
       \end{enumerate}
 \end{exo}
 %
-\begin{exo}[Bac 2003]
+\begin{exo}\label{exo:arith-26}
       \begin{enumerate}
-            \item Pour tout $x\in\mathbb{Z}/6\mathbb{Z}$, donner la valeur de $x^2$.
-            \item Donner alors toutes les \'el\'ements de $\mathbb{Z}/6\mathbb{Z}$ v\'erifiant 
-                  l'\'equation $x^2 = x$.
-            \item Montrer que pour tout $x\in\mathbb{Z}/6\mathbb{Z}$.
-            \item En d\'eduire que pour tout entier naturel $n$, $n^3 - n$ est divisible par $6$.
+            \item Dresser la table des carr\'es des \'el\'ements de $\mathbb{Z}/5\mathbb{Z}$.
+            \item R\'esoudre dans $\mathbb{Z}/5\mathbb{Z}$ les \'equations $x^2 = \bar{4}$ et $x^2 = \bar{2}$.
+                  En d\'eduire que l'\'ecriture d\'ecimale du carr\'e d'un entier ne se termine jamais par $2$, $3$, $7$ ou $8$.
+            \item Calculer $x^4$ pour tout $x \in \mathbb{Z}/5\mathbb{Z}$.
+                  En d\'eduire que $x^5 = x$ pour tout $x \in \mathbb{Z}/5\mathbb{Z}$.
+            \item En d\'eduire que, pour tout entier naturel $n$, $n^5 - n$ est divisible par $5$.
+            \item \begin{enumerate}
+                        \item V\'erifier que $n^5 - n = (n-1)\, n\, (n+1)\, (n^2 + 1)$.
+                        \item Montrer que $n^5 - n$ est divisible par $6$, puis par $30$.
+                  \end{enumerate}
+            \item Application : montrer que, pour tout entier naturel $n$, les nombres $n$ et $n^5$ ont le m\^eme chiffre des unit\'es.
       \end{enumerate}
 \end{exo}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{exo}
+\begin{exo}\label{exo:arith-27}
 	On dispose de deux r\'ecipients : l'un peut mesurer 5 litres tandis que l'autre peut en mesurer 3.
 	Peut-on, \`a l'aide de ces deux r\'ecipients, mesurer 1 litre\,? Si oui, comment\,?
 \end{exo}
 %
-\begin{exo}
+\begin{exo}\label{exo:arith-28}
 	Andry poss\`ede un tas de pi\`eces de 4~Ar et Bema poss\`ede un tas de pi\`eces de 10~Ar.
 	\begin{enumerate}
 		\item Serait-il possible pour Andry de donner 18~Ar \`a Bema\,?
@@ -1456,7 +1513,7 @@ $b|a$ si et seulement si $r=0$.
 	\end{enumerate}
 \end{exo}
 %
-\begin{exo}
+\begin{exo}\label{exo:arith-29}
 	Sauriez-vous me dire quel est le dernier chiffre de chacun des nombres suivants\,?
 		\[ 
 			10^{10}			,\qquad
@@ -1465,7 +1522,7 @@ $b|a$ si et seulement si $r=0$.
 		\]
 \end{exo}
 %
-\begin{exo}
+\begin{exo}\label{exo:arith-30}
 	Quel est le plus grand diviseur commun de chacun des couples de nombres suivants :
 	\[
 		(4,12)				,\qquad
@@ -1474,7 +1531,7 @@ $b|a$ si et seulement si $r=0$.
 	\]
 \end{exo}
 %
-\begin{exo}
+\begin{exo}\label{exo:arith-31}
 	\begin{enumerate}
 		\item 
 				Jean le Baptiste partit dans le d\'esert un dimanche.
@@ -1491,7 +1548,7 @@ $b|a$ si et seulement si $r=0$.
 	\end{enumerate}
 \end{exo}
 %
-\begin{exo}
+\begin{exo}\label{exo:arith-32}
 		Rakoto se trouve incapable de payer son loyer du mois de janvier.
 		Il poss\`ede cependant une barre d'argent de 31~cm de long.
 		Il alla parler au propri\'etaire et ils trouv\`erent un arrangement :
@@ -1500,8 +1557,9 @@ $b|a$ si et seulement si $r=0$.
 	De cette mani\`ere, au $n$-ième jour du mois de janvier, le propri\'etaire aura re\c{c}u $n$~cm d'argent.
 		Ils continueront ainsi tout au long du mois, jusqu'\`a ce que Rakoto trouve un moyen de payer son loyer.
 	
-		Il se trouve que Rakoto ne veut pas diviser sa barre en trop de morceaux ;
-	il cherche \`a le diviser au plus petit nombre possible qui lui permettrait de satisfaire son engagement.
+		Il se trouve que Rakoto ne veut pas d\'ecouper sa barre en trop de morceaux ;
+	il cherche \`a la d\'ecouper en le plus petit nombre possible de morceaux qui lui permette de tenir son engagement
+	(chaque jour, il peut reprendre des morceaux d\'ej\`a donn\'es et en donner d'autres).
 		Comment Rakoto doit-il diviser sa barre d'argent\,?
 %	
 %	\noindent\textsc{Exemple :}\newline
@@ -1516,61 +1574,94 @@ $b|a$ si et seulement si $r=0$.
 %		\end{enumerate}
 \end{exo}
 
-\begin{exo}[IMO 1959 1.]
-		Prouver que la fraction $\frac{21n+4}{14n+3}$ est irr\'eductible pour tout entier naturel $n$.
+\begin{exo}\label{exo:arith-33}
+      Pour tout entier naturel $n$, on consid\`ere la fraction $\dfrac{n+7}{2n+5}$.
+      \begin{enumerate}
+            \item Montrer que tout diviseur commun de $n+7$ et $2n+5$ divise $9$.
+            \item Montrer que $3$ divise $n + 7$ si et seulement si $n \equiv 2 \ [3]$, et que dans ce cas $3$ divise aussi $2n+5$.
+            \item En d\'eduire les entiers naturels $n$ pour lesquels la fraction est irr\'eductible.
+            \item Pour quels entiers naturels $n$ peut-on simplifier la fraction par $9$\,?
+                  Simplifier la fraction pour $n = 20$.
+      \end{enumerate}
 \end{exo}
 
-\begin{exo}[IMO 1962 1.]
-	Trouver le plus petit entier naturel $n$ ayant les propri\'et\'es suivantes :
+\begin{exo}\label{exo:arith-34}
+      On cherche le plus petit entier naturel $N$ dont l'\'ecriture d\'ecimale commence par le chiffre $1$
+      et tel que, si l'on d\'eplace ce chiffre $1$ \`a la fin de l'\'ecriture, on obtient le triple de $N$.
+      Par exemple, si $N$ \'etait $1\,234$, le nombre obtenu serait $2\,341$.
+      \begin{enumerate}
+            \item On note $k$ le nombre de chiffres qui suivent le $1$, de sorte que $N = 10^k + x$ avec $0 \leq x < 10^k$.
+                  Exprimer le nombre obtenu en fonction de $x$ et montrer que la condition s'\'ecrit $7 x = 3 \cdot 10^k - 1$.
+            \item D\'eterminer le reste de la division de $10^k$ par $7$ pour $k \in \{1, 2, \ldots, 6\}$.
+            \item Montrer que $7$ divise $3 \cdot 10^k - 1$ si et seulement si $10^k \equiv 5 \ [7]$.
+            \item En d\'eduire le plus petit nombre $N$ cherch\'e et v\'erifier le r\'esultat.
+      \end{enumerate}
+\end{exo}
+
+\begin{exo}\label{exo:arith-35}
+      \begin{enumerate}
+            \item D\'eterminer les restes de la division de $5^n$ par $13$ pour $n \in \{0, 1, 2, 3, 4\}$.
+                  En d\'eduire, selon les valeurs de $n$, le reste de la division de $5^n$ par $13$.
+            \item D\'eterminer les entiers naturels $n$ tels que $13$ divise $5^n - 1$, puis ceux tels que $13$ divise $5^n + 1$.
+            \item Montrer que $5^n + 2$ n'est divisible par $13$ pour aucun entier naturel $n$.
+            \item Quel est le reste de la division de $5^{2026} + 5^{2027}$ par $13$\,?
+      \end{enumerate}
+\end{exo}
+
+\begin{exo}\label{exo:arith-36}
+      On consid\`ere les suites $(u_n)$ et $(v_n)$ d\'efinies pour tout entier naturel $n$ par
+      $u_n = 3 + 5n$ et $v_n = 7 + 8n$.
+      On note $A = \{u_0, u_1, \ldots, u_{99}\}$ et $B = \{v_0, v_1, \ldots, v_{99}\}$.
+      \begin{enumerate}
+            \item Montrer qu'un nombre appartient \`a la fois \`a $A$ et \`a $B$ si et seulement si il s'\'ecrit
+                  $3 + 5p = 7 + 8q$ avec $p$ et $q$ entiers compris entre $0$ et $99$.
+            \item R\'esoudre dans $\mathbb{Z}^2$ l'\'equation $5p - 8q = 4$.
+            \item En d\'eduire que les nombres communs \`a $A$ et $B$ sont les termes d'une suite arithm\'etique
+                  dont on donnera le premier terme et la raison. Comparer la raison \`a $PPCM(5;8)$.
+            \item Combien de nombres appartiennent \`a $A \cap B$\,?
+                  Combien de nombres distincts y a-t-il dans $A \cup B$\,?
+      \end{enumerate}
+\end{exo}
+
+\begin{exo}\label{exo:arith-37}
+      On cherche les triplets $(a, b, c)$ d'entiers naturels tels que
+      $a < b < c$, $a$ divise $b$, $b$ divise $c$ et $a + b + c = 55$.
+      \begin{enumerate}
+            \item Montrer que $a$ divise $55$.
+            \item On \'ecrit $b = k a$ et $c = m b$. Montrer que $k \geq 2$, $m \geq 2$ et $a\,(1 + k + k m) = 55$.
+            \item D\'eterminer tous les triplets cherch\'es.
+            \item Quelle est la plus grande valeur possible de $c$\,?
+      \end{enumerate}
+\end{exo}
+
+\begin{exo}\label{exo:arith-38}
+      \begin{enumerate}
+            \item V\'erifier que, pour tout entier relatif $n$, on a $n^2 + 7 = (n+3)(n-3) + 16$.
+            \item En d\'eduire que, pour $n \neq -3$, l'entier $n+3$ divise $n^2 + 7$ si et seulement si $n + 3$ divise $16$.
+            \item D\'eterminer tous les entiers relatifs $n$ tels que $n + 3$ divise $n^2 + 7$.
+            \item Quel est le plus grand d'entre eux\,? Donner alors le quotient de $n^2 + 7$ par $n + 3$.
+      \end{enumerate}
+\end{exo}
+
+\begin{exo}\label{exo:arith-39}
+      Pour un entier $n \geq 3$, on s'int\'eresse aux fractions irr\'eductibles parmi
+      $\dfrac{1}{n},\ \dfrac{2}{n},\ \ldots ,\ \dfrac{n-1}{n}$.
+      \begin{enumerate}
+            \item Pour $n = 12$, \'ecrire la liste de ces fractions irr\'eductibles et calculer leur somme.
+            \item Montrer que, pour $1 \leq k \leq n-1$, on a $\pgcd{k}{n} = \pgcd{n-k}{n}$.
+            \item En d\'eduire que si $\dfrac{k}{n}$ est irr\'eductible, alors $\dfrac{n-k}{n}$ l'est aussi,
+                  et que ces deux fractions sont diff\'erentes.
+            \item On note $N$ le nombre de ces fractions irr\'eductibles et $S$ leur somme.
+                  En regroupant les fractions deux par deux, montrer que $S = \dfrac{N}{2}$.
+                  En d\'eduire que $N$ est pair.
+            \item Application : calculer $N$ et $S$ pour $n = 15$.
+      \end{enumerate}
+\end{exo}
+
+\begin{exo}[Nombres de Mersenne]\label{exo:arith-40}
+	On appelle \emph{nombres de Mersenne} les nombres de la forme $2^n - 1$ o\`u $n \in \mathbb{N}^*$.
 	\begin{enumerate}
-			\item son \'ecriture d\'ecimale se termine par $6$,
-		\item si on d\'eplace ce chiffre au d\'ebut, on obtient un nombre 4 fois plus grand.
-	\end{enumerate}
-\end{exo}
-
-\begin{exo}[IMO 1964 1.]
-	\begin{enumerate}
-		\item Trouver tous les nombres entiers naturels $n$ tels que $2^n - 1$ est divisible par $7$.
-		\item Prouver que pour tout entier naturel $n$ le nombre $2^n + 1$ n'est pas divisible par $7$.
-	\end{enumerate}
-\end{exo}
-
-\begin{exo}[Training of the USA IMO team]
-	Soient $1$, $4$, \ldots{} et $9$, $16$, \ldots{} deux progressions arithm\'etiques.
-	L'ensemble $S$ est l'union des 2004 premiers termes de chaque suite.
-	Combien de nombres distincts y a-t-il dans $S$\,?
-\end{exo}
-
-\begin{exo}[Training of the USA IMO team]
-		\'Etant donn\'ee une suite strictement croissante de six nombres entiers naturels positifs telle que 
-		chaque nombre (except\'e le premier) est un multiple de celui qui le pr\'ec\`ede et que la somme 
-	des six nombres est 79, quel est le plus grand nombre de la suite\,?
-\end{exo}
-
-\begin{exo}[Training of the USA IMO team]
-	Quel est le plus grand entier naturel $n$ pour lequel $n^3 + 100$ est divisible par $n + 100$\,?
-\end{exo}
-
-\begin{exo}[Training of the USA IMO team]
-	\begin{enumerate}
-		\item Soit $n$ un nombre entier sup\'erieur \`a 2.
-				Montrer que parmi les fractions 
-			\[
-				\frac{1}{n},\ \frac{2}{n},\	\ldots ,\ \frac{n-1}{n}
-			\]
-				le nombre de fractions irr\'eductibles est pair.
-		\item Montrer que la fraction 
-			\[
-				\frac{12 n + 1}{30 n + 2}
-			\]
-				est irr\'eductible pour tout entier positif $n$.
-	\end{enumerate}
-\end{exo}
-
-\begin{exo}[Nombres de Mersenne]
-	On appelle \emph{nombre de Mersenne} les nombres de la forme $2^n - 1$ o\`u $n \in \mathbb{N}$.
-	\begin{enumerate}
-		\item D\'emontrer que $2^q - 1$ divise $2^{pq} - 1$ pour tout $(p,q) \in \mathbb{N}^2$.
+		\item D\'emontrer que $2^q - 1$ divise $2^{pq} - 1$ pour tout $(p,q) \in (\mathbb{N}^*)^2$.
 		\item En d\'eduire que si $2^n - 1$ est premier alors $n$ est premier.
 		\item Trouver un nombre premier $p$ tel que $2^p - 1$ n'est pas premier.
 	\end{enumerate}
@@ -1585,7 +1676,7 @@ $b|a$ si et seulement si $r=0$.
 %	Note : Le nombre $n$ consid\'er\'e est suppos\'e entier naturel non-nul.
 %\end{exo}
 %
-\begin{exo}[Propri\'et\'es des nombres de Fermat]
+\begin{exo}[Propri\'et\'es des nombres de Fermat]\label{exo:arith-42}
 \index{Fermat!nombre de}
 	On d\'efinit le \emph{nombre de Fermat} de rang $n$ par $F_n := 2^{2^n} + 1$ o\`u $n \in \mathbb{N}$.
 	\begin{enumerate}
@@ -1605,13 +1696,13 @@ $b|a$ si et seulement si $r=0$.
 %	et par cons\'equent n'est pas premier.
 \end{exo}
 
-\begin{exo}
+\begin{exo}\label{exo:arith-43}
 	\begin{enumerate}
 		\item 
 			\begin{enumerate}
 				\item Montrer que pour tout nombre pair $a \geq 0$, $3^a \equiv 1 \ [4]$.
 					\label{quest: Arithm Exo a}
-				\item Montrer que $2^{4k} \equiv 1 \ [5]$, pour tout $k \in \mathbb{N}^*$.
+					\item Montrer que $2^{4k} \equiv 1 \ [5]$, pour tout $k \in \mathbb{N}$.
 					\label{quest: Arithm Exo b}
 				\item D\'eduire des questions \ref{quest: Arithm Exo a} et \ref{quest: Arithm Exo b} que 
 					pour tout nombre pair $a \geq 0$, $2^{3^a} \equiv 2 \ [10]$.
@@ -1624,7 +1715,7 @@ $b|a$ si et seulement si $r=0$.
 	\end{enumerate}
 \end{exo}
 
-\begin{exo}
+\begin{exo}\label{exo:arith-44}
 	Montrer qu'il existe (au moins) un terme de la suite :
 		\[
 			3			\, ;\ 
@@ -1636,16 +1727,16 @@ $b|a$ si et seulement si $r=0$.
 		qui est divisible par $2\,019$.
 \end{exo}
 
-\begin{exo}[Ne pensez pas trop loin \trollface]
+\begin{exo}[Ne pensez pas trop loin \trollface]\label{exo:arith-45}
 	Donner \emph{tous} les couples de nombres premiers $( x,y )$, $x < y$, tels que $x + y = 2\,019$.
 \end{exo}
 
-\begin{exo}
+\begin{exo}\label{exo:arith-46}
 	\begin{enumerate}
 		\item Soit $P(n) = n^2 + n + 41$.
 			Donner cinq entiers naturels $n_1$, $n_2$, $n_3$, $n_4$ et $n_5$ tels 
 			qu'aucun des nombres $P(n_1)$, $P(n_2)$, $P(n_3)$, $P(n_4)$ et $P(n_5)$ n'est premier.
-		\item D\'emontrer que si $p$ est un nombre premier sup\'erieur \`a $4$ alors $p^2 \equiv 1 \quad [24]$.
+			\item D\'emontrer que si $p$ est un nombre premier sup\'erieur ou \'egal \`a $5$ alors $p^2 \equiv 1 \quad [24]$.
 	\end{enumerate}
 \end{exo}
 
@@ -1676,31 +1767,606 @@ $b|a$ si et seulement si $r=0$.
 \section{Solutions des exercices et preuves des th\'eor\`emes}
 \begin{proof}
 (Preuve de la Propri\'et\'e~\ref{prop:divisibilite}.)
+Dans toute la preuve, $a$, $b$ et $c$ sont des entiers relatifs non nuls.
 \begin{enumerate}
 \item Supposons que $a|b$ et $b|a$.
-      Il suit qu'il existe $q \in \mathbb{Z}$ tel que $b = q a $ et 
-      $q' \in \mathbb{Z}$ tel que $a = q' b$.
-      En combinant ces deux \'equations, on obtient : $b  = q ( q' b) = (q q') b$.
-      Il suit que $qq' = 1$.
-      Comme $q$ et $q'$ sont des entiers, alors il y a deux possibilit\'es :
+      Il existe $q \in \mathbb{Z}$ tel que $b = q a$ et $q' \in \mathbb{Z}$ tel que $a = q' b$.
+      En combinant ces deux \'egalit\'es, on obtient : $b = q ( q' b) = (q q') b$, soit $(qq' - 1)\, b = 0$.
+      Comme $b \neq 0$ (hypoth\`ese de la propri\'et\'e), il suit que $qq' = 1$.
+      (Si l'on autorisait $b = 0$, on aurait $a = q' b = 0$, donc encore $a = b$.)
+      Comme $q$ et $q'$ sont des entiers dont le produit vaut $1$, il y a deux possibilit\'es :
             $q = q' = 1$ ou $q = q' = -1$.
       Dans le premier cas, on a $b = a$ ; dans le second cas, on a $b = - a$.
 \item \begin{enumerate}
-      \item $a | b$ signifie qu'il existe un entier $k$ tel que $b = ak$.
-            En multipliant cette derni\`ere \'egalit\'e par $c$, on a $b c = a k c$.
-            En posant $k' = kc$, on a $bc = a k'$ o\`u $k' \in \mathbb{Z}$
-            ce qui prouve que $a | bc$.
-      \item $a | b$ signifie qu'il existe un entier $k$ tel que $b = ak$.
-            En multipliant cette derni\`ere \'egalit\'e par $c$, on a $b c = a k c$.
-            En r\'earrangeant les termes, on a $(bc) = (ac) k$; ce qui montre que $ac | bc$.
+      \item $a = 1 \cdot a$, donc $a | a$.
       \item Supposons que $a | b $ et que $b | c$.
-            En appliquant la d\'efinition, on sait qu'il existe deux entiers $k$ et $k'$ tels que 
-            $b = ak$ et $c = bk'$.
-            En rempla\c{c}ant le $b$ de la seconde \'equation avec sa valeur dans la premi\`ere, on obtient
-            $c = (ak)k' = a(kk')$.
-            On peut alors poser $K = kk'$ et obtenir $c = aK$ ce qui prouve que $a | c$.
+            Il existe deux entiers $k$ et $k'$ tels que $b = ak$ et $c = bk'$.
+            Alors $c = (ak)k' = a(kk')$ avec $kk' \in \mathbb{Z}$, ce qui prouve que $a | c$.
+      \item D'apr\`es le point 1, $a = b$ ou $a = -b$, donc $|a| = |b|$.
       \end{enumerate}
+\item \begin{enumerate}
+      \item $a | b$ signifie qu'il existe un entier $k$ tel que $b = ak$.
+            En multipliant cette \'egalit\'e par $c$, on a $b c = a (kc)$ avec $kc \in \mathbb{Z}$, 
+            ce qui prouve que $a | bc$.
+      \item Avec $b = ak$, on a $bc = (ac) k$, ce qui montre que $ac | bc$.
+      \item Si $b = ak$ et $c = ak'$, alors pour tout $(\beta, \gamma) \in \mathbb{Z}^2$,
+            $\beta b + \gamma c = a(\beta k + \gamma k')$, donc $a | (\beta b + \gamma c)$.
+      \end{enumerate}
+\item $a = a \cdot 1$, donc $1 | a$ ; $0 = a \cdot 0$, donc $a | 0$.
+\item Si $b | a$, il existe $k \in \mathbb{Z}$ tel que $a = kb$. Comme $a \neq 0$, on a $k \neq 0$ et $b \neq 0$, donc $|k| \geq 1$ et
+      $|a| = |k|\,|b| \geq |b| > 0$.
 \end{enumerate}
 \end{proof}
+%
+\subsection*{Exercices de la le\c{c}on}
+%
+\begin{sol}[Exercice~\ref{exe:arith-1}]
+On teste les nombres premiers inf\'erieurs ou \'egaux \`a la racine carr\'ee.
+\begin{itemize}
+\item $527 = 17 \times 31$ : $527$ n'est pas premier.
+\item $\sqrt{769} \simeq 27{,}7$ ; aucun des nombres premiers $2, 3, 5, 7, 11, 13, 17, 19, 23$ ne divise $769$ : $769$ est premier.
+\item $\sqrt{1249} \simeq 35{,}3$ ; aucun des nombres premiers $2, 3, \ldots, 31$ ne divise $1249$ : $1249$ est premier.
+\item $57 = 3 \times 19$ : $57$ n'est pas premier (la somme de ses chiffres, $12$, est un multiple de $3$).
+\end{itemize}
+\end{sol}
+%
+\begin{sol}[Exercice~\ref{exe:arith-2}]
+$\overline{101110}^{_{(2)}} = 2^5 + 2^3 + 2^2 + 2 = 46$ ;
+$\overline{756}^{_{(8)}} = 7 \cdot 64 + 5 \cdot 8 + 6 = 494$ ;
+$\overline{B00A16}^{_{(12)}} = 11 \cdot 12^5 + 10 \cdot 12^2 + 1 \cdot 12 + 6 = 2\,737\,152 + 1\,440 + 12 + 6 = 2\,738\,610$.
+\end{sol}
+%
+\begin{sol}[Exercice~\ref{exe:arith-3}]
+\begin{enumerate}
+\item $5^2 = 25 \equiv -1 \ [13]$, donc $5^4 \equiv 1 \ [13]$. Comme $2018 = 4 \times 504 + 2$,
+      $5^{2018} = (5^4)^{504} \cdot 5^2 \equiv 1 \cdot 25 \equiv 12 \ [13]$. Le reste est $\boxed{12}$.
+\item $2^3 = 8 \equiv 1 \ [7]$ et $2019 = 3 \times 673$, donc $2^{2019} = (2^3)^{673} \equiv 1 \ [7]$. Le reste est $\boxed{1}$.
+\item $5^3 = 125 = 7 \times 17 + 6 \equiv -1 \ [7]$, donc $5^6 \equiv 1 \ [7]$.
+      Comme $4037 = 6 \times 672 + 5$, $5^{4037} \equiv 5^5 = 5^3 \cdot 5^2 \equiv (-1) \cdot 25 \equiv -25 \equiv 3 \ [7]$.
+      Le reste est $\boxed{3}$.
+\end{enumerate}
+\end{sol}
+%
+\begin{sol}[Exercice~\ref{exe:arith-4}]
+On a $N = a_0 + 10\,(a_1 + 10\, a_2 + \cdots + 10^{n-1} a_n)$.
+\begin{enumerate}
+\item Comme $10 \equiv 0 \ [2]$, on a $N \equiv a_0 \ [2]$ ; donc $2 | N \iff a_0 \equiv 0 \ [2]$
+      (le chiffre des unit\'es est $0$, $2$, $4$, $6$ ou $8$).
+\item De m\^eme $10 \equiv 0 \ [5]$, donc $N \equiv a_0 \ [5]$ et $5 | N \iff a_0 \equiv 0 \ [5]$ ($a_0 = 0$ ou $5$).
+\item $10 \equiv 1 \ [3]$, donc $10^p \equiv 1 \ [3]$ pour tout $p$, puis $a_p 10^p \equiv a_p \ [3]$ ;
+      en sommant, $N \equiv \sum_{p=0}^n a_p \ [3]$, d'o\`u $3 | N \iff \sum_{p=0}^n a_p \equiv 0 \ [3]$.
+\end{enumerate}
+\end{sol}
+%
+\begin{sol}[Exercice~\ref{exe:arith-5}]
+Dans $\mathbb{Z}/7\mathbb{Z}$ : $\bar{2}\cdot\bar{4} = \bar{1}$, $\bar{3}\cdot\bar{5} = \bar{1}$, $\bar{6}\cdot\bar{6} = \bar{1}$.
+\begin{enumerate}
+\item \begin{enumerate}
+      \item $\bar{3}x = \bar{5} - \bar{4} = \bar{1}$ ; en multipliant par $\bar{5}$ : $x = \bar{5}$.
+      \item $\bar{2}x = \bar{3} - \bar{6} = \bar{4}$ ; en multipliant par $\bar{4}$ : $x = \bar{16} = \bar{2}$.
+      \item $\bar{6}x = \bar{1} - \bar{5} = \bar{3}$ ; en multipliant par $\bar{6}$ : $x = \bar{18} = \bar{4}$.
+      \end{enumerate}
+\item \begin{enumerate}
+      \item En multipliant la premi\`ere \'equation par $\bar{4}$ : $x + \bar{6}y = \bar{5}$, soit $x = \bar{5} + y$.
+            La seconde devient $\bar{3}(\bar{5} + y) + \bar{2}y = \bar{1}$, soit $\bar{1} + \bar{5}y = \bar{1}$, donc $\bar{5} y = \bar{0}$ et $y = \bar{0}$.
+            Solution unique : $(x ; y) = (\bar{5} ; \bar{0})$.
+      \item $x = \bar{6} - \bar{2}y$ ; la seconde donne $\bar{12} - \bar{4}y + \bar{3}y = \bar{4}$, soit $-y = \bar{4} - \bar{5} = -\bar{1}$,
+            donc $y = \bar{1}$ et $x = \bar{4}$. Solution unique : $(\bar{4} ; \bar{1})$.
+      \item $y = \bar{3} - \bar{5}x = \bar{3} + \bar{2}x$ ; la seconde donne $\bar{3}x + \bar{6} + \bar{4}x = \bar{0}$, soit
+            $\bar{7}x + \bar{6} = \bar{6} = \bar{0}$ : c'est impossible. Le syst\`eme n'a \textbf{aucune} solution.
+      \item $y = \bar{5} - \bar{3}x = \bar{5} + \bar{4}x$ ; la premi\`ere donne $\bar{2}x + \bar{15} + \bar{12}x = \bar{1}$, soit
+            $\bar{14}x + \bar{1} = \bar{1}$, ce qui est toujours vrai. Les deux \'equations sont \'equivalentes
+            (la premi\`ere est $\bar{3}$ fois la seconde) et l'ensemble des solutions est
+            $\left\lbrace (x ; \bar{5} + \bar{4}x) \mid x \in \mathbb{Z}/7\mathbb{Z} \right\rbrace$, soit sept couples :
+            $(\bar{0};\bar{5})$, $(\bar{1};\bar{2})$, $(\bar{2};\bar{6})$, $(\bar{3};\bar{3})$, $(\bar{4};\bar{0})$, $(\bar{5};\bar{4})$, $(\bar{6};\bar{1})$.
+      \end{enumerate}
+\end{enumerate}
+\end{sol}
+%
+\begin{sol}[Exercice~\ref{exe:arith-6}]
+\begin{enumerate}[label=\alph*)]
+\item Suite des restes de l'algorithme d'Euclide : $4062$, $3215$, $847$, $674$, $173$, $155$, $18$, $11$, $7$, $4$, $3$, $1$, $0$.
+      Donc $\pgcd{51\,959}{47\,897} = 1$.
+\item $24\,881 = 1 \cdot 23\,213 + 1\,668$ ; $23\,213 = 13 \cdot 1\,668 + 1\,529$ ; $1\,668 = 1 \cdot 1\,529 + 139$ ; $1\,529 = 11 \cdot 139$.
+      Donc $\pgcd{23\,213}{24\,881} = 139$.
+\item $62\,651 = 1 \cdot 47\,027 + 15\,624$ ; $47\,027 = 3 \cdot 15\,624 + 155$ ; $15\,624 = 100 \cdot 155 + 124$ ;
+      $155 = 1 \cdot 124 + 31$ ; $124 = 4 \cdot 31$. Donc $\pgcd{47\,027}{62\,651} = 31$.
+\end{enumerate}
+\end{sol}
+%
+\begin{sol}[Exercice~\ref{exe:arith-7}]
+\begin{enumerate}
+\item $615\,627 = 17 \cdot 36\,183 + 516$ ; $36\,183 = 70 \cdot 516 + 63$ ; $516 = 8 \cdot 63 + 12$ ; $63 = 5 \cdot 12 + 3$ ; $12 = 4 \cdot 3$.
+      Donc $\pgcd{615\,627}{36\,183} = 3$. L'algorithme d'Euclide \'etendu donne
+      $615\,627 \times (-2\,875) + 36\,183 \times 48\,916 = 3$.
+\item $210\,573 = 23 \cdot 9\,099 + 1\,296$ ; $9\,099 = 7 \cdot 1\,296 + 27$ ; $1\,296 = 48 \cdot 27$. Donc $\pgcd{210\,573}{9\,099} = 27$.
+      En remontant : $27 = 9\,099 - 7 \cdot 1\,296 = 9\,099 - 7\,(210\,573 - 23 \cdot 9\,099) = -7 \cdot 210\,573 + 162 \cdot 9\,099$.
+      Donc $(u ; v) = (-7 ; 162)$.
+\item Suite des restes : $3\,911$, $296$, $63$, $44$, $19$, $6$, $1$, $0$ ; donc $\pgcd{12\,325}{4\,207} = 1$.
+\item Suite des restes (en divisant $23\,369$ par $13\,567$) : $9\,802$, $3\,765$, $2\,272$, $1\,493$, $779$, $714$, $65$, $64$, $1$, $0$ ;
+      donc $\pgcd{13\,567}{23\,369} = 1$.
+\end{enumerate}
+Les coefficients de B\'ezout ne sont pas uniques : $(u + 12\,061\,k ; v - 205\,209\,k)$ convient aussi dans le premier cas.
+\end{sol}
+%
+\subsection*{Exercices de fin de chapitre}
+%
+\begin{sol}[Exercice~\ref{exo:arith-1}]
+On cherche $(q, r)$ avec $a = bq + r$ et $0 \leq r < |b|$.
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline $(a,b)$ & \'egalit\'e & $q$ & $r$ \\ \hline
+$(22,4)$ & $22 = 4 \cdot 5 + 2$ & $5$ & $2$ \\
+$(37,-5)$ & $37 = (-5)\cdot(-7) + 2$ & $-7$ & $2$ \\
+$(-28,3)$ & $-28 = 3 \cdot (-10) + 2$ & $-10$ & $2$ \\
+$(-93,-8)$ & $-93 = (-8) \cdot 12 + 3$ & $12$ & $3$ \\
+$(122,13)$ & $122 = 13 \cdot 9 + 5$ & $9$ & $5$ \\
+$(72,-11)$ & $72 = (-11)\cdot(-6) + 6$ & $-6$ & $6$ \\
+$(-30,2)$ & $-30 = 2 \cdot (-15) + 0$ & $-15$ & $0$ \\
+$(-45,-7)$ & $-45 = (-7) \cdot 7 + 4$ & $7$ & $4$ \\ \hline
+\end{tabular}
+\end{center}
+\end{sol}
+%
+\begin{sol}[Exercice~\ref{exo:arith-2}]
+$\base{100}{2} = 4$ ; $\base{1011}{2} = 11$ ; $\base{110010}{2} = 50$ ; $\base{1000101}{2} = 69$ ;
+$12 = \base{1100}{2}$ ; $237 = \base{11101101}{2}$ ; $154 = \base{10011010}{2}$ ; $73 = \base{1001001}{2}$.
+\end{sol}
+%
+\begin{sol}[Exercice~\ref{exo:arith-3}]
+$\base{1222}{3} = 27 + 18 + 6 + 2 = 53$ ; $\base{1133}{5} = 125 + 25 + 15 + 3 = 168$ ;
+$\base{4035}{6} = 864 + 18 + 5 = 887$ ; $\base{11321}{8} = 4096 + 512 + 192 + 16 + 1 = 4817$ ;
+$56 = \base{320}{4}$ ; $316 = \base{1244}{6}$ ; $3317 = \base{12446}{7}$ ; $9715 = \base{14284}{9}$.
+\end{sol}
+%
+\begin{sol}[Exercice~\ref{exo:arith-4}]
+On passe par la base $10$ :
+$\base{122}{3} = 17 = \base{32}{5}$ ;
+$\base{31130}{4} = 860 = \base{1011212}{3}$ ;
+$\base{134334}{5} = 5\,594 = \base{22211}{7}$ ;
+$\base{203102}{6} = 16\,238 = \base{24242}{9}$ ;
+$\base{35006}{7} = 8\,924 = \base{105152}{6}$ ;
+$\base{7215}{8} = 3\,725 = \base{322031}{4}$.
+(Pour le dernier, on peut aussi passer par la base $2$ : $\base{7215}{8} = \base{111\,010\,001\,101}{2}$,
+puis on regroupe les chiffres par deux : $\base{11\,10\,10\,00\,11\,01}{2} = \base{322031}{4}$.)
+\end{sol}
+%
+\begin{sol}[Exercice~\ref{exo:arith-5}]
+\begin{enumerate}
+\item $(n-1) + n + (n+1) = 3n$ est divisible par $3$.
+\item Parmi $n-1$, $n$, $n+1$, l'un est congru \`a $0$ modulo $3$ (les trois restes modulo $3$ sont $0$, $1$ et $2$ dans un certain ordre) ;
+      le produit est donc divisible par $3$.
+\end{enumerate}
+\end{sol}
+%
+\begin{sol}[Exercice~\ref{exo:arith-6}]
+Soit $p \geq 5$ premier et $r$ son reste modulo $6$. Si $r \in \{0, 2, 4\}$, $p$ est pair et $p > 2$ : impossible.
+Si $r = 3$, $3$ divise $p$ et $p > 3$ : impossible. Donc $r = 1$ ou $r = 5$, c'est-\`a-dire
+$p = 6k+1$ ou $p = 6k + 5 = 6(k+1) - 1$ ; comme $p \geq 5$, l'entier $k$ (ou $k+1$) est sup\'erieur ou \'egal \`a $1$.
+\end{sol}
+%
+\begin{sol}[Exercice~\ref{exo:arith-7}]
+\begin{enumerate}
+\item $n = 16 q + r$ avec $r = q^2$ et $0 \leq q^2 < 16$, donc $q \in \{0, 1, 2, 3\}$ ; $q = 0$ donne $n = 0$, exclu.
+      On obtient $n \in \{17, 36, 57\}$.
+\item $n = 125 q + q^3$ avec $0 \leq q^3 < 125$, donc $q \in \{1, 2, 3, 4\}$ : $n \in \{126, 258, 402, 564\}$.
+\end{enumerate}
+\end{sol}
+%
+\begin{sol}[Exercice~\ref{exo:arith-8}]
+\begin{enumerate}
+\item On a $n^3 - 8 = (n-2)(n^2 + 2n + 4)$, donc $n^3 - 2 = (n-2)(n^2+2n+4) + 6$.
+      Si $n - 2 > 6$, c'est-\`a-dire $n \geq 9$, c'est la division euclidienne et le reste est $6$.
+      Si $3 \leq n \leq 8$, le reste est celui de $6$ par $n - 2$ :
+      $0$ pour $n = 3, 4, 5, 8$ ; $2$ pour $n = 6$ ; $1$ pour $n = 7$.
+\item $n - 2$ divise $n^3 - 2$ si et seulement si $n - 2$ divise $6$, soit $n - 2 \in \{1, 2, 3, 6\}$ : $n \in \{3, 4, 5, 8\}$.
+\end{enumerate}
+\end{sol}
+%
+\begin{sol}[Exercice~\ref{exo:arith-9}]
+\begin{enumerate}
+\item $2^{n+3} = 8 \cdot 2^n$ et $8 \equiv 1 \ [7]$, donc $2^{n+3} \equiv 2^n \equiv r \ [7]$ : le reste est encore $r$.
+      Les restes se r\'ep\`etent donc de $3$ en $3$ ; avec $2^0 = 1$, $2^1 = 2$, $2^2 = 4$ :
+      le reste de $2^n$ est $1$ si $n = 3k$, $2$ si $n = 3k+1$, $4$ si $n = 3k+2$.
+\item $23 \equiv 2 \ [7]$ et $41 = 3 \times 13 + 2$, donc $23^{41} \equiv 2^{41} \equiv 4 \ [7]$. Le reste est $4$.
+\end{enumerate}
+\end{sol}
+%
+\begin{sol}[Exercice~\ref{exo:arith-10}]
+\begin{enumerate}
+\item Les restes de $2^1, \ldots, 2^6$ sont $2, 4, 1, 2, 4, 1$.
+\item $2^{n+3} - 2^n = 2^n (8 - 1) = 7 \cdot 2^n$. Les restes se r\'ep\`etent donc avec la p\'eriode $3$, et $2^n \equiv 1 \ [7]$
+      si et seulement si $n$ est un multiple de $3$.
+\item $9 \equiv 2 \ [7]$, donc $9^n \equiv 2^n \ [7]$ : m\^eme reste.
+\item $2^{999} \cdot 9^{222} \equiv 2^{999} \cdot 2^{222} = 2^{1221} \ [7]$ et $1221 = 3 \times 407$ ; le reste est $1$.
+\end{enumerate}
+\end{sol}
+%
+\begin{sol}[Exercice~\ref{exo:arith-11}]
+\begin{enumerate}
+\item $a$ prend $9$ valeurs ($1$ \`a $9$) et $b$ en prend $10$ : $E$ contient $90$ nombres.
+\item $N = a\,10^5 + b\,10^4 + a\,10^3 + b\,10^2 + a\,10 + b = (10a + b)(10^4 + 10^2 + 1) = 10101 \times \overline{ab}$.
+\end{enumerate}
+\end{sol}
+%
+\begin{sol}[Exercice~\ref{exo:arith-12}]
+\begin{enumerate}
+\item $10^0 = 1$ : reste $1$. Pour $p \geq 1$ : $10 \equiv 4 \ [6]$ et $4^2 = 16 \equiv 4 \ [6]$, donc par r\'ecurrence $10^p \equiv 4 \ [6]$ : reste $4$.
+\item $x = a_0 + \sum_{p=1}^n a_p 10^p \equiv a_0 + 4\,(a_1 + \cdots + a_n) \ [6]$.
+      Donc $6 | x$ si et seulement si $6 | 4\,(a_n + \cdots + a_1) + a_0$.
+\end{enumerate}
+\end{sol}
+%
+\begin{sol}[Exercice~\ref{exo:arith-13}]
+\begin{enumerate}
+\item $N^2 = 4k^2 + 4k + 1 = 4k(k+1) + 1$. Comme $k(k+1)$ est pair (produit de deux entiers cons\'ecutifs), $8 | 4k(k+1)$ : le reste est $1$.
+\item Si $x$ est pair, $x^2$ est pair alors que $8y + 1$ est impair : pas de solution. Si $x = 2k+1$, l'\'equation devient
+      $4k(k+1) = 8y$, soit $y = \dfrac{k(k+1)}{2}$, qui est bien un entier.
+      Les solutions sont les couples $\left( 2k+1 \;;\; \dfrac{k(k+1)}{2} \right)$, $k \in \mathbb{Z}$.
+\item Un point $(x ; y)$ \`a coordonn\'ees enti\`eres est sur $(P)$ si et seulement si $x^2 = 8y + 1$ ;
+      il y en a une infinit\'e (un par valeur de $k$), par exemple $(1;0)$, $(3;1)$, $(5;3)$, $(7;6)$.
+\end{enumerate}
+\end{sol}
+%
+\begin{sol}[Exercice~\ref{exo:arith-14}]
+\begin{enumerate}
+\item $12 \equiv 1 \ [11]$, donc $12^p \equiv 1 \ [11]$ et $N = \sum a_p 12^p \equiv \sum a_p \ [11]$.
+\item Un nombre \'ecrit en base $12$ est divisible par $11$ si et seulement si la somme de ses chiffres l'est.
+\item $N = 144x + 12y + 4 = 300 + 10y + x$, donc $143x + 2y = 296$. Comme $0 \leq 2y \leq 18$, on a $278 \leq 143x \leq 296$, donc $x = 2$ et $y = 5$.
+      Alors $N = 352$ ; v\'erification : $\overline{254}^{_{(12)}} = 288 + 60 + 4 = 352$ et $2 + 5 + 4 = 11$ : $N$ est bien divisible par $11$ ($352 = 11 \times 32$).
+\end{enumerate}
+\end{sol}
+%
+\begin{sol}[Exercice~\ref{exo:arith-15}]
+\begin{enumerate}
+\item $2^6 - 1 = 63 = 7 \times 9$ ; $3^6 - 1 = 728 = 7 \times 104$ ; $4^6 - 1 = 4095 = 7 \times 585$ ; $5^6 - 1 = 15624 = 7 \times 2232$.
+\item $A_{n+6} - A_n = 2^n(2^6 - 1) + 3^n(3^6-1) + 4^n(4^6-1) + 5^n(5^6-1)$ est une somme de multiples de $7$.
+\item On a $A_{n+6} \equiv A_n \ [7]$ ; par r\'ecurrence sur $q$, $A_{6q + r} \equiv A_r \ [7]$.
+\item $A_0 = 4$, $A_1 = 14$, $A_2 = 54$, $A_3 = 224$, $A_4 = 978$, $A_5 = 4424$, dont les restes modulo $7$ sont
+      $4$, $0$, $5$, $0$, $5$, $0$. Donc $A_n$ est divisible par $7$ si et seulement si $r \in \{1, 3, 5\}$,
+      c'est-\`a-dire si et seulement si $n$ est impair.
+\end{enumerate}
+\end{sol}
+%
+\begin{sol}[Exercice~\ref{exo:arith-16}]
+Algorithme d'Euclide (suite des restes) :
+\begin{enumerate}
+\item $297\,234$, $202\,643$, $94\,591$, $13\,461$, $364$, $357$, $7$, $0$ : $\pgcd{499\,877}{797\,111} = 7$.
+\item $10\,204$, $5\,935$, $4\,269$, $1\,666$, $937$, $729$, $208$, $105$, $103$, $2$, $1$, $0$ : PGCD $= 1$.
+\item $6\,928$, $3\,169$, $590$, $219$, $152$, $67$, $18$, $13$, $5$, $3$, $2$, $1$, $0$ : PGCD $= 1$.
+\item $2\,197$, $1\,973$, $224$, $181$, $43$, $9$, $7$, $2$, $1$, $0$ : PGCD $= 1$.
+\item $4\,109$, $3\,127$, $982$, $181$, $77$, $27$, $23$, $4$, $3$, $1$, $0$ : PGCD $= 1$.
+\end{enumerate}
+\end{sol}
+%
+\begin{sol}[Exercice~\ref{exo:arith-17}]
+Avec l'algorithme d'Euclide \'etendu :
+\begin{enumerate}
+\item $\pgcd{699}{624} = 3$ et $699 \times 25 + 624 \times (-28) = 17\,475 - 17\,472 = 3$.
+\item $\pgcd{972}{962} = 2$ et $972 \times (-96) + 962 \times 97 = -93\,312 + 93\,314 = 2$.
+\item $\pgcd{875}{788} = 1$ et $875 \times (-317) + 788 \times 352 = -277\,375 + 277\,376 = 1$.
+\item $\pgcd{934}{414} = 2$ et $934 \times (-82) + 414 \times 185 = -76\,588 + 76\,590 = 2$.
+\item $\pgcd{872}{432} = 8$ et $872 \times 1 + 432 \times (-2) = 8$.
+\end{enumerate}
+\end{sol}
+%
+\begin{sol}[Exercice~\ref{exo:arith-18}]
+On applique la m\'ethode de la le\c{c}on (solution particuli\`ere, puis lemme de Gauss) ; $k$ d\'ecrit $\mathbb{Z}$.
+\begin{enumerate}
+\item $3 \times 2 + 5 \times (-1) = 1$ : $S = \{ (2 + 5k ; -1 - 3k) \}$.
+\item $13 \times (-8) + 21 \times 5 = 1$ : $S = \{ (-8 + 21k ; 5 - 13k) \}$.
+\item $37 \times (-17) + 45 \times 14 = 1$ : $S = \{ (-17 + 45k ; 14 - 37k) \}$.
+\item $3 \times (-1) + 5 \times 1 = 2$ : $S = \{ (-1 + 5k ; 1 - 3k) \}$.
+\item $13 \times (-3) + 21 \times 2 = 3$ : $S = \{ (-3 + 21k ; 2 - 13k) \}$.
+\item $37 \times 22 + 45 \times (-18) = 4$ : $S = \{ (22 + 45k ; -18 - 37k) \}$.
+\item $\pgcd{6}{10} = 2$ divise $6$ ; l'\'equation \'equivaut \`a $3u + 5v = 3$, et $3 \times 1 + 5 \times 0 = 3$ : $S = \{ (1 + 5k ; -3k) \}$.
+\item $\pgcd{39}{63} = 3$ divise $6$ ; l'\'equation \'equivaut \`a $13u + 21v = 2$, et $13 \times 5 + 21 \times (-3) = 2$ :
+      $S = \{ (5 + 21k ; -3 - 13k) \}$.
+\end{enumerate}
+Par exemple pour 1 : si $3u + 5v = 1 = 3 \times 2 + 5 \times (-1)$, alors $3(u - 2) = 5(-1 - v)$ ; $5$ divise $3(u-2)$ et
+$\pgcd{5}{3} = 1$, donc $5 | u - 2$ (Gauss) : $u = 2 + 5k$, puis $v = -1 - 3k$ ; r\'eciproquement ces couples conviennent.
+\end{sol}
+%
+\begin{sol}[Exercice~\ref{exo:arith-19}]
+\begin{enumerate}
+\item Soit $d$ un diviseur commun de $5a + 3b$ et $3a + 2b$. Alors $d$ divise $2(5a+3b) - 3(3a+2b) = a$
+      et $5(3a+2b) - 3(5a+3b) = b$ ; donc $d$ divise $\pgcd{a}{b} = 1$. Les deux nombres sont premiers entre eux.
+\item \begin{enumerate}
+      \item $n^2 + 1 = (n+1)(n-1) + 2$ ; un diviseur commun de $n^2+1$ et $n+1$ divise donc $2$.
+      \item Si $n$ est pair, $n+1$ est impair, donc le PGCD (qui divise $2$) vaut $1$.
+            Si $n$ est impair, $n + 1$ et $n^2 + 1$ sont pairs : le PGCD vaut $2$ (par exemple $n = 3$ : $\pgcd{10}{4} = 2$).
+      \end{enumerate}
+\end{enumerate}
+\end{sol}
+%
+\begin{sol}[Exercice~\ref{exo:arith-20}]
+\begin{enumerate}
+\item $123 = 7 \times 17 + 4$ et $456 = 7 \times 65 + 1$ : l'\'equation \'equivaut \`a $4x \equiv 1 \ [7]$.
+      Comme $4 \times 2 = 8 \equiv 1 \ [7]$, on multiplie par $2$ : $x \equiv 2 \ [7]$. Les solutions sont les $x = 2 + 7k$, $k \in \mathbb{Z}$.
+\item \begin{enumerate}
+      \item $78 = 2 \times 3 \times 13$ et $14 = 2 \times 7$.
+      \item $D_{78} = \{1, 2, 3, 6, 13, 26, 39, 78\}$ et $D_{14} = \{1, 2, 7, 14\}$.
+      \item $g = 2$ et $m = 2 \times 3 \times 7 \times 13 = 546$ (on v\'erifie que $g \cdot m = 1092 = 78 \times 14$).
+      \end{enumerate}
+\end{enumerate}
+\end{sol}
+%
+\begin{sol}[Exercice~\ref{exo:arith-21}]
+\begin{enumerate}
+\item Un nombre divisible par $14$ et par $34$ est un multiple de $PPCM(14;34) = 2 \times 7 \times 17 = 238$.
+      Les multiples de $238$ ayant trois chiffres sont $238$, $476$, $714$ et $952$.
+\item On \'ecrit $a = 6a'$, $b = 6b'$ avec $\pgcd{a'}{b'} = 1$ ; alors $36\, a'b' = 2700$, soit $a'b' = 75 = 3 \times 5^2$.
+      Les couples $(a';b')$ premiers entre eux de produit $75$ sont $(1;75)$, $(3;25)$, $(25;3)$, $(75;1)$, d'o\`u
+      $(a;b) \in \{ (6;450), (18;150), (150;18), (450;6) \}$.
+      Dans tous les cas, $PPCM(a;b) = \dfrac{ab}{\pgcd{a}{b}} = \dfrac{2700}{6} = 450$.
+\end{enumerate}
+\end{sol}
+%
+\begin{sol}[Exercice~\ref{exo:arith-22}]
+\begin{enumerate}
+\item Pour $n = 0$ : $9^0 - 2^0 = 0$, divisible par $7$. Si $7 | 9^k - 2^k$, alors
+      $9^{k+1} - 2^{k+1} = 9\,(9^k - 2^k) + 7 \cdot 2^k$ est divisible par $7$.
+\item $5(3n - 2) - 3(5n - 3) = -1$ ; un diviseur commun divise donc $1$ : les deux nombres sont premiers entre eux
+      (c'est aussi une cons\'equence du th\'eor\`eme de B\'ezout).
+\item \begin{enumerate}
+      \item $\bar{5}^2 - \bar{5} + \bar{1} = \bar{21} = \bar{0}$.
+      \item $(x - \bar{4})^2 - \bar{1} = x^2 - \bar{8}x + \bar{15} = x^2 - x + \bar{1}$ (car $\bar{8} = \bar{1}$ et $\bar{15} = \bar{1}$) ;
+            donc $(E) \iff (x - \bar{4})^2 = \bar{1}$.
+      \item $(x-\bar{4})^2 = \bar{1} \iff (x - \bar{4} - \bar{1})(x - \bar{4} + \bar{1}) = \bar{0} \iff (x - \bar{5})(x - \bar{3}) = \bar{0}$.
+            Comme $7$ est premier, un produit est nul dans $\mathbb{Z}/7\mathbb{Z}$ si et seulement si l'un des facteurs l'est :
+            $S = \{ \bar{3} ; \bar{5} \}$.
+      \end{enumerate}
+\end{enumerate}
+\end{sol}
+%
+\begin{sol}[Exercice~\ref{exo:arith-23}]
+\begin{enumerate}
+\item $319 = 11 \times 29$, $232 = 8 \times 29$, $145 = 5 \times 29$ : $PGCD(319, 232, 145) = 29$.
+      L'\'equation \'equivaut \`a $11x + 8y = 5$. Solution particuli\`ere : $11 \times (-1) + 8 \times 2 = 5$.
+      Alors $11(x + 1) = 8(2 - y)$, $8$ divise $11(x+1)$ et $\pgcd{8}{11} = 1$, donc $x = -1 + 8k$ et $y = 2 - 11k$, $k \in \mathbb{Z}$.
+\item Solution particuli\`ere : $13 \times 3 - 7 \times 4 = 11$. Alors $13(x - 3) = 7(y - 4)$, donc $x = 3 + 7k$, $y = 4 + 13k$, $k \in \mathbb{Z}$.
+      La condition $x \geq 0$ et $y \geq 0$ impose $k \geq 0$ (pour $k = -1$, $x = -4$).
+      $S = \{ (3 + 7k ; 4 + 13k) \mid k \in \mathbb{N} \}$.
+\end{enumerate}
+\end{sol}
+%
+\begin{sol}[Exercice~\ref{exo:arith-24}]
+Modulo $3$ : si $n \equiv 0$, $n^2 + n + 2 \equiv 2$ ; si $n \equiv 1$, $n^2 + n + 2 \equiv 4 \equiv 1$ ; si $n \equiv 2$, $n^2 + n + 2 \equiv 8 \equiv 2$.
+Le reste n'est jamais $0$.
+\end{sol}
+%
+\begin{sol}[Exercice~\ref{exo:arith-25}]
+\begin{enumerate}
+\item \begin{enumerate}
+      \item $N = 2 \cdot 81 + 1 \cdot 27 + 0 \cdot 9 + 1 \cdot 3 + 2 = 194$.
+      \item $100 = 3 \times 33 + 1$, $33 = 3 \times 11 + 0$, $11 = 3 \times 3 + 2$, $3 = 3 \times 1 + 0$, $1 = 3 \times 0 + 1$ : $100 = \base{10201}{3}$.
+      \item $N = a_0 + 3\,(a_1 + 3a_2 + \cdots)$, donc $N \equiv a_0 \ [3]$ : $N$ est divisible par $3$ si et seulement si son dernier chiffre est $0$.
+            De m\^eme $N \equiv a_0 + 3a_1 \ [9]$ et $0 \leq a_0 + 3a_1 \leq 8$ : $N$ est divisible par $9$ si et seulement si ses deux derniers chiffres sont $0$.
+      \end{enumerate}
+\item \begin{enumerate}
+      \item 
+      $\begin{array}{|c|c|c|c|}
+      \hline + & \bar{0} & \bar{1} & \bar{2} \\ \hline
+      \bar{0} & \bar{0} & \bar{1} & \bar{2} \\ \hline
+      \bar{1} & \bar{1} & \bar{2} & \bar{0} \\ \hline
+      \bar{2} & \bar{2} & \bar{0} & \bar{1} \\ \hline
+      \end{array}
+      \qquad
+      \begin{array}{|c|c|c|c|}
+      \hline \times & \bar{0} & \bar{1} & \bar{2} \\ \hline
+      \bar{0} & \bar{0} & \bar{0} & \bar{0} \\ \hline
+      \bar{1} & \bar{0} & \bar{1} & \bar{2} \\ \hline
+      \bar{2} & \bar{0} & \bar{2} & \bar{1} \\ \hline
+      \end{array}$
+      \item Pour $x = \bar{0}, \bar{1}, \bar{2}$, $x^2 + x + \bar{2}$ vaut respectivement $\bar{2}$, $\bar{4} = \bar{1}$, $\bar{8} = \bar{2}$ : jamais $\bar{0}$.
+      \item $x^2 + \bar{2}x + \bar{1} = (x + \bar{1})^2$ ; il est nul si et seulement si $x + \bar{1} = \bar{0}$ ($3$ est premier), soit $x = \bar{2}$.
+            (V\'erification : $\bar{4} + \bar{4} + \bar{1} = \bar{9} = \bar{0}$.)
+      \item En soustrayant la premi\`ere \'equation de la seconde : $y = \bar{0} - \bar{2} = \bar{1}$, puis $x = \bar{2} - \bar{1} = \bar{1}$.
+            Solution unique : $(\bar{1} ; \bar{1})$.
+      \end{enumerate}
+\end{enumerate}
+\end{sol}
+%
+\begin{sol}[Exercice~\ref{exo:arith-26}]
+\begin{enumerate}
+\item Pour $x = \bar{0}, \bar{1}, \bar{2}, \bar{3}, \bar{4}$ : $x^2 = \bar{0}, \bar{1}, \bar{4}, \bar{4}, \bar{1}$.
+\item $x^2 = \bar{4} \iff x \in \{ \bar{2} ; \bar{3} \}$ ; $x^2 = \bar{2}$ n'a pas de solution.
+      Si $n^2$ se terminait par $2$ ou $7$, on aurait $n^2 \equiv 2 \ [5]$ ; s'il se terminait par $3$ ou $8$, on aurait $n^2 \equiv 3 \ [5]$.
+      Or un carr\'e est congru \`a $0$, $1$ ou $4$ modulo $5$ : c'est impossible.
+\item $x^4 = (x^2)^2$ vaut $\bar{0}$ pour $x = \bar{0}$ et $\bar{1}$ sinon. Donc $x^5 = x \cdot x^4 = x$ pour $x \neq \bar{0}$, et $\bar{0}^5 = \bar{0}$.
+\item Pour tout entier $n$, $\overline{n}^5 = \overline{n}$ dans $\mathbb{Z}/5\mathbb{Z}$, c'est-\`a-dire $n^5 \equiv n \ [5]$ : $5 | n^5 - n$.
+\item \begin{enumerate}
+      \item $n^5 - n = n(n^4 - 1) = n(n^2 - 1)(n^2 + 1) = (n-1)\,n\,(n+1)\,(n^2+1)$.
+      \item Parmi les trois entiers cons\'ecutifs $n-1$, $n$, $n+1$, l'un est pair et l'un est multiple de $3$ :
+            $2$ et $3$ divisent $n^5 - n$, et comme $\pgcd{2}{3} = 1$, $6$ divise $n^5 - n$.
+            Enfin $5$ et $6$ divisent $n^5 - n$ et $\pgcd{5}{6} = 1$, donc $30$ divise $n^5 - n$.
+      \end{enumerate}
+\item $10$ divise $n^5 - n$, donc $n^5 \equiv n \ [10]$ : $n^5$ et $n$ ont le m\^eme chiffre des unit\'es
+      (par exemple $7^5 = 16\,807$).
+\end{enumerate}
+\end{sol}
+%
+\begin{sol}[Exercice~\ref{exo:arith-27}]
+Oui, car $\pgcd{5}{3} = 1$ et $2 \times 3 - 1 \times 5 = 1$. On remplit le r\'ecipient de $3$ litres et on le verse dans celui de $5$ litres ;
+on remplit de nouveau le r\'ecipient de $3$ litres et on le verse dans celui de $5$ litres jusqu'\`a ce qu'il soit plein :
+on n'y verse que $2$ litres, et il reste exactement $1$ litre dans le r\'ecipient de $3$ litres.
+\end{sol}
+%
+\begin{sol}[Exercice~\ref{exo:arith-28}]
+\begin{enumerate}
+\item Il faut trouver des entiers naturels $x$ et $y$ avec $4x - 10y = 18$, soit $2x - 5y = 9$ :
+      $x = 7$, $y = 1$ convient. Andry donne $7$ pi\`eces de $4$~Ar ($28$~Ar) et Bema lui rend une pi\`ece de $10$~Ar : c'est possible.
+\item Il faudrait $10x - 4y = 25$ ; le membre de gauche est pair et $25$ est impair : c'est impossible
+      ($\pgcd{10}{4} = 2$ ne divise pas $25$).
+\end{enumerate}
+\end{sol}
+%
+\begin{sol}[Exercice~\ref{exo:arith-29}]
+$10^{10}$ se termine par $0$. Pour $k \geq 1$, $5^k$ se termine par $5$ (car $5 \times 5 = 25$), donc $5^{5^5}$ se termine par $5$.
+Pour $k \geq 1$, $2^{k+4} - 2^k = 15 \cdot 2^k$ est divisible par $10$ : le dernier chiffre de $2^k$ ne d\'epend que du reste de $k$ modulo $4$
+($2$, $4$, $8$, $6$ pour $k \equiv 1, 2, 3, 0$). Or $3^2 = 9 \equiv 1 \ [4]$, donc $3^{4^5} = (3^2)^{512} \equiv 1 \ [4]$ :
+$2^{3^{4^5}}$ se termine par $2$.
+\end{sol}
+%
+\begin{sol}[Exercice~\ref{exo:arith-30}]
+$\pgcd{4}{12} = 4$ ; $\pgcd{60}{24} = 12$ ;
+$9379 = 1 \cdot 8039 + 1340$, $8039 = 5 \cdot 1340 + 1339$, $1340 = 1 \cdot 1339 + 1$ : $\pgcd{9379}{8039} = 1$.
+\end{sol}
+%
+\begin{sol}[Exercice~\ref{exo:arith-31}]
+On travaille modulo $7$ : revenir $N$ jours apr\`es un dimanche, c'est tomber le jour << dimanche $+ (N \bmod 7)$ >>.
+\begin{enumerate}
+\item $40 = 7 \times 5 + 5$ : vendredi. $40\,000 \equiv 2 \ [7]$ : mardi. $40\,000\,000 \equiv 5 \ [7]$ : vendredi.
+\item On remonte le temps : $50 \equiv 1 \ [7]$, le voyage a commenc\'e un samedi.
+      $50\,000 \equiv 6 \ [7]$ : dimanche $- 6$ jours, soit un lundi. $50\,000\,000 \equiv 1 \ [7]$ : un samedi.
+\end{enumerate}
+\end{sol}
+%
+\begin{sol}[Exercice~\ref{exo:arith-32}]
+Chaque soir, le propri\'etaire d\'etient un ensemble de morceaux dont la longueur totale est le num\'ero du jour.
+Avec $k$ morceaux, il n'y a que $2^k - 1$ ensembles non vides de morceaux ; il en faut au moins $31$ diff\'erents, donc $2^k - 1 \geq 31$ et $k \geq 5$.
+Cinq morceaux suffisent : $1$, $2$, $4$, $8$ et $16$~cm (total $31$~cm). Le jour $n$, le propri\'etaire d\'etient les morceaux
+correspondant aux chiffres $1$ de l'\'ecriture de $n$ en base $2$ (par exemple $13 = \base{1101}{2}$ : morceaux de $8$, $4$ et $1$~cm).
+\end{sol}
+%
+\begin{sol}[Exercice~\ref{exo:arith-33}]
+\begin{enumerate}
+\item Si $d$ divise $n+7$ et $2n+5$, il divise $2(n+7) - (2n+5) = 9$.
+\item $n + 7 \equiv n - 2 \ [3]$, donc $3 | n+7 \iff n \equiv 2 \ [3]$. Dans ce cas $2n + 5 \equiv 4 + 5 = 9 \equiv 0 \ [3]$.
+\item Le PGCD de $n+7$ et $2n+5$ divise $9$ : il vaut $1$, $3$ ou $9$. Il est diff\'erent de $1$ si et seulement si $3$ divise les deux nombres,
+      c'est-\`a-dire si et seulement si $n \equiv 2 \ [3]$. La fraction est irr\'eductible si et seulement si $n \not\equiv 2 \ [3]$.
+\item $9 | n + 7 \iff n \equiv 2 \ [9]$, et alors $2n + 5 \equiv 9 \equiv 0 \ [9]$. On simplifie par $9$ exactement lorsque $n \equiv 2 \ [9]$.
+      Pour $n = 20$ ($20 \equiv 2 \ [9]$) : $\dfrac{27}{45} = \dfrac{3}{5}$.
+\end{enumerate}
+\end{sol}
+%
+\begin{sol}[Exercice~\ref{exo:arith-34}]
+\begin{enumerate}
+\item Le nombre obtenu est $10x + 1$. La condition $10x + 1 = 3(10^k + x)$ s'\'ecrit $7x = 3 \cdot 10^k - 1$.
+\item $10 \equiv 3 \ [7]$ ; les restes de $10^1, \ldots, 10^6$ sont $3$, $2$, $6$, $4$, $5$, $1$.
+\item Comme $3 \times 5 = 15 \equiv 1 \ [7]$, on a $3 \cdot 10^k \equiv 1 \ [7] \iff 10^k \equiv 5 \ [7]$ (on multiplie par $5$, ou par $3$ pour revenir).
+\item Le plus petit $k$ est $k = 5$ ; alors $x = \dfrac{299\,999}{7} = 42\,857 < 10^5$ et $\boxed{N = 142\,857}$.
+      V\'erification : $3 \times 142\,857 = 428\,571$.
+\end{enumerate}
+\end{sol}
+%
+\begin{sol}[Exercice~\ref{exo:arith-35}]
+\begin{enumerate}
+\item $5^0 = 1$, $5^1 = 5$, $5^2 = 25 \equiv 12$, $5^3 \equiv 60 \equiv 8$, $5^4 \equiv 40 \equiv 1 \ [13]$.
+      Comme $5^{n+4} \equiv 5^n \ [13]$, le reste de $5^n$ est $1$, $5$, $12$, $8$ selon que $n \equiv 0, 1, 2, 3 \ [4]$.
+\item $13 | 5^n - 1 \iff n \equiv 0 \ [4]$ ; $13 | 5^n + 1 \iff 5^n \equiv 12 \ [13] \iff n \equiv 2 \ [4]$.
+\item Il faudrait $5^n \equiv -2 \equiv 11 \ [13]$, or $11$ n'est pas dans la liste $\{1, 5, 12, 8\}$.
+\item $2026 \equiv 2$ et $2027 \equiv 3 \ [4]$, donc $5^{2026} + 5^{2027} \equiv 12 + 8 = 20 \equiv 7 \ [13]$ : le reste est $7$.
+\end{enumerate}
+\end{sol}
+%
+\begin{sol}[Exercice~\ref{exo:arith-36}]
+\begin{enumerate}
+\item Les \'el\'ements de $A$ sont les $3 + 5p$ et ceux de $B$ les $7 + 8q$, avec $0 \leq p, q \leq 99$.
+\item $5 \times 4 - 8 \times 2 = 4$. Si $5p - 8q = 4$, alors $5(p - 4) = 8(q - 2)$, donc $8 | p - 4$ (Gauss) :
+      $p = 4 + 8t$, $q = 2 + 5t$, $t \in \mathbb{Z}$ ; r\'eciproquement ces couples conviennent.
+\item Les nombres communs sont les $3 + 5(4 + 8t) = 23 + 40t$ : suite arithm\'etique de premier terme $23$ et de raison $40 = PPCM(5;8)$.
+\item Il faut $0 \leq 4 + 8t \leq 99$ et $0 \leq 2 + 5t \leq 99$, soit $0 \leq t \leq 11$ : $A \cap B$ contient $12$ nombres
+      ($23$, $63$, \ldots, $463$), et $A \cup B$ contient $100 + 100 - 12 = 188$ nombres distincts.
+\end{enumerate}
+\end{sol}
+%
+\begin{sol}[Exercice~\ref{exo:arith-37}]
+\begin{enumerate}
+\item $a | b$ et $a | c$ (car $a | b$ et $b | c$), donc $a | a + b + c = 55$.
+\item $b > a$ donne $k \geq 2$ ; $c > b$ donne $m \geq 2$. Et $a + ka + kma = a(1 + k + km) = 55$.
+\item $a \in \{1, 5, 11, 55\}$.
+      \begin{itemize}
+      \item $a = 1$ : $k(1 + m) = 54$ avec $k \geq 2$ et $1 + m \geq 3$ : $k \in \{2, 3, 6, 9, 18\}$, d'o\`u
+            $(1, 2, 52)$, $(1, 3, 51)$, $(1, 6, 48)$, $(1, 9, 45)$, $(1, 18, 36)$.
+      \item $a = 5$ : $k(1+m) = 10$, donc $k = 2$, $m = 4$ : $(5, 10, 40)$.
+      \item $a = 11$ : $k(1+m) = 4$ est impossible avec $k \geq 2$ et $m \geq 2$ ; $a = 55$ est impossible.
+      \end{itemize}
+      Il y a six triplets.
+\item La plus grande valeur de $c$ est $52$.
+\end{enumerate}
+\end{sol}
+%
+\begin{sol}[Exercice~\ref{exo:arith-38}]
+\begin{enumerate}
+\item $(n+3)(n-3) + 16 = n^2 - 9 + 16 = n^2 + 7$.
+\item $n + 3$ divise $(n+3)(n-3)$ ; il divise donc $n^2 + 7$ si et seulement s'il divise $n^2 + 7 - (n+3)(n-3) = 16$.
+\item $n + 3 \in \{\pm 1, \pm 2, \pm 4, \pm 8, \pm 16\}$, soit $n \in \{-19, -11, -7, -5, -4, -2, -1, 1, 5, 13\}$.
+\item Le plus grand est $n = 13$ : $13^2 + 7 = 176 = 16 \times 11$, le quotient est $11$.
+\end{enumerate}
+\end{sol}
+%
+\begin{sol}[Exercice~\ref{exo:arith-39}]
+\begin{enumerate}
+\item $\dfrac{1}{12}$, $\dfrac{5}{12}$, $\dfrac{7}{12}$, $\dfrac{11}{12}$ ; leur somme est $\dfrac{24}{12} = 2$.
+\item Un entier divise $k$ et $n$ si et seulement s'il divise $n - k$ et $n$ ; les deux couples ont les m\^emes diviseurs communs, donc le m\^eme PGCD.
+\item $\dfrac{k}{n}$ irr\'eductible $\iff \pgcd{k}{n} = 1 \iff \pgcd{n-k}{n} = 1 \iff \dfrac{n-k}{n}$ irr\'eductible.
+      Si les deux fractions \'etaient \'egales, on aurait $n = 2k$, puis $\pgcd{k}{n} = k = 1$ et $n = 2$, ce qui est exclu.
+\item Les fractions irr\'eductibles se r\'epartissent en paires $\left\lbrace \dfrac{k}{n} ; \dfrac{n-k}{n} \right\rbrace$ de somme $1$.
+      Il y a donc $\dfrac{N}{2}$ paires (donc $N$ est pair) et $S = \dfrac{N}{2} \times 1 = \dfrac{N}{2}$.
+\item Pour $n = 15 = 3 \times 5$, les $k$ premiers avec $15$ sont $1, 2, 4, 7, 8, 11, 13, 14$ : $N = 8$ et $S = 4$.
+\end{enumerate}
+\end{sol}
+%
+\begin{sol}[Exercice~\ref{exo:arith-40}]
+\begin{enumerate}
+\item Posons $x = 2^q$. On a $x^p - 1 = (x - 1)(x^{p-1} + x^{p-2} + \cdots + x + 1)$, donc $2^q - 1$ divise $2^{pq} - 1$.
+\item Supposons $n$ non premier. Si $n = 1$, $2^1 - 1 = 1$ n'est pas premier. Sinon $n = pq$ avec $1 < q < n$ ;
+      alors $2^q - 1$ divise $2^n - 1$ et $1 < 2^q - 1 < 2^n - 1$ : $2^n - 1$ n'est pas premier.
+      Par contrapos\'ee, si $2^n - 1$ est premier, $n$ est premier.
+\item $p = 11$ : $2^{11} - 1 = 2047 = 23 \times 89$.
+\end{enumerate}
+\end{sol}
+%
+\begin{sol}[Exercice~\ref{exo:arith-42}]
+\begin{enumerate}
+\item \begin{enumerate}
+      \item Par r\'ecurrence : $F_0 = 3 = F_1 - 2$ ($F_1 = 5$). Si $F_0 \cdots F_{n-1} = F_n - 2 = 2^{2^n} - 1$, alors
+            $F_0 \cdots F_n = (2^{2^n} - 1)(2^{2^n} + 1) = 2^{2^{n+1}} - 1 = F_{n+1} - 2$.
+      \item Soit $m < n$ et $d$ un diviseur commun de $F_m$ et $F_n$. Comme $F_m$ est un facteur de $F_0 \cdots F_{n-1} = F_n - 2$,
+            $d$ divise $F_n - (F_n - 2) = 2$. Les nombres de Fermat sont impairs, donc $d = 1$.
+      \end{enumerate}
+\item $2^{2^n} \equiv -1 \ [F_n]$, donc $2^{2^{n+1}} \equiv 1 \ [F_n]$.
+      Or $F_n - 1 = 2^{2^n}$ est un multiple de $2^{n+1}$ (car $2^n \geq n + 1$), donc $2^{F_n - 1} \equiv 1 \ [F_n]$
+      et $2^{F_n} \equiv 2 \ [F_n]$ : $F_n$ divise $2^{F_n} - 2$.
+\end{enumerate}
+\end{sol}
+%
+\begin{sol}[Exercice~\ref{exo:arith-43}]
+\begin{enumerate}
+\item \begin{enumerate}
+      \item $a = 2k$ et $3^a = 9^k \equiv 1^k = 1 \ [4]$.
+      \item $2^{4k} = 16^k \equiv 1 \ [5]$.
+      \item D'apr\`es (a), $3^a = 4k + 1$ avec $k \in \mathbb{N}$, donc $2^{3^a} = 2 \cdot 2^{4k} \equiv 2 \ [5]$ d'apr\`es (b).
+            Ainsi $2^{3^a} - 2$ est divisible par $5$, et il est pair : il est divisible par $10$.
+      \item $4^5$ est pair, donc $2^{3^{4^5}} \equiv 2 \ [10]$ : le dernier chiffre est $2$.
+      \end{enumerate}
+\item $7^4 = 2401 \equiv 1 \ [100]$. L'exposant $E = 7^{7^{\cdot^{\cdot^{7}}}}$ est une puissance de $7$ d'exposant impair, et $7 \equiv -1 \ [4]$,
+      donc $E \equiv -1 \equiv 3 \ [4]$. Ainsi $7^E \equiv 7^3 = 343 \equiv 43 \ [100]$ : les deux derniers chiffres sont $43$.
+\item Le nombre est divisible par $2^3 \times 5^3 = 1000$ (les deux exposants d\'epassent $3$) : ses trois derniers chiffres sont $000$.
+\end{enumerate}
+\end{sol}
+%
+\begin{sol}[Exercice~\ref{exo:arith-44}]
+Notons $T_k$ le nombre form\'e de $k$ chiffres $3$. Parmi les $2020$ nombres $T_1, \ldots, T_{2020}$, deux ont le m\^eme reste
+dans la division par $2019$ (il n'y a que $2019$ restes possibles) : $T_m \equiv T_k \ [2019]$ avec $k < m$.
+Alors $2019$ divise $T_m - T_k = T_{m-k} \times 10^k$. Or $2019 = 3 \times 673$ est premier avec $10^k$, donc (Gauss)
+$2019$ divise $T_{m-k}$. (Le plus petit tel terme a $224$ chiffres.)
+\end{sol}
+%
+\begin{sol}[Exercice~\ref{exo:arith-45}]
+$2019$ est impair, donc l'un des deux nombres est pair, c'est-\`a-dire \'egal \`a $2$ : $x = 2$, $y = 2017$.
+$2017$ est premier (aucun nombre premier inf\'erieur ou \'egal \`a $43$ ne le divise et $\sqrt{2017} < 45$). Le seul couple est $(2 ; 2017)$.
+\end{sol}
+%
+\begin{sol}[Exercice~\ref{exo:arith-46}]
+\begin{enumerate}
+\item Par exemple $P(40) = 1681 = 41^2$, $P(41) = 41 \times 43$, $P(44) = 2021 = 43 \times 47$, $P(49) = 2491 = 47 \times 53$,
+      $P(81) = 6683 = 41 \times 163$. (Plus g\'en\'eralement, $41$ divise $P(41k)$.)
+\item $p^2 - 1 = (p-1)(p+1)$. Comme $p$ est impair, $p - 1$ et $p + 1$ sont deux entiers pairs cons\'ecutifs, dont l'un est multiple de $4$ :
+      $8$ divise $p^2 - 1$. Parmi $p - 1$, $p$, $p + 1$, l'un est multiple de $3$, et ce n'est pas $p$ : $3$ divise $p^2 - 1$.
+      Comme $\pgcd{3}{8} = 1$, $24$ divise $p^2 - 1$.
+\end{enumerate}
+\end{sol}
 \end{corrige}
 

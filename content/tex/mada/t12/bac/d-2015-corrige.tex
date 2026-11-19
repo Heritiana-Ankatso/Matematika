@@ -1,0 +1,288 @@
+% Baccalauréat malgache, série D, 2015 : corrigé.
+\TCDBacAttribution{D}{2015}
+\providecommand{\Courbe}{(\mathscr{C})}
+\providecommand{\cm}{~\mathrm{cm}}
+\providecommand{\dx}{~\mathrm{d}x}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\noindent \underline{\textsc{\textbf{Exercice I}}} (5 points)
+	\begin{enumerate}
+		\item \begin{enumerate}
+			\item \vln{Ensemble de définition :} $f(z)$ existe si et seulement si $z - 4 \neq 0$.
+
+				\ansbox{$Df = \mathbb{C}\setminus\{4\}$.}
+			\item \vln{Équation $f(z) = z$ :}
+				pour $z \neq 4$, $f(z) = z \iff iz - 5 + i = z(z-4) \iff z^2 - (4+i)z + 5 - i = 0$.
+				Discriminant : $\Delta = (4+i)^2 - 4(5-i) = 15 + 8i - 20 + 4i = -5 + 12i = (2+3i)^2$
+				(en effet $(2+3i)^2 = 4 + 12i - 9$).
+				Solutions : $\frac{4 + i + 2 + 3i}{2} = 3 + 2i$ et $\frac{4 + i - 2 - 3i}{2} = 1 - i$, toutes deux différentes de $4$.
+
+				\ansbox{$S_{\mathbb{C}} = \{1 - i\ ;\ 3 + 2i\}$} (ce sont les affixes de $B$ et $C$ : points invariants de $f$).
+		\end{enumerate}
+		\item \begin{enumerate}
+			\item \vln{Ensemble $(\mathscr{D})$ :}
+				avec $z = x + iy$, $z \neq 4$ : le numérateur vaut $i(x+iy) - 5 + i = (-y-5) + i(x+1)$. En multipliant numérateur
+				et dénominateur par $\overline{z-4} = (x-4) - iy$ :
+				\[
+					f(z) = \frac{\left[(-y-5) + i(x+1)\right]\left[(x-4) - iy\right]}{(x-4)^2 + y^2},
+				\]
+				dont la partie imaginaire est $\frac{(x+1)(x-4) + y(y+5)}{(x-4)^2+y^2} = \frac{x^2 + y^2 - 3x + 5y - 4}{(x-4)^2 + y^2}$.
+				Donc $f(z) \in \mathbb{R} \iff x^2 + y^2 - 3x + 5y - 4 = 0$ et $(x;y) \neq (4;0)$, soit
+				$\left(x - \frac{3}{2}\right)^2 + \left(y + \frac{5}{2}\right)^2 = 4 + \frac{9}{4} + \frac{25}{4} = \frac{25}{2}$.
+
+				\ansbox{$(\mathscr{D})$ est le cercle de centre $\Omega\left(\frac{3}{2};-\frac{5}{2}\right)$ et de rayon $\frac{5\sqrt{2}}{2}$, privé du point $(4;0)$.}
+
+				(Ce cercle passe par $B(1;-1)$, $C(3;2)$ et le point d'affixe $4$, exclu.)
+			\item \vln{Forme trigonométrique de $Z$ :}
+				\[
+					Z = \frac{-2 + i - 1 + i}{3 + 2i - 1 + i} = \frac{-3 + 2i}{2 + 3i} = \frac{(-3+2i)(2-3i)}{13} = \frac{-6 + 9i + 4i + 6}{13} = i.
+				\]
+
+				\ansbox{$Z = \cos\frac{\pi}{2} + i\sin\frac{\pi}{2}$.}
+
+				Donc $BA = BC$ et $\left(\overrightarrow{BC},\overrightarrow{BA}\right) = \frac{\pi}{2}~[2\pi]$ :
+
+				\ansbox{$ABC$ est rectangle isocèle en $B$.}
+				\begin{center}
+				\begin{tikzpicture}[scale=.5,>=stealth]
+					\draw[very thin,gray!40] (-3,-7) grid (7,5);
+					\draw[->] (-3,0) -- (7.3,0) node[below] {$x$};
+					\draw[->] (0,-7) -- (0,5.3) node[left] {$y$};
+					\draw[loko3,thick] (1.5,-2.5) circle (3.5355);
+					\draw[loko1,thick] (-2,1) -- (1,-1) -- (3,2) -- (0,4) -- cycle;
+					\draw[fill=white] (4,0) circle (3pt);
+					\foreach \p/\n/\pos in {(-2,1)/A/left,(1,-1)/B/below left,(3,2)/C/right,(0,4)/D/above right,(1.5,-2.5)/\Omega/below}
+						\fill \p circle (3pt) node[\pos] {$\n$};
+					\node[loko3] at (5.8,-5) {$(\mathscr{D})$};
+				\end{tikzpicture}
+				\end{center}
+		\end{enumerate}
+		\item \vln{Point $D$ :}
+			$ABC$ étant rectangle isocèle en $B$, $ABCD$ est un carré si et seulement si c'est un parallélogramme,
+			c'est-à-dire $\overrightarrow{AD} = \overrightarrow{BC}$ : $z_D = z_A + z_C - z_B = -2 + i + 3 + 2i - 1 + i$.
+
+			\ansbox{$z_D = 4i$.}
+		\item \begin{enumerate}
+			\item \vln{Forme algébrique de $a$ :}
+				$a = \sqrt{2}\left(\cos\frac{\pi}{4} + i\sin\frac{\pi}{4}\right) = \sqrt{2}\left(\frac{\sqrt{2}}{2} + i\frac{\sqrt{2}}{2}\right)$.
+
+				\ansbox{$a = 1 + i$.}
+			\item \vln{Valeur de $b$ :}
+				$S(B) = C$ donne $z_C = a z_B + b$, donc $b = 3 + 2i - (1+i)(1-i) = 3 + 2i - 2$.
+
+				\ansbox{$b = 1 + 2i$.}
+			\item \vln{Centre de $S$ :}
+				$\omega = a\omega + b \iff \omega = \frac{b}{1-a} = \frac{1+2i}{-i} = (1+2i)i = -2 + i$.
+
+				\ansbox{Le centre de $S$ est le point $A$.}
+
+				(Cohérent : $\frac{z_C - z_A}{z_B - z_A} = 1 + i$, car $AC = \sqrt{2}\,AB$ et l'angle en $A$ du triangle rectangle isocèle vaut $\frac{\pi}{4}$.)
+		\end{enumerate}
+	\end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\noindent \underline{\textsc{\textbf{Exercice II}}} (5 points)
+	\begin{description}
+		\item[I.] L'urne contient $12$ jetons : $7$ voyelles (A, A, A, A, E, E, E) et $5$ consonnes (B, B, B, D, D).
+			\begin{enumerate}
+				\item Les trois tirages avec remise sont indépendants et identiques.
+					\begin{itemize}
+						\item \vln{Événement $G$ :} à chaque tirage, $P(\text{B}) = \frac{3}{12} = \frac{1}{4}$.
+							L'événement contraire << aucun B >> a pour probabilité $\left(\frac{3}{4}\right)^3 = \frac{27}{64}$.
+
+							\ansbox{$P(G) = 1 - \frac{27}{64} = \frac{37}{64}$.}
+						\item \vln{Événement $H$ :} à chaque tirage, $P(\text{voyelle}) = \frac{7}{12}$. Le nombre de voyelles suit la loi
+							$\mathscr{B}\left(3;\frac{7}{12}\right)$ :
+							$P(H) = \Comb{3}{1}\times\frac{7}{12}\times\left(\frac{5}{12}\right)^2 = \frac{3\times7\times25}{1\,728} = \frac{525}{1\,728}$.
+
+							\ansbox{$P(H) = \frac{175}{576}$.}
+					\end{itemize}
+				\item Il y a $\Comb{12}{4} = 495$ tirages simultanés de $4$ jetons, équiprobables.
+					\begin{enumerate}
+						\item Il y a $5$ consonnes et $7$ voyelles, on peut donc obtenir de $0$ à $4$ consonnes.
+
+							\ansbox{$X(\Omega) = \{0;1;2;3;4\}$.}
+						\item \vln{Loi de $X$ :} $P(X = k) = \frac{\Comb{5}{k}\,\Comb{7}{4-k}}{495}$.
+							\[
+							\begin{array}{|c|c|c|c|c|c|}
+								\hline
+								k & 0 & 1 & 2 & 3 & 4 \\ \hline
+								\text{cas} & 35 & 5\times35 = 175 & 10\times21 = 210 & 10\times7 = 70 & 5 \\ \hline
+								P(X=k) & \frac{7}{99} & \frac{35}{99} & \frac{14}{33} & \frac{14}{99} & \frac{1}{99} \\[.5ex] \hline
+							\end{array}
+							\]
+							(Vérification : $35 + 175 + 210 + 70 + 5 = 495$.)
+						\item \textit{La question c) répète la question b) ; on comprend qu'il s'agit de définir et représenter la
+							\emph{fonction de répartition} $F$ de $X$, définie par $F(x) = P(X \leq x)$.}
+
+							\vln{Fonction de répartition :}
+							\[
+								F(x) = \begin{cases}
+									0 & \text{si } x < 0, \\
+									\frac{7}{99} & \text{si } 0 \leq x < 1, \\
+									\frac{42}{99} = \frac{14}{33} & \text{si } 1 \leq x < 2, \\
+									\frac{84}{99} = \frac{28}{33} & \text{si } 2 \leq x < 3, \\
+									\frac{98}{99} & \text{si } 3 \leq x < 4, \\
+									1 & \text{si } x \geq 4.
+								\end{cases}
+							\]
+							Sa représentation est une courbe en escalier (à gauche ci-dessous ; à droite, le diagramme en bâtons de la loi) :
+							\begin{center}
+							\begin{tikzpicture}[x=1cm,y=4cm,>=stealth]
+								\draw[->] (-1,0) -- (5.3,0) node[below] {$x$};
+								\draw[->] (0,0) -- (0,1.15) node[left] {$F$};
+								\foreach \k in {0,...,4} \draw (\k,0) node[below] {\small $\k$};
+								\draw (0,1) node[left] {\small $1$} (0,0.5) node[left] {\small $0{,}5$};
+								\draw[loko1,very thick] (-1,0) -- (0,0);
+								\foreach \a/\b/\v in {0/1/0.0707,1/2/0.4242,2/3/0.8485,3/4/0.9899,4/5.2/1}
+									{\draw[loko1,very thick] (\a,\v) -- (\b,\v); \fill[loko1] (\a,\v) circle (1.5pt);}
+							\end{tikzpicture}
+							\qquad
+							\begin{tikzpicture}[x=1cm,y=8cm,>=stealth]
+								\draw[->] (-0.5,0) -- (4.6,0) node[below] {$k$};
+								\draw[->] (0,0) -- (0,0.52) node[left] {$P$};
+								\foreach \k in {0,...,4} \draw (\k,0) node[below] {\small $\k$};
+								\draw (0,0.25) node[left] {\small $0{,}25$};
+								\foreach \k/\v in {0/0.0707,1/0.3535,2/0.4242,3/0.1414,4/0.0101}
+									\draw[loko3,line width=3pt] (\k,0) -- (\k,\v);
+							\end{tikzpicture}
+							\end{center}
+					\end{enumerate}
+			\end{enumerate}
+		\item[II.]
+			\begin{enumerate}
+				\item \vln{Point moyen :}
+					$\bar{x} = \frac{0+1+2+3+4}{5} = 2$. $G$ appartient à la droite de régression, donc
+					$\bar{y} = 57{,}3\times2 + 516{,}2 = 630{,}8$.
+
+					\ansbox{$G(2\ ;\ 630{,}8)$.}
+				\item \vln{Valeur de $y_3$ :}
+					$504 + 580 + 644 + y_3 + 735 = 5\bar{y} = 3\,154$, donc $y_3 = 3\,154 - 2\,463$.
+
+					\ansbox{$y_3 = 691$} (millions d'ariary).
+
+					(Avec cette valeur, on retrouve bien $a = \frac{\mathrm{cov}(x,y)}{V(x)} = \frac{114{,}6}{2} = 57{,}3$.)
+				\item \vln{Année cherchée :}
+					on résout $57{,}3x + 516{,}2 = 1\,433$ : $x = \frac{916{,}8}{57{,}3} = 16$.
+					Le rang $16$ correspond à l'année $2008 + 16$.
+
+					\ansbox{Selon cet ajustement, le chiffre d'affaires atteindrait $1\,433$ millions d'ariary en 2024.}
+			\end{enumerate}
+	\end{description}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\noindent \underline{\textsc{\textbf{Probleme}}} (10 points)
+	\begin{enumerate}
+		\item \begin{enumerate}
+			\item \vln{Variations de $g$ :}
+				$g'(x) = 1 - \expo{x}$, positif pour $x < 0$, nul en $0$, négatif pour $x > 0$ ; $g(0) = 1 - 1 = 0$.
+				\[
+				\begin{array}{c|ccccc}
+					x & -\infty & & 0 & & +\infty \\ \hline
+					g'(x) & & + & 0 & - & \\ \hline
+					g(x) & & \nearrow & 0 & \searrow &
+				\end{array}
+				\]
+			\item \vln{Signe de $g$ :} $g$ admet en $0$ un maximum égal à $0$, atteint seulement en $0$.
+
+				\ansbox{$g(x) < 0$ pour tout $x \neq 0$, et $g(0) = 0$.}
+		\end{enumerate}
+		\item \begin{enumerate}
+			\item \vln{Limite en $-1^+$ :}
+				$\lim_{x\to-1^+}\ln(x+1) = -\infty$ et $\lim_{x\to-1}\expo{-x} = \expo{}$.
+
+				\ansbox{$\lim_{x\to-1^+} f(x) = -\infty$ :}
+
+				la droite d'équation $x = -1$ est asymptote verticale à $\Courbe$.
+			\item \vln{Limite en $+\infty$ :} $\ln(x+1) \to +\infty$ et $\expo{-x} \to 0$.
+
+				\ansbox{$\lim_{x\to+\infty} f(x) = +\infty$.}
+			\item \vln{Écriture de $\frac{f(x)}{x}$ :} pour $x \in Df$, $x \neq 0$ (le quotient n'a pas de sens en $0$),
+				\[
+					\frac{f(x)}{x} = \frac{\ln(x+1)}{x} + \frac{\expo{-x}}{x} = \frac{\ln(x+1)}{x+1}\times\frac{x+1}{x} + \frac{1}{x\expo{x}}.
+				\]
+			\item \vln{Limite de $\frac{f(x)}{x}$ :}
+				quand $x \to +\infty$, $X = x + 1 \to +\infty$ et $\frac{\ln X}{X} \to 0$ ; $\frac{x+1}{x} \to 1$ ; $x\expo{x} \to +\infty$.
+
+				\ansbox{$\lim_{x\to+\infty}\frac{f(x)}{x} = 0$ :}
+
+				comme $f(x) \to +\infty$, $\Courbe$ admet en $+\infty$ une branche parabolique de direction $(Ox)$.
+		\end{enumerate}
+		\item \begin{enumerate}
+			\item \vln{Dérivée :}
+				$f'(x) = \frac{1}{x+1} - \expo{-x} = \frac{\expo{x} - (x+1)}{(x+1)\expo{x}}$, donc
+
+				\ansbox{$f'(x) = \frac{-g(x)}{(x+1)\expo{x}}$.}
+			\item \vln{Tableau de variation :}
+				sur $Df$, $(x+1)\expo{x} > 0$, donc $f'(x)$ a le signe de $-g(x)$ : $f'(x) > 0$ pour $x \neq 0$ et $f'(0) = 0$.
+				$f$ est donc strictement croissante sur $Df$ ; $f(0) = 1$.
+				\[
+				\begin{array}{c|ccccc}
+					x & -1 & & 0 & & +\infty \\ \hline
+					f'(x) & \| & + & 0 & + & \\ \hline
+					f(x) & \| \; -\infty & \nearrow & 1 & \nearrow & +\infty
+				\end{array}
+				\]
+		\end{enumerate}
+		\item \begin{enumerate}
+			\item \vln{Intersection avec $(Ox)$ :}
+				$f$ est continue et strictement croissante sur $]-1;0]$, avec $\lim_{-1^+} f = -\infty$ et $f(0) = 1 > 0$ :
+				l'équation $f(x) = 0$ a une unique solution $\alpha$ dans $]-1;0[$ ; sur $[0;+\infty[$, $f(x) \geq 1$, il n'y en a pas d'autre.
+
+				\ansbox{$\Courbe$ coupe $(Ox)$ en un seul point, d'abscisse $\alpha \in\ ]-1;0[$}
+
+				($f(-0{,}95) \simeq -0{,}41$ et $f(-0{,}9) \simeq 0{,}16$, donc $-0{,}95 < \alpha < -0{,}9$ ; $\alpha \simeq -0{,}92$).
+			\item \vln{Tangente en $0$ :} $f(0) = 1$ et $f'(0) = 0$.
+
+				\ansbox{$(T) : y = 1$} (tangente horizontale).
+		\end{enumerate}
+		\item \vln{Construction :} (la courbe $(\mathscr{C}')$ de la question 7 y figure aussi).
+			\begin{center}
+			\begin{tikzpicture}[x=1cm,y=1cm,>=stealth]
+				\draw[very thin,gray!40] (-3,-3) grid (5,5);
+				\draw[->] (-3,0) -- (5.3,0) node[below] {$x$};
+				\draw[->] (0,-3) -- (0,5.3) node[left] {$y$};
+				\draw (1,0) node[below] {\small $1$} (0,1) node[left] {\small $1$};
+				\clip (-3,-3) rectangle (5,5);
+				\draw[gray,dashed] (-3,-3) -- (5,5);
+				\draw[gray,dashed] (-1,-3) -- (-1,5) (-3,-1) -- (5,-1);
+				\draw[loko3,thick] (-3,1) -- (5,1);
+				\draw[loko1,very thick,smooth,samples=120] plot[domain=-0.997:5] (\x,{ln(\x+1)+exp(-\x)});
+				\draw[loko5,very thick,smooth,samples=120] plot[domain=-0.997:5] ({ln(\x+1)+exp(-\x)},\x);
+				\fill (-0.918,0) circle (2pt) node[below left] {\small $\alpha$};
+				\node[loko3] at (4.5,1.3) {$(T)$};
+				\node[loko1] at (4.3,2.2) {$\Courbe$};
+				\node[loko5] at (2.3,4.5) {$(\mathscr{C}')$};
+			\end{tikzpicture}
+			\end{center}
+		\item \begin{enumerate}
+			\item \vln{Décomposition :}
+				$\frac{x}{x+1} = \frac{(x+1) - 1}{x+1} = 1 - \frac{1}{x+1}$.
+
+				\ansbox{$a = 1$ et $b = -1$.}
+
+				\textit{(L'énoncé dit << déterminer les réels >> : il s'agit des réels $a$ et $b$ tels que l'égalité soit vraie pour tout $x \neq -1$.)}
+			\item \vln{Primitive de $k$ :}
+				on pose $u(x) = \ln(x+1)$, $v'(x) = 1$ ; $u'(x) = \frac{1}{x+1}$, $v(x) = x$ :
+				\[
+					\int \ln(x+1)\dx = x\ln(x+1) - \int\frac{x}{x+1}\dx = x\ln(x+1) - x + \ln(x+1) + c.
+				\]
+
+				\ansbox{$K(x) = (x+1)\ln(x+1) - x$ est une primitive de $k$ sur $Df$.}
+			\item \vln{Aire :}
+				sur $[0;1]$, $f(x) \geq 1 > 0$ ; l'unité d'aire vaut $1\cm^2$.
+				\[
+					\int_0^1 f(x)\dx = \Big[(x+1)\ln(x+1) - x - \expo{-x}\Big]_0^1 = \left(2\ln2 - 1 - \expo{-1}\right) - (0 - 0 - 1).
+				\]
+
+				\ansbox{$\mathscr{A} = \left(2\ln 2 - \frac{1}{\expo{}}\right)\cm^2 \simeq 1{,}02\cm^2$.}
+		\end{enumerate}
+		\item \begin{enumerate}
+			\item \vln{Bijection :}
+				$f$ est continue et strictement croissante sur $Df = ]-1;+\infty[$, avec $\lim_{-1^+} f = -\infty$ et $\lim_{+\infty} f = +\infty$.
+
+				\ansbox{$f$ réalise une bijection de $]-1;+\infty[$ sur $J = \mathbb{R}$.}
+			\item \vln{Courbe $(\mathscr{C}')$ :}
+				$(\mathscr{C}')$ est la symétrique de $\Courbe$ par rapport à la droite d'équation $y = x$ (voir la figure) ;
+				elle admet la droite $y = -1$ comme asymptote horizontale en $-\infty$, une tangente verticale au point $(1;0)$
+				et passe par le point $(0;\alpha)$.
+		\end{enumerate}
+	\end{enumerate}

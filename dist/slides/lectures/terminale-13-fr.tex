@@ -2,7 +2,12 @@
 \makeatletter\IfFileExists{core/beamer/beamerthememx.sty}{\def\mxcorepath{core/}\def\input@path{{core/beamer/}{core/}}}{\def\mxcorepath{../core/}\def\input@path{{../core/beamer/}{../core/}}}\makeatother
 \documentclass[aspectratio=169,10pt,t]{beamer}
 \usetheme{mx}
-\usepackage{graphicx,booktabs}
+\usepackage{graphicx,booktabs,mathtools,array,adjustbox}
+\usepackage[all]{xy}
+\providecommand{\actualtextwidth}{\textwidth}
+\providecommand{\veccor}[2]{\left(\begin{matrix}#1\\#2\end{matrix}\right)}
+\DeclarePairedDelimiter{\VecNorm}{\lVert}{\rVert}
+\providecommand{\ETC}{\ldots}
 \usepackage[french]{babel}
 \setlength{\parskip}{.45em}
 \hypersetup{pdfauthor={},pdfsubject={Lecture slides},pdfkeywords={},pdftitle={Représentations paramétriques et équations cartésiennes}}
@@ -36,48 +41,50 @@
 \author{}
 \begin{document}
 \mxtitleframe
-\begin{frame}{Objectifs}
+\begin{frame}[allowframebreaks]{Objectifs}
 Décrire une droite et un plan ; déterminer des intersections ; choisir une méthode pour une projection.
 \end{frame}
-\begin{frame}{Notes de cours}
+\begin{frame}[allowframebreaks]{Notes de cours}
 Dans tout ce chapitre, les coordonnées sont données dans un repère orthonormé de l'espace. Cette hypothèse est nécessaire pour identifier un vecteur normal à partir des coefficients d'une équation et pour calculer les distances.
 \end{frame}
-\begin{frame}{Droites paramétrées}
+\begin{frame}[allowframebreaks]{Droites paramétrées}
 La droite passant par \(A(x_A;y_A;z_A)\) de vecteur directeur non nul \((a;b;c)\) admet la représentation
 \[d:\quad\begin{cases}x=x_A+at\\y=y_A+bt\\z=z_A+ct\end{cases}\quad(t\in\R).\]
+
 Un point appartient à la droite s'il existe \emph{un même} réel \(t\) satisfaisant les trois égalités. Une droite admet de nombreuses représentations : changement du point de départ ou multiplication du directeur par un réel non nul.
 \end{frame}
-\begin{frame}{Droites paramétrées}
+\begin{frame}[allowframebreaks]{Droites paramétrées}
 \((x;y;z)=(1;2;0)+t(2;-1;3)\) décrit la même droite que \((3;1;3)+s(4;-2;6)\) ; le lien est \(t=1+2s\).
 \end{frame}
-\begin{frame}{Plans cartésiens}
+\begin{frame}[allowframebreaks]{Plans cartésiens}
 Si \((a;b;c)\ne(0;0;0)\), l'ensemble \(ax+by+cz+d=0\) est un plan de vecteur normal \((a;b;c)\). Le plan de normal \(\vec n\) passant par \(A\) se construit en écrivant \(\vect{AM}\cdot\vec n=0\).
 \end{frame}
-\begin{frame}{Plans cartésiens}
+\begin{frame}[allowframebreaks]{Plans cartésiens}
 La condition \(\vect{AM}\cdot\vec n=0\) s'écrit \(a(x-x_A)+b(y-y_A)+c(z-z_A)=0\). En développant, \(d=-ax_A-by_A-cz_A\). Réciproquement, tout point satisfaisant cette équation vérifie la condition d'orthogonalité, donc appartient au plan.
 \end{frame}
-\begin{frame}{Plans cartésiens}
+\begin{frame}[allowframebreaks]{Plans cartésiens}
 Le plan de normal \((2;-1;3)\) passant par \(A(1;2;0)\) est \(2(x-1)-(y-2)+3z=0\), soit \(2x-y+3z=0\).
 \end{frame}
-\begin{frame}{Intersections}
+\begin{frame}[allowframebreaks]{Intersections}
+\footnotesize
 Pour une droite et un plan, remplacer \(x,y,z\) dans l'équation du plan par leurs expressions paramétriques. Une solution en \(t\) donne une intersection ponctuelle ; une identité donne une droite incluse ; une contradiction donne une droite parallèle disjointe.
 Pour deux plans, des normales non colinéaires donnent une intersection suivant une droite ; résoudre le système à deux équations en choisissant une variable comme paramètre. Si les normales sont colinéaires, les plans sont parallèles : distinguer confondus et disjoints.
 Pour deux droites, utiliser des paramètres \(s,t\) indépendants et résoudre les trois équations. Sans solution et avec directeurs non colinéaires, les droites sont non coplanaires.
 \end{frame}
-\begin{frame}{Projection sur un plan}
+\begin{frame}[allowframebreaks]{Projection sur un plan}
 Si \(\mathcal P:ax+by+cz+d=0\), chercher le projeté de \(M\) sur la droite normale passant par \(M\) : \(H=M+t(a;b;c)\). Remplacer dans l'équation du plan pour déterminer \(t\), puis calculer \(MH\).
 On en déduit, sans en faire une formule à apprendre isolément,
 \[d(M,\mathcal P)=\dfrac{|ax_M+by_M+cz_M+d|}{\sqrt{a^2+b^2+c^2}}.\]
 \end{frame}
-\begin{frame}{Projection sur un plan}
+\begin{frame}[allowframebreaks]{Projection sur un plan}
 Après le calcul d'un projeté, contrôler simultanément \(H\in\mathcal P\) et la colinéarité de \(\vect{MH}\) avec le normal.
 \end{frame}
-\begin{frame}{Activité de recherche}
+\begin{frame}[allowframebreaks]{Activité de recherche}
 \textbf{Trois droites face à un plan - 30 min.}
 
 Dans un repère orthonormé de l'espace, on considère le plan \(\mathcal P\) d'équation \(x+y+z=3\). Dans chaque question, le paramètre \(t\) parcourt \(\R\).
 \end{frame}
-\begin{frame}{Activité de recherche (2)}
+\begin{frame}[allowframebreaks]{Activité de recherche (2)}
 \begin{enumerate}
 \setcounter{enumi}{0}\item La droite \(d_1\) admet la représentation \((x;y;z)=(t;t;t)\). Déterminer \(d_1\cap\mathcal P\).
 
@@ -87,7 +94,7 @@ Dans un repère orthonormé de l'espace, on considère le plan \(\mathcal P\) d'
 
 \end{enumerate}
 \end{frame}
-\begin{frame}{Activité de recherche (3)}
+\begin{frame}[allowframebreaks]{Activité de recherche (3)}
 \begin{enumerate}
 \setcounter{enumi}{3}\item Pour chaque droite, préciser si l'équation obtenue après substitution dans celle du plan a une solution unique, aucune solution ou tout réel pour solution. Relier ces cas aux positions géométriques trouvées.
 

@@ -2,7 +2,12 @@
 \makeatletter\IfFileExists{core/beamer/beamerthememx.sty}{\def\mxcorepath{core/}\def\input@path{{core/beamer/}{core/}}}{\def\mxcorepath{../core/}\def\input@path{{../core/beamer/}{../core/}}}\makeatother
 \documentclass[aspectratio=169,10pt,t]{beamer}
 \usetheme{mx}
-\usepackage{graphicx,booktabs}
+\usepackage{graphicx,booktabs,mathtools,array,adjustbox}
+\usepackage[all]{xy}
+\providecommand{\actualtextwidth}{\textwidth}
+\providecommand{\veccor}[2]{\left(\begin{matrix}#1\\#2\end{matrix}\right)}
+\DeclarePairedDelimiter{\VecNorm}{\lVert}{\rVert}
+\providecommand{\ETC}{\ldots}
 \usepackage[english]{babel}
 \setlength{\parskip}{.45em}
 \hypersetup{pdfauthor={},pdfsubject={Lecture slides},pdfkeywords={},pdftitle={Term review and consolidation}}
@@ -36,10 +41,10 @@
 \author{}
 \begin{document}
 \mxtitleframe
-\begin{frame}{Individual review}
+\begin{frame}[allowframebreaks]{Individual review}
 Work without the course notes for 25 minutes, then check with the methods in the booklet. For each question, note: solved alone, solved with help, or to redo. Justify the answers.
 \end{frame}
-\begin{frame}{Individual review}
+\begin{frame}[allowframebreaks]{Individual review}
 \begin{enumerate}
 \setcounter{enumi}{0}
 \item Reduce \(90/126\) to lowest terms. Prove that the sum of two odd integers is even.
@@ -54,7 +59,7 @@ Work without the course notes for 25 minutes, then check with the methods in the
 
 \end{enumerate}
 \end{frame}
-\begin{frame}{Worked answer: Individual review}
+\begin{frame}[allowframebreaks]{Worked answer: Individual review}
 1. \(\operatorname{gcd}(90,126)=18\), so \(90/126=5/7\). If \(u=2k+1\) and \(v=2\ell+1\), then \(u+v=2(k+\ell+1)\) is even.
 
 2. \(\vect{AB}=(4,-4)\); \(AB=4\sqrt2\); midpoint \(I(1,0)\).
@@ -65,13 +70,13 @@ Work without the course notes for 25 minutes, then check with the methods in the
 
 5. \(x\in[-3,5]\). Writing \(1/3=a/10^n\) would require \(10^n\) to be divisible by \(3\), which is impossible.
 \end{frame}
-\begin{frame}{Correcting an error and revisiting a method}
+\begin{frame}[allowframebreaks]{Correcting an error and revisiting a method}
 Correct: (a) “\(\vect{AB}=(x_A-x_B,y_A-y_B)\)”; (b) “The zero vector directs every line”; (c) “\(|x-2|\leq3\) gives \(x\in[2,3]\)”; (d) “\(1/3\approx0.333\), so \(1/3\) is decimal”.
 \end{frame}
-\begin{frame}{Worked answer: Correcting an error and revisiting a method}
+\begin{frame}[allowframebreaks]{Worked answer: Correcting an error and revisiting a method}
 (a) Subtract the origin from the endpoint: \((x_B-x_A,y_B-y_A)\). (b) A direction vector must be nonzero. (c) The distance to \(2\) is at most \(3\): \(x\in[-1,5]\). (d) \(0.333\) differs from \(1/3\): \(3\times0.333=0.999\ne1\). A decimal approximation does not determine the nature of the approximated number.
 \end{frame}
-\begin{frame}{Correcting an error and revisiting a method}
+\begin{frame}[allowframebreaks]{Correcting an error and revisiting a method}
 \begin{enumerate}
 \setcounter{enumi}{0}
 \item Reduce \(72/108\), then \(\dfrac34-\dfrac16\).
@@ -82,13 +87,13 @@ Correct: (a) “\(\vect{AB}=(x_A-x_B,y_A-y_B)\)”; (b) “The zero vector direc
 
 \end{enumerate}
 \end{frame}
-\begin{frame}{Worked answer: Correcting an error and revisiting a method}
+\begin{frame}[allowframebreaks]{Worked answer: Correcting an error and revisiting a method}
 1. \(2/3\); \(7/12\). 2. Midpoint \((3,2)\), direction vector \((2,1)\), equation \(x-2y+1=0\). 3. Intersection \([-1,3]\); solution of the inequality \((-3,-1)\).
 \end{frame}
-\begin{frame}{Applying and self-assessing}
+\begin{frame}[allowframebreaks]{Applying and self-assessing}
 Two displacements are represented by \(\vec u(6,4)\) and \(\vec v(9,6)\).
 \end{frame}
-\begin{frame}{Applying and self-assessing (2)}
+\begin{frame}[allowframebreaks]{Applying and self-assessing (2)}
 \begin{enumerate}
 \setcounter{enumi}{0}\item Show that they are collinear and find the coefficient relating \(\vec v\) to \(\vec u\).
 
@@ -100,10 +105,10 @@ Two displacements are represented by \(\vec u(6,4)\) and \(\vec v(9,6)\).
 
 \end{enumerate}
 \end{frame}
-\begin{frame}{Worked answer: Applying and self-assessing}
+\begin{frame}[allowframebreaks]{Worked answer: Applying and self-assessing}
 1. \(\vec v=\dfrac32\vec u\). 2. \(B(4,5)\) and \(C(7,7)\). 3. A direction vector is \((3,2)\); the equation is \(2x-3y+7=0\), satisfied by the three points. 4. \(|x-4|\leq3\iff x\in[1,7]\).
 \end{frame}
-\begin{frame}{Applying and self-assessing}
+\begin{frame}[allowframebreaks]{Applying and self-assessing}
 My priority:  
 
 The mistake to avoid:  

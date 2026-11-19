@@ -2,7 +2,12 @@
 \makeatletter\IfFileExists{core/beamer/beamerthememx.sty}{\def\mxcorepath{core/}\def\input@path{{core/beamer/}{core/}}}{\def\mxcorepath{../core/}\def\input@path{{../core/beamer/}{../core/}}}\makeatother
 \documentclass[aspectratio=169,10pt,t]{beamer}
 \usetheme{mx}
-\usepackage{graphicx,booktabs}
+\usepackage{graphicx,booktabs,mathtools,array,adjustbox}
+\usepackage[all]{xy}
+\providecommand{\actualtextwidth}{\textwidth}
+\providecommand{\veccor}[2]{\left(\begin{matrix}#1\\#2\end{matrix}\right)}
+\DeclarePairedDelimiter{\VecNorm}{\lVert}{\rVert}
+\providecommand{\ETC}{\ldots}
 \usepackage[french]{babel}
 \setlength{\parskip}{.45em}
 \hypersetup{pdfauthor={},pdfsubject={Lecture slides},pdfkeywords={},pdftitle={Révisions et consolidation}}
@@ -36,10 +41,10 @@
 \author{}
 \begin{document}
 \mxtitleframe
-\begin{frame}{Stratégie de révision}
+\begin{frame}[allowframebreaks]{Stratégie de révision}
 Une révision efficace alterne récupération en mémoire, correction explicite des erreurs et réemploi dans un problème. Relire passivement le cours ne suffit pas : il faut tenter une question sans modèle, comparer sa réponse, puis refaire la question après un délai.
 \end{frame}
-\begin{frame}{Diagnostic des acquis}
+\begin{frame}[allowframebreaks]{Diagnostic des acquis}
 \begin{itemize}
 \item Identifier les acquis.
 \item Classer les erreurs.
@@ -47,10 +52,10 @@ Une révision efficace alterne récupération en mémoire, correction explicite 
 
 \end{itemize}
 \end{frame}
-\begin{frame}{Diagnostic des acquis}
+\begin{frame}[allowframebreaks]{Diagnostic des acquis}
 Répondre sans cours aux 14 questions suivantes, deux par chapitre. Reporter chaque erreur dans une grille : connaissance, choix de méthode, calcul, lecture, rédaction. Choisir ensuite deux priorités personnelles.
 \end{frame}
-\begin{frame}{Diagnostic des acquis (2)}
+\begin{frame}[allowframebreaks]{Diagnostic des acquis (2)}
 \begin{enumerate}
 \setcounter{enumi}{0}\item Suites. La suite \((u_n)\) est arithmétique de premier terme \(u_0=7\) et de raison \(-3\). Calculer \(u_{10}\). \ldots{}
 
@@ -60,7 +65,7 @@ Répondre sans cours aux 14 questions suivantes, deux par chapitre. Reporter cha
 
 \end{enumerate}
 \end{frame}
-\begin{frame}{Diagnostic des acquis (3)}
+\begin{frame}[allowframebreaks]{Diagnostic des acquis (3)}
 \begin{enumerate}
 \setcounter{enumi}{3}\item Exponentielles. Une quantité de 500 augmente de \(4\,\%\) par an. Écrire le modèle \(f(x)\) après \(x\) années. \ldots{}
 
@@ -72,10 +77,10 @@ Répondre sans cours aux 14 questions suivantes, deux par chapitre. Reporter cha
 
 \end{enumerate}
 \end{frame}
-\begin{frame}{Correction : Diagnostic des acquis}
+\begin{frame}[allowframebreaks]{Correction : Diagnostic des acquis}
 \textbf{1.} \(-23\) \ensuremath{\cdot} \textbf{2.} \(220{,}5\) \ensuremath{\cdot} \textbf{3.} décroissante \ensuremath{\cdot} \textbf{4.} \(500\times1{,}04^x\) \ensuremath{\cdot} \textbf{5.} \(x=-2\) \ensuremath{\cdot} \textbf{6.} \(2\) \ensuremath{\cdot} \textbf{7.} \(0{,}25\)
 \end{frame}
-\begin{frame}{Diagnostic des acquis}
+\begin{frame}[allowframebreaks]{Diagnostic des acquis}
 \begin{enumerate}
 \setcounter{enumi}{7}\item Fonction inverse. Donner le sens de variation de \(x\mapsto\dfrac1x\) sur \(]0;+\infty[\). \ldots{}
 
@@ -87,7 +92,7 @@ Répondre sans cours aux 14 questions suivantes, deux par chapitre. Reporter cha
 
 \end{enumerate}
 \end{frame}
-\begin{frame}{Diagnostic des acquis (2)}
+\begin{frame}[allowframebreaks]{Diagnostic des acquis (2)}
 \begin{enumerate}
 \setcounter{enumi}{11}\item Probabilités conditionnelles. \(P(A\cap B)=0{,}12\) et \(P(A)=0{,}3\). Calculer \(P_A(B)\). \ldots{}
 
@@ -97,23 +102,23 @@ Répondre sans cours aux 14 questions suivantes, deux par chapitre. Reporter cha
 
 \end{enumerate}
 \end{frame}
-\begin{frame}{Correction : Diagnostic des acquis}
+\begin{frame}[allowframebreaks]{Correction : Diagnostic des acquis}
 \textbf{8.} décroissante \ensuremath{\cdot} \textbf{9.} \(23\) \ensuremath{\cdot} \textbf{10.} \(G(2;6)\) \ensuremath{\cdot} \textbf{11.} \(0{,}2\) \ensuremath{\cdot} \textbf{12.} \(0{,}4\) \ensuremath{\cdot} \textbf{13.} \(0{,}125\) \ensuremath{\cdot} \textbf{14.} \(0{,}7\)
 \end{frame}
-\begin{frame}{Diagnostic des acquis}
+\begin{frame}[allowframebreaks]{Diagnostic des acquis}
 Le diagnostic sert à choisir la remédiation : reconnaître l'erreur, retrouver la règle utile, refaire une question analogue, puis vérifier sans aide.
 \end{frame}
-\begin{frame}{Diagnostic des acquis}
+\begin{frame}[allowframebreaks]{Diagnostic des acquis}
 Reprendre les données de l'activité et rédiger la solution dans l'ordre : définition des objets, propriété utilisée, calcul exact ou approché, puis phrase de réponse. La réponse modèle figure dans l'édition enseignant.
 \end{frame}
-\begin{frame}{Diagnostic des acquis}
+\begin{frame}[allowframebreaks]{Diagnostic des acquis}
 \textbf{Conduite en 1 h :} 7 min d'automatismes ; 10 min de mise en commun et trace ; 28 min d'exercices essentiels ; 5 min de correction ; 3 min de billet de sortie.
 
 \textbf{Conduite en 2 h :} ajouter 20 min de recherche de l'activité, 20 min d'institutionnalisation, un second exercice autonome et 10 min de correction comparée.
 
 \textbf{Différenciation :} fournir aux élèves fragiles une fiche à quatre cases (données, modèle, calcul, conclusion). Demander aux élèves rapides de produire un contre-exemple, une justification ou une seconde méthode.
 \end{frame}
-\begin{frame}{Réactivation : fonctions exponentielles}
+\begin{frame}[allowframebreaks]{Réactivation : fonctions exponentielles}
 \begin{itemize}
 \item Réactiver les modèles exponentiels.
 \item Résoudre et interpréter.
@@ -132,20 +137,20 @@ Une valeur de \(18\,000\) augmente de \(3{,}5\,\%\) par an. Écrire le modèle, 
 \end{column}
 \end{columns}
 \end{frame}
-\begin{frame}{Réactivation : fonctions exponentielles}
+\begin{frame}[allowframebreaks]{Réactivation : fonctions exponentielles}
 Une fonction exponentielle modélise une évolution relative constante. Identifier d'abord la valeur initiale et le coefficient multiplicateur.
 \end{frame}
-\begin{frame}{Réactivation : fonctions exponentielles}
+\begin{frame}[allowframebreaks]{Réactivation : fonctions exponentielles}
 Reprendre les données de l'activité et rédiger la solution dans l'ordre : définition des objets, propriété utilisée, calcul exact ou approché, puis phrase de réponse. La réponse modèle figure dans l'édition enseignant.
 \end{frame}
-\begin{frame}{Réactivation : fonctions exponentielles}
+\begin{frame}[allowframebreaks]{Réactivation : fonctions exponentielles}
 \textbf{Conduite en 1 h :} 7 min d'automatismes ; 10 min de mise en commun et trace ; 28 min d'exercices essentiels ; 5 min de correction ; 3 min de billet de sortie.
 
 \textbf{Conduite en 2 h :} ajouter 20 min de recherche de l'activité, 20 min d'institutionnalisation, un second exercice autonome et 10 min de correction comparée.
 
 \textbf{Différenciation :} fournir aux élèves fragiles une fiche à quatre cases (données, modèle, calcul, conclusion). Demander aux élèves rapides de produire un contre-exemple, une justification ou une seconde méthode.
 \end{frame}
-\begin{frame}{Réactivation : logarithme décimal}
+\begin{frame}[allowframebreaks]{Réactivation : logarithme décimal}
 \begin{itemize}
 \item Réactiver les logarithmes.
 \item Résoudre une équation.
@@ -153,23 +158,23 @@ Reprendre les données de l'activité et rédiger la solution dans l'ordre : dé
 
 \end{itemize}
 \end{frame}
-\begin{frame}{Réactivation : logarithme décimal}
+\begin{frame}[allowframebreaks]{Réactivation : logarithme décimal}
 Résoudre \(10^x=340\), \(1{,}06^n=2\) et \(1{,}06^n\geq2\). Pour chaque réponse, distinguer valeur réelle, valeur approchée et rang entier minimal.
 \end{frame}
-\begin{frame}{Réactivation : logarithme décimal}
+\begin{frame}[allowframebreaks]{Réactivation : logarithme décimal}
 Le logarithme transforme une équation exponentielle en équation sur l'exposant. Conditions : base positive différente de \(1\), second membre positif.
 \end{frame}
-\begin{frame}{Réactivation : logarithme décimal}
+\begin{frame}[allowframebreaks]{Réactivation : logarithme décimal}
 Reprendre les données de l'activité et rédiger la solution dans l'ordre : définition des objets, propriété utilisée, calcul exact ou approché, puis phrase de réponse. La réponse modèle figure dans l'édition enseignant.
 \end{frame}
-\begin{frame}{Réactivation : logarithme décimal}
+\begin{frame}[allowframebreaks]{Réactivation : logarithme décimal}
 \textbf{Conduite en 1 h :} 7 min d'automatismes ; 10 min de mise en commun et trace ; 28 min d'exercices essentiels ; 5 min de correction ; 3 min de billet de sortie.
 
 \textbf{Conduite en 2 h :} ajouter 20 min de recherche de l'activité, 20 min d'institutionnalisation, un second exercice autonome et 10 min de correction comparée.
 
 \textbf{Différenciation :} fournir aux élèves fragiles une fiche à quatre cases (données, modèle, calcul, conclusion). Demander aux élèves rapides de produire un contre-exemple, une justification ou une seconde méthode.
 \end{frame}
-\begin{frame}{Réactivation : fonction inverse}
+\begin{frame}[allowframebreaks]{Réactivation : fonction inverse}
 \begin{itemize}
 \item Réactiver la fonction inverse.
 \item Mener une étude.
@@ -188,13 +193,13 @@ Reprendre les données de l'activité et rédiger la solution dans l'ordre : dé
 \end{column}
 \end{columns}
 \end{frame}
-\begin{frame}{Réactivation : fonction inverse}
+\begin{frame}[allowframebreaks]{Réactivation : fonction inverse}
 Pour une fonction contenant \(\dfrac1x\), commencer par exclure \(x=0\), puis dériver, factoriser et étudier le signe avant les variations.
 \end{frame}
-\begin{frame}{Réactivation : fonction inverse}
+\begin{frame}[allowframebreaks]{Réactivation : fonction inverse}
 Reprendre les données de l'activité et rédiger la solution dans l'ordre : définition des objets, propriété utilisée, calcul exact ou approché, puis phrase de réponse. La réponse modèle figure dans l'édition enseignant.
 \end{frame}
-\begin{frame}{Réactivation : fonction inverse}
+\begin{frame}[allowframebreaks]{Réactivation : fonction inverse}
 \textbf{Conduite en 1 h :} 7 min d'automatismes ; 10 min de mise en commun et trace ; 28 min d'exercices essentiels ; 5 min de correction ; 3 min de billet de sortie.
 
 \textbf{Conduite en 2 h :} ajouter 20 min de recherche de l'activité, 20 min d'institutionnalisation, un second exercice autonome et 10 min de correction comparée.

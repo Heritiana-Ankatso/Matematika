@@ -1,0 +1,193 @@
+% Baccalauréat malgache, série D, 2009 : corrigé.
+\TCDBacAttribution{D}{2009}
+\providecommand{\Plan}{(\mathscr{P})}
+\providecommand{\Ouv}{(O ; \vec{u} , \vec{v})}
+\providecommand{\Courbe}{(\mathscr{C})}
+\providecommand{\cm}{~\mathrm{cm}}
+\providecommand{\dx}{~\mathrm{d}x}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\noindent \underline{\textsc{\textbf{Exercice I}}} (5 points)
+\begin{enumerate}
+   \item
+      \begin{enumerate}
+         \item \vln{Calcul de $P(2)$ :}
+            $P(2) = 8 - 4(6 + 2i) + 2(10 + 8i) - 4 - 8i = 8 - 24 - 8i + 20 + 16i - 4 - 8i$, \ansbox{$P(2) = 0$.}
+         \item \vln{R\'esolution de $P(z) = 0$ :}
+            $2$ est racine, donc $P(z) = (z - 2)(z^2 + pz + q)$. En d\'eveloppant :
+            $z^3 + (p - 2)z^2 + (q - 2p)z - 2q$. Par identification, $-2q = -4 - 8i$ donne $q = 2 + 4i$ et
+            $p - 2 = -6 - 2i$ donne $p = -4 - 2i$ ; on v\'erifie $q - 2p = 2 + 4i + 8 + 4i = 10 + 8i$.
+            Puis $z^2 - (4 + 2i)z + 2 + 4i = 0$ : $\Delta = (4 + 2i)^2 - 4(2 + 4i) = 12 + 16i - 8 - 16i = 4 = 2^2$,
+            $z = \frac{4 + 2i \pm 2}{2}$, soit $3 + i$ ou $1 + i$.
+            \par\noindent\ansbox{$S_{\mathbb{C}} = \{ 2 \,;\, 1 + i \,;\, 3 + i \}$} (ce sont $b$, $a$ et $c$).
+      \end{enumerate}
+   \item
+      \begin{enumerate}
+         \item \vln{Calcul de $d$ :}
+            $\overrightarrow{BA}(-1 ; 1)$ et $\overrightarrow{BC}(1 ; 1)$ ont m\^eme longueur $\sqrt{2}$ et sont orthogonaux :
+            le triangle $ABC$ est rectangle isoc\`ele en $B$. $ABCD$ est alors un carr\'e si et seulement si
+            c'est un parall\'elogramme, c'est-\`a-dire $\overrightarrow{AD} = \overrightarrow{BC}$ : $d = a + c - b = 1 + i + 3 + i - 2$.
+            \par\noindent\ansbox{$d = 2 + 2i$.}
+         \item \vln{\'El\'ements caract\'eristiques de $S : z' = (1 + i)z + 4i$ :}
+            $1 + i = \sqrt{2}\,\expo{i\frac{\pi}{4}}$ : rapport $\sqrt{2}$, angle $\frac{\pi}{4}$ ;
+            centre $\omega = \dfrac{4i}{1 - (1 + i)} = \dfrac{4i}{-i} = -4$.\par\noindent
+            \par\noindent\ansbox{$S$ : similitude directe de centre $\Omega(-4 ; 0)$, de rapport $\sqrt{2}$ et d'angle $\frac{\pi}{4}$.}
+
+            \vln{Expression analytique :}
+            $x' + iy' = (1 + i)(x + iy) + 4i = (x - y) + i(x + y + 4)$, donc
+            \par\noindent\ansbox{$S : \begin{cases} x' = x - y \\ y' = x + y + 4 \end{cases}$}
+      \end{enumerate}
+   \item \vln{Construction de $ABCD$ et de son image :}
+      $A' = S(A)$ : $(1+i)^2 + 4i = 6i$ ; $B'$ : $2 + 2i + 4i = 2 + 6i$ ; $C'$ : $(1+i)(3+i) + 4i = 2 + 8i$ ; $D'$ : $(1+i)(2+2i) + 4i = 8i$.
+      \par\noindent\ansbox{$A'(0 ; 6)$, $B'(2 ; 6)$, $C'(2 ; 8)$, $D'(0 ; 8)$} : $A'B'C'D'$ est un carr\'e de c\^ot\'e $\sqrt{2} \times \sqrt{2} = 2$.
+      \begin{center}
+      \begin{tikzpicture}[scale=0.55,>=stealth]
+         \draw[very thin,gray!30] (-5,-1) grid (4,9);
+         \draw[->] (-5,0) -- (4,0) node[below left] {$x$};
+         \draw[->] (0,-1) -- (0,9) node[below left] {$y$};
+         \foreach \t in {-4,-2,2} \draw (\t,0.1) -- (\t,-0.1) node[below] {\tiny $\t$};
+         \foreach \t in {2,4,6,8} \draw (0.1,\t) -- (-0.1,\t) node[left] {\tiny $\t$};
+         \draw[loko1,thick,fill=loko1!15] (1,1) -- (2,0) -- (3,1) -- (2,2) -- cycle;
+         \draw[loko4,thick,fill=loko4!15] (0,6) -- (2,6) -- (2,8) -- (0,8) -- cycle;
+         \node[left] at (1,1) {\scriptsize $A$}; \node[below] at (2,0) {\scriptsize $B$};
+         \node[right] at (3,1) {\scriptsize $C$}; \node[above] at (2,2) {\scriptsize $D$};
+         \node[below left] at (0,6) {\scriptsize $A'$}; \node[below right] at (2,6) {\scriptsize $B'$};
+         \node[above right] at (2,8) {\scriptsize $C'$}; \node[above left] at (0,8) {\scriptsize $D'$};
+         \fill (-4,0) circle (2.5pt) node[above] {\scriptsize $\Omega$};
+      \end{tikzpicture}
+      \end{center}
+\end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\noindent \underline{\textsc{\textbf{Exercice II}}} (5 points)
+\begin{enumerate}
+   \item \vln{Probabilit\'es des num\'eros de $D_1$ :}
+      (Le d\'e est dit << truqu\'e >> \`a cause de sa num\'erotation ; ses six faces restent \'equiprobables.)
+      \par\noindent\ansbox{$P_1 = \frac{1}{6}$, $P_2 = \frac{2}{6} = \frac{1}{3}$, $P_3 = \frac{3}{6} = \frac{1}{2}$.}
+   \item Les d\'es sont ind\'ependants ; chaque face de $D_2$ a la probabilit\'e $\frac{1}{6}$.
+      \begin{enumerate}
+         \item \vln{\'Ev\`enement $A$ :}
+            $P(A) = P_1\cdot\frac{1}{6} + P_2\cdot\frac{1}{6} + P_3\cdot\frac{1}{6} = \frac{1}{6}(P_1 + P_2 + P_3)$,
+            \par\noindent\ansbox{$P(A) = \frac{1}{6}$.}
+         \item \vln{Loi de $X$ et esp\'erance :}
+            $X(\Omega) = \{2, 3, \dots, 9\}$ et $P(X = s) = \frac{1}{6}\sum P_i$, la somme portant sur les $i \in \{1, 2, 3\}$ tels que
+            $1 \leq s - i \leq 6$. En trente-sixi\`emes ($P_1 = \frac{1}{6}$, $P_2 = \frac{2}{6}$, $P_3 = \frac{3}{6}$) :
+            \[
+               \begin{array}{|c|c|c|c|c|c|c|c|c|}
+                  \hline
+                  s & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 \\ \hline
+                  P(X = s) & \frac{1}{36} & \frac{1}{12} & \frac{1}{6} & \frac{1}{6} & \frac{1}{6} & \frac{1}{6} & \frac{5}{36} & \frac{1}{12} \\ \hline
+               \end{array}
+            \]
+            (Effectifs en trente-sixi\`emes : $1, 3, 6, 6, 6, 6, 5, 3$, de somme $36$.)
+            $E(X) = \frac{2 + 9 + 24 + 30 + 36 + 42 + 40 + 27}{36} = \frac{210}{36}$, \ansbox{$E(X) = \frac{35}{6}$}
+            (c'est aussi $E(D_1) + E(D_2) = \frac{14}{6} + \frac{7}{2}$).
+         \item
+            \begin{enumerate}
+               \item \vln{Loi de $Y$ :}
+                  Trois lancers ind\'ependants, la face << 2 >> apparaissant avec la probabilit\'e $\frac{1}{3}$ :
+                  $Y$ suit la loi binomiale $\mathscr{B}\left(3 ; \frac{1}{3}\right)$, $P(Y = k) = \mathrm{C}_3^k\left(\frac{1}{3}\right)^k\left(\frac{2}{3}\right)^{3-k}$.
+                  \[
+                     \begin{array}{|c|c|c|c|c|}
+                        \hline
+                        k & 0 & 1 & 2 & 3 \\ \hline
+                        P(Y = k) & \frac{8}{27} & \frac{4}{9} & \frac{2}{9} & \frac{1}{27} \\ \hline
+                     \end{array}
+                  \]
+               \item \vln{Variance :} \ansbox{$V(Y) = 3 \times \frac{1}{3} \times \frac{2}{3} = \frac{2}{3}$.}
+            \end{enumerate}
+      \end{enumerate}
+\end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\noindent \underline{\textsc{\textbf{Probl\`eme}}}
+\begin{enumerate}
+   \item \vln{Ensemble de d\'efinition :}
+      $x(1 - \ln x)^2$ n'a de sens que pour $x > 0$ (domaine de $\ln$), et $f(0) = 0$ est d\'efini \`a part.
+      \par\noindent\ansbox{$D_f = [0 ; +\infty[$.}
+   \item
+      \begin{enumerate}
+         \item \vln{Continuit\'e en $0$ :}
+            $f(x) = x - 2x\ln x + x(\ln x)^2$ pour $x > 0$. Or $\lim\limits_{x\to0^+} x\ln x = 0$ et $\lim\limits_{x\to0^+} x(\ln x)^2 = 0$
+            (croissances compar\'ees). Donc $\lim\limits_{x\to0^+} f(x) = 0 = f(0)$ : \ansbox{$f$ est continue en $0$.}
+         \item \vln{D\'erivabilit\'e en $0$ :}
+            $\dfrac{f(x) - f(0)}{x - 0} = (1 - \ln x)^2 \xrightarrow[x\to0^+]{} +\infty$.\par\noindent
+            \par\noindent\ansbox{$f$ n'est pas d\'erivable en $0$ ; $\Courbe$ admet en $O$ une demi-tangente verticale.}
+      \end{enumerate}
+   \item
+      \begin{enumerate}
+         \item \vln{D\'eriv\'ee :}
+            Pour $x > 0$ : $f'(x) = (1 - \ln x)^2 + x \cdot 2(1 - \ln x)\cdot\left(-\frac{1}{x}\right) = (1 - \ln x)\big[(1 - \ln x) - 2\big]
+            = (1 - \ln x)(-1 - \ln x)$, \ansbox{$f'(x) = (\ln x - 1)(\ln x + 1)$.}
+         \item \vln{Variations :}
+            $\ln x - 1 > 0 \iff x > e$ et $\ln x + 1 > 0 \iff x > \frac{1}{e}$. Donc $f' > 0$ sur $\left]0 ; \frac{1}{e}\right[$,
+            $f' < 0$ sur $\left]\frac{1}{e} ; e\right[$, $f' > 0$ sur $]e ; +\infty[$.
+            $f\left(\frac{1}{e}\right) = \frac{1}{e}(1 + 1)^2 = \frac{4}{e} \simeq 1{,}47$ ; $f(e) = 0$ ;
+            en $+\infty$, $x \to +\infty$ et $(1 - \ln x)^2 \to +\infty$, donc $f(x) \to +\infty$.
+            \[
+               \begin{array}{c|ccccccc}
+                  x & 0 & & \frac{1}{e} & & e & & +\infty \\ \hline
+                  f'(x) & & + & 0 & - & 0 & + & \\ \hline
+                  & & & \frac{4}{e} & & & & +\infty \\
+                  f & & \nearrow & & \searrow & & \nearrow & \\
+                  & 0 & & & & 0 & &
+               \end{array}
+            \]
+            \par\noindent\ansbox{$f$ est croissante sur $\left[0 ; \frac{1}{e}\right]$, d\'ecroissante sur $\left[\frac{1}{e} ; e\right]$, croissante sur $[e ; +\infty[$.}
+      \end{enumerate}
+   \item \vln{Trac\'e de $\Courbe$} (avec la courbe $(\Gamma)$ de la question 7) :
+      Tangente horizontale en $\left(\frac{1}{e} ; \frac{4}{e}\right)$ et en $(e ; 0)$ ; demi-tangente verticale en $O$ ;
+      en $+\infty$, $\frac{f(x)}{x} = (1 - \ln x)^2 \to +\infty$ : branche parabolique de direction $(Oy)$.
+      \begin{center}
+      \begin{tikzpicture}[scale=0.85,>=stealth]
+         \draw[very thin,gray!30] (-0.5,-0.5) grid (8,8);
+         \draw[->] (-0.5,0) -- (8,0) node[below left] {$x$};
+         \draw[->] (0,-0.5) -- (0,8) node[below left] {$y$};
+         \foreach \t in {1,2,...,7} \draw (\t,0.06) -- (\t,-0.06) node[below] {\scriptsize $\t$};
+         \foreach \t in {1,2,...,7} \draw (0.06,\t) -- (-0.06,\t) node[left] {\scriptsize $\t$};
+         \begin{scope}
+            \clip (-0.5,-0.5) rectangle (8,8);
+            \draw[gray,thin] (-0.5,-0.5) -- (8,8);
+            \draw[loko1,very thick,smooth,samples=200] plot[domain=0.0005:7.6] (\x,{\x*(1-ln(\x))^2});
+            \draw[loko3,very thick,smooth,samples=150] plot[domain=2.71828:8] ({\x*(1-ln(\x))^2},\x);
+         \end{scope}
+         \fill (0.3679,1.4715) circle (1.5pt);
+         \fill (2.718,0) circle (1.5pt) node[below] {\scriptsize $e$};
+         \fill (0,2.718) circle (1.5pt) node[left] {\scriptsize $e$};
+         \fill (7.389,7.389) circle (1.5pt);
+         \node[loko1] at (6.3,7.5) {$\Courbe$};
+         \node[loko3] at (6.8,5.3) {$(\Gamma)$};
+      \end{tikzpicture}
+      \end{center}
+   \item
+      \begin{enumerate}
+         \item \vln{Calcul de $I$ par deux int\'egrations par parties :}
+            Premi\`ere : $u = (1 - \ln x)^2$, $v' = x$, $u' = -\frac{2(1 - \ln x)}{x}$, $v = \frac{x^2}{2}$ :
+            \[
+               \int_\alpha^e x(1 - \ln x)^2\dx = \left[\frac{x^2}{2}(1 - \ln x)^2\right]_\alpha^e + \int_\alpha^e x(1 - \ln x)\dx.
+            \]
+            Seconde : $u = 1 - \ln x$, $v' = x$, $u' = -\frac{1}{x}$, $v = \frac{x^2}{2}$ :
+            $\displaystyle\int_\alpha^e x(1 - \ln x)\dx = \left[\frac{x^2}{2}(1 - \ln x)\right]_\alpha^e + \int_\alpha^e \frac{x}{2}\dx
+            = \left[\frac{x^2}{2}(1 - \ln x) + \frac{x^2}{4}\right]_\alpha^e$.
+
+            \par\noindent Avec $F(x) = \frac{x^2}{2}(1 - \ln x)^2 + \frac{x^2}{2}(1 - \ln x) + \frac{x^2}{4}$ et $F(e) = \frac{e^2}{4}$ :
+            \[\boxed{I = \frac{e^2}{4} - \frac{\alpha^2}{2}(1 - \ln\alpha)^2 - \frac{\alpha^2}{2}(1 - \ln\alpha) - \frac{\alpha^2}{4}.}\]
+         \item \vln{Aire $A(\alpha)$ et limite :}
+            $f \geq 0$ sur $[\alpha ; e]$ et l'unit\'e d'aire vaut $1\cm^2$, donc \ansbox{$A(\alpha) = I\cm^2$} (expression ci-dessus).
+            Quand $\alpha \to 0^+$ : $\alpha^2 \to 0$, $\alpha^2\ln\alpha \to 0$ et $\alpha^2(\ln\alpha)^2 \to 0$, donc
+            \par\noindent\ansbox{$\lim\limits_{\alpha\to0^+} A(\alpha) = \frac{e^2}{4}\cm^2 \simeq 1{,}85\cm^2$.}
+      \end{enumerate}
+   \item
+      \begin{enumerate}
+         \item \vln{R\'eciproque de $g$ :}
+            Sur $[e ; +\infty[$, $g$ est continue et strictement croissante ($f' > 0$ sur $]e ; +\infty[$), avec $g(e) = 0$ et
+            $\lim\limits_{+\infty} g = +\infty$ : $g$ est une bijection de $[e ; +\infty[$ sur $[0 ; +\infty[$.\par\noindent
+            \par\noindent\ansbox{$g^{-1}$ existe et est d\'efinie sur $[0 ; +\infty[$ (\`a valeurs dans $[e ; +\infty[$).}
+         \item \vln{$g(\expo{2})$ et $(g^{-1})'(\expo{2})$ :}
+            $g(\expo{2}) = \expo{2}(1 - 2)^2$, \ansbox{$g(\expo{2}) = \expo{2}$} : donc $g^{-1}(\expo{2}) = \expo{2}$.
+            $g'(\expo{2}) = (2 - 1)(2 + 1) = 3 \neq 0$, donc $g^{-1}$ est d\'erivable en $\expo{2}$ et
+            $(g^{-1})'(\expo{2}) = \dfrac{1}{g'\big(g^{-1}(\expo{2})\big)} = \dfrac{1}{g'(\expo{2})}$, \ansbox{$(g^{-1})'(\expo{2}) = \frac{1}{3}$.}
+      \end{enumerate}
+   \item \vln{Courbe $(\Gamma)$ de $g^{-1}$ :}
+      $(\Gamma)$ est la sym\'etrique, par rapport \`a la droite $y = x$, de la partie de $\Courbe$ situ\'ee sur $[e ; +\infty[$
+      (voir la figure de la question 4). Elle part du point $(0 ; e)$ avec une tangente verticale (car $g'(e) = 0$),
+      passe par le point $(\expo{2} ; \expo{2}) \simeq (7{,}4 ; 7{,}4)$ o\`u elle coupe $\Courbe$, avec une tangente de pente $\frac{1}{3}$.
+\end{enumerate}

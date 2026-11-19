@@ -37,6 +37,7 @@ def inputs():
              'content/data/glossary.json', COURSES.get(course, ['unsupported'])[0], 'build/mxbuild/tex.py',
              'build/mxbuild/twin.py', 'build/mxbuild/books.py'],
             {'book': book, 'chapters': [c for c in manifest['catalog']['chapters'] if c['course'] == course]})
+    result['t12'] = fingerprint(['content/tex/mada/t12/**/*', 'scripts/build-mada.py', 'build/mxbuild/t12.py'])   # T12 C/D book: compiled, cut, checked
     if 'annalsBank' in manifest:
         result['annals'] = fingerprint(['content/tex/annals/**/*', 'content/tex/core/**/*', 'scripts/build-annals.py', 'scripts/annals-code.py', 'scripts/build-annals-pdf.py'], manifest['annalsBank'])
     result['static-site'] = fingerprint(['site/**/*', 'content/data/edition.json'])
@@ -58,11 +59,12 @@ def inputs():
     result['sources'] = fingerprint(['content/tex/courses/**/*', 'content/tex/core/**/*',
                                      'scripts/publish-sources.py'],
                                     {'books': manifest['books'], 'courses': manifest['catalog']['courses']})
-    result['mada'] = fingerprint(['scripts/build-mada.py'], mada_records(manifest))
+    result['mada'] = fingerprint(['scripts/build-mada.py', 'build/mxbuild/t12.py'], mada_records(manifest))
     return result
 
 
-MADA = ('t10', 't11s')   # Malagasy courses: their PDFs are cut from the owner's Mada-Boky books by scripts/build-mada.py
+MADA = ('t10', 't11s', 't12c', 't12d')   # Malagasy courses: PDFs cut by scripts/build-mada.py (T10, T11 S from the Mada-Boky books; T12 from content/tex/mada/t12, --t12)
+MADA_SOURCES = ('t10', 't11s', 't12-')   # names of the compiled books in the manifest
 
 
 def mada_records(manifest):
@@ -70,7 +72,7 @@ def mada_records(manifest):
     cat, comp = manifest['catalog'], manifest['companion']
     return {'courses': [c for c in cat['courses'] if c['id'] in MADA], 'chapters': [c for c in cat['chapters'] if ours(c['id'])],
             'resources': [r for r in cat['resources'] if ours(r['chapter'])], 'companion': [c for c in comp['chapters'] + comp['supplements'] if ours(c['id'])],
-            'sources': [s for s in cat['sources'] + comp['sources'] if s['name'].startswith(MADA)]}
+            'sources': [s for s in cat['sources'] + comp['sources'] if s['name'].startswith(MADA_SOURCES)]}
 
 
 def changed_jobs(before, after):
@@ -118,13 +120,15 @@ def run_job(key):
         command(sys.executable,'scripts/'+script)
     elif key == 'sources':
         command(sys.executable, 'scripts/publish-sources.py')
+    elif key == 't12':
+        command(sys.executable, 'scripts/build-mada.py', '--t12')
     elif key == 'mada':
-        # The books live in another repository: here we only check that every file named by the records was cut.
+        # T10 and T11 S live in another repository, T12 compiles with pdfLaTeX (scripts/build-mada.py --t12): here we only check that every file named by the records was cut.
         rec = mada_records(catalog.load())
         paths = [e['path'] for r in rec['resources'] for e in r['editions'].values()] + [e['path'] for c in rec['companion'] for f in c['files'] for e in f['editions'].values()]
         missing = [p for p in paths if not (DIST / p.removeprefix('./')).is_file()]
         if missing:
-            raise RuntimeError('Malagasy PDFs missing; run scripts/build-mada.py --books <Mada-Boky>/Livres: ' + ', '.join(missing[:5]))
+            raise RuntimeError('Malagasy PDFs missing; run scripts/build-mada.py --books <Mada-Boky>/Livres (T10, T11 S) or --t12 (T12 C, D): ' + ', '.join(missing[:5]))
 
 
 def catalogue_core():
