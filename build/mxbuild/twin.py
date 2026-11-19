@@ -411,8 +411,13 @@ def align_into(fr, en_text):
     return len(pairs)
 
 
+# Courses written in French only (Malagasy curriculum, owner's language rule of 11 November 2026): no English twin, no table.
+FRENCH_ONLY = ('courses/mada-t10/',)
+
+
 def all_units():
-    return sorted((ROOT / 'content/tex').rglob('*.fr.tex'))
+    return sorted(p for p in (ROOT / 'content/tex').rglob('*.fr.tex')
+                  if not any(p.relative_to(ROOT / 'content/tex').as_posix().startswith(f) for f in FRENCH_ONLY))
 
 
 def main(argv):

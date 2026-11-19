@@ -1,0 +1,105 @@
+\section{Corrigés}
+\mxneed{6}
+\begin{solution}[Exercice \ref{mada-t10-01:prop}]
+(1) $91=7\times13$ : proposition fausse. (2) Question : pas une proposition. (3) Proposition fausse. (4) Prédicat : sa valeur dépend de $x$. (5) Proposition vraie : si $n=6k$, alors $n=3\times(2k)$. (6) Proposition fausse : un diviseur de $4$ est au plus égal à $4$.
+\end{solution}
+\begin{solution}[Exercice \ref{mada-t10-01:neg}]
+(1) La négation de « $7>5$ » est « $7\le5$ » (fausse) ; « $7>5$ » est vraie. La négation de « $-2\ge0$ » est « $-2<0$ » (vraie) ; « $-2\ge0$ » est fausse. (2) « $15$ n'est pas un multiple de $4$ » est vraie, car $15=4\times3+3$ ; la proposition de départ est fausse. (3) Les côtés $3$, $4$ et $5$ sont deux à deux différents : « $ABC$ n'est pas isocèle » est vraie et sa négation « $ABC$ est isocèle » est fausse. (4) Pour $a=2$ et $b=-2$, $a^2=4=b^2$ : « $a^2=b^2$ » est vraie ; sa négation « $a^2\ne b^2$ » est fausse.
+\end{solution}
+\begin{solution}[Exercice \ref{mada-t10-01:impl}]
+(1) Hypothèse vraie, conclusion fausse ($9=3\times3$) : fausse. (2) Hypothèse fausse : vraie. (3) Hypothèse vraie, conclusion vraie : vraie. (4) Hypothèse fausse : vraie. (5) Les deux propositions « $3$ est impair » et « $4$ est pair » sont vraies, donc l'équivalence est vraie.
+\end{solution}
+\begin{solution}[Exercice \ref{mada-t10-01:connect}]
+\begin{center}
+\begin{tabular}{c|c|c|c|c|c}
+$n$ & $P(n)$ & $Q(n)$ & $P\land Q$ & $P\lor Q$ & $P\oplus Q$\\\hline
+$6$ & V & V & V & V & F\\
+$7$ & F & F & F & F & F\\
+$9$ & F & V & F & V & V\\
+$10$ & V & F & F & V & V
+\end{tabular}
+\end{center}
+\end{solution}
+\begin{solution}[Exercice \ref{mada-t10-01:quant}]
+(1) Vraie : $x^2\ge0$, donc $x^2+1\ge1>0$. (2) Fausse : un carré n'est jamais négatif. (3) Vraie : pour $n=0$, $0\ge0$ ; pour $n\ge1$, $n^2=n\times n\ge n$. (4) Fausse : $x=1$ donne $1>1$, faux (contre-exemple ; $x=0$ convient aussi). (5) Vraie : $x=2$ donne $4>2$.
+\end{solution}
+\begin{solution}[Exercice \ref{mada-t10-01:ecrire}]
+(1) $\forall x\in\R,\ x^2\ge0$ : vraie. (2) $\exists p\in\N,\ (p\text{ premier et }p\text{ pair})$ : vraie, $p=2$. (3) $\forall n\in\Z,\ 2n\text{ est pair}$ : vraie, $2n=2\times n$. (4) $\exists n\in\N,\ n<1$ : vraie, $n=0$.
+\end{solution}
+\begin{solution}[Exercice \ref{mada-t10-01:negquant}]
+(1) Négation : $\exists x\in\R,\ x+1\le x$. La proposition est vraie ; sa négation est fausse, car $x+1\le x$ équivaut à $1\le0$. (2) Négation : $\forall n\in\N,\ n+3\ne1$. La proposition est fausse (il faudrait $n=-2$) ; sa négation est vraie, puisque $n+3\ge3$. (3) Négation : $\exists n\in\N,\ n^2=2n$. La négation est vraie ($n=0$ ou $n=2$) ; la proposition de départ est donc fausse.
+\end{solution}
+\begin{solution}[Exercice \ref{mada-t10-01:recip}]
+(1) Les diagonales d'un losange sont perpendiculaires : vraie. Réciproque : « si les diagonales d'un quadrilatère sont perpendiculaires, alors c'est un losange » est fausse : le cerf-volant de sommets $A\pt{0;2}$, $B\pt{1;0}$, $C\pt{0;-1}$, $D\pt{-1;0}$ a des diagonales perpendiculaires et $AB=\sqrt5\ne\sqrt2=BC$. (2) Vraie, car $12k=6\times2k$. Réciproque fausse : $18$ est un multiple de $6$ mais pas de $12$. (3) Vraie. Réciproque « si $x^2>9$ alors $x>3$ » : fausse, $x=-4$. (4) Vraie. Réciproque fausse : $a=2$, $b=-2$. Aucune de ces implications n'est donc une équivalence.
+\end{solution}
+\begin{solution}[Exercice \ref{mada-t10-01:equiv}]
+(1) Oui : $6$ divise $n$ si et seulement si $2$ et $3$ divisent $n$ (équivalence), car $2$ et $3$ n'ont aucun diviseur commun autre que $1$. (2) Non : $6$ est pair mais pas divisible par $4$. (3) Oui : $x^2=16\Leftrightarrow x^2-16=0\Leftrightarrow(x-4)(x+4)=0$. (4) Non : $x=0$ vérifie $x(x-2)=0$ sans valoir $2$.
+\end{solution}
+\begin{solution}[Exercice \ref{mada-t10-01:tables}]
+\begin{center}
+\begin{tabular}{c|c||c|c|c||c|c|c}
+$P$ & $Q$ & $\lnot P$ & $\lnot P\lor Q$ & $P\Rightarrow Q$ & $\lnot Q$ & $P\land\lnot Q$ & $\lnot(P\Rightarrow Q)$\\\hline
+V & V & F & V & V & F & F & F\\
+V & F & F & F & F & V & V & V\\
+F & V & V & V & V & F & F & F\\
+F & F & V & V & V & V & F & F
+\end{tabular}
+\end{center}
+La colonne de $\lnot P\lor Q$ est celle de $P\Rightarrow Q$ ; la colonne de $P\land\lnot Q$ est celle de $\lnot(P\Rightarrow Q)$. Donc $P\Rightarrow Q\equiv\lnot P\lor Q$ et $\lnot(P\Rightarrow Q)\equiv P\land\lnot Q$.
+\end{solution}
+\begin{solution}[Exercice \ref{mada-t10-01:trois}]
+Notons $A=(P\Rightarrow Q)\land(Q\Rightarrow R)$ et $B=P\Rightarrow R$.
+\begin{center}
+\begin{tabular}{c|c|c||c|c|c|c|c}
+$P$ & $Q$ & $R$ & $P\Rightarrow Q$ & $Q\Rightarrow R$ & $A$ & $B$ & $A\Rightarrow B$\\\hline
+V & V & V & V & V & V & V & V\\
+V & V & F & V & F & F & F & V\\
+V & F & V & F & V & F & V & V\\
+V & F & F & F & V & F & F & V\\
+F & V & V & V & V & V & V & V\\
+F & V & F & V & F & F & V & V\\
+F & F & V & V & V & V & V & V\\
+F & F & F & V & V & V & V & V
+\end{tabular}
+\end{center}
+Les colonnes $A$ et $B$ ne sont pas identiques (lignes 3 et 6), mais partout où $A$ est vraie, $B$ l'est aussi : la dernière colonne ne contient que des V, donc l'implication est une tautologie (transitivité de l'implication).
+\end{solution}
+\begin{solution}[Exercice \ref{mada-t10-01:morgan}]
+(1) $x<2$ ou $x\ge7$. (2) $n$ est impair et $n$ n'est pas un multiple de $5$. (3) $-1<x\le4$ signifie $x>-1$ et $x\le4$ ; la négation est $x\le-1$ ou $x>4$. Vérification : pour $x=-3$, la proposition de départ est fausse ($-3>-1$ est faux) et la négation est vraie ($-3\le-1$) ; pour $x=0$, la première est vraie et la négation fausse ; pour $x=5$, la première est fausse et la négation vraie ($5>4$).
+\end{solution}
+\begin{solution}[Exercice \ref{mada-t10-01:taut}]
+(1) Tautologie : si $P$ est vraie, $P\lor\lnot P$ est vraie ; sinon $\lnot P$ l'est. (2) Contradiction. (3) Tautologie : si $P\land Q$ est vraie, alors $P$ est vraie. (4) Tautologie : si $P$ est vraie, $P\lor Q$ l'est. (5) Contradiction : $P$ et $\lnot P$ n'ont jamais la même valeur. (6) Ni l'une ni l'autre : pour $P$ vraie la proposition est vraie, mais pour $P$ fausse, $P\Rightarrow Q$ est vraie et la conclusion $P$ est fausse, donc l'implication est fausse.
+\end{solution}
+\begin{solution}[Exercice \ref{mada-t10-01:negimpl}]
+(1) Négation : $x>2$ et $x^2\le5$. L'implication est fausse ($x=\num{2,1}$ donne $x^2=\num{4,41}$), la négation est vraie. (2) Négation : $n$ est un entier pair et $n^2$ est impair. L'implication est vraie ($n=2k$ donne $n^2=2\times2k^2$) ; la négation est fausse. (3) Négation : un entier est divisible par $4$ et par $6$ sans l'être par $24$. L'implication est fausse ($12=4\times3=6\times2$ mais $24$ ne divise pas $12$) ; la négation est vraie.
+\end{solution}
+\begin{solution}[Exercice \ref{mada-t10-01:contrex}]
+(1) $n=16$ : $16^2+16+17=289=17\times17$. (2) $x=-1$ : $(x+1)^2=0$ n'est pas supérieur à $x^2=1$. (3) $n=2$ : $2^2=4$ n'est pas strictement supérieur à $4$ (aussi $n=3$ : $8<9$, ou $n=4$ : $16=16$). (4) $x=3$ : $9-15+6=0$ mais $3\ne2$.
+\end{solution}
+\begin{solution}[Exercice \ref{mada-t10-01:cns}]
+(1) Un multiple de $10$ est un multiple de $5$ : $A$ est suffisante ; elle n'est pas nécessaire ($15$). (2) $x=3\Rightarrow x^2=9$ : $A$ est suffisante, pas nécessaire ($x=-3$). (3) Les deux implications sont vraies (c'est une caractérisation du rectangle) : condition nécessaire et suffisante. (4) $2$ est premier et pair ; $9$ est impair et non premier : ni nécessaire ni suffisante.
+\end{solution}
+\begin{solution}[Exercice \ref{mada-t10-01:phrases}]
+(1) $\forall e\in\text{classe},\ \text{âge}(e)>14$. Négation : $\exists e\in\text{classe},\ \text{âge}(e)\le14$, c'est-à-dire « au moins un élève de la classe a $14$ ans ou moins ». (2) $\exists j\in\text{semaine},\ \text{pas de cours le jour }j$. Négation : $\forall j\in\text{semaine},\ \text{il y a cours le jour }j$ : « il y a cours tous les jours de la semaine ».
+\end{solution}
+\begin{solution}[Exercice \ref{mada-t10-01:croiss}]
+(1) $\exists x\in\R,\ \exists y\in\R,\ (x<y\text{ et }f(x)>f(y))$. (2) Avec $x=-2$ et $y=-1$ : $x<y$ mais $f(x)=4>1=f(y)$ ; ce couple est un témoin de la négation, donc $f$ n'est pas croissante. (3) Oui : soit $x<y$ ; $g(y)-g(x)=2(y-x)>0$, donc $g(x)<g(y)$, et a fortiori $g(x)\le g(y)$.
+\end{solution}
+\begin{solution}[Exercice \ref{mada-t10-01:tautbis}]
+Si $P$ est vraie, $\lnot P$ est fausse et l'implication $\lnot P\Rightarrow(P\Rightarrow Q)$ est vraie (hypothèse fausse). Si $P$ est fausse, $P\Rightarrow Q$ est vraie, donc l'implication est vraie quelle que soit $Q$ : la colonne finale ne contient que des V. Une implication dont l'hypothèse est fausse est toujours vraie.
+\end{solution}
+\begin{solution}[Hors programme : contraposée et absurde]
+(1) Contraposée : si $n$ est pair, alors $3n+2$ est pair. Pour $n=2k$, $3n+2=2(3k+1)$. (2) Supposons $4x+6y=15$ avec $x,y$ entiers. Le membre de gauche vaut $2(2x+3y)$, donc il est pair, alors que $15$ est impair : contradiction. (3) Si $n=3k$, $n^2=3\times3k^2$ ; si $n=3k+1$, $n^2=3(3k^2+2k)+1$ ; si $n=3k+2$, $n^2=3(3k^2+4k+1)+1$. Le reste de $n^2$ est $0$ seulement dans le premier cas : si $3$ divise $n^2$, alors $3$ divise $n$. Supposons $\sqrt3=a/b$ avec $a,b$ entiers strictement positifs sans diviseur commun. Alors $a^2=3b^2$, donc $3$ divise $a$ ; avec $a=3c$ on obtient $b^2=3c^2$, donc $3$ divise $b$ : contradiction avec « sans diviseur commun ». (4) « Pour tout réel $x$, il existe un réel $y$ strictement plus grand » est vraie ($y=x+1$). Sa négation, $\exists x\in\R,\ \forall y\in\R,\ y\le x$ (« il existe un réel au moins aussi grand que tous les autres »), est fausse.
+\end{solution}
+\begin{solution}[Exercice \ref{mada-t10-01:escalier}]
+(1) La lampe est allumée en position (haute, basse) et (basse, haute), éteinte quand les deux interrupteurs sont dans la même position : c'est $P\oplus Q$. (2) Changer la position d'un interrupteur inverse l'état de la lampe, quelle que soit la position de l'autre. (3) $P\oplus Q\oplus R$ est vraie lorsque le nombre d'interrupteurs en position haute est impair : $3$ lignes avec un seul V et $1$ ligne avec trois V, soit $4$ lignes sur $8$. Basculer un interrupteur change la parité du nombre de V, donc inverse la lampe.
+\end{solution}
+\begin{solution}[Exercice \ref{mada-t10-01:chevaliers}]
+(1) Si $A$ était chevalier, sa phrase serait vraie, donc $A$ serait un coquin : contradiction. $A$ est un coquin, sa phrase est fausse, donc les deux ne sont pas tous deux coquins : $B$ est un chevalier. (2) Si $C$ était chevalier, $D$ serait chevalier (phrase de $C$ vraie) ; alors la phrase de $D$ serait vraie, mais $C$ et $D$ seraient de même type : contradiction. Donc $C$ est un coquin, sa phrase est fausse, $D$ est un coquin ; la phrase de $D$ (« nous sommes de types différents ») est bien fausse, ce qui convient à un coquin. $C$ et $D$ sont deux coquins.
+\end{solution}
+\begin{solution}[Exercice \ref{mada-t10-01:vase}]
+Examinons chaque coupable possible et comptons les phrases vraies. Si c'est Aina : celles de Bema et de Caro sont vraies, soit deux. Si c'est Caro : celles de Bema et de Dina sont vraies, soit deux. Si c'est Dina : celles de Bema, de Caro et de Dina sont vraies, soit trois. Si c'est Bema : seule la phrase d'Aina est vraie, soit une seule. Seul le cas « Bema » convient : c'est lui qui a cassé le vase.
+\end{solution}
+\begin{solution}[Exercice \ref{mada-t10-01:cartes}]
+La règle est $P\Rightarrow Q$ avec $P$ : « voyelle » et $Q$ : « nombre pair ». Elle est violée exactement quand $P\land\lnot Q$ : une voyelle avec un nombre impair. Il faut retourner \textbf{E} (une voyelle, il faut voir si l'autre face est impaire) et \textbf{7} (un nombre impair, il faut voir si l'autre face est une voyelle). \textbf{K} n'est pas une voyelle et \textbf{4} est pair : quelle que soit leur autre face, la règle ne peut pas être violée.
+\end{solution}

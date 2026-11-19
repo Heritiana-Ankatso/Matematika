@@ -198,3 +198,7 @@ interactions. Additional collection browser scripts remain available.
 `test_annals_code.py`: literal listing whitespace and HTML escaping, numbered table programs and blank lines, parallel programs, untouched data tables and TeX code typography.
 
 `visible-loop.test.mjs`: the shared animation loop (no frames offscreen or in a hidden tab, reduced motion draws once then only while interacting, a frame returning false sleeps, stop releases everything).
+
+`logic-truth.test.mjs`: the experiment `logic-truth` (unpublished, not in `registry.js`): connector tables, the six formula pairs (five equivalent), the counter-example hunt (n² + n + 17 fails at 16), quantified statements on a finite set, the mission contract (predict first, explain last, no hint field, no `check` mission, [fr, en] strings without dashes), reachable goals, and the surface played through `createShell` in both languages (cells, tiles, keyboard, reduced motion, no hint button).
+
+`mada-t10-01.test.mjs`: Malagasy T10 chapter 1 (unpublished): French only (no `.en.tex`, no table, no English prose), `chapters.json` programme mapping (ALGEBRE > LOGIQUE), no manifest entry and no `dist/` file, the deck `content/slides/mada-t10-01.json` is French only and its lab references resolve against the experiment file; runs `scripts/check-mada-t10-logic.py`.

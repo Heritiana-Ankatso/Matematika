@@ -1,0 +1,305 @@
+{
+ "id": "mada-t10-01",
+ "course": "mada-t10",
+ "number": 1,
+ "title": [
+  "Logique",
+  ""
+ ],
+ "slides": [
+  {
+   "k": "title",
+   "t": [
+    "Logique",
+    ""
+   ],
+   "b": [
+    "",
+    ""
+   ]
+  },
+  {
+   "k": "goals",
+   "t": [
+    "Objectifs du chapitre",
+    ""
+   ],
+   "b": [
+    "<ul><li>Reconnaître un énoncé, une proposition, un prédicat.</li><li>Utiliser ET, OU (inclusif et exclusif), l’implication et l’équivalence, avec leurs tables de vérité.</li><li>Se servir d’une table de vérité pour argumenter.</li><li>Utiliser les quantificateurs \\(\\forall\\) et \\(\\exists\\), nier une proposition quantifiée, traduire une phrase en symboles et inversement.</li></ul><p>Programme de T10, rubrique Algèbre, Logique. La contraposée et le raisonnement par l’absurde sont proposés en fin de chapitre, hors programme.</p>",
+    ""
+   ]
+  },
+  {
+   "k": "try",
+   "t": [
+    "Vérifier ses acquis",
+    ""
+   ],
+   "b": [
+    "Pour chaque phrase, dire si elle est vraie, fausse, ou si elle n’a pas de valeur de vérité : (a) « \\(29\\) est un nombre premier » ; (b) « \\(3x+1=10\\) » ; (c) « il existe un entier pair et premier » ; (d) « tout losange est un carré ».",
+    ""
+   ],
+   "stage": "diagnostic",
+   "difficulty": 1,
+   "a": [
+    "(a) Vraie. (b) Pas de valeur de vérité tant que \\(x\\) n’est pas donné : c’est un prédicat. (c) Vraie, \\(2\\) convient. (d) Fausse : un losange dont les angles ne sont pas droits n’est pas un carré.",
+    ""
+   ]
+  },
+  {
+   "k": "activity",
+   "t": [
+    "Le jeu des étiquettes",
+    ""
+   ],
+   "b": [
+    "Huit cartes portent des phrases (par exemple « \\(2^5=32\\) », « Combien font \\(6\\times7\\) ? », « tout nombre premier est impair », « il existe un entier dont le carré vaut \\(50\\) »). Range-les en trois tas : vraie, fausse, on ne peut pas dire. Pour chaque carte de « fausse », cherche un seul exemple qui suffit à conclure. Pour chaque carte du troisième tas, dis ce qui manque.",
+    ""
+   ]
+  },
+  {
+   "k": "concept",
+   "t": [
+    "Énoncés, propositions, prédicats",
+    ""
+   ],
+   "b": [
+    "<p>Un <b>énoncé</b> est une phrase, en langue courante ou en symboles. Une <b>proposition</b> est un énoncé qui est vrai ou faux, mais pas les deux.</p><p>Un <b>prédicat</b> contient une lettre non fixée : « \\(x+4=9\\) ». Il devient une proposition quand on donne une valeur à la lettre ou quand on la quantifie.</p>",
+    ""
+   ]
+  },
+  {
+   "k": "example",
+   "t": [
+    "Énoncés, propositions, prédicats",
+    ""
+   ],
+   "b": [
+    "<ul><li>« \\(4^2=16\\) » : proposition vraie ; « \\(4^2=18\\) » : proposition fausse.</li><li>« \\(x+4=9\\) » : prédicat, vrai pour \\(x=5\\), faux pour \\(x=2\\).</li><li>« Ferme la porte » est un ordre, « Quelle heure est-il ? » une question : ce ne sont pas des propositions.</li></ul>",
+    ""
+   ]
+  },
+  {
+   "k": "concept",
+   "t": [
+    "Négation et connecteurs",
+    ""
+   ],
+   "b": [
+    "<p>\\(\\lnot P\\) : non \\(P\\). \\(P\\land Q\\) : \\(P\\) et \\(Q\\). \\(P\\lor Q\\) : l’un au moins (OU inclusif). \\(P\\oplus Q\\) : l’un des deux seulement (OU exclusif). \\(P\\Rightarrow Q\\) : si \\(P\\) alors \\(Q\\). \\(P\\Leftrightarrow Q\\) : même valeur.</p><p>\\[\\begin{array}{c|c||c|c|c|c|c|c}P&Q&\\lnot P&P\\land Q&P\\lor Q&P\\oplus Q&P\\Rightarrow Q&P\\Leftrightarrow Q\\\\\\hline V&V&F&V&V&F&V&V\\\\V&F&F&F&V&V&F&F\\\\F&V&V&F&V&V&V&F\\\\F&F&V&F&F&F&V&V\\end{array}\\]</p>",
+    ""
+   ]
+  },
+  {
+   "k": "widget",
+   "t": [
+    "Dresser une table de vérité",
+    ""
+   ],
+   "b": [
+    "Prédis d’abord : combien de lignes de la table de \\(P\\Rightarrow Q\\) donnent F ? Puis touche chaque case de la colonne pour la remplir ; ◀ ▶ changent de mission.",
+    ""
+   ],
+   "w": {
+    "type": "lab",
+    "ref": "logic-truth/open"
+   }
+  },
+  {
+   "k": "concept",
+   "t": [
+    "Implication et équivalence",
+    ""
+   ],
+   "b": [
+    "<p>\\(P\\Rightarrow Q\\) n’est fausse que pour \\(P\\) vraie et \\(Q\\) fausse : une promesse n’est rompue que si la condition est remplie et la parole non tenue.</p><p>\\(P\\) est une condition <b>suffisante</b> pour \\(Q\\), \\(Q\\) une condition <b>nécessaire</b> pour \\(P\\). La <b>réciproque</b> est \\(Q\\Rightarrow P\\). Dire que \\(P\\Leftrightarrow Q\\) est vraie, c’est dire que les deux implications le sont.</p>",
+    ""
+   ]
+  },
+  {
+   "k": "error",
+   "t": [
+    "Implication et équivalence",
+    ""
+   ],
+   "b": [
+    "Une implication vraie n’a pas toujours une réciproque vraie : « si un quadrilatère est un rectangle, ses diagonales ont même longueur » est vraie, sa réciproque est fausse (trapèze isocèle).",
+    ""
+   ]
+  },
+  {
+   "k": "example",
+   "t": [
+    "OU inclusif, OU exclusif",
+    ""
+   ],
+   "b": [
+    "Pour \\(n=6\\), \\(P\\) : « \\(n\\) est pair » et \\(Q\\) : « \\(n\\) est multiple de \\(3\\) » sont toutes deux vraies : \\(P\\lor Q\\) est vraie, \\(P\\oplus Q\\) est fausse. Pour \\(n=9\\), seule \\(Q\\) est vraie : \\(P\\lor Q\\) et \\(P\\oplus Q\\) sont vraies.",
+    ""
+   ]
+  },
+  {
+   "k": "concept",
+   "t": [
+    "Tables de vérité pour argumenter",
+    ""
+   ],
+   "b": [
+    "<p>Deux formules sont <b>équivalentes</b> (\\(\\equiv\\)) si leurs colonnes sont identiques. Une formule dont la colonne ne contient que des V est une <b>tautologie</b>.</p><p>\\(\\lnot(P\\land Q)\\equiv\\lnot P\\lor\\lnot Q\\) ; \\(\\lnot(P\\lor Q)\\equiv\\lnot P\\land\\lnot Q\\) ; \\(P\\Rightarrow Q\\equiv\\lnot P\\lor Q\\) ; \\(\\lnot(P\\Rightarrow Q)\\equiv P\\land\\lnot Q\\).</p>",
+    ""
+   ]
+  },
+  {
+   "k": "widget",
+   "t": [
+    "Équivalentes ou non ?",
+    ""
+   ],
+   "b": [
+    "Compare six paires de formules, ligne par ligne. Cinq sont équivalentes : trouve l’intruse.",
+    ""
+   ],
+   "w": {
+    "type": "lab",
+    "ref": "logic-truth/equiv"
+   }
+  },
+  {
+   "k": "try",
+   "t": [
+    "Une table à dresser",
+    ""
+   ],
+   "b": [
+    "Dresser les tables de \\(\\lnot P\\lor Q\\) et de \\(P\\land\\lnot Q\\). Que peut-on dire de chacune par rapport à \\(P\\Rightarrow Q\\) ?",
+    ""
+   ],
+   "stage": "practice",
+   "difficulty": 2,
+   "a": [
+    "\\(\\lnot P\\lor Q\\) a pour colonne V, F, V, V : c’est celle de \\(P\\Rightarrow Q\\). \\(P\\land\\lnot Q\\) a pour colonne F, V, F, F : c’est la négation de \\(P\\Rightarrow Q\\). Donc \\(P\\Rightarrow Q\\equiv\\lnot P\\lor Q\\) et \\(\\lnot(P\\Rightarrow Q)\\equiv P\\land\\lnot Q\\).",
+    ""
+   ]
+  },
+  {
+   "k": "concept",
+   "t": [
+    "Quantificateurs",
+    ""
+   ],
+   "b": [
+    "<p>\\(\\forall x\\in E,\\ P(x)\\) : pour <b>tout</b> \\(x\\) de \\(E\\). \\(\\exists x\\in E,\\ P(x)\\) : il <b>existe</b> au moins un \\(x\\) de \\(E\\).</p><p>Un exemple prouve un « il existe » ; un <b>contre-exemple</b> réfute un « pour tout ». Un exemple ne prouve pas un « pour tout ».</p>",
+    ""
+   ]
+  },
+  {
+   "k": "widget",
+   "t": [
+    "Chasse au contre-exemple",
+    ""
+   ],
+   "b": [
+    "La proposition « pour tout entier \\(n\\), \\(n^2+n+17\\) est premier » est-elle vraie ? Fais glisser \\(n\\) ou touche une tuile pour chercher un contre-exemple.",
+    ""
+   ],
+   "w": {
+    "type": "lab",
+    "ref": "logic-truth/hunt"
+   }
+  },
+  {
+   "k": "concept",
+   "t": [
+    "Négation d’une proposition quantifiée",
+    ""
+   ],
+   "b": [
+    "<p>\\(\\lnot(\\forall x\\in E,\\ P(x))\\equiv\\exists x\\in E,\\ \\lnot P(x)\\)</p><p>\\(\\lnot(\\exists x\\in E,\\ P(x))\\equiv\\forall x\\in E,\\ \\lnot P(x)\\)</p><p>On échange \\(\\forall\\) et \\(\\exists\\) et on nie le prédicat.</p>",
+    ""
+   ]
+  },
+  {
+   "k": "widget",
+   "t": [
+    "Tester un ensemble",
+    ""
+   ],
+   "b": [
+    "Touche les nombres de \\(E\\) pour tester « tous les \\(x\\) de \\(E\\) sont pairs ». Quand peux-tu conclure ? Même question pour « il existe un multiple de \\(7\\) ».",
+    ""
+   ],
+   "w": {
+    "type": "lab",
+    "ref": "logic-truth/negate"
+   }
+  },
+  {
+   "k": "example",
+   "t": [
+    "Traduire une phrase",
+    ""
+   ],
+   "b": [
+    "« Tous les élèves de la classe ont plus de \\(14\\) ans » s’écrit \\(\\forall e\\in\\text{classe},\\ \\text{âge}(e)>14\\). Sa négation est \\(\\exists e\\in\\text{classe},\\ \\text{âge}(e)\\le14\\) : « au moins un élève a \\(14\\) ans ou moins ». Ce n’est pas « aucun élève n’a plus de \\(14\\) ans ».",
+    ""
+   ]
+  },
+  {
+   "k": "error",
+   "t": [
+    "Traduire une phrase",
+    ""
+   ],
+   "b": [
+    "La négation de « tous ont la propriété » n’est pas « aucun n’a la propriété » : il suffit qu’un seul ne l’ait pas.",
+    ""
+   ]
+  },
+  {
+   "k": "try",
+   "t": [
+    "Bilan : choisir et justifier",
+    ""
+   ],
+   "b": [
+    "1. Écrire la négation de « si \\(x>2\\) alors \\(x^2>5\\) » et dire laquelle des deux est vraie. 2. Écrire la négation de \\(\\forall n\\in\\N,\\ n^2\\ne2n\\) et sa valeur de vérité. 3. Dire si « \\(x=2\\Rightarrow x(x-2)=0\\) » admet une réciproque vraie.",
+    ""
+   ],
+   "stage": "check",
+   "difficulty": 3,
+   "a": [
+    "1. Négation : \\(x>2\\) et \\(x^2\\le5\\). Elle est vraie pour \\(x=2{,}1\\) (\\(x^2=4{,}41\\)) : l’implication est fausse. 2. \\(\\exists n\\in\\N,\\ n^2=2n\\), vraie (\\(n=0\\) ou \\(n=2\\)) ; la proposition de départ est donc fausse. 3. La réciproque « \\(x(x-2)=0\\Rightarrow x=2\\) » est fausse : \\(x=0\\) convient.",
+    ""
+   ]
+  },
+  {
+   "k": "method",
+   "t": [
+    "Hors programme : contraposée et absurde",
+    ""
+   ],
+   "b": [
+    "<p><i>Cette diapositive est hors programme de T10 (enrichissement).</i></p><p>La <b>contraposée</b> de \\(P\\Rightarrow Q\\) est \\(\\lnot Q\\Rightarrow\\lnot P\\) : les deux sont équivalentes. Pour montrer « si \\(3n+2\\) est impair alors \\(n\\) est impair », on montre « si \\(n\\) est pair alors \\(3n+2\\) est pair » : \\(n=2k\\) donne \\(3n+2=2(3k+1)\\).</p><p>Par l’<b>absurde</b>, on suppose \\(P\\) vraie et \\(Q\\) fausse et on cherche une contradiction.</p>",
+    ""
+   ]
+  },
+  {
+   "k": "widget",
+   "t": [
+    "Pourquoi une table démontre",
+    ""
+   ],
+   "b": [
+    "Pourquoi une table de vérité démontre-t-elle une équivalence, alors que des exemples ne prouvent pas un « pour tout » sur les entiers ? Lis l’argument de la dernière mission.",
+    ""
+   ],
+   "w": {
+    "type": "lab",
+    "ref": "logic-truth/why"
+   }
+  }
+ ],
+ "editions": {
+  "fr": {}
+ }
+}

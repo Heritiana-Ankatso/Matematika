@@ -38,3 +38,7 @@ Builders called by `build/mxbuild` (see `pipeline.py` `COURSES`) or by `make`. E
 `build-annals-pdf.py`: native course-style annales statement/correction PDFs and their portable source bundle with precompiled vector figures; `data/annals-pdf-build.json` records source/output integrity.
 
 `annals-code.py`: protects literal listings and table-based programs before semantic HTML conversion; retains indentation, source operators, line numbers and mathematical pseudocode. Used by `build-annals.py`; `--html-only` reuses published figures, and `build-annals-pdf.py --reuse-inputs` retains PDF books only when their archived typesetting inputs and output hashes are identical.
+
+`build-mada-t10.py`: the native Malagasy T10 course (unpublished; `COURSES['mada-t10']`, `make tex COURSE=mada-t10`): writes its own French-only student and teacher mains (not in `manifest.json`) from `content/tex/courses/mada-t10/` and leaves the two PDFs in the `mada-t10` folder of the build output (ignored by git); nothing goes to `dist/`.
+
+`check-mada-t10-logic.py`: independent brute-force check of every computation of the chapter 1 (Logique) of that course: the connector tables read back from the TeX unit, equivalences, tautologies, the numbers of the exercises and solutions, the puzzles (knights and knaves, the vase, the four cards), the lamp circuit. Exits 1 on the first disagreement; run it after any change to `content/tex/courses/mada-t10/c01.fr.tex` or `content/tex/courses/mada-t10/corriges/c01.fr.tex`.
