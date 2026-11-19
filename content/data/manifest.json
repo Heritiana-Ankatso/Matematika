@@ -21284,16 +21284,16 @@
       {
         "name": "expertes-student",
         "title": "expertes-eleve.pdf",
-        "modified": "2026-11-19T19:17:19.000Z",
-        "sha256": "482d2f9bc59fcbc020807793a0be9128e7901af1d5d9f6ac90328692e7557ffc",
-        "bytes": 340197
+        "modified": "2026-11-19T19:44:49.000Z",
+        "sha256": "39663c575cd67b1ddf6080ad467ea23009ca239ee94df13eccec068f020df2d3",
+        "bytes": 340183
       },
       {
         "name": "expertes-teacher",
         "title": "expertes-prof.pdf",
-        "modified": "2026-11-19T19:17:19.000Z",
-        "sha256": "f26bb160290a94cdfc79dbe0863258976aa2df037ed395c1ea68007077480dca",
-        "bytes": 467595
+        "modified": "2026-11-19T19:44:49.000Z",
+        "sha256": "5a164db88fdcdd13463fc5a945586f844a7e596cb44b3de28b36d66bd980dcb6",
+        "bytes": 467608
       },
       {
         "name": "t10-student",
@@ -21381,12 +21381,12 @@
       {
         "name": "expertes-eleve.pdf",
         "title": "expertes-eleve.pdf",
-        "modified": "2026-11-19T19:17:19.000Z"
+        "modified": "2026-11-19T19:44:49.000Z"
       },
       {
         "name": "expertes-prof.pdf",
         "title": "expertes-prof.pdf",
-        "modified": "2026-11-19T19:17:19.000Z"
+        "modified": "2026-11-19T19:44:49.000Z"
       },
       {
         "name": "premiere-unsorted-automatismes",

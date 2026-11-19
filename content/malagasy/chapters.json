@@ -200,8 +200,42 @@
       "source": "content/malagasy/source/t11-s/chapitres/p1-analyse/ch01-generalites-fonctions.tex",
       "corrections": "inline-teacher-edition",
       "assessmentSource": "content/malagasy/source/t11-s/chapitres/p1-analyse/ds1-analyse.tex",
-      "state": "source-imported-unreviewed",
-      "visible": false
+      "state": "native-adaptation-unpublished",
+      "visible": false,
+      "programme": {
+        "document": "Programme officiel de la classe de 1ère (T11), toutes séries, Ministère de l'Éducation nationale (rubrique Mathématiques, pages 197 à 219 du PDF ; document fourni par le propriétaire dans le dépôt Mada-Boky, PSE/Programmes)",
+        "section": "ANALYSE > étude complète d'une fonction numérique d'une variable réelle",
+        "duration": "7 semaines (3 heures et 2 heures) pour toute la rubrique Analyse ; ce chapitre en couvre le début",
+        "generalObjective": "L'apprenant doit être capable d'étudier d'une manière performante une fonction numérique d'une variable réelle et d'interpréter une courbe représentative d'une fonction.",
+        "contents": [
+          "ensemble de définition",
+          "parité",
+          "périodicité",
+          "variation (sens de variation d'une fonction)",
+          "fonctions : polynôme, rationnelle, à valeur absolue, irrationnelle",
+          "fonctions trigonométriques x → sin x, x → cos x, x → tan x, x → A cos(ax+b), x → A sin(ax+b)"
+        ],
+        "outsideProgramme": [],
+        "laterChapters": [
+          "limites et branches infinies",
+          "continuité",
+          "dérivabilité, fonction dérivée, opérations, tangente",
+          "variation par la dérivée",
+          "positions relatives de deux courbes, points remarquables, tracé de la courbe"
+        ],
+        "checked": "2026-11-17",
+        "url": "https://github.com/raantss18/Mada-Boky/blob/main/PSE/Programmes/PROGRAMME%20SCOLAIRE%201%C3%A8re.pdf",
+        "note": "Le programme énumère la rubrique Analyse en un seul bloc ; sa répartition en chapitres (généralités, limites, branches infinies, dérivation, étude graphique) suit la table des matières du livre du propriétaire. Ce chapitre traite ensemble de définition, sens de variation (définition), parité, symétries et périodicité ; la variation par la dérivée et le tracé complet viennent aux chapitres 4 et 5."
+      },
+      "native": {
+        "unit": "content/tex/courses/mada-t11s/c01.fr.tex",
+        "solutions": "content/tex/courses/mada-t11s/corriges/c01.fr.tex",
+        "builder": "scripts/build-mada-t11s.py",
+        "lab": "site/js/lab/experiments/function-symmetry.js",
+        "slides": "content/slides/mada-t11-s-01.json",
+        "checker": "scripts/check-mada-t11s-functions.py",
+        "note": "Réécriture native à partir de l'ouvrage du propriétaire (textes, exemples, exercices et numéros nouveaux, mêmes objectifs mathématiques ; solutions de niveau lycée). Les sources d'accueil restent la référence d'origine. Non publié : aucune entrée dans manifest.json pour cette version ; le chapitre publié t11s-01 (texte du propriétaire) reste en ligne tant que le propriétaire n'a pas décidé de le remplacer."
+      }
     },
     {
       "id": "mada-t11-s-02",

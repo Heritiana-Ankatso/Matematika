@@ -28,6 +28,7 @@ COURSES = {
     'expertes': ['scripts/build-expertes.py'],
     'enrichment': ['scripts/build-enrichment.py'],
     'mada-t10': ['scripts/build-mada-t10.py'],   # native Malagasy T10 course, unpublished: PDFs stay in build/out
+    'mada-t11s': ['scripts/build-mada-t11s.py'],   # native Malagasy T11 S course, unpublished: PDFs stay in build/out
 }
 
 
