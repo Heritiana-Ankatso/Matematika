@@ -16,8 +16,7 @@ and chapters; never merge or relabel one as another.
   site `dist/`, committed because Pages has no build step. It started as Maths-explorer `da8a6bc`; the build of that
   source reproduced the previously served site byte for byte.
 - `FULL_EDITION = true` in `site/js/live-curriculum.js`, for good: never set it to false here. The site name and
-  description come from `content/data/edition.json` (key `full`). The Mikajy Atlas URL is kept in
-  `.github/edition.env` (`MX_ATLAS_URL`); `make site` reads it from there (`build/mxbuild/site.py` `edition_env`).
+  description come from `content/data/edition.json` (key `full`).
 - `tests/banned.py` allows exactly one use of the banned account name: the addresses of the account that publishes
   this site (known by its hash). The name anywhere else is still reported.
 - Independence rule (step 3 of the owner's plan, 14 November 2026; replaces the shared-code paragraph): Matematika and

@@ -1,0 +1,290 @@
+{
+ "id": "mada-t11-s-01",
+ "course": "mada-t11s",
+ "number": 1,
+ "title": [
+  "Généralités sur les fonctions numériques",
+  ""
+ ],
+ "slides": [
+  {
+   "k": "title",
+   "t": [
+    "Généralités sur les fonctions numériques",
+    ""
+   ],
+   "b": [
+    "",
+    ""
+   ]
+  },
+  {
+   "k": "goals",
+   "t": [
+    "Objectifs du chapitre",
+    ""
+   ],
+   "b": [
+    "<ul><li>Lire une image et un antécédent, par le calcul et sur une courbe.</li><li>Déterminer un ensemble de définition.</li><li>Lire et démontrer un sens de variation.</li><li>Établir la parité, reconnaître un axe ou un centre de symétrie.</li><li>Établir la périodicité et réduire l’intervalle d’étude.</li></ul><p>Programme de T11 S, rubrique Analyse : étude d’une fonction numérique d’une variable réelle.</p>",
+    ""
+   ]
+  },
+  {
+   "k": "try",
+   "t": [
+    "Vérifier ses acquis",
+    ""
+   ],
+   "b": [
+    "Pour quels réels a-t-on \\(x+5\\ge0\\) ? Que valent \\(\\sqrt{(-6)^2}\\), \\((-x)^3\\) et \\((-x)^4\\) ? Calcule \\(\\cos 0\\) et \\(\\sin\\frac{\\pi}{2}\\).",
+    ""
+   ],
+   "a": [
+    "\\(x\\ge-5\\) ; \\(6\\) ; \\(-x^3\\) et \\(x^4\\) ; \\(1\\) et \\(1\\).",
+    ""
+   ],
+   "stage": "diagnostic",
+   "difficulty": 1
+  },
+  {
+   "k": "activity",
+   "t": [
+    "Un miroir et une frise",
+    ""
+   ],
+   "b": [
+    "On donne trois fonctions par leurs valeurs aux entiers de \\(-3\\) à \\(3\\). Compare la valeur en \\(x\\) et en \\(-x\\) : que remarques-tu pour \\(f\\) (valeurs \\(7,2,-1,-2,-1,2,7\\)), pour \\(g\\) (\\(-15,-6,-1,0,1,6,15\\)), pour \\(h\\) (\\(2,-1,3,2,-1,3,2\\)) ? Que vaut \\(h(30)\\) si le motif continue ?",
+    ""
+   ]
+  },
+  {
+   "k": "concept",
+   "t": [
+    "Fonction, image, antécédent",
+    ""
+   ],
+   "b": [
+    "<p>Une <b>fonction numérique</b> associe à chaque réel \\(x\\) d’une partie \\(D\\) de \\(\\mathbb{R}\\) un <b>seul</b> réel \\(f(x)\\), son <b>image</b>. Si \\(f(x)=y\\), \\(x\\) est un <b>antécédent</b> de \\(y\\).</p><p>Un réel a une seule image, mais peut avoir plusieurs antécédents ou aucun.</p>",
+    ""
+   ]
+  },
+  {
+   "k": "example",
+   "t": [
+    "Image et antécédents",
+    ""
+   ],
+   "b": [
+    "\\(f(x)=x^2-4x+1\\). Image de \\(5\\) : \\(f(5)=6\\). Antécédents de \\(-2\\) : \\(x^2-4x+3=0\\), donc \\(1\\) et \\(3\\). Antécédents de \\(-4\\) : \\(\\Delta=-4<0\\), aucun.",
+    ""
+   ]
+  },
+  {
+   "k": "concept",
+   "t": [
+    "Ensemble de définition",
+    ""
+   ],
+   "b": [
+    "<ul><li>\\(\\frac{A}{B}\\) exige \\(B\\ne0\\).</li><li>\\(\\sqrt{A}\\) exige \\(A\\ge0\\).</li><li>\\(\\frac{1}{\\sqrt{A}}\\) exige \\(A>0\\).</li><li>Un polynôme, une valeur absolue : aucune condition.</li></ul><p>On résout chaque condition, puis on garde les réels qui les vérifient <b>toutes</b>.</p>",
+    ""
+   ]
+  },
+  {
+   "k": "example",
+   "t": [
+    "Deux obstacles à la fois",
+    ""
+   ],
+   "b": [
+    "\\(g(x)=\\dfrac{\\sqrt{x+3}}{x-5}\\) : sous la racine \\(x\\ge-3\\), au dénominateur \\(x\\ne5\\). Donc \\(D_g=[-3\\,;5[\\,\\cup\\,]5\\,;+\\infty[\\).",
+    ""
+   ]
+  },
+  {
+   "k": "error",
+   "t": [
+    "Simplifier trop tôt",
+    ""
+   ],
+   "b": [
+    "\\(\\dfrac{x^2-9}{x-3}\\) n’est pas défini en \\(3\\), même si \\(x+3\\) l’est. On cherche l’ensemble de définition sur la formule d’origine.",
+    ""
+   ]
+  },
+  {
+   "k": "try",
+   "t": [
+    "Un domaine à déterminer",
+    ""
+   ],
+   "b": [
+    "Détermine l’ensemble de définition de \\(f(x)=\\sqrt{x^2-6x+8}\\), puis de \\(h(x)=\\dfrac{1}{|x|-3}\\).",
+    ""
+   ],
+   "a": [
+    "\\(f\\) : \\((x-2)(x-4)\\ge0\\), donc \\(]-\\infty;2]\\cup[4;+\\infty[\\). \\(h\\) : \\(|x|\\ne3\\), donc \\(\\mathbb{R}\\setminus\\{-3;3\\}\\).",
+    ""
+   ],
+   "stage": "practice",
+   "difficulty": 2
+  },
+  {
+   "k": "concept",
+   "t": [
+    "Sens de variation",
+    ""
+   ],
+   "b": [
+    "<p>\\(f\\) est <b>croissante</b> sur \\(I\\) si \\(a\\le b\\Rightarrow f(a)\\le f(b)\\) ; <b>décroissante</b> si \\(a\\le b\\Rightarrow f(a)\\ge f(b)\\).</p><p>Une somme de fonctions croissantes est croissante. Multiplier par \\(\\lambda<0\\) inverse le sens.</p>",
+    ""
+   ]
+  },
+  {
+   "k": "error",
+   "t": [
+    "Une variation se dit sur un intervalle",
+    ""
+   ],
+   "b": [
+    "La fonction inverse est décroissante sur \\(]-\\infty;0[\\) et sur \\(]0;+\\infty[\\), mais pas sur leur réunion : \\(a=-2<b=3\\) et pourtant \\(f(a)=-\\frac12<f(b)=\\frac13\\).",
+    ""
+   ]
+  },
+  {
+   "k": "concept",
+   "t": [
+    "Parité",
+    ""
+   ],
+   "b": [
+    "<p>Domaine symétrique par rapport à \\(0\\), puis :</p><ul><li>\\(f\\) <b>paire</b> si \\(f(-x)=f(x)\\) : courbe symétrique par rapport à l’axe des ordonnées ;</li><li>\\(f\\) <b>impaire</b> si \\(f(-x)=-f(x)\\) : courbe symétrique par rapport à l’origine.</li></ul>",
+    ""
+   ]
+  },
+  {
+   "k": "widget",
+   "t": [
+    "Comparer f(a) et f(−a)",
+    ""
+   ],
+   "b": [
+    "Prédis d’abord \\(f(-3)\\) pour \\(f(x)=\\frac{x^2}{3}-2\\). Puis déplace \\(a\\) et parcours les sept fonctions ; ◀ ▶ changent de mission.",
+    ""
+   ],
+   "w": {
+    "type": "lab",
+    "ref": "function-symmetry/open"
+   }
+  },
+  {
+   "k": "widget",
+   "t": [
+    "Pair, impair, ni l’un ni l’autre",
+    ""
+   ],
+   "b": [
+    "Trouve une fonction impaire, puis une fonction qui n’est ni paire ni impaire. Un seul \\(a\\) bien choisi suffit pour réfuter.",
+    ""
+   ],
+   "w": {
+    "type": "lab",
+    "ref": "function-symmetry/mirror"
+   }
+  },
+  {
+   "k": "example",
+   "t": [
+    "Étudier une parité",
+    ""
+   ],
+   "b": [
+    "\\(g(x)=\\dfrac{x}{x^2-4}\\) : \\(D=\\mathbb{R}\\setminus\\{-2;2\\}\\) est symétrique et \\(g(-x)=-g(x)\\) : impaire. \\(\\sqrt{x}\\) : domaine \\([0;+\\infty[\\) non symétrique, ni paire ni impaire.",
+    ""
+   ]
+  },
+  {
+   "k": "concept",
+   "t": [
+    "Axe et centre de symétrie",
+    ""
+   ],
+   "b": [
+    "<ul><li>Axe \\(x=a\\) : \\(f(2a-x)=f(x)\\).</li><li>Centre \\((a\\,;b)\\) : \\(f(2a-x)+f(x)=2b\\).</li></ul><p>Exemple : \\(f(x)=x^2-6x+5\\), \\(f(3+h)=h^2-4\\) : l’axe \\(x=3\\).</p>",
+    ""
+   ]
+  },
+  {
+   "k": "concept",
+   "t": [
+    "Périodicité",
+    ""
+   ],
+   "b": [
+    "<p>\\(f\\) est <b>périodique de période \\(T\\)</b> si \\(f(x+T)=f(x)\\) pour tout \\(x\\) du domaine (qui contient \\(x\\pm T\\)). Les multiples \\(kT\\) en sont aussi.</p><p>Période de \\(A\\cos(ax+b)\\) et \\(A\\sin(ax+b)\\) : \\(\\dfrac{2\\pi}{|a|}\\).</p>",
+    ""
+   ]
+  },
+  {
+   "k": "widget",
+   "t": [
+    "Faire glisser la courbe sur elle-même",
+    ""
+   ],
+   "b": [
+    "Fais glisser la courbe en pointillés par la translation \\(T\\) : pour quelles valeurs retombe-t-elle sur \\(f(x)=2\\cos 2x\\) ? Trouve la plus petite.",
+    ""
+   ],
+   "w": {
+    "type": "lab",
+    "ref": "function-symmetry/period"
+   }
+  },
+  {
+   "k": "example",
+   "t": [
+    "Réduire l’intervalle d’étude",
+    ""
+   ],
+   "b": [
+    "\\(f(x)=\\cos x+\\cos 2x\\) : période \\(2\\pi\\), paire. On l’étudie sur \\([0\\,;\\pi]\\), puis on complète par symétrie et par translations de vecteurs \\(2k\\pi\\,\\vec\\imath\\).",
+    ""
+   ]
+  },
+  {
+   "k": "try",
+   "t": [
+    "Bilan : parité et période",
+    ""
+   ],
+   "b": [
+    "Pour \\(f(x)=3\\sin(4x-1)\\), donne la période. Pour \\(g(x)=\\cos^2x\\), montre que \\(\\pi\\) est une période et que \\(g\\) est paire.",
+    ""
+   ],
+   "a": [
+    "\\(f\\) : \\(\\frac{2\\pi}{4}=\\frac{\\pi}{2}\\). \\(g\\) : \\(\\cos^2(x+\\pi)=(-\\cos x)^2=\\cos^2x\\) et \\(\\cos^2(-x)=\\cos^2x\\).",
+    ""
+   ],
+   "stage": "check",
+   "difficulty": 3
+  },
+  {
+   "k": "widget",
+   "t": [
+    "Pourquoi la symétrie et la période réduisent l’étude",
+    ""
+   ],
+   "b": [
+    "Pourquoi suffit-il d’étudier une fonction paire sur \\([0;+\\infty[\\) et une fonction périodique sur un intervalle de longueur égale à sa période ? Lis l’argument de la dernière mission.",
+    ""
+   ],
+   "w": {
+    "type": "lab",
+    "ref": "function-symmetry/why"
+   }
+  }
+ ],
+ "editions": {
+  "fr": {}
+ }
+}
