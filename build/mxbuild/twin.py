@@ -412,7 +412,7 @@ def align_into(fr, en_text):
 
 
 # Courses written in French only (Malagasy curriculum, owner's language rule of 11 November 2026): no English twin, no table.
-FRENCH_ONLY = ('courses/mada-t10/',)
+FRENCH_ONLY = ('courses/mada-t10/',) + ('courses/mada-t11s/',)
 
 
 def all_units():
