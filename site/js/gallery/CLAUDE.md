@@ -7,10 +7,10 @@ relative to `site/js/gallery/`. Imports between these files use `./`; shared mod
 | File | Holds |
 |---|---|
 | `gallery-objects.js` | Fourier circles (Madagascar opens on 24 circles), Mandelbrot/Julia explorer |
-| `gallery-math.js` | pure maths of the gallery (escape times, DFT, `errorCurve` of the Fourier circles, Madagascar outline) |
+| `gallery-math.js` | pure maths of the gallery (escape times, `orbit`, `membership` (proved inside by the cardioid and period-2 tests, proved outside by escape, otherwise unknown), DFT, `errorCurve` of the Fourier circles, chaos-game `similarityDimension`, `boxCounts`, `logSlope`, Madagascar outline) |
 | `gallery-additions.js` | six experiment-first gallery entries (with the four colour map) and source labels |
 | `gallery-models.js`, `gallery-kit.js` | Voronoi clipping and cell facts (`cellFacts`: area, neighbours, nearest seed), descent timing and bead state (`stateAtTime`: depth, speed, distance), film area minimisation; shared exhibit lifecycle |
-| `gallery-panels.js` | measurement panels beside a figure (issue #37): `metricStrip` (labelled live values marked exact, approximate or observed), `plotPanel` and `lineChart` (one plot from the same state), pure `niceTicks`, `sampleIndices`; used by Life, fastest slide, Voronoi and Fourier |
+| `gallery-panels.js` | measurement panels beside a figure (issue #37): `metricStrip` (labelled live values marked exact, approximate or observed), `plotPanel` and `lineChart` (one plot from the same state), pure `niceTicks`, `niceRange`, `sampleIndices`; used by Life, fastest slide, Voronoi, Fourier, Mandelbrot and Julia, soap films, chaos game (`../lab-objects.js`), inscribed square and knots |
 | `gallery-voronoi.js`, `gallery-fastest.js`, `gallery-soap.js` | draggable territories, bead races, rotatable film |
 | `gallery-knot-model.js` | legacy pure braid/invariant helpers and verified mirror certificate, retained for model tests |
 | `gallery-knot-render.js` | shared solid-colour strand drawing with depth-ordered crossing gaps for the card and full explorer |
@@ -32,7 +32,11 @@ relative to `site/js/gallery/`. Imports between these files use `./`; shared mod
 | `gallery-inference.js` | mounts the six inference laboratories from gallery cards (content in `site/js/inference-content.js`) |
 | `gallery-gomboc.js` | the Gömböc page: free orbit, tip and push, map of the body (maths in `site/js/gomboc-*.js`) |
 | `gallery-fair-division.js` | mounts the cake and goods laboratories (content in `site/js/fair-division-content.js`) |
-| `gallery-topology.js` | reuses the guided topology laboratories (content in `site/js/topology-content.js`) |
+| `gallery-topology.js` | reuses the guided topology laboratories (content in `site/js/topology-content.js`); the 2D fallback of the hairy ball and Banach-Tarski entries |
+| `gl3d.js` | WebGL2 stage of the 3D GPU exhibits: perspective turntable camera (z up) with inertia, pinch and Ctrl + wheel zoom, arrow keys, 0 resets; 2D label overlay, picking rays, draw only while something moves (`../visible-loop.js`); pure matrix helpers, `raySphere`, `rgb` (CSS token to linear colour), shared GLSL light; returns null without WebGL2 (`lab-objects.js` `gpuFirst` then mounts the 2D version) |
+| `gallery-hairy-model.js`, `gallery-hairy.js` | hairy ball (`#gallery/hairy-ball-gallery`): exact tangent field (presets dipole, vortex, single zero of index +2, gradient of xy; comb strokes carried by parallel transport), zeros by exact winding numbers on a geodesic sphere and Newton, Poincaré-Hopf sum 2; GPU hair (transform feedback integrates up to 60,000 hairs along the field, Kajiya-Kay ribbons), comb gesture, "one cowlick" button; the torus contrast (χ = 0: global frame (e_u, e_v), constant fields with no zero, zeros by winding numbers on a (u, v) grid, sum 0), "comb a torus" button |
+| `gallery-banach-model.js`, `gallery-banach.js` | Banach-Tarski (`#gallery/banach-tarski-gallery`): free group of two rotations by arccos(1/3), exact entries in Z[√2]/3^k, distinctness of all reduced words, pieces S(a), S(A), S(b), S(B), copies S(a) ∪ a·S(A) and S(b) ∪ b·S(B); orbit drawn as GPU instanced beads, animated reassembly, Cayley tree panel |
+| `gallery-napkin-gl.js` | GPU napkin ring (`#gallery/napkin-ring`; 2D fallback `gallery-napkin.js`): rings from their equations in the vertex shader, live cut and slice, ghost sphere, sphere growing at fixed h, exact V as a multiple of π, Cavalieri plot |
 | `gallery-dynamics.js` | mounts the pendulum, three-body and logistic simulations in gallery entries (content in `site/js/dynamics-content.js`) |
 | `gallery-intuition.js` | catalogue lines (and `links` back to `#intuition`) of the collection entries colliding blocks and napkin ring |
 | `gallery-collisions-model.js`, `gallery-collisions.js` | colliding blocks that count digits of π: exact event-driven simulation (`simulate`, count from velocity order, `angleCount` = ⌈π/θ⌉ − 1), velocity-space view; mass ratio 10^e, drag the start, step, play, keyboard |
