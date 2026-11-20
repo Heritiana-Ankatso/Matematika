@@ -6,6 +6,7 @@ import {installControlPolicy} from "./control-policy.js";
 import {preferredLanguage,routeLanguage} from "./content-language.js";
 import {workshopMarkup,bindWorkshop} from './quadratic-workshop.js';
 import { errorsPage, bindErrors } from "./errors.js";
+import { intuitionPage } from "./intuition-page.js";
 import { olympiadPage, bindOlympiad, isOlympiadRoute } from "./olympiad.js";
 import { rememberScrolls, restoreScrolls } from "./scroll-memory.js";
 import { withEntryNav } from "./entry-nav.js";
@@ -22,7 +23,6 @@ import { labs, challenges, pathways } from "./content.js";
 import { pathwayPage as pathwayPageView, bindPathways } from "./pathways-view.js";
 import { mountObject } from "./lab-objects.js";
 import { homePage, bindHome, mountHomeFigure, galleryPage as galleryIndex } from "./welcome.js";
-import { MIKAJY_SPARK_DOWNLOAD_URL, MIKAJY_ATLAS_DOWNLOAD_URL } from "./config.js";
 // The name of this edition (Maths Explorer or Matematika), written into index.html by the build (build/mxbuild/site.py).
 const SITE_NAME = document.querySelector('meta[name="application-name"]')?.content || "Maths Explorer";
 import { isReading, readingPage, readAlso } from "./reading.js";
@@ -139,6 +139,7 @@ const SECTIONS = [
     ["challenges", "Défis", "Challenges", "puzzle-piece"],
     ...(FULL_EDITION ? [["olympiad", "Olympiades", "Olympiads", "trophy"]] : []),
     ["errors", "Erreurs", "Errors", "warning"],
+    ["intuition", "Contre l’intuition", "Against intuition", "lightbulb"],
   ]],
   ["read", "Lire", "Read", "book-open", [
     ["stories", "Histoires", "Stories", "scroll"],
@@ -168,7 +169,7 @@ function header(page) {
   return `<header class="topbar"${lang !== contentLang ? ` lang="${lang}"` : ""}><a class="brand" href="${homeHash(entry)}" aria-label="${SITE_NAME}">${brandMark}<span class="brand-name">${SITE_NAME}</span></a><button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">${pair("Menu","Menu")}</button><nav id="primary-nav" class="mainnav" aria-label="${pair("Navigation principale", "Main navigation")}">${sectionLinks}</nav><div class="tools">${audienceMenu}<a class="icon-btn" href="#search" data-search-link aria-label="${pair("Rechercher une ressource", "Search resources")}" title="${pair("Rechercher une ressource", "Search resources")}"${route().page === "search" ? ' aria-current="page"' : ""}>${icon("magnifying-glass", 22)}</a><button class="icon-btn" data-theme-toggle aria-label="${themeLabel}" title="${themeLabel}">${icon(dark ? "sun" : "moon", 22)}</button><div class="language" role="group" aria-label="${pair("Langue", "Language")}"${lang !== contentLang ? ` aria-describedby="language-note" title="${singleEdition}"` : ""}><button data-lang="fr" aria-pressed="${lang === "fr"}" lang="fr">FR</button><button data-lang="en" aria-pressed="${lang === "en"}" lang="en">EN</button>${lang !== contentLang ? `<span id="language-note" class="sr-only">${singleEdition}</span>` : ""}</div></div></header>${modeBar}${subnav}`;
 }
 function footer() {
-  return `<footer><span class="foot-brand">${SITE_NAME}</span><span>${storageWorks ? pair("Progression enregistrée sur cet appareil.", "Progress saved on this device.") : pair("Stockage indisponible : progression conservée pour cette session.", "Storage unavailable: progress kept for this session.")}</span><nav class="foot-links" aria-label="${pair("Autres pages", "More pages")}">${effectiveEntry(teacherState.getEntry()) !== "teacher" ? `<a class="foot-switch" href="#teacher" data-set-entry="teacher">${pair("Espace professeur", "Teacher area")}</a>` : ""}<a href="#pack">${pair("Dossier sur mesure", "Custom pack")}</a><a href="#sources">${pair("Sources LaTeX", "LaTeX sources")}</a>${FULL_EDITION?`<a href="#pathways">${pair("Programmes & sources", "Curricula & sources")}</a>`:""}<a href="${MIKAJY_SPARK_DOWNLOAD_URL}" target="_blank" rel="noopener noreferrer">Mikajy Spark (Android)</a>${FULL_EDITION && MIKAJY_ATLAS_DOWNLOAD_URL ? `<a href="${MIKAJY_ATLAS_DOWNLOAD_URL}" target="_blank" rel="noopener noreferrer">Mikajy Atlas (Android)</a>` : ""}<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.${lang}" rel="license noopener" target="_blank">${pair("Licence CC BY-NC-SA 4.0", "CC BY-NC-SA 4.0 licence")}</a></nav></footer>`;
+  return `<footer><span class="foot-brand">${SITE_NAME}</span><span>${storageWorks ? pair("Progression enregistrée sur cet appareil.", "Progress saved on this device.") : pair("Stockage indisponible : progression conservée pour cette session.", "Storage unavailable: progress kept for this session.")}</span><nav class="foot-links" aria-label="${pair("Autres pages", "More pages")}">${effectiveEntry(teacherState.getEntry()) !== "teacher" ? `<a class="foot-switch" href="#teacher" data-set-entry="teacher">${pair("Espace professeur", "Teacher area")}</a>` : ""}<a href="#pack">${pair("Dossier sur mesure", "Custom pack")}</a><a href="#sources">${pair("Sources LaTeX", "LaTeX sources")}</a>${FULL_EDITION?`<a href="#pathways">${pair("Programmes & sources", "Curricula & sources")}</a>`:""}<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.${lang}" rel="license noopener" target="_blank">${pair("Licence CC BY-NC-SA 4.0", "CC BY-NC-SA 4.0 licence")}</a></nav></footer>`;
 }
 // French title of a chapter, for the generators (their content is French)
 const chapterTitleFr = (id) => resourceCatalog.chapters.find((c) => c.id === id)?.title?.[0] || id;
@@ -208,7 +209,7 @@ function render() {
   const valid = (r.page === "lab" && (!r.id || !!experiment)) || (r.page === "gallery" && (!r.id || labs.some(l => l.id === r.id && l.custom))) ||
     (r.page === 'history' && isHistoryRoute(r.id,r.tab)) ||
     (r.page === 'topics' && isTopicRoute(r.id,r.tab)) ||
-    (r.page === "errors" && isErrorRoute(r.id)) ||
+    (r.page === "errors" && isErrorRoute(r.id)) || (r.page === "intuition" && !r.id) ||
     (r.page === "olympiad" && isOlympiadRoute(r.id)) ||
     (r.page === "challenges" && (!r.id || challenges.some(c => c.id === r.id))) ||
     (r.page === "home" && !r.id) || (r.page === "teacher" && !r.id) || (r.page === "prepare" && !r.id) || (r.page === "relax" && !r.id) || (r.page === "review" && !r.id) || r.page === "search" || (r.page === "basics" && isBasicsRoute(r.id)) || isReading(r.page, r.id) || (r.page === "pathways" && !r.id) || r.page === "library" || r.page === "pack" || r.page === "sources" || r.page === "slides" || r.page === "automatismes" || r.page === "sheets" || (r.page === "bank" && isBankRoute(r.id, r.tab, r.sub)) ||
@@ -226,6 +227,7 @@ function render() {
       : page === "history" ? historyPage(r.id,r.tab,t,discovery)
       : page === "chapter" ? chapterPage(r.id, r.tab, t, labs)
       : page === "errors" ? errorsPage(r.id, t)
+      : page === "intuition" ? intuitionPage(t)
       : page === "olympiad" ? olympiadPage(r.id, t)
       : page === "lab"
       ? (experiment ? experimentPage(experiment, { t, pair, link, completed, mission: r.tab || "" }) : labIndexPage({ t, pair, link, completed }))

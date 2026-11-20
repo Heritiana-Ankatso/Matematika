@@ -1,60 +1,60 @@
 % T12 C/D, chapitre 13 : Équations différentielles. Source : le livre « Terminales scientifiques » (EquaDiff/Lesona, EquaDiff/Exo).
-% Les exercices tirés d’autres ouvrages ne sont pas repris (décision du 2 novembre 2026).
+% Les exercices tirés d’autres ouvrages ne sont pas repris (décision du 2 novembre 2026) ; les exercices 5, 6, 9 et 10
+% sont des exercices originaux écrits pour les remplacer (16 novembre 2026). Corrigés imprimés dans l'édition du professeur.
 
 \TCDLessonStyleOn
-%\providecommand{\mampiditratext}[1]{\hfill \text{#1} \qquad}
-\providecommand{\mampiditratext}[1]{}
 \chapter{Equations diff\'erentielles}
 \index{Equations differentielles@Equations diff\'erentielles}
-	      La fonction exponentielle qu'on a \'etudi\'ee auparavant poss\`ede une propri\'et\'e int\'eressante : 
+	      La fonction exponentielle qu'on a \'etudi\'ee auparavant poss\`ede une propri\'et\'e int\'eressante :
 	      elle est \'egale \`a sa propre d\'eriv\'ee.
-      Cette propri\'et\'e va bien souvent \^etre utilis\'ee pour r\'esoudre ce que l'on appelle 
+      Cette propri\'et\'e va bien souvent \^etre utilis\'ee pour r\'esoudre ce que l'on appelle
       \emph{\'equation diff\'erentielle}.
       \begin{defi}[Equation diff\'erentielle]
-      Une \emph{\'equation diff\'erentielle} est une \'equation dans laquelle 
-	      les inconnues sont des fonctions et leurs d\'eriv\'ees.
-	      R\'esoudre une \'equation diff\'erentielle consiste donc \`a chercher toutes les fonctions $f$ 
-      (d\'erivable autant de fois que n\'ecessaire) qui v\'erifient l'\'equation.
+      Une \emph{\'equation diff\'erentielle} est une \'equation dans laquelle
+	      l'inconnue est une fonction et o\`u figurent cette fonction et ses d\'eriv\'ees.
+	      R\'esoudre une \'equation diff\'erentielle sur un intervalle $I$ consiste donc \`a chercher toutes les fonctions $f$
+      (d\'erivables sur $I$ autant de fois que n\'ecessaire) qui v\'erifient l'\'equation pour tout $x$ de $I$.
       \end{defi}
       %
-	            \section{\'Equation diff\'erentielle du premier ordre} 
+	            \section{\'Equation diff\'erentielle du premier ordre}
             %
 \index{Equations differentielles@Equations diff\'erentielles!du premier ordre}
             %
-	            Une \'equation diff\'erentielle est dite \emph{du premier ordre} 
+	            Une \'equation diff\'erentielle est dite \emph{du premier ordre}
             si elle ne fait intervenir que des d\'eriv\'ees d'ordre au plus $1$.
-            On veut trouver une fonction $y$ v\'erifiant l'\'equation 
+            On veut trouver une fonction $y$ v\'erifiant l'\'equation
             \mybox{$ y' + ay = 0 $} o\`u $a$ est un nombre r\'eel.
-            Autrement dit, on cherche une fonction $f$ telle que ${f'(x) + a \; f(x) = 0}$.
+            Autrement dit, on cherche les fonctions $f$, d\'erivables sur $\mathbb{R}$, telles que ${f'(x) + a \; f(x) = 0}$ pour tout r\'eel $x$.
             \paragraph{R\'esolution}
-                  Cette \'equation est \'equivalente \`a $y' = - a y$ o\`u encore, en posant $\alpha = -a$, \`a 
+                  Cette \'equation est \'equivalente \`a $y' = - a y$ o\`u encore, en posant $\alpha = -a$, \`a
                   \begin{equation}
                   \label{eq: diff premier ordre}
                   y' = \alpha y \; .
                   \end{equation}
-                  La fonction $f$ d\'efinie par $f(x) = e^{\alpha x}$ v\'erifie cette propri\'et\'e 
-                  puisque $f'(x) = \alpha \; e^{\alpha x} = \alpha \; f(x)$. 
+                  La fonction $f$ d\'efinie par $f(x) = e^{\alpha x}$ v\'erifie cette propri\'et\'e
+                  puisque $f'(x) = \alpha \; e^{\alpha x} = \alpha \; f(x)$.
 \index{Equations differentielles@Equations diff\'erentielles!Solution particuliere@Solution particuli\`ere}
                   Cette fonction $f$ est donc une solution particuli\`ere de l'\'Equation \ref{eq: diff premier ordre}.
-                  
-                  Cherchons maintenant les solutions de la forme : $ f(x) = g(x) \; e^{\alpha x}$.
-	                  La fonction $g$ doit \^etre d\'erivable partout o\`u $f$ l'est.
-                  Ainsi, on a 
+
+                  Cherchons maintenant \emph{toutes} les solutions.
+                  Soit $f$ une solution quelconque de \eqref{eq: diff premier ordre}.
+	                  Comme $e^{\alpha x} \neq 0$ pour tout r\'eel $x$, on peut d\'efinir sur $\mathbb{R}$ la fonction $g$ par
+	                  $g(x) = f(x) \, e^{-\alpha x}$, de sorte que $f(x) = g(x) \, e^{\alpha x}$ :
+	                  toute fonction peut donc s'\'ecrire sous cette forme, ce n'est pas une hypoth\`ese.
+	                  La fonction $g$ est d\'erivable comme produit de fonctions d\'erivables, et
                   \begin{align*}
-                        f'(x) & = g'(x) e^{\alpha x } + \alpha g(x) e^{\alpha x} \\
-                        \mampiditratext{et comme $f'(x) = \alpha f(x)$}
-                        \alpha f(x) & = g'(x) e^{\alpha x } + \alpha g(x) e^{\alpha x} \\
-                        \mampiditratext{de plus, $f(x) = g(x) e^{\alpha x}$, donc }
-                        \alpha e^{\alpha x} g(x) & = g'(x) e^{\alpha x } + \alpha g(x) e^{\alpha x} \\
-                        \mampiditratext{et il suit que }
-                        0 & = g'(x) e^{\alpha x } \;.
+                        g'(x) & = f'(x) e^{-\alpha x } - \alpha f(x) e^{-\alpha x}
+                        \intertext{et comme $f'(x) = \alpha f(x)$,}
+                        g'(x) & = \alpha f(x) e^{-\alpha x } - \alpha f(x) e^{-\alpha x} = 0 \;.
                   \end{align*}
-	                  Comme la fonction exponentielle ne s'annule jamais, $g'(x) = 0$.
-	                  On conclut que la fonction $g$ est constante.
+	                  La d\'eriv\'ee de $g$ est nulle sur l'intervalle $\mathbb{R}$, donc $g$ est constante :
+	                  il existe un r\'eel $k$ tel que $g(x) = k$, c'est-\`a-dire $f(x) = k \, e^{\alpha x}$ pour tout $x$.
+	                  R\'eciproquement, pour tout r\'eel $k$, la fonction $x \mapsto k\,e^{\alpha x}$ est solution,
+	                  car sa d\'eriv\'ee est $k \alpha e^{\alpha x}$.
 	                  Ainsi :
 	                  \par\smallskip\noindent
 	                  \mybox{%
-	                  {l'ensemble des solutions de l'\'equation $y' + a \; y = 0$ est 
+	                  {l'ensemble des solutions de l'\'equation $y' + a \; y = 0$ est
 	                  l'ensemble des fonctions $f$ telles que $f(x) = k \; e^{-a x}$ o\`u $k \in \mathbb{R}$.}}
                   %
                   \begin{exe}
@@ -62,7 +62,7 @@
                   On veut chercher la solution de cette \'equation qui v\'erifie $y(0) = 3$.
                   L'ensemble des solutions de cette \'equation (sans tenir compte de la condition initiale)
                   est l'ensemble des $f$ d\'efinies par $f(x) = k \; e^{2 x}$.
-                  La condition qu'on veut imposer est $f(0) = 3$, ce qui \'equivaut \`a $k \; e^{2 \; 0} = 3$ et donc $k = 3$.
+                  La condition qu'on veut imposer est $f(0) = 3$, ce qui \'equivaut \`a $k \; e^{2 \times 0} = 3$ et donc $k = 3$.
                   Ainsi, la solution est $f(x) = 3 \; e^{2 x}$.
                   \end{exe}
                   %
@@ -70,71 +70,99 @@
                   %
 \index{Equations differentielles@Equations diff\'erentielles!du premier ordre!avec condition initiale}
                   %
-                  On veut r\'esoudre une \'equation diff\'erentielle du premier ordre 
+                  On veut r\'esoudre une \'equation diff\'erentielle du premier ordre
                   v\'erifiant une condition de la forme $y(x_0) = y_0$.
                   On sait d\'ej\`a que les solutions de l'\'equation sont de la forme $y(x) = k \; e^{-a x}$.
                   Ainsi, $y_0 = y(x_0) = k \; e^{-a x_0}$, ce qui nous donne $k = y_0 e^{a x_0}$.
                   La fonction $y$ s'\'ecrit alors
                   $y(x) = y_0 e^{a x_0} e^{-a x} = y_0 e^{-a(x - x_0)}$.
-                  
-                  On admettra que l'\'equation $y' + a y = 0$ admet une
+
+                  Le calcul pr\'ec\'edent montre que la constante $k$ est enti\`erement d\'etermin\'ee :
+                  l'\'equation $y' + a y = 0$ admet une
                   solution unique v\'erifiant la condition $y(x_0) = y_0$.
+            \paragraph{\'Equation avec second membre}
+\index{Equations differentielles@Equations diff\'erentielles!avec second membre}
+                  Soit $h$ une fonction d\'efinie sur un intervalle $I$ et l'\'equation
+                  $(E) : y' + a y = h(x)$. L'\'equation $(E_0) : y' + a y = 0$ est appel\'ee
+                  \emph{\'equation sans second membre} (ou homog\`ene) associ\'ee \`a $(E)$.
+
+                  Supposons que l'on connaisse une solution particuli\`ere $p$ de $(E)$.
+                  Pour une fonction $f$ d\'erivable sur $I$, posons $u = f - p$. On a
+                  $u' + a u = (f' + a f) - (p' + a p) = (f' + a f) - h$.
+                  Donc $f$ est solution de $(E)$ si et seulement si $u$ est solution de $(E_0)$,
+                  c'est-\`a-dire si et seulement si $u(x) = k e^{-ax}$ :
+                  \par\smallskip\noindent
+                  \mybox{les solutions de $y' + ay = h(x)$ sont les fonctions $x \mapsto p(x) + k\,e^{-ax}$, $k \in \mathbb{R}$.}
+                  \par\smallskip
+                  En particulier, si $a \neq 0$ et si $h$ est une constante $b$, la fonction constante $p = \frac{b}{a}$
+                  est une solution particuli\`ere, et les solutions de $y' + a y = b$ sont les fonctions
+                  $x \mapsto \frac{b}{a} + k\,e^{-ax}$.
+                  Le m\^eme raisonnement s'applique aux \'equations du second ordre de la section suivante :
+                  solution g\'en\'erale = solution particuli\`ere + solution g\'en\'erale de l'\'equation sans second membre.
 %
       \section{\'Equation diff\'erentielle du second ordre}
 %
 \index{Equations differentielles@Equations diff\'erentielles!du second ordre}
 %
-            On s'interesse maintenant aux \'equations de la forme 
+            On s'int\'eresse maintenant aux \'equations de la forme
             \begin{equation}
             \label{eq: diff second ordre}
-                  y'' + a y' + by = 0.
+                  y'' + a y' + by = 0,
             \end{equation}
+            o\`u $a$ et $b$ sont des nombres r\'eels.
             Pour r\'esoudre une telle \'equation, on r\'esout d'abord l'\'equation caract\'eristique.
             %
             \paragraph{\'Equation caract\'eristique:}
 	                  On cherche les r\'eels $r$ tels que la fonction $x \mapsto e^{rx}$ soit une solution de l'\'equation.
                   Posons $f(x) = e^{r x}$, on a alors $f'(x) = r e^{rx}$ et $f''(x) = r^2 e^{rx}$.
-                  Ainsi, $f''(x) + a f'(x) + b f(x) = $ \'equivaut \`a 
-                  $r^2 e^{rx} + a r e^{rx} + b e^{r x} = 0$ et par cons\'equent $(r^2 + a r + b) e^{r x} = 0$. 
-	                  Comme la fonction exponentielle est toujours strictement positive (et donc non nulle), 
-                  n\'ec\'essairement \mybox{$r^2 + a r + b = 0$}.
+                  Ainsi, $f''(x) + a f'(x) + b f(x) = 0$ \'equivaut \`a
+                  $r^2 e^{rx} + a r e^{rx} + b e^{r x} = 0$ et par cons\'equent \`a $(r^2 + a r + b) e^{r x} = 0$.
+	                  Comme la fonction exponentielle est toujours strictement positive (et donc non nulle),
+                  cela \'equivaut \`a \mybox{$r^2 + a r + b = 0$}.
+                  Cette \'equation du second degr\'e est appel\'ee \emph{\'equation caract\'eristique} de \eqref{eq: diff second ordre}.
             %
             \paragraph{R\'esolution:}
-                  Selon le discriminant $\Delta$ de l'\'equation caract\'eristique: \\
+                  Selon le discriminant $\Delta = a^2 - 4b$ de l'\'equation caract\'eristique, on admet le th\'eor\`eme suivant. \\
                   \noindent
-	                        \begin{thm} ~ 
-                              \begin{itemize} 
-                              \item Si $\Delta > 0$: 
-                                    Soient $r_1$ et $r_2$ les deux solutions r\'eelles de l'\'equation caract\'eristique. 
-                                    L'ensemble des solutions de l'\'Equation \ref{eq: diff second ordre} est 
+	                        \begin{thm} ~
+                              \begin{itemize}
+                              \item Si $\Delta > 0$:
+                                    Soient $r_1$ et $r_2$ les deux solutions r\'eelles de l'\'equation caract\'eristique.
+                                    L'ensemble des solutions de l'\'Equation \ref{eq: diff second ordre} est
                                     l'ensemble des fonctions $f$ de la forme
-                                    \invertbox{$f(x) = A \; e^{r_1 \; x } + B \; e^{r_2 \; x}$}.
+                                    \invertbox{$f(x) = A \; e^{r_1 \; x } + B \; e^{r_2 \; x}$}, o\`u $A$ et $B$ sont des r\'eels.
                               \item Si $\Delta = 0$: Soit $\rho$ la racine (double) de l'\'equation caract\'eristique.
-                                    L'ensemble des solutions de l'\'Equation \ref{eq: diff second ordre} est 
+                                    L'ensemble des solutions de l'\'Equation \ref{eq: diff second ordre} est
                                     l'ensemble des fonctions $f$ de la forme
-	                                    \invertbox{$f(x) = (A x + B) \; e^{\rho x} $}.
-                              \item Si $\Delta < 0$: 
+	                                    \invertbox{$f(x) = (A x + B) \; e^{\rho x} $}, o\`u $A$ et $B$ sont des r\'eels.
+                              \item Si $\Delta < 0$:
                                     L'\'equation caract\'eristique admet alors deux racines complexes conjugu\'ees.
-                                    Soient $\alpha$ et $\beta$ les deux r\'eels tels que 
+                                    Soient $\alpha$ et $\beta$ les deux r\'eels ($\beta \neq 0$) tels que
                                     les deux solutions sont $\alpha + i \beta$ et $\alpha - i \beta$.
-                                    L'ensemble des solutions de l'\'Equation \ref{eq: diff second ordre} est 
+                                    L'ensemble des solutions de l'\'Equation \ref{eq: diff second ordre} est
                                     l'ensemble des fonctions $f$ de la forme
-                                    \invertbox{$f(x) = \left(A \cos (\beta x ) + B \sin (\beta x) \right) \; e^{\alpha x}$}.
+                                    \invertbox{$f(x) = \left(A \cos (\beta x ) + B \sin (\beta x) \right) \; e^{\alpha x}$}, o\`u $A$ et $B$ sont des r\'eels.
                               \end{itemize}
 	                        \end{thm}
                   %
-                  \smallnota{Dans tous les cas, il existe une solution unique satisfaisant \`a la condition initiale 
+                  \smallnota{Dans tous les cas, il existe une solution unique satisfaisant aux conditions initiales
                         $y(x_0) = y_0$ et $y'(x_0) = y'_0$.}
                   %
             \begin{ex}
-                  \begin{enumerate}
-                  \item R\'esoudre l'\'equation diff\'erentielle 
+                  R\'esoudre l'\'equation diff\'erentielle
                         \begin{equation}
                         \label{eq:ex:eq diff 1}
                               y'' - 3 y' - 4 y = 0
                         \end{equation}
                   avec les conditions initiales : $y(0) = 2 $ et $y'(0) = 4$.
-                  \end{enumerate}
+
+                  L'\'equation caract\'eristique est $r^2 - 3r - 4 = 0$ ; son discriminant est $\Delta = 9 + 16 = 25 > 0$
+                  et ses racines sont $r_1 = \frac{3 + 5}{2} = 4$ et $r_2 = \frac{3 - 5}{2} = -1$.
+                  Les solutions de \eqref{eq:ex:eq diff 1} sont donc les fonctions $y(x) = A e^{4x} + B e^{-x}$,
+                  de d\'eriv\'ee $y'(x) = 4A e^{4x} - B e^{-x}$.
+                  Les conditions initiales donnent le syst\`eme $A + B = 2$ et $4A - B = 4$,
+                  d'o\`u $5A = 6$, $A = \frac{6}{5}$ et $B = \frac{4}{5}$.
+                  La solution cherch\'ee est $y(x) = \frac{6}{5} e^{4x} + \frac{4}{5} e^{-x}$.
             \end{ex}
 
 \TCDLessonStyleOff
@@ -142,24 +170,28 @@
 \section{Exercices}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{exo}
-R\'esoudre les \'equations diff\'erentielles suivantes : 
+\label{exo:ed premier ordre}
+R\'esoudre les \'equations diff\'erentielles suivantes :
 \begin{enumerate}
 \item $y' - 3 y = 0$, avec $y(0) = 1$
 \item $2 y' - \frac{y}{2} = 0$, avec $y(0) = 2 e$
 \item $ - y' - \sin(x) \; y = 0$, avec $y(0) = 1$
-\item $2 y' + \frac{2x}{x^2 + 1} \; y = 0$, avec $y(0) = 1$.
+      (on pourra calculer la d\'eriv\'ee de $g : x \mapsto y(x)\, e^{-\cos x}$)
+\item $2 y' + \frac{2x}{x^2 + 1} \; y = 0$, avec $y(0) = 1$
+      (on pourra calculer la d\'eriv\'ee de $g : x \mapsto y(x) \sqrt{x^2 + 1}$).
 \end{enumerate}
 \end{exo}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{exo}
+\label{exo:ed caracteristique}
       On consid\`ere l'\'equation diff\'erentielle $(E) : y''+2y'-3y=0$.
       \begin{enumerate}
             \item D\'emontrer que la fonction $\varphi$ telle que : $\varphi (x) = \expo{rx}$ est solution de $(E)$
-                  si $r$ v\'erifie une \'equation du second degr\'e que l'on d\'eterminera.
+                  si et seulement si $r$ v\'erifie une \'equation du second degr\'e que l'on d\'eterminera.
                   Cette \'equation du second degr\'e admet deux racines $r_1$ et $r_2$.
-            \item D\'emontrer que la fonction $f$ telle que : 
+            \item D\'emontrer que la fonction $f$ telle que :
                   $f(x) = \lambda_1 \cdot \expo{r_1 x} + \lambda_2 \cdot \expo{r_2 x}$ est solution de $(E)$,
                   $\lambda_1$ et $\lambda_2$ \'etant des constantes arbitraires.
             \item D\'eterminer la solution $f$ v\'erifiant les conditions : $f(0) = 4$ et $f'(0) = 0$.
@@ -169,7 +201,8 @@ R\'esoudre les \'equations diff\'erentielles suivantes :
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{exo}
-R\'esoudre les \'equations diff\'erentielles suivantes : 
+\label{exo:ed second ordre}
+R\'esoudre les \'equations diff\'erentielles suivantes :
 \begin{enumerate}
 \item $y'' - 3 y' + 2y = 0$, avec $y'(0) = 1$ et $y(0) = 0$.
 \item $y'' + 2 y' + y = 0$, avec $y'(0) = 1$ et $y(0) = 0$.
@@ -180,55 +213,93 @@ R\'esoudre les \'equations diff\'erentielles suivantes :
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{exo}
-On consid\`ere l'\'equation diff\'erentielle 
+\label{exo:ed premier ordre second membre}
+On consid\`ere, sur l'intervalle $]0 ; +\infty[$, l'\'equation diff\'erentielle
 \begin{equation}
 y' + y = \frac{1}{{\left(e^{x} - 1\right)}^{2}} \; .
 \label{eq:premier_ordre_non_homogene}
 \end{equation}
 \begin{enumerate}
-\item V\'erifier que la fonction $f : x \ {\mapsto}\  \frac{e^{-x}}{e^{-x} - 1}$ 
-      est une solution de \eqref{eq:premier_ordre_non_homogene}. 
-\item R\'esoudre l'\'equation diff\'erentielle homog\`ene 
+\item V\'erifier que la fonction $f : x \ {\mapsto}\  \frac{e^{-x}}{e^{-x} - 1}$
+      est une solution de \eqref{eq:premier_ordre_non_homogene} sur $]0 ; +\infty[$.
+\item R\'esoudre l'\'equation diff\'erentielle sans second membre associ\'ee
       \begin{equation}
-      y' - y = 0 \; .
+      y' + y = 0 \; .
       \label{eq:premier_ordre_homogene}
       \end{equation}
-\item En d\'eduire l'ensemble des solutions de \eqref{eq:premier_ordre_non_homogene}.
+\item En d\'eduire l'ensemble des solutions de \eqref{eq:premier_ordre_non_homogene} sur $]0 ; +\infty[$.
 \end{enumerate}
 \end{exo}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+\begin{exo}
+\label{exo:ed changement de fonction}
+On consid\`ere l'\'equation diff\'erentielle $(E) : y' + 2y = 6x^2 \, e^{-2x}$, sur $\mathbb{R}$.
+\begin{enumerate}
+\item R\'esoudre l'\'equation $(E_0) : y' + 2y = 0$.
+\item Soit $f$ une fonction d\'erivable sur $\mathbb{R}$. On d\'efinit la fonction $g$ par $g(x) = f(x)\, e^{2x}$.
+      \begin{enumerate}
+      \item Exprimer $g'(x)$ \`a l'aide de $f'(x)$ et de $f(x)$.
+      \item D\'emontrer que $f$ est solution de $(E)$ si et seulement si $g'(x) = 6x^2$ pour tout r\'eel $x$.
+      \end{enumerate}
+\item En d\'eduire toutes les solutions de $(E)$. V\'erifier que l'on retrouve la forme
+      << solution particuli\`ere + solution de $(E_0)$ >>.
+\item D\'eterminer la solution $f_1$ de $(E)$ telle que $f_1(0) = 1$.
+\item \'Etudier le sens de variation de $f_1$ sur $[0 ; +\infty[$ et sa limite en $+\infty$.
+\end{enumerate}
+\end{exo}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{exo}
-On consid\`ere l'\'equation diff\'erentielle 
+\label{exo:ed superposition}
+On \'etudie l'\'equation diff\'erentielle $(E) : y' + y = 3 + 2\cos x$, sur $\mathbb{R}$.
+\begin{enumerate}
+\item D\'eterminer une solution constante de l'\'equation $(E_1) : y' + y = 3$.
+\item D\'eterminer deux r\'eels $\lambda$ et $\mu$ tels que la fonction
+      $p_2 : x \mapsto \lambda \cos x + \mu \sin x$ soit solution de $(E_2) : y' + y = 2 \cos x$.
+\item Montrer que si $p_1$ est solution de $(E_1)$ et $p_2$ solution de $(E_2)$, alors $p_1 + p_2$ est solution de $(E)$.
+      En d\'eduire l'ensemble des solutions de $(E)$.
+\item D\'eterminer la solution $f$ de $(E)$ telle que $f(0) = 0$.
+\item \begin{enumerate}
+      \item V\'erifier que, pour tout r\'eel $x$, $\cos x + \sin x = \sqrt{2} \cos\left(x - \frac{\pi}{4}\right)$.
+      \item Montrer que pour tout $x \geq 0$, $\left| f(x) - 3 - \sqrt{2}\cos\left(x - \frac{\pi}{4}\right) \right| \leq 4 e^{-x}$.
+            Interpr\'eter : entre quelles valeurs $f(x)$ finit-elle par osciller lorsque $x$ devient grand\,?
+      \end{enumerate}
+\end{enumerate}
+\end{exo}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{exo}
+\label{exo:ed polynome}
+On consid\`ere l'\'equation diff\'erentielle
       \begin{equation}
       y'' - 4 y' + 3y = 3 x^2 - 2 x - 9 \; .
-      \label{eq:second_ordre_non_homog\`ene}
+      \label{eq:second_ordre_non_homogene_poly}
       \end{equation}
 \begin{enumerate}
-\item R\'esoudre l'\'equation diff\'erentielle 
-      \begin{equation*}
+\item R\'esoudre l'\'equation diff\'erentielle
+      \[
       y'' - 4 y' + 3y = 0 \; .
-      \label{eq:second_ordre_homog\`ene}
-      \end{equation*}
-\item Montrer que la fonction $f : x \mapsto x^2 + 2 x - 1$ 
-      est solution de l'\'equation \eqref{eq:second_ordre_non_homog\`ene}.
-\item D\'eduire l'ensemble des solutions de \eqref{eq:second_ordre_non_homog\`ene}.
-\item D\'eterminer une solution $\varphi$ de \eqref{eq:second_ordre_non_homog\`ene} v\'erifiant $\varphi (0) = 0$.
+      \]
+\item Montrer que la fonction $f : x \mapsto x^2 + 2 x - 1$
+      est solution de l'\'equation \eqref{eq:second_ordre_non_homogene_poly}.
+\item D\'eduire l'ensemble des solutions de \eqref{eq:second_ordre_non_homogene_poly}.
+\item D\'eterminer la solution $\varphi$ de \eqref{eq:second_ordre_non_homogene_poly} v\'erifiant $\varphi (0) = 0$
+      et $\varphi'(0) = 0$.
 \end{enumerate}
 \end{exo}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{exo}
+\label{exo:ed double}
 On consid\`ere les \'equations diff\'erentielles \eqref{eq:second_ordre} et \eqref{eq:second_ordre_homogene} :
       \begin{equation}
       \TCDtag{E}
-      y'' + 2 y' + y = 2 \; e^{-x} 
+      y'' + 2 y' + y = 2 \; e^{-x}
       \label{eq:second_ordre}
       \end{equation}
       et
@@ -241,7 +312,7 @@ On consid\`ere les \'equations diff\'erentielles \eqref{eq:second_ordre} et \eqr
 \item D\'eterminer l'ensemble des solutions de \eqref{eq:second_ordre_homogene}.
 \item V\'erifier que la fonction $f : x \mapsto (x+2)^2 \; e^{-x} $ est solution de \eqref{eq:second_ordre}.
 \item D\'eduire l'ensemble des solutions de \eqref{eq:second_ordre}.
-\item Donner une solution $\varphi$ de \eqref{eq:second_ordre} v\'erifiant : 
+\item Donner la solution $\varphi$ de \eqref{eq:second_ordre} v\'erifiant :
       \[
       \varphi (0) = 0 \text{ et } \varphi' (0) = 0 \; .
       \]
@@ -249,30 +320,230 @@ On consid\`ere les \'equations diff\'erentielles \eqref{eq:second_ordre} et \eqr
 \end{exo}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{exo}
+\label{exo:ed changement inconnue}
+On consid\`ere l'\'equation diff\'erentielle $(E) : y'' - 2y' + 2y = 0$, sur $\mathbb{R}$.
+Le but de l'exercice est de la r\'esoudre sans utiliser le th\'eor\`eme du cours, en se ramenant \`a une \'equation plus simple.
+\begin{enumerate}
+\item V\'erifier que les fonctions $\cos$ et $\sin$ sont solutions de l'\'equation $(F) : z'' + z = 0$.
+      On admet que les solutions de $(F)$ sont exactement les fonctions $x \mapsto A \cos x + B \sin x$, $(A , B) \in \mathbb{R}^2$.
+\item Soit $y$ une fonction deux fois d\'erivable sur $\mathbb{R}$ et $z$ la fonction d\'efinie par $z(x) = y(x)\, e^{-x}$,
+      de sorte que $y(x) = z(x)\, e^{x}$.
+      \begin{enumerate}
+      \item Calculer $y'(x)$ et $y''(x)$ en fonction de $z(x)$, $z'(x)$, $z''(x)$.
+      \item En d\'eduire que $y$ est solution de $(E)$ si et seulement si $z$ est solution de $(F)$.
+      \end{enumerate}
+\item En d\'eduire l'ensemble des solutions de $(E)$. Comparer avec le r\'esultat donn\'e par le cours
+      (on \'ecrira l'\'equation caract\'eristique de $(E)$).
+\item D\'eterminer la solution $h$ de $(E)$ telle que $h(0) = 0$ et $h'(0) = 1$.
+\item R\'esoudre l'\'equation $h(x) = 0$ sur $\mathbb{R}$, puis donner le signe de $h(x)$ sur $[0 ; 2\pi]$.
+\end{enumerate}
+\end{exo}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{exo}
+\label{exo:ed equation integrale}
+On cherche toutes les fonctions $f$ d\'erivables sur $\mathbb{R}$ telles que, pour tout r\'eel $x$ :
+\begin{equation}
+\TCDtag{I}
+f'(x) + f(x) = 3 + 2 \int_0^x f(t) \, \mathrm{d}t \;.
+\label{eq:ed integrale}
+\end{equation}
+\begin{enumerate}
+\item Soit $f$ une fonction v\'erifiant \eqref{eq:ed integrale}.
+      \begin{enumerate}
+      \item Justifier que $f'$ est d\'erivable sur $\mathbb{R}$ et montrer que $f$ est solution de l'\'equation
+            diff\'erentielle $(E) : y'' + y' - 2y = 0$.
+      \item Montrer que $f(0) + f'(0) = 3$.
+      \end{enumerate}
+\item R\'esoudre $(E)$. En d\'eduire que si $f$ v\'erifie \eqref{eq:ed integrale}, il existe deux r\'eels $A$ et $B$
+      tels que $f(x) = A e^{x} + B e^{-2x}$ avec $2A - B = 3$.
+\item R\'eciproquement, soit $f(x) = A e^{x} + B e^{-2x}$ avec $2A - B = 3$.
+      On pose $\psi(x) = f'(x) + f(x) - 3 - 2\int_0^x f(t)\,\mathrm{d}t$.
+      Calculer $\psi'(x)$ et $\psi(0)$, puis conclure.
+\item Parmi ces fonctions, d\'eterminer celle qui s'annule en $0$.
+\end{enumerate}
+\end{exo}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\begin{corrige}
+\section{Solutions des exercices}
+\begin{sol} ~ \\
+(Solution de l'Exercice \ref{exo:ed premier ordre})
+\begin{enumerate}
+\item $y' - 3y = 0$ s'\'ecrit $y' = 3y$ : les solutions sont $y(x) = k e^{3x}$, $k \in \mathbb{R}$.
+      La condition $y(0) = k = 1$ donne $\boxed{y(x) = e^{3x}}$.
+\item $2y' - \frac{y}{2} = 0$ \'equivaut \`a $y' = \frac{1}{4} y$ : $y(x) = k e^{x/4}$.
+      La condition $y(0) = k = 2e$ donne $\boxed{y(x) = 2e \, e^{x/4} = 2 e^{1 + \frac{x}{4}}}$.
+\item L'\'equation s'\'ecrit $y' + \sin(x)\, y = 0$ (le coefficient n'est pas constant, le th\'eor\`eme du cours ne s'applique pas directement).
+      Soit $y$ une solution et $g(x) = y(x) e^{-\cos x}$. Alors
+      $g'(x) = y'(x) e^{-\cos x} + \sin(x)\, y(x) e^{-\cos x} = \big(y'(x) + \sin(x)\, y(x)\big) e^{-\cos x} = 0$.
+      Donc $g$ est constante sur $\mathbb{R}$ : $y(x) = k e^{\cos x}$. R\'eciproquement,
+      $y = k e^{\cos x}$ v\'erifie $y' = -k \sin(x) e^{\cos x} = -\sin(x)\, y$.
+      La condition $y(0) = k e = 1$ donne $k = e^{-1}$ et $\boxed{y(x) = e^{\cos x - 1}}$.
+\item L'\'equation s'\'ecrit $y' + \frac{x}{x^2+1}\, y = 0$. Soit $g(x) = y(x)\sqrt{x^2+1}$ :
+      $g'(x) = y'(x)\sqrt{x^2+1} + y(x)\frac{x}{\sqrt{x^2+1}} = \sqrt{x^2+1}\left(y'(x) + \frac{x}{x^2+1} y(x)\right) = 0$.
+      Donc $g$ est constante : $y(x) = \frac{k}{\sqrt{x^2+1}}$ (et ces fonctions conviennent, par le m\^eme calcul).
+      La condition $y(0) = k = 1$ donne $\boxed{y(x) = \frac{1}{\sqrt{x^2+1}}}$.
+\end{enumerate}
+\end{sol}
 
+\begin{sol} ~ \\
+(Solution de l'Exercice \ref{exo:ed caracteristique})
+\begin{enumerate}
+\item $\varphi'(x) = r e^{rx}$ et $\varphi''(x) = r^2 e^{rx}$, donc
+      $\varphi'' + 2\varphi' - 3\varphi = (r^2 + 2r - 3) e^{rx}$. Comme $e^{rx} \neq 0$,
+      $\varphi$ est solution de $(E)$ si et seulement si $r^2 + 2r - 3 = 0$.
+      Le discriminant vaut $4 + 12 = 16$ ; les racines sont $r_1 = 1$ et $r_2 = -3$.
+\item Les fonctions $\varphi_1 : x \mapsto e^{x}$ et $\varphi_2 : x \mapsto e^{-3x}$ sont solutions.
+      Pour $f = \lambda_1 \varphi_1 + \lambda_2 \varphi_2$, la d\'erivation \'etant lin\'eaire,
+      $f'' + 2f' - 3f = \lambda_1(\varphi_1'' + 2\varphi_1' - 3\varphi_1) + \lambda_2(\varphi_2'' + 2\varphi_2' - 3\varphi_2) = 0$.
+\item $f(x) = \lambda_1 e^{x} + \lambda_2 e^{-3x}$ et $f'(x) = \lambda_1 e^{x} - 3\lambda_2 e^{-3x}$.
+      Les conditions donnent $\lambda_1 + \lambda_2 = 4$ et $\lambda_1 - 3\lambda_2 = 0$, d'o\`u $4\lambda_2 = 4$,
+      $\lambda_2 = 1$ et $\lambda_1 = 3$ : $\boxed{f(x) = 3 e^{x} + e^{-3x}}$.
+\end{enumerate}
+\end{sol}
 
+\begin{sol} ~ \\
+(Solution de l'Exercice \ref{exo:ed second ordre})
+\begin{enumerate}
+\item $r^2 - 3r + 2 = 0$ a pour racines $1$ et $2$ : $y(x) = A e^{x} + B e^{2x}$, $y'(x) = A e^{x} + 2B e^{2x}$.
+      $y(0) = A + B = 0$ et $y'(0) = A + 2B = 1$ donnent $B = 1$, $A = -1$ : $\boxed{y(x) = e^{2x} - e^{x}}$.
+\item $r^2 + 2r + 1 = (r+1)^2$ : racine double $-1$, $y(x) = (Ax + B) e^{-x}$ et
+      $y'(x) = (A - Ax - B) e^{-x}$. $y(0) = B = 0$ et $y'(0) = A - B = 1$ : $\boxed{y(x) = x e^{-x}}$.
+\item $r^2 + r + 1 = 0$ : $\Delta = -3 < 0$, racines $-\frac{1}{2} \pm i \frac{\sqrt{3}}{2}$.
+      $y(x) = \left(A \cos \frac{\sqrt{3}}{2}x + B \sin \frac{\sqrt{3}}{2}x\right) e^{-x/2}$.
+      $y(0) = A = 0$ ; alors $y(x) = B \sin\left(\frac{\sqrt{3}}{2}x\right) e^{-x/2}$ et
+      $y'(0) = B\frac{\sqrt{3}}{2} = 1$, d'o\`u $B = \frac{2}{\sqrt{3}}$ :
+      $\boxed{y(x) = \frac{2}{\sqrt{3}} \sin\left(\frac{\sqrt{3}}{2}x\right) e^{-x/2}}$.
+\end{enumerate}
+\end{sol}
 
+\begin{sol} ~ \\
+(Solution de l'Exercice \ref{exo:ed premier ordre second membre})
+\begin{enumerate}
+\item Pour $x > 0$, $e^{-x} - 1 \neq 0$ et, en multipliant num\'erateur et d\'enominateur par $e^{x}$,
+      $f(x) = \frac{1}{1 - e^{x}}$. Alors $f'(x) = \frac{e^{x}}{(1 - e^{x})^2}$ et
+      \[
+      f'(x) + f(x) = \frac{e^{x} + (1 - e^{x})}{(1 - e^{x})^2} = \frac{1}{(1 - e^{x})^2} = \frac{1}{(e^{x} - 1)^2} .
+      \]
+\item $y' + y = 0$ : les solutions sont $y(x) = k e^{-x}$, $k \in \mathbb{R}$.
+\item D'apr\`es le cours (solution particuli\`ere + solutions de l'\'equation sans second membre), les solutions sur $]0;+\infty[$ sont
+      $\boxed{y(x) = \frac{1}{1 - e^{x}} + k e^{-x}, \ k \in \mathbb{R}}$.
+\end{enumerate}
+\end{sol}
 
+\begin{sol} ~ \\
+(Solution de l'Exercice \ref{exo:ed changement de fonction})
+\begin{enumerate}
+\item Les solutions de $(E_0)$ sont les fonctions $x \mapsto k e^{-2x}$, $k \in \mathbb{R}$.
+\item \begin{enumerate}
+      \item $g'(x) = f'(x) e^{2x} + 2 f(x) e^{2x} = \big(f'(x) + 2f(x)\big) e^{2x}$.
+      \item $f$ est solution de $(E)$ si et seulement si, pour tout $x$, $f'(x) + 2f(x) = 6x^2 e^{-2x}$ ;
+            en multipliant par $e^{2x} \neq 0$, cela \'equivaut \`a $\big(f'(x) + 2f(x)\big)e^{2x} = 6x^2$,
+            c'est-\`a-dire $g'(x) = 6x^2$.
+      \end{enumerate}
+\item $g' = 6x^2$ sur l'intervalle $\mathbb{R}$ \'equivaut \`a $g(x) = 2x^3 + k$, $k \in \mathbb{R}$
+      (deux primitives d'une m\^eme fonction diff\`erent d'une constante).
+      Donc les solutions de $(E)$ sont $\boxed{f(x) = (2x^3 + k) e^{-2x}, \ k \in \mathbb{R}}$.
+      On a bien $f(x) = 2x^3 e^{-2x} + k e^{-2x}$ : la fonction $x \mapsto 2x^3 e^{-2x}$ est une solution particuli\`ere
+      ($k = 0$) et $k e^{-2x}$ d\'ecrit les solutions de $(E_0)$.
+\item $f_1(0) = k = 1$ : $\boxed{f_1(x) = (2x^3 + 1) e^{-2x}}$.
+\item $f_1'(x) = 6x^2 e^{-2x} - 2(2x^3 + 1) e^{-2x} = (-4x^3 + 6x^2 - 2) e^{-2x} = -2(2x^3 - 3x^2 + 1) e^{-2x}$.
+      Or $2x^3 - 3x^2 + 1$ s'annule en $1$ et se factorise : $2x^3 - 3x^2 + 1 = (x - 1)^2 (2x + 1)$.
+      Donc $f_1'(x) = -2 (x-1)^2 (2x+1) e^{-2x} \leq 0$ sur $[0 ; +\infty[$, avec \'egalit\'e seulement en $x = 1$ :
+      $f_1$ est strictement d\'ecroissante sur $[0;+\infty[$ (de $f_1(0) = 1$ vers $0$).
+      Enfin $f_1(x) = 2 x^3 e^{-2x} + e^{-2x}$ ; par croissances compar\'ees $\lim_{x \to +\infty} x^3 e^{-2x} = 0$
+      et $\lim_{x \to +\infty} e^{-2x} = 0$, donc $\lim_{x \to +\infty} f_1(x) = 0$.
+\end{enumerate}
+\end{sol}
 
+\begin{sol} ~ \\
+(Solution de l'Exercice \ref{exo:ed superposition})
+\begin{enumerate}
+\item Une constante $c$ a une d\'eriv\'ee nulle ; elle est solution de $(E_1)$ si et seulement si $c = 3$. Donc $p_1 = 3$.
+\item $p_2'(x) + p_2(x) = (-\lambda \sin x + \mu \cos x) + \lambda \cos x + \mu \sin x = (\lambda + \mu)\cos x + (\mu - \lambda) \sin x$.
+      Il suffit que $\lambda + \mu = 2$ et $\mu - \lambda = 0$ : $\lambda = \mu = 1$, $p_2(x) = \cos x + \sin x$.
+\item $(p_1 + p_2)' + (p_1 + p_2) = (p_1' + p_1) + (p_2' + p_2) = 3 + 2\cos x$.
+      Ainsi $p = 3 + \cos x + \sin x$ est une solution particuli\`ere de $(E)$, et les solutions de $(E)$ sont
+      $\boxed{f(x) = 3 + \cos x + \sin x + k e^{-x}, \ k \in \mathbb{R}}$.
+\item $f(0) = 3 + 1 + 0 + k = 0$ donne $k = -4$ : $\boxed{f(x) = 3 + \cos x + \sin x - 4 e^{-x}}$.
+\item \begin{enumerate}
+      \item $\sqrt{2}\cos\left(x - \frac{\pi}{4}\right) = \sqrt{2}\left(\cos x \cos\frac{\pi}{4} + \sin x \sin\frac{\pi}{4}\right)
+            = \sqrt{2} \cdot \frac{\sqrt{2}}{2}(\cos x + \sin x) = \cos x + \sin x$.
+      \item $f(x) - 3 - \sqrt{2}\cos\left(x - \frac{\pi}{4}\right) = -4 e^{-x}$, dont la valeur absolue est $4e^{-x}$ :
+            l'in\'egalit\'e est m\^eme une \'egalit\'e. Comme $4e^{-x} \to 0$ quand $x \to +\infty$, $f(x)$ devient
+            aussi proche que l'on veut de $3 + \sqrt{2}\cos\left(x - \frac{\pi}{4}\right)$ : pour $x$ grand, $f(x)$ oscille
+            (presque) entre $3 - \sqrt{2} \approx 1{,}59$ et $3 + \sqrt{2} \approx 4{,}41$, avec la p\'eriode $2\pi$.
+            Le terme $-4e^{-x}$, qui d\'epend de la condition initiale, s'efface.
+      \end{enumerate}
+\end{enumerate}
+\end{sol}
 
+\begin{sol} ~ \\
+(Solution de l'Exercice \ref{exo:ed polynome})
+\begin{enumerate}
+\item $r^2 - 4r + 3 = 0$ a pour racines $1$ et $3$ : les solutions sont $y(x) = A e^{x} + B e^{3x}$.
+\item $f'(x) = 2x + 2$, $f''(x) = 2$ et $f'' - 4f' + 3f = 2 - 8x - 8 + 3x^2 + 6x - 3 = 3x^2 - 2x - 9$.
+\item Les solutions sont $y(x) = A e^{x} + B e^{3x} + x^2 + 2x - 1$, $(A,B) \in \mathbb{R}^2$.
+\item $\varphi(0) = A + B - 1 = 0$ et $\varphi'(x) = A e^{x} + 3B e^{3x} + 2x + 2$, $\varphi'(0) = A + 3B + 2 = 0$.
+      Par soustraction, $2B = -3$ : $B = -\frac{3}{2}$, $A = \frac{5}{2}$ et
+      $\boxed{\varphi(x) = \frac{5}{2} e^{x} - \frac{3}{2} e^{3x} + x^2 + 2x - 1}$.
+\end{enumerate}
+\end{sol}
 
+\begin{sol} ~ \\
+(Solution de l'Exercice \ref{exo:ed double})
+\begin{enumerate}
+\item $r^2 + 2r + 1 = (r+1)^2$ : racine double $-1$. Les solutions de (H) sont $y(x) = (Ax + B) e^{-x}$.
+\item $f(x) = (x^2 + 4x + 4) e^{-x}$, $f'(x) = (2x + 4 - x^2 - 4x - 4)e^{-x} = (-x^2 - 2x) e^{-x}$,
+      $f''(x) = (-2x - 2 + x^2 + 2x) e^{-x} = (x^2 - 2) e^{-x}$. Donc
+      $f'' + 2f' + f = (x^2 - 2 - 2x^2 - 4x + x^2 + 4x + 4) e^{-x} = 2 e^{-x}$.
+\item Les solutions de (E) sont $y(x) = (x+2)^2 e^{-x} + (Ax + B) e^{-x} = (x^2 + (A+4)x + B + 4) e^{-x}$.
+\item $\varphi(0) = B + 4 = 0$, donc $B = -4$. On a $\varphi'(x) = \big(2x + A + 4 - x^2 - (A+4)x - B - 4\big)e^{-x}$,
+      donc $\varphi'(0) = A - B = 0$, $A = -4$. Ainsi $\boxed{\varphi(x) = x^2 e^{-x}}$.
+\end{enumerate}
+\end{sol}
 
+\begin{sol} ~ \\
+(Solution de l'Exercice \ref{exo:ed changement inconnue})
+\begin{enumerate}
+\item $\cos'' = -\cos$ et $\sin'' = -\sin$, donc $\cos'' + \cos = 0$ et $\sin'' + \sin = 0$.
+\item \begin{enumerate}
+      \item $y = z e^{x}$, $y' = (z' + z) e^{x}$, $y'' = (z'' + z' + z' + z) e^{x} = (z'' + 2z' + z) e^{x}$.
+      \item $y'' - 2y' + 2y = \big(z'' + 2z' + z - 2z' - 2z + 2z\big) e^{x} = (z'' + z) e^{x}$.
+            Comme $e^{x} \neq 0$, $y'' - 2y' + 2y = 0$ si et seulement si $z'' + z = 0$.
+      \end{enumerate}
+\item Les solutions de $(E)$ sont donc les fonctions $y(x) = (A\cos x + B \sin x) e^{x}$, $(A , B) \in \mathbb{R}^2$.
+      L'\'equation caract\'eristique $r^2 - 2r + 2 = 0$ a pour discriminant $-4$ et pour racines $1 \pm i$ :
+      $\alpha = 1$, $\beta = 1$, et le cours donne bien $y(x) = (A \cos x + B \sin x) e^{x}$.
+\item $h(0) = A = 0$, puis $h(x) = B \sin(x) e^{x}$, $h'(x) = B(\cos x + \sin x) e^{x}$, $h'(0) = B = 1$ :
+      $\boxed{h(x) = e^{x} \sin x}$.
+\item $e^{x} > 0$, donc $h(x) = 0 \iff \sin x = 0 \iff x = k\pi$, $k \in \mathbb{Z}$.
+      Sur $[0 ; 2\pi]$, $h(x)$ a le signe de $\sin x$ : $h(x) > 0$ sur $]0 ; \pi[$, $h(x) < 0$ sur $]\pi ; 2\pi[$,
+      et $h(0) = h(\pi) = h(2\pi) = 0$.
+\end{enumerate}
+\end{sol}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+\begin{sol} ~ \\
+(Solution de l'Exercice \ref{exo:ed equation integrale})
+\begin{enumerate}
+\item \begin{enumerate}
+      \item $f$ est d\'erivable, donc continue ; la fonction $F : x \mapsto \int_0^x f(t)\,\mathrm{d}t$ est la primitive de $f$
+            qui s'annule en $0$, elle est d\'erivable et $F' = f$. D'apr\`es (I), $f' = 3 + 2F - f$ est
+            d\'erivable comme somme de fonctions d\'erivables, et en d\'erivant (I) : $f'' + f' = 2f$,
+            c'est-\`a-dire $f'' + f' - 2f = 0$.
+      \item En $x = 0$, l'int\'egrale est nulle : $f'(0) + f(0) = 3$.
+      \end{enumerate}
+\item $r^2 + r - 2 = 0$ a pour racines $1$ et $-2$ : $f(x) = A e^{x} + B e^{-2x}$, $f'(x) = A e^{x} - 2B e^{-2x}$.
+      Alors $f(0) + f'(0) = (A + B) + (A - 2B) = 2A - B$, et la condition du 1.(b) donne $2A - B = 3$.
+\item $\psi$ est d\'erivable et $\psi'(x) = f''(x) + f'(x) - 2f(x) = 0$ car $f$ est solution de $(E)$ (question 2).
+      Donc $\psi$ est constante sur $\mathbb{R}$, \'egale \`a $\psi(0) = f'(0) + f(0) - 3 = 2A - B - 3 = 0$.
+      Ainsi $\psi = 0$ : $f$ v\'erifie (I). Conclusion : les fonctions cherch\'ees sont exactement
+      $\boxed{f(x) = A e^{x} + (2A - 3) e^{-2x}, \ A \in \mathbb{R}}$.
+\item $f(0) = A + B = 0$ et $2A - B = 3$ donnent $A = 1$, $B = -1$ : $f(x) = e^{x} - e^{-2x}$.
+\end{enumerate}
+\end{sol}
+\end{corrige}

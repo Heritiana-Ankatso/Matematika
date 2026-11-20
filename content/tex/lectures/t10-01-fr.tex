@@ -2,7 +2,12 @@
 \makeatletter\IfFileExists{core/beamer/beamerthememx.sty}{\def\mxcorepath{core/}\def\input@path{{core/beamer/}{core/}}}{\def\mxcorepath{../core/}\def\input@path{{../core/beamer/}{../core/}}}\makeatother
 \documentclass[aspectratio=169,10pt,t]{beamer}
 \usetheme{mx}
-\usepackage{graphicx,booktabs}
+\usepackage{graphicx,booktabs,mathtools,array,adjustbox}
+\usepackage[all]{xy}
+\providecommand{\actualtextwidth}{\textwidth}
+\providecommand{\veccor}[2]{\left(\begin{matrix}#1\\#2\end{matrix}\right)}
+\DeclarePairedDelimiter{\VecNorm}{\lVert}{\rVert}
+\providecommand{\ETC}{\ldots}
 \usepackage[french]{babel}
 \setlength{\parskip}{.45em}
 \hypersetup{pdfauthor={},pdfsubject={Lecture slides},pdfkeywords={},pdftitle={Logique}}
@@ -36,13 +41,13 @@
 \author{}
 \begin{document}
 \mxtitleframe
-\begin{frame}{}
+\begin{frame}[allowframebreaks]{}
 Par groupes, classer dix phrases proposées par le professeur. Pour chaque phrase
 classée vraie ou fausse, rédiger une justification; pour chaque phrase refusée,
 expliquer quelle information manque. Transformer ensuite deux phrases ouvertes
 en propositions à l'aide de « pour tout » ou « il existe ».
 \end{frame}
-\begin{frame}{Objectifs}
+\begin{frame}[allowframebreaks]{Objectifs}
 \begin{itemize}
 
   \item Distinguer énoncé, proposition et prédicat.
@@ -57,11 +62,11 @@ en propositions à l'aide de « pour tout » ou « il existe ».
 
 \end{itemize}
 \end{frame}
-\begin{frame}{Énoncés et propositions}
+\begin{frame}[allowframebreaks]{Énoncés et propositions}
 Une \textbf{proposition} est un énoncé pouvant être \textbf{vrai} (\textbf{V})
 ou \textbf{faux} (\textbf{F}), mais pas les deux simultanément.
 \end{frame}
-\begin{frame}{Énoncés et propositions}
+\begin{frame}[allowframebreaks]{Énoncés et propositions}
 \begin{itemize}
 
   \item  \(2 + 2 = 4\)  : proposition vraie.
@@ -74,32 +79,32 @@ ou \textbf{faux} (\textbf{F}), mais pas les deux simultanément.
 
 \end{itemize}
 \end{frame}
-\begin{frame}{Négation et connecteurs logiques}
+\begin{frame}[allowframebreaks]{Négation et connecteurs logiques}
 Soient \(P\) et \(Q\) deux propositions. On définit :
 \end{frame}
-\begin{frame}{Négation et connecteurs logiques (2)}
+\begin{frame}[allowframebreaks]{Négation et connecteurs logiques (2)}
 \begin{center}\begin{tabular}{llllll}
-\(P\) & \(Q\) & \(\lnot P\) & \(P \land Q\) & \(P \lor Q\) & \(P \Rightarrow Q\) \\ 
-\textbf{V} & \textbf{V} & \textbf{F} & \textbf{V} & \textbf{V} & \textbf{V} \\ 
-\textbf{V} & \textbf{F} & \textbf{F} & \textbf{F} & \textbf{V} & \textbf{F} \\ 
-\textbf{F} & \textbf{V} & \textbf{V} & \textbf{F} & \textbf{V} & \textbf{V} \\ 
-\textbf{F} & \textbf{F} & \textbf{V} & \textbf{F} & \textbf{F} & \textbf{V} \\ 
+\(P\) & \(Q\) & \(\lnot P\) & \(P \land Q\) & \(P \lor Q\) & \(P \Rightarrow Q\) \\ {}
+\textbf{V} & \textbf{V} & \textbf{F} & \textbf{V} & \textbf{V} & \textbf{V} \\ {}
+\textbf{V} & \textbf{F} & \textbf{F} & \textbf{F} & \textbf{V} & \textbf{F} \\ {}
+\textbf{F} & \textbf{V} & \textbf{V} & \textbf{F} & \textbf{V} & \textbf{V} \\ {}
+\textbf{F} & \textbf{F} & \textbf{V} & \textbf{F} & \textbf{F} & \textbf{V} \\ {}
 \end{tabular}\end{center}
 \end{frame}
-\begin{frame}{Négation et connecteurs logiques (3)}
+\begin{frame}[allowframebreaks]{Négation et connecteurs logiques (3)}
 L'implication \(P \Rightarrow Q\) est fausse \emph{uniquement} quand \(P\) est vraie et
 \(Q\) est fausse. Le   ou  mathématique est \textbf{inclusif}.
 \end{frame}
-\begin{frame}{Négation et connecteurs logiques}
+\begin{frame}[allowframebreaks]{Négation et connecteurs logiques}
 \(P \Leftrightarrow Q\) est vraie si \(P\) et \(Q\) ont la même valeur de vérité :
 \[P \Leftrightarrow Q \;\equiv\; (P \Rightarrow Q) \land (Q \Rightarrow P).\]
 \end{frame}
-\begin{frame}{Négation et connecteurs logiques}
+\begin{frame}[allowframebreaks]{Négation et connecteurs logiques}
 La \textbf{contraposée} de \(P \Rightarrow Q\) est \(\lnot Q \Rightarrow \lnot P\).
 Ces deux implications sont toujours équivalentes. Pour démontrer
 \(P \Rightarrow Q\), il suffit de démontrer \(\lnot Q \Rightarrow \lnot P\).
 \end{frame}
-\begin{frame}{Quantificateurs}
+\begin{frame}[allowframebreaks]{Quantificateurs}
 \begin{itemize}
 
   \item \(\forall x \in E,\ P(x)\) :   pour tout \(x\) dans \(E\), \(P(x)\) est vraie. 
@@ -109,25 +114,26 @@ Ces deux implications sont toujours équivalentes. Pour démontrer
 
 \end{itemize}
 \end{frame}
-\begin{frame}{Quantificateurs}
+\begin{frame}[allowframebreaks]{Quantificateurs}
 \[\lnot\bigl(\forall x \in E,\ P(x)\bigr) \;\equiv\; \exists x \in E,\ \lnot P(x)\]
+
 \[\lnot\bigl(\exists x \in E,\ P(x)\bigr) \;\equiv\; \forall x \in E,\ \lnot P(x)\]
 \end{frame}
-\begin{frame}{Types de raisonnement}
+\begin{frame}[allowframebreaks]{Types de raisonnement}
 Pour démontrer \(P \Rightarrow Q\) directement :
 on suppose \(P\) vraie et on en déduit, par une chaîne d'implications,
 que \(Q\) est vraie.
 \end{frame}
-\begin{frame}{Types de raisonnement}
+\begin{frame}[allowframebreaks]{Types de raisonnement}
 On démontre \(\lnot Q \Rightarrow \lnot P\) à la place de \(P \Rightarrow Q\).
 \textbf{Étapes :} (1) Supposer \(\lnot Q\). (2) En déduire \(\lnot P\).
 \end{frame}
-\begin{frame}{Types de raisonnement}
+\begin{frame}[allowframebreaks]{Types de raisonnement}
 Pour démontrer \(P\) :
 on suppose \(\lnot P\) et on aboutit à une \textbf{contradiction}.
 La contradiction montre que \(\lnot P\) est fausse, donc \(P\) est vraie.
 \end{frame}
-\begin{frame}{Types de raisonnement}
+\begin{frame}[allowframebreaks]{Types de raisonnement}
 Démontrons que \(\sqrt{2}\) est irrationnel.
 \emph{Supposons} \(\sqrt{2} \in \mathbb{Q}\) : il existe \(p, q \in \mathbb{N}^*\) avec \(\operatorname{pgcd}(p,q)=1\)
 et \(\sqrt{2} = p/q\).

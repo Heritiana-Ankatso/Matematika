@@ -3,7 +3,7 @@ import { courses, discoveryChapters } from './catalogue-data.js';
 import { pathways } from './content.js';
 // Two editions of the same code. false: the French lycée site (arheritiana.github.io/Maths-explorer).
 // true: the complete edition with the Malagasy, international, university and Olympiad content (Matematika). Everything
-// else that differs follows this flag: the site name and the Mikajy Atlas link (both written by build/mxbuild/site.py).
+// else that differs follows this flag, and the site name (written by build/mxbuild/site.py).
 export const FULL_EDITION = true;
 export const livePathways = FULL_EDITION ? pathways : pathways.filter(p => p.id === 'fr');
 
@@ -50,6 +50,7 @@ export function isLiveRoute({ page, id, tab }) {
   if (page === 'olympiad') return FULL_EDITION;
   if (page === 'workshop') return FULL_EDITION || id === 'quadratic';
   if (page === 'errors') return true;
+  if (page === 'intuition') return !id;
   return false;
 }
 

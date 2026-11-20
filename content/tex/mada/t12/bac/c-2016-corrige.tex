@@ -1,0 +1,196 @@
+% Baccalauréat malgache, série C, 2016 : corrigé.
+\TCDBacAttribution{C}{2016}
+\providecommand{\cm}{~\mathrm{cm}}
+\providecommand{\dx}{~\mathrm{d}x}
+\providecommand{\Courbe}{(\mathscr{C})}
+\providecommand{\bary}[1]{\mathrm{bar}\left\lbrace #1 \right\rbrace}
+\providecommand{\Angl}[2]{\left( \overrightarrow{#1} ; \overrightarrow{#2} \right)}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\noindent \underline{\textsc{\textbf{Exercice}}} (4 points)
+\begin{description}
+	\item[I. Arithmétique :]
+	\begin{enumerate}
+		\item
+		\begin{enumerate}
+			\item \vln{Solution particulière :}
+				$3 \times 3 - 8 \times 1 = 9 - 8 = 1$ : \par\noindent\ansbox{$(3;1)$ est solution de (E).}
+			\item \vln{Résolution :}
+				$3x - 8y = 1 = 3 \times 3 - 8 \times 1 \iff 3(x - 3) = 8(y - 1)$.
+				$8$ divise $3(x-3)$ et $\pgcd{3}{8} = 1$, donc $8$ divise $x - 3$ (Gauss) : $x = 3 + 8k$ et alors $y - 1 = 3k$. Réciproquement ces couples conviennent.
+				\par\noindent\ansbox{$S = \{(3 + 8k \, ; 1 + 3k) \mid k \in \mathbb{Z}\}$.}
+		\end{enumerate}
+		\item \vln{Chiffres $a$, $b$, $c$ :}
+			$A = 25b + a$ (base cinq, donc $1 \leq a, b \leq 4$) et $A = 49a + 7b + c$ (base sept, $1 \leq c \leq 6$).
+			$25b + a = 49a + 7b + c \iff c = 18b - 48a = 6(3b - 8a)$.
+			Ainsi $c$ est un multiple de $6$ compris entre $1$ et $6$ : \par\noindent\ansbox{$c = 6$.}
+			Alors $3b - 8a = 1$ : $(b,a)$ est solution de (E), donc $b = 3 + 8k$, $a = 1 + 3k$ ; la condition $1 \leq a, b \leq 4$ impose $k = 0$.
+			\par\noindent\ansbox{$a = 1$, $b = 3$ (et $A = 76$ : $\overline{(301)}_5 = 75 + 1$, $\overline{(136)}_7 = 49 + 21 + 6$).}
+	\end{enumerate}
+	\item[II. Probabilité :]
+	\begin{enumerate}
+		\item \vln{Nombre de codes :}
+			Chaque chiffre est pris parmi $1, \ldots, 9$ : \par\noindent\ansbox{$9^4 = 6561$ codes.}
+		\item Les codes sont équiprobables.
+		\begin{itemize}
+			\item \vln{$A$ (code pair) :}
+				le dernier chiffre est $2$, $4$, $6$ ou $8$ : $9^3 \times 4$ codes. \par\noindent\ansbox{$P(A) = \frac{4}{9}$.}
+			\item \vln{$B$ (chiffres tous pairs) :}
+				$4^4 = 256$ codes. \par\noindent\ansbox{$P(B) = \frac{256}{6561}$.}
+			\item \vln{$C$ (un seul chiffre $2$) :}
+				place du $2$ : $4$ choix ; les trois autres chiffres sont différents de $2$ : $8^3$ choix. \par\noindent\ansbox{$P(C) = \frac{4 \times 512}{6561} = \frac{2048}{6561}$.}
+			\item \vln{$D$ (chiffres distincts) :}
+				$9 \times 8 \times 7 \times 6 = 3024$ codes. \par\noindent\ansbox{$P(D) = \frac{3024}{6561} = \frac{112}{243}$.}
+		\end{itemize}
+	\end{enumerate}
+\end{description}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\noindent \underline{\textsc{\textbf{PROBLEME I}}} (7 points) \newline
+On note $a$ le côté du carré.
+\begin{description}
+	\item[Partie A :]
+	\begin{enumerate}
+		\item
+		\begin{enumerate}
+			\item \vln{$G \in (AI)$ :}
+				La somme des poids vaut $1$ et $\overrightarrow{AG} = \overrightarrow{AB} + \overrightarrow{AD} = \overrightarrow{AC} = 2\overrightarrow{AI}$ (règle du parallélogramme, $I$ milieu de $[AC]$).
+				\par\noindent\ansbox{$\overrightarrow{AG} = 2\overrightarrow{AI}$ : $G \in (AI)$.}
+			\item \vln{Point $G$ :}
+				\ansbox{$G = C$.}
+			\item \vln{Ensemble $\Courbe$ :}
+				$B \in \Courbe$ : $IB = \frac{a\sqrt{2}}{2}$ (demi-diagonale) et $BA = a$, donc $2IB^2 - BA^2 = a^2 - a^2 = 0$.
+				Le barycentre de $(I,2)$, $(A,-1)$ (somme des poids $1$) est le point $H$ tel que $\overrightarrow{AH} = 2\overrightarrow{AI}$, c'est-à-dire $H = C$.
+				Leibniz : $2MI^2 - MA^2 = MC^2 + 2CI^2 - CA^2 = MC^2 + a^2 - 2a^2 = MC^2 - a^2$.
+				\par\noindent\ansbox{$\Courbe$ est le cercle de centre $C$ et de rayon $a$ (il passe par $B$ et $D$).}
+		\end{enumerate}
+		\item \vln{$f = S_{(AC)} \circ t_{\frac{1}{2}\overrightarrow{AC}}$ :}
+			Les diagonales $(AC)$ et $(BD)$ sont perpendiculaires en $I$, donc $\sigma = S_{(AC)} \circ S_{(BD)}$. Ainsi
+			$f = S_{(AC)} \circ S_{(BD)} \circ S_{(EF)}$.
+			Dans le triangle $ABD$, $(EF)$ est la droite des milieux : $(EF) \parallel (BD)$. La composée $S_{(BD)} \circ S_{(EF)}$ de deux réflexions d'axes parallèles est la translation de vecteur $2\vec{w}$,
+			où $\vec{w}$ est le vecteur orthogonal aux axes allant de $(EF)$ à $(BD)$.
+			La droite $(AC)$ est perpendiculaire aux deux axes ; elle coupe $(EF)$ en $P$, milieu de $[AI]$, et $(BD)$ en $I$ : $\vec{w} = \overrightarrow{PI} = \frac{1}{4}\overrightarrow{AC}$.
+			Donc $S_{(BD)} \circ S_{(EF)} = t_{\frac{1}{2}\overrightarrow{AC}}$ et
+			\par\noindent\ansbox{$f = S_{(AC)} \circ t_{\frac{1}{2}\overrightarrow{AC}}$}
+			(symétrie glissée d'axe $(AC)$, de vecteur $\frac{1}{2}\overrightarrow{AC}$).
+	\end{enumerate}
+	\item[Partie B :] Le repère $(A;\overrightarrow{AB},\overrightarrow{AD})$ prend le côté $a$ pour unité.
+	\begin{enumerate}
+		\item \vln{Affixes :}
+			\ansbox{$z_A = 0$, $z_B = 1$, $z_C = 1 + i$, $z_D = i$, $z_I = \frac{1}{2} + \frac{1}{2}i$, $z_J = \frac{1}{2} + i$.}
+		\item \vln{Expression de $S$ :}
+			$S : z' = \alpha z + \beta$ ; $S(A) = I$ donne $\beta = \frac{1+i}{2}$ ; $S(B) = J$ donne $\alpha + \beta = \frac{1}{2} + i$, soit $\alpha = \frac{i}{2}$.
+			\par\noindent\ansbox{$S : z' = \frac{i}{2}z + \frac{1 + i}{2}$.}
+			$\frac{i}{2} = \frac{1}{2}\expo{i\frac{\pi}{2}}$ ; le centre vérifie $\omega = \frac{i}{2}\omega + \frac{1+i}{2}$, d'où $\omega = \frac{1+i}{2 - i} = \frac{(1+i)(2+i)}{5} = \frac{1 + 3i}{5}$.
+			\par\noindent\ansbox{$S$ : centre $\Omega\left(\frac{1}{5};\frac{3}{5}\right)$, rapport $\frac{1}{2}$, angle $\frac{\pi}{2}$.}
+		\item
+		\begin{enumerate}
+			\item \vln{Cercles :}
+				$(\Gamma_1)$ : centre milieu de $[AI]$, d'affixe $\frac{1+i}{4}$, rayon $\frac{AI}{2} = \frac{\sqrt{2}}{4}$.
+				$(\Gamma_2)$ : centre milieu de $[BJ]$, d'affixe $\frac{3}{4} + \frac{1}{2}i$, rayon $\frac{BJ}{2} = \frac{1}{2}\left|-\frac{1}{2} + i\right| = \frac{\sqrt{5}}{4}$.
+				\par\noindent\ansbox{$(\Gamma_1)$ : centre $\left(\frac{1}{4};\frac{1}{4}\right)$, rayon $\frac{\sqrt{2}}{4}$ ; $(\Gamma_2)$ : centre $\left(\frac{3}{4};\frac{1}{2}\right)$, rayon $\frac{\sqrt{5}}{4}$.}
+			\item \vln{$\Omega \in (\Gamma_1) \cap (\Gamma_2)$ :}
+				$S(A) = I$ et $S(\Omega) = \Omega$ : $\Angl{\Omega A}{\Omega I} = \frac{\pi}{2}$, donc $\Omega$ voit $[AI]$ sous un angle droit : $\Omega \in (\Gamma_1)$.
+				De même $S(B) = J$ donne $\Angl{\Omega B}{\Omega J} = \frac{\pi}{2}$ et $\Omega \in (\Gamma_2)$.
+				(Calcul : $\left|\omega - \frac{1+i}{4}\right|^2 = \left|\frac{-1 + 7i}{20}\right|^2 = \frac{50}{400} = \frac{1}{8} = \left(\frac{\sqrt{2}}{4}\right)^2$ et
+				$\left|\omega - \frac{3}{4} - \frac{i}{2}\right|^2 = \left|\frac{-11 + 2i}{20}\right|^2 = \frac{125}{400} = \frac{5}{16}$.)
+				\par\noindent\ansbox{$\Omega$ est un point d'intersection de $(\Gamma_1)$ et $(\Gamma_2)$.}
+		\end{enumerate}
+		\item
+		\begin{enumerate}
+			\item \vln{$C'$ et $K$ :}
+				$z_{C'} = \frac{i}{2}(1 + i) + \frac{1+i}{2} = \frac{-1 + i + 1 + i}{2} = i$ ; $z_K = \frac{i}{2}\cdot\frac{1+i}{2} + \frac{1+i}{2} = \frac{-1 + i + 2 + 2i}{4}$.
+				\par\noindent\ansbox{$C' = D$ et $z_K = \frac{1 + 3i}{4}$.}
+			\item \vln{Alignement :}
+				$z_\Omega = \frac{1}{5}(1 + 3i)$ et $z_K = \frac{1}{4}(1 + 3i)$ : $\overrightarrow{AK} = \frac{5}{4}\overrightarrow{A\Omega}$.
+				\par\noindent\ansbox{$A$, $\Omega$, $K$ sont alignés.}
+		\end{enumerate}
+	\end{enumerate}
+\end{description}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\noindent \underline{\textsc{\textbf{PROBLEME II}}} (9 points)
+\begin{description}
+	\item[A. ]
+	\begin{enumerate}
+		\item \vln{Continuité et dérivabilité en $0$ :}
+			$f(0) = \expo{0} - 0 - 1 = 0$ et $\lim_{x\to 0^-}(x - 1)\ln(1 - x) = -1 \times 0 = 0$ : $f$ est continue en $0$.
+			Pour $x < 0$ : $f'(x) = \ln(1 - x) + (x - 1)\cdot\frac{-1}{1 - x} = \ln(1 - x) + 1$, qui tend vers $1$ ; pour $x > 0$ : $f'(x) = \frac{1}{2}\expo{\frac{x}{2}} - 1$, qui tend vers $-\frac{1}{2}$.
+			Les deux expressions étant dérivables jusqu'en $0$, $f'_g(0) = 1$ et $f'_d(0) = -\frac{1}{2}$.
+			\par\noindent\ansbox{$f$ est continue en $0$ mais non dérivable : point anguleux, demi-tangentes $y = x$ (à gauche) et $y = -\frac{x}{2}$ (à droite).}
+		\item
+		\begin{enumerate}
+			\item \vln{Limites :}
+				En $-\infty$ : $x - 1 \to -\infty$ et $\ln(1 - x) \to +\infty$. En $+\infty$ : $\expo{\frac{x}{2}} - x - 1 = X\left(\frac{\expo{X}}{X} - 2\right) - 1$ avec $X = \frac{x}{2}$.
+				\par\noindent\ansbox{$\lim_{x\to-\infty} f(x) = -\infty$ et $\lim_{x\to+\infty} f(x) = +\infty$.}
+			\item \vln{Variations :}
+				Pour $x < 0$ : $1 - x > 1$ donc $f'(x) = 1 + \ln(1 - x) > 0$.
+				Pour $x > 0$ : $f'(x) > 0 \iff \expo{\frac{x}{2}} > 2 \iff x > 2\ln 2$. $f(2\ln 2) = 1 - 2\ln 2 \approx -0{,}39$.
+				\[
+				\begin{array}{c|ccccccc}
+					x & -\infty & & 0 & & 2\ln 2 & & +\infty \\ \hline
+					f'(x) & & + & 1 \,\|\, -\frac{1}{2} & - & 0 & + & \\ \hline
+					 & & & 0 & & & & +\infty \\
+					f & & \nearrow & & \searrow & & \nearrow & \\
+					 & -\infty & & & & 1 - 2\ln 2 & &
+				\end{array}
+				\]
+			\item \vln{Solution $\alpha$ :}
+				Sur $[2\ln 2;+\infty[ \supset [2;3]$, $f$ est continue et strictement croissante ; $f(2) = e - 3 \approx -0{,}3 < 0$ et $f(3) = \expo{\frac{3}{2}} - 4 \approx 0{,}5 > 0$.
+				\par\noindent\ansbox{$f(x) = 0$ a une unique solution $\alpha \in [2;3]$ ($\alpha \approx 2{,}51$).}
+				(Sur $\mathbb{R}$, $0$ est l'autre solution : $f < 0$ sur $]-\infty;0[$ et sur $]0;\alpha[$.)
+		\end{enumerate}
+		\item \vln{Branches infinies et tracé :}
+			En $-\infty$ : $\frac{f(x)}{x} = \left(1 - \frac{1}{x}\right)\ln(1 - x) \to +\infty$ ; en $+\infty$ : $\frac{f(x)}{x} = \frac{\expo{\frac{x}{2}}}{x} - 1 - \frac{1}{x} \to +\infty$.
+			\par\noindent\ansbox{Branches paraboliques de direction $(Oy)$ en $-\infty$ et en $+\infty$.}
+			Figure réduite ($1{,}5\cm$ pour une unité) ; $f(-1) = -2\ln 2 \approx -1{,}39$, $f(-2) = -3\ln 3 \approx -3{,}3$.
+			\begin{center}
+			\begin{tikzpicture}[x=1.5cm,y=1.5cm,>=stealth]
+				\draw[->] (-2.3,0) -- (4.3,0) node[below] {$x$};
+				\draw[->] (0,-3.5) -- (0,2) node[left] {$y$};
+				\foreach \t in {-2,-1,1,2,3,4} \draw (\t,0.04) -- (\t,-0.04) node[below] {\small $\t$};
+				\foreach \t in {-3,-2,-1,1} \draw (0.04,\t) -- (-0.04,\t) node[left] {\small $\t$};
+				\draw[blue,thick] plot[domain=-2.05:0,samples=80] (\x,{(\x-1)*ln(1-\x)});
+				\draw[blue,thick] plot[domain=0:4.1,samples=80] (\x,{exp(\x/2)-\x-1});
+				\draw[gray] (-0.6,-0.6) -- (0,0) -- (1,-0.5);
+				\fill (2.513,0) circle (1.5pt) node[above left] {\small $\alpha$};
+				\node[blue] at (-1.6,-1.2) {$\Courbe$};
+			\end{tikzpicture}
+			\end{center}
+	\end{enumerate}
+	\item[B. ]
+	\begin{enumerate}
+		\item \vln{Variations de $g$ :}
+			$g'(x) = \frac{2}{x+1} > 0$ : \par\noindent\ansbox{$g$ est strictement croissante sur $]-1;+\infty[$,}
+			de $-\infty$ (en $-1$) à $+\infty$.
+		\item \vln{$g(\alpha) = \alpha$ :}
+			$\alpha > 0$ et $f(\alpha) = 0$ donnent $\expo{\frac{\alpha}{2}} = \alpha + 1$, d'où $\frac{\alpha}{2} = \ln(\alpha + 1)$ :
+			\par\noindent\ansbox{$g(\alpha) = 2\ln(\alpha + 1) = \alpha$.}
+		\item \vln{Stabilité de $[2;+\infty[$ :}
+			Pour $x \geq 2$ : $g(x) \geq g(2) = 2\ln 3 \approx 2{,}2 \geq 2$. \par\noindent\ansbox{$g([2;+\infty[) \subset [2;+\infty[$.}
+		\item
+		\begin{enumerate}
+			\item \vln{$U_n \geq 2$ :}
+				$U_0 = 3 \geq 2$ ; si $U_n \geq 2$, alors $U_{n+1} = g(U_n) \geq 2$ d'après 3. \par\noindent\ansbox{$U_n \geq 2$ pour tout $n$.}
+			\item \vln{Majoration de $|g'|$ :}
+				Pour $x \geq 2$ : $0 < g'(x) = \frac{2}{x + 1} \leq \frac{2}{3}$. \par\noindent\ansbox{$|g'(x)| \leq \frac{2}{3}$.}
+			\item \vln{Inégalités :}
+				$U_n$ et $\alpha$ sont dans $[2;+\infty[$ ; l'inégalité des accroissements finis donne $|g(U_n) - g(\alpha)| \leq \frac{2}{3}|U_n - \alpha|$ :
+				\par\noindent\ansbox{$|U_{n+1} - \alpha| \leq \frac{2}{3}|U_n - \alpha|$.}
+				Par récurrence $|U_n - \alpha| \leq \left(\frac{2}{3}\right)^n|U_0 - \alpha|$, et $|U_0 - \alpha| = 3 - \alpha \leq 1$ :
+				\par\noindent\ansbox{$|U_n - \alpha| \leq \left(\frac{2}{3}\right)^n$.}
+			\item \vln{Convergence et rang $n_0$ :}
+				$\left(\frac{2}{3}\right)^n \to 0$, donc \par\noindent\ansbox{$(U_n)$ converge vers $\alpha$.}
+				$\left(\frac{2}{3}\right)^n \leq 10^{-1} \iff n \geq \frac{\ln 10}{\ln 3 - \ln 2} \approx \frac{2{,}3}{0{,}4} \approx 5{,}7$.
+				\par\noindent\ansbox{$n_0 = 6$ (le plus petit entier fourni par cette majoration).}
+		\end{enumerate}
+	\end{enumerate}
+	\item[C. ]
+	\begin{enumerate}
+		\item \vln{$f$ est solution de (E) :}
+			$f'(x) = \frac{1}{2}\expo{\frac{x}{2}} - 1$, donc $2f'(x) - f(x) = \expo{\frac{x}{2}} - 2 - \expo{\frac{x}{2}} + x + 1 = x - 1$.
+			\par\noindent\ansbox{$x \mapsto \expo{\frac{x}{2}} - x - 1$ est solution de (E).}
+		\item \vln{Solution générale :}
+			$y$ est solution de (E) si et seulement si $y - f$ est solution de $2z' - z = 0$, c'est-à-dire $z = k\expo{\frac{x}{2}}$.
+			Donc $y = k\expo{\frac{x}{2}} + \expo{\frac{x}{2}} - x - 1$, soit
+			\par\noindent\ansbox{$y(x) = K\expo{\frac{x}{2}} - x - 1$, $K \in \mathbb{R}$.}
+	\end{enumerate}
+\end{description}

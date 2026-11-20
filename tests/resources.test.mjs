@@ -29,11 +29,11 @@ test('resource catalog resolves every downloadable file and provenance record',(
   for(const s of c.sources)assert.match(s.sha256,/^[a-f0-9]{64}$/);
 });
 test('every imported course chapter has a complete student and teacher edition',()=>{
-  assert.equal(c.chapters.filter(ch=>!['shared','explorations'].includes(ch.course)&&ch.number>0).length,87);   // with T10 and T11 S
+  assert.equal(c.chapters.filter(ch=>!['shared','explorations'].includes(ch.course)&&ch.number>0).length,108);   // with T10, T11 S, T12 C (12) and T12 D (9)
   for(const ch of c.chapters.filter(ch=>!['shared','explorations'].includes(ch.course)&&ch.number>0)){
     const rs=c.resources.filter(r=>r.chapter===ch.id);
     assert.ok(rs.some(r=>r.type==='booklet'&&r.audience==='student'));
-    assert.ok(rs.some(r=>r.type==='solutions'&&r.audience==='teacher'));
+    if(!ch.course.startsWith('t12'))assert.ok(rs.some(r=>r.type==='solutions'&&r.audience==='teacher'));   // T12: teacher PDFs only where answers exist (tests/test_t12_pdfs.py)
     assert.ok(guides[ch.topic]);
   }
 });

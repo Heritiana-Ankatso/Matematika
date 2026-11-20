@@ -2,7 +2,12 @@
 \makeatletter\IfFileExists{core/beamer/beamerthememx.sty}{\def\mxcorepath{core/}\def\input@path{{core/beamer/}{core/}}}{\def\mxcorepath{../core/}\def\input@path{{../core/beamer/}{../core/}}}\makeatother
 \documentclass[aspectratio=169,10pt,t]{beamer}
 \usetheme{mx}
-\usepackage{graphicx,booktabs}
+\usepackage{graphicx,booktabs,mathtools,array,adjustbox}
+\usepackage[all]{xy}
+\providecommand{\actualtextwidth}{\textwidth}
+\providecommand{\veccor}[2]{\left(\begin{matrix}#1\\#2\end{matrix}\right)}
+\DeclarePairedDelimiter{\VecNorm}{\lVert}{\rVert}
+\providecommand{\ETC}{\ldots}
 \usepackage[french]{babel}
 \setlength{\parskip}{.45em}
 \hypersetup{pdfauthor={},pdfsubject={Lecture slides},pdfkeywords={},pdftitle={Fonctions numériques}}
@@ -36,13 +41,13 @@
 \author{}
 \begin{document}
 \mxtitleframe
-\begin{frame}{}
+\begin{frame}[allowframebreaks]{}
 Une machine associe à \(x\) le nombre \(x^2-4\). Construire une table pour sept
 valeurs de \(x\), placer les points correspondants, puis répondre aux mêmes
 questions à partir de la formule, du tableau et du graphique. Comparer ce que
 chaque représentation rend facile ou difficile.
 \end{frame}
-\begin{frame}{Objectifs}
+\begin{frame}[allowframebreaks]{Objectifs}
 \begin{itemize}
 
   \item Lire et interpréter une courbe représentative.
@@ -57,19 +62,19 @@ chaque représentation rend facile ou difficile.
 
 \end{itemize}
 \end{frame}
-\begin{frame}{Généralités}
+\begin{frame}[allowframebreaks]{Généralités}
 Une \textbf{fonction numérique} \(f\) est une application d'un ensemble \(D_f \subset \mathbb{R}\)
 (domaine de définition) vers \(\mathbb{R}\). \(f(x)\) est l'\textbf{image} de \(x\),
 et \(x\) est un \textbf{antécédent} de \(f(x)\).
 \end{frame}
-\begin{frame}{Généralités}
+\begin{frame}[allowframebreaks]{Généralités}
 Le domaine \(D_f\) doit être symétrique par rapport à \(0\) :
 \(x\in D_f\Rightarrow -x\in D_f\). Les égalités suivantes valent pour tout \(x\in D_f\).
 \(f\) est \textbf{paire} si \(f(-x)=f(x)\) (courbe symétrique par rapport à \(Oy\)).
 
 \(f\) est \textbf{impaire} si \(f(-x)=-f(x)\) (courbe symétrique par rapport à \(O\)).
 \end{frame}
-\begin{frame}{Transformations}
+\begin{frame}[allowframebreaks]{Transformations}
 À partir de la courbe \(\mathcal{C}_f\) de \(f\) :
 
 \begin{itemize}
@@ -86,7 +91,7 @@ Le domaine \(D_f\) doit être symétrique par rapport à \(0\) :
 
 \end{itemize}
 \end{frame}
-\begin{frame}{Lecture de courbe et vocabulaire}
+\begin{frame}[allowframebreaks]{Lecture de courbe et vocabulaire}
 Le \textbf{domaine de définition} \(D_f\) est l'ensemble des réels \(x\)
 pour lesquels \(f(x)\) est défini. Deux causes d'exclusion :
 
@@ -99,7 +104,7 @@ pour lesquels \(f(x)\) est défini. Deux causes d'exclusion :
 
 \end{itemize}
 \end{frame}
-\begin{frame}{Lecture de courbe et vocabulaire}
+\begin{frame}[allowframebreaks]{Lecture de courbe et vocabulaire}
 Pour \(y = f(x)\) :
 
 \begin{itemize}
@@ -115,7 +120,7 @@ Pour \(y = f(x)\) :
 à l'abscisse \(a\) ; les antécédents de \(y=b\) sont les abscisses
 des points d'intersection de la courbe avec la droite horizontale \(y=b\).
 \end{frame}
-\begin{frame}{Lecture de courbe et vocabulaire}
+\begin{frame}[allowframebreaks]{Lecture de courbe et vocabulaire}
 \begin{itemize}
 \item \(f\) est \textbf{croissante} sur \(I\) si :
         \(\forall x_1,x_2\in I,\ x_1<x_2\Rightarrow f(x_1)\leq f(x_2)\).
@@ -128,7 +133,7 @@ des points d'intersection de la courbe avec la droite horizontale \(y=b\).
 
 \end{itemize}
 \end{frame}
-\begin{frame}{Lecture de courbe et vocabulaire (2)}
+\begin{frame}[allowframebreaks]{Lecture de courbe et vocabulaire (2)}
 \begin{itemize}
 \item \(f(a)\) est un minimum sur \(I\) si \(a\in I\) et
         \(f(a)\leq f(x)\) pour tout \(x\in I\); pour un maximum, \(f(a)\geq f(x)\).
@@ -136,7 +141,7 @@ des points d'intersection de la courbe avec la droite horizontale \(y=b\).
 
 \end{itemize}
 \end{frame}
-\begin{frame}{Lecture de courbe et vocabulaire}
+\begin{frame}[allowframebreaks]{Lecture de courbe et vocabulaire}
 \begin{enumerate}
 \setcounter{enumi}{0}
   \item Identifier le domaine de définition.
@@ -148,29 +153,30 @@ des points d'intersection de la courbe avec la droite horizontale \(y=b\).
 
 \end{enumerate}
 \end{frame}
-\begin{frame}{Lecture de courbe et vocabulaire}
+\begin{frame}[allowframebreaks]{Lecture de courbe et vocabulaire}
 \begin{center}\begin{tabular}{llllll}
-\(x\) & \(-\infty\) &  & \(0\) &  & \(+\infty\) \\ 
-\(f(x)\) & \(+\infty\) &  & \(-4\) &  & \(+\infty\) \\ 
+\(x\) & \(-\infty\) &  & \(0\) &  & \(+\infty\) \\ {}
+\(f(x)\) & \(+\infty\) &  & \(-4\) &  & \(+\infty\) \\ {}
 \end{tabular}\end{center}
 
 \(f\) est décroissante sur \(]-\infty,0]\) et croissante sur \([0,+\infty[\) ;
 minimum \(f(0)=-4\).
 \end{frame}
-\begin{frame}{Transformations de courbes}
+\begin{frame}[allowframebreaks]{Transformations de courbes}
 À partir de la courbe \(\mathcal{C}_f\) de \(f\) :
 \end{frame}
-\begin{frame}{Transformations de courbes (2)}
+\begin{frame}[allowframebreaks]{Transformations de courbes (2)}
+\footnotesize
 \begin{center}\begin{tabular}{lll}
-Nouvelle fonction & Transformation & Description \\ 
-\(f(x)+k\) & Translation verticale & Monte de \(k\) (ou descend si \(k<0\)) \\ 
-\(f(x+k)\) & Translation horizontale & Glisse à gauche de \(k\) (si \(k>0\)) \\ 
-\(-f(x)\) & Symétrie par rapport à \(Ox\) & Retourne la courbe \\ 
-\(f(-x)\) & Symétrie par rapport à \(Oy\) & Image miroir \\ 
-\(|f(x)|\) & Valeur absolue & Remonte la partie négative \\ 
+Nouvelle fonction & Transformation & Description \\ {}
+\(f(x)+k\) & Translation verticale & Monte de \(k\) (ou descend si \(k<0\)) \\ {}
+\(f(x+k)\) & Translation horizontale & Glisse à gauche de \(k\) (si \(k>0\)) \\ {}
+\(-f(x)\) & Symétrie par rapport à \(Ox\) & Retourne la courbe \\ {}
+\(f(-x)\) & Symétrie par rapport à \(Oy\) & Image miroir \\ {}
+\(|f(x)|\) & Valeur absolue & Remonte la partie négative \\ {}
 \end{tabular}\end{center}
 \end{frame}
-\begin{frame}{Transformations de courbes}
+\begin{frame}[allowframebreaks]{Transformations de courbes}
 \begin{itemize}
 
   \item \(x^2+3\) : parabole montée de \(3\) (sommet en \((0,3)\)).

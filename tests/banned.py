@@ -19,7 +19,7 @@ EMAIL_OK = re.compile(r'noreply@anthropic\.com|@(?:users\.noreply\.github\.com|e
 
 
 # Matematika is published from a GitHub account whose name contains a banned phrase. The addresses of that one account
-# (this site, its repositories, the Mikajy Atlas releases) are the only allowed use: they are removed before the check.
+# (this site and its repositories) are the only allowed use: they are removed before the check.
 # The account is known only by the SHA-256 of its lower-case name; the name in prose or in any other address is still
 # reported.
 OWN_ACCOUNT_SHA256 = '7cee45d45c8ac5d12b036f0ef5315127fcbd1cdae687d8e3f87c02be9c79dced'
