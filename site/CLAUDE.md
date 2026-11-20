@@ -48,6 +48,7 @@ Pick the row of your feature and open only its files. One-line descriptions are 
 | `js/entry-nav.js` | `withEntryNav`: compact previous/next navigation and a folded complete chooser for galleries, challenges, biographies, stories and errors |
 | `js/scroll-memory.js` | scrollable lists (gallery sidebar, timelines, strips) keep their scroll position across the rebuild of a page of the same kind, and the current entry is scrolled into view of its list |
 | `js/control-policy.js` | selectors with one choice become labels |
+| `js/nav-flyout.js` | hover and focus flyouts of the main menu (panels rendered by `header()` in `app.js`), and hover-open for the header folding menus; desktop only, mouse only |
 | `js/resource-editions.js` | exact language edition selection, available language labels and complete pack checks |
 | `js/content-language.js` | language of each route (neutral pages vs curriculum pages) |
 | `js/live-curriculum.js` | shared live visibility policy: French courses, filtered catalogues, route and discovery scope; complete data is retained |
