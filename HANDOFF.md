@@ -1,5 +1,13 @@
 # Handoff
 
+## Gallery: fractals and polyhedra, design skills (20 November 2026, mirrored from Maths-explorer)
+
+Same as Maths-explorer #68, #69 and #70: measurements for Galton, Reuleaux and Platonic solids; `#gallery/self-similar`
+(Cantor, Koch, carpet, Menger, tetrahedron stage by stage); `#gallery/polyhedra` (corner cutting from a Platonic solid
+to its dual); the skills `frontend-design` and `web-design-guidelines` in `.claude/skills/`; the one-row phone header.
+Not yet mirrored from Maths-explorer: Morley's triangle (#61) and design v8 "Bande dessinée" (#66), waiting for the
+owner's decision.
+
 ## Exam archive filters (5 November 2026)
 
 The annales index starts with exam and search. The redundant class selector is
