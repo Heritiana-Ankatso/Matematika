@@ -36,8 +36,13 @@ resource index and gallery/lab ids of both editions and fails if Matematika lack
 
 ## Steps (one PR each, `main` stays green and deployable throughout)
 
-1. **Stop committing generated output.** `pages.yml` builds `dist/` in CI; only PDFs stay committed. Done first here (the home), then
-   Maths-explorer's own repository is frozen for source.
+1. **Cut the cost of generated output** (re-measured 21 November 2026: of the 7,269 files of `dist/`, only 659 files /
+   12 MB are plain copies of `site/`; the other 388 MB are build products: annals 114 MB, slide exports 105 MB, lecture
+   PDFs 15 MB, university 6 MB, the rest small). The first idea, "CI builds `dist/`", is therefore not a one-PR
+   change: the annals, lectures and decks need TeX and fonts that CI and the local machine lack. Sub-steps, each
+   proved by a CI experiment before it merges: (a) CI builds the `site/` copies and the slide exports (no TeX needed:
+   `scripts/export-slides.py`), so `dist/slides/export` leaves git; (b) TeX-bound products (annals, lectures) stay
+   committed under `content/built/<edition>/` or move to Git LFS (owner choice if it comes to that).
 2. **Edition seam.** Introduce `editions/<name>/` and `scope.json`; replace `FULL_EDITION` and the Python edition
    reads with the scope file; both editions still build from their own repository, byte-equal to today.
 3. **Merge the explorer edition.** Port Maths-explorer's theme (v8 comic look, fonts, `mx-brand.sty`) and its newer
