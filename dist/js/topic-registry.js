@@ -74,6 +74,7 @@ export const PLACEMENTS = Object.fromEntries([
   ['#gallery/polyhedra', ['geometry/space']],
   ['#gallery/viviani', ['geometry/plane']],
   ['#gallery/dandelin', ['geometry/space']],
+  ['#gallery/cavalieri', ['geometry/space','analysis/integration']],
   ['#gallery/self-similar', ['geometry/plane','geometry/space','dynamics/iteration']],
   ['#gallery/soap-films', ['geometry/space','analysis/functions']],
   ['#gallery/einstein', ['geometry/plane']],
