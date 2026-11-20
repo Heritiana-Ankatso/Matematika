@@ -1,5 +1,12 @@
 # Handoff
 
+## Fractal rendering quality (20 November 2026, mirrored from Maths-explorer)
+
+The 3D fractals are ray marched by one shared progressive renderer (`site/js/gallery/gl-progressive.js`); the Menger
+sponge, Sierpiński tetrahedron and Cantor dust use exact distance functions (`fractal-sdf.js`, tested in
+`tests/fractal-sdf.test.mjs`); the Multibrot and Newton basins are drawn by a shader with the processor for deep zooms;
+`drawFaces` is lit by a fixed key light. Rendering only: no change to this site's design.
+
 ## Gallery: fractals and polyhedra, design skills (20 November 2026, mirrored from Maths-explorer)
 
 Same as Maths-explorer #68, #69 and #70: measurements for Galton, Reuleaux and Platonic solids; `#gallery/self-similar`
