@@ -7,6 +7,7 @@ import {preferredLanguage,routeLanguage} from "./content-language.js";
 import {workshopMarkup,bindWorkshop} from './quadratic-workshop.js';
 import { errorsPage, bindErrors } from "./errors.js";
 import { intuitionPage } from "./intuition-page.js";
+import { fractalsPage } from "./fractals-page.js";
 import { olympiadPage, bindOlympiad, isOlympiadRoute } from "./olympiad.js";
 import { rememberScrolls, restoreScrolls } from "./scroll-memory.js";
 import { withEntryNav } from "./entry-nav.js";
@@ -144,6 +145,7 @@ const SECTIONS = [
     ...(FULL_EDITION ? [["olympiad", "Olympiades", "Olympiads", "trophy"]] : []),
     ["errors", "Erreurs", "Errors", "warning"],
     ["intuition", "Contre l’intuition", "Against intuition", "lightbulb"],
+    ["fractals", "Fractales", "Fractals", "sparkle"],
   ]],
   ["read", "Lire", "Read", "book-open", [
     ["stories", "Histoires", "Stories", "scroll"],
@@ -217,7 +219,7 @@ function render() {
   const valid = (r.page === "lab" && (!r.id || !!experiment)) || (r.page === "gallery" && (!r.id || labs.some(l => l.id === r.id && l.custom))) ||
     (r.page === 'history' && isHistoryRoute(r.id,r.tab)) ||
     (r.page === 'topics' && isTopicRoute(r.id,r.tab)) ||
-    (r.page === "errors" && isErrorRoute(r.id)) || (r.page === "intuition" && !r.id) ||
+    (r.page === "errors" && isErrorRoute(r.id)) || (r.page === "intuition" && !r.id) || (r.page === "fractals" && !r.id) ||
     (r.page === "olympiad" && isOlympiadRoute(r.id)) ||
     (r.page === "challenges" && (!r.id || challenges.some(c => c.id === r.id))) ||
     (r.page === "home" && !r.id) || (r.page === "teacher" && !r.id) || (r.page === "prepare" && !r.id) || (r.page === "relax" && !r.id) || (r.page === "review" && !r.id) || r.page === "search" || (r.page === "basics" && isBasicsRoute(r.id)) || isReading(r.page, r.id) || (r.page === "pathways" && (!r.id || livePathways.some(p => p.id === r.id))) || r.page === "library" || r.page === "pack" || r.page === "sources" || r.page === "slides" || r.page === "automatismes" || r.page === "sheets" || (r.page === "bank" && isBankRoute(r.id, r.tab, r.sub)) ||
@@ -236,6 +238,7 @@ function render() {
       : page === "chapter" ? chapterPage(r.id, r.tab, t, labs)
       : page === "errors" ? errorsPage(r.id, t)
       : page === "intuition" ? intuitionPage(t)
+      : page === "fractals" ? fractalsPage(t, lang)
       : page === "olympiad" ? olympiadPage(r.id, t)
       : page === "lab"
       ? (experiment ? experimentPage(experiment, { t, pair, link, completed, mission: r.tab || "" }) : labIndexPage({ t, pair, link, completed }))
