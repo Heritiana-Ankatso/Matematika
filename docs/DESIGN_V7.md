@@ -70,3 +70,25 @@ from them. Changes (`site/js/curriculum-picker.js`):
 - Apprendre keeps six study tabs (Cours, Exercices, Réviser, Annales, Bases, Programmes, formerly Parcours) and folds
   the classroom tools (Diaporamas, Automatismes, Fiches, Dossier sur mesure) under "Pour enseigner", open on those pages
   and for the teacher profile.
+
+## Polish (18 November 2026, not part of the brand)
+
+Owner request: make the site look and work like a professional website (practical, intuitive, easy to navigate).
+A critique of the live pages at 1440 and 390 px found that the phone chrome (header on two rows, page tabs on two
+rows, chapter tabs on two rows) took about 500 px before any content, that the curriculum chooser repeated the level
+rail beside it, that chapter lessons left a third of a wide screen empty, and that the footer was one flat row of
+unrelated links. Changes (styles at the end of `site/styles/ergonomics.css`):
+
+- Phone header on one row: mark, search, Menu. Profile, theme and language join the open menu under the sections.
+- Phone page tabs and chapter tabs on one row that scrolls sideways, with a fade at the edge; the current tab is
+  scrolled into view (`app.js` `bindCommon`).
+- The chooser pages (`#resources`, `#bank`, `#slides` without a level) drop the rail at every width: the chooser is the
+  list of levels.
+- Chapter lesson, 1080 px and wider: "Dans ce cours" lists the ideas beside the text, stays in view and marks the idea
+  being read (`chapter-sequence.js`, `aria-current="location"`). Narrower screens keep the list in the text.
+- Footer: a site map of every section and page (from `SECTIONS`), then the other pages, with 44 px targets. Reaching
+  it also loads the related-resources box, which sits just above it.
+- Second round: the visitor home leads with two actions under the title ("Choisir mon programme et ma classe",
+  "Chercher une notion"); "Par où commencer ?" becomes "Explorer librement" and "Tu viens pour travailler ?" becomes
+  "Élève ou professeur ?" with what the choice does. The Exercises page loses its own "Par chapitre / Annales" switch:
+  the Apprendre tabs already offer Exercices and Annales.

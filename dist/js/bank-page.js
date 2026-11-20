@@ -65,17 +65,13 @@ function chapterView(course, chapter, seed, t) {
   <nav class="bank-pager">${prev ? `<a href="#bank/${course}/${prev.id}">${icon('caret-left', 16)} ${E(t(prev.title))}</a>` : '<span></span>'}${next ? `<a href="#bank/${course}/${next.id}">${E(t(next.title))} ${icon('caret-right', 16)}</a>` : ''}</nav>`;
 }
 
-function bankNav(t, annals) {
-  return `<nav class="bank-sections" aria-label="${t(P('Type d’exercices', 'Exercise collection'))}"><a href="#bank" ${!annals ? 'aria-current="page"' : ''}>${t(P('Par chapitre', 'By chapter'))}</a><a href="#bank/annales" ${annals ? 'aria-current="page"' : ''}>${t(P('Annales d’examens', 'Past papers'))} <small>${ANNALS.length}</small></a></nav>`;
-}
-
 export function bankPage(t, course, chapter) {
-  if(course==='annales')return `<main id="main" tabindex="-1" class="page bank-page"><h1>${t(P('Annales d’examens', 'Past exam papers'))}</h1><p class="page-intro">${t(P('Sujets de bac, E3C et EAM du programme français, avec leurs corrigés : cherche une notion ou filtre par examen. Les sujets sont en français.', 'Baccalauréat, E3C and EAM papers of the French curriculum, with solutions: search for a topic or filter by exam. The papers are in French.'))}</p>${bankNav(t,true)}${annalsMarkup(ANNALS,{detail:chapter||''})}</main>`;
+  if(course==='annales')return `<main id="main" tabindex="-1" class="page bank-page"><h1>${t(P('Annales d’examens', 'Past exam papers'))}</h1><p class="page-intro">${t(P('Sujets de bac, E3C et EAM du programme français, avec leurs corrigés : cherche une notion ou filtre par examen. Les sujets sont en français.', 'Baccalauréat, E3C and EAM papers of the French curriculum, with solutions: search for a topic or filter by exam. The papers are in French.'))}</p>${annalsMarkup(ANNALS,{detail:chapter||''})}</main>`;
   // No level in the address: every curriculum is offered, none is assumed (the remembered class only fills the nav links).
   let saved = ''; try { saved = currentCourse(); } catch { /* storage blocked */ }
   const id = course || '';
   return `<main id="main" tabindex="-1" class="page bank-page"><div class="res-top"><div><h1>${t(P('Banque d’exercices', 'Exercise bank'))}</h1><p class="page-intro">${t(P('Choisis ta classe et ton chapitre. Cherche, demande un indice, puis ouvre la correction. Pour préparer un examen, retrouve les sujets dans les annales.', 'Choose your class and chapter. Try, ask for a hint, then open the solution. To prepare for an exam, browse the past papers.'))}</p></div></div>
-  ${bankNav(t,false)}<div class="pw-layout res-layout">${rail(id, t)}<section class="pw-panel" id="bank-panel">${!id ? curriculumChooser({ t, ids, pick: pickFor(''), ...noBank }) : chapter ? chapterView(id, chapter, 'bank', t) : chosenLevelNote({ t, id, remembered: id === saved, href: '#bank' }) + chapterIndex(id, t)}</section></div></main>`;
+  <div class="pw-layout res-layout">${rail(id, t)}<section class="pw-panel" id="bank-panel">${!id ? curriculumChooser({ t, ids, pick: pickFor(''), ...noBank }) : chapter ? chapterView(id, chapter, 'bank', t) : chosenLevelNote({ t, id, remembered: id === saved, href: '#bank' }) + chapterIndex(id, t)}</section></div></main>`;
 }
 
 export function bindBank(root, t, course, chapter, exercise) {
