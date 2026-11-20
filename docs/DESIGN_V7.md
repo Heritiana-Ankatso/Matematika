@@ -92,3 +92,12 @@ unrelated links. Changes (styles at the end of `site/styles/ergonomics.css`):
   "Chercher une notion"); "Par où commencer ?" becomes "Explorer librement" and "Tu viens pour travailler ?" becomes
   "Élève ou professeur ?" with what the choice does. The Exercises page loses its own "Par chapitre / Annales" switch:
   the Apprendre tabs already offer Exercices and Annales.
+
+## Design skills (20 November 2026, same as Maths-explorer)
+
+Two third-party skills sit in `.claude/skills/` and are used for every new or changed page, exhibit or control:
+`frontend-design` (Anthropic, Apache 2.0) and `web-design-guidelines` (Vercel Web Interface Guidelines, MIT, rules pinned
+in `rules.md`, project overrides in its `SKILL.md`). This document wins where they disagree. Rules from the first review:
+phone first with the figure in reach (choices and question above a figure, its buttons right under it, measures after;
+`.exhibit-band` in `site/styles/pages.css`); feedback lines keep their place; the phone header is one row of 64 px so
+`scroll-padding-top` matches it; every drag has a button or key alternative.
