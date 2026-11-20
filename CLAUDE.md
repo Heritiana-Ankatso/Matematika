@@ -25,7 +25,7 @@ and chapters; never merge or relabel one as another.
   Malagasy, international, university or Olympiad code there). Matematika still never lacks anything Maths-explorer
   has: a French or general change made there is made here too in the same round (apply the part of its diff that fits,
   `make site`, checks, pull request). A change here to the other curricula, to `FULL_EDITION` or to the Atlas link
-  stays here. Never copy Maths-explorer's `dist/` here, and never send the other curricula back to Maths-explorer.
+  stays here. Never copy Maths-explorer's `dist/` here, and never send the other curricula back to Maths-explorer. Owner, 20 November 2026: Matematika has its own visual identity; port content, never Maths-explorer's design (the comic-book design v8 stays there).
 
 ## Git rule (owner, 14 November 2026, binding in every session)
 
