@@ -105,7 +105,7 @@ test('the surface plays through the shell in both languages: cells, tiles, keybo
   const tpl = await import('../site/js/lab/templates/logic.js');
   for (const lang of ['fr', 'en']) {
     const host = w.document.createElement('section'); w.document.body.append(host);
-    const api = createShell(host, exp, tpl, { mode: 'full', lang, mission: 'build' });
+    const api = createShell(host, exp, tpl, { mode: 'full', lang, mission: 'build', gated: true });
     tick();
     const root = host.querySelector('.lab2-logic');
     assert.ok(root);
