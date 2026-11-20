@@ -200,6 +200,8 @@ interactions. Additional collection browser scripts remain available.
 
 `visible-loop.test.mjs`: the shared animation loop (no frames offscreen or in a hidden tab, reduced motion draws once then only while interacting, a frame returning false sleeps, stop releases everything).
 
+`banach-tree.test.mjs`: the free-group tree of the Banach-Tarski lab: reduced-word enumeration against `treeCopy` (F = W(a) ⊔ a·W(A) up to the words of length d), layout, lab missions, and an exact Z[√2] check that the two rotations by arccos(1/3) have no relation among reduced words of length up to 8 (a sanity check, not a proof).
+
 `logic-truth.test.mjs`: the experiment `logic-truth` (unpublished, not in `registry.js`): connector tables, the six formula pairs (five equivalent), the counter-example hunt (n² + n + 17 fails at 16), quantified statements on a finite set, the mission contract (predict first, explain last, no hint field, no `check` mission, [fr, en] strings without dashes), reachable goals, and the surface played through `createShell` in both languages (cells, tiles, keyboard, reduced motion, no hint button).
 
 `mada-t10-01.test.mjs`: Malagasy T10 chapter 1 (unpublished): French only (no `.en.tex`, no table, no English prose), `chapters.json` programme mapping (ALGEBRE > LOGIQUE), no manifest entry and no `dist/` file, the deck `content/slides/mada-t10-01.json` is French only and its lab references resolve against the experiment file; runs `scripts/check-mada-t10-logic.py`.
