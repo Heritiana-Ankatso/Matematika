@@ -270,7 +270,9 @@
         "Proportions and percentage change"
       ],
       "topic": "percentages",
-      "labs": [],
+      "labs": [
+        "eratosthenes"
+      ],
       "guide": "shared-percentages"
     },
     {
