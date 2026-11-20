@@ -1278,7 +1278,9 @@ export const resourceCatalog = {
           "englishBytes": 141291
         }
       ],
-      "labs": []
+      "labs": [
+        "eratosthenes"
+      ]
     },
     {
       "id": "seconde-10",
