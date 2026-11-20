@@ -296,3 +296,12 @@ parser reads one level of boxes, so they gave no proof slide and their text ran 
 | `chapitres/ch13-equations-differentielles.tex` | characteristic equation | "f″(x) + a f′(x) + b f(x) = " with the "0" missing; `\mampiditratext` empty, so the justifications of the aligned proof vanish; the form f = g e^(αx) not justified as general |
 | `bac/c-2004-corrige.tex` | end of problem II | (g⁻¹)′(e) = 1/g′(e) assumes g⁻¹(e) = e without saying so [VERIFY against the statement] |
 | `chapitres/ch06-applications-affines-isometries.tex` | chapter title | "Applications affine" (agreement) |
+
+
+## Book PDFs and manifest (unit T4, 16 November 2026)
+
+Done: `build/mxbuild/t12.py` (build-only compile helper), `scripts/build-mada.py --t12`, the `t12` job of `build/mxbuild/refresh.py`,
+`tests/test_t12_pdfs.py`, courses `t12c`/`t12d` in the manifest, PDFs in `dist/resources/t12c-NN/`, `t12d-NN/` and the supplements.
+Method and stand-ins: `docs/CURRICULUM.md` (section T12 séries C et D). Rerun `make site` after the content is final: teacher PDFs follow
+the text of the teacher edition (a chapter whose `corrige` was added gets its `teacher.pdf`), and `chapitres.json` `answers` must agree
+(`tests/test_t12_sources.py` and `tests/test_t12_pdfs.py` fail otherwise).

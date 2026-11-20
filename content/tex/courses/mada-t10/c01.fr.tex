@@ -1,0 +1,398 @@
+\mxunit{mada-t10-01}{Logique}
+\mxsubtitle{Algèbre · rubrique Logique du programme de T10 · deux semaines de quatre heures}
+\begin{objectives}
+\begin{itemize}
+\item Reconnaître un énoncé, une proposition, un prédicat, et dire si une proposition est vraie ou fausse.
+\item Utiliser les connecteurs ET, OU (inclusif et exclusif), l'implication et l'équivalence, et en dresser les tables de vérité.
+\item Se servir d'une table de vérité pour argumenter ou démontrer.
+\item Utiliser les quantificateurs $\forall$ et $\exists$, former la négation d'une proposition quantifiée, passer d'une phrase aux symboles et inversement.
+\end{itemize}
+\end{objectives}
+\begin{prerequisites}
+Distinguer une affirmation d'une question ; manipuler les symboles $=$, $\ne$, $<$, $\le$ ; reconnaître un nombre pair, un multiple, un nombre premier ; savoir qu'un seul exemple suffit pour montrer qu'une affirmation générale est fausse.
+\end{prerequisites}
+\begin{fluency}[5 min]
+Dire pour chaque phrase si elle est vraie, fausse, ou si elle n'a pas de valeur de vérité : (a) « $51$ est un nombre premier » ; (b) « $x-3=10$ » ; (c) « tout multiple de $10$ est pair » ; (d) « il existe un triangle rectangle équilatéral » ; (e) « range ta chambre ! ».
+\mxanswer{(a) fausse, $51=3\times17$ ; (b) pas de valeur de vérité tant que $x$ n'est pas donné (prédicat) ; (c) vraie ; (d) fausse, les angles d'un triangle équilatéral mesurent $60^\circ$ ; (e) n'est pas une proposition (ordre).}
+\end{fluency}
+
+\section{Activité : le jeu des étiquettes}
+\begin{activity}[Trier des phrases]
+Chaque groupe reçoit huit cartes portant les phrases suivantes.
+\begin{enumerate}
+\item[(a)] $2^5=32$.
+\item[(b)] Combien font $6\times7$ ?
+\item[(c)] Un losange a quatre côtés de même longueur.
+\item[(d)] $n+1>n$.
+\item[(e)] Tout nombre premier est impair.
+\item[(f)] Il existe un entier dont le carré vaut $50$.
+\item[(g)] Ce nombre est très grand.
+\item[(h)] $a^2=b^2$.
+\end{enumerate}
+\textbf{1.} Ranger les cartes en trois tas : « vraie », « fausse », « on ne peut pas dire ». Justifier chaque choix en une phrase.\par
+\textbf{2.} Pour une carte du dernier tas, dire ce qu'il faudrait ajouter pour pouvoir trancher.\par
+\textbf{3.} Pour les cartes (e) et (f), trouver un seul exemple qui permet de conclure, ou expliquer pourquoi un exemple ne suffit pas.\mxlines{3}
+\mxanswer{(a), (c) vraies. (e) fausse : $2$ est premier et pair. (f) fausse : $7^2=49$ et $8^2=64$ encadrent $50$ et aucun entier n'a un carré égal à $50$. (b) est une question, (g) est vague, (d) et (h) contiennent des lettres dont la valeur n'est pas donnée : pas de valeur de vérité. En ajoutant « pour tout entier $n$ » à (d) on obtient une proposition vraie ; en ajoutant « il existe des réels $a,b$ tels que » à (h) on obtient une proposition vraie. Pour (e), l'exemple $2$ suffit à la réfuter. Pour (f), un exemple ne peut pas la prouver fausse : il faut examiner tous les entiers, ce que l'on fait en encadrant $50$ entre deux carrés consécutifs.}
+\end{activity}
+
+\section{Énoncés, propositions, prédicats}
+\begin{definition}[Énoncé, proposition]
+Un \textbf{énoncé} est une phrase, écrite en langue courante ou avec des symboles mathématiques. Une \textbf{proposition} est un énoncé dont on peut dire, sans ambiguïté, qu'il est \textbf{vrai} ou qu'il est \textbf{faux}, mais jamais les deux à la fois.
+\end{definition}
+Un énoncé qui contient une lettre dont la valeur n'est pas fixée, comme « $x+4=9$ », s'appelle un \textbf{prédicat}. Il devient une proposition quand on remplace la lettre par une valeur, ou quand on la quantifie (section « Quantificateurs »).
+\begin{example}
+\begin{itemize}
+\item « $4^2=16$ » est une proposition vraie ; « $4^2=18$ » est une proposition fausse.
+\item « $x+4=9$ » est un prédicat : vrai pour $x=5$, faux pour $x=2$.
+\item « Quelle heure est-il ? » est une question et « Ferme la porte » un ordre : ce ne sont pas des propositions.
+\item « Ce gâteau est délicieux » dépend d'un avis : pas de valeur de vérité objective.
+\end{itemize}
+\end{example}
+On note souvent les propositions par des lettres majuscules $P$, $Q$, $R$. Une proposition n'a que deux valeurs possibles, \textbf{V} (vrai) ou \textbf{F} (faux). Avec deux propositions, il y a donc quatre cas à examiner, avec trois propositions il y en a huit.
+
+\section{Négation et connecteurs}
+\begin{definition}[Négation]
+La \textbf{négation} de $P$, notée $\lnot P$ (« non $P$ »), est vraie quand $P$ est fausse et fausse quand $P$ est vraie.
+\end{definition}
+\begin{example}
+La négation de « $7$ est pair » est « $7$ n'est pas pair », c'est-à-dire « $7$ est impair » (proposition vraie). La négation de « $x<3$ » est « $x\ge3$ » : on ne change pas seulement le signe, on change aussi l'inégalité.
+\end{example}
+\begin{definition}[Connecteurs]
+Soient $P$ et $Q$ deux propositions.
+\begin{itemize}
+\item \textbf{ET} : $P\land Q$ est vraie quand $P$ et $Q$ sont toutes deux vraies.
+\item \textbf{OU inclusif} : $P\lor Q$ est vraie quand l'une au moins est vraie (éventuellement les deux). C'est le sens du « ou » mathématique.
+\item \textbf{OU exclusif} : $P\oplus Q$ est vraie quand l'une des deux est vraie \emph{et l'autre fausse} (« l'un ou l'autre, pas les deux »).
+\item \textbf{Implication} : $P\Rightarrow Q$ (« si $P$ alors $Q$ ») n'est fausse que si $P$ est vraie et $Q$ fausse.
+\item \textbf{Équivalence} : $P\Leftrightarrow Q$ (« $P$ si et seulement si $Q$ ») est vraie quand $P$ et $Q$ ont la même valeur de vérité.
+\end{itemize}
+\end{definition}
+\begin{center}
+\begin{tabular}{c|c||c|c|c|c|c|c}
+$P$ & $Q$ & $\lnot P$ & $P\land Q$ & $P\lor Q$ & $P\oplus Q$ & $P\Rightarrow Q$ & $P\Leftrightarrow Q$\\\hline
+V & V & F & V & V & F & V & V\\
+V & F & F & F & V & V & F & F\\
+F & V & V & F & V & V & V & F\\
+F & F & V & F & F & F & V & V
+\end{tabular}
+\end{center}
+\begin{keypoint}[Une implication dont l'hypothèse est fausse]
+Une promesse « si tu réussis l'examen, alors je t'offre un livre » n'est rompue que dans un seul cas : tu as réussi et je ne t'offre rien. Si tu échoues, la promesse n'est pas rompue, quoi que je fasse. De même, $P\Rightarrow Q$ est fausse uniquement quand $P$ est vraie et $Q$ fausse.
+\end{keypoint}
+\begin{example}[Ou inclusif, ou exclusif]
+Pour $n=6$, notons $P$ : « $n$ est pair » et $Q$ : « $n$ est multiple de $3$ ». Les deux sont vraies : $P\land Q$ et $P\lor Q$ sont vraies, mais $P\oplus Q$ est fausse. Pour $n=9$, seule $Q$ est vraie : $P\lor Q$ et $P\oplus Q$ sont vraies, $P\land Q$ est fausse.
+\end{example}
+\begin{keypoint}[Vocabulaire de l'implication et de l'équivalence]
+Dans $P\Rightarrow Q$ : $P$ est une condition \textbf{suffisante} pour $Q$ ; $Q$ est une condition \textbf{nécessaire} pour $P$. L'implication \textbf{réciproque} est $Q\Rightarrow P$. Dire que $P\Leftrightarrow Q$ est vraie, c'est dire que $P\Rightarrow Q$ et $Q\Rightarrow P$ sont vraies : chacune est une condition nécessaire et suffisante de l'autre.
+\end{keypoint}
+\begin{pitfall}
+Une implication vraie n'a pas forcément une réciproque vraie. « Si un quadrilatère est un rectangle, alors ses diagonales ont même longueur » est vraie ; sa réciproque « si les diagonales d'un quadrilatère ont même longueur, alors c'est un rectangle » est fausse (un trapèze isocèle est un contre-exemple).
+\end{pitfall}
+\begin{example}[Une implication et sa réciproque]
+« Un triangle rectangle possède un angle droit » est vraie. Sa réciproque, « un triangle qui possède un angle droit est rectangle », est vraie aussi : c'est la définition. On peut donc écrire une équivalence : un triangle est rectangle si et seulement s'il possède un angle droit.
+\end{example}
+
+\section{Tables de vérité pour argumenter}
+\begin{method}[Construire une table de vérité]
+On écrit une colonne par proposition de départ, puis une colonne par étape du calcul, de l'intérieur vers l'extérieur. On liste toutes les combinaisons de valeurs de départ (quatre lignes pour deux propositions, huit pour trois) et on remplit chaque colonne à partir des précédentes.
+\end{method}
+\begin{definition}[Équivalence logique, tautologie]
+Deux propositions composées $A$ et $B$ sont \textbf{équivalentes} (on écrit $A\equiv B$) si elles ont la même valeur de vérité dans chaque ligne de la table. Une proposition composée vraie dans toutes les lignes est une \textbf{tautologie} ; fausse dans toutes les lignes, c'est une \textbf{contradiction}.
+\end{definition}
+\begin{theorem}[Équivalences usuelles]
+Pour toutes propositions $P$, $Q$ :
+\begin{itemize}
+\item $\lnot(\lnot P)\equiv P$ ;
+\item lois de De Morgan : $\lnot(P\land Q)\equiv\lnot P\lor\lnot Q$ et $\lnot(P\lor Q)\equiv\lnot P\land\lnot Q$ ;
+\item $P\Rightarrow Q\equiv\lnot P\lor Q$, et donc $\lnot(P\Rightarrow Q)\equiv P\land\lnot Q$ ;
+\item $P\Leftrightarrow Q\equiv(P\Rightarrow Q)\land(Q\Rightarrow P)$ ;
+\item $P\oplus Q\equiv\lnot(P\Leftrightarrow Q)$.
+\end{itemize}
+\end{theorem}
+\begin{proof}
+Chaque équivalence se vérifie ligne par ligne. Pour la première loi de De Morgan :
+\begin{center}
+\begin{tabular}{c|c||c|c|c|c|c}
+$P$ & $Q$ & $P\land Q$ & $\lnot(P\land Q)$ & $\lnot P$ & $\lnot Q$ & $\lnot P\lor\lnot Q$\\\hline
+V & V & V & F & F & F & F\\
+V & F & F & V & F & V & V\\
+F & V & F & V & V & F & V\\
+F & F & F & V & V & V & V
+\end{tabular}
+\end{center}
+Les colonnes 4 et 7 sont identiques. Les autres équivalences se traitent de la même façon, par un tableau de quatre lignes.
+\end{proof}
+\begin{example}[Négation d'une implication]
+La négation de « si $x>2$ alors $x^2>5$ » est « $x>2$ et $x^2\le5$ ». Elle est vraie : pour $x=2,1$ on a $x>2$ et $x^2=\num{4,41}\le5$. L'implication de départ est donc fausse, et un seul exemple (un contre-exemple) a suffi à le montrer.
+\end{example}
+\begin{method}[Démontrer avec une table]
+Pour montrer que deux formules sont équivalentes, on dresse la table des deux et on compare leurs colonnes. Pour montrer qu'une formule est une tautologie, on vérifie que sa colonne ne contient que des V. Pour réfuter, une seule ligne suffit : elle donne le contre-exemple.
+\end{method}
+
+\section{Quantificateurs}
+\begin{definition}[Quantificateurs]
+Soit $P(x)$ un prédicat et $E$ un ensemble.
+\begin{itemize}
+\item $\forall x\in E,\ P(x)$ se lit « pour tout $x$ de $E$, $P(x)$ » : vraie si $P(x)$ est vraie pour \emph{chaque} élément de $E$.
+\item $\exists x\in E,\ P(x)$ se lit « il existe un $x$ de $E$ tel que $P(x)$ » : vraie si $P(x)$ est vraie pour \emph{au moins un} élément de $E$.
+\end{itemize}
+\end{definition}
+\begin{keypoint}[Comment prouver, comment réfuter]
+Pour montrer qu'une proposition $\exists x,\ P(x)$ est vraie, on exhibe un exemple ; pour montrer qu'elle est fausse, il faut examiner tous les éléments de $E$. Pour montrer qu'une proposition $\forall x,\ P(x)$ est vraie, un exemple ne suffit pas ; pour montrer qu'elle est fausse, un seul \textbf{contre-exemple} suffit.
+\end{keypoint}
+\begin{example}
+\begin{itemize}
+\item $\forall x\in\R,\ x^2+1>0$ est vraie (un carré est positif ou nul, on ajoute $1$).
+\item $\forall n\in\N,\ n^2+n+17\text{ est premier}$ est fausse : pour $n=16$, $n^2+n+17=289=17^2$.
+\item $\exists x\in\R,\ x^2=\num{2,25}$ est vraie : $x=\num{1,5}$ (et aussi $x=-\num{1,5}$).
+\item $\exists n\in\N,\ 2n+1=0$ est fausse : $2n+1\ge1$ pour tout entier naturel $n$.
+\end{itemize}
+\end{example}
+\begin{theorem}[Négation d'une proposition quantifiée]
+$\lnot\bigl(\forall x\in E,\ P(x)\bigr)\equiv\exists x\in E,\ \lnot P(x)$ \qquad et \qquad $\lnot\bigl(\exists x\in E,\ P(x)\bigr)\equiv\forall x\in E,\ \lnot P(x)$.
+\end{theorem}
+En d'autres termes : on échange $\forall$ et $\exists$, et on nie le prédicat. Le contre-exemple d'une proposition universelle est le témoin de sa négation.
+\begin{example}[Négation et traduction]
+« Tous les élèves de la classe ont plus de $14$ ans » s'écrit $\forall e\in\text{classe},\ \text{âge}(e)>14$. Sa négation est $\exists e\in\text{classe},\ \text{âge}(e)\le14$ : « au moins un élève de la classe a $14$ ans ou moins ». Attention : la négation n'est pas « aucun élève n'a plus de $14$ ans ».
+\end{example}
+\begin{pitfall}
+Pour nier un « pour tout », il ne faut pas écrire « pour tout, le contraire » : la négation de « tous les nombres de cette liste sont pairs » n'est pas « tous sont impairs », mais « au moins un est impair ». Si l'on mélange des connecteurs et des quantificateurs, on applique les règles une par une, de l'extérieur vers l'intérieur.
+\end{pitfall}
+\begin{example}[Négation d'une phrase plus longue]
+La négation de $\forall x\in\R,\ (x\ge1\Rightarrow x^2\ge1)$ est $\exists x\in\R,\ (x\ge1\ \text{et}\ x^2<1)$, d'après la négation d'une implication. La proposition de départ est vraie : si $x\ge1$ alors $x^2\ge x\ge1$. Sa négation est donc fausse.
+\end{example}
+
+\begin{beyond}[Contraposée et raisonnement par l'absurde]
+La rubrique Logique du programme de T10 ne les demande pas ; on les propose en enrichissement, sans que cela remplace les raisonnements directs.
+La \textbf{contraposée} de $P\Rightarrow Q$ est $\lnot Q\Rightarrow\lnot P$. Une table de vérité montre que les deux implications sont équivalentes : pour démontrer l'une, on peut démontrer l'autre.
+Pour démontrer $P\Rightarrow Q$ \textbf{par l'absurde}, on suppose $P$ vraie et $Q$ fausse, et l'on aboutit à une contradiction.
+\begin{example}
+Montrons que si $3n+2$ est impair, alors $n$ est impair. Contraposée : si $n$ est pair, alors $3n+2$ est pair. Si $n=2k$, alors $3n+2=6k+2=2(3k+1)$, qui est pair. \emph{Raisonnement par l'absurde} : il n'existe pas de plus petit réel strictement positif. Supposons que $m>0$ soit le plus petit. Alors $m/2$ est un réel strictement positif et $m/2<m$ : contradiction.
+\end{example}
+\end{beyond}
+
+\section{Exercices}
+\subsection*{Niveau 1}
+\begin{exercise}[Proposition ou non]\mxlabel{prop}
+Pour chaque phrase, dire si c'est une proposition ; si oui, donner sa valeur de vérité.
+\begin{enumerate}
+\item « $91$ est un nombre premier. »
+\item « Que vaut $3x$ ? »
+\item « $\sqrt2$ est un nombre rationnel. »
+\item « $x^2\ge0$. »
+\item « Tout entier divisible par $6$ est divisible par $3$. »
+\item « $12$ est un diviseur de $4$. »
+\end{enumerate}
+\mxlines{4}
+\end{exercise}
+\begin{exercise}[Négations simples]\mxlabel{neg}
+Écrire la négation de chaque proposition, puis dire laquelle des deux est vraie.
+\begin{enumerate}
+\item « $7>5$ » ; \quad « $-2\ge0$ ».
+\item « $15$ est un multiple de $4$ ».
+\item « Le triangle $ABC$ n'est pas isocèle » (on suppose qu'il a des côtés de longueurs $3$, $4$ et $5$).
+\item « $a^2=b^2$ » pour $a=2$ et $b=-2$.
+\end{enumerate}
+\mxlines{4}
+\end{exercise}
+\begin{exercise}[Valeur de vérité d'une implication]\mxlabel{impl}
+Donner la valeur de vérité de chaque proposition.
+\begin{enumerate}
+\item « Si $9$ est impair, alors $9$ est premier. »
+\item « Si $8$ est impair, alors $8$ est premier. »
+\item « Si $10$ est un multiple de $5$, alors $10$ est pair. »
+\item « Si $2+2=5$, alors $3$ est pair. »
+\item « $3$ est impair si et seulement si $4$ est pair. »
+\end{enumerate}
+\mxlines{4}
+\end{exercise}
+\begin{exercise}[ET, OU, OU exclusif]\mxlabel{connect}
+Pour $n\in\ens{6;7;9;10}$, notons $P(n)$ : « $n$ est pair » et $Q(n)$ : « $n$ est multiple de $3$ ». Compléter un tableau donnant, pour chaque $n$, la valeur de $P\land Q$, de $P\lor Q$ et de $P\oplus Q$.
+\mxlines{4}
+\end{exercise}
+\begin{exercise}[Quantificateurs : lire et décider]\mxlabel{quant}
+Lire à voix haute chaque proposition, puis dire si elle est vraie ou fausse ; justifier par un exemple ou un contre-exemple.
+\begin{enumerate}
+\item $\forall x\in\R,\ x^2+1>0$.
+\item $\exists x\in\R,\ x^2=-4$.
+\item $\forall n\in\N,\ n^2\ge n$.
+\item $\forall x\in\R,\ x^2>x$.
+\item $\exists x\in\R,\ x^2>x$.
+\end{enumerate}
+\mxlines{4}
+\end{exercise}
+\begin{exercise}[Écrire avec des quantificateurs]\mxlabel{ecrire}
+Traduire chaque phrase par une proposition quantifiée, puis dire si elle est vraie.
+\begin{enumerate}
+\item Le carré de tout réel est positif ou nul.
+\item Il existe un nombre premier pair.
+\item Le double de tout entier relatif est pair.
+\item Il existe un entier naturel strictement inférieur à $1$.
+\end{enumerate}
+\mxlines{4}
+\end{exercise}
+\begin{exercise}[Négation d'une proposition quantifiée]\mxlabel{negquant}
+Écrire la négation de chaque proposition, et donner la valeur de vérité de la proposition et de sa négation.
+\begin{enumerate}
+\item $\forall x\in\R,\ x+1>x$.
+\item $\exists n\in\N,\ n+3=1$.
+\item $\forall n\in\N,\ n^2\ne2n$.
+\end{enumerate}
+\mxlines{4}
+\end{exercise}
+\begin{exercise}[Réciproques]\mxlabel{recip}
+Pour chaque implication, écrire la réciproque et dire si l'implication et sa réciproque sont vraies ; si une réciproque est fausse, donner un contre-exemple.
+\begin{enumerate}
+\item « Si un quadrilatère est un losange, alors ses diagonales sont perpendiculaires. »
+\item « Si $n$ est un multiple de $12$, alors $n$ est un multiple de $6$. »
+\item « Si $x>3$, alors $x^2>9$. »
+\item « Si $a=b$, alors $a^2=b^2$. »
+\end{enumerate}
+\mxlines{4}
+\end{exercise}
+\begin{exercise}[Équivalence ou implication seule]\mxlabel{equiv}
+Chaque implication est vraie. Dans quels cas peut-on remplacer « $\Rightarrow$ » par « $\Leftrightarrow$ » (c'est-à-dire quand la réciproque est vraie aussi) ?
+\begin{enumerate}
+\item $n$ est divisible par $6$ \ $\Rightarrow$ \ $n$ est divisible par $2$ et par $3$.
+\item $n$ est divisible par $4$ \ $\Rightarrow$ \ $n$ est pair.
+\item $x^2=16$ \ $\Rightarrow$ \ $x=4$ ou $x=-4$.
+\item $x=2$ \ $\Rightarrow$ \ $x(x-2)=0$.
+\end{enumerate}
+\mxlines{4}
+\end{exercise}
+\subsection*{Niveau 2}
+\begin{exercise}[Deux tables à comparer]\mxlabel{tables}
+Dresser la table de vérité de $\lnot P\lor Q$ et celle de $P\land\lnot Q$. Que remarque-t-on par rapport à $P\Rightarrow Q$ ? Qu'en déduit-on pour la négation de $P\Rightarrow Q$ ?
+\mxlines{4}
+\end{exercise}
+\begin{exercise}[Trois propositions]\mxlabel{trois}
+Dresser la table de vérité de $(P\Rightarrow Q)\land(Q\Rightarrow R)$ et celle de $P\Rightarrow R$. Comparer les deux tables : que peut-on dire de l'implication $\bigl((P\Rightarrow Q)\land(Q\Rightarrow R)\bigr)\Rightarrow(P\Rightarrow R)$ ?
+\mxlines{5}
+\end{exercise}
+\begin{exercise}[Lois de De Morgan en pratique]\mxlabel{morgan}
+Écrire la négation de chaque proposition sans utiliser le mot « non » devant un groupe.
+\begin{enumerate}
+\item $x\ge2$ et $x<7$.
+\item $n$ est pair ou $n$ est multiple de $5$.
+\item $-1<x\le4$.
+\end{enumerate}
+Vérifier la réponse de la question 3 pour $x=-3$, $x=0$ et $x=5$.
+\mxlines{4}
+\end{exercise}
+\begin{exercise}[Tautologie, contradiction ou ni l'une ni l'autre]\mxlabel{taut}
+Classer chaque proposition composée (par une table de vérité).
+\begin{enumerate}
+\item $P\lor\lnot P$.
+\item $P\land\lnot P$.
+\item $(P\land Q)\Rightarrow P$.
+\item $P\Rightarrow(P\lor Q)$.
+\item $P\Leftrightarrow\lnot P$.
+\item $(P\Rightarrow Q)\Rightarrow P$.
+\end{enumerate}
+\mxlines{5}
+\end{exercise}
+\begin{exercise}[Négation d'une implication]\mxlabel{negimpl}
+Écrire la négation de chaque implication, puis dire laquelle, de l'implication ou de sa négation, est vraie.
+\begin{enumerate}
+\item « Si $x>2$, alors $x^2>5$. »
+\item « Si $n$ est un entier pair, alors $n^2$ est pair. »
+\item « Si un entier est divisible par $4$ et par $6$, alors il est divisible par $24$. »
+\end{enumerate}
+\mxlines{4}
+\end{exercise}
+\begin{exercise}[Chasse au contre-exemple]\mxlabel{contrex}
+Montrer que chaque proposition est fausse en donnant un contre-exemple.
+\begin{enumerate}
+\item $\forall n\in\N,\ n^2+n+17$ est un nombre premier.
+\item $\forall x\in\R,\ (x+1)^2>x^2$.
+\item $\forall n\in\N,\ 2^n>n^2$.
+\item Si $x^2-5x+6=0$, alors $x=2$.
+\end{enumerate}
+\mxlines{5}
+\end{exercise}
+\begin{exercise}[Conditions nécessaires et suffisantes]\mxlabel{cns}
+Pour chaque couple, dire si $A$ est une condition nécessaire, suffisante, nécessaire et suffisante, ou ni l'un ni l'autre, pour $B$.
+\begin{enumerate}
+\item $A$ : « $n$ est un multiple de $10$ » ; $B$ : « $n$ est un multiple de $5$ ».
+\item $A$ : « $x=3$ » ; $B$ : « $x^2=9$ ».
+\item $A$ : « le quadrilatère $ABCD$ a quatre angles droits » ; $B$ : « $ABCD$ est un rectangle ».
+\item $A$ : « $n$ est un nombre premier » ; $B$ : « $n$ est impair ».
+\end{enumerate}
+\mxlines{4}
+\end{exercise}
+\begin{exercise}[Phrase et quantificateurs, aller et retour]\mxlabel{phrases}
+\begin{enumerate}
+\item Écrire avec des quantificateurs : « tous les élèves de la classe ont plus de $14$ ans », puis sa négation en symboles et en français.
+\item Même question pour « il existe un jour de la semaine où il n'y a pas cours ».
+\end{enumerate}
+\mxlines{5}
+\end{exercise}
+\subsection*{Niveau 3}
+\begin{exercise}[Fonction croissante]\mxlabel{croiss}
+Une fonction $f$ est croissante sur $\R$ si $\forall x\in\R,\ \forall y\in\R,\ (x<y\Rightarrow f(x)\le f(y))$.
+\begin{enumerate}
+\item Écrire la négation de cette proposition.
+\item Montrer que la fonction $f$ définie par $f(x)=x^2$ n'est pas croissante sur $\R$ en donnant un témoin de la négation.
+\item La fonction définie par $g(x)=2x+1$ est-elle croissante sur $\R$ ? Le démontrer.
+\end{enumerate}
+\mxlines{5}
+\end{exercise}
+\begin{exercise}[Une tautologie en trois lignes]\mxlabel{tautbis}
+Montrer par une table de vérité que $\lnot P\Rightarrow(P\Rightarrow Q)$ est une tautologie. Interpréter : que dire d'une implication dont l'hypothèse est fausse ?
+\mxlines{4}
+\end{exercise}
+\begin{beyond}[Hors programme : contraposée et absurde]
+\begin{enumerate}
+\item Écrire la contraposée de « si $3n+2$ est impair, alors $n$ est impair » et la démontrer.
+\item Montrer par l'absurde qu'il n'existe pas d'entiers relatifs $x$ et $y$ tels que $4x+6y=15$.
+\item Montrer que si $n^2$ est un multiple de $3$, alors $n$ est un multiple de $3$ (distinguer les restes $0$, $1$, $2$ de la division de $n$ par $3$), puis que $\sqrt3$ n'est pas rationnel.
+\item Traduire en français, puis nier : $\forall x\in\R,\ \exists y\in\R,\ y>x$. Quelle est la valeur de vérité de la proposition et de sa négation ?
+\end{enumerate}
+\mxlines{6}
+\end{beyond}
+
+\section{Problèmes}
+\begin{exercise}[Problème : l'escalier à deux interrupteurs]\mxlabel{escalier}
+Une lampe d'escalier est commandée par deux interrupteurs, $P$ en bas et $Q$ en haut. Chaque interrupteur est en position « haute » (V) ou « basse » (F). La lampe est allumée quand \emph{exactement un} interrupteur est en position haute.
+\begin{enumerate}
+\item Dresser la table donnant l'état de la lampe selon les positions de $P$ et de $Q$, et l'écrire avec un connecteur.
+\item On change la position de $P$ : que fait la lampe ? Et si l'on change celle de $Q$ ?
+\item Avec un troisième interrupteur $R$ et la proposition $P\oplus Q\oplus R$, la lampe est allumée dans combien de lignes de la table ? Que se passe-t-il quand on bascule un seul interrupteur ?
+\end{enumerate}
+\mxlines{6}
+\end{exercise}
+\begin{exercise}[Problème : chevaliers et coquins]\mxlabel{chevaliers}
+Sur une île, les chevaliers disent toujours la vérité et les coquins mentent toujours.
+\begin{enumerate}
+\item $A$ dit : « Nous sommes tous les deux des coquins. » Que sont $A$ et $B$ ?
+\item $C$ dit : « $D$ est un chevalier. » $D$ répond : « $C$ et moi ne sommes pas de même type. » Déterminer le type de $C$ et de $D$.
+\end{enumerate}
+\mxlines{6}
+\end{exercise}
+\begin{exercise}[Problème : le vase cassé]\mxlabel{vase}
+Un vase est cassé. Quatre enfants parlent, et l'on sait qu'un seul dit la vérité.
+\begin{itemize}
+\item Aina : « C'est Bema. »
+\item Bema : « Ce n'est pas moi. »
+\item Caro : « C'est Aina ou Dina. »
+\item Dina : « Ce n'est ni Aina ni Bema. »
+\end{itemize}
+Qui a cassé le vase ? Vérifier la réponse en examinant chaque cas.
+\mxlines{6}
+\end{exercise}
+\begin{exercise}[Problème : les quatre cartes]\mxlabel{cartes}
+Quatre cartes sont posées sur la table, chacune porte une lettre d'un côté et un nombre de l'autre. On voit : \textbf{E}, \textbf{K}, \textbf{4}, \textbf{7}. Une règle affirme : « si une carte porte une voyelle d'un côté, alors elle porte un nombre pair de l'autre ». Quelles cartes faut-il retourner, au minimum, pour savoir si la règle est respectée ? Justifier avec la négation d'une implication.
+\mxlines{6}
+\end{exercise}
+
+\begin{summary}[À retenir]
+\begin{itemize}
+\item Une proposition est vraie ou fausse ; un prédicat le devient quand on fixe ou quantifie sa variable.
+\item $P\Rightarrow Q$ n'est fausse que pour $P$ vraie et $Q$ fausse ; $P\Leftrightarrow Q$ signifie les deux implications.
+\item Le OU mathématique est inclusif ; le OU exclusif s'écrit $P\oplus Q$.
+\item De Morgan : $\lnot(P\land Q)\equiv\lnot P\lor\lnot Q$ et $\lnot(P\lor Q)\equiv\lnot P\land\lnot Q$ ; $\lnot(P\Rightarrow Q)\equiv P\land\lnot Q$.
+\item Pour nier une proposition quantifiée : $\forall$ devient $\exists$, $\exists$ devient $\forall$, et le prédicat est nié.
+\item Un contre-exemple suffit à réfuter un « pour tout » ; un exemple suffit à prouver un « il existe ».
+\end{itemize}
+\end{summary}
+\ifmxteacher\mxinclude{corriges/c01}\fi

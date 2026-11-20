@@ -1,18 +1,18 @@
 {
-  "sourceDigest": "76814b9e74fc25ada15a2cb8287e09f6b9fd60eca0b6423daefb90eceddcdb8c",
+  "sourceDigest": "b5a973072cf14026d38b477bbf8f6d2a21e1f8bae767f3dad0492d86e45dbfa7",
   "files": {
     "resources/annals/books/bac-corriges.tex": "14fa5f841f167e1e9d616ff47ab2014b15f4f027e27d2cc990469404dd4dcedf",
     "resources/annals/books/e3c-enonces.tex": "84ef6ee998bea5d499612a6845dbdb2194f30115e3e2ae369a328a78c6b40e33",
     "resources/annals/books/eam-enonces.tex": "377c01e1adc9752c177c3de47b16c8391772219b332070623a757822675c5ede",
-    "resources/annals/books/eam-corriges.pdf": "f779465418366e55f9cc5a618898fe77774494abf703be0c227bca7eb7be69c6",
-    "resources/annals/books/sources.zip": "26acd268a905e7fa6cea7daebcfa1561f29475dd605f9be8a9f1f7f1aa64a5df",
+    "resources/annals/books/eam-corriges.pdf": "ac7fdc1c24be03e02fd149ab95f30f4dca094b43193b427f5c1021c99ea3c66a",
+    "resources/annals/books/sources.zip": "778fe3ca16b02a3ba96b6edf1e9a1c66977b48484b95b8c4cc6c1af054324aa6",
     "resources/annals/books/e3c-corriges.tex": "530a5b9d7634d2d06f965b9b71feb80666370b7a52d5694aa8008b5f67369532",
-    "resources/annals/books/eam-enonces.pdf": "9914a02216a83de938a9bcdf65f51b6abe766d81a1b65e9062a8e2cf8dcbd431",
-    "resources/annals/books/e3c-corriges.pdf": "416861e50dea41f9d9d6de736caeb180d397a5ff1dc5ae2e3592ed7f45bbcaa3",
-    "resources/annals/books/bac-corriges.pdf": "6d9e1a9d7f0ce56ec649ac985c0a289c897d4bca2344d5cb11333c917bc66bce",
-    "resources/annals/books/e3c-enonces.pdf": "24da0c695aa87aab57db2c290ae0c962a622dbe1ef32aafe7eb380ab3784e02d",
+    "resources/annals/books/eam-enonces.pdf": "5a9a463a09760f26b948892adfc715612365d7c33cd97d738415e304f6dec1a0",
+    "resources/annals/books/e3c-corriges.pdf": "8b1577c1d44e5ee03be3f2591067220d29da538aaab7790eaecded1c04cba68c",
+    "resources/annals/books/bac-corriges.pdf": "9bf8c1dc19c83b7a7f26a2ddd08f8cd1d024355261f384a4191d9c4329535936",
+    "resources/annals/books/e3c-enonces.pdf": "cd29c0ad9691183ce380a388ae2f41f55a186e648b0f2b10d9076c9b57722cc1",
     "resources/annals/books/eam-corriges.tex": "8620a9caf5c2651d903f940a05fce2ee1fda1a618b4a56c254ef0e1912d56b4d",
-    "resources/annals/books/bac-enonces.pdf": "148789592ae6b466e565a2941313f957945394186a957d7ac52ff194e0331739",
+    "resources/annals/books/bac-enonces.pdf": "37a189d8f091d7643ca7a9dc6144d5214757f0b4aa37ba1be956cbe4cdf99643",
     "resources/annals/books/bac-enonces.tex": "1ba900b5431bb8c456aea0caff93d62211f32c8679186254c3fddad6ee38abfe"
   }
 }

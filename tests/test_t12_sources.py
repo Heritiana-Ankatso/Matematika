@@ -1,5 +1,4 @@
-"""The T12 C/D book in content/tex/mada/t12/ (owner decisions of 2 November 2026): anonymous, without the third-party exercises
-and the type-D practice papers, Bac papers with their attribution line and only the checked solutions, a consistent chapter index.
+"""The T12 C/D book in content/tex/mada/t12/ (owner decisions of 2 November 2026, extended 16 November): anonymous, no third-party exercise (every replacement and every practice paper is original), Bac papers with their attribution line and one original solution each, a consistent chapter index.
 Names are compared as SHA-256 hashes (tests/banned.py), never written here."""
 import hashlib
 import json
@@ -15,7 +14,7 @@ import banned  # noqa: E402
 
 # the named textbook of the removed exercises (third party, not banned site-wide)
 THIRD_PARTY = {'554b7e46647ffe03eecc5dfcb2ff482a180f002fc0cf70f54ebb43a93cce8512'}
-SOLUTIONS = {('C', 2003): False, ('C', 2004): False, ('C', 2005): True}
+SOLUTIONS = {(s, y): (s, y) == ('C', 2005) for s in 'CD' for y in range(2003, 2019)}
 
 
 def files(): return sorted(p for p in T12.rglob('*') if p.is_file())
@@ -67,7 +66,7 @@ class T12Sources(unittest.TestCase):
                 sol = (T12 / b['solution']).read_text(encoding='utf8')
                 self.assertEqual(b['partial'], SOLUTIONS[key]); self.assertEqual('\\TCDPartial' in sol, SOLUTIONS[key])
         on_disk = sorted(p.name for p in (T12 / 'bac').glob('*-corrige.tex'))
-        self.assertEqual(on_disk, ['c-2003-corrige.tex', 'c-2004-corrige.tex', 'c-2005-corrige.tex'])
+        self.assertEqual(on_disk, sorted('%s-%d-corrige.tex' % (s.lower(), y) for s in 'CD' for y in range(2003, 2019)))
 
 
 if __name__ == '__main__':

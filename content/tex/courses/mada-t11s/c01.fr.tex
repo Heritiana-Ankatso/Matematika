@@ -1,0 +1,297 @@
+\mxunit{mada-t11-s-01}{Généralités sur les fonctions numériques}
+\mxsubtitle{Analyse · première partie du programme de T11 S · fonctions numériques d'une variable réelle}
+\begin{objectives}
+\begin{itemize}
+\item Lire une image et un antécédent sur une expression, sur un tableau et sur une courbe.
+\item Déterminer l'ensemble de définition d'une fonction polynôme, rationnelle, irrationnelle ou contenant une valeur absolue.
+\item Lire et démontrer un sens de variation à partir de la définition.
+\item Établir qu'une fonction est paire, impaire ou ni l'une ni l'autre, et reconnaître un axe ou un centre de symétrie.
+\item Établir qu'une fonction est périodique, trouver sa plus petite période pour $A\cos(ax+b)$ et $A\sin(ax+b)$, et en déduire un intervalle d'étude.
+\end{itemize}
+\end{objectives}
+\begin{prerequisites}
+Les fonctions de référence de seconde (affine, carré, cube, inverse, racine carrée, valeur absolue) ; résoudre une équation ou une inéquation du second degré ; dresser un tableau de signes ; le cercle trigonométrique, le radian, $\cos^2x+\sin^2x=1$ ; lire les coordonnées d'un point sur un graphique.
+\end{prerequisites}
+\begin{fluency}[5 min]
+(a) Pour quels réels $x$ a-t-on $x+5\ge0$ ? (b) Résoudre $x^2=49$. (c) Calculer $\abs{-9}$ et $\abs{4-11}$. (d) Que vaut $\sqrt{(-6)^2}$ ? (e) Développer $(-x)^3$ et $(-x)^4$. (f) Donner $\cos(0)$, $\sin\bigl(\frac{\pi}{2}\bigr)$ et $\cos(2\pi)$.
+\mxanswer{(a) $x\ge-5$ ; (b) $-7$ et $7$ ; (c) $9$ et $7$ ; (d) $6$ ; (e) $-x^3$ et $x^4$ ; (f) $1$, $1$, $1$.}
+\end{fluency}
+
+\section{Activité : deux manières de se répéter}
+\begin{activity}[Un miroir et une frise]
+Trois fonctions sont données par leurs valeurs aux entiers de $-3$ à $3$.
+\begin{center}
+\begin{tabular}{c|c|c|c|c|c|c|c}
+$x$ & $-3$ & $-2$ & $-1$ & $0$ & $1$ & $2$ & $3$\\\hline
+$f(x)$ & $7$ & $2$ & $-1$ & $-2$ & $-1$ & $2$ & $7$\\
+$g(x)$ & $-15$ & $-6$ & $-1$ & $0$ & $1$ & $6$ & $15$\\
+$h(x)$ & $2$ & $-1$ & $3$ & $2$ & $-1$ & $3$ & $2$
+\end{tabular}
+\end{center}
+\textbf{1.} Pour chaque fonction, comparer la valeur en $x$ et la valeur en $-x$. Que remarque-t-on pour $f$ ? pour $g$ ? pour $h$ ?\par
+\textbf{2.} On prolonge $h$ à tous les entiers en gardant le motif $2,-1,3$ qui se répète. Calculer $h(30)$ et $h(-7)$.\par
+\textbf{3.} Peut-on affirmer, avec ce tableau seul, que $f(x)=f(-x)$ pour tous les réels $x$ ? Que faudrait-il de plus ?\mxlines{3}
+\mxanswer{1. $f(-x)=f(x)$ pour les sept valeurs : la courbe semble symétrique par rapport à l'axe des ordonnées. $g(-x)=-g(x)$ : symétrie par rapport à l'origine. $h$ n'a aucune de ces deux propriétés ($h(-1)=3\ne h(1)=-1$) mais ses valeurs reviennent toutes les trois étapes : $h(x+3)=h(x)$. 2. $30=3\times10$, donc $h(30)=h(0)=2$ ; $-7=-9+2$, donc $h(-7)=h(2)=3$. 3. Non : sept valeurs ne disent rien des autres réels. Il faut une égalité $f(-x)=f(x)$ démontrée pour un $x$ quelconque de l'ensemble de définition.}
+\end{activity}
+
+\section{Fonction, image, antécédent}
+\begin{definition}[Fonction numérique]
+Une \textbf{fonction numérique} $f$ d'une variable réelle associe à chaque réel $x$ d'une partie $D$ de $\R$ \emph{un seul} réel, noté $f(x)$. La partie $D$ est l'\textbf{ensemble de définition} de $f$. Le réel $f(x)$ est l'\textbf{image} de $x$ ; si $f(x)=y$, on dit que $x$ est un \textbf{antécédent} de $y$.
+\end{definition}
+Un réel de $D$ a une seule image, mais un réel $y$ peut avoir plusieurs antécédents ou aucun : pour la fonction carré, $9$ en a deux ($-3$ et $3$) et $-1$ n'en a pas.
+\begin{figurebox}[Lecture d'une image et d'antécédents sur la courbe de $f(x)=\frac{x^2}{3}-2$.]
+\begin{tikzpicture}\begin{axis}[mxaxis,xmin=-5,xmax=5,ymin=-3,ymax=5,width=9cm,height=6.2cm,xtick={-4,-2,2,4},ytick={-2,2,4}]
+\addplot[mxcurve,domain=-4.6:4.6,samples=100]{x*x/3-2};
+\draw[mxaux](axis cs:3,0)--(axis cs:3,1);\draw[mxaux](axis cs:3,1)--(axis cs:0,1);
+\draw[mxaux](axis cs:-3,1)--(axis cs:3,1);
+\fill[mxpoint](axis cs:3,1)circle(2pt)node[above right]{$f(3)=1$};\fill[mxpoint](axis cs:-3,1)circle(2pt)node[above left]{$-3$};
+\end{axis}\end{tikzpicture}
+\end{figurebox}
+Pour l'image de $3$ : on part de $3$ sur l'axe des abscisses, on monte jusqu'à la courbe, on lit l'ordonnée. Pour les antécédents de $1$ : on part de $1$ sur l'axe des ordonnées, on se déplace horizontalement et on relève l'abscisse de \emph{chaque} point d'intersection.
+\begin{example}[Image et antécédents par calcul]
+Soit $f(x)=x^2-4x+1$ sur $\R$. Image de $5$ : $f(5)=25-20+1=6$. Antécédents de $-2$ : $x^2-4x+1=-2\iff x^2-4x+3=0$ ; $\Delta=16-12=4$, d'où $x=\frac{4-2}{2}=1$ ou $x=\frac{4+2}{2}=3$. Antécédents de $-4$ : $x^2-4x+5=0$ a pour discriminant $16-20<0$ : aucun.
+\end{example}
+
+\section{Ensemble de définition}
+Quand une fonction est donnée par une formule, son ensemble de définition est l'ensemble des réels pour lesquels le calcul de $f(x)$ est possible dans $\R$.
+\begin{keypoint}[Les obstacles]
+(1) Un quotient $\frac{A}{B}$ exige $B\ne0$. (2) Une racine $\sqrt{A}$ exige $A\ge0$. (3) Un quotient dont le dénominateur est une racine, $\frac{1}{\sqrt{A}}$, exige $A>0$. (4) Une valeur absolue $\abs{A}$ n'ajoute aucune condition. Un polynôme est défini sur $\R$ tout entier. La tangente exige $\cos x\ne0$.
+\end{keypoint}
+\begin{method}[Déterminer un ensemble de définition]
+On repère chaque dénominateur et chaque racine ; on écrit une condition par obstacle ; on résout chaque condition (un tableau de signes aide pour le second degré ou un quotient) ; on garde les réels qui vérifient \emph{toutes} les conditions, donc l'intersection ; on écrit le résultat en intervalles.
+\end{method}
+\begin{example}[Deux obstacles]
+Pour $g(x)=\dfrac{\sqrt{x+3}}{x-5}$ : sous la racine, $x+3\ge0$, soit $x\ge-3$ ; au dénominateur, $x\ne5$. Donc $D_g=\intfo{-3}{5}\cup\intoo{5}{+\infty}$. Le réel $-3$ est conservé (la racine vaut $0$), le réel $5$ est exclu.
+\end{example}
+\begin{example}[Un second degré sous la racine]
+Pour $h(x)=\sqrt{x^2-x-12}$, on résout $x^2-x-12\ge0$. Les racines sont $-3$ et $4$ ($\Delta=49$) ; le trinôme est positif à l'extérieur : $D_h=\intof{-\infty}{-3}\cup\intfo{4}{+\infty}$.
+\end{example}
+\begin{pitfall}
+Simplifier avant de chercher le domaine fait perdre des points exclus : $\frac{x^2-9}{x-3}$ n'est pas défini en $3$, même si l'expression simplifiée $x+3$ l'est. On détermine l'ensemble de définition sur la formule d'origine.
+\end{pitfall}
+
+\section{Sens de variation}
+\begin{definition}[Croissance, décroissance]
+Soit $f$ définie sur un intervalle $I$. Elle est \textbf{croissante} sur $I$ si, pour tous $a,b$ de $I$, $a\le b\Rightarrow f(a)\le f(b)$ ; \textbf{décroissante} si $a\le b\Rightarrow f(a)\ge f(b)$. Avec $a<b$ et des inégalités strictes, on parle de croissance ou de décroissance \textbf{stricte}. Elle est \textbf{monotone} sur $I$ si elle est croissante ou décroissante sur $I$.
+\end{definition}
+\begin{pitfall}
+Un sens de variation se dit toujours sur un intervalle. La fonction inverse est décroissante sur $\intoo{-\infty}{0}$ et sur $\intoo{0}{+\infty}$, mais pas sur leur réunion : pour $a=-2<b=3$, on a $f(a)=-\frac12<f(b)=\frac13$, l'ordre n'est pas renversé. Il faut écrire deux intervalles, pas un seul.
+\end{pitfall}
+\begin{theorem}[Somme et multiple]
+Soit $f$ et $g$ croissantes sur $I$ : alors $f+g$ est croissante sur $I$. Soit $f$ monotone sur $I$ et $\lambda\ne0$ : $\lambda f$ varie comme $f$ si $\lambda>0$ et en sens contraire si $\lambda<0$.
+\end{theorem}
+\begin{proof}
+Pour $a\le b$ dans $I$, $f(a)\le f(b)$ et $g(a)\le g(b)$ ; en additionnant, $f(a)+g(a)\le f(b)+g(b)$. Si $f$ est croissante et $\lambda>0$, multiplier $f(a)\le f(b)$ par $\lambda$ conserve l'ordre ; si $\lambda<0$, cela le renverse, donc $\lambda f$ est décroissante. Les autres cas sont identiques.
+\end{proof}
+\begin{example}[Lire un tableau de variation]
+$f(x)=-2x^2$ : le carré est décroissant sur $\intof{-\infty}{0}$ et croissant sur $\intfo{0}{+\infty}$ ; en multipliant par $-2<0$, $f$ est croissante sur $\intof{-\infty}{0}$ et décroissante sur $\intfo{0}{+\infty}$, avec le maximum $f(0)=0$.
+\end{example}
+
+\section{Parité}
+Pour comparer $f(x)$ et $f(-x)$, il faut que $-x$ soit lui aussi dans l'ensemble de définition.
+\begin{definition}[Ensemble symétrique, fonction paire, fonction impaire]
+Une partie $D$ de $\R$ est \textbf{symétrique par rapport à $0$} si $x\in D\Rightarrow-x\in D$. Soit $f$ de domaine symétrique. Elle est \textbf{paire} si $f(-x)=f(x)$ pour tout $x$ de $D$, \textbf{impaire} si $f(-x)=-f(x)$ pour tout $x$ de $D$.
+\end{definition}
+\begin{theorem}[Lecture sur la courbe]
+Dans un repère orthogonal, $f$ est paire si et seulement si sa courbe est symétrique par rapport à l'axe des ordonnées ; $f$ est impaire si et seulement si sa courbe est symétrique par rapport à l'origine.
+\end{theorem}
+\begin{proof}
+Le symétrique du point $M\pt{x;f(x)}$ par rapport à l'axe des ordonnées est $M'\pt{-x;f(x)}$ ; il est sur la courbe exactement quand $f(-x)=f(x)$. Par rapport à l'origine, le symétrique est $M''\pt{-x;-f(x)}$, qui est sur la courbe exactement quand $f(-x)=-f(x)$.
+\end{proof}
+\begin{figurebox}[Une fonction paire ($\frac{x^2}{3}-2$, en trait plein) et une fonction impaire ($\frac{x^3-6x}{10}$, en pointillés).]
+\begin{tikzpicture}\begin{axis}[mxaxis,xmin=-5,xmax=5,ymin=-4,ymax=4,width=9cm,height=6cm,xtick={-4,-2,2,4},ytick={-4,-2,2,4}]
+\addplot[mxcurve,domain=-4.5:4.5,samples=100]{x*x/3-2};
+\addplot[mxcurve,dashed,mxobjtwo,domain=-4.5:4.5,samples=100]{(x^3-6*x)/10};
+\end{axis}\end{tikzpicture}
+\end{figurebox}
+\begin{method}[Étudier la parité]
+1. Déterminer l'ensemble de définition et vérifier qu'il est symétrique par rapport à $0$ ; sinon, la fonction n'est ni paire ni impaire. 2. Calculer $f(-x)$ pour un $x$ quelconque. 3. Comparer à $f(x)$ et à $-f(x)$. Pour montrer qu'une fonction n'est ni paire ni impaire, un seul contre-exemple numérique suffit.
+\end{method}
+\begin{example}
+$f(x)=x^4-5x^2+1$ : $D=\R$ et $f(-x)=x^4-5x^2+1=f(x)$ : paire. $g(x)=\dfrac{x}{x^2-4}$ : $D=\R\setminus\ens{-2;2}$, symétrique, et $g(-x)=\dfrac{-x}{x^2-4}=-g(x)$ : impaire. $k(x)=\sqrt{x}$ : $D=\intfo{0}{+\infty}$ n'est pas symétrique, donc $k$ n'est ni paire ni impaire. $m(x)=(x+1)^2$ : $m(1)=4$ et $m(-1)=0$ ne sont ni égaux ni opposés.
+\end{example}
+\begin{pitfall}
+Le calcul $f(-x)=f(x)$ n'a de sens que si $D$ est symétrique : $\frac{1}{x-1}$ n'est pas définie en $1$ mais l'est en $-1$, donc elle n'est ni paire ni impaire, sans aucun calcul.
+\end{pitfall}
+\begin{theorem}[Autres symétries]
+Soit $f$ définie sur une partie $D$ avec $x\in D\Rightarrow 2a-x\in D$. La droite $x=a$ est un axe de symétrie de la courbe si et seulement si $f(2a-x)=f(x)$ pour tout $x$ de $D$ ; le point $\Omega\pt{a;b}$ en est un centre de symétrie si et seulement si $f(2a-x)+f(x)=2b$ pour tout $x$ de $D$.
+\end{theorem}
+\begin{proof}
+La symétrie d'axe $x=a$ envoie $M\pt{x;y}$ sur $\pt{2a-x;y}$, et la symétrie de centre $\Omega$ envoie $M$ sur $\pt{2a-x;2b-y}$. La courbe est globalement invariante exactement quand ces images sont encore sur la courbe, ce qui s'écrit $f(2a-x)=f(x)$, respectivement $f(2a-x)=2b-f(x)$.
+\end{proof}
+\begin{example}
+$f(x)=x^2-6x+5$ : $f(3+h)=(3+h)^2-6(3+h)+5=h^2-4$, valeur qui ne change pas quand $h$ devient $-h$ : l'axe $x=3$ est un axe de symétrie. $g(x)=2+\frac{3}{x-1}$ : $g(1+h)+g(1-h)=4+\frac3h-\frac3h=4$ : le point $\pt{1;2}$ est un centre de symétrie.
+\end{example}
+
+\section{Périodicité}
+\begin{definition}[Fonction périodique]
+Soit $T>0$. Une fonction $f$ est \textbf{périodique de période $T$} si, pour tout $x$ de son ensemble de définition, $x+T$ et $x-T$ appartiennent à l'ensemble de définition et $f(x+T)=f(x)$. La \textbf{plus petite période} strictement positive, quand elle existe, s'appelle \emph{la} période de $f$.
+\end{definition}
+Si $T$ est une période, tout multiple entier non nul $kT$ en est une : $f(x+2T)=f(x+T)=f(x)$, et de même pour les suivants et pour $-T$. Le motif de la courbe sur un intervalle de longueur $T$ se recopie par translations de vecteur $kT\vec\imath$.
+\begin{figurebox}[Courbe de $f(x)=2\cos(2x)$ : le motif sur $\intff{0}{\pi}$ se recopie, la période est $\pi$.]
+\begin{tikzpicture}\begin{axis}[mxaxis,xmin=-4,xmax=7,ymin=-3,ymax=3,width=11cm,height=5cm,xtick={0,1.5708,3.1416,4.7124,6.2832},xticklabels={$0$,$\frac\pi2$,$\pi$,$\frac{3\pi}2$,$2\pi$},ytick={-2,2}]
+\addplot[mxcurve,domain=-3.8:6.8,samples=200]{2*cos(deg(2*x))};
+\draw[mxaux](axis cs:0,2.6)--(axis cs:3.1416,2.6);\node[above]at(axis cs:1.57,2.6){$T=\pi$};
+\end{axis}\end{tikzpicture}
+\end{figurebox}
+\begin{theorem}[Période de $A\cos(ax+b)$ et $A\sin(ax+b)$]
+Soit $A\ne0$, $a\ne0$ et $b$ réels. Les fonctions $x\mapsto A\cos(ax+b)$ et $x\mapsto A\sin(ax+b)$ sont définies sur $\R$, périodiques, de plus petite période $\dfrac{2\pi}{\abs{a}}$.
+\end{theorem}
+\begin{proof}
+Avec $T=\frac{2\pi}{\abs a}$ : $\cos(a(x+T)+b)=\cos(ax+b\pm2\pi)=\cos(ax+b)$, donc $T$ est une période. Soit $T'>0$ une période de $g(x)=A\cos(ax+b)$ et $x_0$ un réel où $\cos(ax_0+b)=1$, c'est-à-dire $g(x_0)=A$ est la valeur extrême. Alors $g(x_0+T')=A$, donc $\cos(ax_0+aT'+b)=1$, d'où $aT'\in2\pi\Z$ et $T'=\frac{2\pi k}{\abs a}$ avec $k\ge1$ entier : $T'\ge T$. Le sinus s'obtient de la même façon, ou par $\sin u=\cos(u-\frac\pi2)$.
+\end{proof}
+\begin{method}[Réduire l'intervalle d'étude]
+Si $f$ est périodique de période $T$, on l'étudie sur un intervalle de longueur $T$, par exemple $\intff{-T/2}{T/2}$ ; si elle est en plus paire ou impaire, sur $\intff{0}{T/2}$ ; puis on complète la courbe par symétrie et par translations de vecteurs $kT\vec\imath$.
+\end{method}
+\begin{example}
+$f(x)=3\sin(4x-1)$ a pour période $\frac{2\pi}{4}=\frac\pi2$. $g(x)=\cos x+\cos 2x$ a pour période $2\pi$ (les deux termes en ont une) et est paire : on l'étudie sur $\intff{0}{\pi}$. $\tan(x+\pi)=\tan x$ : la tangente est $\pi$-périodique.
+\end{example}
+\begin{pitfall}
+La somme de deux fonctions périodiques n'est pas toujours périodique : $\sin x+\sin(\sqrt2\,x)$ ne l'est pas, car les périodes $2\pi$ et $\frac{2\pi}{\sqrt2}$ n'ont aucun multiple commun. Pour $\cos x+\cos 2x$, on a $2\pi=1\times2\pi=2\times\pi$ : un multiple commun existe.
+\end{pitfall}
+\begin{beyond}[Pour aller plus loin : un exemple sans période]
+Les fonctions $x\mapsto x^2$ et $x\mapsto\frac1x$ ne sont pas périodiques : une période $T$ imposerait $(x+T)^2=x^2$ pour tout $x$, donc $2xT+T^2=0$ pour tout $x$, ce qui oblige $T=0$.
+\end{beyond}
+
+\section{Exercices}
+\subsection*{Niveau 1}
+\begin{exercise}[Images et antécédents]\mxlabel{img}
+Soit $f(x)=x^2-4x+1$ sur $\R$. (1) Calculer $f(0)$, $f(-2)$, $f(\frac12)$. (2) Trouver les antécédents de $-2$. (3) Le réel $-4$ a-t-il un antécédent ?
+\mxlines{4}
+\end{exercise}
+\begin{exercise}[Image d'un quotient]\mxlabel{quot}
+Soit $g(x)=\dfrac{2x+1}{x-3}$. (1) Calculer $g(0)$, $g(4)$, $g(-1)$. (2) Résoudre $g(x)=2$, puis $g(x)=1$. Que peut-on dire de l'antécédent éventuel de $2$ ?
+\mxlines{4}
+\end{exercise}
+\begin{exercise}[Ensembles de définition]\mxlabel{dom1}
+Déterminer l'ensemble de définition de chaque fonction.
+\begin{enumerate}
+\item $f(x)=2x^3-5x+1$
+\item $f(x)=\dfrac{1}{x-7}$
+\item $f(x)=\dfrac{3x}{x^2-16}$
+\item $f(x)=\sqrt{3x+6}$
+\item $f(x)=\sqrt{8-2x}$
+\item $f(x)=\dfrac{1}{\sqrt{x+3}}$
+\end{enumerate}
+\mxlines{5}
+\end{exercise}
+\begin{exercise}[Deux fonctions qui se ressemblent]\mxlabel{dom2}
+Déterminer l'ensemble de définition de $f(x)=\dfrac{x+2}{x^2+4}$ et de $g(x)=\dfrac{x+2}{x^2-4}$. Écrire $g(x)$ plus simplement. L'expression simplifiée a-t-elle le même ensemble de définition ?
+\mxlines{4}
+\end{exercise}
+\begin{exercise}[Sens de variation de fonctions simples]\mxlabel{var1}
+Donner, sans calcul compliqué, le sens de variation de : $x\mapsto-2x+5$ sur $\R$ ; $x\mapsto3x^2$ sur $\intfo{0}{+\infty}$ puis sur $\intof{-\infty}{0}$ ; $x\mapsto-x^2$ sur $\intfo{0}{+\infty}$.
+\mxlines{4}
+\end{exercise}
+\begin{exercise}[Pair, impair ou ni l'un ni l'autre]\mxlabel{par1}
+Étudier la parité de chaque fonction.
+\begin{enumerate}
+\item $f(x)=x^4-3x^2+2$
+\item $f(x)=x^3+5x$
+\item $f(x)=(x+1)^2$
+\item $f(x)=\dfrac{x}{x^2-1}$
+\item $f(x)=\abs{x}+x^2$
+\item $f(x)=\sqrt{x}$
+\item $f(x)=\dfrac{1}{x-1}$
+\end{enumerate}
+\mxlines{6}
+\end{exercise}
+\begin{exercise}[Valeurs d'une fonction périodique]\mxlabel{per1}
+Une fonction $u$ de période $3$ vérifie $u(0)=1$, $u(1)=3$, $u(2)=2$. Calculer $u(31)$, $u(-4)$ et $u(300)$.
+\mxlines{3}
+\end{exercise}
+\begin{exercise}[Période d'une fonction trigonométrique]\mxlabel{per2}
+Donner une période de chacune : $f(x)=\sin(3x)$ ; $g(x)=\cos\bigl(\frac x2\bigr)$ ; $h(x)=5\cos\bigl(2x+\frac\pi3\bigr)$.
+\mxlines{3}
+\end{exercise}
+\subsection*{Niveau 2}
+\begin{exercise}[Sous une racine, au dénominateur]\mxlabel{dom3}
+Déterminer l'ensemble de définition de : (1) $f(x)=\sqrt{x^2-6x+8}$ ; (2) $g(x)=\dfrac{\sqrt{5-x}}{x^2-9}$ ; (3) $h(x)=\dfrac{1}{\abs x-3}$ ; (4) $k(x)=\sqrt{\dfrac{x-1}{x+4}}$ (tableau de signes).
+\mxlines{6}
+\end{exercise}
+\begin{exercise}[Variation par la définition]\mxlabel{var2}
+Montrer, à partir de la définition, que la fonction inverse est décroissante sur $\intoo{-\infty}{0}$.
+\mxlines{4}
+\end{exercise}
+\begin{exercise}[Encadrer une image]\mxlabel{var3}
+Une fonction $f$ est croissante sur $\intff{-1}{6}$ avec $f(-1)=3$ et $f(6)=9$. Que peut-on dire de $f(2)$ ? Que ne peut-on pas affirmer ?
+\mxlines{3}
+\end{exercise}
+\begin{exercise}[Somme et produit de fonctions croissantes]\mxlabel{var4}
+(1) Démontrer que la somme de deux fonctions décroissantes sur $I$ est décroissante sur $I$. (2) Les fonctions $f(x)=x$ et $g(x)=x$ sont croissantes sur $\intoo{-\infty}{0}$ ; leur produit $fg$ l'est-il ?
+\mxlines{5}
+\end{exercise}
+\begin{exercise}[Un domaine pas symétrique]\mxlabel{par2}
+Justifier sans calcul que $f(x)=\sqrt{x+2}$ n'est ni paire ni impaire. Même question pour $g(x)=\dfrac{1}{x-5}$.
+\mxlines{3}
+\end{exercise}
+\begin{exercise}[Axe de symétrie]\mxlabel{axe}
+Montrer que la droite $x=3$ est un axe de symétrie de la courbe de $f(x)=x^2-6x+5$ et que la droite $x=-1$ est un axe de la courbe de $g(x)=\abs{x+1}$.
+\mxlines{4}
+\end{exercise}
+\begin{exercise}[Centre de symétrie]\mxlabel{centre}
+Montrer que $\Omega\pt{1;2}$ est un centre de symétrie de la courbe de $f(x)=\dfrac{2x+1}{x-1}$ (on pourra écrire $f(x)=2+\frac{3}{x-1}$).
+\mxlines{4}
+\end{exercise}
+\begin{exercise}[Algèbre de la parité]\mxlabel{par3}
+Soit $f$ paire et $g$ impaire, toutes deux de domaine $\R$. Étudier la parité de $f\times g$, de $f^2$ et de $f+g$ (donner un exemple pour $f+g$). Montrer que la seule fonction à la fois paire et impaire sur $\R$ est la fonction nulle.
+\mxlines{6}
+\end{exercise}
+\begin{exercise}[Valeurs d'une fonction périodique]\mxlabel{per3}
+$f$ est de période $5$ sur $\R$ et $f(x)=x^2$ sur $\intfo{0}{5}$. Calculer $f(12)$, $f(-1)$ et $f(\num{17,5})$.
+\mxlines{4}
+\end{exercise}
+\begin{exercise}[Période et parité d'une fonction trigonométrique]\mxlabel{per4}
+(1) Montrer que $\cos^2x$ a pour période $\pi$ et qu'elle est paire. (2) Montrer que $\sin x+\cos x$ a pour période $2\pi$. (3) À quel intervalle réduire l'étude de $f(x)=\cos x+\cos2x$ ?
+\mxlines{5}
+\end{exercise}
+\subsection*{Niveau 3}
+\begin{exercise}[Les multiples d'une période]\mxlabel{per5}
+Montrer que si $T$ est une période de $f$ sur $\R$, alors $-T$ et $3T$ en sont aussi. Si $S$ et $T$ sont deux périodes, montrer que $S+T$ en est une.
+\mxlines{4}
+\end{exercise}
+\begin{exercise}[Impaire et croissante]\mxlabel{imp}
+Soit $f$ impaire sur $\R$, croissante sur $\intfo{0}{+\infty}$. Montrer que $f(0)=0$ et que $f$ est croissante sur $\intof{-\infty}{0}$.
+\mxlines{5}
+\end{exercise}
+\begin{exercise}[Axe et période]\mxlabel{axper}
+Soit $f$ de période $T$, paire sur $\R$. Montrer que la droite $x=\frac T2$ est un axe de symétrie de la courbe.
+\mxlines{4}
+\end{exercise}
+\begin{beyond}[Hors programme : minimalité d'une période]
+Montrer que $\pi$ est la plus petite période de $\cos^2x$ : écrire $\cos^2x=\frac{1+\cos2x}{2}$ puis utiliser le théorème de la plus petite période.
+\mxlines{3}
+\end{beyond}
+
+\section{Problèmes}
+\begin{exercise}[Problème : une courbe reconstituée]\mxlabel{recon}
+Une fonction $f$ est paire, de période $4$ sur $\R$ ; sur $\intff{0}{2}$ elle vaut $f(x)=2x$ pour $x\le1$ et $f(x)=2$ pour $x\ge1$.
+\begin{enumerate}
+\item Calculer $f(-\num{0,5})$, $f(3)$, $f(10)$ et $f(\num{7,25})$.
+\item Tracer la courbe sur $\intff{-4}{4}$.
+\item Quelle est la valeur maximale de $f$ ? Où est-elle atteinte ?
+\end{enumerate}
+\mxlines{6}
+\end{exercise}
+\begin{exercise}[Problème : la grande roue]\mxlabel{roue}
+La hauteur, en mètres, d'une nacelle au-dessus du sol, $t$ minutes après le départ, est $h(t)=6-5\cos\bigl(\frac{\pi t}{10}\bigr)$.
+\begin{enumerate}
+\item Quelle est la période de $h$ ? Que représente-t-elle ?
+\item Calculer $h(0)$, $h(10)$, $h(35)$ et $h(50)$.
+\item Montrer que $h(10+u)=h(10-u)$ pour tout $u$ et interpréter.
+\item À quels instants de $\intff{0}{20}$ la nacelle est-elle à $6$ m ?
+\end{enumerate}
+\mxlines{6}
+\end{exercise}
+
+\begin{summary}[À retenir]
+\begin{itemize}
+\item Une fonction a une seule image par réel de son domaine, mais un réel peut avoir plusieurs antécédents ou aucun.
+\item Domaine : $B\ne0$ pour $\frac AB$, $A\ge0$ pour $\sqrt A$, $A>0$ pour $\frac{1}{\sqrt A}$ ; on croise toutes les conditions.
+\item Parité : domaine symétrique, puis $f(-x)=f(x)$ (paire, axe des ordonnées) ou $f(-x)=-f(x)$ (impaire, origine).
+\item Axe $x=a$ : $f(2a-x)=f(x)$ ; centre $\pt{a;b}$ : $f(2a-x)+f(x)=2b$.
+\item Période : $f(x+T)=f(x)$ ; la période de $A\cos(ax+b)$ et de $A\sin(ax+b)$ est $\frac{2\pi}{\abs a}$.
+\item Parité et période réduisent l'étude à une partie de l'ensemble de définition, le reste se déduit par symétrie et translation.
+\end{itemize}
+\end{summary}
+\ifmxteacher\mxinclude{corriges/c01}\fi

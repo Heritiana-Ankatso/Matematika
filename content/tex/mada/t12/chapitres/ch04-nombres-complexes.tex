@@ -8,7 +8,7 @@
 \begin{chapter}{Ensemble des nombres complexes}
 \section{Nombres complexes}
 Dans l'ensemble des nombres r\'eels, certaines \'equations polynomiales telles $x^2 + 1 = 0$ n'admettent pas de solutions. 
-Pour rem\'edier \`a ce probl\`eme, on introduit un nouveau \emph{nombres imaginaire} $i$ v\'erifiant $i^2 = -1$.
+Pour rem\'edier \`a ce probl\`eme, on introduit un nouveau \emph{nombre imaginaire} $i$ v\'erifiant $i^2 = -1$.
 On obtient ainsi un nouvel ensemble qu'on d\'enote usuellement par $\mathbb{C}$. 
 Cet ensemble $\mathbb{C}$ est appel\'e le corps des nombres complexes. 
 Il est constitu\'e des nombres de la forme $a + i b$ o\`u $a$ et $b$ sont deux nombres r\'eels et $i$ l'unit\'e imaginaire.
@@ -256,7 +256,7 @@ On v\'erifie qu'il s'agit de l'image de $z'' = z + z'$.
 \end{figure}
 
 Si $z = a + i b$ alors $\bar{z} = a - i b$; ainsi, l'image de $z$ a pour coordonn\'ees $(a,b)$ et celle de $\bar{z}$ a pour coordonn\'ees $(a,-b)$.
-On constate alors que l'image de $\bar{z}$ n'est autre que l'image de l'image de $z$ par la sym\'etrie d'axe $O\vec{u}$ (Voir Fig \ref{fig:conjugue}).
+On constate alors que l'image de $\bar{z}$ n'est autre que l'image du point $M$ par la sym\'etrie d'axe $O\vec{u}$ (Voir Fig \ref{fig:conjugue}).
 
 \section{Forme trigonom\'etrique d'un nombre complexe}
 \subsection{Argument d'un nombre complexe}
@@ -266,9 +266,9 @@ On constate alors que l'image de $\bar{z}$ n'est autre que l'image de l'image de
 Dans le plan complexe muni d'un rep\`ere orthonorm\'e $(O,\vec{u},\vec{v})$, consid\'erons le point $M(x,y)$ d'affixe $z$ non nul\footnote{$0$ n'a pas d'argument}.
 On appelle \emph{argument de $z$}, et on note par $\arg(z)$, la mesure de l'angle form\'e par $\overrightarrow{OM}$ avec $\vec{u}$.
 
-Pour tout nombre complexe $z$ diff\'erent de $0$, on peut d\'efinir le nombre $z' = \frac{z}{|z|}$ qui a pour module $1$ \footnote{\`a v\'erifier}.
+Pour tout nombre complexe $z$ diff\'erent de $0$, on peut d\'efinir le nombre $z' = \frac{z}{|z|}$ qui a pour module $1$ \footnote{En effet, $\left|\frac{z}{|z|}\right| = \frac{|z|}{|z|} = 1$.}.
 Ainsi, la distance entre l'origine et l'image $M'$ de $z'$ est \'egale \`a $1$ ; autrement dit, $M'$ appartient au cercle unit\'e.
-On sait alors qu'il existe un angle $\theta$ tel que $\Reel{z} = \cos \theta $ et $\Imag{z} = \sin \theta$.
+On sait alors qu'il existe un angle $\theta$ tel que $\Reel{z'} = \cos \theta $ et $\Imag{z'} = \sin \theta$.
 L'angle $\theta$ ainsi d\'efini est un argument de $z'$.
 Puisque $\overrightarrow{OM} = |z| \overrightarrow{OM'}$, les deux vecteurs sont colin\'eaires ; il s'ensuit que l'angle form\'e par $\overrightarrow{OM}$ avec $\vec{u}$ est le m\^eme que celui form\'e par $\overrightarrow{OM'}$ avec $\vec{u}$ (\`a un multiple de $2\pi$ pr\`es).
 
@@ -368,6 +368,7 @@ Finalement, l'expression trigonom\'etrique sera $z = |z| (\cos \theta + i \sin \
 		            \end{multiform}
 		      $
 	\end{itemize}
+	Les \'egalit\'es portant sur des arguments s'entendent \`a un multiple de $2\pi$ pr\`es.
 \end{prop}
 
 \begin{thm}[Formule de MOIVRE]
@@ -492,7 +493,7 @@ En prenant \mybox{$z' = \frac{-b -i \cdot \sqrt{4ac - b^2} }{2a}$} et \mybox{$z'
 \end{exe}
 %
 \begin{rmk}
-      Les racines complexes d'un polyn\^ome \`a coefficients r\'eels sont deux \`a deux conjugu\`es.
+      Les racines non r\'eelles d'un polyn\^ome \`a coefficients r\'eels sont deux \`a deux conjugu\'ees.
       Autrement dit, si $P$ est un polyn\^ome \`a coefficients r\'eels et que $z_0$ est une racine de $P$,
       alors $\bar{z_0}$ est aussi une racine de $P$.
 \end{rmk}
@@ -555,6 +556,19 @@ On prend toujours $\Delta = b^2 - 4ac$, et on distingue deux cas:
             \item $z^2 + (1-2i) z - 3 - i = 0$.
       \end{itemize}
 \end{exe}
+
+\subsection{\'Equations de degr\'e sup\'erieur}
+\begin{prop}
+      Soient $P$ un polyn\^ome \`a coefficients complexes de degr\'e $n \geq 1$ et $z_0$ un nombre complexe.
+      Si $P(z_0) = 0$, alors il existe un polyn\^ome $Q$ de degr\'e $n - 1$ tel que, pour tout $z \in \mathbb{C}$,
+      $P(z) = (z - z_0)\,Q(z)$.
+\end{prop}
+\begin{methode}[R\'esoudre une \'equation du troisi\`eme degr\'e]
+      On cherche une racine particuli\`ere $z_0$ (souvent r\'eelle ou imaginaire pure, indiqu\'ee par l'\'enonc\'e) :
+      pour $z_0 = x$ r\'eel, $P(x) = 0$ \'equivaut \`a $\Reel{P(x)} = 0$ et $\Imag{P(x)} = 0$ ; pour $z_0 = iy$, on remplace $z$ par $iy$ de m\^eme.
+      On d\'etermine ensuite $Q(z) = a z^2 + b z + c$ par identification des coefficients (ou par division),
+      puis on r\'esout l'\'equation du second degr\'e $Q(z) = 0$.
+\end{methode}
 
 \section{Racine $n^{\text{i\`eme}}$ d'un nombre complexe}
 \index{Nombres complexes!racine nieme@racine $n^{\text{i\`eme}}$}
@@ -642,7 +656,7 @@ Ainsi, l'expression $a \cos x + b \sin x $ devient
 $$
 r \cos \theta \, \cos x + r \sin \theta \, \sin x = r \left( \cos \theta \, \cos x + \sin \theta \, \sin x \right) \; .
 $$
-Faisant usage de formule trigonom\'etrique connue \footnote{$\cos( u - v ) = \cos u \, \cos v - \sin u \, \sin v$}, et de l'\'equation $r = \sqrt{a^2 + b^2}$, on obtient
+Faisant usage de formule trigonom\'etrique connue \footnote{$\cos( u - v ) = \cos u \, \cos v + \sin u \, \sin v$}, et de l'\'equation $r = \sqrt{a^2 + b^2}$, on obtient
 $$
 a \, \cos x + b \, \sin x = \sqrt{a^2 + b^2} \; \cos (\theta - x) \; .
 $$
@@ -789,6 +803,7 @@ L'\'ecriture complexe de $h$ est donc \thmbox{$ z' = k \cdot z + (1-k) z_P $}.
       Il suit que 
       $\mes{AB}{AC} = \arg(z_C-z_A)-\arg(z_B-z_A)=\arg\frac{z_C - z_A}{z_B - z_A}$.
 \begin{exe}
+\label{exe:angle}
 Soient $A (-1 - i)$, $B (2 + 2 i)$ et $C (-5 + i ) $ trois points du plan.
 Calculer la mesure de l'angle $\hat{A}$ du triangle $ABC$.
 \end{exe}
@@ -841,6 +856,7 @@ Ainsi, l'\'ecriture complexe de $r$ est :
 \end{center}
 %
 \begin{exe}
+\label{exe:rotation}
 Soient $A (2 + i ) $ et $B (3 - 2 i)$ deux points du plan. 
 D\'eterminer l'image de $B$ par la rotation de centre $A$ et d'angle $\frac{\pi}{3}$.
 D\'eterminer l'image de $B$ par la rotation de centre $A$ et d'angle $-\frac{\pi}{3}$.
@@ -862,7 +878,7 @@ D\'eterminer l'image de $B$ par la rotation de centre $A$ et d'angle $-\frac{\pi
       \end{thm}
       %
       \begin{prop}
-      Une similitude plane directe est caract\'eris\'ee par : 
+      Une similitude plane directe qui n'est pas une translation est caract\'eris\'ee par : 
             \begin{itemize}
                   \item son centre,
                   \item son angle,
@@ -888,15 +904,15 @@ D\'eterminer l'image de $B$ par la rotation de centre $A$ et d'angle $-\frac{\pi
       \end{prop}
       %
             \subsection*{Classification des similitudes planes directes}
-            L'expression complexe d'une similitude plane directe est de la forme $z'=a\,z+b$.
+            L'expression complexe d'une similitude plane directe est de la forme $z'=a\,z+b$, avec $a \neq 0$.
             \begin{figure}[h!]
             \centering
             \resizebox{\linewidth}{!}{%
             \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=.055\actualtextwidth,y=.075\textheight]
             \clip(-9,-1.5) rectangle (11,6.5);
             \draw (0,6) node[ ] {\fbox{$ z' = a\,z+b $}};
-            \draw (-4,4.5) node[ ] {\fbox{$ a \in \mathbb{R_+} $}};
-            \draw (4,4.5) node[ ] {\fbox{$ a \not \in \mathbb{R_+} $}};
+            \draw (-4,4.5) node[ ] {\fbox{$ a \in \mathbb{R}_+^* $}};
+            \draw (4,4.5) node[ ] {\fbox{$ a \not \in \mathbb{R}_+ $, $a \neq 0$}};
             \draw (-6,3) node[ ] { \fbox{$a = 1 $}};
             \draw (-2,3) node[ ] { \fbox{$a \neq 1$} };
             \draw (2,3) node[ ] { \fbox{$|a| = 1$} };
@@ -985,7 +1001,7 @@ D\'eterminer l'image de $B$ par la rotation de centre $A$ et d'angle $-\frac{\pi
                   \subsubsection*{Sur les conjugu\'es} ~\\[-1.5\baselineskip]
 \index{Nombre complexe!Proprietes@Propri\'et\'es!conjugues@conjug\'es}
                               \begin{itemize}
-                                    \item $\overline{a+ib} = \overline{a-ib}$,
+                                    \item $\overline{a+ib} = a-ib$,
                                     \item $\bar{\bar{z}} = z$,
                                     \item $z \cdot \bar{z} = |z|^2$,
                                     \item $\overline{z_1 + z_2} = \bar{z_1} + \bar{z_2}$,
@@ -1036,7 +1052,7 @@ D\'eterminer l'image de $B$ par la rotation de centre $A$ et d'angle $-\frac{\pi
 	                                    \AngleEgal{\mes{BM}{AM}}{0}{2\pi}
 	                              \]
                               est
-                              $(AB) \setminus ]AB]$ ;
+                              $(AB) \setminus [AB]$ ;
 	                        \item l'ensemble des points $M(z)$ v\'erifiant
 	                              \[
 	                                    \AngleEgal{\argmt{\frac{z-z_A}{z-z_B}}}{0}{\pi}
@@ -1044,7 +1060,7 @@ D\'eterminer l'image de $B$ par la rotation de centre $A$ et d'angle $-\frac{\pi
 	                                    \AngleEgal{\mes{BM}{AM}}{0}{\pi}
 	                              \]
                               est
-                              $(AB) \setminus \{B\}$ ;
+                              $(AB) \setminus \{A,B\}$ ;
 	                        \item l'ensemble des points $M(z)$ v\'erifiant
 	                              \[
 	                                    \AngleEgal{\argmt{\frac{z-z_A}{z-z_B}}}{\pi}{2\pi}
@@ -1052,7 +1068,7 @@ D\'eterminer l'image de $B$ par la rotation de centre $A$ et d'angle $-\frac{\pi
 	                                    \AngleEgal{\mes{BM}{AM}}{\pi}{2\pi}
 	                              \]
                               est 
-                              $[AB[$ ;
+                              $]AB[$ ;
 	                        \item l'ensemble des points $M(z)$ v\'erifiant
 	                              \[
 	                                    \AngleEgal{\argmt{\frac{z-z_A}{z-z_B}}}{\frac{\pi}{2}}{\pi}
@@ -1060,7 +1076,7 @@ D\'eterminer l'image de $B$ par la rotation de centre $A$ et d'angle $-\frac{\pi
 	                                    \AngleEgal{\mes{BM}{AM}}{\frac{\pi}{2}}{\pi}
 	                              \]
                               est
-                              le cercle de diam\`etre $[AB]$ priv\'e du point $B$ ;
+                              le cercle de diam\`etre $[AB]$ priv\'e des points $A$ et $B$ ;
 	                        \item l'ensemble des points $M(z)$ v\'erifiant
 	                              \[
 	                                    \AngleEgal{\argmt{\frac{z-z_A}{z-z_B}}}{\frac{\pi}{2}}{2\pi}
@@ -1068,7 +1084,7 @@ D\'eterminer l'image de $B$ par la rotation de centre $A$ et d'angle $-\frac{\pi
 	                                    \AngleEgal{\mes{BM}{AM}}{\frac{\pi}{2}}{2\pi}
 	                              \]
                               est
-                              l'ensemble $\mathscr{E}$ repr\'esent\'e ci-dessous ($B\not\in\mathscr{E}$).
+                              l'ensemble $\mathscr{E}$ repr\'esent\'e ci-dessous : un demi-cercle de diam\`etre $[AB]$, priv\'e de $A$ et de $B$.
                               
                               \begin{tikzpicture}[scale=.75]
                               \draw [dotted] (-0.9,1.58) circle (2);
@@ -1077,7 +1093,7 @@ D\'eterminer l'image de $B$ par la rotation de centre $A$ et d'angle $-\frac{\pi
                                     plot[domain=-2.95:0.19,variable=\t]
                                           ({1*2*cos(\t r)+0*2*sin(\t r)},{0*2*cos(\t r)+1*2*sin(\t r)});
                               \fill [color=black] (-0.9,1.58) circle (1.0pt);
-                              \fill [color=loko1] (-2.86,1.19) circle (1.5pt) node[left] {$A$};
+                              \draw [color=loko1,fill=white] (-2.86,1.19) circle (1.5pt) node[left] {$A$};
                               \draw [color=black,fill=white] (1.06,1.97) circle (1.5pt) node[right] {$B$};
                               \draw[color=loko1] (0.54,-0.12) node {$\mathscr{E}$};
                               \end{tikzpicture}
@@ -1112,7 +1128,7 @@ D\'eterminer l'image de $B$ par la rotation de centre $A$ et d'angle $-\frac{\pi
                               et donc que $x$ soit \'egal \`a $0$.
                               
                               Ainsi, l'ensemble des points $M(z)$ tels que $f(z)$ soit r\'eel est 
-                              la droite d'\'equation $x=0$ priv\'e du point $O$ (car $z=0$ est exclut).
+                              la droite d'\'equation $x=0$ priv\'ee du point $O$ (car $z=0$ est exclu).
                         \end{ex}
       %
       \subsection*{Pour trouver une racine carr\'ee d'un nombre complexe}
@@ -1132,7 +1148,8 @@ D\'eterminer l'image de $B$ par la rotation de centre $A$ et d'angle $-\frac{\pi
             \[
 					\delta = \sqrt{\frac{|\Delta| + \Reel{\Delta}}{2}} \pm \sqrt{\frac{|\Delta| - \Reel{\Delta}}{2}} \; i
             \]
-            o\`u on a <<~$+$~>> si $\Imag{\Delta} > 0$ et <<~$-$~>> si $\Imag{\Delta} < 0$.
+            o\`u on a <<~$+$~>> si $\Imag{\Delta} > 0$ et <<~$-$~>> si $\Imag{\Delta} < 0$ ;
+            l'autre racine carr\'ee de $\Delta$ est $-\delta$.
             
       
       
@@ -1182,52 +1199,71 @@ D\'eterminer l'image de $B$ par la rotation de centre $A$ et d'angle $-\frac{\pi
 \end{exo}
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%% Begin exo tany amin'i Mr Ranto %%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{exo}
-	On consid\`ere les nombres complexes $u = 1 - i \sqrt{3}$ et $v = 1 - i$.
-	Donner la forme trigonom\'etrique de chacun des nombres suivants :
-	\[
-		u 						\ ; \
-		u^3						\ ; \
-		v						\ ; \
-		a = \frac{1}{v}		\ ; \
-		b = \frac{u}{v}		\ ; \
-		c = a \, b^2			.
-	\]
-\end{exo}
-%
-\begin{exo}
-	D\'emontrer les propri\'et\'es suivantes : 
-	\begin{itemize}
-		\item $|z \cdot z'| = |z| \cdot |z'|$ et $\arg{z \cdot z'} = \arg{z} + \arg{z'}$.
-		\item $|z^n| = |z|^n$ et $\arg{z^n} = n \cdot \arg{z}$.
-		\item $\left| \frac{z}{z'} \right| = \frac{|z|}{|z'|}$ et $\arg{\frac{z}{z'}} = \arg{z} - \arg{z'}$.
-	\end{itemize}
-\end{exo}
-%
-\begin{exo}
-	Montrer que :
-	\begin{itemize}
- 		\item $|z + z'| \leq |z| + |z'|$.
-		\item $ \left| |z| - |z'| \right| \leq |z - z'|$.
-	\end{itemize}
-\end{exo}
-%
-\begin{exo}
-	D\'emontrer que si $|u| = 1$ alors $\frac{z - u \bar{z}}{1 - u}$ est r\'eel.
-	Etudier la r\'eciproque.
-\end{exo}
-%
-\begin{exo}
-	Soit $f$ la fonction \`a variable complexe d\'efinie par $f(z) = \frac{z}{z^2 + 1}$.
+	On consid\`ere les nombres complexes $p = \sqrt{3} + i$ et $q = -2 + 2i$.
 	\begin{enumerate}
-		\item Donner le domaine de d\'efinition de $f$.
-		\item Montrer que $f(z) = f(z')$ si et seulement si $z = z'$ ou $z \, z' = 1$.
-		\item Soient $z$ et $z'$ deux nombres complexes tels que $|z| < 1$ et $|z'| < 1$.
-			Montrer que si $f(z) = f(z')$ alors $z = z'$.
+		\item D\'eterminer le module et un argument de $p$ et de $q$.
+		\item En d\'eduire, sans d\'evelopper, le module et un argument de chacun des nombres
+		      $p^2$, $\frac{q}{p}$, $\frac{1}{q}$, $p^6$ et $\frac{q^4}{p^3}$.
+		\item Donner la forme alg\'ebrique de $p^6$ et de $\frac{q^4}{p^3}$.
+		\item \'Ecrire $\frac{q}{p}$ sous forme alg\'ebrique et en d\'eduire les valeurs exactes de
+		      $\cos \frac{7\pi}{12}$ et $\sin \frac{7\pi}{12}$.
 	\end{enumerate}
 \end{exo}
-%%%%%%%%%%%%%%%%%%%%%%%%%%% End exo tany amin'i Mr Ranto %%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\begin{exo}
+	Soient $z = a + ib$ et $z' = a' + ib'$ deux nombres complexes non nuls ($a$, $b$, $a'$, $b'$ r\'eels).
+	\begin{enumerate}
+		\item V\'erifier l'identit\'e $(aa' - bb')^2 + (ab' + a'b)^2 = (a^2 + b^2)(a'^2 + b'^2)$
+		      et en d\'eduire que $|z z'| = |z| \, |z'|$.
+		\item On \'ecrit $z = r(\cos\theta + i\sin\theta)$ et $z' = r'(\cos\theta' + i\sin\theta')$.
+		      En utilisant les formules d'addition, montrer que $\theta + \theta'$ est un argument de $zz'$.
+		\item Montrer par r\'ecurrence que, pour tout entier $n \geq 1$, $|z^n| = |z|^n$ et $n\theta$ est un argument de $z^n$.
+		\item En remarquant que $z' \cdot \frac{z}{z'} = z$, en d\'eduire le module et un argument de $\frac{z}{z'}$.
+		\item Application : calculer, sans d\'evelopper, le module de $\frac{(3+4i)^5}{(1-i)^4}$.
+	\end{enumerate}
+\end{exo}
+%
+\begin{exo}
+	Soient $z$ et $z'$ deux nombres complexes.
+	\begin{enumerate}
+		\item Montrer que $|z + z'|^2 = |z|^2 + |z'|^2 + 2\,\mathfrak{Re}\left(z \overline{z'}\right)$.
+		\item Justifier que, pour tout nombre complexe $w$, $\mathfrak{Re}(w) \leq |w|$.
+		      En d\'eduire l'in\'egalit\'e triangulaire $|z + z'| \leq |z| + |z'|$.
+		\item En \'ecrivant $z = (z - z') + z'$, montrer que $\left| |z| - |z'| \right| \leq |z - z'|$.
+		\item Application : soit $z$ un nombre complexe de module $2$.
+		      Montrer que $3 \leq |z + 3 - 4i| \leq 7$ et trouver un nombre $z$ de module $2$ pour lequel $|z + 3 - 4i| = 7$.
+	\end{enumerate}
+\end{exo}
+%
+\begin{exo}
+	Soit $\omega$ un nombre complexe diff\'erent de $-1$. On pose $Z = \frac{\omega - 1}{\omega + 1}$.
+	\begin{enumerate}
+		\item On suppose $|\omega| = 1$.
+		      Justifier que $\overline{\omega} = \frac{1}{\omega}$, puis montrer que $\overline{Z} = -Z$.
+		      Que peut-on dire de $Z$\,?
+		\item R\'eciproquement, on suppose que $Z = iy$ avec $y$ r\'eel.
+		      Exprimer $\omega$ en fonction de $y$ et montrer que $|\omega| = 1$.
+		\item On pose $\omega = \expo{i\theta}$ avec $\theta \in \left] -\pi , \pi \right[$.
+		      Montrer que $Z = i \tan \frac{\theta}{2}$
+		      (on pourra mettre $\expo{i\frac{\theta}{2}}$ en facteur au num\'erateur et au d\'enominateur).
+		\item Interpr\'etation : on note $A$, $B$ et $M$ les points d'affixes $1$, $-1$ et $\omega$, avec $|\omega| = 1$ et $\omega \neq \pm 1$.
+		      Que repr\'esente un argument de $Z$\,? Retrouver ainsi que le triangle $AMB$ est rectangle en $M$.
+	\end{enumerate}
+\end{exo}
+%
+\begin{exo}
+	On consid\`ere l'application $g$ d\'efinie sur $\mathbb{C}^*$ par $g(z) = z + \frac{1}{z}$.
+	\begin{enumerate}
+		\item Montrer que, pour tous $z$ et $z'$ non nuls,
+		      $g(z) - g(z') = \frac{(z - z')(z z' - 1)}{z z'}$.
+		      En d\'eduire que $g(z) = g(z')$ si et seulement si $z = z'$ ou $z z' = 1$.
+		\item Montrer que si $|z| > 1$, $|z'| > 1$ et $g(z) = g(z')$, alors $z = z'$.
+		\item On pose $z = \expo{i\theta}$, $\theta \in \mathbb{R}$. Calculer $g(z)$.
+		      Quel est l'ensemble des images par $g$ des points du cercle de centre $O$ et de rayon $1$\,?
+		\item R\'esoudre dans $\mathbb{C}^*$ l'\'equation $g(z) = 1$ et v\'erifier le r\'esultat \`a l'aide de la question pr\'ec\'edente.
+	\end{enumerate}
+\end{exo}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{exo}
       On consid\`ere le nombre complexe $u=1+i$.
@@ -1323,31 +1359,31 @@ D\'eterminer l'image de $B$ par la rotation de centre $A$ et d'angle $-\frac{\pi
             \end{enumerate}
 \end{exo}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%% Begin exo tany amin'i Mr Ranto %%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{exo}
-	R\'esoudre dans $\mathbb{C}$ les \'equations suivantes : 
+	R\'esoudre dans $\mathbb{C}$ les \'equations suivantes :
 	\begin{enumerate}
-		\item $z^2 - (4 - i) z + 3 - 3i = 0$,
-		\item $z^2 - (3 +2i) z + 5 +  i = 0$,
-		\item $z^2 + (1 - i) z + 6 + 2i = 0$,
-		\item $z^2 - 2 z + 17 = 0$,
-		\item $z^2 - 2 \sqrt{3} i z -4 = 0$.
+		\item $z^2 + 4z + 13 = 0$,
+		\item $z^2 - 2iz - 5 = 0$,
+		\item $z^2 - (3 - 2i) z + 5 - 5i = 0$,
+		\item $z^2 - (2 - 2i) z + 3 + 2i = 0$,
+		\item $(1+i) z^2 - 2z + 4 = 0$.
 	\end{enumerate}
-\end{exo}	
+	Dans chaque cas, v\'erifier que la somme et le produit des solutions valent $-\frac{b}{a}$ et $\frac{c}{a}$ (avec les notations $az^2 + bz + c = 0$).
+\end{exo}
 %
 \begin{exo}
 	\begin{enumerate}
-		\item Donner les racines cubiques de $42 - 42 \sqrt{3} i$.
-		\item Donner les racines quatri\`emes de $- 16$.
-		\item R\'esoudre les \'equations suivantes : 
+		\item D\'eterminer les racines cubiques de $8i$ ; les donner sous forme exponentielle puis sous forme alg\'ebrique.
+		\item D\'eterminer les racines sixi\`emes de $-64$ et placer leurs images dans le plan complexe.
+		      Quelle figure forment-elles\,?
+		\item R\'esoudre dans $\mathbb{C}$ les \'equations :
 			\begin{enumerate}
-				\item $z^2 - 2 i \sqrt{3} + 2 = 0$,
-				\item $z^3 - \sqrt{3} + 3i = 0$,
-				\item $z^5 - 9 \sqrt{3} = 0$.
+				\item $z^3 + 27 = 0$,
+				\item $z^4 = -8 + 8\sqrt{3}\, i$.
 			\end{enumerate}
+		\item Parmi les solutions de $z^4 = -8 + 8\sqrt{3}\, i$, lesquelles sont aussi des racines sixi\`emes de $-64$\,?
 	\end{enumerate}
 \end{exo}
-%%%%%%%%%%%%%%%%%%%%%%%%%%% End exo tany amin'i Mr Ranto %%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{exo}
       \begin{enumerate}
@@ -1425,9 +1461,9 @@ D\'eterminer l'image de $B$ par la rotation de centre $A$ et d'angle $-\frac{\pi
 \begin{exo}
       R\'esoudre dans $\mathbb{C}$ les \'equations 
       \begin{enumerate}
-            \item $ (2z^2-3x+2)^2 + i(z^2-3z+2)^2 = 0 $,
-            \item $ (z^2 + 4z + 1)^2 + (3z-5)^2 = 0 $,
-            \item $ z^2 + 4z + 1 + i (3z - 5) = 0 $.
+            \item $ (2z^2-3z+2)^2 + (z^2-3z+2)^2 = 0 $,
+            \item $ (z^2 + 4z + 1)^2 + (3z+5)^2 = 0 $,
+            \item $ z^2 + 4z + 1 + i (3z + 5) = 0 $.
       \end{enumerate}
       (Remarquer que $a^2 + b^2 = (a+ib)(a-ib)$).
 \end{exo}
@@ -1436,7 +1472,7 @@ D\'eterminer l'image de $B$ par la rotation de centre $A$ et d'angle $-\frac{\pi
       On pose $P(z) = z^4 - z^2 + 1$.
       \begin{enumerate}
             \item R\'esoudre dans $\mathbb{C}$ l'\'equation $P(z) = 0$.
-            \item Montrer $P(z)$ peut s'\'ecrire sous forme d'un produit de 
+            \item Montrer que $P(z)$ peut s'\'ecrire sous forme d'un produit de 
                   deux polyn\^omes du second degr\'e \`a coefficients r\'eels.
       \end{enumerate}
 \end{exo}
@@ -1661,67 +1697,67 @@ D\'eterminer l'image de $B$ par la rotation de centre $A$ et d'angle $-\frac{\pi
       \end{enumerate}
 \end{exo}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%% Begin exo tany amin'i Mr Ranto %%%%%%%%%%%%%%%%%%%%%%%%
 \begin{exo}
-	Soit $P(z) = z^3 - (2 + (1+\sqrt{3})i) z^2 + ((3-\sqrt{3}) + (1+2\sqrt{3})i) z + \sqrt{3} - 3 \sqrt{3} i$.
+	On consid\`ere le polyn\^ome $P(z) = z^3 - (4+4i) z^2 + (2+8i) z - 12 i$.
 	\begin{enumerate}
-		\item Calculer $P(i\sqrt{3})$.
-		\item Trouver le polyn\^ome $Q$ tel que $P(z) = (z-i\sqrt{3}) Q(z)$.
+		\item Calculer $P(2i)$.
+		\item D\'eterminer les nombres complexes $a$, $b$ et $c$ tels que $P(z) = (z - 2i)(a z^2 + b z + c)$.
 		\item R\'esoudre dans $\mathbb{C}$ l'\'equation $P(z) = 0$.
+		\item On note $A$, $B$ et $C$ les points d'affixes $2i$, $1 - i$ et $3 + 3i$.
+		      Calculer $\frac{z_C - z_A}{z_B - z_A}$ et en d\'eduire la nature du triangle $ABC$.
 	\end{enumerate}
 \end{exo}
 %
 \begin{exo}
-	On consid\`ere le polyn\^ome $P$ \`a variable complexe $z$ d\'efini par 
-	$P(z) = z^3 + (5+i) z^2 + 12 i z - 16 + 32 i$.
+	On consid\`ere le polyn\^ome $P(z) = z^3 - (2+i) z^2 + (-11 + 2i) z + 120 + 35i$.
 	\begin{enumerate}
-		\item Montrer que l'\'equation $P(z) = 0$ admet une solution r\'eelle $z_0$
-			que l'on d\'eterminera.
-		\item Trouver les nombres complexes $a$ et $b$ tels que $P(z)$ peut s'\'ecrire sous forme
-			$P(z) = (z-z_0) (z^2 + a z + b)$.
+		\item Soit $x$ un r\'eel. \'Ecrire la partie r\'eelle et la partie imaginaire de $P(x)$.
+		      En d\'eduire que l'\'equation $P(z) = 0$ admet une unique solution r\'eelle $z_0$, que l'on d\'eterminera.
+		\item D\'eterminer les nombres complexes $a$ et $b$ tels que $P(z) = (z - z_0)(z^2 + a z + b)$.
 		\item R\'esoudre dans $\mathbb{C}$ l'\'equation $P(z) = 0$.
+		\item Montrer que les images des trois solutions sont sur un m\^eme cercle de centre $O$, dont on donnera le rayon.
+		      On note $B$ et $C$ les images des deux solutions non r\'eelles : quelle est la nature du triangle $OBC$\,?
 	\end{enumerate}
 \end{exo}
 %
 \begin{exo}
-	Soit le polyn\^ome $P$ \`a variable complexe $z$ d\'efini par : 
-	$P(z) = z^3 - 4z^2 + (8+i) z - 7 + i$.
+	Soit le polyn\^ome $P(z) = z^3 - z^2 + 5z - 9 - 12i$.
 	\begin{enumerate}
-		\item Montrer que $z_0 = 1 - i$ est une racine de $P$.
-		\item Trouver les nombres complexes $a$ et $b$ tels que $P(z)$ 
-				peut s'\'ecrire sous forme $(z-z_0) (z^2 + a z + b)$.
-		\item R\'esoudre dans $\mathbb{C}$ l'\'equation $P(z)=0$.
+		\item V\'erifier que $z_A = 2 + i$ est une racine de $P$.
+		\item Trouver les nombres complexes $a$ et $b$ tels que $P(z) = (z - z_A)(z^2 + a z + b)$.
+		\item R\'esoudre dans $\mathbb{C}$ l'\'equation $P(z) = 0$.
+		      On note $z_B$ la solution de partie r\'eelle n\'egative et $z_C$ la troisi\`eme solution.
+		\item V\'erifier que $z_B = i z_A$. Interpr\'eter g\'eom\'etriquement.
+		\item D\'eterminer l'affixe du point $D$ tel que $ABCD$ soit un parall\'elogramme, ainsi que celle de son centre.
 	\end{enumerate}
 \end{exo}
 %
 \begin{exo}
-	On consid\`ere les deux \'equations 
-	\begin{equation}
-		\TCDtag{E}
-			z^4 + (-4 + 4i) z^3 - 16 (1+i) z - 80 = 0 
-		\label{eq:compl E}
-	\end{equation}
-	et 
-	\begin{equation}
-		\TCDtag{E'}
-			z^2 - (2-2i) z - 8 + 4i = 0 \;.
-		\label{eq:compl E'}
-	\end{equation}
+	On consid\`ere les \'equations
+	\[
+		(E) : \ z^4 - (2+3i) z^3 + (3+6i) z^2 + (4-15i) z - 10 = 0
+		\qquad \text{et} \qquad
+		(E') : \ z^2 - 2z + 5 = 0 .
+	\]
 	\begin{enumerate}
-		\item R\'esoudre dans $\mathbb{C}$ l'\'equation \eqref{eq:compl E'}.
-		\item Montrer que les solutions de \eqref{eq:compl E'} sont solutions de \eqref{eq:compl E}.
-		\item Trouver le polyn\^ome $Q$ v\'erifiant :
-			$ 
-				z^4 + (-4 + 4i) z^3 - 16 (1+i) z - 80 = (z^2 - (2-2i) z - 8 + 4i) Q(z)
-			$.
-		\item R\'esoudre dans $\mathbb{C}$ l'\'equation \eqref{eq:compl E}.
+		\item R\'esoudre dans $\mathbb{C}$ l'\'equation $(E')$.
+		\item D\'eterminer les nombres complexes $a$ et $b$ tels que, pour tout $z$,
+		      $z^4 - (2+3i) z^3 + (3+6i) z^2 + (4-15i) z - 10 = (z^2 - 2z + 5)(z^2 + a z + b)$.
+		\item R\'esoudre dans $\mathbb{C}$ l'\'equation $(E)$.
+		\item Calculer la somme des quatre solutions de $(E)$ et la comparer au coefficient de $z^3$.
 	\end{enumerate}
 \end{exo}
 %
 \begin{exo}
-	R\'esoudre dans $\mathbb{C}$ l'\'equation $z^4 + 8(1-i) z^2 - 12 - 16 i = 0$.
+	On consid\`ere l'\'equation $(E) : \ z^4 + (2 - 16i) z^2 - 63 + 16i = 0$.
+	\begin{enumerate}
+		\item On pose $Z = z^2$. \'Ecrire l'\'equation $(E')$ v\'erifi\'ee par $Z$ et la r\'esoudre
+		      (on v\'erifiera que $(8 - 8i)^2 = -128\,i$).
+		\item D\'eterminer les racines carr\'ees de $3 + 4i$ et de $-5 + 12i$.
+		\item En d\'eduire les solutions de $(E)$.
+		\item Montrer que les images des solutions de $(E)$ sont les sommets d'un parall\'elogramme de centre $O$.
+	\end{enumerate}
 \end{exo}
-%%%%%%%%%%%%%%%%%%%%%%%% End exo tany amin'i Mr Ranto %%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{exo}
       Le plan complexe est rapporté à un repère orthonormal direct $(O ; \vec{u} , \vec{v})$.
@@ -1730,7 +1766,7 @@ D\'eterminer l'image de $B$ par la rotation de centre $A$ et d'angle $-\frac{\pi
       \begin{enumerate}
             \item Pr\'eciser l'ensemble de d\'efinition de $f$.
             \item \begin{enumerate}
-                        \item Calculer $a = f(2)$ et doner la forme trigonom\'etrique de $a$.
+                        \item Calculer $a = f(2)$ et donner la forme trigonom\'etrique de $a$.
                         \item Pour quelles valeurs de l'entier naturel $k$ le nombre $a^k$ est-il r\'eel\,?
                   \end{enumerate}
             \item On pose $z' = f(z)$.
@@ -1741,8 +1777,8 @@ D\'eterminer l'image de $B$ par la rotation de centre $A$ et d'angle $-\frac{\pi
                               o\`u $A$ et $B$ sont des points dont on d\'eterminera les affixes.
                         \item Soit $(\mathscr{C})$ l'ensemble des points $M$ du plan pour lesquels on a 
                               $|z| = 1$ et $z \neq 1$.
-                              Montrer que si $M \in (\mathscr{C})$ alors $M' \in (\mathscr{C})$ que l'on pourra
-                              d\'efinir g\'eom\'etriquement.
+                              Montrer que si $M \in (\mathscr{C})$ alors $M'$ appartient \`a une droite $(\mathscr{D})$ que l'on
+                              d\'efinira g\'eom\'etriquement.
                         \item Tracer $(\mathscr{C})$ et $(\mathscr{D})$.
                   \end{enumerate}
             \item Soit $S$ la transformation du plan qui, \`a tout point $M(z)$, associe le point $M'(z')$
@@ -1768,7 +1804,7 @@ Solution de l'Exercice \ref{exe:mettre sous forme algebrique}.
 	\item Pour le cas de $z_1$, il suffit de developper et de r\'eunir les termes r\'eels et les termes imaginaires: 
 		\begin{align*}
 		      z_1 & = (1-i)^2 (3+2i) = (1-2i+i^2) (3+2i)  \\
-		          & = -2i (3+2i) = -6i - 4i = 4 - 6i \;.
+		          & = -2i (3+2i) = -6i - 4i^2 = 4 - 6i \;.
 		\end{align*} 
 		Ainsi on a $\mathfrak{Re}(z_1) = 4$ et $\mathfrak{Im}(z_1) = -6$.
 	\item Pour le cas de $z_2$, une technique assez commune est de multiplier la fraction par le conjugu\'e du d\'enominateur: 
@@ -1778,7 +1814,7 @@ Solution de l'Exercice \ref{exe:mettre sous forme algebrique}.
 		          & = \frac{10 + 10 i + 60}{10} = 7 + i \;.
 		\end{align*}
 		Ainsi on a $\mathfrak{Re}(z_2) = 7$ et $\mathfrak{Im}(z_2) = 1$.
-	\item Pour $z_3$, if suffit de combiner ce qu'on a fait dans le premier et dans le second cas:
+	\item Pour $z_3$, il suffit de combiner ce qu'on a fait dans le premier et dans le second cas:
 		\begin{align*}
 		      z_3 & = \frac{(10+15i)(10-20i)}{(3+i)^2} = \frac{(400-50i)(3-i)^2}{((3+i)(3-i))^2} \\
 		          & = \frac{(400-50i)(8-6i)}{10^2} = \frac{2900 - 2800 i}{100} 
@@ -1829,7 +1865,7 @@ Solution de l'Exercice \ref{exe:mettre sous forme algebrique}.
                         \overline{\frac{1}{z}}
                               & = \frac{a}{a^2 + b^2} + i \frac{b}{a^2 + b^2}                           
                                 = \frac{a + i b}{a^2 + b^2}                                             
-                                = \frac{a+ib}{(a-ib)(a-ib)}                                             \\
+                                = \frac{a+ib}{(a-ib)(a+ib)}                                             \\
                               & = \frac{1}{a-ib}                                                        
                                 = \frac{1}{\bar{z}}                                                     \;.
                   \end{align*}
@@ -1862,7 +1898,7 @@ Solution de l'Exercice \ref{exe:mettre sous forme algebrique}.
 	      	            \end{proof}
 	      	      %
 	      	      Posons $z = a + i b$ et $z' = \alpha + i \beta$, o\`u $a$, $b$, $\alpha$ et $\beta$ sont des nombres r\'eels.
-	      	      L'in\'egalit\'e \`a d\'emontrer est alors :
+	      	      Les deux membres \'etant positifs, l'in\'egalit\'e \`a d\'emontrer \'equivaut \`a chacune des suivantes :
 	            \begin{align*}
 	                  |z + z'|                   
 	                        & \leq 
@@ -1874,7 +1910,7 @@ Solution de l'Exercice \ref{exe:mettre sous forme algebrique}.
 	                        & \leq 
 	                              |z|^2 + |z'|^2 + 2 |z|\cdot |z'|                                                 \;.
 	            \end{align*}
-	            D'une part, le premi\`er membre de l'in\'egalit\'e est : 
+	            D'une part, le premier membre de l'in\'egalit\'e est : 
 	                  \[
 	                  (a+\alpha)^2 + (b+\beta)^2 
 	                  \]
@@ -1890,7 +1926,7 @@ Solution de l'Exercice \ref{exe:mettre sous forme algebrique}.
 	                  \[
 	                        a^2+b^2+\alpha^2+\beta^2+2\sqrt{(a\alpha)^2+(b\beta)^2+(a\beta)^2+(b\alpha)^2}         \;.
 	                  \]
-                  On simplifie l'expression $ a^2+\alpha^2+b^2+\beta^2 $, puis on divise par $2$ et on \'el\`eve au carr\'e,
+                  Apr\`es simplification par $a^2+\alpha^2+b^2+\beta^2$ et division par $2$, il s'agit de montrer que $a\alpha + b\beta \leq \sqrt{(a\alpha)^2+(b\beta)^2+(a\beta)^2+(b\alpha)^2}$. Si $a\alpha + b\beta < 0$, c'est vrai car une racine carr\'ee est positive. Sinon, les deux membres sont positifs et l'in\'egalit\'e \'equivaut \`a celle des carr\'es :
 	            \begin{align*}
 	                  (a\alpha + b\beta)^2
 	                        & \leq 
@@ -1950,7 +1986,7 @@ Solution de l'exercice \ref{exe:trigo-alg}.
 }
 \begin{enumerate}
 	\item \begin{itemize}
-			\item On conmmence par calculer $|z_1| = \sqrt{1^2 + 0^2} = 1 $ puis on le met en facteur :
+			\item On commence par calculer $|z_1| = \sqrt{1^2 + 0^2} = 1 $ puis on le met en facteur :
 			      $z_1 = 1 (1 + 0 i) = (\cos \theta + i \sin \theta)$.
 			      Ainsi, 
 			      $
@@ -1962,7 +1998,7 @@ Solution de l'exercice \ref{exe:trigo-alg}.
 			      ce qui correspond \`a $\theta = 0$.
 			      Ainsi, $z_1  = 1 (\cos 0 + i \sin 0)$,
 			      donc le module est \'egal \`a $1$ et l'argument est \'egal \`a $0$.
-			\item On conmmence par calculer $|z_2| = \sqrt{0^2 + 1^2} = 1 $ puis on le met en facteur :
+			\item On commence par calculer $|z_2| = \sqrt{0^2 + 1^2} = 1 $ puis on le met en facteur :
 			      $z_2 = 1 (0 + 1\; i) = (\cos \theta + i \sin \theta)$.
 			      Ainsi, 
 			      $
@@ -1992,7 +2028,7 @@ Solution de l'exercice \ref{exe:trigo-alg}.
 			\item De m\^eme, on commence par calculer le module de $z_4$,
 			      $|z_4| = \sqrt{1^2 + \sqrt{3}^2} = \sqrt{4} = 2$,
 			      puis on le met en facteur.
-			      $z_4 = 2 \left( \frac{1}{2} + i \frac{\sqrt{3}}{2} \right) = 2 \left( \cos \theta + \sin \theta \right)$.
+			      $z_4 = 2 \left( \frac{1}{2} + i \frac{\sqrt{3}}{2} \right) = 2 \left( \cos \theta + i \sin \theta \right)$.
 			      Donc 
 			      $
 			            \begin{multiform}
@@ -2001,18 +2037,19 @@ Solution de l'exercice \ref{exe:trigo-alg}.
 			            \end{multiform}
 			      $
 			      ce qui correspond \`a $\theta = \frac{\pi}{3}$.
-			      Ainsi, $z_4 = 2 \left( \cos \frac{\pi}{3} + \sin \frac{\pi}{3} \right) $, 
+			      Ainsi, $z_4 = 2 \left( \cos \frac{\pi}{3} + i \sin \frac{\pi}{3} \right) $, 
 			      donc le module est \'egal \`a $2$ et l'argument est \'egal \`a $\frac{\pi}{3}$.
 		\end{itemize}
 	\item \begin{itemize} 
-			\item Le module est \'egal \`a $2$ et l'argument est \'egal \`a $\frac{\pi}{3}$. 
+			\item On a $z'_1 = 2 \left( \cos \left(-\frac{\pi}{3}\right) + i \sin \left(-\frac{\pi}{3}\right) \right)$ :
+			      le module est \'egal \`a $2$ et un argument est $-\frac{\pi}{3}$ (et non $\frac{\pi}{3}$, \`a cause du signe $-$).
 			      On a 
 			      $z'_1 = 2 \left( \cos \frac{\pi}{3} - i \sin \frac{\pi}{3} \right) 
 			            = 2 \left( \frac{1}{2} - \frac{\sqrt{3}}{2} i \right) = 1 - \sqrt{3} i$.
 			\item Le module est \'egal \`a $\sqrt{3}$ et l'argument est \'egal \`a $\frac{\pi}{6}$. 
 			      On a 
 			      $z'_2 = \sqrt{3} \left( \cos \frac{\pi}{6} + i \sin \frac{\pi}{6} \right)
-			            = \sqrt{3} \left( \frac{\sqrt{3}}{2} + i \sin \frac{1}{2} \right)
+			            = \sqrt{3} \left( \frac{\sqrt{3}}{2} + i \cdot \frac{1}{2} \right)
 			            = \frac{3}{2} + \frac{\sqrt{3}}{2} i$.
 		\end{itemize}
 \end{enumerate}
@@ -2073,7 +2110,7 @@ Les deux derni\`eres propri\'et\'es sont faciles \`a v\'erifier (il suffit de d\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{dem}
       \label{dem:Expo-trigo}
-      La formle d'Eulder (Th\'eor\`eme~\ref{thm:Expo-trigo}) sera admis.
+      La formule d'Euler (Th\'eor\`eme~\ref{thm:Expo-trigo}) sera admis.
 \end{dem}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{sol}
@@ -2082,14 +2119,14 @@ Solution de l'\'exercice \ref{exe:santatra second degre} \\
 	\begin{itemize}
 		\item On part de l'\'equation $z^2 - 2 z + 5 = 0$. 
 			On a $\Delta = 2^2 - 4 \cdot 1 \cdot 5 = 4 - 20 = -16 = (4i)^2$.
-			Ainsi, les deux racines complexes sont $z' = \frac{2-4i}{2} = 1 - 2i$ et $z' = \frac{2+4i}{2} = 1 + 2i$. 
+			Ainsi, les deux racines complexes sont $z' = \frac{2-4i}{2} = 1 - 2i$ et $z'' = \frac{2+4i}{2} = 1 + 2i$. 
 		\item On part de l'\'equation $z^2 - 4 z + 5 = 0$. 
 			On a $\Delta = 4^2 - 4 \cdot 1 \cdot 5 = 16 - 20 = -4 = (2i)^2$.
-			Ainsi, les deux racines complexes sont $z' = \frac{4-2i}{2} = 2 - i$ et $z' = \frac{4+2i}{2} = 2 + i$. 
+			Ainsi, les deux racines complexes sont $z' = \frac{4-2i}{2} = 2 - i$ et $z'' = \frac{4+2i}{2} = 2 + i$. 
 		\item On part de l'\'equation $4 z^2 - 8 z + 5 = 0$. 
 			On a $\Delta = 8^2 - 4 \cdot 4 \cdot 5 = 64 - 80 = -16 = (4i)^2$.
 			Ainsi, les deux racines complexes sont 
-			$z' = \frac{8-4i}{2 \cdot 8} = 1 - \frac{1}{2} i$ et $z' = \frac{8+4i}{2 \cdot 8} = 1 + \frac{1}{2} i$. 
+			$z' = \frac{8-4i}{2 \cdot 4} = 1 - \frac{1}{2} i$ et $z'' = \frac{8+4i}{2 \cdot 4} = 1 + \frac{1}{2} i$. 
 	\end{itemize}
 \end{sol}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -2143,6 +2180,8 @@ Solution de l'exercice \ref{exe:second degre complexe} \\
 		      }$
 	      }
       .
+\item Pour $z^2 + (1-2i) z - 3 - i = 0$ : $\Delta = (1-2i)^2 + 4(3+i) = (-3-4i) + 12 + 4i = 9 = 3^2$.
+      Les solutions sont $z' = \frac{-(1-2i) - 3}{2} = -2 + i$ et $z'' = \frac{-(1-2i) + 3}{2} = 1 + i$.
 \end{itemize}
 \end{sol}
 
@@ -2187,14 +2226,14 @@ De m\^eme, on peut trouver que les racines quatri\`emes de l'unit\'e sont $1$, $
 		\fill [color=black] (1,0) circle (1.5pt);
 		\draw [color=black] (1.2,0.2) node {$1$};
 		\fill [color=black] (-0.5,0.85) circle (1.5pt);
-		\draw [color=black] (-1,1) node {$\frac{1}{2} + i \frac{ \sqrt{3} }{2}$};
+		\draw [color=black] (-1,1) node {$-\frac{1}{2} + i \frac{ \sqrt{3} }{2}$};
 		\fill [color=black] (-0.5,-0.85) circle (1.5pt);
-		\draw [color=black] (-1,-1) node {$ - \frac{1}{2} - \frac{\sqrt{3}}{2}$};
+		\draw [color=black] (-1,-1) node {$ - \frac{1}{2} - i\frac{\sqrt{3}}{2}$};
 		\draw [color=brown] (0.35,0.25) node {$\frac{2 \pi}{3}$};
 		\draw [color=green!50!black] (0.35,-0.25) node {$\frac{- 2 \pi}{3}$};
 	\end{tikzpicture}
-	\label{fig:racine 4eme de l'unite}
-	\caption{Les racines cubique de l'unit\'e forment un polygone r\'egulier \`a $3$ c\^ot\'e.}
+	\label{fig:racine 3eme de l'unite}
+	\caption{Les racines cubiques de l'unit\'e forment un polygone r\'egulier \`a $3$ c\^ot\'e.}
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \end{subfigure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -2241,7 +2280,7 @@ De m\^eme, on peut trouver que les racines quatri\`emes de l'unit\'e sont $1$, $
 Solution de l'exercice \ref{exe:racine nieme} \\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Posons $z = 1 + \sqrt{3} i = 2 \left( \frac{1}{2} + \frac{\sqrt{3}}{2} i \right)$; on a alors $|z| = 2$ et $\arg(z) = \frac{\pi}{3}$.
-Les diff\'erentes arguments des racines $5^{\text{i\`eme}}$ de $z$ sont 
+Les racines $5^{\text{i\`emes}}$ de $z$ sont les nombres 
 $$
 \sqrt[5]{2}  \left[ \cos \left( \frac{ \frac{\pi }{3} + 2k\pi}{5} \right) + i \sin \left( \frac{ \frac{\pi }{3} + 2k\pi}{5} \right) \right] 
 $$ 
@@ -2249,7 +2288,7 @@ pour $k$ allant de $0$ \`a $4$.
 Les racines $5^{\text{i\`eme}}$ de $z$ sont alors: 
 \begin{enumerate}
 \item $ z_0 = \sqrt[5]{2} \left( \cos \frac{\pi}{15} + i \sin \frac{\pi}{15} \right)         $
-\item $ z_1 = \sqrt[5]{2} \left( \cos \frac{5 \pi}{15} + i \sin \frac{5 \pi}{15} \right)     $
+\item $ z_1 = \sqrt[5]{2} \left( \cos \frac{7 \pi}{15} + i \sin \frac{7 \pi}{15} \right)     $
 \item $ z_2 = \sqrt[5]{2} \left( \cos \frac{13 \pi}{15} + i \sin \frac{13 \pi}{15} \right)   $
 \item $ z_3 = \sqrt[5]{2} \left( \cos \frac{19 \pi}{15} + i \sin \frac{19 \pi}{15} \right)   $
 \item $ z_4 = \sqrt[5]{2} \left( \cos \frac{5 \pi}{3} + i \sin \frac{5 \pi}{3} \right)       $
@@ -2262,5 +2301,591 @@ Les racines $5^{\text{i\`eme}}$ de $z$ sont alors:
 %\end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \end{sol}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{sol}
+Solution de l'exercice \ref{exe:angle}.
+$z_B - z_A = 3 + 3i$ et $z_C - z_A = -4 + 2i$, donc
+\[
+\frac{z_C - z_A}{z_B - z_A} = \frac{(-4+2i)(3-3i)}{(3+3i)(3-3i)} = \frac{-6 + 18i}{18} = -\frac{1}{3} + i .
+\]
+Un argument $\varphi$ de ce nombre est une mesure de $\left(\overrightarrow{AB},\overrightarrow{AC}\right)$ ; il v\'erifie
+$\cos\varphi = \frac{-1/3}{\sqrt{10}/3} = -\frac{1}{\sqrt{10}}$ et $\sin\varphi = \frac{3}{\sqrt{10}} > 0$.
+Donc $\hat{A} = \arccos\left(-\frac{1}{\sqrt{10}}\right) \approx 1{,}89$~rad, soit environ $108{,}4^\circ$.
+\end{sol}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{sol}
+Solution de l'exercice \ref{exe:rotation}.
+L'image $B'$ de $B$ par la rotation de centre $A$ et d'angle $\theta$ a pour affixe $z_{B'} = \expo{i\theta}(z_B - z_A) + z_A$, avec $z_B - z_A = 1 - 3i$.
+\begin{itemize}
+\item $\theta = \frac{\pi}{3}$ : $z_{B'} = \left(\frac{1}{2} + i\frac{\sqrt{3}}{2}\right)(1 - 3i) + 2 + i
+      = \boxed{\frac{5 + 3\sqrt{3}}{2} + i\,\frac{\sqrt{3} - 1}{2}}$.
+\item $\theta = -\frac{\pi}{3}$ : $z_{B''} = \left(\frac{1}{2} - i\frac{\sqrt{3}}{2}\right)(1 - 3i) + 2 + i
+      = \boxed{\frac{5 - 3\sqrt{3}}{2} - i\,\frac{1 + \sqrt{3}}{2}}$.
+\end{itemize}
+\end{sol}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Solutions des exercices de fin de chapitre}
+Dans ce qui suit, les arguments sont donn\'es \`a $2\pi$ pr\`es et $k$ d\'esigne un entier relatif.
+
+\paragraph{Exercice 1.}
+\begin{enumerate}
+\item $z_1 = \sqrt{3} - i + i\sqrt{3} + 1 = \boxed{(\sqrt{3}+1) + i(\sqrt{3}-1)}$.
+      $(1+i)^2 = 2i$, donc $(1+i)^4 = -4$ ; $(\sqrt{3}-i)^2 = 2 - 2\sqrt{3}i$ et $(\sqrt{3}-i)^3 = (2-2\sqrt{3}i)(\sqrt{3}-i) = -8i$ ;
+      donc $z_2 = (-4)(-8i) = \boxed{32i}$.
+      $z_3 = \frac{(1+i)(\sqrt{3}+i)}{(\sqrt{3}-i)(\sqrt{3}+i)} = \boxed{\frac{\sqrt{3}-1}{4} + i\,\frac{\sqrt{3}+1}{4}}$.
+      Les parties r\'eelles et imaginaires se lisent sur ces \'ecritures.
+\item $1 + i = \sqrt{2}\,\expo{i\frac{\pi}{4}}$ et $\sqrt{3} - i = 2\,\expo{-i\frac{\pi}{6}}$. Donc
+      $z_1 = 2\sqrt{2}\left(\cos\frac{\pi}{12} + i\sin\frac{\pi}{12}\right)$,
+      $z_2 = (\sqrt{2})^4 2^3\,\expo{i\left(\pi - \frac{\pi}{2}\right)} = 32\left(\cos\frac{\pi}{2} + i\sin\frac{\pi}{2}\right)$,
+      $z_3 = \frac{\sqrt{2}}{2}\left(\cos\frac{5\pi}{12} + i\sin\frac{5\pi}{12}\right)$.
+\end{enumerate}
+
+\paragraph{Exercice 2.}
+\begin{enumerate}
+\item $|z'|^2 = (1+\sqrt{3})^2 + (1-\sqrt{3})^2 = 8$ et
+      $z'' = \frac{z\,\overline{z'}}{|z'|^2} = \frac{(2\sqrt{3}+2i)\left(1+\sqrt{3} - (1-\sqrt{3})i\right)}{8} = \frac{8 + 8i}{8} = \boxed{1 + i}$.
+\item $z'' = \sqrt{2}\left(\cos\frac{\pi}{4} + i\sin\frac{\pi}{4}\right)$ et $z = 4\left(\frac{\sqrt{3}}{2} + \frac{1}{2}i\right) = 4\left(\cos\frac{\pi}{6} + i\sin\frac{\pi}{6}\right)$.
+\item $z' = \frac{z}{z''}$, donc $|z'| = \frac{4}{\sqrt{2}} = 2\sqrt{2}$ et $\arg z' = \frac{\pi}{6} - \frac{\pi}{4} = -\frac{\pi}{12}$.
+      En identifiant $z' = 2\sqrt{2}\left(\cos\frac{\pi}{12} - i\sin\frac{\pi}{12}\right)$ avec sa forme alg\'ebrique :
+      $\cos\frac{\pi}{12} = \frac{1+\sqrt{3}}{2\sqrt{2}} = \frac{\sqrt{6}+\sqrt{2}}{4}$,
+      $\sin\frac{\pi}{12} = \frac{\sqrt{3}-1}{2\sqrt{2}} = \frac{\sqrt{6}-\sqrt{2}}{4}$ et
+      $\tan\frac{\pi}{12} = \frac{\sqrt{3}-1}{\sqrt{3}+1} = \frac{(\sqrt{3}-1)^2}{2} = 2 - \sqrt{3}$.
+\end{enumerate}
+
+\paragraph{Exercice 3.}
+\begin{enumerate}
+\item $|p| = \sqrt{3+1} = 2$, $p = 2\left(\frac{\sqrt{3}}{2} + \frac{1}{2}i\right)$, donc $\arg p = \frac{\pi}{6}$.
+      $|q| = \sqrt{8} = 2\sqrt{2}$, $q = 2\sqrt{2}\left(-\frac{\sqrt{2}}{2} + i\frac{\sqrt{2}}{2}\right)$, donc $\arg q = \frac{3\pi}{4}$.
+\item $p^2$ : module $4$, argument $\frac{\pi}{3}$ ;
+      $\frac{q}{p}$ : module $\sqrt{2}$, argument $\frac{3\pi}{4} - \frac{\pi}{6} = \frac{7\pi}{12}$ ;
+      $\frac{1}{q}$ : module $\frac{1}{2\sqrt{2}} = \frac{\sqrt{2}}{4}$, argument $-\frac{3\pi}{4}$ ;
+      $p^6$ : module $64$, argument $\pi$ ;
+      $\frac{q^4}{p^3}$ : module $\frac{64}{8} = 8$, argument $3\pi - \frac{\pi}{2} \equiv \frac{\pi}{2}$.
+\item $p^6 = 64(\cos\pi + i\sin\pi) = \boxed{-64}$ et $\frac{q^4}{p^3} = 8\left(\cos\frac{\pi}{2} + i\sin\frac{\pi}{2}\right) = \boxed{8i}$.
+\item $\frac{q}{p} = \frac{(-2+2i)(\sqrt{3}-i)}{4} = \frac{(1-\sqrt{3}) + i(1+\sqrt{3})}{2}$.
+      Comme $\frac{q}{p} = \sqrt{2}\left(\cos\frac{7\pi}{12} + i\sin\frac{7\pi}{12}\right)$, on obtient
+      $\cos\frac{7\pi}{12} = \frac{1-\sqrt{3}}{2\sqrt{2}} = \frac{\sqrt{2}-\sqrt{6}}{4}$ et
+      $\sin\frac{7\pi}{12} = \frac{1+\sqrt{3}}{2\sqrt{2}} = \frac{\sqrt{2}+\sqrt{6}}{4}$.
+\end{enumerate}
+
+\paragraph{Exercice 4.}
+\begin{enumerate}
+\item En d\'eveloppant, le premier membre vaut
+      $a^2a'^2 - 2aa'bb' + b^2b'^2 + a^2b'^2 + 2ab'a'b + a'^2b^2 = a^2a'^2 + b^2b'^2 + a^2b'^2 + a'^2b^2$,
+      qui est aussi le d\'eveloppement de $(a^2+b^2)(a'^2+b'^2)$.
+      Or $zz' = (aa' - bb') + i(ab' + a'b)$, donc $|zz'|^2 = |z|^2|z'|^2$ et, les modules \'etant positifs, $|zz'| = |z|\,|z'|$.
+\item \begin{align*}
+      zz' & = rr'\left[(\cos\theta\cos\theta' - \sin\theta\sin\theta') + i(\sin\theta\cos\theta' + \cos\theta\sin\theta')\right] \\
+          & = rr'\left[\cos(\theta+\theta') + i\sin(\theta+\theta')\right]
+      \end{align*}
+      avec $rr' > 0$ :
+      c'est une forme trigonom\'etrique de $zz'$, donc $\theta+\theta'$ en est un argument.
+\item Pour $n = 1$ c'est vrai. Si $|z^n| = |z|^n$ et si $n\theta$ est un argument de $z^n$, alors, d'apr\`es 1 et 2 appliqu\'ees \`a $z^n$ et $z$,
+      $|z^{n+1}| = |z^n|\,|z| = |z|^{n+1}$ et $n\theta + \theta = (n+1)\theta$ est un argument de $z^{n+1}$.
+\item Notons $w = \frac{z}{z'}$. De $z' w = z$ on tire $|z'|\,|w| = |z|$, soit $|w| = \frac{|z|}{|z'|}$,
+      et $\arg z' + \arg w = \arg z$, soit $\arg w = \arg z - \arg z'$ (\`a $2\pi$ pr\`es).
+\item $|3 + 4i| = 5$ et $|1 - i| = \sqrt{2}$, donc
+      $\left|\frac{(3+4i)^5}{(1-i)^4}\right| = \frac{5^5}{(\sqrt{2})^4} = \boxed{\frac{3125}{4}}$.
+\end{enumerate}
+
+\paragraph{Exercice 5.}
+\begin{enumerate}
+\item $|z+z'|^2 = (z+z')\overline{(z+z')} = z\bar{z} + z'\overline{z'} + z\overline{z'} + \overline{z\overline{z'}}
+      = |z|^2 + |z'|^2 + 2\,\mathfrak{Re}\left(z\overline{z'}\right)$,
+      car $w + \bar{w} = 2\,\mathfrak{Re}(w)$.
+\item Si $w = u + iv$, $\mathfrak{Re}(w) = u \leq |u| = \sqrt{u^2} \leq \sqrt{u^2+v^2} = |w|$.
+      Donc $\mathfrak{Re}\left(z\overline{z'}\right) \leq |z\overline{z'}| = |z|\,|z'|$ et
+      $|z+z'|^2 \leq |z|^2 + |z'|^2 + 2|z|\,|z'| = (|z| + |z'|)^2$ ; les deux nombres \'etant positifs, $|z+z'| \leq |z| + |z'|$.
+\item $|z| = |(z-z') + z'| \leq |z - z'| + |z'|$, donc $|z| - |z'| \leq |z - z'|$.
+      En \'echangeant les r\^oles, $|z'| - |z| \leq |z' - z| = |z - z'|$. D'o\`u $\left||z| - |z'|\right| \leq |z - z'|$.
+\item Avec $w = 3 - 4i$, $|w| = 5$ : $|z + w| \leq |z| + |w| = 7$ et $|z + w| = |z - (-w)| \geq \left||z| - |w|\right| = 3$.
+      Pour $z = \frac{2}{5}(3 - 4i) = \frac{6}{5} - \frac{8}{5}i$, on a $|z| = 2$ et $z + w = \frac{7}{5}(3-4i)$, de module $7$.
+\end{enumerate}
+
+\paragraph{Exercice 6.}
+\begin{enumerate}
+\item $\omega\bar{\omega} = |\omega|^2 = 1$, donc $\bar{\omega} = \frac{1}{\omega}$ ($\omega \neq 0$). Alors
+      $\overline{Z} = \frac{\bar{\omega} - 1}{\bar{\omega} + 1} = \frac{\frac{1}{\omega} - 1}{\frac{1}{\omega} + 1} = \frac{1 - \omega}{1 + \omega} = -Z$.
+      Si $Z = x + iy$, $\overline{Z} = -Z$ donne $x = -x$, donc $x = 0$ : $Z$ est imaginaire pur (\'eventuellement nul).
+\item $\omega - 1 = iy(\omega + 1)$ donne $\omega(1 - iy) = 1 + iy$, et $1 - iy \neq 0$, donc
+      $\omega = \frac{1 + iy}{1 - iy}$ et $|\omega| = \frac{\sqrt{1+y^2}}{\sqrt{1+y^2}} = 1$.
+\item $Z = \frac{\expo{i\frac{\theta}{2}}\left(\expo{i\frac{\theta}{2}} - \expo{-i\frac{\theta}{2}}\right)}{\expo{i\frac{\theta}{2}}\left(\expo{i\frac{\theta}{2}} + \expo{-i\frac{\theta}{2}}\right)}
+      = \frac{2i\sin\frac{\theta}{2}}{2\cos\frac{\theta}{2}} = i\tan\frac{\theta}{2}$
+      (formules d'Euler ; $\cos\frac{\theta}{2} \neq 0$ car $\frac{\theta}{2} \in \left]-\frac{\pi}{2},\frac{\pi}{2}\right[$).
+\item $Z = \frac{z_M - z_A}{z_M - z_B}$, donc un argument de $Z$ est une mesure de l'angle $\left(\overrightarrow{MB},\overrightarrow{MA}\right)$.
+      Pour $\omega \neq \pm 1$, $Z$ est imaginaire pur non nul, donc cet angle mesure $\pm\frac{\pi}{2}$ : le triangle $AMB$ est rectangle en $M$
+      (on retrouve que $M$ est sur le cercle de diam\`etre $[AB]$).
+\end{enumerate}
+
+\paragraph{Exercice 7.}
+\begin{enumerate}
+\item $g(z) - g(z') = (z - z') + \frac{z' - z}{zz'} = (z - z')\left(1 - \frac{1}{zz'}\right) = \frac{(z - z')(zz' - 1)}{zz'}$.
+      Un produit est nul si et seulement si l'un des facteurs l'est : $g(z) = g(z') \iff z = z'$ ou $zz' = 1$.
+\item Si $|z| > 1$ et $|z'| > 1$, alors $|zz'| = |z|\,|z'| > 1$, donc $zz' \neq 1$ ; d'apr\`es 1, $g(z) = g(z')$ impose $z = z'$.
+\item $g\left(\expo{i\theta}\right) = \expo{i\theta} + \expo{-i\theta} = 2\cos\theta$. Quand $\theta$ d\'ecrit $\mathbb{R}$, $2\cos\theta$ d\'ecrit $[-2,2]$ :
+      l'image du cercle unit\'e est le segment de l'axe r\'eel d'extr\'emit\'es les points d'affixes $-2$ et $2$.
+\item $g(z) = 1 \iff z^2 - z + 1 = 0$ ($z \neq 0$) ; $\Delta = -3 = (i\sqrt{3})^2$, d'o\`u $z = \frac{1 \pm i\sqrt{3}}{2} = \expo{\pm i\frac{\pi}{3}}$.
+      Ces nombres sont de module $1$ et $2\cos\left(\pm\frac{\pi}{3}\right) = 1$ : c'est coh\'erent avec 3.
+\end{enumerate}
+
+\paragraph{Exercice 8.}
+\begin{enumerate}
+\item $u = \sqrt{2}\left(\cos\frac{\pi}{4} + i\sin\frac{\pi}{4}\right)$ et $\bar{u} = \sqrt{2}\left(\cos\frac{\pi}{4} - i\sin\frac{\pi}{4}\right)$.
+\item Par la formule de Moivre, $u^n + \bar{u}^n = (\sqrt{2})^n\left[2\cos\frac{n\pi}{4}\right]$, donc $\lambda_n = 2(\sqrt{2})^n = 2^{\frac{n}{2}+1}$.
+\item $S_n = 0 \iff \cos\frac{n\pi}{4} = 0 \iff \frac{n\pi}{4} = \frac{\pi}{2} + k\pi \iff n = 2 + 4k$ :
+      $S_n = 0$ pour les entiers $n$ de la forme $4k + 2$ ($k \in \mathbb{N}$).
+\item Si $n = 2m$, $S_n = 2\cdot 2^m\cos\frac{m\pi}{2}$ et $\cos\frac{m\pi}{2} \in \{-1, 0, 1\}$ : $S_n \in \{0, 2^{m+1}, -2^{m+1}\} \subset \mathbb{Z}$.
+\end{enumerate}
+
+\paragraph{Exercice 9.}
+\begin{enumerate}
+\item $u = 2\expo{i\frac{2\pi}{3}}$ ; $\bar{u} = 2\expo{-i\frac{2\pi}{3}}$ ; $-2u = 4\expo{i\left(\frac{2\pi}{3}+\pi\right)} = 4\expo{-i\frac{\pi}{3}}$ ;
+      $iu = 2\expo{i\left(\frac{2\pi}{3}+\frac{\pi}{2}\right)} = 2\expo{-i\frac{5\pi}{6}}$ ; $\frac{1}{u} = \frac{1}{2}\expo{-i\frac{2\pi}{3}}$ ;
+      $\frac{-i}{u^2} = \frac{\expo{-i\frac{\pi}{2}}}{4\expo{i\frac{4\pi}{3}}} = \frac{1}{4}\expo{i\frac{\pi}{6}}$.
+      Les images se construisent \`a partir de leur module (cercle de centre $O$) et de leur argument.
+\item $z^2 - 2iz - i\sqrt{3} = (z - i)^2 + 1 - i\sqrt{3} = (z - i)^2 - u$. L'\'equation \'equivaut \`a $(z - i)^2 = u = \left(\sqrt{2}\,\expo{i\frac{\pi}{3}}\right)^2$,
+      soit $z - i = \pm\left(\frac{\sqrt{2}}{2} + i\frac{\sqrt{6}}{2}\right)$.
+      Solutions : $\boxed{\frac{\sqrt{2}}{2} + i\left(1 + \frac{\sqrt{6}}{2}\right)}$ et $\boxed{-\frac{\sqrt{2}}{2} + i\left(1 - \frac{\sqrt{6}}{2}\right)}$.
+\end{enumerate}
+
+\paragraph{Exercice 10.}
+On calcule $\Delta$, une racine carr\'ee $\delta$ de $\Delta$, puis $z = \frac{-b \pm \delta}{2a}$.
+\begin{enumerate}
+\item $\Delta = -16 = (4i)^2$ : $S = \{1 - 2i ; 1 + 2i\}$.
+\item $\Delta = 16 - 24 = -8 = (2\sqrt{2}i)^2$ : $S = \{2 - \sqrt{2}i ; 2 + \sqrt{2}i\}$.
+\item $\Delta = (1+i)^2 - 20i = -18i = (3 - 3i)^2$ : $S = \left\{\frac{1 + i \pm (3 - 3i)}{2}\right\} = \{2 - i ; -1 + 2i\}$.
+\item $\Delta = (1+3i)^2 - 4(-4+3i) = 8 - 6i = (3 - i)^2$ : $S = \left\{\frac{-1 - 3i \pm (3 - i)}{2}\right\} = \{1 - 2i ; -2 - i\}$.
+\item $\Delta = (3 + 2\sqrt{2}i)^2 - 12\sqrt{2}i = 1 = 1^2$ : $S = \{1 + \sqrt{2}i ; 2 + \sqrt{2}i\}$.
+\item $\Delta = (6 - 5i)^2 - 8(7 - 4i) = -45 - 28i = (2 - 7i)^2$ : $S = \left\{\frac{6 - 5i \pm (2 - 7i)}{4}\right\} = \left\{2 - 3i ; 1 + \frac{1}{2}i\right\}$.
+\item $\Delta = (3 - 4i)^2 + 4(1 + 7i) = -3 + 4i = (1 + 2i)^2$ : $S = \left\{\frac{3 - 4i \pm (1 + 2i)}{2}\right\} = \{2 - i ; 1 - 3i\}$.
+\end{enumerate}
+
+\paragraph{Exercice 11.}
+Notons $c = \cos\theta$ et $s = \sin\theta$. Par Moivre et la formule du bin\^ome,
+$\cos 3\theta + i\sin 3\theta = (c + is)^3 = c^3 - 3cs^2 + i(3c^2s - s^3)$. En identifiant et avec $s^2 = 1 - c^2$ (resp. $c^2 = 1 - s^2$) :
+\[
+\cos 3\theta = 4\cos^3\theta - 3\cos\theta , \qquad \sin 3\theta = 3\sin\theta - 4\sin^3\theta .
+\]
+De m\^eme, $(c + is)^5 = c^5 - 10c^3s^2 + 5cs^4 + i(5c^4s - 10c^2s^3 + s^5)$, d'o\`u
+\[
+\cos 5\theta = 16\cos^5\theta - 20\cos^3\theta + 5\cos\theta , \qquad \sin 5\theta = 16\sin^5\theta - 20\sin^3\theta + 5\sin\theta .
+\]
+
+\paragraph{Exercice 12.}
+\begin{enumerate}
+\item $\frac{1}{z} = \cos\theta - i\sin\theta$, donc $z + \frac{1}{z} = 2\cos\theta$ et $z - \frac{1}{z} = 2i\sin\theta$ ;
+      de m\^eme (Moivre) $z^n + \frac{1}{z^n} = 2\cos n\theta$ et $z^n - \frac{1}{z^n} = 2i\sin n\theta$.
+\item $\left(z + \frac{1}{z}\right)^3 = \left(z^3 + \frac{1}{z^3}\right) + 3\left(z + \frac{1}{z}\right)$, soit $8\cos^3\theta = 2\cos 3\theta + 6\cos\theta$ :
+      $\cos^3\theta = \frac{1}{4}(\cos 3\theta + 3\cos\theta)$.
+
+      $\left(z - \frac{1}{z}\right)^3 = \left(z^3 - \frac{1}{z^3}\right) - 3\left(z - \frac{1}{z}\right)$, soit $-8i\sin^3\theta = 2i\sin 3\theta - 6i\sin\theta$ :
+      $\sin^3\theta = \frac{1}{4}(3\sin\theta - \sin 3\theta)$.
+
+      $\left(z + \frac{1}{z}\right)^4 = \left(z^4 + \frac{1}{z^4}\right) + 4\left(z^2 + \frac{1}{z^2}\right) + 6$, soit
+      $\cos^4\theta = \frac{1}{8}(\cos 4\theta + 4\cos 2\theta + 3)$.
+
+      $\left(z - \frac{1}{z}\right)^4 = \left(z^4 + \frac{1}{z^4}\right) - 4\left(z^2 + \frac{1}{z^2}\right) + 6$, et $(2i\sin\theta)^4 = 16\sin^4\theta$ :
+      $\sin^4\theta = \frac{1}{8}(\cos 4\theta - 4\cos 2\theta + 3)$.
+\end{enumerate}
+
+\paragraph{Exercice 13.}
+On \'ecrit $\cos x = \frac{\expo{ix} + \expo{-ix}}{2}$, $\sin x = \frac{\expo{ix} - \expo{-ix}}{2i}$, on d\'eveloppe par la formule du bin\^ome et on regroupe les termes conjugu\'es :
+\begin{enumerate}
+\item $\cos^2 x = \frac{1 + \cos 2x}{2}$ ; $\sin^3 x = \frac{3\sin x - \sin 3x}{4}$ ;
+      $\cos^4 x\,\sin x = \frac{2\sin x + 3\sin 3x + \sin 5x}{16}$.
+\item $\cos^4 x = \frac{\cos 4x + 4\cos 2x + 3}{8}$ ; $\sin^4 x = \frac{\cos 4x - 4\cos 2x + 3}{8}$ ;
+      $\cos^5 x = \frac{\cos 5x + 5\cos 3x + 10\cos x}{16}$ ; $\sin^5 x = \frac{\sin 5x - 5\sin 3x + 10\sin x}{16}$ ;
+      $\cos^6 x = \frac{\cos 6x + 6\cos 4x + 15\cos 2x + 10}{32}$ ; $\sin^6 x = \frac{-\cos 6x + 6\cos 4x - 15\cos 2x + 10}{32}$.
+\end{enumerate}
+Par exemple, $\cos^4 x\sin x = \frac{(\expo{ix} + \expo{-ix})^4(\expo{ix} - \expo{-ix})}{32i}$ et
+$(\expo{ix} + \expo{-ix})^4(\expo{ix} - \expo{-ix}) = (\expo{5ix} - \expo{-5ix}) + 3(\expo{3ix} - \expo{-3ix}) + 2(\expo{ix} - \expo{-ix})$.
+
+\paragraph{Exercice 14.}
+Pour un syst\`eme o\`u figurent $\bar{x}$ et $\bar{y}$, on prend le conjugu\'e de l'\'equation concern\'ee
+pour se ramener \`a un syst\`eme lin\'eaire en $x$ et $y$, que l'on r\'esout par combinaison ou par les d\'eterminants
+($D = a d - b c$, $x = \frac{e d - b f}{D}$, $y = \frac{a f - e c}{D}$ pour le syst\`eme $ax + by = e$, $cx + dy = f$).
+\begin{enumerate}
+\item $D = -(1-i)(1+i) - (2-i)(2+i) = -7$, $x = \frac{-7 + 14i}{-7}$, $y = \frac{-14 - 21i}{-7}$ : $\boxed{x = 1 - 2i,\ y = 2 + 3i}$.
+\item La seconde \'equation conjugu\'ee s'\'ecrit $(1+i)x - (5-2i)y = -10 - i$. Alors $D = -8 - 8i$ et $\boxed{x = 1 - i,\ y = 2 + i}$.
+\item La seconde \'equation conjugu\'ee : $(3+i)x + (1-3i)y = 3 + 11i$. Alors $D = 6 - 8i$ et $\boxed{x = 1 + i,\ y = -2 + i}$.
+\item La premi\`ere \'equation conjugu\'ee : $(2-i)x + (3+2i)y = 9 - 8i$ ; en \'ecrivant d'abord la seconde \'equation puis la premi\`ere conjugu\'ee, $D = (4-3i)(3+2i) + (2-3i)(2-i) = 19 - 9i$ et $\boxed{x = 3 - 2i,\ y = 1 - i}$.
+\item Les inconnues sont $x$ et $Y = \bar{y}$ : $D = -16$, $x = \frac{32 + 4i}{-16} = -2 - \frac{1}{4}i$, $Y = \frac{48 + 36i}{-16} = -3 - \frac{9}{4}i$,
+      donc $\boxed{x = -2 - \frac{1}{4}i,\ y = -3 + \frac{9}{4}i}$.
+\end{enumerate}
+On v\'erifie chaque r\'esultat en le reportant dans le syst\`eme.
+
+\paragraph{Exercice 15.}
+\begin{enumerate}
+\item $\Delta = 16 - 52 = -36 = (6i)^2$ : $S = \{-2 - 3i ; -2 + 3i\}$.
+\item $\Delta = (2i)^2 + 20 = 16$ : $S = \left\{\frac{2i \pm 4}{2}\right\} = \{2 + i ; -2 + i\}$.
+\item $\Delta = (3 - 2i)^2 - 4(5 - 5i) = -15 + 8i$. On cherche $\delta = x + iy$ : $x^2 + y^2 = 17$, $x^2 - y^2 = -15$, $xy = 4 > 0$,
+      d'o\`u $\delta = 1 + 4i$ et $S = \left\{\frac{3 - 2i \pm (1 + 4i)}{2}\right\} = \{2 + i ; 1 - 3i\}$.
+\item $\Delta = (2 - 2i)^2 - 4(3 + 2i) = -12 - 16i$ ; $x^2 + y^2 = 20$, $x^2 - y^2 = -12$, $xy = -8 < 0$ : $\delta = 2 - 4i$,
+      $S = \left\{\frac{2 - 2i \pm (2 - 4i)}{2}\right\} = \{2 - 3i ; i\}$.
+\item $\Delta = 4 - 16(1+i) = -12 - 16i = (2 - 4i)^2$ :
+      $z = \frac{2 \pm (2 - 4i)}{2(1+i)}$, soit $\frac{4 - 4i}{2 + 2i} = -2i$ et $\frac{4i}{2 + 2i} = 1 + i$ : $S = \{-2i ; 1 + i\}$.
+\end{enumerate}
+Dans chaque cas, on v\'erifie que la somme des solutions vaut $-\frac{b}{a}$ et leur produit $\frac{c}{a}$ ;
+par exemple pour 5 : $-2i + (1+i) = 1 - i = \frac{2}{1+i}$ et $(-2i)(1+i) = 2 - 2i = \frac{4}{1+i}$.
+
+\paragraph{Exercice 16.}
+\begin{enumerate}
+\item $8i = 8\expo{i\frac{\pi}{2}}$ ; ses racines cubiques sont $2\expo{i\left(\frac{\pi}{6} + \frac{2k\pi}{3}\right)}$, $k \in \{0,1,2\}$ :
+      $2\expo{i\frac{\pi}{6}} = \sqrt{3} + i$, $2\expo{i\frac{5\pi}{6}} = -\sqrt{3} + i$, $2\expo{i\frac{3\pi}{2}} = -2i$.
+\item $-64 = 64\expo{i\pi}$ ; ses racines sixi\`emes sont $2\expo{i\left(\frac{\pi}{6} + \frac{k\pi}{3}\right)}$, $0 \leq k \leq 5$ :
+      $\sqrt{3} + i$, $2i$, $-\sqrt{3} + i$, $-\sqrt{3} - i$, $-2i$, $\sqrt{3} - i$.
+      Leurs images sont les sommets d'un hexagone r\'egulier inscrit dans le cercle de centre $O$ et de rayon $2$.
+\item (a) $z^3 = -27 = 27\expo{i\pi}$ : $z = 3\expo{i\left(\frac{\pi}{3} + \frac{2k\pi}{3}\right)}$, soit
+      $S = \left\{\frac{3}{2} + \frac{3\sqrt{3}}{2}i ; -3 ; \frac{3}{2} - \frac{3\sqrt{3}}{2}i\right\}$.
+
+      (b) $-8 + 8\sqrt{3}i = 16\expo{i\frac{2\pi}{3}}$ : $z = 2\expo{i\left(\frac{\pi}{6} + \frac{k\pi}{2}\right)}$, $0 \leq k \leq 3$, soit
+      $S = \{\sqrt{3} + i ; -1 + \sqrt{3}i ; -\sqrt{3} - i ; 1 - \sqrt{3}i\}$.
+\item Une solution $z = 2\expo{i\left(\frac{\pi}{6} + \frac{k\pi}{2}\right)}$ est racine sixi\`eme de $-64$ si et seulement si $\frac{k\pi}{2}$ est un multiple de $\frac{\pi}{3}$ \`a $2\pi$ pr\`es,
+      soit $k = 0$ ou $k = 2$ : ce sont $\sqrt{3} + i$ et $-\sqrt{3} - i$ (on v\'erifie : $z^6 = 64\expo{i\pi} = -64$).
+\end{enumerate}
+
+\paragraph{Exercice 17.}
+\begin{enumerate}
+\item $\Delta = (5 + 4i\sqrt{3})^2 - 36 = 25 + 40\sqrt{3}i - 48 - 36 = -59 + 40\sqrt{3}i$.
+      On cherche $\delta = x + iy$ : $x^2 + y^2 = |\Delta| = \sqrt{3481 + 4800} = 91$, $x^2 - y^2 = -59$, $xy = 20\sqrt{3} > 0$ ;
+      d'o\`u $x^2 = 16$, $y^2 = 75$ et $\delta = 4 + 5\sqrt{3}i$.
+      Les solutions sont $\frac{5 + 4\sqrt{3}i \pm (4 + 5\sqrt{3}i)}{2}$ : $\boxed{\frac{9}{2} + \frac{9\sqrt{3}}{2}i}$ et $\boxed{\frac{1}{2} - \frac{\sqrt{3}}{2}i}$.
+\item $z' = \frac{9}{2} + \frac{9\sqrt{3}}{2}i = 9\expo{i\frac{\pi}{3}}$ (module $9$, argument $\frac{\pi}{3}$) et
+      $z'' = \expo{-i\frac{\pi}{3}}$ (module $1$, argument $-\frac{\pi}{3}$).
+      $\frac{z'}{z''} = 9\expo{i\frac{2\pi}{3}}$ (module $9$, argument $\frac{2\pi}{3}$) et $z'z'' = 9$ (module $9$, argument $0$ ; c'est le produit des racines $\frac{c}{a}$).
+\item $Z^2 = 9\expo{i\frac{\pi}{3}}$ donne $Z = 3\expo{i\frac{\pi}{6}}$ ou $Z = 3\expo{i\frac{7\pi}{6}}$, soit
+      $Z = \pm\left(\frac{3\sqrt{3}}{2} + \frac{3}{2}i\right) = \pm 3\left(\cos\frac{\pi}{6} + i\sin\frac{\pi}{6}\right)$ ;
+      en forme polaire : $\left[3, \frac{\pi}{6}\right]$ et $\left[3, \frac{7\pi}{6}\right]$.
+\end{enumerate}
+
+\paragraph{Exercice 18.}
+\begin{enumerate}
+\item $(1-2i)^2 = -3 - 4i$, $(1-2i)^3 = (-3-4i)(1-2i) = \boxed{-11 + 2i}$ ;
+      $(2-i)^2 = 3 - 4i$, $(2-i)^4 = (3-4i)^2 = \boxed{-7 - 24i}$.
+\item (a) $z^3 = (1-2i)^3 \iff \left(\frac{z}{1-2i}\right)^3 = 1 \iff z = (1-2i)u$ avec $u \in \{1, j, \bar{j}\}$, $j = -\frac{1}{2} + \frac{\sqrt{3}}{2}i$.
+      Solutions : $1 - 2i$, $(1-2i)j = \left(\sqrt{3} - \frac{1}{2}\right) + \left(1 + \frac{\sqrt{3}}{2}\right)i$ et
+      $(1-2i)\bar{j} = \left(-\sqrt{3} - \frac{1}{2}\right) + \left(1 - \frac{\sqrt{3}}{2}\right)i$.
+
+      (b) $z^4 = -7 - 24i = (2-i)^4 \iff \left(\frac{z}{2-i}\right)^4 = 1 \iff z = (2-i)u$, $u \in \{1, i, -1, -i\}$ :
+      $S = \{2 - i ; 1 + 2i ; -2 + i ; -1 - 2i\}$.
+\end{enumerate}
+
+\paragraph{Exercice 19.}
+\begin{enumerate}
+\item $z^3 + z^2 + z + 1 = z^2(z+1) + (z+1) = (z+1)(z^2+1)$ : $S = \{-1 ; i ; -i\}$.
+\item On pose $w = \frac{z-i}{z+i}$ ($z \neq -i$) : $w$ est solution de l'\'equation 1, donc $w \in \{-1, i, -i\}$.
+      De $w(z + i) = z - i$ on tire $z = \frac{i(1+w)}{1-w}$ ($w \neq 1$).
+      $w = -1$ donne $z = 0$ ; $w = i$ donne $z = \frac{i(1+i)}{1-i} = i \cdot i = -1$ ; $w = -i$ donne $z = \frac{i(1-i)}{1+i} = 1$.
+      $S = \{0 ; -1 ; 1\}$.
+\item $1 - z + z^2 - z^3 = (1 - z) + z^2(1 - z) = (1-z)(1+z^2)$ : $S = \{1 ; i ; -i\}$.
+\item $2 - 2\sqrt{3}i = 4\expo{-i\frac{\pi}{3}}$ : $z = \sqrt{2}\,\expo{i\left(-\frac{\pi}{12} + \frac{k\pi}{2}\right)}$, $k \in \{0,1,2,3\}$,
+      c'est-\`a-dire $\sqrt{2}\expo{-i\frac{\pi}{12}}$, $\sqrt{2}\expo{i\frac{5\pi}{12}}$, $\sqrt{2}\expo{i\frac{11\pi}{12}}$, $\sqrt{2}\expo{i\frac{17\pi}{12}}$.
+      Avec $\cos\frac{\pi}{12} = \frac{\sqrt{6}+\sqrt{2}}{4}$ et $\sin\frac{\pi}{12} = \frac{\sqrt{6}-\sqrt{2}}{4}$ :
+      $\sqrt{2}\expo{-i\frac{\pi}{12}} = \frac{\sqrt{3}+1}{2} - \frac{\sqrt{3}-1}{2}i$, et les autres s'en d\'eduisent en multipliant par $i$, $-1$, $-i$.
+\end{enumerate}
+
+\paragraph{Exercice 20.}
+Pour $\alpha$ r\'eel, $P(\alpha) = 0$ \'equivaut \`a : partie r\'eelle et partie imaginaire de $P(\alpha)$ nulles.
+\begin{enumerate}
+\item $P(\alpha) = (2\alpha^3 - 5\alpha^2 + 1) + i(-6\alpha^2 + 9\alpha - 3)$ et $-6\alpha^2 + 9\alpha - 3 = -3(2\alpha - 1)(\alpha - 1)$.
+      Seul $\alpha = \frac{1}{2}$ annule aussi la partie r\'eelle ($2\cdot\frac{1}{8} - \frac{5}{4} + 1 = 0$, alors que $2 - 5 + 1 \neq 0$) : $\boxed{\alpha = \frac{1}{2}}$.
+\item $P(z) = \left(z - \frac{1}{2}\right)\left(2z^2 - (4+6i)z - 2 + 6i\right)$ (identification ou division).
+      Pour $z^2 - (2+3i)z - 1 + 3i = 0$ : $\Delta = (2+3i)^2 + 4 - 12i = -1 = i^2$, d'o\`u $z = \frac{2 + 3i \pm i}{2}$.
+      $S = \left\{\frac{1}{2} ; 1 + i ; 1 + 2i\right\}$.
+\end{enumerate}
+Pour $Q$ : la partie imaginaire de $Q(\alpha)$ est $-(\alpha - 3)(5\alpha - 4)$ et la partie r\'eelle $(\alpha - 3)(\alpha^2 - \alpha - 4)$ ; seule valeur commune : $\alpha = 3$.
+$Q(z) = (z - 3)\left(z^2 - (1+5i)z - 4 + 4i\right)$, $\Delta = (1+5i)^2 + 16 - 16i = -8 - 6i = (1 - 3i)^2$, d'o\`u les racines $\frac{1 + 5i \pm (1 - 3i)}{2}$ :
+$S_Q = \{3 ; 1 + i ; 4i\}$.
+
+Le dernier polyn\^ome est $\overline{Q(\bar{z})}$ (on a conjugu\'e tous les coefficients) : $z$ en est racine si et seulement si $\bar{z}$ est racine de $Q$.
+Ses racines sont donc les conjugu\'ees : $\{3 ; 1 - i ; -4i\}$.
+
+\paragraph{Exercice 21.}
+\begin{enumerate}
+\item $P(i\alpha) = (\alpha - 2)(3\alpha + 1) - i(\alpha - 2)(\alpha^2 - 3)$ (calcul direct en rempla\c{c}ant $z$ par $i\alpha$) : la seule valeur qui annule
+      les deux parties est $\boxed{\alpha = 2}$.
+\item $P(z) = (z - 2i)\left(z^2 - 3z + 3 - i\right)$ ; $\Delta = 9 - 12 + 4i = -3 + 4i = (1 + 2i)^2$ ; racines $\frac{3 \pm (1 + 2i)}{2}$.
+      $S = \{2i ; 2 + i ; 1 - i\}$.
+\end{enumerate}
+Pour $Q$ : $Q(i\alpha) = -12(2\alpha - 3) - i(2\alpha - 3)(\alpha^2 - 5)$, donc $\alpha = \frac{3}{2}$ ;
+$Q(z) = \left(z - \frac{3}{2}i\right)\left(2z^2 + 10 + 24i\right)$, donc $z^2 = -5 - 12i = (2 - 3i)^2$ et $S_Q = \left\{\frac{3}{2}i ; 2 - 3i ; -2 + 3i\right\}$.
+
+Pour $R$ : $R(i\alpha) = (\alpha - 5)(3\alpha - 2) - i\,\alpha(\alpha - 1)(3\alpha - 2)$, donc $\alpha = \frac{2}{3}$ ;
+$R(z) = \left(z - \frac{2}{3}i\right)\left(3z^2 - (3+3i)z + 15i\right)$, soit $z^2 - (1+i)z + 5i = 0$, $\Delta = 2i - 20i = -18i = (3 - 3i)^2$ :
+$S_R = \left\{\frac{2}{3}i ; 2 - i ; -1 + 2i\right\}$.
+
+\paragraph{Exercice 22.}
+\begin{enumerate}
+\item On remplace $z$ par $\alpha(1 - i)$ : la partie imaginaire de $P(\alpha - i\alpha)$ vaut $-2(\alpha - 2)(\alpha - 1)$ et sa partie r\'eelle
+      $-2(\alpha - 2)(2\alpha^2 + \alpha + 3)$, o\`u $2\alpha^2 + \alpha + 3$ n'a pas de racine r\'eelle : $\boxed{\alpha = 2}$, racine $2 - 2i$.
+\item $P(z) = (z - 2 + 2i)\left((1-i)z^2 + (1-i)z - 4 - 2i\right)$.
+      En divisant par $1 - i$ : $z^2 + z - (1 + 3i) = 0$, $\Delta = 1 + 4 + 12i = 5 + 12i = (3 + 2i)^2$, racines $\frac{-1 \pm (3 + 2i)}{2}$.
+      $S = \{2 - 2i ; 1 + i ; -2 - i\}$.
+\end{enumerate}
+Pour $Q$ : la partie imaginaire de $Q(\alpha - i\alpha)$ vaut $6(\alpha - 2)(\alpha - 1)$ et la partie r\'eelle $-2(\alpha - 2)(2\alpha^2 - \alpha - 11)$, qui ne s'annule pas en $1$ : $\alpha = 2$.
+$Q(z) = (z - 2 + 2i)\left((1-i)z^2 + (-3+i)z + 14 + 8i\right)$ ; en divisant par $1 - i$ : $z^2 - (2 + i)z + 3 + 11i = 0$,
+$\Delta = (2+i)^2 - 12 - 44i = -9 - 40i = (4 - 5i)^2$, racines $\frac{2 + i \pm (4 - 5i)}{2}$ :
+$S_Q = \{2 - 2i ; 3 - 2i ; -1 + 3i\}$.
+
+\paragraph{Exercice 23.}
+\begin{enumerate}
+\item Pour $x$ r\'eel, $P(x) = (x^4 - 3x^2 - 4) + i(-x^3 + 3x^2 + 4x - 12)$, avec
+      $x^4 - 3x^2 - 4 = (x^2 - 4)(x^2 + 1)$ et $-x^3 + 3x^2 + 4x - 12 = -(x - 3)(x^2 - 4)$.
+      Les deux parties s'annulent pour $x = 2$ et $x = -2$ : ce sont les racines r\'eelles de $P$.
+\item $P(z) = (z^2 - 4)\left(z^2 - iz + 1 + 3i\right)$ ; $\Delta = -1 - 4 - 12i = -5 - 12i = (2 - 3i)^2$, racines $\frac{i \pm (2 - 3i)}{2}$.
+      $S = \{2 ; -2 ; 1 - i ; -1 + 2i\}$.
+\end{enumerate}
+
+\paragraph{Exercice 24.}
+On utilise $a^2 + b^2 = (a + ib)(a - ib)$.
+\begin{enumerate}
+\item L'\'equation \'equivaut \`a $2z^2 - 3z + 2 = i(z^2 - 3z + 2)$ ou $2z^2 - 3z + 2 = -i(z^2 - 3z + 2)$, soit
+      $(2 - i)z^2 - 3(1 - i)z + 2 - 2i = 0$ ou $(2 + i)z^2 - 3(1 + i)z + 2 + 2i = 0$.
+      Pour la premi\`ere : $\Delta = 9(1-i)^2 - 4(2-i)(2-2i) = -18i - 8 + 24i = -8 + 6i = (1 + 3i)^2$, d'o\`u
+      $z = \frac{3 - 3i \pm (1 + 3i)}{2(2 - i)}$, soit $\frac{4}{2(2-i)} = \frac{4}{5} + \frac{2}{5}i$ et $\frac{2 - 6i}{2(2-i)} = 1 - i$.
+      La seconde \'equation a les coefficients conjugu\'es, donc les solutions conjugu\'ees.
+      $S = \left\{1 - i ; 1 + i ; \frac{4}{5} + \frac{2}{5}i ; \frac{4}{5} - \frac{2}{5}i\right\}$.
+\item L'\'equation \'equivaut \`a $z^2 + 4z + 1 + i(3z + 5) = 0$ ou $z^2 + 4z + 1 - i(3z + 5) = 0$.
+      Les solutions de la premi\`ere sont celles de 3 ; la seconde, \`a coefficients conjugu\'es, a les solutions conjugu\'ees.
+      $S = \{-1 - i ; -3 - 2i ; -1 + i ; -3 + 2i\}$.
+\item $z^2 + (4 + 3i)z + 1 + 5i = 0$ : $\Delta = (4 + 3i)^2 - 4 - 20i = 3 + 4i = (2 + i)^2$, d'o\`u $z = \frac{-4 - 3i \pm (2 + i)}{2}$ :
+      $S = \{-1 - i ; -3 - 2i\}$.
+\end{enumerate}
+
+\paragraph{Exercice 25.}
+\begin{enumerate}
+\item Avec $Z = z^2$ : $Z^2 - Z + 1 = 0$, $Z = \frac{1 \pm i\sqrt{3}}{2} = \expo{\pm i\frac{\pi}{3}}$.
+      Les racines carr\'ees sont $\pm\expo{i\frac{\pi}{6}}$ et $\pm\expo{-i\frac{\pi}{6}}$ :
+      $S = \left\{\frac{\sqrt{3}}{2} + \frac{1}{2}i ; -\frac{\sqrt{3}}{2} - \frac{1}{2}i ; \frac{\sqrt{3}}{2} - \frac{1}{2}i ; -\frac{\sqrt{3}}{2} + \frac{1}{2}i\right\}$.
+\item En groupant les racines conjugu\'ees : $\left(z - \expo{i\frac{\pi}{6}}\right)\left(z - \expo{-i\frac{\pi}{6}}\right) = z^2 - \sqrt{3}z + 1$ et
+      $\left(z + \expo{i\frac{\pi}{6}}\right)\left(z + \expo{-i\frac{\pi}{6}}\right) = z^2 + \sqrt{3}z + 1$.
+      Donc $P(z) = (z^2 - \sqrt{3}z + 1)(z^2 + \sqrt{3}z + 1)$, ce que l'on v\'erifie aussi par $(z^2 + 1)^2 - 3z^2 = z^4 - z^2 + 1$.
+\end{enumerate}
+
+\paragraph{Exercice 26.}
+Avec $Z = z^3$ : $Z^2 - (1 - i)Z - i = 0$, $\Delta = (1-i)^2 + 4i = 2i = (1 + i)^2$, donc $Z = \frac{1 - i \pm (1 + i)}{2}$, soit $Z = 1$ ou $Z = -i$.
+\begin{itemize}
+\item $z^3 = 1$ : $z \in \left\{1 ; -\frac{1}{2} + \frac{\sqrt{3}}{2}i ; -\frac{1}{2} - \frac{\sqrt{3}}{2}i\right\}$.
+\item $z^3 = -i = \expo{-i\frac{\pi}{2}}$ : $z = \expo{i\left(-\frac{\pi}{6} + \frac{2k\pi}{3}\right)}$, soit $z \in \left\{\frac{\sqrt{3}}{2} - \frac{1}{2}i ; i ; -\frac{\sqrt{3}}{2} - \frac{1}{2}i\right\}$.
+\end{itemize}
+Les six images sont sur le cercle unit\'e ; elles forment deux triangles \'equilat\'eraux inscrits dans ce cercle.
+
+\paragraph{Exercice 27.}
+\begin{enumerate}
+\item $x^5 = -1 = \expo{i\pi}$ : les solutions sont $\expo{i\frac{(2k+1)\pi}{5}}$, $0 \leq k \leq 4$ : toutes de module $1$, d'arguments
+      $\frac{\pi}{5}$, $\frac{3\pi}{5}$, $\pi$, $\frac{7\pi}{5}$, $\frac{9\pi}{5}$.
+\item $\frac{7\pi}{5} \equiv -\frac{3\pi}{5}$ et $\frac{9\pi}{5} \equiv -\frac{\pi}{5}$ : les racines autres que $-1$ sont deux \`a deux conjugu\'ees et
+      $\left(x - \expo{i\varphi}\right)\left(x - \expo{-i\varphi}\right) = x^2 - 2x\cos\varphi + 1$. Comme $x^5 + 1$ est unitaire de degr\'e $5$ et a ces cinq racines,
+      $x^5 + 1 = (x + 1)\left(x^2 - 2x\cos\frac{\pi}{5} + 1\right)\left(x^2 - 2x\cos\frac{3\pi}{5} + 1\right)$.
+\item On a aussi $x^5 + 1 = (x+1)(x^4 - x^3 + x^2 - x + 1)$. En d\'eveloppant le produit des deux trin\^omes et en identifiant, avec
+      $c_1 = \cos\frac{\pi}{5}$, $c_3 = \cos\frac{3\pi}{5}$ : $-2(c_1 + c_3) = -1$ et $2 + 4c_1c_3 = 1$, soit $c_1 + c_3 = \frac{1}{2}$ et $c_1c_3 = -\frac{1}{4}$.
+      $c_1$ et $c_3$ sont les racines de $X^2 - \frac{1}{2}X - \frac{1}{4} = 0$, soit $\frac{1 \pm \sqrt{5}}{4}$. Comme $c_1 > 0$ :
+      $\cos\frac{\pi}{5} = \boxed{\frac{1 + \sqrt{5}}{4}}$ et $\cos\frac{3\pi}{5} = \boxed{\frac{1 - \sqrt{5}}{4}}$.
+\end{enumerate}
+
+\paragraph{Exercice 28.}
+\begin{enumerate}
+\item $z_1 = \frac{1 + i}{2}$, $|z_1| = \frac{\sqrt{2}}{2} < 1$. Si $|z_n| < 1$, alors $|z_{n+1}| = \frac{|z_n + i|}{2} \leq \frac{|z_n| + 1}{2} < 1$.
+      Par r\'ecurrence, $|z_n| < 1$ pour tout $n \geq 1$.
+\item (a) $u_{n+1} = z_{n+1} - i = \frac{z_n + i}{2} - i = \frac{z_n - i}{2} = \frac{1}{2}u_n$.
+      (b) $(u_n)$ est g\'eom\'etrique de raison $\frac{1}{2}$ et $u_0 = 1 - i$, donc $u_n = \frac{1 - i}{2^n}$ et $z_n = \frac{1}{2^n} + i\left(1 - \frac{1}{2^n}\right)$.
+      Ainsi $x_n = \frac{1}{2^n}$ : suite g\'eom\'etrique de raison $\frac{1}{2}$, qui tend vers $0$ ; $y_n = 1 - \frac{1}{2^n} \to 1$ ;
+      $|z_n| = \sqrt{x_n^2 + y_n^2} \to \sqrt{0 + 1} = 1$.
+\item $|z_n - i| = |u_n| = \frac{\sqrt{2}}{2^n}$, suite d\'ecroissante. $\frac{\sqrt{2}}{2^n} < 10^{-5} \iff 2^n > \sqrt{2}\cdot 10^5 \approx 141\,421$.
+      Comme $2^{17} = 131\,072$ et $2^{18} = 262\,144$, on obtient $\boxed{n_0 = 18}$.
+\end{enumerate}
+
+\paragraph{Exercice 29.}
+\begin{enumerate}
+\item La suite $d_n = z_n - z_{n-1}$ ($n \geq 1$) v\'erifie $d_n = i\,d_{n-1}$ et $d_1 = i$ : elle est g\'eom\'etrique de raison $i$, donc $z_n - z_{n-1} = i^n$.
+\item $z_n = z_0 + \sum_{k=1}^{n} i^k = i\,\frac{1 - i^n}{1 - i} = \frac{i(1+i)}{2}(1 - i^n) = \frac{-1 + i}{2}(1 - i^n) = \frac{1 - i}{2}(i^n - 1)$.
+\item $i^{n+4} = i^n$, donc $z_{n+4} = z_n$ : la suite est p\'eriodique de p\'eriode $4$.
+\item $2017 = 4\times 504 + 1$, etc. : $z_{2017} = z_1 = i$, $z_{2018} = z_2 = -1 + i$, $z_{2019} = z_3 = -1$, $z_{2020} = z_0 = 0$.
+      Les points $M_{2017}$, $M_{2018}$, $M_{2019}$, $M_{2020}$ sont les sommets d'un carr\'e de c\^ot\'e $1$.
+\end{enumerate}
+
+\paragraph{Exercice 30.}
+Soit $q = \frac{\sqrt{2} + i\sqrt{6}}{4} = \frac{\sqrt{2}}{2}\left(\frac{1}{2} + \frac{\sqrt{3}}{2}i\right) = \frac{\sqrt{2}}{2}\expo{i\frac{\pi}{3}}$.
+\begin{enumerate}
+\item $z_n = 8q^n = 8\left(\frac{\sqrt{2}}{2}\right)^n\expo{i\frac{n\pi}{3}}$ :
+      $z_0 = 8$ ; $z_1 = 4\sqrt{2}\expo{i\frac{\pi}{3}} = 2\sqrt{2} + 2\sqrt{6}i$ ; $z_2 = 4\expo{i\frac{2\pi}{3}} = -2 + 2\sqrt{3}i$ ;
+      $z_3 = 2\sqrt{2}\expo{i\pi} = -2\sqrt{2}$ ; $z_4 = 2\expo{i\frac{4\pi}{3}} = -1 - \sqrt{3}i$ ; $z_5 = \sqrt{2}\expo{i\frac{5\pi}{3}} = \frac{\sqrt{2}}{2} - \frac{\sqrt{6}}{2}i$.
+\item $z_n = 8\left(\frac{\sqrt{2}}{2}\right)^n\expo{i\frac{n\pi}{3}}$ ; $|z_n| = 8\left(\frac{\sqrt{2}}{2}\right)^n$ : suite g\'eom\'etrique de raison $\frac{\sqrt{2}}{2}$.
+      Les arguments $\frac{n\pi}{3}$ forment une suite arithm\'etique de raison $\frac{\pi}{3}$.
+\item $|z_n| = 8\cdot 2^{-\frac{n}{2}} < 10^{-2} \iff 2^{\frac{n}{2}} > 800$. Or $2^{9{,}5} \approx 724$ et $2^{10} = 1024$ : le plus petit entier est $\boxed{n = 20}$.
+      $z_{20} = \frac{8}{2^{10}}\expo{i\frac{20\pi}{3}} = \frac{1}{128}\expo{i\frac{2\pi}{3}} = -\frac{1}{256} + \frac{\sqrt{3}}{256}i$.
+      Comme $|z_n| \to 0$, $z_n \to 0$ : les points $M_n$ se rapprochent de $O$ en tournant autour de lui (spirale).
+\item $OM_{n+1} = |z_{n+1}| = \frac{\sqrt{2}}{2}\,OM_n$ et $\left(\overrightarrow{OM_n},\overrightarrow{OM_{n+1}}\right) = \arg\frac{z_{n+1}}{z_n} = \arg q = \frac{\pi}{3}$.
+      $M_{n+1}$ est l'image de $M_n$ par la similitude de centre $O$, de rapport $\frac{\sqrt{2}}{2}$ et d'angle $\frac{\pi}{3}$ :
+      on trace la demi-droite issue de $O$ faisant l'angle $\frac{\pi}{3}$ avec $\overrightarrow{OM_n}$ et on y place le point \`a la distance $\frac{\sqrt{2}}{2}OM_n$ de $O$.
+\end{enumerate}
+
+\paragraph{Exercice 31.}
+\begin{enumerate}
+\item Figure : $A(0,-1)$, $B(3,0)$, $C(2,3)$, $D(-1,2)$.
+\item (a) $\left|\frac{z_C - z_A}{z_D - z_B}\right| = \frac{AC}{BD}$ et un argument de ce quotient mesure $\left(\overrightarrow{BD},\overrightarrow{AC}\right)$.
+      (b) $\frac{2 + 4i}{-4 + 2i} = \frac{(2+4i)(-4-2i)}{20} = \frac{-20i}{20} = -i$.
+      (c) Module $1$ : $AC = BD$ ; argument $-\frac{\pi}{2}$ : $(AC) \perp (BD)$. Les diagonales ont m\^eme longueur et sont perpendiculaires.
+\item (a) Le milieu de $[AC]$ a pour affixe $\frac{-i + 2 + 3i}{2} = 1 + i$ et celui de $[BD]$ a pour affixe $\frac{3 - 1 + 2i}{2} = 1 + i$ :
+      $ABCD$ est un parall\'elogramme dont les diagonales sont de m\^eme longueur et perpendiculaires : c'est un \textbf{carr\'e}.
+      (b) $AB = |3 + i| = \sqrt{10}$, donc $s_0 = 10$ unit\'es d'aire, soit $10 \times 4 = 40$~cm$^2$.
+\end{enumerate}
+
+\paragraph{Exercice 32.}
+\begin{enumerate}
+\item Pour $x$ r\'eel : $\mathfrak{Re}\,P(x) = (x - 6)(x - 3)(x + 3)$ et $\mathfrak{Im}\,P(x) = -9(x - 3)(x - 2)$ ; seule valeur commune : $z_0 = 3$.
+      $P(z) = (z - 3)\left(z^2 - (3 + 9i)z - 18 + 18i\right)$.
+\item $\Delta = (3 + 9i)^2 + 72 - 72i = -18i = (3 - 3i)^2$ ; racines $\frac{3 + 9i \pm (3 - 3i)}{2}$, soit $3 + 3i$ et $6i$.
+      $z_0 = 3$ (module $3$, argument $0$) ; $z_1 = 3 + 3i = 3\sqrt{2}\expo{i\frac{\pi}{4}}$ ; $z_2 = 6i = 6\expo{i\frac{\pi}{2}}$.
+\item $\frac{z_1}{z_0} = 1 + i$ et $\frac{z_2}{z_1} = \frac{6i}{3 + 3i} = \frac{2i}{1 + i} = 1 + i$ : ce sont les premiers termes de la suite g\'eom\'etrique de raison $1 + i$,
+      $z_n = 3(1 + i)^n = 3(\sqrt{2})^n\expo{i\frac{n\pi}{4}}$.
+\item $|z_n| = 3(\sqrt{2})^n$ : suite g\'eom\'etrique de raison $\sqrt{2}$ ; les arguments $\frac{n\pi}{4}$ forment une suite arithm\'etique de raison $\frac{\pi}{4}$.
+\item $z_n$ r\'eel $\iff \frac{n\pi}{4} \equiv 0\ [\pi] \iff n \equiv 0\ [4]$ ; r\'eel n\'egatif $\iff \frac{n\pi}{4} \equiv \pi\ [2\pi] \iff n \equiv 4\ [8]$ ;
+      imaginaire pur $\iff \frac{n\pi}{4} \equiv \frac{\pi}{2}\ [\pi] \iff n \equiv 2\ [4]$.
+\end{enumerate}
+
+\paragraph{Exercice 33.}
+\begin{enumerate}
+\item Pour $x$ r\'eel : $\mathfrak{Re}\,P(x) = (x + 2)(x^2 - 2x - 18)$, $\mathfrak{Im}\,P(x) = 3(x + 2)(3x - 2)$ : $z_1 = -2$.
+\item $Q(z) = z^2 + (-2 + 9i)z - 18 - 6i$.
+\item $Q(iy) = (-y^2 - 9y - 18) + i(-2y - 6)$ ; la partie imaginaire s'annule pour $y = -3$, et alors $-9 + 27 - 18 = 0$ : $z_2 = -3i$.
+\item La somme des racines de $Q$ vaut $2 - 9i$, donc $z_3 = 2 - 9i + 3i = 2 - 6i$. $S = \{-2 ; -3i ; 2 - 6i\}$.
+\item $\frac{z_3 - z_1}{z_2 - z_1} = \frac{4 - 6i}{2 - 3i} = 2$ est r\'eel : $\overrightarrow{AC} = 2\overrightarrow{AB}$, les points $A$, $B$, $C$ sont align\'es ($B$ milieu de $[AC]$).
+\end{enumerate}
+
+\paragraph{Exercice 34.}
+\begin{enumerate}
+\item Pour $x$ r\'eel : $\mathfrak{Re}\,P(x) = (2x + 1)(2x^2 - 3x + 4)$ et $\mathfrak{Im}\,P(x) = \frac{1}{2}(2x + 1)^2$ : $\alpha = -\frac{1}{2}$.
+\item $P(z) = \left(z + \frac{1}{2}\right)\left(4z^2 - (6 - 2i)z + 8 + i\right)$ ; $\Delta = (6 - 2i)^2 - 16(8 + i) = -96 - 40i = (2 - 10i)^2$,
+      racines $\frac{6 - 2i \pm (2 - 10i)}{8}$ : $z_1 = 1 - \frac{3}{2}i$ et $z_2 = \frac{1}{2} + i$.
+      $S = \left\{-\frac{1}{2} ; 1 - \frac{3}{2}i ; \frac{1}{2} + i\right\}$.
+\item Par soustraction : $\alpha - z_1 = a(z_2 - \alpha)$, soit $-\frac{3}{2} + \frac{3}{2}i = a(1 + i)$, donc $a = \frac{3}{2}\cdot\frac{-1 + i}{1 + i} = \frac{3}{2}i$ ;
+      puis $b = z_1 - a\alpha = 1 - \frac{3}{2}i + \frac{3}{4}i = 1 - \frac{3}{4}i$.
+\item $\omega = \frac{b}{1 - a} = \frac{4 - 3i}{4 - 6i} = \frac{(4 - 3i)(4 + 6i)}{52} = \frac{34 + 12i}{52} = \boxed{\frac{17}{26} + \frac{3}{13}i}$.
+      ($\Omega$ est le centre de la similitude $z \mapsto az + b$, de rapport $\frac{3}{2}$ et d'angle $\frac{\pi}{2}$, qui envoie $C$ sur $A$ et $A$ sur $B$.)
+\item Figure : $A\left(-\frac{1}{2}, 0\right)$, $B\left(1, -\frac{3}{2}\right)$, $C\left(\frac{1}{2}, 1\right)$, $\Omega \approx (0{,}65 ; 0{,}23)$.
+\end{enumerate}
+
+\paragraph{Exercice 35.}
+\begin{enumerate}
+\item $a = 0$, $b = 1$, $d = i$, $c = 1 + i$, $e = \frac{i}{2}$.
+      $\overrightarrow{EF}$ est l'image de $\overrightarrow{ED}$ (affixe $\frac{i}{2}$) par la rotation d'angle $\frac{\pi}{2}$ : affixe $i\cdot\frac{i}{2} = -\frac{1}{2}$.
+      Donc $f = -\frac{1}{2} + \frac{1}{2}i$ et $g = d + (f - e) = -\frac{1}{2} + i$.
+\item On cherche $s : z \mapsto \alpha z + \beta$ avec $\alpha d + \beta = f$ et $\alpha b + \beta = d$.
+      (a) $\alpha = \frac{f - d}{d - b} = \frac{-\frac{1}{2} - \frac{1}{2}i}{-1 + i} = \frac{i}{2}$ : rapport $k = |\alpha| = \frac{1}{2}$, angle $\theta = \frac{\pi}{2}$.
+      (b) $\beta = d - \alpha = \frac{i}{2}$ : $s : z' = \frac{i}{2}z + \frac{i}{2}$.
+      (c) $\omega = \frac{\beta}{1 - \alpha} = \frac{i/2}{1 - i/2} = \frac{i}{2 - i} = \boxed{-\frac{1}{5} + \frac{2}{5}i}$.
+\end{enumerate}
+
+\paragraph{Exercice 36.}
+\begin{enumerate}
+\setcounter{enumi}{1}
+\item $\frac{z_C - z_A}{z_B - z_A} = \frac{4 + 4i}{2 - 2i} = 2i$ : $AC = 2AB$ et $\left(\overrightarrow{AB},\overrightarrow{AC}\right) = \frac{\pi}{2}$ :
+      le triangle $ABC$ est rectangle en $A$ (et $AC = 2AB$).
+\item (a) $f : z \mapsto \alpha z + \beta$ avec $2i\alpha + \beta = -1 + i$ et $2\alpha + \beta = 2i$ ; par diff\'erence $\alpha(2i - 2) = -1 - i$,
+      d'o\`u $\alpha = \frac{i}{2}$ et $\beta = i$ : $f : z' = \frac{i}{2}z + i$.
+      (b) Angle $\frac{\pi}{2}$, rapport $\frac{1}{2}$, centre $\omega = \frac{i}{1 - i/2} = \frac{2i}{2 - i} = -\frac{2}{5} + \frac{4}{5}i$.
+      (c) $f(A) = D$, $f(B) = A$ et $f(C) = \frac{i}{2}(4 + 6i) + i = -3 + 3i = z_E$ : l'image du triangle $ABC$ est $DAE$.
+      (d) Une similitude conserve les angles et multiplie les longueurs par $\frac{1}{2}$ : $DAE$ est rectangle en $D$, avec $DE = 2DA$.
+\item (a) $f$ transforme la droite $(BC)$ en la droite $(AE)$ et le cercle $(\mathscr{C}_1)$ de diam\`etre $[AB]$ en le cercle de diam\`etre $[f(A)f(B)] = [DA]$, c'est-\`a-dire $(\mathscr{C}_2)$.
+      Les points communs \`a $(\mathscr{C}_1)$ et $(BC)$ sont $B$ et $M$ ; leurs images sont les points communs \`a $(\mathscr{C}_2)$ et $(AE)$, soit $f(B) = A$ et $f(M)$.
+      Donc $f(M) = N$. (Calcul : $M$ est le projet\'e orthogonal de $A$ sur $(BC)$, $z_M = \frac{12}{5} + \frac{6}{5}i$, et $z_N = f(z_M) = -\frac{3}{5} + \frac{11}{5}i$.)
+      (b) $\Omega N = \frac{1}{2}\Omega M$ et $\left(\overrightarrow{\Omega M},\overrightarrow{\Omega N}\right) = \frac{\pi}{2}$ : le triangle $\Omega MN$ est rectangle en $\Omega$, avec $\Omega N = \frac{1}{2}\Omega M$.
+\end{enumerate}
+
+\paragraph{Exercice 37.}
+\begin{enumerate}
+\item $P(\lambda + \lambda i) = -2\lambda(\lambda + 1)(2\lambda - 3) + 2i(\lambda + 1)(2\lambda^2 - 5\lambda + 5)$ ; $2\lambda^2 - 5\lambda + 5$ n'a pas de racine r\'eelle,
+      donc $\boxed{\lambda = -1}$ : $-1 - i$ est racine. (On obtient ensuite $P(z) = (z + 1 + i)\left(2z^2 - (5 + 3i)z + 5 + 5i\right)$, dont les autres racines sont
+      $1 + 2i$ et $\frac{3}{2} - \frac{1}{2}i$ : ce sont les affixes de $A$, $B$, $C$.)
+\item (a) $s : z' - z_A = \alpha(z - z_A)$ avec $\alpha = \frac{z_C - z_A}{z_B - z_A} = \frac{\frac{5}{2} + \frac{1}{2}i}{2 + 3i} = \frac{(5 + i)(2 - 3i)}{26} = \frac{1 - i}{2}$.
+      Donc $z' = \frac{1 - i}{2}(z + 1 + i) - 1 - i$, soit $\boxed{z' = \frac{1 - i}{2}z - i}$.
+      (b) Centre $A$, rapport $\left|\frac{1 - i}{2}\right| = \frac{\sqrt{2}}{2}$, angle $-\frac{\pi}{4}$.
+\item (a) $|Z| = \frac{MB}{MA}$ et $\Arg{Z}$ est une mesure de l'angle $\left(\overrightarrow{MA},\overrightarrow{MB}\right)$ ($M \neq A$, $M \neq B$).
+      (b) $|Z| = 1 \iff MA = MB$ : $(\mathscr{D})$ est la m\'ediatrice de $[AB]$.
+      (c) $s$ conserve les rapports de distances et $s(A) = A$, $s(B) = C$ : $M$ est \'equidistant de $A$ et $B$ si et seulement si $s(M)$ est \'equidistant de $A$ et $C$.
+      L'image de $(\mathscr{D})$ est la m\'ediatrice de $[AC]$.
+\end{enumerate}
+
+\paragraph{Exercice 38.}
+\begin{enumerate}
+\item $(2i)^2 = -4$, $(2i)^3 = -8i$, donc
+      $P(2i) = -8i - (4+4i)(-4) + (2+8i)(2i) - 12i = -8i + 16 + 16i + 4i - 16 - 12i = \boxed{0}$.
+\item En d\'eveloppant $(z - 2i)(az^2 + bz + c) = az^3 + (b - 2ia)z^2 + (c - 2ib)z - 2ic$ et en identifiant :
+      $a = 1$, $b - 2i = -4 - 4i$ donc $b = -4 - 2i$, $-2ic = -12i$ donc $c = 6$ (et l'on v\'erifie $c - 2ib = 6 + 8i - 4 = 2 + 8i$).
+\item $z^2 - (4 + 2i)z + 6 = 0$ : $\Delta = (4 + 2i)^2 - 24 = -12 + 16i = (2 + 4i)^2$, racines $\frac{4 + 2i \pm (2 + 4i)}{2}$, soit $3 + 3i$ et $1 - i$.
+      $S = \{2i ; 1 - i ; 3 + 3i\}$.
+\item $\frac{z_C - z_A}{z_B - z_A} = \frac{3 + i}{1 - 3i} = \frac{(3 + i)(1 + 3i)}{10} = \frac{10i}{10} = i$.
+      Donc $AC = AB$ et $\left(\overrightarrow{AB},\overrightarrow{AC}\right) = \frac{\pi}{2}$ : le triangle $ABC$ est \textbf{rectangle isoc\`ele en $A$}.
+\end{enumerate}
+
+\paragraph{Exercice 39.}
+\begin{enumerate}
+\item Pour $x$ r\'eel, $P(x) = (x^3 - 2x^2 - 11x + 120) + i(-x^2 + 2x + 35)$.
+      $-x^2 + 2x + 35 = -(x - 7)(x + 5)$ s'annule pour $x = 7$ et $x = -5$.
+      Or $7^3 - 2\cdot 49 - 77 + 120 = 288 \neq 0$ et $(-5)^3 - 2\cdot 25 + 55 + 120 = 0$.
+      L'unique solution r\'eelle est $\boxed{z_0 = -5}$.
+\item $(z + 5)(z^2 + az + b) = z^3 + (a + 5)z^2 + (b + 5a)z + 5b$ ; en identifiant : $a = -7 - i$, $b = \frac{120 + 35i}{5} = 24 + 7i$
+      (et $b + 5a = 24 + 7i - 35 - 5i = -11 + 2i$ convient).
+\item $z^2 - (7 + i)z + 24 + 7i = 0$ : $\Delta = (7 + i)^2 - 96 - 28i = -48 - 14i$. On cherche $\delta = x + iy$ :
+      $x^2 + y^2 = \sqrt{48^2 + 14^2} = 50$, $x^2 - y^2 = -48$, $xy = -7$ ; d'o\`u $\delta = 1 - 7i$.
+      Racines $\frac{7 + i \pm (1 - 7i)}{2}$ : $4 - 3i$ et $3 + 4i$. $S = \{-5 ; 4 - 3i ; 3 + 4i\}$.
+\item $|-5| = |4 - 3i| = |3 + 4i| = 5$ : les trois images sont sur le cercle de centre $O$ et de rayon $5$.
+      Avec $B(3 + 4i)$ et $C(4 - 3i)$ : $\frac{z_C}{z_B} = \frac{(4 - 3i)(3 - 4i)}{25} = \frac{-25i}{25} = -i$,
+      donc $OB = OC$ et $\left(\overrightarrow{OB},\overrightarrow{OC}\right) = -\frac{\pi}{2}$ : $OBC$ est rectangle isoc\`ele en $O$.
+\end{enumerate}
+
+\paragraph{Exercice 40.}
+\begin{enumerate}
+\item $(2+i)^2 = 3 + 4i$, $(2+i)^3 = 2 + 11i$, donc $P(2+i) = 2 + 11i - 3 - 4i + 10 + 5i - 9 - 12i = 0$.
+\item En identifiant $(z - 2 - i)(z^2 + az + b) = z^3 + (a - 2 - i)z^2 + (b - (2+i)a)z - (2+i)b$ :
+      $a = 1 + i$ et $b = \frac{9 + 12i}{2 + i} = \frac{(9 + 12i)(2 - i)}{5} = 6 + 3i$ (on v\'erifie $b - (2+i)(1+i) = 6 + 3i - 1 - 3i = 5$).
+\item $z^2 + (1+i)z + 6 + 3i = 0$ : $\Delta = 2i - 24 - 12i = -24 - 10i = (1 - 5i)^2$, racines $\frac{-1 - i \pm (1 - 5i)}{2}$ : $-3i$ et $-1 + 2i$.
+      $S = \{2 + i ; -1 + 2i ; -3i\}$, avec $z_B = -1 + 2i$ et $z_C = -3i$.
+\item $i z_A = 2i + i^2 = -1 + 2i = z_B$ : $B$ est l'image de $A$ par la rotation de centre $O$ et d'angle $\frac{\pi}{2}$ ($OA = OB$ et $(OA) \perp (OB)$).
+\item $ABCD$ parall\'elogramme $\iff \overrightarrow{AB} = \overrightarrow{DC} \iff z_D = z_A + z_C - z_B = 2 + i - 3i + 1 - 2i = \boxed{3 - 4i}$.
+      Son centre est le milieu de $[AC]$ : $\frac{2 + i - 3i}{2} = \boxed{1 - i}$.
+\end{enumerate}
+
+\paragraph{Exercice 41.}
+\begin{enumerate}
+\item $z^2 - 2z + 5 = 0$ : $\Delta = -16 = (4i)^2$, $S' = \{1 - 2i ; 1 + 2i\}$.
+\item $(z^2 - 2z + 5)(z^2 + az + b) = z^4 + (a - 2)z^3 + (b - 2a + 5)z^2 + (5a - 2b)z + 5b$.
+      En identifiant : $a - 2 = -2 - 3i$, donc $a = -3i$ ; $5b = -10$, donc $b = -2$ ;
+      on v\'erifie $b - 2a + 5 = 3 + 6i$ et $5a - 2b = 4 - 15i$.
+\item $(E) \iff z^2 - 2z + 5 = 0$ ou $z^2 - 3iz - 2 = 0$. Pour la seconde, $\Delta = -9 + 8 = -1 = i^2$, racines $\frac{3i \pm i}{2}$ : $2i$ et $i$.
+      $S = \{1 - 2i ; 1 + 2i ; i ; 2i\}$.
+\item La somme vaut $2 + 3i$, oppos\'e du coefficient $-(2 + 3i)$ de $z^3$ (comme pour le second degr\'e, o\`u la somme des racines vaut $-\frac{b}{a}$).
+\end{enumerate}
+
+\paragraph{Exercice 42.}
+\begin{enumerate}
+\item $(E') : Z^2 + (2 - 16i)Z - 63 + 16i = 0$. $\Delta = (2 - 16i)^2 + 4(63 - 16i) = 4 - 64i - 256 + 252 - 64i = -128i$,
+      et $(8 - 8i)^2 = 64 - 128i - 64 = -128i$. Donc $Z = \frac{-2 + 16i \pm (8 - 8i)}{2}$ : $Z_1 = 3 + 4i$ et $Z_2 = -5 + 12i$.
+\item $\delta = x + iy$ avec $\delta^2 = 3 + 4i$ : $x^2 + y^2 = 5$, $x^2 - y^2 = 3$, $xy = 2$ : $\delta = \pm(2 + i)$.
+      $\delta^2 = -5 + 12i$ : $x^2 + y^2 = 13$, $x^2 - y^2 = -5$, $xy = 6$ : $\delta = \pm(2 + 3i)$.
+\item $S = \{2 + i ; -2 - i ; 2 + 3i ; -2 - 3i\}$.
+\item Les solutions sont deux \`a deux oppos\'ees : les segments joignant $2 + i$ \`a $-2 - i$ et $2 + 3i$ \`a $-2 - 3i$ ont le m\^eme milieu $O$.
+      Le quadrilat\`ere de sommets successifs $2 + i$, $2 + 3i$, $-2 - i$, $-2 - 3i$ a ses diagonales de m\^eme milieu : c'est un parall\'elogramme de centre $O$.
+\end{enumerate}
+
+\paragraph{Exercice 43.}
+\begin{enumerate}
+\item $f$ est d\'efinie sur $\mathbb{C} \setminus \{1\}$.
+\item (a) $a = f(2) = \frac{2 - 2i}{-1} = -2 + 2i = 2\sqrt{2}\left(\cos\frac{3\pi}{4} + i\sin\frac{3\pi}{4}\right)$.
+      (b) $a^k = (2\sqrt{2})^k\expo{i\frac{3k\pi}{4}}$ est r\'eel $\iff \frac{3k\pi}{4} \equiv 0\ [\pi] \iff 4 \mid 3k \iff 4 \mid k$ :
+      $a^k$ est r\'eel pour $k$ multiple de $4$.
+\item (a) $z'(1 - z) = 2 - iz \iff z(i - z') = 2 - z'$. Comme $z' = i$ conduirait \`a $0 = 2 - i$, on a $z' \neq i$ et $z = \frac{z' - 2}{z' - i}$.
+      (b) $OM = |z| = \frac{|z' - 2|}{|z' - i|} = \frac{M'A}{M'B}$ avec $A(2)$ et $B(i)$.
+      (c) Si $|z| = 1$ alors $M'A = M'B$ : $M'$ appartient \`a la m\'ediatrice $(\mathscr{D})$ du segment $[AB]$.
+      (d) $(\mathscr{C})$ est le cercle de centre $O$ et de rayon $1$ priv\'e du point d'affixe $1$ ; $(\mathscr{D})$ est la m\'ediatrice de $[AB]$,
+      passant par le milieu $\left(1, \frac{1}{2}\right)$ et perpendiculaire \`a $(AB)$ (droite d'\'equation $y = 2x - \frac{3}{2}$).
+\item (a) $\frac{\sqrt{3} + i}{2} = \expo{i\frac{\pi}{6}}$ est de module $1$ et diff\'erent de $1$ : $S$ est une rotation d'angle $\frac{\pi}{6}$.
+      (b) $z = \expo{i\frac{\pi}{6}}z + 1 + 4i \iff z = \frac{1 + 4i}{1 - \expo{i\frac{\pi}{6}}}$ : un seul point invariant $\Omega$.
+      Avec $1 - \expo{i\frac{\pi}{6}} = \frac{2 - \sqrt{3}}{2} - \frac{1}{2}i$, le calcul donne
+      $\omega = -\frac{7}{2} - 2\sqrt{3} + i\left(3 + \frac{\sqrt{3}}{2}\right)$.
+      (c) $S$ est la rotation de centre $\Omega$ et d'angle $\frac{\pi}{6}$.
+\end{enumerate}
+
 \end{corrige}
 

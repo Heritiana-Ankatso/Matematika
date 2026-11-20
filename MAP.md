@@ -26,7 +26,7 @@ really need them.
 
 | I want to change... | Open (and nothing else first) | Then |
 |---|---|---|
-| a colour, font, spacing, radius or theme | `site/styles/explorer.css` (tokens at the top, both themes) | `docs/DESIGN_V7.md` only for a design decision |
+| a colour, font, spacing, radius or theme | `site/styles/tokens.css` (tokens, both themes) | `docs/DESIGN_V7.md` only for a design decision |
 | the look of one page or component | `site/styles/pages.css` (search the page class, see section 3) | standalone mathematicians: `site/styles/timeline-standalone.css` and `site/resources/history/mathematicians-timeline.html` |
 | shared class memory or grouped optional classroom controls | `site/js/navigation-state.js`, `site/js/page-ergonomics.js`, `site/styles/ergonomics.css` | |
 | the top navigation (Apprendre, Explorer and Lire, with page tabs), footer, theme or language buttons | `site/js/app.js` `SECTIONS`, `TAB_OF`, `header()` / `footer()` | |
@@ -49,7 +49,8 @@ really need them.
 | course catalogue entries, titles, chapters, language of a course | `content/data/manifest.json` | `make site` |
 | internal prerequisite/order/scope diagnostics | `docs/PREREQUISITES.md`, `content/data/prerequisites.json`, `scripts/prerequisite-model.mjs`, `scripts/check-prerequisites.mjs` | `npm run check:prerequisites` (advisory) |
 | a course PDF (text, exercise, figure) | the `.fr.tex` unit under `content/tex/courses/<course>/` (+ `.en.json` table) | `content/CLAUDE.md`, `make tex COURSE=<course>` |
-| the look of every PDF (frame, boxes, colours, notation) | `content/tex/core/` (`mx-layout.sty`, `mx-env.sty`, `mx-notation.sty`) | `docs/TEX_STYLE_GUIDE.md`; rebuilds everything |
+| the look of every PDF and lecture (colours, fonts, frame, headings, boxes, title slide) | `content/tex/core/mx-brand.sty` (the only brand file); structure in `content/tex/core/mx-layout.sty`, `content/tex/core/mx-env.sty`, `content/tex/core/beamer/beamerthememx.sty`; fonts `content/tex/core/fonts/fonts.json`, then `python3 scripts/tex-fonts.py` | `docs/TEX_STYLE_GUIDE.md`; `make site` rebuilds everything |
+| the share image (link previews) | `scripts/share-image.py` (draws `site/share.png`), Open Graph tags in `site/index.html` | upload it as the GitHub social preview by hand |
 | a chapter page (`#chapter/<id>`) layout or tabs | `site/js/chapter-sequence.js`, `sequence-model.js`, `resource-library.js` | |
 | companion lesson text or diagrams on chapter pages | `site/js/learning-content.js`, `visual-lessons.js` | |
 | classroom slide content | `content/slides/<deck>.json` or the TeX source (see `docs/SLIDES.md` table) | `make slides` |
@@ -67,7 +68,7 @@ really need them.
 | the quadratic workshop (`#workshop/quadratic`) | `site/js/quadratic-workshop.js` | |
 | cache busting, versioned URLs | `site/js/data-loader.js` (`assetHref`), `build/mxbuild/site.py` | |
 | canvas zoom, pan, drag, keyboard | `site/js/canvas-navigation.js` (lab handles: `site/js/lab/engine.js`) | one camera policy for the site and the player |
-| a 3D view (rotation, projection, constrained points) | `site/js/camera3d.js` (the one 3D camera), `site/js/lab/templates/space.js` (laboratory), `site/slides/widgets-3d.js` (slides) | `docs/LAB_DESIGN.md` section 12 |
+| a 3D view (rotation, projection, constrained points) | `site/js/camera3d.js` (the one 3D camera; the WebGL2 perspective exhibits of the gallery use `site/js/gallery/gl3d.js`), `site/js/lab/templates/space.js` (laboratory), `site/slides/widgets-3d.js` (slides) | `docs/LAB_DESIGN.md` section 12 |
 | how selectors collapse to labels | `site/js/control-policy.js` | |
 | which language a page uses | `site/js/content-language.js` | |
 | the build or a check | `build/mxbuild/CLAUDE.md` | |
@@ -79,6 +80,8 @@ really need them.
 | the unpublished Monte Carlo exploration lab | `HANDOFF.md` task queue, then `docs/future-work/monte-carlo-lab.html` | Prototype, now integrated as the `monte-carlo-*` laboratory experiments (`site/js/lab/experiments/monte-carlo.js`); kept as reference. |
 | the unpublished set theory interactive atlas | `HANDOFF.md` task queue, then `docs/future-work/set-theory-interactive-atlas.html` | Prototype, now integrated as the foundations lesson `#basics/sets` (`site/resources/basics/sets*.html`); kept as reference. |
 | the unpublished London Eye trigonometry exercise | `HANDOFF.md` task queue, then `docs/future-work/london-eye-interactive-exercise.html` | Prototype, now integrated as the experiment `ferris-wheel` (International pathway); kept as reference. |
+| the native Malagasy T10 course, chapter 1 Logique (unpublished: not in `manifest.json`, nothing in `dist/`) | `content/tex/courses/mada-t10/c01.fr.tex` and `content/tex/courses/mada-t10/corriges/c01.fr.tex` (French only), `scripts/build-mada-t10.py`, `content/malagasy/chapters.json` (programme mapping), `content/slides/mada-t10-01.json`, experiment `site/js/lab/experiments/logic-truth.js` (+ `site/js/lab/models/logic-truth.js`, `site/js/lab/templates/logic.js`) | `scripts/check-mada-t10-logic.py`, `tests/logic-truth.test.mjs`, `tests/mada-t10-01.test.mjs`; plan `docs/future-work/malagasy-t10-ch01-adaptation-plan.md` section 6 |
+| the native Malagasy T11 S course, chapter 1 Généralités sur les fonctions numériques (unpublished: not in `manifest.json` for this version, nothing in `dist/`; the owner's imported `t11s-01` stays published) | `content/tex/courses/mada-t11s/c01.fr.tex` and `content/tex/courses/mada-t11s/corriges/c01.fr.tex` (French only), `scripts/build-mada-t11s.py`, `content/malagasy/chapters.json` (programme mapping), `content/slides/mada-t11-s-01.json`, experiment `site/js/lab/experiments/function-symmetry.js` (+ `site/js/lab/models/function-symmetry.js`) | `scripts/check-mada-t11s-functions.py`, `tests/function-symmetry.test.mjs`, `tests/mada-t11-s-01.test.mjs`; no Beamer edition (lectures are cut from published decks) |
 
 
 ## 3. Site map (hash routes)
@@ -145,8 +148,8 @@ Root files: `CLAUDE.md` (entry), `AGENTS.md` (other agents), `HANDOFF.md` (state
 
 | Fact | Lives in | Fans out to |
 |---|---|---|
-| colours and fonts of the site | CSS custom properties in `site/styles/explorer.css` | every page; JS canvases read them through `object-kit.js` `palette()`; challenge cards use `--c1..--c8` via `site/js/challenges/common/kit.js` `colour()` |
-| colours of the PDFs | `content/tex/core/mx-layout.sty` | every PDF on rebuild |
+| colours and fonts of the site | CSS custom properties in `site/styles/tokens.css` | every page (through `explorer.css`), the foundation lessons (`resources/basics/basics-theme.css`); the slide player keeps a copy in `site/slides/player.css`; studied object in figures: `--object-ink`, `--object`; JS canvases read them through `object-kit.js` `palette()`; challenge cards use `--c1..--c8` via `site/js/challenges/common/kit.js` `colour()` |
+| colours, fonts and look of the PDFs and lectures | `content/tex/core/mx-brand.sty` | every PDF and lecture on rebuild |
 | courses, chapters, titles, languages | `content/data/manifest.json` | `catalogue-data.js`, catalogue, slides index, chapter pages |
 | everything about one challenge | `site/js/challenges/<id>/` | card, statement, checker, original, emblem, hints, activity, solution |
 | maths notation FR/EN | `content/tex/core/mx-notation.sty` + `build/mxbuild/notation.py` | PDFs and web |

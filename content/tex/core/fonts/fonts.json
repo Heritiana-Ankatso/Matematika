@@ -1,0 +1,75 @@
+{
+  "about": "Faces the TeX core loads, made from site/fonts by scripts/tex-fonts.py (brand: Pavage). STIX Two and Latin Modern Mono are shipped as they are.",
+  "faces": {
+    "AtkinsonHyperlegible-Regular.ttf": {
+      "family": "Atkinson Hyperlegible",
+      "style": "Regular",
+      "sources": [
+        "atkinson-hyperlegible-latin-400-normal.woff2",
+        "atkinson-hyperlegible-latin-ext-400-normal.woff2"
+      ],
+      "fallback": "STIXTwoText-Regular.otf"
+    },
+    "AtkinsonHyperlegible-Bold.ttf": {
+      "family": "Atkinson Hyperlegible Bold",
+      "style": "Regular",
+      "sources": [
+        "atkinson-hyperlegible-latin-700-normal.woff2",
+        "atkinson-hyperlegible-latin-ext-700-normal.woff2"
+      ],
+      "fallback": "STIXTwoText-Bold.otf"
+    },
+    "Archivo-Regular.ttf": {
+      "family": "Archivo",
+      "style": "Regular",
+      "axes": {
+        "wght": 400,
+        "wdth": 100
+      },
+      "sources": [
+        "archivo-latin-wdth-normal.woff2",
+        "archivo-latin-ext-wdth-normal.woff2"
+      ],
+      "fallback": "STIXTwoText-Regular.otf"
+    },
+    "Archivo-Bold.ttf": {
+      "family": "Archivo Bold",
+      "style": "Regular",
+      "axes": {
+        "wght": 700,
+        "wdth": 100
+      },
+      "sources": [
+        "archivo-latin-wdth-normal.woff2",
+        "archivo-latin-ext-wdth-normal.woff2"
+      ],
+      "fallback": "STIXTwoText-Bold.otf"
+    },
+    "ArchivoSemiExpanded-ExtraBold.ttf": {
+      "family": "Archivo SemiExpanded ExtraBold",
+      "style": "Regular",
+      "axes": {
+        "wght": 800,
+        "wdth": 112
+      },
+      "sources": [
+        "archivo-latin-wdth-normal.woff2",
+        "archivo-latin-ext-wdth-normal.woff2"
+      ],
+      "fallback": "STIXTwoText-Bold.otf"
+    },
+    "ArchivoExpanded-ExtraBold.ttf": {
+      "family": "Archivo Expanded ExtraBold",
+      "style": "Regular",
+      "axes": {
+        "wght": 800,
+        "wdth": 125
+      },
+      "sources": [
+        "archivo-latin-wdth-normal.woff2",
+        "archivo-latin-ext-wdth-normal.woff2"
+      ],
+      "fallback": "STIXTwoText-Bold.otf"
+    }
+  }
+}

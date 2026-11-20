@@ -8,7 +8,7 @@ import { classroom, noteOpen } from './classroom-context.js';
 // deck counts only); the decks of the chosen level fill the panel, in the HTML (explore) or PDF (lecture) edition.
 const P = (fr, en) => [fr, en];
 const E = x => String(x).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-const SHORT = { seconde: P('Seconde', 'Seconde'), premiere: P('Première spécialité', 'Première'), terminale: P('Terminale spécialité', 'Terminale'), expertes: P('Maths expertes', 'Further maths'), stmg: P('Terminale STMG', 'Terminale STMG'), t10: P('T10', 'T10'), t11s: P('T11 série S', 'T11 S') };
+const SHORT = { seconde: P('Seconde', 'Seconde'), premiere: P('Première spécialité', 'Première'), terminale: P('Terminale spécialité', 'Terminale'), expertes: P('Maths expertes', 'Further maths'), stmg: P('Terminale STMG', 'Terminale STMG'), t10: P('T10', 'T10'), t11s: P('T11 série S', 'T11 S'), t12c: P('T12 série C', 'T12 C'), t12d: P('T12 série D', 'T12 D') };
 const slideCourses = () => courses.filter(c => c.curriculum === 'fr' || c.curriculum === 'mg');
 const chosen = () => {
   const id = location.hash.split('/')[1];

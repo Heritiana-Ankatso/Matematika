@@ -1,0 +1,232 @@
+% Baccalauréat malgache, série D, 2018 : corrigé.
+\TCDBacAttribution{D}{2018}
+\providecommand{\Courbe}{(\mathscr{C})}
+\providecommand{\CourbeP}{(\mathscr{C}')}
+\providecommand{\Droite}{(\Delta)}
+\providecommand{\cm}{~\mathrm{cm}}
+\providecommand{\dx}{~\mathrm{d}x}
+\providecommand{\Angl}[2]{\left( \widehat{ \overrightarrow{#1} , \overrightarrow{#2} } \right)}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\noindent \underline{\textsc{\textbf{Exercice I}}} (5 points)
+	\begin{enumerate}
+		\item \begin{enumerate}
+			\item \vln{Détermination de $z_0$ :}
+				\[
+					(z - z_0)(z^2 - 4iz - 4 - 2i) = z^3 + (-4i - z_0)z^2 + (-4 - 2i + 4iz_0)z + (4 + 2i)z_0.
+				\]
+				Par identification du coefficient de $z^2$ : $-4i - z_0 = 1 - 9i$, d'où $z_0 = -1 + 5i$.
+				Vérifications : $-4 - 2i + 4i(-1+5i) = -4 - 2i - 4i - 20 = -24 - 6i$ \checkmark{} ;
+				$(4+2i)(-1+5i) = -4 + 20i - 2i - 10 = -14 + 18i$ \checkmark.
+
+				\ansbox{$z_0 = -1 + 5i$.}
+			\item \vln{Solutions de $P(z) = 0$ :}
+				$z^2 - 4iz - 4 - 2i = 0$ a pour discriminant $\Delta = (-4i)^2 - 4(-4-2i) = -16 + 16 + 8i = 8i = (2+2i)^2$
+				(car $(2+2i)^2 = 4 + 8i - 4$). D'où $z = \frac{4i + 2 + 2i}{2} = 1 + 3i$ et $z = \frac{4i - 2 - 2i}{2} = -1 + i$.
+
+				\ansbox{$S_{\mathbb{C}} = \{-1 + 5i\ ;\ 1 + 3i\ ;\ -1 + i\}$.}
+		\end{enumerate}
+		\item \begin{enumerate}
+			\item \vln{Placement :} $A(-1;5)$, $B(1;3)$, $C(-1;1)$ (figure ci-dessous).
+			\item \vln{Distances et angle :}
+				$AB = |z_B - z_A| = |2 - 2i| = 2\sqrt{2}$ et $BC = |z_C - z_B| = |-2 - 2i| = 2\sqrt{2}$.
+				\[
+					\frac{z_C - z_B}{z_A - z_B} = \frac{-2 - 2i}{-2 + 2i} = \frac{1 + i}{1 - i} = \frac{(1+i)^2}{2} = i,
+				\]
+				donc $\Angl{BA}{BC} = \arg i = \frac{\pi}{2}~[2\pi]$.
+
+				\ansbox{$AB = BC = 2\sqrt{2}$, $\Angl{BA}{BC} = \frac{\pi}{2}$ : $ABC$ est rectangle isocèle en $B$.}
+			\item \vln{Milieu $I$ :} $z_I = \frac{z_A + z_C}{2} = \frac{-2 + 6i}{2}$.
+
+				\ansbox{$z_I = -1 + 3i$.}
+			\item \vln{Ensemble $\Courbe$ :}
+				$|z + 1 - 3i| = |z - z_I| = IM$, donc $M \in \Courbe \iff IM = 2$.
+
+				\ansbox{$\Courbe$ est le cercle de centre $I(-1;3)$ et de rayon $2$.}
+
+				Comme $AC = |-4i| = 4$, c'est le cercle de diamètre $[AC]$ ; il passe par $B$ (angle droit en $B$) : c'est le cercle
+				circonscrit au triangle $ABC$.
+		\end{enumerate}
+		\item \begin{enumerate}
+			\item \vln{Expression complexe de $S$ :}
+				$S$ s'écrit $z' - z_A = k(z - z_A)$ avec
+				$k = \frac{z_B - z_A}{z_C - z_A} = \frac{2 - 2i}{-4i} = \frac{(2-2i)\,i}{4} = \frac{1 + i}{2}$.
+				Alors $z' = kz + z_A(1 - k)$ et $z_A(1-k) = (-1+5i)\frac{1 - i}{2} = \frac{-1 + i + 5i + 5}{2} = 2 + 3i$.
+
+				\ansbox{$S : z' = \frac{1+i}{2}\,z + 2 + 3i$.}
+
+				\vln{Éléments caractéristiques :}
+				$\frac{1+i}{2} = \frac{\sqrt{2}}{2}\left(\cos\frac{\pi}{4} + i\sin\frac{\pi}{4}\right)$.
+
+				\ansbox{$S$ : centre $A$, rapport $\frac{\sqrt{2}}{2}$, angle $\frac{\pi}{4}$.}
+			\item \vln{Image $\CourbeP$ de $\Courbe$ :}
+				l'image d'un cercle de centre $I$ et de rayon $2$ par une similitude de rapport $\frac{\sqrt{2}}{2}$ est le cercle
+				de centre $I' = S(I)$ et de rayon $2\times\frac{\sqrt{2}}{2} = \sqrt{2}$ ;
+				$z_{I'} = \frac{1+i}{2}(-1+3i) + 2 + 3i = \frac{-4 + 2i}{2} + 2 + 3i = 4i$.
+
+				\ansbox{$\CourbeP$ est le cercle de centre $I'(0;4)$ et de rayon $\sqrt{2}$.}
+
+				(Comme $S(A) = A$ et $S(C) = B$, c'est le cercle de diamètre $[AB]$ : $I'$ est le milieu de $[AB]$.)
+				\begin{center}
+				\begin{tikzpicture}[scale=.7,>=stealth]
+					\draw[very thin,gray!40] (-4,-0.5) grid (3,6);
+					\draw[->] (-4,0) -- (3.3,0) node[below] {$x$};
+					\draw[->] (0,-0.5) -- (0,6.3) node[left] {$y$};
+					\draw[loko1,thick] (-1,3) circle (2);
+					\draw[loko3,thick] (0,4) circle (1.414);
+					\draw[gray] (-1,5) -- (1,3) -- (-1,1) -- cycle;
+					\foreach \p/\n/\pos in {(-1,5)/A/above left,(1,3)/B/right,(-1,1)/C/below,(-1,3)/I/left,(0,4)/I'/right}
+						\fill \p circle (2.5pt) node[\pos] {$\n$};
+					\node[loko1] at (-3.4,4.6) {$\Courbe$};
+					\node[loko3] at (1.6,5.4) {$\CourbeP$};
+				\end{tikzpicture}
+				\end{center}
+		\end{enumerate}
+	\end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\noindent \underline{\textsc{\textbf{Exercice II}}} (5 points)
+	\begin{enumerate}
+		\item \vln{Calcul de $P_1$ :}
+			les conditions donnent $P_2 = \frac{1}{2}P_1$, $P_3 = 3P_2 = \frac{3}{2}P_1$ et $P_4 = 2P_1$.
+			Comme $P_1 + P_2 + P_3 + P_4 = 1$ : $P_1\left(1 + \frac{1}{2} + \frac{3}{2} + 2\right) = 5P_1 = 1$, donc $P_1 = \frac{1}{5}$.
+
+			\ansbox{$P_1 = \frac{1}{5}$, $P_2 = \frac{1}{10}$, $P_3 = \frac{3}{10}$, $P_4 = \frac{2}{5}$.}
+		\item Les deux lancers sont indépendants : $P\big((a;b)\big) = P_a\times P_b$.
+			\begin{enumerate}
+				\item \vln{Événement $A$ :} $4 = 1\times4 = 4\times1 = 2\times2$, donc
+					$P(A) = 2P_1P_4 + P_2^2 = 2\times\frac{1}{5}\times\frac{2}{5} + \frac{1}{100} = \frac{16}{100} + \frac{1}{100}$.
+
+					\ansbox{$P(A) = \frac{17}{100}$.}
+				\item \begin{itemize}
+					\item \vln{Loi de $X$ :} $X(\Omega) = \{0;1;2;3\}$.
+						\begin{align*}
+							P(X=0) &= P_1^2 + P_2^2 + P_3^2 + P_4^2 = \tfrac{4 + 1 + 9 + 16}{100} = \tfrac{3}{10}, \\
+							P(X=1) &= 2\left(P_1P_2 + P_2P_3 + P_3P_4\right) = 2\times\tfrac{2 + 3 + 12}{100} = \tfrac{17}{50}, \\
+							P(X=2) &= 2\left(P_1P_3 + P_2P_4\right) = 2\times\tfrac{6 + 4}{100} = \tfrac{1}{5}, \\
+							P(X=3) &= 2P_1P_4 = 2\times\tfrac{8}{100} = \tfrac{4}{25}.
+						\end{align*}
+						\[
+						\begin{array}{|c|c|c|c|c|}
+							\hline
+							k & 0 & 1 & 2 & 3 \\ \hline
+							P(X=k) & \frac{3}{10} & \frac{17}{50} & \frac{1}{5} & \frac{4}{25} \\[.5ex] \hline
+						\end{array}
+						\]
+						(Vérification : $\frac{30 + 34 + 20 + 16}{100} = 1$.)
+					\item \vln{Espérance :} $E(X) = 0\times\frac{3}{10} + 1\times\frac{17}{50} + 2\times\frac{1}{5} + 3\times\frac{4}{25} = \frac{17 + 20 + 24}{50}$.
+
+						\ansbox{$E(X) = \frac{61}{50}$.}
+				\end{itemize}
+			\end{enumerate}
+		\item $Y$ compte les succès (face 1 cachée, probabilité $\frac{1}{5}$) en $4$ épreuves indépendantes :
+			$Y$ suit la loi binomiale $\mathscr{B}\left(4;\frac{1}{5}\right)$.
+			\begin{enumerate}
+				\item \vln{Probabilité de $(Y \geq 1)$ :}
+					$P(Y \geq 1) = 1 - P(Y = 0) = 1 - \left(\frac{4}{5}\right)^4 = 1 - \frac{256}{625}$.
+
+					\ansbox{$P(Y \geq 1) = \frac{369}{625}$.}
+				\item \vln{Espérance et variance :} $E(Y) = np = 4\times\frac{1}{5}$ et $V(Y) = np(1-p) = 4\times\frac{1}{5}\times\frac{4}{5}$.
+
+					\ansbox{$E(Y) = \frac{4}{5}$ et $V(Y) = \frac{16}{25}$.}
+			\end{enumerate}
+	\end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\noindent \underline{\textsc{\textbf{Probleme}}} (10 points)
+	\begin{enumerate}
+		\item \begin{enumerate}
+			\item \vln{Sens de variation de $g$ :}
+				$g'(x) = 2x + \frac{1}{x} > 0$ sur $]0;+\infty[$.
+
+				\ansbox{$g$ est strictement croissante sur $]0;+\infty[$.}
+
+				(De plus $\lim_{0^+} g = -\infty$ et $\lim_{+\infty} g = +\infty$.)
+			\item \vln{Solution unique $\alpha$ :}
+				$g$ est continue et strictement croissante sur $]0;+\infty[$, de limites $-\infty$ et $+\infty$ : elle réalise une bijection
+				de $]0;+\infty[$ sur $\mathbb{R}$, et l'équation $g(x) = 0$ a une solution unique $\alpha$.
+				Or $g(1{,}2) = 1{,}44 - 2 + \ln1{,}2 \simeq -0{,}38 < 0$ et $g(1{,}4) = 1{,}96 - 2 + \ln 1{,}4 \simeq 0{,}30 > 0$.
+
+				\ansbox{$\alpha \in\ ]1{,}2\ ;\ 1{,}4[$} (numériquement $\alpha \simeq 1{,}31$).
+			\item \vln{Signe de $g$ :}
+
+				\ansbox{$g(x) < 0$ sur $]0;\alpha[$, $g(\alpha) = 0$, $g(x) > 0$ sur $]\alpha;+\infty[$.}
+		\end{enumerate}
+		\item \begin{enumerate}
+			\item \vln{Limite en $0^+$ :}
+				$\ln x - 1 \to -\infty$ et $\frac{1}{x} \to +\infty$, donc $\frac{\ln x - 1}{x} \to -\infty$, et $-x + 3 \to 3$.
+
+				\ansbox{$\lim_{x\to0^+} f(x) = -\infty$ :}
+
+				la droite d'équation $x = 0$ est asymptote verticale à $\Courbe$.
+			\item \vln{Limite en $+\infty$ :}
+				$\frac{\ln x - 1}{x} = \frac{\ln x}{x} - \frac{1}{x} \to 0$ et $-x + 3 \to -\infty$.
+
+				\ansbox{$\lim_{x\to+\infty} f(x) = -\infty$.}
+			\item \vln{Asymptote oblique :}
+				$f(x) - (-x + 3) = \frac{\ln x - 1}{x} \to 0$ quand $x \to +\infty$.
+
+				\ansbox{$\Droite : y = -x + 3$ est asymptote oblique à $\Courbe$ en $+\infty$.}
+			\item \vln{Position :} $f(x) - (-x+3) = \frac{\ln x - 1}{x}$ a le signe de $\ln x - 1$, qui s'annule pour $x = \expo{}$.
+
+				\ansbox{$\Courbe$ est au-dessous de $\Droite$ sur $]0;\expo{}[$, au-dessus sur $]\expo{};+\infty[$ ;}
+
+				elles se coupent au point $\left(\expo{};3 - \expo{}\right)$.
+		\end{enumerate}
+		\item \begin{enumerate}
+			\item \vln{Dérivée :}
+				$\left(\frac{\ln x - 1}{x}\right)' = \frac{\frac{1}{x}\times x - (\ln x - 1)}{x^2} = \frac{2 - \ln x}{x^2}$, donc
+				\[
+					f'(x) = -1 + \frac{2 - \ln x}{x^2} = \frac{-x^2 + 2 - \ln x}{x^2} = \frac{-g(x)}{x^2}.
+				\]
+			\item \vln{Valeur de $f(\alpha)$ :}
+				$g(\alpha) = 0$ donne $\ln\alpha = 2 - \alpha^2$, donc
+				\[
+					f(\alpha) = -\alpha + 3 + \frac{1 - \alpha^2}{\alpha} = \frac{-\alpha^2 + 3\alpha + 1 - \alpha^2}{\alpha}.
+				\]
+
+				\ansbox{$f(\alpha) = \frac{-2\alpha^2 + 3\alpha + 1}{\alpha}$} ($\simeq 1{,}13$).
+			\item \vln{Tableau de variation :} $f'(x)$ a le signe de $-g(x)$.
+				\[
+				\begin{array}{c|ccccc}
+					x & 0 & & \alpha & & +\infty \\ \hline
+					f'(x) & \| & + & 0 & - & \\ \hline
+					f(x) & \| \; -\infty & \nearrow & f(\alpha) & \searrow & -\infty
+				\end{array}
+				\]
+		\end{enumerate}
+		\item \begin{enumerate}
+			\item \vln{Point $A$ :}
+				la tangente est parallèle à $\Droite$ si $f'(x) = -1$, soit $\frac{2 - \ln x}{x^2} = 0$, donc $x = \expo{2}$.
+				$f\left(\expo{2}\right) = -\expo{2} + 3 + \frac{2 - 1}{\expo{2}}$.
+
+				\ansbox{$A\left(\expo{2}\ ;\ 3 - \expo{2} + \frac{1}{\expo{2}}\right) \simeq (7{,}38\ ;\ -4{,}25)$}
+
+				et $(T) : y = -\left(x - \expo{2}\right) + 3 - \expo{2} + \frac{1}{\expo{2}}$, soit $(T) : y = -x + 3 + \frac{1}{\expo{2}}$.
+			\item \vln{Construction :}
+				\begin{center}
+				\begin{tikzpicture}[x=1cm,y=1cm,>=stealth]
+					\draw[very thin,gray!40] (0,-6) grid (9,4);
+					\draw[->] (-0.3,0) -- (9.3,0) node[below] {$x$};
+					\draw[->] (0,-6) -- (0,4.3) node[left] {$y$};
+					\draw (1,0) node[below] {\small $1$} (0,1) node[left] {\small $1$};
+					\clip (-0.3,-6) rectangle (9,4);
+					\draw[loko3,thick] plot[domain=0:9] (\x,{-\x+3});
+					\draw[gray,thick,dashed] plot[domain=0:9] (\x,{-\x+3+exp(-2)});
+					\draw[loko1,very thick,smooth,samples=150] plot[domain=0.28:9] (\x,{-\x+3+(ln(\x)-1)/\x});
+					\fill (7.389,-4.254) circle (2pt) node[below left] {$A$};
+					\fill (1.314,1.133) circle (2pt);
+					\draw[dotted] (1.314,0) node[below] {\small $\alpha$} -- (1.314,1.133);
+					\node[loko3] at (2.4,1.9) {$\Droite$};
+					\node[gray] at (6.2,-2.6) {$(T)$};
+					\node[loko1] at (0.9,-3.5) {$\Courbe$};
+				\end{tikzpicture}
+				\end{center}
+		\end{enumerate}
+		\item \vln{Aire :}
+			sur $[1;\expo{}]$, $\Droite$ est au-dessus de $\Courbe$ et $(-x + 3) - f(x) = \frac{1 - \ln x}{x}$.
+			Une primitive de $\frac{1}{x} - \frac{\ln x}{x}$ est $\ln x - \frac{(\ln x)^2}{2}$ (car $\left(\frac{(\ln x)^2}{2}\right)' = \frac{\ln x}{x}$). L'unité d'aire vaut $1\cm^2$ :
+			\[
+				\mathcal{A} = \left[\ln x - \frac{(\ln x)^2}{2}\right]_1^{\expo{}} = \left(1 - \frac{1}{2}\right) - 0.
+			\]
+
+			\ansbox{$\mathcal{A} = \frac{1}{2}\cm^2 = 0{,}5\cm^2$.}
+	\end{enumerate}

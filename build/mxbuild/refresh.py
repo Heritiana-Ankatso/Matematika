@@ -33,12 +33,13 @@ def inputs():
     result = {}
     for course, book in manifest['books'].items():
         result['course:' + course] = fingerprint(
-            [f'content/tex/courses/{course}/**/*', 'content/tex/core/*',
+            [f'content/tex/courses/{course}/**/*', 'content/tex/core/**/*',
              'content/data/glossary.json', COURSES.get(course, ['unsupported'])[0], 'build/mxbuild/tex.py',
              'build/mxbuild/twin.py', 'build/mxbuild/books.py'],
             {'book': book, 'chapters': [c for c in manifest['catalog']['chapters'] if c['course'] == course]})
+    result['t12'] = fingerprint(['content/tex/mada/t12/**/*', 'scripts/build-mada.py', 'build/mxbuild/t12.py'])   # T12 C/D book: compiled, cut, checked
     if 'annalsBank' in manifest:
-        result['annals'] = fingerprint(['content/tex/annals/**/*', 'content/tex/core/*', 'scripts/build-annals.py', 'scripts/annals-code.py', 'scripts/build-annals-pdf.py'], manifest['annalsBank'])
+        result['annals'] = fingerprint(['content/tex/annals/**/*', 'content/tex/core/**/*', 'scripts/build-annals.py', 'scripts/annals-code.py', 'scripts/build-annals-pdf.py'], manifest['annalsBank'])
     result['static-site'] = fingerprint(['site/**/*', 'content/data/edition.json'])
     result['fourier'] = fingerprint(['content/university/fourier/**/*','scripts/build-fourier.py'],[s for s in manifest['university']['sections'] if s['id']=='fourier'])
     result['algebre-1'] = fingerprint(['content/university/algebre-1/**/*', 'scripts/build-algebre1.py', 'site/styles/algebra1.css', 'site/js/algebra1-*.js'],
@@ -51,18 +52,19 @@ def inputs():
     result['module'] = fingerprint(['content/university/module-maths/**/*', 'scripts/build-module-maths.py'],
                                   [s for s in manifest['university']['sections'] if s['id'] == 'module-maths'])
     result['slides'] = fingerprint(
-        ['content/slides/**/*', 'content/tex/courses/**/*', 'content/tex/core/*', 'content/tex/mada/**/*',
+        ['content/slides/**/*', 'content/tex/courses/**/*', 'content/tex/core/**/*', 'content/tex/mada/**/*',
          'scripts/build-slides.py','build/mxbuild/slide_editions.py','build/mxbuild/mada.py'], {'chapters':manifest['catalog']['chapters'],'courses':manifest['catalog']['courses']})
     result['slide-exports']=fingerprint(['scripts/export-slides.py','site/js/live-curriculum.js','content/data/edition.json','build/mxbuild/refresh.py','build/mxbuild/slide_editions.py','site/slides/*','site/js/canvas-navigation.js','site/js/camera3d.js','site/js/lab/**/*','site/js/math.js','site/js/object-kit.js','site/js/fourier-model.js','site/js/gallery/gallery-math.js','site/js/inference-content.js','dist/slides/data/*.json','dist/slides/fig/*.svg'])
-    result['lectures']=fingerprint(['scripts/build-lecture-slides.py','build/mxbuild/slide_editions.py','dist/slides/data/*.json','dist/slides/fig/*.svg'])
-    result['sources'] = fingerprint(['content/tex/courses/**/*', 'content/tex/core/*',
+    result['lectures']=fingerprint(['scripts/build-lecture-slides.py','content/tex/core/**/*','build/mxbuild/slide_editions.py','dist/slides/data/*.json','dist/slides/fig/*.svg'])
+    result['sources'] = fingerprint(['content/tex/courses/**/*', 'content/tex/core/**/*',
                                      'scripts/publish-sources.py'],
                                     {'books': manifest['books'], 'courses': manifest['catalog']['courses']})
-    result['mada'] = fingerprint(['scripts/build-mada.py'], mada_records(manifest))
+    result['mada'] = fingerprint(['scripts/build-mada.py', 'build/mxbuild/t12.py'], mada_records(manifest))
     return result
 
 
-MADA = ('t10', 't11s')   # Malagasy courses: their PDFs are cut from the owner's Mada-Boky books by scripts/build-mada.py
+MADA = ('t10', 't11s', 't12c', 't12d')   # Malagasy courses: PDFs cut by scripts/build-mada.py (T10, T11 S from the Mada-Boky books; T12 from content/tex/mada/t12, --t12)
+MADA_SOURCES = ('t10', 't11s', 't12-')   # names of the compiled books in the manifest
 
 
 def mada_records(manifest):
@@ -70,7 +72,7 @@ def mada_records(manifest):
     cat, comp = manifest['catalog'], manifest['companion']
     return {'courses': [c for c in cat['courses'] if c['id'] in MADA], 'chapters': [c for c in cat['chapters'] if ours(c['id'])],
             'resources': [r for r in cat['resources'] if ours(r['chapter'])], 'companion': [c for c in comp['chapters'] + comp['supplements'] if ours(c['id'])],
-            'sources': [s for s in cat['sources'] + comp['sources'] if s['name'].startswith(MADA)]}
+            'sources': [s for s in cat['sources'] + comp['sources'] if s['name'].startswith(MADA_SOURCES)]}
 
 
 def changed_jobs(before, after):
@@ -118,13 +120,15 @@ def run_job(key):
         command(sys.executable,'scripts/'+script)
     elif key == 'sources':
         command(sys.executable, 'scripts/publish-sources.py')
+    elif key == 't12':
+        command(sys.executable, 'scripts/build-mada.py', '--t12')
     elif key == 'mada':
-        # The books live in another repository: here we only check that every file named by the records was cut.
+        # T10 and T11 S live in another repository, T12 compiles with pdfLaTeX (scripts/build-mada.py --t12): here we only check that every file named by the records was cut.
         rec = mada_records(catalog.load())
         paths = [e['path'] for r in rec['resources'] for e in r['editions'].values()] + [e['path'] for c in rec['companion'] for f in c['files'] for e in f['editions'].values()]
         missing = [p for p in paths if not (DIST / p.removeprefix('./')).is_file()]
         if missing:
-            raise RuntimeError('Malagasy PDFs missing; run scripts/build-mada.py --books <Mada-Boky>/Livres: ' + ', '.join(missing[:5]))
+            raise RuntimeError('Malagasy PDFs missing; run scripts/build-mada.py --books <Mada-Boky>/Livres (T10, T11 S) or --t12 (T12 C, D): ' + ', '.join(missing[:5]))
 
 
 def catalogue_core():

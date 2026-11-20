@@ -1,0 +1,245 @@
+% Baccalauréat malgache, série D, 2013 : corrigé.
+\TCDBacAttribution{D}{2013}
+\providecommand{\Courbe}{(\mathscr{C})}
+\providecommand{\cm}{~\mathrm{cm}}
+\providecommand{\dx}{~\mathrm{d}x}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\noindent \underline{\textsc{\textbf{Exercice I}}} (5 points)
+	\begin{description}
+		\item[A.]
+			\begin{enumerate}
+				\item On note $S$ l'événement << le dé donne 6 >> : $P(S) = \frac{1}{6}$ et $P(\bar{S}) = \frac{5}{6}$.
+					\begin{itemize}
+						\item \vln{Événement $A$ :} on tire dans $U_1$, qui contient $8$ blanches sur $10$ :
+							$P(A) = P(S)\times P_S(\text{blanche}) = \frac{1}{6}\times\frac{8}{10}$.
+
+							\ansbox{$P(A) = \frac{2}{15}$.}
+						\item \vln{Événement $B$ :} une boule noire peut venir de $U_1$ ($2$ noires sur $10$) ou de $U_2$ ($3$ noires sur $10$).
+							D'après la formule des probabilités totales :
+							$P(B) = \frac{1}{6}\times\frac{2}{10} + \frac{5}{6}\times\frac{3}{10} = \frac{2}{60} + \frac{15}{60}$.
+
+							\ansbox{$P(B) = \frac{17}{60}$.}
+					\end{itemize}
+				\item Les deux tirages (deux boules de $U_2$, une boule de $U_1$) sont indépendants.
+					Pour $U_2$ ($\Comb{10}{2} = 45$ paires) : $0$ noire : $\frac{\Comb{7}{2}}{45} = \frac{21}{45} = \frac{7}{15}$ ;
+					$1$ noire : $\frac{3\times7}{45} = \frac{7}{15}$ ; $2$ noires : $\frac{\Comb{3}{2}}{45} = \frac{1}{15}$.
+					Pour $U_1$ : noire avec la probabilité $\frac{2}{10} = \frac{1}{5}$, non noire avec $\frac{4}{5}$.
+					\begin{enumerate}
+						\item On peut obtenir de $0$ à $2$ noires dans $U_2$ et $0$ ou $1$ dans $U_1$ :
+
+							\ansbox{$X(\Omega) = \{0;1;2;3\}$.}
+						\item \vln{Loi de $X$ :}
+							\begin{align*}
+								P(X=0) &= \tfrac{7}{15}\times\tfrac{4}{5} = \tfrac{28}{75}, &
+								P(X=1) &= \tfrac{7}{15}\times\tfrac{4}{5} + \tfrac{7}{15}\times\tfrac{1}{5} = \tfrac{35}{75} = \tfrac{7}{15},\\
+								P(X=2) &= \tfrac{1}{15}\times\tfrac{4}{5} + \tfrac{7}{15}\times\tfrac{1}{5} = \tfrac{11}{75}, &
+								P(X=3) &= \tfrac{1}{15}\times\tfrac{1}{5} = \tfrac{1}{75}.
+							\end{align*}
+							\[
+							\begin{array}{|c|c|c|c|c|}
+								\hline
+								k & 0 & 1 & 2 & 3 \\ \hline
+								P(X=k) & \frac{28}{75} & \frac{7}{15} & \frac{11}{75} & \frac{1}{75} \\[.5ex] \hline
+							\end{array}
+							\]
+							(Vérification : $28 + 35 + 11 + 1 = 75$.)
+					\end{enumerate}
+			\end{enumerate}
+		\item[B.]
+			\begin{enumerate}
+				\item \vln{Moyenne $\bar{Y}$ :}
+					le point moyen $G(\bar{X};\bar{Y})$ appartient à la droite de régression, donc
+					$\bar{Y} = 0{,}12\times 51 + 7{,}88 = 6{,}12 + 7{,}88$.
+
+					\ansbox{$\bar{Y} = 14$.}
+				\item \vln{Ajustement linéaire :}
+					$r = 0{,}93$ est proche de $1$ : la corrélation linéaire est forte (et positive).
+
+					\ansbox{Oui, un ajustement linéaire par les moindres carrés est justifié.}
+
+					\vln{Droite de régression de $X$ en $Y$ :}
+					Si $y = ax + b$ est la droite de $Y$ en $X$ et $x = a'y + b'$ celle de $X$ en $Y$, alors
+					$a = \frac{\mathrm{cov}}{V(X)}$, $a' = \frac{\mathrm{cov}}{V(Y)}$ et $aa' = \frac{\mathrm{cov}^2}{V(X)V(Y)} = r^2$.
+					Donc $a' = \frac{r^2}{a} = \frac{0{,}8649}{0{,}12} \simeq 7{,}21$, et, $G$ appartenant aussi à cette droite,
+					$b' = \bar{X} - a'\bar{Y} = 51 - 7{,}2075\times14 \simeq -49{,}91$.
+
+					\ansbox{$x = 7{,}21\,y - 49{,}91$.}
+			\end{enumerate}
+	\end{description}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\noindent \underline{\textsc{\textbf{Exercice II}}} (5 points)
+	\begin{enumerate}
+		\item \begin{enumerate}
+			\item \vln{Solutions réelles :}
+				Pour $x$ réel,
+				$P(x) = \left(x^3 - 3x^2 - 6x + 8\right) + i\sqrt{3}\left(-3x^2 + 6x + 24\right)$.
+				La partie imaginaire s'annule si $-3(x^2 - 2x - 8) = -3(x-4)(x+2) = 0$, soit $x = 4$ ou $x = -2$.
+				Partie réelle : $4^3 - 3\times16 - 24 + 8 = 0$ et $(-2)^3 - 3\times4 + 12 + 8 = 0$.
+
+				\ansbox{$4$ et $-2$ sont les deux solutions réelles de $P(z) = 0$.}
+			\item \vln{Résolution :}
+				$P(z) = (z-4)(z+2)(z - z_3) = (z^2 - 2z - 8)(z - z_3)$.
+				Le coefficient de $z^2$ donne $-z_3 - 2 = -3 - 3\sqrt{3}i$, d'où $z_3 = 1 + 3\sqrt{3}i$ ;
+				on vérifie le terme constant : $8z_3 = 8 + 24\sqrt{3}i$ \checkmark{} et le coefficient de $z$ :
+				$2z_3 - 8 = -6 + 6\sqrt{3}i$ \checkmark.
+
+				\ansbox{$S_{\mathbb{C}} = \left\lbrace -2\ ;\ 4\ ;\ 1 + 3\sqrt{3}\,i\right\rbrace$.}
+		\end{enumerate}
+		\item \begin{enumerate}
+			\item \vln{Placement :} $A(-2;0)$, $B(4;0)$, $C\left(1;3\sqrt{3}\right) \simeq (1;5{,}2)$ (figure ci-dessous).
+			\item \vln{Forme algébrique de $Z$ :}
+				\[
+					Z = \frac{4+2}{1 + 3\sqrt{3}i + 2} = \frac{6}{3\left(1 + \sqrt{3}i\right)} = \frac{2\left(1 - \sqrt{3}i\right)}{1 + 3}.
+				\]
+
+				\ansbox{$Z = \frac{1}{2} - \frac{\sqrt{3}}{2}i$.}
+
+				\vln{Nature de $ABC$ :}
+				$|Z| = \sqrt{\frac{1}{4}+\frac{3}{4}} = 1$ donc $AB = AC$, et $\arg Z = -\frac{\pi}{3}$, donc
+				$\left(\overrightarrow{AC},\overrightarrow{AB}\right) = -\frac{\pi}{3}~[2\pi]$.
+				Un triangle isocèle en $A$ dont l'angle au sommet mesure $\frac{\pi}{3}$ est équilatéral.
+
+				\ansbox{$ABC$ est un triangle équilatéral.}
+		\end{enumerate}
+		\item \begin{enumerate}
+			\item \vln{Affixe de $D$ :}
+				$ABCD$ est un parallélogramme si et seulement si $\overrightarrow{AD} = \overrightarrow{BC}$ :
+				$z_D = z_A + z_C - z_B = -2 + 1 + 3\sqrt{3}i - 4$.
+
+				\ansbox{$z_D = -5 + 3\sqrt{3}\,i$} ($ABCD$ est même un losange).
+			\item \vln{Expression complexe de $S$ :}
+				$S$ est de la forme $z' - z_A = k(z - z_A)$, et $S(B) = D$ donne
+				\[
+					k = \frac{z_D - z_A}{z_B - z_A} = \frac{-3 + 3\sqrt{3}i}{6} = -\frac{1}{2} + \frac{\sqrt{3}}{2}i.
+				\]
+				Donc $z' = k(z + 2) - 2 = kz + 2k - 2$ :
+
+				\ansbox{$S : z' = \left(-\frac{1}{2} + \frac{\sqrt{3}}{2}i\right)z - 3 + \sqrt{3}\,i$.}
+
+				\vln{Éléments caractéristiques :}
+				$|k| = 1$ et $\arg k = \frac{2\pi}{3}$.
+
+				\ansbox{$S$ a pour centre $A$, pour rapport $1$ et pour angle $\frac{2\pi}{3}$ :}
+
+				c'est donc la rotation de centre $A$ et d'angle $\frac{2\pi}{3}$ (normal : $AD = BC = AB$ puisque $ABC$ est équilatéral).
+				\begin{center}
+				\begin{tikzpicture}[scale=.6,>=stealth]
+					\draw[very thin,gray!40] (-6,-1) grid (5,6);
+					\draw[->] (-6,0) -- (5.3,0) node[below] {$x$};
+					\draw[->] (0,-1) -- (0,6.3) node[left] {$y$};
+					\coordinate (A) at (-2,0); \coordinate (B) at (4,0); \coordinate (C) at (1,5.196); \coordinate (D) at (-5,5.196);
+					\draw[thick,loko1] (A) -- (B) -- (C) -- (D) -- cycle; \draw[loko1] (A) -- (C);
+					\fill (A) circle (2pt) node[below] {$A$}; \fill (B) circle (2pt) node[below] {$B$};
+					\fill (C) circle (2pt) node[above] {$C$}; \fill (D) circle (2pt) node[above] {$D$};
+					\draw[->,loko3,dashed] (1.2,0.3) arc (0:120:3.2);
+				\end{tikzpicture}
+				\end{center}
+		\end{enumerate}
+	\end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\noindent \underline{\textsc{\textbf{Probleme}}} (10 points)
+	\begin{enumerate}
+		\item \vln{Continuité en $0$ :}
+			$f(0) = (0+1)\expo{0} = 1$.
+			À droite, $\lim_{x\to0^+}(x+1)\expo{x} = 1$ ; à gauche, $\lim_{x\to0^-}\left(\expo{3x} - 3x\right) = 1 - 0 = 1$.
+
+			\ansbox{$f$ est continue en $0$.}
+		\item \vln{Limites des taux d'accroissement :}
+			À gauche, $\frac{f(x) - f(0)}{x} = \frac{\expo{3x} - 3x - 1}{x} = 3\times\frac{\expo{3x} - 1}{3x} - 3$.
+			Comme $\lim_{u\to0}\frac{\expo{u} - 1}{u} = 1$, on obtient
+			$\lim_{x\to0^-}\frac{f(x) - f(0)}{x} = 3 - 3 = 0$.
+
+			À droite, $\frac{f(x) - f(0)}{x} = \frac{(x+1)\expo{x} - 1}{x} = \expo{x} + \frac{\expo{x} - 1}{x}$,
+			d'où $\lim_{x\to0^+}\frac{f(x) - f(0)}{x} = 1 + 1 = 2$.
+
+			\vln{Interprétation :}
+			les deux limites sont différentes : $f$ n'est pas dérivable en $0$ et le point $(0;1)$ est un point anguleux de $\Courbe$.
+			$\Courbe$ y admet une demi-tangente horizontale à gauche ($y = 1$, $x \leq 0$) et une demi-tangente de coefficient
+			directeur $2$ à droite ($y = 2x + 1$, $x \geq 0$).
+		\item \begin{enumerate}
+			\item \vln{Branche infinie en $+\infty$ :}
+				$\lim_{x\to+\infty}(x+1)\expo{x} = +\infty$ et $\frac{f(x)}{x} = \left(1 + \frac{1}{x}\right)\expo{x} \to +\infty$.
+
+				\ansbox{$\Courbe$ admet en $+\infty$ une branche parabolique de direction l'axe des ordonnées.}
+			\item \vln{Asymptote en $-\infty$ :}
+				pour $x < 0$, $f(x) - (-3x) = \expo{3x}$ et $\lim_{x\to-\infty}\expo{3x} = 0$.
+
+				\ansbox{$(\mathscr{D}) : y = -3x$ est asymptote oblique à $\Courbe$ en $-\infty$}
+
+				et, comme $\expo{3x} > 0$, $\Courbe$ est au-dessus de $(\mathscr{D})$.
+		\end{enumerate}
+		\item \begin{enumerate}
+			\item \vln{Sens de variation :}
+				pour $x < 0$, $f'(x) = 3\expo{3x} - 3 = 3\left(\expo{3x} - 1\right) < 0$ car $3x < 0$ ;
+				pour $x > 0$, $f'(x) = \expo{x} + (x+1)\expo{x} = (x+2)\expo{x} > 0$.
+				Limites : en $-\infty$, $\expo{3x} \to 0$ et $-3x \to +\infty$, donc $f(x) \to +\infty$ ; en $+\infty$, $f(x) \to +\infty$.
+				\[
+				\begin{array}{c|ccccc}
+					x & -\infty & & 0 & & +\infty \\ \hline
+					f'(x) & & - & \| & + & \\ \hline
+					f(x) & +\infty & \searrow & 1 & \nearrow & +\infty
+				\end{array}
+				\]
+				($f'(0)$ n'existe pas : dérivée à gauche $0$, à droite $2$.)
+			\item \vln{Inégalité :}
+				$f$ est continue et strictement décroissante sur $]-\infty;0]$, donc pour tout $x < 0$, $f(x) > f(0) = 1$,
+				c'est-à-dire
+
+				\ansbox{$\expo{3x} - 3x - 1 > 0$ pour tout $x < 0$.}
+
+				(Pour $x = 0$ l'expression est nulle : << négatif >> s'entend ici << strictement négatif >>.)
+		\end{enumerate}
+		\item \vln{Construction :} (figure à l'échelle $\frac{1}{2}$ : $1$ unité représentée par $1\cm$ ; la courbe $(\mathscr{C}')$ de la question 6.c y figure aussi).
+			\begin{center}
+			\begin{tikzpicture}[x=1cm,y=1cm,>=stealth]
+				\draw[very thin,gray!40] (-2,-2) grid (5,6);
+				\draw[->] (-2,0) -- (5.3,0) node[below] {$x$};
+				\draw[->] (0,-2) -- (0,6.3) node[left] {$y$};
+				\draw (1,0) node[below] {\small $1$} (0,1) node[left] {\small $1$};
+				\clip (-2,-2) rectangle (5,6);
+				\draw[loko3,thick] plot[domain=-2:0.67] (\x,{-3*\x});
+				\draw[gray,dashed] plot[domain=-2:5] (\x,\x);
+				\draw[gray,thick] (-0.8,1) -- (0,1) -- (0.6,2.2);
+				\draw[loko1,very thick,smooth,samples=80] plot[domain=-1.5:0] (\x,{exp(3*\x)-3*\x});
+				\draw[loko1,very thick,smooth,samples=60] plot[domain=0:1.13] (\x,{(\x+1)*exp(\x)});
+				\draw[loko5,very thick,smooth,samples=80] plot[domain=-1.5:-0.001] ({exp(3*\x)-3*\x},\x);
+				\fill (0,1) circle (2pt);
+				\draw[dotted] (-0.614,0) -- (-0.614,2) -- (2,2) -- (2,-0.614) -- (0,-0.614);
+				\node[below] at (-0.614,0) {\small $\alpha$};
+				\node[loko3] at (-1.7,4.4) {$(\mathscr{D})$};
+				\node[loko1] at (1.6,5.3) {$\Courbe$};
+				\node[loko5] at (4.2,-0.9) {$(\mathscr{C}')$};
+				\node[gray] at (4.6,4.2) {$y=x$};
+			\end{tikzpicture}
+			\end{center}
+		\item \begin{enumerate}
+			\item \vln{L'équation $g(x) = 2$ :}
+				$g$ est continue et strictement décroissante sur $]-\infty;0[$, avec $\lim_{-\infty} g = +\infty$ et $\lim_{0^-} g = 1$ :
+				$g$ est une bijection de $]-\infty;0[$ sur $]1;+\infty[$, qui contient $2$.
+
+				\ansbox{L'équation $g(x) = 2$ a une solution unique $\alpha$ dans $]-\infty;0[$}
+
+				(on a $g(-1) = \expo{-3} + 3 > 2$ et $g\left(-\frac{1}{3}\right) = \expo{-1} + 1 < 2$, donc
+				$-1 < \alpha < -\frac{1}{3}$ ; numériquement $\alpha \simeq -0{,}61$).
+			\item \vln{Dérivée de $g^{-1}$ en $2$ :}
+				$g$ est dérivable en $\alpha$ avec $g'(\alpha) = 3\left(\expo{3\alpha} - 1\right) \neq 0$, donc $g^{-1}$ est dérivable en $g(\alpha) = 2$ et
+				$\left(g^{-1}\right)'(2) = \frac{1}{g'(\alpha)}$.
+				Or $g(\alpha) = 2$ donne $\expo{3\alpha} = 2 + 3\alpha$, d'où $g'(\alpha) = 3(1 + 3\alpha)$.
+
+				\ansbox{$\left(g^{-1}\right)'(2) = \frac{1}{3\left(\expo{3\alpha} - 1\right)} = \frac{1}{3 + 9\alpha}$} ($\simeq -0{,}40$).
+			\item \vln{Courbe $(\mathscr{C}')$ :}
+				$(\mathscr{C}')$ est la symétrique, par rapport à la droite d'équation $y = x$, de la partie de $\Courbe$ située
+				sur $]-\infty;0[$ (voir la figure). $g^{-1}$ est définie et strictement décroissante sur $]1;+\infty[$ ;
+				$(\mathscr{C}')$ passe par le point $(2;\alpha)$ et admet la droite d'équation $y = -\frac{x}{3}$, symétrique de $(\mathscr{D})$, comme asymptote.
+			\item \vln{Aire $\mathscr{A}_\alpha$ :}
+				sur $[\alpha;0]$, $\Courbe$ est au-dessus de $(\mathscr{D})$ et $f(x) - (-3x) = \expo{3x}$.
+				L'unité d'aire est $2\cm\times2\cm = 4\cm^2$ :
+				\[
+					\mathscr{A}_\alpha = 4\int_\alpha^0 \expo{3x}\dx = 4\left[\frac{\expo{3x}}{3}\right]_\alpha^0 = \frac{4}{3}\left(1 - \expo{3\alpha}\right).
+				\]
+				Avec $\expo{3\alpha} = 2 + 3\alpha$ :
+
+				\ansbox{$\mathscr{A}_\alpha = \frac{4}{3}\left(1 - \expo{3\alpha}\right) = -\frac{4}{3}(1 + 3\alpha)\cm^2$} ($\simeq 1{,}12\cm^2$).
+		\end{enumerate}
+	\end{enumerate}

@@ -2,7 +2,12 @@
 \makeatletter\IfFileExists{core/beamer/beamerthememx.sty}{\def\mxcorepath{core/}\def\input@path{{core/beamer/}{core/}}}{\def\mxcorepath{../core/}\def\input@path{{../core/beamer/}{../core/}}}\makeatother
 \documentclass[aspectratio=169,10pt,t]{beamer}
 \usetheme{mx}
-\usepackage{graphicx,booktabs}
+\usepackage{graphicx,booktabs,mathtools,array,adjustbox}
+\usepackage[all]{xy}
+\providecommand{\actualtextwidth}{\textwidth}
+\providecommand{\veccor}[2]{\left(\begin{matrix}#1\\#2\end{matrix}\right)}
+\DeclarePairedDelimiter{\VecNorm}{\lVert}{\rVert}
+\providecommand{\ETC}{\ldots}
 \usepackage[french]{babel}
 \setlength{\parskip}{.45em}
 \hypersetup{pdfauthor={},pdfsubject={Lecture slides},pdfkeywords={},pdftitle={Calcul dans \ensuremath{\mathbb{R}}}}
@@ -36,13 +41,13 @@
 \author{}
 \begin{document}
 \mxtitleframe
-\begin{frame}{}
+\begin{frame}[allowframebreaks]{}
 Distribuer des cartes portant des nombres de formes différentes. Construire un
 diagramme d'inclusions pour \(\mathbb{N}\), \(\mathbb{Z}\), \(\mathbb{D}\), \(\mathbb{Q}\) et \(\mathbb{R}\), puis placer chaque
 carte dans le plus petit ensemble possible. Discuter les cartes \(0{,}333\ldots\),
 \(\sqrt{9}\) et \(\sqrt2\).
 \end{frame}
-\begin{frame}{Objectifs}
+\begin{frame}[allowframebreaks]{Objectifs}
 \begin{itemize}
 
   \item Maîtriser la hiérarchie \(\mathbb{N} \subset \mathbb{Z} \subset \mathbb{Q} \subset \mathbb{R}\).
@@ -55,9 +60,10 @@ carte dans le plus petit ensemble possible. Discuter les cartes \(0{,}333\ldots\
 
 \end{itemize}
 \end{frame}
-\begin{frame}{Les ensembles de nombres}
+\begin{frame}[allowframebreaks]{Les ensembles de nombres}
 \[\mathbb{N} \subset \mathbb{Z} \subset \mathbb{Q} \subset \mathbb{R}\]
-
+\end{frame}
+\begin{frame}[allowframebreaks]{Les ensembles de nombres (2)}
 \begin{itemize}
 
   \item \(\mathbb{N} = \{0, 1, 2, 3, \ldots\}\) (entiers naturels)
@@ -70,34 +76,35 @@ carte dans le plus petit ensemble possible. Discuter les cartes \(0{,}333\ldots\
 
 \end{itemize}
 \end{frame}
-\begin{frame}{Les ensembles de nombres}
+\begin{frame}[allowframebreaks]{Les ensembles de nombres}
 Pour diviser \(157\) par \(12\), on cherche le plus grand multiple de \(12\) qui ne
 dépasse pas \(157\). La disposition ci-dessous est celle attendue sur une copie :
 
 On lit \(157=12\times13+1\) : le quotient est \(13\) et le reste est \(1\).
 Toujours vérifier que \(0\leq r<12\).
 \end{frame}
-\begin{frame}{Puissances et racines}
+\begin{frame}[allowframebreaks]{Puissances et racines}
 Pour \(a, b \in \mathbb{R}^*\) et \(m, n \in \mathbb{Z}\) :
 \[a^m \times a^n = a^{m+n},\quad \dfrac{a^m}{a^n} = a^{m-n},\quad
   (a^m)^n = a^{mn},\quad (ab)^n = a^n b^n.\]
 \end{frame}
-\begin{frame}{Puissances et racines}
+\begin{frame}[allowframebreaks]{Puissances et racines}
 Pour \(a \geq 0\), \(b > 0\) :
 \[\sqrt{ab} = \sqrt{a}\,\sqrt{b},\qquad
   \sqrt{\dfrac{a}{b}} = \dfrac{\sqrt{a}}{\sqrt{b}},\qquad
   \bigl(\sqrt{a}\bigr)^2 = a.\]
 \end{frame}
-\begin{frame}{Valeur absolue}
+\begin{frame}[allowframebreaks]{Valeur absolue}
 Pour tout réel \(x\) :
 \[\left|x\right| = \begin{cases} x & \text{si } x \geq 0, \\ -x & \text{si } x < 0. \end{cases}\]
+
 Géométriquement, \(\left|x\right|\) est la \emph{distance} de \(x\) à l'origine.
 \(\left|x - a\right|\) est la distance de \(x\) au point \(a\).
 \end{frame}
-\begin{frame}{Valeur absolue}
+\begin{frame}[allowframebreaks]{Valeur absolue}
 Pour tous réels \(a\) et \(b\) : \(\left|a + b\right| \leq \left|a\right| + \left|b\right|\).
 \end{frame}
-\begin{frame}{Valeur absolue}
+\begin{frame}[allowframebreaks]{Valeur absolue}
 On travaille sur le domaine de \(f\) et on suppose \(k\geq0\).
 Si \(k<0\), les conditions \(|f(x)|\leq k\) et \(|f(x)|=k\) sont impossibles,
 et \(|f(x)|\geq k\) est vraie sur tout le domaine.
@@ -112,27 +119,28 @@ et \(|f(x)|\geq k\) est vraie sur tout le domaine.
 
 \end{enumerate}
 \end{frame}
-\begin{frame}{Intervalles et encadrements}
+\begin{frame}[allowframebreaks]{Intervalles et encadrements}
 Un \textbf{intervalle} est un sous-ensemble de \(\mathbb{R}\) formé de tous les réels
 compris entre deux bornes. On distingue :
 \end{frame}
-\begin{frame}{Intervalles et encadrements (2)}
+\begin{frame}[allowframebreaks]{Intervalles et encadrements (2)}
+\footnotesize
 \begin{center}\begin{tabular}{lll}
-Notation & Définition & Représentation \\ 
-\([a,b]\) & \(a \leq x \leq b\) &  \\ 
-\(]a,b[\) & \(a < x < b\) &  \\ 
-\([a,b[\) & \(a \leq x < b\) &  \\ 
-\(]a,b]\) & \(a < x \leq b\) &  \\ 
-\([a,+\infty[\) & \(x \geq a\) &  \\ 
-\(]-\infty,b]\) & \(x \leq b\) &  \\ 
-\(\mathbb{R} = ]-\infty,+\infty[\) & tous les réels &  \\ 
+Notation & Définition & Représentation \\ {}
+\([a,b]\) & \(a \leq x \leq b\) &  \\ {}
+\(]a,b[\) & \(a < x < b\) &  \\ {}
+\([a,b[\) & \(a \leq x < b\) &  \\ {}
+\(]a,b]\) & \(a < x \leq b\) &  \\ {}
+\([a,+\infty[\) & \(x \geq a\) &  \\ {}
+\(]-\infty,b]\) & \(x \leq b\) &  \\ {}
+\(\mathbb{R} = ]-\infty,+\infty[\) & tous les réels &  \\ {}
 \end{tabular}\end{center}
 \end{frame}
-\begin{frame}{Intervalles et encadrements}
+\begin{frame}[allowframebreaks]{Intervalles et encadrements}
 \(+\infty\) et \(-\infty\) ne sont \textbf{pas} des réels : on écrit toujours
 \(]a,+\infty[\) et \(]-\infty,b[\) (crochets ouverts).
 \end{frame}
-\begin{frame}{Intervalles et encadrements}
+\begin{frame}[allowframebreaks]{Intervalles et encadrements}
 \begin{itemize}
 
   \item \([1,4] \cap [3,7] = [3,4]\) (valeurs \emph{communes} aux deux intervalles)
@@ -143,7 +151,7 @@ Notation & Définition & Représentation \\
 
 \end{itemize}
 \end{frame}
-\begin{frame}{Intervalles et encadrements}
+\begin{frame}[allowframebreaks]{Intervalles et encadrements}
 Pour encadrer \(\sqrt{n}\) entre deux entiers consécutifs :
 
 \begin{enumerate}
@@ -156,22 +164,23 @@ Pour encadrer \(\sqrt{n}\) entre deux entiers consécutifs :
 
 \emph{Exemple :} \(4^2=16 < 17 < 25=5^2\), donc \(4 < \sqrt{17} < 5\).
 \end{frame}
-\begin{frame}{Fractions et calcul algébrique}
+\begin{frame}[allowframebreaks]{Fractions et calcul algébrique}
 Pour \(a,c\in\mathbb{R}\) et \(b,d\in\mathbb{R}^*\) (avec aussi \(c\ne0\) pour le quotient) :
 \[\dfrac{a}{b} + \dfrac{c}{d} = \dfrac{ad+bc}{bd},\qquad
   \dfrac{a}{b} \times \dfrac{c}{d} = \dfrac{ac}{bd},\qquad
   \dfrac{a/b}{c/d} = \dfrac{a}{b} \times \dfrac{d}{c} = \dfrac{ad}{bc}.\]
 \end{frame}
-\begin{frame}{Fractions et calcul algébrique}
+\begin{frame}[allowframebreaks]{Fractions et calcul algébrique}
 Pour éliminer une racine carrée au dénominateur, multiplier numérateur
 et dénominateur par l'\emph{expression conjuguée} non nulle.
 Pour \(a,b\geq0\) et \(a\ne b\) :
 \[\dfrac{1}{\sqrt{a}+\sqrt{b}} \times \dfrac{\sqrt{a}-\sqrt{b}}{\sqrt{a}-\sqrt{b}}
   = \dfrac{\sqrt{a}-\sqrt{b}}{a-b}.\]
+
 Si \(a=b>0\), on utilise directement \(1/(2\sqrt a)=\sqrt a/(2a)\).
 Si \(a=b=0\), le quotient initial n'est pas défini.
 \end{frame}
-\begin{frame}{Fractions et calcul algébrique}
+\begin{frame}[allowframebreaks]{Fractions et calcul algébrique}
 \begin{itemize}
 
   \item \(\dfrac{1}{\sqrt{3}} = \dfrac{\sqrt{3}}{3}\)  

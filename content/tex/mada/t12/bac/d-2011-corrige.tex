@@ -1,0 +1,298 @@
+% Baccalauréat malgache, série D, 2011 : corrigé.
+\TCDBacAttribution{D}{2011}
+\providecommand{\Courbe}{(\mathscr{C})}
+\providecommand{\D}{(\mathscr{D})}
+\providecommand{\Plan}{(\mathscr{P})}
+\providecommand{\Ouv}{(O ; \vec{u} , \vec{v})}
+\providecommand{\cm}{~\mathrm{cm}}
+\providecommand{\dx}{~\mathrm{d}x}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\noindent \underline{\textsc{\textbf{Exercice I}}} (5 points)
+	\begin{enumerate}
+		\item \vln{Solution imaginaire pure :}
+			Pour $\alpha$ réel, on remplace $z$ par $\alpha i$ (avec $i^2=-1$, $i^3=-i$) :
+			\begin{align*}
+				(\alpha i)^3 + (1-i)(\alpha i)^2 + (-8+4i)\alpha i - 4 - 28i
+				&= -\alpha^3 i - \alpha^2 + \alpha^2 i - 8\alpha i - 4\alpha - 4 - 28i \\
+				&= -\left(\alpha^2 + 4\alpha + 4\right) + i\left(-\alpha^3 + \alpha^2 - 8\alpha - 28\right).
+			\end{align*}
+			Ce nombre est nul si et seulement si sa partie réelle et sa partie imaginaire sont nulles.
+			La partie réelle vaut $-(\alpha+2)^2$ : elle est nulle si et seulement si $\alpha = -2$.
+			Pour $\alpha=-2$, la partie imaginaire vaut $8 + 4 + 16 - 28 = 0$.
+			Donc \ansbox{$\alpha = -2$ : $-2i$ est solution de (E).}
+		\item \begin{enumerate}
+			\item \vln{Factorisation :}
+				On cherche $a$, $b$, $c$ tels que $(z+2i)(az^2+bz+c) = az^3 + (b+2ia)z^2 + (c+2ib)z + 2ic$.
+				Par identification avec le premier membre de (E) :
+				$a = 1$ ; $b + 2i = 1 - i$ donc $b = 1-3i$ ; $2ic = -4-28i$ donc $c = \frac{-4-28i}{2i} = -14 + 2i$.
+				On vérifie le coefficient de $z$ : $c + 2ib = -14 + 2i + 2i + 6 = -8 + 4i$. \checkmark
+
+				Donc \ansbox{$z^3 + (1-i)z^2 + (-8+4i)z - 4 - 28i = (z+2i)\left(z^2 + (1-3i)z - 14 + 2i\right)$.}
+			\item \vln{Résolution de (E) :}
+				(E) équivaut à $z = -2i$ ou $z^2 + (1-3i)z - 14 + 2i = 0$.
+				Le discriminant de cette dernière équation est
+				$\Delta = (1-3i)^2 - 4(-14+2i) = 1 - 6i - 9 + 56 - 8i = 48 - 14i$.
+				On cherche $\delta = x + iy$ tel que $\delta^2 = \Delta$ :
+				$x^2 - y^2 = 48$, $2xy = -14$ et $x^2+y^2 = |\Delta| = \sqrt{48^2+14^2} = 50$,
+				d'où $x^2 = 49$, $y^2 = 1$, $xy<0$ : $\delta = 7 - i$.
+				\[
+					z_1 = \frac{-1+3i + 7 - i}{2} = 3 + i, \qquad z_2 = \frac{-1+3i-7+i}{2} = -4+2i.
+				\]
+
+				\ansbox{$S_{\mathbb{C}} = \left\lbrace -2i \ ;\ 3+i \ ;\ -4+2i \right\rbrace$.}
+		\end{enumerate}
+		\item \begin{enumerate}
+			\item \vln{Placement :} $A(0;-2)$, $B(3;1)$, $C(-4;2)$ (voir la figure ci-dessous).
+			\item \vln{Forme trigonométrique de $Z$ :}
+				\[
+					Z = \frac{3+i+2i}{-4+2i+2i} = \frac{3+3i}{-4+4i} = \frac{3(1+i)}{4(-1+i)}
+					  = \frac{3(1+i)(-1-i)}{4\left((-1)^2+1^2\right)} = \frac{3(-2i)}{8} = -\frac{3}{4}i.
+				\]
+
+				\ansbox{$Z = \frac{3}{4}\left(\cos\left(-\frac{\pi}{2}\right) + i \sin\left(-\frac{\pi}{2}\right)\right)$.}
+			\item \vln{Nature du triangle $ABC$ :}
+				$\left(\overrightarrow{AC},\overrightarrow{AB}\right) = \arg Z = -\frac{\pi}{2}~[2\pi]$
+				et $\frac{AB}{AC} = |Z| = \frac{3}{4} \neq 1$.
+				Donc \ansbox{$ABC$ est rectangle en $A$} (et non isocèle).
+			\item \vln{Point $D$ :}
+				$ABCD$ est un parallélogramme si et seulement si $\overrightarrow{AD} = \overrightarrow{BC}$,
+				soit $z_D = z_A + z_C - z_B = -2i - 4 + 2i - 3 - i$.
+
+				\ansbox{$z_D = -7 - i$.}
+				(Comme l'angle en $A$ est droit, $ABCD$ est même un rectangle.)
+		\end{enumerate}
+		\item \begin{enumerate}
+			\item \vln{Nature de $S$ :}
+				$S$ s'écrit $z' = az + b$ avec $a = \frac{4}{3}i \notin \{0;1\}$ :
+				c'est une similitude plane directe de rapport $|a| = \frac{4}{3}$ et d'angle $\arg a = \frac{\pi}{2}$.
+				Son centre $\Omega$ a pour affixe $\omega$ vérifiant $\omega = \frac{4}{3}i\omega - \frac{8}{3} - 2i$ :
+				\[
+					\omega = \frac{-\frac{8}{3}-2i}{1-\frac{4}{3}i} = \frac{-8-6i}{3-4i} = \frac{(-8-6i)(3+4i)}{25} = \frac{-50i}{25} = -2i.
+				\]
+
+				\ansbox{$S$ est la similitude directe de centre $A$, de rapport $\frac{4}{3}$ et d'angle $\frac{\pi}{2}$.}
+			\item \vln{Image de $ABCD$ par $S^{-1}$ :}
+				$S^{-1}$ est la similitude directe de centre $A$, de rapport $\frac{3}{4}$ et d'angle $-\frac{\pi}{2}$ ;
+				en résolvant $z' = \frac{4}{3}iz - \frac{8}{3} - 2i$ par rapport à $z$, on obtient
+				$z = \frac{3}{4i}\left(z' + \frac{8}{3} + 2i\right) = -\frac{3}{4}i z' + \frac{3}{2} - 2i$,
+				qui s'écrit aussi $z + 2i = -\frac{3}{4}i\left(z' + 2i\right)$.
+				L'image d'un point d'affixe $t$ par $S^{-1}$ a donc pour affixe $-2i - \frac{3}{4}i(t + 2i)$ :
+				\begin{itemize}
+					\item $A' = A$ (centre), d'affixe $-2i$ ;
+					\item $B'$ : $-2i - \frac{3}{4}i(3 + 3i) = \frac{9}{4} - \frac{17}{4}i$ ;
+					\item $C'$ : $-2i - \frac{3}{4}i(-4+4i) = 3 + i$, donc $C' = B$ (ce qui traduit $Z = -\frac{3}{4}i$) ;
+					\item $D'$ : $-2i - \frac{3}{4}i(-7+i) = \frac{3}{4} + \frac{13}{4}i$.
+				\end{itemize}
+
+				\ansbox{$A'(0;-2)$, $B'\left(\frac{9}{4};-\frac{17}{4}\right)$, $C' = B(3;1)$, $D'\left(\frac{3}{4};\frac{13}{4}\right)$ :}
+				$A'B'C'D'$ est un rectangle, image de $ABCD$ réduite dans le rapport $\frac{3}{4}$.
+				\begin{center}
+				\begin{tikzpicture}[scale=.55,>=stealth]
+					\draw[very thin,gray!40] (-8,-5) grid (4,4);
+					\draw[->] (-8,0) -- (4.3,0) node[below] {$x$};
+					\draw[->] (0,-5) -- (0,4.3) node[left] {$y$};
+					\draw[thick,loko1] (0,-2) -- (3,1) -- (-4,2) -- (-7,-1) -- cycle;
+					\draw[thick,dashed,loko3] (0,-2) -- (2.25,-4.25) -- (3,1) -- (0.75,3.25) -- cycle;
+					\foreach \p/\n/\pos in {(0,-2)/A=A'/left,(3,1)/B=C'/right,(-4,2)/C/above,(-7,-1)/D/left,(2.25,-4.25)/B'/right,(0.75,3.25)/D'/above}
+						\fill \p circle (2pt) node[\pos] {$\n$};
+				\end{tikzpicture}
+				\end{center}
+		\end{enumerate}
+	\end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\noindent \underline{\textsc{\textbf{Exercice II}}} (5 points)
+	\begin{description}
+		\item[I.] Il y a $\Comb{8}{2} = 28$ tirages simultanés de deux boules, tous équiprobables.
+			\begin{enumerate}
+				\item \begin{itemize}
+					\item \vln{Événement $A$ :} une boule rouge et une boule blanche : $3 \times 5 = 15$ cas.
+
+						\ansbox{$P(A) = \frac{15}{28}$.}
+					\item \vln{Événement $B$ :} les boules à numéro pair sont les deux rouges n\textsuperscript{o}~2 et les
+						blanches n\textsuperscript{o}~2 et n\textsuperscript{o}~4, soit $4$ boules : $\Comb{4}{2} = 6$ cas.
+
+						\ansbox{$P(B) = \frac{6}{28} = \frac{3}{14}$.}
+					\item \vln{Événement $C$ :} $4 = 2 \times 2 = 1 \times 4$.
+						Deux boules n\textsuperscript{o}~2 parmi les trois : $\Comb{3}{2} = 3$ cas ;
+						la boule n\textsuperscript{o}~1 et la boule n\textsuperscript{o}~4 : $1$ cas.
+
+						\ansbox{$P(C) = \frac{4}{28} = \frac{1}{7}$.}
+				\end{itemize}
+				\item Deux boules sur huit portent le numéro 5 : à chaque tirage (avec remise, donc indépendant),
+					la probabilité d'obtenir un 5 est $p = \frac{2}{8} = \frac{1}{4}$.
+					$X$ compte les succès dans $3$ épreuves de Bernoulli identiques et indépendantes :
+					$X$ suit la loi binomiale $\mathscr{B}\left(3;\frac{1}{4}\right)$.
+					\begin{enumerate}
+						\item \ansbox{$X(\Omega) = \{0;1;2;3\}$.}
+						\item \vln{Loi de $X$ :} $P(X=k) = \Comb{3}{k}\left(\frac{1}{4}\right)^k\left(\frac{3}{4}\right)^{3-k}$.
+							\[
+							\begin{array}{|c|c|c|c|c|}
+								\hline
+								k & 0 & 1 & 2 & 3 \\ \hline
+								P(X=k) & \frac{27}{64} & \frac{27}{64} & \frac{9}{64} & \frac{1}{64} \\ \hline
+							\end{array}
+							\]
+							(La somme vaut bien $\frac{64}{64} = 1$.)
+					\end{enumerate}
+			\end{enumerate}
+		\item[II.]
+			\begin{enumerate}
+				\item \vln{Nuage de points :}
+					\begin{center}
+					\begin{tikzpicture}[x=1cm,y=1cm,>=stealth]
+						\draw[very thin,gray!40] (0,0) grid (5,8);
+						\draw[->] (0,0) -- (5.4,0) node[below] {$x_i$};
+						\draw[->] (0,0) -- (0,8.4) node[left] {$y_i$};
+						\foreach \k in {1,...,5} \draw (\k,0) node[below] {\small $\k$};
+						\foreach \k in {0,...,7} {\pgfmathtruncatemacro{\v}{\k+2}\draw (0,\k) node[left] {\small $\v$};}
+						\foreach \p in {(1,1),(2,3),(3,4),(4,7)} \fill \p circle (2.5pt);
+						\fill[loko1] (2.5,3.75) circle (2.5pt) node[above left] {$G$};
+						\draw[loko3,thick] plot[domain=0.6:4.6] (\x,{1.9*\x+1-2});
+					\end{tikzpicture}
+					\end{center}
+					(L'origine des ordonnées correspond à $y = 2$ ; la droite tracée est la droite de régression de la question 4.)
+				\item \vln{Point moyen :}
+					$\bar{x} = \frac{1+2+3+4}{4} = 2{,}5$ et $\bar{y} = \frac{3+5+6+9}{4} = 5{,}75$.
+
+					\ansbox{$G(2{,}5\ ;\ 5{,}75)$.}
+				\item \vln{Coefficient de corrélation :}
+					$V(x) = \frac{1+4+9+16}{4} - 2{,}5^2 = 1{,}25$ ;
+					$V(y) = \frac{9+25+36+81}{4} - 5{,}75^2 = 37{,}75 - 33{,}0625 = 4{,}6875$ ;
+					$\mathrm{cov}(x,y) = \frac{3+10+18+36}{4} - 2{,}5 \times 5{,}75 = 16{,}75 - 14{,}375 = 2{,}375$.
+					\[
+						r = \frac{\mathrm{cov}(x,y)}{\sqrt{V(x)\,V(y)}} = \frac{2{,}375}{\sqrt{1{,}25 \times 4{,}6875}} \simeq 0{,}98.
+					\]
+
+					\ansbox{$r \simeq 0{,}98$ :} $r$ est très proche de $1$, il y a une forte corrélation linéaire positive
+					entre le rang de l'année et le nombre de reçus ; un ajustement affine est justifié.
+				\item \vln{Droite de régression de $y$ en $x$ :}
+					$a = \frac{\mathrm{cov}(x,y)}{V(x)} = \frac{2{,}375}{1{,}25} = 1{,}9$ et
+					$b = \bar{y} - a\bar{x} = 5{,}75 - 1{,}9 \times 2{,}5 = 1$.
+
+					\ansbox{$y = 1{,}9\,x + 1$.}
+				\item \vln{Prévision pour 2014 :}
+					2014 a pour rang $x = 8$, donc $y = 1{,}9 \times 8 + 1 = 16{,}2$ centaines.\newline
+					\ansbox{On peut espérer environ $1\,620$ reçus en 2014.}
+			\end{enumerate}
+	\end{description}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\noindent \underline{\textsc{\textbf{Probleme}}} (10 points)
+	\begin{enumerate}
+		\item \begin{enumerate}
+			\item \vln{Variations de $g$ :}
+				$g$ est dérivable sur $\mathbb{R}$ et
+				$g'(x) = \expo{-x} - (x-1)\expo{-x} = (2-x)\expo{-x}$, du signe de $2-x$ car $\expo{-x}>0$.
+
+				Limites : en $-\infty$, $x - 1 \to -\infty$ et $\expo{-x} \to +\infty$, donc $\lim_{x\to-\infty} g(x) = -\infty$ ;
+				en $+\infty$, $(x-1)\expo{-x} = x\expo{-x} - \expo{-x} \to 0$, donc $\lim_{x\to+\infty} g(x) = 2$.
+				$g(2) = \expo{-2} + 2 \simeq 2{,}14$.
+				\[
+				\begin{array}{c|ccccc}
+					x & -\infty & & 2 & & +\infty \\ \hline
+					g'(x) & & + & 0 & - & \\ \hline
+					g(x) & -\infty & \nearrow & 2+\expo{-2} & \searrow & 2
+				\end{array}
+				\]
+			\item \vln{L'équation $g(x)=0$ :}
+				Sur $[2;+\infty[$, $g$ décroît vers $2$, donc $g(x) > 2 > 0$ : pas de solution.
+				Sur $]-\infty;2]$, $g$ est continue et strictement croissante, à valeurs dans $\left]-\infty ; 2 + \expo{-2}\right]$
+				qui contient $0$ : l'équation $g(x) = 0$ y a une solution unique $\alpha$.
+				Comme $g(-1) = 2 - 2\expo{} \simeq -3{,}44 < 0$ et $g(0) = 1 > 0$, \ansbox{$-1 < \alpha < 0$}
+				(numériquement $\alpha \simeq -0{,}37$).
+			\item \vln{Signe de $g$ :}
+
+				\ansbox{$g(x) < 0$ si $x < \alpha$, $g(\alpha) = 0$, $g(x) > 0$ si $x > \alpha$.}
+		\end{enumerate}
+		\item \begin{enumerate}
+			\item \vln{Limites de $f$ :}
+				En $-\infty$ : $f(x) = x\left(2 - \expo{-x}\right) + 1$ avec $x \to -\infty$ et $2 - \expo{-x} \to -\infty$,
+				donc \ansbox{$\lim_{x\to-\infty} f(x) = +\infty$.}
+				En $+\infty$ : $x\expo{-x} \to 0$ et $2x+1 \to +\infty$, donc \ansbox{$\lim_{x\to+\infty} f(x) = +\infty$.}
+			\item \vln{Dérivée :}
+				$f'(x) = 2 - \left(\expo{-x} - x\expo{-x}\right) = 2 + (x-1)\expo{-x}$, donc \ansbox{$f'(x) = g(x)$.}
+			\item \vln{Valeur de $f(\alpha)$ :}
+				$g(\alpha) = 0$ donne $\expo{-\alpha} = \frac{-2}{\alpha - 1}$ ($\alpha \neq 1$). Alors
+				\[
+					f(\alpha) = 2\alpha + 1 + \frac{2\alpha}{\alpha-1} = 1 + \frac{2\alpha(\alpha-1) + 2\alpha}{\alpha - 1}
+					= 1 + \frac{2\alpha^2}{\alpha-1}.
+				\]
+
+				\ansbox{$f(\alpha) = 1 + \frac{2\alpha^2}{\alpha-1}$} ($\simeq 0{,}80$).
+			\item \vln{Tableau de variation de $f$ :} $f'=g$ a le signe trouvé en 1.c.
+				\[
+				\begin{array}{c|ccccc}
+					x & -\infty & & \alpha & & +\infty \\ \hline
+					f'(x) & & - & 0 & + & \\ \hline
+					f(x) & +\infty & \searrow & f(\alpha) & \nearrow & +\infty
+				\end{array}
+				\]
+		\end{enumerate}
+		\item \begin{enumerate}
+			\item \vln{Limite de $\frac{f(x)}{x}$ en $-\infty$ :}
+				$\frac{f(x)}{x} = 2 + \frac{1}{x} - \expo{-x}$ et $\expo{-x} \to +\infty$ quand $x \to -\infty$.
+
+				\ansbox{$\lim_{x\to-\infty}\frac{f(x)}{x} = -\infty$ :} $\Courbe$ admet en $-\infty$ une branche parabolique
+				de direction l'axe des ordonnées.
+			\item \vln{Asymptote en $+\infty$ :}
+				$f(x) - (2x+1) = -x\expo{-x}$ et $\lim_{x\to+\infty} x\expo{-x} = 0$ :
+
+				\ansbox{$\D : y = 2x+1$ est asymptote à $\Courbe$ en $+\infty$.}
+			\item \vln{Position :} $f(x) - (2x+1) = -x\expo{-x}$ est du signe de $-x$.\newline
+				\ansbox{$\Courbe$ est au-dessus de $\D$ sur $]-\infty;0[$, au-dessous sur $]0;+\infty[$,}
+				et les deux se coupent au point $(0;1)$.
+		\end{enumerate}
+		\item \begin{enumerate}
+			\item \vln{Tangente en $0$ :} $f(0) = 1$ et $f'(0) = g(0) = 1$.
+
+				\ansbox{$(T) : y = x + 1$.}
+			\item \vln{Tangente parallèle à $\D$ :}
+				Il faut $f'(x) = 2$, soit $(x-1)\expo{-x} = 0$, c'est-à-dire $x = 1$ (seule solution).
+				$f(1) = 3 - \expo{-1}$.
+
+				\ansbox{$A\left(1 \ ;\ 3 - \frac{1}{\expo{}}\right) \simeq (1 ; 2{,}63)$}, et
+				$(T') : y = 2x + 1 - \frac{1}{\expo{}}$.
+		\end{enumerate}
+		\item \vln{Construction :}
+			\textit{Remarque : l'énoncé donne << $\alpha = 0{,}4$ >>, ce qui contredit $-1<\alpha<0$ ; il faut lire $\alpha \simeq -0{,}4$
+			(plus précisément $\alpha \simeq -0{,}37$), avec bien $f(\alpha) \simeq 0{,}8$.}
+			Figure ci-dessous (à l'échelle $\frac{1}{2}$ : $1$ unité est représentée par $1\cm$ au lieu de $2\cm$).
+			\begin{center}
+			\begin{tikzpicture}[x=1cm,y=1cm,>=stealth]
+				\draw[very thin,gray!40] (-2,-1) grid (3,7);
+				\draw[->] (-2,0) -- (3.3,0) node[below] {$x$};
+				\draw[->] (0,-1) -- (0,7.3) node[left] {$y$};
+				\draw (1,0) node[below] {\small $1$} (0,1) node[left] {\small $1$};
+				\clip (-2,-1) rectangle (3,7);
+				\draw[loko3,thick] plot[domain=-2:3] (\x,{2*\x+1});
+				\draw[gray,thick] plot[domain=-2:3] (\x,{\x+1});
+				\draw[loko5,thick,dashed] plot[domain=-2:3] (\x,{2*\x+1-exp(-1)});
+				\draw[loko1,very thick,smooth,samples=80] plot[domain=-1.55:3] (\x,{2*\x+1-\x*exp(-\x)});
+				\fill (1,2.632) circle (2pt) node[left] {$A$};
+				\fill (-0.375,0.796) circle (2pt) node[below] {\small $\alpha$};
+				\node[gray] at (2.4,3) {$(T)$};
+				\node[loko5] at (2.3,4.0) {$(T')$};
+				\node[loko1] at (-1.2,5.5) {$\Courbe$};
+				\node[loko3] at (2.0,5.6) {$\D$};
+			\end{tikzpicture}
+			\end{center}
+		\item \begin{enumerate}
+			\item \vln{Calcul de $I_\lambda$ :}
+				On pose $u(x) = x$, $v'(x) = \expo{-x}$, donc $u'(x) = 1$, $v(x) = -\expo{-x}$ :
+				\[
+					I_\lambda = \Big[-x\expo{-x}\Big]_0^\lambda + \int_0^\lambda \expo{-x}\dx
+					= -\lambda\expo{-\lambda} + \Big[-\expo{-x}\Big]_0^\lambda = -\lambda\expo{-\lambda} - \expo{-\lambda} + 1.
+				\]
+
+				\ansbox{$I_\lambda = 1 - (\lambda + 1)\expo{-\lambda}$.}
+			\item \vln{Aire $\mathscr{A}(\lambda)$ :}
+				Sur $[0;\lambda]$, $\D$ est au-dessus de $\Courbe$ et $(2x+1) - f(x) = x\expo{-x}$.
+				L'unité d'aire vaut $2\cm \times 2\cm = 4\cm^2$, donc
+
+				\ansbox{$\mathscr{A}(\lambda) = 4 I_\lambda = 4\left(1 - (\lambda+1)\expo{-\lambda}\right)\cm^2$.}
+			\item \vln{Limite :}
+				$(\lambda+1)\expo{-\lambda} = \lambda\expo{-\lambda} + \expo{-\lambda} \to 0$ quand $\lambda \to +\infty$.
+
+				\ansbox{$\lim_{\lambda\to+\infty}\mathscr{A}(\lambda) = 4\cm^2$.}
+		\end{enumerate}
+	\end{enumerate}

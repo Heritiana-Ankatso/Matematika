@@ -2,7 +2,12 @@
 \makeatletter\IfFileExists{core/beamer/beamerthememx.sty}{\def\mxcorepath{core/}\def\input@path{{core/beamer/}{core/}}}{\def\mxcorepath{../core/}\def\input@path{{../core/beamer/}{../core/}}}\makeatother
 \documentclass[aspectratio=169,10pt,t]{beamer}
 \usetheme{mx}
-\usepackage{graphicx,booktabs}
+\usepackage{graphicx,booktabs,mathtools,array,adjustbox}
+\usepackage[all]{xy}
+\providecommand{\actualtextwidth}{\textwidth}
+\providecommand{\veccor}[2]{\left(\begin{matrix}#1\\#2\end{matrix}\right)}
+\DeclarePairedDelimiter{\VecNorm}{\lVert}{\rVert}
+\providecommand{\ETC}{\ldots}
 \usepackage[english]{babel}
 \setlength{\parskip}{.45em}
 \hypersetup{pdfauthor={},pdfsubject={Lecture slides},pdfkeywords={},pdftitle={Coordinate geometry: lines, projections and circles}}
@@ -36,26 +41,26 @@
 \author{}
 \begin{document}
 \mxtitleframe
-\begin{frame}{Chapter path}
+\begin{frame}[allowframebreaks]{Chapter path}
 \textbf{Objectives.} Use a normal vector; calculate a projection; determine or recognise a circle; translate a configuration into equations.
 
 \textbf{Prerequisites.} Vector coordinates, scalar product, linear systems, completing the square. The frame is always orthonormal.
 
 \textbf{Yearly reference point.} 5, 7 and 12 January: 6 hours
 \end{frame}
-\begin{frame}{Normal vector and Cartesian equation}
+\begin{frame}[allowframebreaks]{Normal vector and Cartesian equation}
 A nonzero normal vector to a line is orthogonal to every direction vector of that line. If \(\vec n=(a,b)\ne(0,0)\) is normal and \(A(x_A,y_A)\) belongs to d, then \(d\) has equation \(a(x-x_A)+b(y-y_A)=0\), that is \(ax+by+c=0\). A possible direction vector is \((-b,a)\).
 \end{frame}
-\begin{frame}{Normal vector and Cartesian equation}
+\begin{frame}[allowframebreaks]{Normal vector and Cartesian equation}
 Through \(A(1,2)\) with normal \((2,-3)\): \(2(x-1)-3(y-2)=0\), so \(2x-3y+4=0\). The vector \((3,2)\) is a direction vector of the line: scalar product \(6-6=0\).
 \end{frame}
-\begin{frame}{Normal vector and Cartesian equation}
+\begin{frame}[allowframebreaks]{Normal vector and Cartesian equation}
 \((a,b)\) is normal, not a direction vector in general. \((a,b)\) must not be zero.
 \end{frame}
-\begin{frame}{Normal vector and Cartesian equation}
+\begin{frame}[allowframebreaks]{Normal vector and Cartesian equation}
 Equation of the line through \((2,-1)\) with normal \((3,4)\).
 \end{frame}
-\begin{frame}{Orthogonal projection and distance}
+\begin{frame}[allowframebreaks]{Orthogonal projection and distance}
 The projection H of P onto d is characterised by \(H\in d\) and \(\vect{PH}\) collinear with a normal vector of d. For \(d:ax+by+c=0\), write \(H=P-\lambda(a,b)\), with \(\lambda =\dfrac{ax_P+by_P+c}{a^2+b^2}\). The distance is \(PH=\dfrac{|ax_P+by_P+c|}{\sqrt {a^2+b^2}}\). The distance formula is a derived extension rather than a standalone routine.
 \end{frame}
 \begin{frame}{Orthogonal projection and distance}
@@ -69,34 +74,34 @@ For \(P(3,4)\) and \(d:x+y-2=0\), \(\lambda =\dfrac{3+4-2}{2}=\dfrac{5}{2}\), so
 \end{column}
 \end{columns}
 \end{frame}
-\begin{frame}{Orthogonal projection and distance}
+\begin{frame}[allowframebreaks]{Orthogonal projection and distance}
 The distance is nonnegative: keep the absolute value. Two checks, membership and perpendicularity, verify the projection.
 \end{frame}
-\begin{frame}{Orthogonal projection and distance}
+\begin{frame}[allowframebreaks]{Orthogonal projection and distance}
 Project \(P(4,1)\) onto \(d:x=2\).
 \end{frame}
-\begin{frame}{Equation of a circle}
+\begin{frame}[allowframebreaks]{Equation of a circle}
 The circle with centre \(I(\alpha,\beta)\) and radius \(r>0\) has equation \((x-\alpha)^2+(y-\beta)^2=r^2\). An equation \(x^2+y^2+ux+vy+w=0\) is handled by completing both squares. If the squared radius obtained is negative, the set is empty; if it is zero, it is a point.
 \end{frame}
-\begin{frame}{Equation of a circle}
+\begin{frame}[allowframebreaks]{Equation of a circle}
 \(x^2+y^2-4x+6y+9=0\) becomes \((x-2)^2+(y+3)^2=4\). Centre \((2,-3)\), radius 2. The signs of the coordinates of the centre are opposite to those appearing in the brackets.
 \end{frame}
-\begin{frame}{Equation of a circle}
+\begin{frame}[allowframebreaks]{Equation of a circle}
 A quadratic equation in x and y is not always a circle: check the coefficients and the real radius.
 \end{frame}
-\begin{frame}{Equation of a circle}
+\begin{frame}[allowframebreaks]{Equation of a circle}
 Recognise \(x^2+y^2+2x-8y+17=0\).
 \end{frame}
-\begin{frame}{Solving a configuration}
+\begin{frame}[allowframebreaks]{Solving a configuration}
 An intersection is obtained by solving the equations simultaneously. For a circle and a line parallel to an axis, substituting the constant coordinate gives a quadratic equation. For a perpendicular bisector, write the equality of the squared distances; the quadratic terms cancel.
 \end{frame}
-\begin{frame}{Solving a configuration}
+\begin{frame}[allowframebreaks]{Solving a configuration}
 The circle \(x^2+y^2=25\) and the line \(x=3\) meet at \((3,4)\) and \((3,-4)\). The perpendicular bisector of \(A(0,0)\) and \(B(4,2)\) satisfies \(x^2+y^2=(x-4)^2+(y-2)^2\), so \(2x+y=5\).
 \end{frame}
-\begin{frame}{Solving a configuration}
+\begin{frame}[allowframebreaks]{Solving a configuration}
 An intersection is not the union of the solution sets. Check the points in both equations.
 \end{frame}
-\begin{frame}{Solving a configuration}
+\begin{frame}[allowframebreaks]{Solving a configuration}
 Intersect \((x-1)^2+(y+2)^2=9\) with \(y=1\).
 \end{frame}
 \end{document}
