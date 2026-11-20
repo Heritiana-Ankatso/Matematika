@@ -54,12 +54,12 @@ export const resourceCatalog = {
     {
       "name": "expertes-eleve.pdf",
       "title": "expertes-eleve.pdf",
-      "modified": "2026-11-07T15:00:11.000Z"
+      "modified": "2026-11-19T19:44:49.000Z"
     },
     {
       "name": "expertes-prof.pdf",
       "title": "expertes-prof.pdf",
-      "modified": "2026-11-07T15:00:11.000Z"
+      "modified": "2026-11-19T19:44:49.000Z"
     },
     {
       "name": "premiere-unsorted-automatismes",
@@ -85,6 +85,16 @@ export const resourceCatalog = {
       "name": "t11s-prof.pdf",
       "title": "Manuel de mathématiques T11 S, édition professeur",
       "modified": "2026-11-01T12:50:32.000Z"
+    },
+    {
+      "name": "t12-eleve.pdf",
+      "title": "Manuel de mathématiques T12 C et D, édition élève",
+      "modified": "2026-11-16T14:44:02.000Z"
+    },
+    {
+      "name": "t12-prof.pdf",
+      "title": "Manuel de mathématiques T12 C et D, édition professeur",
+      "modified": "2026-11-16T14:44:02.000Z"
     }
   ],
   "chapters": [
@@ -111,27 +121,27 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/seconde-01/chapter.pdf",
-              "bytes": 72466,
-              "sha256": "ae7174c9eeb072a6fa1716c6b30a0b200e550910ac130c51825ea1d2379bb2f4",
+              "bytes": 84532,
+              "sha256": "ff90cd161c72b04a7593c4b43b1d6f7ccea27bd32beb738fc876d26159179ae3",
               "pages": 5,
               "start": 7,
               "end": 11
             },
             "en": {
               "path": "resources/seconde-01/chapter-en.pdf",
-              "bytes": 71937,
-              "sha256": "1add243a2ec08db4496468455b712a9b3abaa144837dbe8942703371b9bbb305",
+              "bytes": 83334,
+              "sha256": "f8f895aea313f4cfd688dcd313da2a2b861c713a69a209f7c3ffc29075566bbb",
               "pages": 5,
               "start": 7,
               "end": 11
             }
           },
           "pages": 5,
-          "bytes": 72466,
+          "bytes": 84532,
           "end": 11,
           "englishPath": "resources/seconde-01/chapter-en.pdf",
           "englishPages": 5,
-          "englishBytes": 71937
+          "englishBytes": 83334
         },
         {
           "kind": "teacher",
@@ -141,27 +151,27 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/seconde-01/teacher.pdf",
-              "bytes": 69981,
-              "sha256": "ba05927fedd43b7ef547238107b308353614345290e3b3bb7fb2d52c8b0b9ef4",
+              "bytes": 82870,
+              "sha256": "8f7845d114ed5531d32eb993c952d6aea64a18919fddb1c9da4cf2a2a7a35b1c",
               "pages": 5,
               "start": 7,
               "end": 11
             },
             "en": {
               "path": "resources/seconde-01/teacher-en.pdf",
-              "bytes": 69174,
-              "sha256": "e4b2815957cfbb5385d1e53c3ee61ddaa751eccc5e31530f7520c1162aec6e59",
+              "bytes": 81290,
+              "sha256": "e07aa4cf4e3ea9c5737e42c15376d2c0f47561e3b9d9700cc566e9d668e114f1",
               "pages": 5,
               "start": 7,
               "end": 11
             }
           },
           "pages": 5,
-          "bytes": 69981,
+          "bytes": 82870,
           "end": 11,
           "englishPath": "resources/seconde-01/teacher-en.pdf",
           "englishPages": 5,
-          "englishBytes": 69174
+          "englishBytes": 81290
         }
       ],
       "labs": [
@@ -190,27 +200,27 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/seconde-02/chapter.pdf",
-              "bytes": 78039,
-              "sha256": "b0897502e241bcc960091e7668c176e71800b3afea41cba363fb089fb54199b8",
+              "bytes": 90728,
+              "sha256": "5fb7fe61b44d074ae028d7888f1f3983f4ea3778a8a96e605de7a70225cc5b10",
               "pages": 7,
               "start": 12,
               "end": 18
             },
             "en": {
               "path": "resources/seconde-02/chapter-en.pdf",
-              "bytes": 77349,
-              "sha256": "2dbb865bf3bc433d9d1638cb40652eb8faa83c0cbb23f58a477aa4b26bad5ea3",
+              "bytes": 89457,
+              "sha256": "87c03f5cd245a5eb7c0e04d10e773b7a788ceb0b81590f75758391529ff4e4b3",
               "pages": 7,
               "start": 12,
               "end": 18
             }
           },
           "pages": 7,
-          "bytes": 78039,
+          "bytes": 90728,
           "end": 18,
           "englishPath": "resources/seconde-02/chapter-en.pdf",
           "englishPages": 7,
-          "englishBytes": 77349
+          "englishBytes": 89457
         },
         {
           "kind": "teacher",
@@ -220,27 +230,27 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/seconde-02/teacher.pdf",
-              "bytes": 73388,
-              "sha256": "b7e7fc697d7f08e77bc8a8490fcb8a06724b5ae68483bfa67b2ebed34e70d62c",
+              "bytes": 86682,
+              "sha256": "6e53cb8a016ce59283038afb2e7f54e0d430b19f9f1d64edda37d0ff11054b4a",
               "pages": 7,
               "start": 12,
               "end": 18
             },
             "en": {
               "path": "resources/seconde-02/teacher-en.pdf",
-              "bytes": 72505,
-              "sha256": "75876d4c1d6127d39555e5d25a6d3f97552b30d5c01d8e44623c174f26508f0c",
+              "bytes": 85329,
+              "sha256": "48bda7cc2a06cacc7230cf05479ce9e79db54982e914ca84865c2739da07ab88",
               "pages": 7,
               "start": 12,
               "end": 18
             }
           },
           "pages": 7,
-          "bytes": 73388,
+          "bytes": 86682,
           "end": 18,
           "englishPath": "resources/seconde-02/teacher-en.pdf",
           "englishPages": 7,
-          "englishBytes": 72505
+          "englishBytes": 85329
         },
         {
           "kind": "fluency",
@@ -254,8 +264,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/seconde-02/fluency-student.pdf",
-              "bytes": 44478,
-              "sha256": "1f539775e7d3a3e453893cb4686f4cdbb361a3f52f272efa23fbf2c16e270fdf",
+              "bytes": 52579,
+              "sha256": "a084e9f0e075e93b58243eb1ccdd66bbed8a2224fcf7c334d4fa1e0a146c8e5d",
               "pages": 1,
               "start": 1,
               "end": 1
@@ -270,7 +280,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 1,
-          "bytes": 44478,
+          "bytes": 52579,
           "end": 1,
           "englishPath": "resources/seconde-02/fluency-student-en.pdf",
           "englishPages": 1,
@@ -288,8 +298,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/seconde-02/fluency-teacher.pdf",
-              "bytes": 55276,
-              "sha256": "bcce04dccb6915edec37f7597a20dc6bef13cb20e440f53d1d9868ae8ec71f15",
+              "bytes": 62799,
+              "sha256": "07ba5f257540a3cfa0b53419c4a8f2ee1de07bbd324d8164a55bf84a99b86272",
               "pages": 2,
               "start": 1,
               "end": 2
@@ -304,7 +314,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 2,
-          "bytes": 55276,
+          "bytes": 62799,
           "end": 2,
           "englishPath": "resources/seconde-02/fluency-teacher-en.pdf",
           "englishPages": 2,
@@ -338,27 +348,27 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/seconde-03/chapter.pdf",
-              "bytes": 78025,
-              "sha256": "b3f23873930b6a9b538fc5f40fa8995b72cc1978a3789ed4263670978ecc6791",
+              "bytes": 90233,
+              "sha256": "88c5d4930c8ca439cb7929048961e77eab233aae23e7998eed653a65864e0ed4",
               "pages": 6,
               "start": 19,
               "end": 24
             },
             "en": {
               "path": "resources/seconde-03/chapter-en.pdf",
-              "bytes": 76401,
-              "sha256": "991017d7ff46d609dbb82b728ecbad9c7e9b380b6026c016baa5786793a7352a",
+              "bytes": 88505,
+              "sha256": "822ef39496fa1edd7de4840c94ce3bcb6dab8f8df9b14d3d41a34a374a627b7d",
               "pages": 6,
               "start": 19,
               "end": 24
             }
           },
           "pages": 6,
-          "bytes": 78025,
+          "bytes": 90233,
           "end": 24,
           "englishPath": "resources/seconde-03/chapter-en.pdf",
           "englishPages": 6,
-          "englishBytes": 76401
+          "englishBytes": 88505
         },
         {
           "kind": "teacher",
@@ -368,27 +378,27 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/seconde-03/teacher.pdf",
-              "bytes": 76738,
-              "sha256": "61e44d13ee71885e59f9b052ca25a51cf3046a0cfa9e079f338e016ffbaa98e3",
+              "bytes": 89550,
+              "sha256": "13f083f528fc91b3cd1fa3c32c6c9986d049dbc52b6d8bff6982138e9f4a1b66",
               "pages": 6,
               "start": 19,
               "end": 24
             },
             "en": {
               "path": "resources/seconde-03/teacher-en.pdf",
-              "bytes": 74804,
-              "sha256": "73264d470c8a865d33bcb745f9fe51200506c2c66b060f3b3269fe13b28b97c0",
+              "bytes": 87417,
+              "sha256": "353cb10d3f4e3f513e9cb95d08eea53d8513c3596e5b631507cf2349ef91dd01",
               "pages": 6,
               "start": 19,
               "end": 24
             }
           },
           "pages": 6,
-          "bytes": 76738,
+          "bytes": 89550,
           "end": 24,
           "englishPath": "resources/seconde-03/teacher-en.pdf",
           "englishPages": 6,
-          "englishBytes": 74804
+          "englishBytes": 87417
         },
         {
           "kind": "fluency",
@@ -402,8 +412,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/seconde-03/fluency-student.pdf",
-              "bytes": 57985,
-              "sha256": "deaf12af539b1da8d149e7aa715bd34aea136a20ae276dcba407faa028af3bd1",
+              "bytes": 65986,
+              "sha256": "24b8791aa91b0298886cf8db3ec99ee787582b3467c3cdd03a4fbcf9093c3a0b",
               "pages": 2,
               "start": 2,
               "end": 3
@@ -418,7 +428,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 2,
-          "bytes": 57985,
+          "bytes": 65986,
           "end": 3,
           "englishPath": "resources/seconde-03/fluency-student-en.pdf",
           "englishPages": 2,
@@ -436,8 +446,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/seconde-03/fluency-teacher.pdf",
-              "bytes": 75217,
-              "sha256": "f7e33657d4e7b0ee5f30d457fb8d4f3b6ccee76ff447cf5c2c1348065bcc5860",
+              "bytes": 82918,
+              "sha256": "d9fad739452b23aa28d147bd0a2e1836a78756d5718c9f2ca3f895870351965c",
               "pages": 4,
               "start": 3,
               "end": 6
@@ -452,7 +462,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 4,
-          "bytes": 75217,
+          "bytes": 82918,
           "end": 6,
           "englishPath": "resources/seconde-03/fluency-teacher-en.pdf",
           "englishPages": 4,
@@ -486,27 +496,27 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/seconde-04/chapter.pdf",
-              "bytes": 81361,
-              "sha256": "a1294d8623d52ed257fcb37983c1a0f683b6db0da9862e2cbdf19d0c4aa6653a",
+              "bytes": 93507,
+              "sha256": "91d2c4f758125254fa350da7adeb88814e83c146bdf5b153f28b53910567009c",
               "pages": 6,
               "start": 25,
               "end": 30
             },
             "en": {
               "path": "resources/seconde-04/chapter-en.pdf",
-              "bytes": 80653,
-              "sha256": "cb0a6e56bae1d1fbe029edfd75e4a2a03af7b75008776f41ba31b8ce628b5583",
+              "bytes": 92563,
+              "sha256": "81728508f034d195a759d055231b4a1d7f8044ceb01572ebbca31d79b955ce8e",
               "pages": 6,
               "start": 25,
               "end": 30
             }
           },
           "pages": 6,
-          "bytes": 81361,
+          "bytes": 93507,
           "end": 30,
           "englishPath": "resources/seconde-04/chapter-en.pdf",
           "englishPages": 6,
-          "englishBytes": 80653
+          "englishBytes": 92563
         },
         {
           "kind": "teacher",
@@ -516,27 +526,27 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/seconde-04/teacher.pdf",
-              "bytes": 77924,
-              "sha256": "c7e27e33bc3afcb2d9a1ca0a4e369690f4fb54c22b732eb227406cb4ac15f2ae",
+              "bytes": 90546,
+              "sha256": "3978b2fde07bb2fb9979deec709ed671fd013e2e2adafd016e77829d0ce32a06",
               "pages": 6,
               "start": 25,
               "end": 30
             },
             "en": {
               "path": "resources/seconde-04/teacher-en.pdf",
-              "bytes": 77116,
-              "sha256": "fd60da92fcd0a8fd491157b0ef009a8350cdf7d0f3310368f84be0c2838834fb",
+              "bytes": 89649,
+              "sha256": "c119a6b9a1c300ec0781d2b861481945750aa875f0184a8aa9a2812727f9bc74",
               "pages": 6,
               "start": 25,
               "end": 30
             }
           },
           "pages": 6,
-          "bytes": 77924,
+          "bytes": 90546,
           "end": 30,
           "englishPath": "resources/seconde-04/teacher-en.pdf",
           "englishPages": 6,
-          "englishBytes": 77116
+          "englishBytes": 89649
         },
         {
           "kind": "fluency",
@@ -550,8 +560,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/seconde-04/fluency-student.pdf",
-              "bytes": 56006,
-              "sha256": "ff69446245edaf91de85552b25b9be7eed6cad6ac70699f48eb3b15140c42b64",
+              "bytes": 64241,
+              "sha256": "0ed74c43696e5f162c6042a26deba6e36d702a7a47482f53c21f922824acd073",
               "pages": 2,
               "start": 4,
               "end": 5
@@ -566,7 +576,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 2,
-          "bytes": 56006,
+          "bytes": 64241,
           "end": 5,
           "englishPath": "resources/seconde-04/fluency-student-en.pdf",
           "englishPages": 2,
@@ -584,8 +594,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/seconde-04/fluency-teacher.pdf",
-              "bytes": 68856,
-              "sha256": "365109e1fb991b0a5508bb60fb2f266b5c66f6d0a83f4d04cf122c3e67071021",
+              "bytes": 76181,
+              "sha256": "4b6acb1f912526d492fa92355d24fe1fe381bfb58ca68bbc153ce85e24c988a3",
               "pages": 3,
               "start": 6,
               "end": 8
@@ -600,7 +610,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 3,
-          "bytes": 68856,
+          "bytes": 76181,
           "end": 8,
           "englishPath": "resources/seconde-04/fluency-teacher-en.pdf",
           "englishPages": 3,
@@ -631,27 +641,27 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/seconde-05/chapter.pdf",
-              "bytes": 47365,
-              "sha256": "49a25ef5d077ce760e15fa787953d343b7833d4dcd7bae93c63e7c942a3f81bd",
-              "pages": 3,
+              "bytes": 58419,
+              "sha256": "7970087b5af6942616a9e3e37b502ae97b43133c0242ec8c367b57d2bd77cc30",
+              "pages": 4,
               "start": 31,
-              "end": 33
+              "end": 34
             },
             "en": {
               "path": "resources/seconde-05/chapter-en.pdf",
-              "bytes": 47281,
-              "sha256": "297838735921ddd37748c30f0546bfe0824fc45a9d1a46da1abceeaa72c8ecf5",
-              "pages": 3,
+              "bytes": 58010,
+              "sha256": "712d6a4985198f095b5adcdefb50352d5db71127ff43179d50c5c010cf08c67e",
+              "pages": 4,
               "start": 31,
-              "end": 33
+              "end": 34
             }
           },
-          "pages": 3,
-          "bytes": 47365,
-          "end": 33,
+          "pages": 4,
+          "bytes": 58419,
+          "end": 34,
           "englishPath": "resources/seconde-05/chapter-en.pdf",
-          "englishPages": 3,
-          "englishBytes": 47281
+          "englishPages": 4,
+          "englishBytes": 58010
         },
         {
           "kind": "teacher",
@@ -661,27 +671,27 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/seconde-05/teacher.pdf",
-              "bytes": 47638,
-              "sha256": "a3adc3e16f70a52180a0be5080d7f646b929c35548dadd67a4c652cd71b6d80f",
+              "bytes": 57432,
+              "sha256": "4d7adab26b30e088f9b4047dbb2840f81672d56afad5550b91d76b5d34f05433",
               "pages": 3,
               "start": 31,
               "end": 33
             },
             "en": {
               "path": "resources/seconde-05/teacher-en.pdf",
-              "bytes": 46998,
-              "sha256": "6766b9bd06decb6be29ecc0b48b785f94d570fe7aa96f5363ce2878205ff57d2",
+              "bytes": 56429,
+              "sha256": "f5874e5bc0d5c00e3de6a03f1a6093d4b7a6bd5450d2edef11bcac4707c8b0c6",
               "pages": 3,
               "start": 31,
               "end": 33
             }
           },
           "pages": 3,
-          "bytes": 47638,
+          "bytes": 57432,
           "end": 33,
           "englishPath": "resources/seconde-05/teacher-en.pdf",
           "englishPages": 3,
-          "englishBytes": 46998
+          "englishBytes": 56429
         }
       ],
       "labs": []
@@ -708,27 +718,27 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/seconde-06/chapter.pdf",
-              "bytes": 101618,
-              "sha256": "25b334bdc66295b1d2ac04cc38d07cbd5ba474263334e3fc6a2de3410c5eae26",
-              "pages": 9,
+              "bytes": 114563,
+              "sha256": "d64cad88d61dfb91fe7ac5ddf80e0f7f01a3efa716f5af27fc1eb1872f49ec7c",
+              "pages": 10,
               "start": 34,
-              "end": 42
+              "end": 43
             },
             "en": {
               "path": "resources/seconde-06/chapter-en.pdf",
-              "bytes": 100961,
-              "sha256": "c5d7ac44d98f0e719c9832d14b47facc9b93dc16462191b20bcbd29a0dc3da36",
-              "pages": 9,
+              "bytes": 113546,
+              "sha256": "a387c8ff8dba0b4561529f5a0f8946e85f101a4b7635709825e3111d2e6f593b",
+              "pages": 10,
               "start": 34,
-              "end": 42
+              "end": 43
             }
           },
-          "pages": 9,
-          "bytes": 101618,
-          "end": 42,
+          "pages": 10,
+          "bytes": 114563,
+          "end": 43,
           "englishPath": "resources/seconde-06/chapter-en.pdf",
-          "englishPages": 9,
-          "englishBytes": 100961
+          "englishPages": 10,
+          "englishBytes": 113546
         },
         {
           "kind": "teacher",
@@ -738,27 +748,27 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/seconde-06/teacher.pdf",
-              "bytes": 96634,
-              "sha256": "1b135787b422abee107a7f7c3c95b398c5991a0be970c60b8a823fedc47a7547",
+              "bytes": 107884,
+              "sha256": "9342f46ec14b858c558fca3e0f5e65a6ffcc85df503d2d3f0489122bdc9abfe0",
               "pages": 9,
               "start": 34,
               "end": 42
             },
             "en": {
               "path": "resources/seconde-06/teacher-en.pdf",
-              "bytes": 95803,
-              "sha256": "cd652e0d41ea590cc3c174d42298c811353bd82846af7ad025d79995dde8d66a",
+              "bytes": 106723,
+              "sha256": "d4f475ccc53fe62fd423ab925afe7b60dd3c899a3b956dc435138e1fa0cceb1f",
               "pages": 9,
               "start": 34,
               "end": 42
             }
           },
           "pages": 9,
-          "bytes": 96634,
+          "bytes": 107884,
           "end": 42,
           "englishPath": "resources/seconde-06/teacher-en.pdf",
           "englishPages": 9,
-          "englishBytes": 95803
+          "englishBytes": 106723
         },
         {
           "kind": "fluency",
@@ -772,8 +782,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/seconde-05/fluency-student.pdf",
-              "bytes": 62868,
-              "sha256": "a6313ed832e8d19d9fbf6769afdb5a5fa199c0597064dbbd46cad2705aa99583",
+              "bytes": 71268,
+              "sha256": "c548eca08d248f8fed3e204907c69457c7a2c696d1907edd30cf6fbb582f891a",
               "pages": 2,
               "start": 5,
               "end": 6
@@ -788,7 +798,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 2,
-          "bytes": 62868,
+          "bytes": 71268,
           "end": 6,
           "englishPath": "resources/seconde-05/fluency-student-en.pdf",
           "englishPages": 2,
@@ -806,8 +816,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/seconde-05/fluency-teacher.pdf",
-              "bytes": 75633,
-              "sha256": "9a2b26a3374f817f6b723fe0de15248ac808a702ce5b90372d16dc88eb09798a",
+              "bytes": 83405,
+              "sha256": "e03d4ee3d5128463570a3b90ea6d5d651af5c3d4cc66b78883889b07877c1658",
               "pages": 3,
               "start": 8,
               "end": 10
@@ -822,7 +832,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 3,
-          "bytes": 75633,
+          "bytes": 83405,
           "end": 10,
           "englishPath": "resources/seconde-05/fluency-teacher-en.pdf",
           "englishPages": 3,
@@ -856,27 +866,27 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/seconde-07/chapter.pdf",
-              "bytes": 87305,
-              "sha256": "771bf7e6ea87511ca7f913ba2d5dd8e27820cd0cc5971925d815c0d8d8775c0f",
+              "bytes": 98375,
+              "sha256": "74e34a492e0af734afaf682a193b309ca086a9996c654eb4db4100a2dfb53edc",
               "pages": 8,
               "start": 43,
               "end": 50
             },
             "en": {
               "path": "resources/seconde-07/chapter-en.pdf",
-              "bytes": 86064,
-              "sha256": "1dab16ca166c3f83014d03f90c0d29b671ae24e08d833bc7a4061b2f2798f6f7",
+              "bytes": 96865,
+              "sha256": "b36bd3c86d29709f6bc968249c2fcbdc4d809cd2b86b9ab2e0fe46b07ddc87b0",
               "pages": 8,
               "start": 43,
               "end": 50
             }
           },
           "pages": 8,
-          "bytes": 87305,
+          "bytes": 98375,
           "end": 50,
           "englishPath": "resources/seconde-07/chapter-en.pdf",
           "englishPages": 8,
-          "englishBytes": 86064
+          "englishBytes": 96865
         },
         {
           "kind": "teacher",
@@ -886,27 +896,27 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/seconde-07/teacher.pdf",
-              "bytes": 85521,
-              "sha256": "6be53cab12abbb631de01e80f07f95b65d7635f2932d7ffb85b4eca1fb24a417",
+              "bytes": 99620,
+              "sha256": "ae6ec1e8ad57afae9fd22f37a75fc3af75ea8d1e7ee6f9520c3598d81c99058d",
               "pages": 8,
               "start": 43,
               "end": 50
             },
             "en": {
               "path": "resources/seconde-07/teacher-en.pdf",
-              "bytes": 83900,
-              "sha256": "3937c77e6c3437a618a9ae2b2010e08d9e4ed99ca563fdcee5b989b1fedd1d01",
+              "bytes": 97780,
+              "sha256": "e1d0393708720e9550906dfde52b449ebc106113b72006c99cac5574082167bf",
               "pages": 8,
               "start": 43,
               "end": 50
             }
           },
           "pages": 8,
-          "bytes": 85521,
+          "bytes": 99620,
           "end": 50,
           "englishPath": "resources/seconde-07/teacher-en.pdf",
           "englishPages": 8,
-          "englishBytes": 83900
+          "englishBytes": 97780
         },
         {
           "kind": "fluency",
@@ -920,8 +930,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/seconde-06/fluency-student.pdf",
-              "bytes": 58387,
-              "sha256": "ad0d312db20bab276550619e2d11e305826bf290cedcb224a0f4323ed6f95192",
+              "bytes": 66849,
+              "sha256": "77b1950691e435b24dbf8eb9c6fffa034a5998e8c0477a0cada916d07591b196",
               "pages": 2,
               "start": 7,
               "end": 8
@@ -936,7 +946,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 2,
-          "bytes": 58387,
+          "bytes": 66849,
           "end": 8,
           "englishPath": "resources/seconde-06/fluency-student-en.pdf",
           "englishPages": 2,
@@ -954,8 +964,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/seconde-06/fluency-teacher.pdf",
-              "bytes": 68355,
-              "sha256": "fa84bd4f8104806a516237621d9c9f4213367479b7d724f71043e2ec53a5889c",
+              "bytes": 76691,
+              "sha256": "e55bc2439d4e169767b96bc201fd680ea268889c27efc27a70221253994b7a00",
               "pages": 3,
               "start": 11,
               "end": 13
@@ -970,7 +980,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 3,
-          "bytes": 68355,
+          "bytes": 76691,
           "end": 13,
           "englishPath": "resources/seconde-06/fluency-teacher-en.pdf",
           "englishPages": 3,
@@ -1002,27 +1012,27 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/seconde-08/chapter.pdf",
-              "bytes": 120927,
-              "sha256": "5d97b4f4151b9d898eb70714c11507d7e38fd5b8eeab410dad0e814466d1b0f9",
+              "bytes": 134723,
+              "sha256": "b98a1d4f2934a6c312358319becd2b1d3730eec33c8b8a2da86f06450bcf4ff0",
               "pages": 14,
               "start": 51,
               "end": 64
             },
             "en": {
               "path": "resources/seconde-08/chapter-en.pdf",
-              "bytes": 118943,
-              "sha256": "81308fec57474fedb933469268e7fc7c2c77a364abb66c427e21da471be270e3",
+              "bytes": 132340,
+              "sha256": "ad3eb075f4fbcc81b841861dc3ba1ba2badc8ee031ef256d25618918e664b618",
               "pages": 14,
               "start": 51,
               "end": 64
             }
           },
           "pages": 14,
-          "bytes": 120927,
+          "bytes": 134723,
           "end": 64,
           "englishPath": "resources/seconde-08/chapter-en.pdf",
           "englishPages": 14,
-          "englishBytes": 118943
+          "englishBytes": 132340
         },
         {
           "kind": "teacher",
@@ -1032,27 +1042,27 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/seconde-08/teacher.pdf",
-              "bytes": 108928,
-              "sha256": "b7fcd1f01a1c0daea1cf8880ff9ced3e7dafcf74e54ef238d35c9c41ccd04562",
+              "bytes": 124304,
+              "sha256": "71a55e6b408e2c0f0f7a2f98956e9cc9bd81a1069409e3b3d24f3115007d4cd7",
               "pages": 13,
               "start": 51,
               "end": 63
             },
             "en": {
               "path": "resources/seconde-08/teacher-en.pdf",
-              "bytes": 107043,
-              "sha256": "0aff5c9c88e0a00e1e99720a89d770c3610ab9ebe0185c7fed1eee07c4c44de1",
+              "bytes": 122046,
+              "sha256": "c8b06cc9a60dcfcbbadfbe462d1eeb461bba263a96bbfa1046a6b4289389a78f",
               "pages": 13,
               "start": 51,
               "end": 63
             }
           },
           "pages": 13,
-          "bytes": 108928,
+          "bytes": 124304,
           "end": 63,
           "englishPath": "resources/seconde-08/teacher-en.pdf",
           "englishPages": 13,
-          "englishBytes": 107043
+          "englishBytes": 122046
         },
         {
           "kind": "fluency",
@@ -1066,8 +1076,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/seconde-07/fluency-student.pdf",
-              "bytes": 57592,
-              "sha256": "87b3ee75c20076ef67b10ecfab60e43c6d0d7d0a7757d1d335e4349500daf3a1",
+              "bytes": 65970,
+              "sha256": "45f29c78e90578bd734ea1574a293ed9f7adaddd2bc8dcae10853f8a40c3f48a",
               "pages": 2,
               "start": 9,
               "end": 10
@@ -1082,7 +1092,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 2,
-          "bytes": 57592,
+          "bytes": 65970,
           "end": 10,
           "englishPath": "resources/seconde-07/fluency-student-en.pdf",
           "englishPages": 2,
@@ -1100,8 +1110,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/seconde-07/fluency-teacher.pdf",
-              "bytes": 72673,
-              "sha256": "4d8f13544c576115ebd3a1c74f515c0f0ba396dcb7dcd569615d7b4bc5435aaf",
+              "bytes": 80179,
+              "sha256": "5dbde75553f0c57a9b36eab8a26ae80be66ca546b4efafd05564df463269ce49",
               "pages": 4,
               "start": 13,
               "end": 16
@@ -1116,7 +1126,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 4,
-          "bytes": 72673,
+          "bytes": 80179,
           "end": 16,
           "englishPath": "resources/seconde-07/fluency-teacher-en.pdf",
           "englishPages": 4,
@@ -1147,27 +1157,27 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/seconde-09/chapter.pdf",
-              "bytes": 54291,
-              "sha256": "0fcfd0d9209280a3f199ff9b4a7b63b57f4b76be7680713042dcd84091f331f3",
-              "pages": 4,
+              "bytes": 65857,
+              "sha256": "f2ebc06623ca84265d6784815d12f1d21ff117b24092762d8f41644797916882",
+              "pages": 5,
               "start": 64,
-              "end": 67
+              "end": 68
             },
             "en": {
               "path": "resources/seconde-09/chapter-en.pdf",
-              "bytes": 53357,
-              "sha256": "5a38c28dc9e4b40cd04b7feaf233655dacae7c7b9259a788b3e67de6e6626210",
-              "pages": 4,
+              "bytes": 64756,
+              "sha256": "d5b03ea7e6390bedf2e836d667367b88562337936f81ff158ca49b36ebbac351",
+              "pages": 5,
               "start": 64,
-              "end": 67
+              "end": 68
             }
           },
-          "pages": 4,
-          "bytes": 54291,
-          "end": 67,
+          "pages": 5,
+          "bytes": 65857,
+          "end": 68,
           "englishPath": "resources/seconde-09/chapter-en.pdf",
-          "englishPages": 4,
-          "englishBytes": 53357
+          "englishPages": 5,
+          "englishBytes": 64756
         },
         {
           "kind": "teacher",
@@ -1177,27 +1187,27 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/seconde-09/teacher.pdf",
-              "bytes": 50926,
-              "sha256": "d3ac84e658922effc07fb57c7fdd530bb1a7056949474afdf9de1e884b2d3489",
+              "bytes": 60769,
+              "sha256": "8b4114946a1b28905e34735bda5ee4e373b375ee0be13a62d07c8d213d0dbd05",
               "pages": 4,
               "start": 64,
               "end": 67
             },
             "en": {
               "path": "resources/seconde-09/teacher-en.pdf",
-              "bytes": 50107,
-              "sha256": "8815d75261058d701808191d2f7a14f30f53524867c5352c6f4bed6d467a5a6e",
+              "bytes": 59949,
+              "sha256": "2f7e6e5cdd2d07682284ecca4279b5fbc02912773f692406ea140411b47c6dab",
               "pages": 4,
               "start": 64,
               "end": 67
             }
           },
           "pages": 4,
-          "bytes": 50926,
+          "bytes": 60769,
           "end": 67,
           "englishPath": "resources/seconde-09/teacher-en.pdf",
           "englishPages": 4,
-          "englishBytes": 50107
+          "englishBytes": 59949
         },
         {
           "kind": "fluency",
@@ -1211,8 +1221,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/seconde-08/fluency-student.pdf",
-              "bytes": 47099,
-              "sha256": "4d684fbcbdce2190c5714cbda185149828760365f2b60089d7194652c8f21309",
+              "bytes": 55197,
+              "sha256": "6058a5233da4f0d154f025980f0c9405c7cfe66d6a6b03aa982ac4032fe53ae7",
               "pages": 2,
               "start": 11,
               "end": 12
@@ -1227,7 +1237,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 2,
-          "bytes": 47099,
+          "bytes": 55197,
           "end": 12,
           "englishPath": "resources/seconde-08/fluency-student-en.pdf",
           "englishPages": 1,
@@ -1245,8 +1255,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/seconde-08/fluency-teacher.pdf",
-              "bytes": 54195,
-              "sha256": "ff68b139c73c6f3dc1aea2c359d8635e5277c47d1ebf2dc84519d0fdad10756a",
+              "bytes": 61719,
+              "sha256": "9dc088743b9aa2187480a3085965d610b85977b555e6facf5a0f6b56b155478a",
               "pages": 2,
               "start": 16,
               "end": 17
@@ -1261,7 +1271,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 2,
-          "bytes": 54195,
+          "bytes": 61719,
           "end": 17,
           "englishPath": "resources/seconde-08/fluency-teacher-en.pdf",
           "englishPages": 2,
@@ -1292,27 +1302,27 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/seconde-10/chapter.pdf",
-              "bytes": 87836,
-              "sha256": "52659d7ca50cceee262ca7ee635a709e8d23db799e65a52482b1eb65bce75540",
-              "pages": 7,
+              "bytes": 103025,
+              "sha256": "7fbbd0ca3d9c928b2df4a69c7567c6e8e4f952038bc5fe489b6af63bb55ff20f",
+              "pages": 8,
               "start": 68,
-              "end": 74
+              "end": 75
             },
             "en": {
               "path": "resources/seconde-10/chapter-en.pdf",
-              "bytes": 86496,
-              "sha256": "b156b0a8aeb1dafb7d35d8a4d790138b8ecc8f4d854d8fd93e32d52f294220dd",
-              "pages": 7,
+              "bytes": 101441,
+              "sha256": "d372c58e5306b7b3e958aed8dcdb2f201c72d59124ff6aed038162508ed921fe",
+              "pages": 8,
               "start": 68,
-              "end": 74
+              "end": 75
             }
           },
-          "pages": 7,
-          "bytes": 87836,
-          "end": 74,
+          "pages": 8,
+          "bytes": 103025,
+          "end": 75,
           "englishPath": "resources/seconde-10/chapter-en.pdf",
-          "englishPages": 7,
-          "englishBytes": 86496
+          "englishPages": 8,
+          "englishBytes": 101441
         },
         {
           "kind": "teacher",
@@ -1322,27 +1332,27 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/seconde-10/teacher.pdf",
-              "bytes": 81999,
-              "sha256": "a76f5714619b9c96ecc53606b535bcdbce1fd7483b2207afb7bbdfb828db0968",
+              "bytes": 95687,
+              "sha256": "7b8bb07b9bb4f72a4108a93cfe805c531fea7657e6b75efa6990367772e026fa",
               "pages": 7,
               "start": 68,
               "end": 74
             },
             "en": {
               "path": "resources/seconde-10/teacher-en.pdf",
-              "bytes": 80431,
-              "sha256": "50363667a81093c2e11b2db53c4ec07e049469ef4aa156530a2fdf462a16fad8",
+              "bytes": 93752,
+              "sha256": "bcf2e5f07da938eab7370f366424e2985e06a5b5134d8fc825ddcaf24dff30fd",
               "pages": 7,
               "start": 68,
               "end": 74
             }
           },
           "pages": 7,
-          "bytes": 81999,
+          "bytes": 95687,
           "end": 74,
           "englishPath": "resources/seconde-10/teacher-en.pdf",
           "englishPages": 7,
-          "englishBytes": 80431
+          "englishBytes": 93752
         },
         {
           "kind": "fluency",
@@ -1356,8 +1366,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/seconde-09/fluency-student.pdf",
-              "bytes": 53531,
-              "sha256": "6d96254b690d9ed58f3f64c9874d1fd6b9d5cd8bdfcbc1fd3db59bcd9896911b",
+              "bytes": 61933,
+              "sha256": "8b7401792c8c25402e6cba3463cae9f5183391e5c614e4205801833e3411d058",
               "pages": 2,
               "start": 12,
               "end": 13
@@ -1372,7 +1382,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 2,
-          "bytes": 53531,
+          "bytes": 61933,
           "end": 13,
           "englishPath": "resources/seconde-09/fluency-student-en.pdf",
           "englishPages": 2,
@@ -1390,8 +1400,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/seconde-09/fluency-teacher.pdf",
-              "bytes": 64890,
-              "sha256": "f5e0955045e42d71eaef0cf6e9d61a758ca420316f69079cd4ae8fa09bebcccd",
+              "bytes": 72908,
+              "sha256": "d56a6f9bc05c9eae5d25e62e9b03f28a136396f998e6710e586736b47837e9f4",
               "pages": 3,
               "start": 18,
               "end": 20
@@ -1406,7 +1416,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 3,
-          "bytes": 64890,
+          "bytes": 72908,
           "end": 20,
           "englishPath": "resources/seconde-09/fluency-teacher-en.pdf",
           "englishPages": 3,
@@ -1439,27 +1449,27 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/seconde-11/chapter.pdf",
-              "bytes": 72973,
-              "sha256": "d43628d9aaf6a81f01b5613ac9f23094535a9a0d2b93dfd4ee835f0e0f7528b8",
+              "bytes": 84584,
+              "sha256": "72d4293a7eabbce8ca3cef307662659e360e888af9cb2fd28ded481ae9441bd8",
               "pages": 5,
               "start": 75,
               "end": 79
             },
             "en": {
               "path": "resources/seconde-11/chapter-en.pdf",
-              "bytes": 72167,
-              "sha256": "214a1d633544a2cca800dcc770547e9d4fe1c857d498c5c283b604d3126c1de1",
+              "bytes": 84184,
+              "sha256": "7e74f8b5a669c1a430bface92ff3c7977018f974f9f5d47574bc39a7ac945769",
               "pages": 5,
               "start": 75,
               "end": 79
             }
           },
           "pages": 5,
-          "bytes": 72973,
+          "bytes": 84584,
           "end": 79,
           "englishPath": "resources/seconde-11/chapter-en.pdf",
           "englishPages": 5,
-          "englishBytes": 72167
+          "englishBytes": 84184
         },
         {
           "kind": "teacher",
@@ -1469,27 +1479,27 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/seconde-11/teacher.pdf",
-              "bytes": 69806,
-              "sha256": "0c20b71908da210613dbf88e19061a663820fb3e51145e9a68d80b5d81b79bee",
+              "bytes": 82296,
+              "sha256": "cd4083a2b2df2603fb33917b7d3af0c2569624b6223e2d38960b59fd6a6bce80",
               "pages": 5,
               "start": 75,
               "end": 79
             },
             "en": {
               "path": "resources/seconde-11/teacher-en.pdf",
-              "bytes": 69054,
-              "sha256": "eee9d355fa8f52b4e3e5139246217fcc70c6a3520c70e7e0da5ae8324378b64b",
+              "bytes": 81406,
+              "sha256": "191bc5655384a656d3b78ea8aa83ba590a37ee4d43f60c1697d5f4e85f71e875",
               "pages": 5,
               "start": 75,
               "end": 79
             }
           },
           "pages": 5,
-          "bytes": 69806,
+          "bytes": 82296,
           "end": 79,
           "englishPath": "resources/seconde-11/teacher-en.pdf",
           "englishPages": 5,
-          "englishBytes": 69054
+          "englishBytes": 81406
         },
         {
           "kind": "fluency",
@@ -1503,8 +1513,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/seconde-10/fluency-student.pdf",
-              "bytes": 58452,
-              "sha256": "4144c7177202709a18e24566a883db4b20018515845a8bcdd9eec94b12822f3c",
+              "bytes": 66405,
+              "sha256": "d7a1263f886fb8b45d2e6187068b917ae32bcce84db7d7a01a9b89f3271255cf",
               "pages": 2,
               "start": 13,
               "end": 14
@@ -1519,7 +1529,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 2,
-          "bytes": 58452,
+          "bytes": 66405,
           "end": 14,
           "englishPath": "resources/seconde-10/fluency-student-en.pdf",
           "englishPages": 2,
@@ -1537,8 +1547,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/seconde-10/fluency-teacher.pdf",
-              "bytes": 74944,
-              "sha256": "090f297bfc1116453a5cf05f5fe85d81d2f714e9bc36130cfa6c4ec5696e485f",
+              "bytes": 82637,
+              "sha256": "e475ff54ffc5ab8d04f0cfc0206afc804735c1156cfed418bced04388bd0bdd7",
               "pages": 4,
               "start": 20,
               "end": 23
@@ -1553,7 +1563,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 4,
-          "bytes": 74944,
+          "bytes": 82637,
           "end": 23,
           "englishPath": "resources/seconde-10/fluency-teacher-en.pdf",
           "englishPages": 4,
@@ -1585,27 +1595,27 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/seconde-12/chapter.pdf",
-              "bytes": 47209,
-              "sha256": "16cf2c2c73bd015f31e48322c14ee2906c8baeffd6ea60362413ae58e9cac527",
+              "bytes": 56213,
+              "sha256": "01fc45265326f40de84f5153a48e5fac4ea0b62569340b75b79c9122094d6b90",
               "pages": 3,
               "start": 79,
               "end": 81
             },
             "en": {
               "path": "resources/seconde-12/chapter-en.pdf",
-              "bytes": 46319,
-              "sha256": "98c8b67f4b86eab4b17453cdece0cbb1532cae27037f9c4c84e263b4d5755bc6",
+              "bytes": 55513,
+              "sha256": "6ee7780cba9f9676a2b37d7f5999cb6e23d957a0474c31207e37d6226336b033",
               "pages": 3,
               "start": 79,
               "end": 81
             }
           },
           "pages": 3,
-          "bytes": 47209,
+          "bytes": 56213,
           "end": 81,
           "englishPath": "resources/seconde-12/chapter-en.pdf",
           "englishPages": 3,
-          "englishBytes": 46319
+          "englishBytes": 55513
         },
         {
           "kind": "teacher",
@@ -1615,27 +1625,27 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/seconde-12/teacher.pdf",
-              "bytes": 49375,
-              "sha256": "54b82d963d3bac09b8ff9488fb8fdd943256fa38c20b24a941031e213b1ecd5f",
+              "bytes": 58912,
+              "sha256": "2121da5e8fadb7637aec6161d80bd7a3bf0a798fb87445c038d3f8b853f7e04c",
               "pages": 3,
               "start": 79,
               "end": 81
             },
             "en": {
               "path": "resources/seconde-12/teacher-en.pdf",
-              "bytes": 48513,
-              "sha256": "9fe42c0971b4ff3998e247638e4ca277c0805462e1c34d871757cb86c3bb22f5",
+              "bytes": 57852,
+              "sha256": "3909a86abc1c66e4418ac21c1cf51854eaa7c224fefef78af6b23f7436b7acd4",
               "pages": 3,
               "start": 79,
               "end": 81
             }
           },
           "pages": 3,
-          "bytes": 49375,
+          "bytes": 58912,
           "end": 81,
           "englishPath": "resources/seconde-12/teacher-en.pdf",
           "englishPages": 3,
-          "englishBytes": 48513
+          "englishBytes": 57852
         },
         {
           "kind": "fluency",
@@ -1649,8 +1659,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/seconde-11/fluency-student.pdf",
-              "bytes": 50392,
-              "sha256": "e0a64cc0805349e80e92932fdaedc9211d1fb7b3cb5b4eb188105856a7887f48",
+              "bytes": 58587,
+              "sha256": "0a25de6e6ad34204fe751fbd2284a9d796272b0d80997a523b6801d1ad407873",
               "pages": 2,
               "start": 15,
               "end": 16
@@ -1665,7 +1675,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 2,
-          "bytes": 50392,
+          "bytes": 58587,
           "end": 16,
           "englishPath": "resources/seconde-11/fluency-student-en.pdf",
           "englishPages": 2,
@@ -1683,8 +1693,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/seconde-11/fluency-teacher.pdf",
-              "bytes": 61624,
-              "sha256": "3b3b5ade35a9a600ad5332d0706df898fa6b5e15d806deff1110a218e579998f",
+              "bytes": 69395,
+              "sha256": "80aa087baa1becad216dbcb0e6ed9456ea6ea31a4bdbee76938acd25d03475fa",
               "pages": 3,
               "start": 23,
               "end": 25
@@ -1699,7 +1709,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 3,
-          "bytes": 61624,
+          "bytes": 69395,
           "end": 25,
           "englishPath": "resources/seconde-11/fluency-teacher-en.pdf",
           "englishPages": 3,
@@ -1732,27 +1742,27 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/seconde-13/chapter.pdf",
-              "bytes": 56902,
-              "sha256": "f5623b3ed2b338a92c4b1faafb1c3901c099a22770b70d1735cedec1b9b819ec",
+              "bytes": 65645,
+              "sha256": "b1d66ae5782ce00945a69d5be6f33fc3ce6556ac7b6ee939500ffe58c7a3e32a",
               "pages": 3,
               "start": 82,
               "end": 84
             },
             "en": {
               "path": "resources/seconde-13/chapter-en.pdf",
-              "bytes": 56172,
-              "sha256": "9b01f58ae462a13edf12c914b617a74cbec0c00a6110f06b94c95fab86fd7f0f",
+              "bytes": 65587,
+              "sha256": "222adfc4beeaced0f8e76c432eb853a2dafdbc92afcc7740011012fbc010f21a",
               "pages": 3,
               "start": 82,
               "end": 84
             }
           },
           "pages": 3,
-          "bytes": 56902,
+          "bytes": 65645,
           "end": 84,
           "englishPath": "resources/seconde-13/chapter-en.pdf",
           "englishPages": 3,
-          "englishBytes": 56172
+          "englishBytes": 65587
         },
         {
           "kind": "teacher",
@@ -1762,27 +1772,27 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/seconde-13/teacher.pdf",
-              "bytes": 55187,
-              "sha256": "39ec1d9e8aca57a73290f65d2f8c0746bc966d0b9b50d395a0fc8364fa40fd1d",
+              "bytes": 64556,
+              "sha256": "49cbab6ad1eb07aaa13e848ee055cc52f3e871a33128162486dbf80d287fadd0",
               "pages": 3,
               "start": 82,
               "end": 84
             },
             "en": {
               "path": "resources/seconde-13/teacher-en.pdf",
-              "bytes": 54319,
-              "sha256": "4ac651e39f9beeb5be7565b0aa7bc17999223f2889e3acfcc7de42fa17aa797c",
+              "bytes": 63880,
+              "sha256": "ae746e0be66c99871cd18744d931d919caa6748b4987dd860a84d7817e82100c",
               "pages": 3,
               "start": 82,
               "end": 84
             }
           },
           "pages": 3,
-          "bytes": 55187,
+          "bytes": 64556,
           "end": 84,
           "englishPath": "resources/seconde-13/teacher-en.pdf",
           "englishPages": 3,
-          "englishBytes": 54319
+          "englishBytes": 63880
         },
         {
           "kind": "fluency",
@@ -1796,8 +1806,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/seconde-12/fluency-student.pdf",
-              "bytes": 47225,
-              "sha256": "3279192872a336021b4bd9b3f55948915667e26726ceb46228d098744710a790",
+              "bytes": 55223,
+              "sha256": "4b9315c5a5a9009fecadac04ffea738b1b15640cb352fc1b66032f8f8b686ea7",
               "pages": 1,
               "start": 16,
               "end": 16
@@ -1812,7 +1822,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 1,
-          "bytes": 47225,
+          "bytes": 55223,
           "end": 16,
           "englishPath": "resources/seconde-12/fluency-student-en.pdf",
           "englishPages": 1,
@@ -1830,8 +1840,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/seconde-12/fluency-teacher.pdf",
-              "bytes": 55561,
-              "sha256": "045327fbdbbacf675f41616938aa520aca9516ee20c40d694354f1db40495fc1",
+              "bytes": 63177,
+              "sha256": "f99d13a2cdfa621db4e665a04acad285e4f0587f57dc325ac6e2b060853aaeab",
               "pages": 2,
               "start": 25,
               "end": 26
@@ -1846,7 +1856,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 2,
-          "bytes": 55561,
+          "bytes": 63177,
           "end": 26,
           "englishPath": "resources/seconde-12/fluency-teacher-en.pdf",
           "englishPages": 2,
@@ -1879,27 +1889,27 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/seconde-14/chapter.pdf",
-              "bytes": 88171,
-              "sha256": "d41dfcec9e42421fead015179ffb5e31a55b7588859bc25c002cd649e7a3de95",
+              "bytes": 100954,
+              "sha256": "8c90916763eee76f71d09c8349edb057a8b345dc2613d2d0ed8165847a4b11d0",
               "pages": 7,
               "start": 85,
               "end": 91
             },
             "en": {
               "path": "resources/seconde-14/chapter-en.pdf",
-              "bytes": 87594,
-              "sha256": "ba1c79ecbb049ec525fd966bf3f670c16142ce66206802350f39e7309b361dcb",
+              "bytes": 100071,
+              "sha256": "71c1f70815b6da7f3bb46c1d47de5d63f2a2ab9ca82f29ea507c7994f917d4dd",
               "pages": 7,
               "start": 85,
               "end": 91
             }
           },
           "pages": 7,
-          "bytes": 88171,
+          "bytes": 100954,
           "end": 91,
           "englishPath": "resources/seconde-14/chapter-en.pdf",
           "englishPages": 7,
-          "englishBytes": 87594
+          "englishBytes": 100071
         },
         {
           "kind": "teacher",
@@ -1909,27 +1919,27 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/seconde-14/teacher.pdf",
-              "bytes": 84603,
-              "sha256": "e7cdb6471e42b2427a0729d960bfc1efaf4b75f66a0e41151a7009694699cb3d",
+              "bytes": 98111,
+              "sha256": "e4622182dbc325863d0750e21fe4963cd5a851c126929e0b919cf52fe67b37f9",
               "pages": 7,
               "start": 85,
               "end": 91
             },
             "en": {
               "path": "resources/seconde-14/teacher-en.pdf",
-              "bytes": 84070,
-              "sha256": "923949dc470bcd8921fafb658664113200ab1056f37e38f6f8ea95b330cbb2c2",
+              "bytes": 97464,
+              "sha256": "c83a5e42152b93e52b712b8cc4f0cd1f9f7eaf58f0487ccd3602b7cf922a12f2",
               "pages": 7,
               "start": 85,
               "end": 91
             }
           },
           "pages": 7,
-          "bytes": 84603,
+          "bytes": 98111,
           "end": 91,
           "englishPath": "resources/seconde-14/teacher-en.pdf",
           "englishPages": 7,
-          "englishBytes": 84070
+          "englishBytes": 97464
         },
         {
           "kind": "fluency",
@@ -1943,8 +1953,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/seconde-13/fluency-student.pdf",
-              "bytes": 67664,
-              "sha256": "b89831a5934718124fcf8a1d76bacaaf793632ff041aeee19eb6a61da610299f",
+              "bytes": 76056,
+              "sha256": "367d408696f74eb4e025bc37a809bdf1bc42f748e9c5fd3c92e0ba6f2f5dbff1",
               "pages": 3,
               "start": 17,
               "end": 19
@@ -1959,7 +1969,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 3,
-          "bytes": 67664,
+          "bytes": 76056,
           "end": 19,
           "englishPath": "resources/seconde-13/fluency-student-en.pdf",
           "englishPages": 3,
@@ -1977,8 +1987,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/seconde-13/fluency-teacher.pdf",
-              "bytes": 84075,
-              "sha256": "207ce1191a8a3187c8a919bad3c35e3999874da2e46a7d1e99a28d3ea2460e0b",
+              "bytes": 92421,
+              "sha256": "0bce14cd62a59fe61629ab348f18d95adcf761c161160ebfd85fd361a294496c",
               "pages": 5,
               "start": 26,
               "end": 30
@@ -1993,7 +2003,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 5,
-          "bytes": 84075,
+          "bytes": 92421,
           "end": 30,
           "englishPath": "resources/seconde-13/fluency-teacher-en.pdf",
           "englishPages": 5,
@@ -2026,27 +2036,27 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/seconde-15/chapter.pdf",
-              "bytes": 59633,
-              "sha256": "7564a1fc1d2e0de32769ba9893951839bdb0dad6292b013f25da391eba23e331",
+              "bytes": 71456,
+              "sha256": "a89cdf17d932244ceea136c6fe15f708acd2cd024f908a917216dbe38e68bbef",
               "pages": 3,
               "start": 92,
               "end": 94
             },
             "en": {
               "path": "resources/seconde-15/chapter-en.pdf",
-              "bytes": 59314,
-              "sha256": "cc9668c1e106719ed3eb38f6c07d9cc39e64a6152551589b6ab1f5b8a544900c",
+              "bytes": 70453,
+              "sha256": "db48068262e4abab42b7eb07f496dba17db29199754696702e2f9a46839d4ddd",
               "pages": 3,
               "start": 92,
               "end": 94
             }
           },
           "pages": 3,
-          "bytes": 59633,
+          "bytes": 71456,
           "end": 94,
           "englishPath": "resources/seconde-15/chapter-en.pdf",
           "englishPages": 3,
-          "englishBytes": 59314
+          "englishBytes": 70453
         },
         {
           "kind": "teacher",
@@ -2090,8 +2100,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/seconde-14/fluency-student.pdf",
-              "bytes": 53908,
-              "sha256": "3c387719ca47c4f1b2c94e876b380e7626b5400f00421e7872df7311bfdbb559",
+              "bytes": 61713,
+              "sha256": "ffbbe3987f9f3be0989529e77b52da0b177725b793b0b846048dbea434ccf687",
               "pages": 2,
               "start": 19,
               "end": 20
@@ -2106,7 +2116,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 2,
-          "bytes": 53908,
+          "bytes": 61713,
           "end": 20,
           "englishPath": "resources/seconde-14/fluency-student-en.pdf",
           "englishPages": 2,
@@ -2124,8 +2134,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/seconde-15/fluency-student.pdf",
-              "bytes": 57143,
-              "sha256": "67d811ff8ea979116892588171e2f1ebe6f1b1e46cb4f5073b7c65f9f319ee73",
+              "bytes": 65841,
+              "sha256": "16aac835ee544bf1d646fbb655f570424402a0325fbce40b7ede8afc64b17ee9",
               "pages": 3,
               "start": 21,
               "end": 23
@@ -2140,7 +2150,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 3,
-          "bytes": 57143,
+          "bytes": 65841,
           "end": 23,
           "englishPath": "resources/seconde-15/fluency-student-en.pdf",
           "englishPages": 2,
@@ -2158,8 +2168,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/seconde-14/fluency-teacher.pdf",
-              "bytes": 63598,
-              "sha256": "6f7ecfc913bb24613f1efd9fedd837b2247a87de9224171248852382a57027bf",
+              "bytes": 71100,
+              "sha256": "a9393e2548f0166b5aed5dec719fad0a30ead166a4f64057bd717a0e994b3fb4",
               "pages": 2,
               "start": 30,
               "end": 31
@@ -2174,7 +2184,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 2,
-          "bytes": 63598,
+          "bytes": 71100,
           "end": 31,
           "englishPath": "resources/seconde-14/fluency-teacher-en.pdf",
           "englishPages": 2,
@@ -2192,8 +2202,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/seconde-15/fluency-teacher.pdf",
-              "bytes": 70323,
-              "sha256": "b105a605a1cd9953be2c67f3170f6bc195e7b334c78292b317028e581f5840ae",
+              "bytes": 78918,
+              "sha256": "5446544eba34eaea2bc6013e4227caf2472fffe7afe9a9124ff2d0a23b62a312",
               "pages": 4,
               "start": 32,
               "end": 35
@@ -2208,7 +2218,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 4,
-          "bytes": 70323,
+          "bytes": 78918,
           "end": 35,
           "englishPath": "resources/seconde-15/fluency-teacher-en.pdf",
           "englishPages": 4,
@@ -2239,8 +2249,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/premiere-01/chapter.pdf",
-              "bytes": 92080,
-              "sha256": "cf33c3f097477ac5119aea796c8a69edbe1fef9ad0a09bc569f24f4aad2552cf",
+              "bytes": 104653,
+              "sha256": "937d627195ab52bc7ee9c183348df553bd74ed3cb704336bc522fa6c8d7b02df",
               "pages": 10,
               "start": 7,
               "end": 16
@@ -2255,7 +2265,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 10,
-          "bytes": 92080,
+          "bytes": 104653,
           "end": 16,
           "englishPath": "resources/premiere-01/chapter-en.pdf",
           "englishPages": 10,
@@ -2269,8 +2279,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/premiere-01/teacher.pdf",
-              "bytes": 109892,
-              "sha256": "eb67fe61bbd5bc9305dafbd1a3a4ed0ee2668b2deacc08f757cc72a001d71db7",
+              "bytes": 124159,
+              "sha256": "0192fb133fc15cfcae47cf62b4a35bd2ea868dc3f5b115ff5d908d0b00a722cb",
               "pages": 13,
               "start": 7,
               "end": 19
@@ -2285,7 +2295,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 13,
-          "bytes": 109892,
+          "bytes": 124159,
           "end": 19,
           "englishPath": "resources/premiere-01/teacher-en.pdf",
           "englishPages": 13,
@@ -2320,8 +2330,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/premiere-02/chapter.pdf",
-              "bytes": 84227,
-              "sha256": "1ef2e9e2479481ed31d0408cd66270af9fc2689e07e8f7385d9b40e0b62ebb66",
+              "bytes": 96607,
+              "sha256": "e5815acb50d024b25e7f37a869a859f8ed25f458282fdfbf481ca563338739c9",
               "pages": 10,
               "start": 16,
               "end": 25
@@ -2336,7 +2346,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 10,
-          "bytes": 84227,
+          "bytes": 96607,
           "end": 25,
           "englishPath": "resources/premiere-02/chapter-en.pdf",
           "englishPages": 10,
@@ -2350,8 +2360,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/premiere-02/teacher.pdf",
-              "bytes": 102300,
-              "sha256": "e70fd541dc68b859acc91a3cfd896e89c9127aa9bc8de916d25e8e64b892a24f",
+              "bytes": 116238,
+              "sha256": "ec4d4b7aa83098f271f884b3f925853411d3f2a1ae0e0c90c0b793b4b49ac327",
               "pages": 13,
               "start": 19,
               "end": 31
@@ -2366,7 +2376,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 13,
-          "bytes": 102300,
+          "bytes": 116238,
           "end": 31,
           "englishPath": "resources/premiere-02/teacher-en.pdf",
           "englishPages": 13,
@@ -2399,8 +2409,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/premiere-03/chapter.pdf",
-              "bytes": 84683,
-              "sha256": "61b31578b4df520e13dd0ca6e96f941498995f1fe3b4237d07d0fd433f5b09a7",
+              "bytes": 96758,
+              "sha256": "7f13dae0e500c42142583740d88a0e8c62f24f1e0f47c4efa20f624288a56b94",
               "pages": 10,
               "start": 24,
               "end": 33
@@ -2415,7 +2425,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 10,
-          "bytes": 84683,
+          "bytes": 96758,
           "end": 33,
           "englishPath": "resources/premiere-03/chapter-en.pdf",
           "englishPages": 10,
@@ -2429,8 +2439,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/premiere-03/teacher.pdf",
-              "bytes": 101957,
-              "sha256": "4d1c520da92758b19aa7e6ed1f82bf8a17a0d6d4022212a2ea29ec3b1988ac1c",
+              "bytes": 115752,
+              "sha256": "ee31ea27bf74d2b08ae6cbed99bf8b001dda73a65dcf12cd93ed1cad1cfd2765",
               "pages": 13,
               "start": 30,
               "end": 42
@@ -2445,7 +2455,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 13,
-          "bytes": 101957,
+          "bytes": 115752,
           "end": 42,
           "englishPath": "resources/premiere-03/teacher-en.pdf",
           "englishPages": 13,
@@ -2478,11 +2488,11 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/premiere-04/chapter.pdf",
-              "bytes": 80834,
-              "sha256": "9cbe61386494a1df90e9658552cceb1139be5854d358a877af9e8ea40f1de190",
-              "pages": 9,
+              "bytes": 95235,
+              "sha256": "126560015d7f1e888867822296680920213dc4483883da907adc0c53a1a1867b",
+              "pages": 10,
               "start": 33,
-              "end": 41
+              "end": 42
             },
             "en": {
               "path": "resources/premiere-04/chapter-en.pdf",
@@ -2493,9 +2503,9 @@ export const resourceCatalog = {
               "end": 41
             }
           },
-          "pages": 9,
-          "bytes": 80834,
-          "end": 41,
+          "pages": 10,
+          "bytes": 95235,
+          "end": 42,
           "englishPath": "resources/premiere-04/chapter-en.pdf",
           "englishPages": 9,
           "englishBytes": 186359
@@ -2508,11 +2518,11 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/premiere-04/teacher.pdf",
-              "bytes": 97797,
-              "sha256": "73ee10918dbed75a6c83bd2f9e0763a260b52bd3be15720bf16c2192c625489c",
-              "pages": 12,
+              "bytes": 113902,
+              "sha256": "ec1a4f8b4483864712e87abd7c61bbce32fde05f2d912c677e2dfad350a0b28c",
+              "pages": 13,
               "start": 42,
-              "end": 53
+              "end": 54
             },
             "en": {
               "path": "resources/premiere-04/teacher-en.pdf",
@@ -2523,9 +2533,9 @@ export const resourceCatalog = {
               "end": 53
             }
           },
-          "pages": 12,
-          "bytes": 97797,
-          "end": 53,
+          "pages": 13,
+          "bytes": 113902,
+          "end": 54,
           "englishPath": "resources/premiere-04/teacher-en.pdf",
           "englishPages": 12,
           "englishBytes": 203783
@@ -2557,11 +2567,11 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/premiere-05/chapter.pdf",
-              "bytes": 87739,
-              "sha256": "ca72b2a7f9ebca5cec0544f5ebb624f3cf582b349f55b8655771d2efd83fec71",
-              "pages": 11,
+              "bytes": 102596,
+              "sha256": "dd2a30af08ea175e43051a77a923c67f156580bfba71f8d1aa5e3a0d6f61d4b9",
+              "pages": 12,
               "start": 41,
-              "end": 51
+              "end": 52
             },
             "en": {
               "path": "resources/premiere-05/chapter-en.pdf",
@@ -2572,9 +2582,9 @@ export const resourceCatalog = {
               "end": 50
             }
           },
-          "pages": 11,
-          "bytes": 87739,
-          "end": 51,
+          "pages": 12,
+          "bytes": 102596,
+          "end": 52,
           "englishPath": "resources/premiere-05/chapter-en.pdf",
           "englishPages": 10,
           "englishBytes": 191829
@@ -2587,11 +2597,11 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/premiere-05/teacher.pdf",
-              "bytes": 105901,
-              "sha256": "e5ebade8fea45e49c285e0137867a9da4b0cb434ec1f295af5d5e3fc4221e2da",
-              "pages": 14,
+              "bytes": 122532,
+              "sha256": "906649e8ceed42a011d22b87255299313e6de36c5666c6eb83554faa84a45896",
+              "pages": 15,
               "start": 53,
-              "end": 66
+              "end": 67
             },
             "en": {
               "path": "resources/premiere-05/teacher-en.pdf",
@@ -2602,9 +2612,9 @@ export const resourceCatalog = {
               "end": 65
             }
           },
-          "pages": 14,
-          "bytes": 105901,
-          "end": 66,
+          "pages": 15,
+          "bytes": 122532,
+          "end": 67,
           "englishPath": "resources/premiere-05/teacher-en.pdf",
           "englishPages": 13,
           "englishBytes": 209562
@@ -2637,8 +2647,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/premiere-06/chapter.pdf",
-              "bytes": 89765,
-              "sha256": "6e0e52553edd9b020de2b49cea14f8a1b423e095ca8d2a03a46705945106b9ef",
+              "bytes": 102215,
+              "sha256": "fba865e82c6d991d37692c1b8a58c9f5356695bcf8ba6976b55125797d96dd10",
               "pages": 11,
               "start": 50,
               "end": 60
@@ -2653,7 +2663,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 11,
-          "bytes": 89765,
+          "bytes": 102215,
           "end": 60,
           "englishPath": "resources/premiere-06/chapter-en.pdf",
           "englishPages": 10,
@@ -2667,8 +2677,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/premiere-06/teacher.pdf",
-              "bytes": 107455,
-              "sha256": "66544c97689c56093364afbe8445529c1be9389f89fb94e361d2274d95c29de8",
+              "bytes": 121502,
+              "sha256": "82c17ca2c60ae6427611b236599d1ab026054953a30a73dc709098c2c5739866",
               "pages": 14,
               "start": 65,
               "end": 78
@@ -2683,7 +2693,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 14,
-          "bytes": 107455,
+          "bytes": 121502,
           "end": 78,
           "englishPath": "resources/premiere-06/teacher-en.pdf",
           "englishPages": 13,
@@ -2717,11 +2727,11 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/premiere-07/chapter.pdf",
-              "bytes": 80854,
-              "sha256": "8dac8ae707b915ca6d41df8852e91608ba12e32ea5f5cfcc52fd7d366a4c8481",
-              "pages": 9,
+              "bytes": 95029,
+              "sha256": "5e13293c9f69a29cb39f1ecd0e95af94294b53ec903c1672eb6bb6f3cbb181a9",
+              "pages": 10,
               "start": 59,
-              "end": 67
+              "end": 68
             },
             "en": {
               "path": "resources/premiere-07/chapter-en.pdf",
@@ -2732,9 +2742,9 @@ export const resourceCatalog = {
               "end": 67
             }
           },
-          "pages": 9,
-          "bytes": 80854,
-          "end": 67,
+          "pages": 10,
+          "bytes": 95029,
+          "end": 68,
           "englishPath": "resources/premiere-07/chapter-en.pdf",
           "englishPages": 9,
           "englishBytes": 186735
@@ -2747,11 +2757,11 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/premiere-07/teacher.pdf",
-              "bytes": 97648,
-              "sha256": "b65694f774f82ec49e7f67c1820569b326dc8dfdfc3ea3ed9cebaa95399405d9",
-              "pages": 12,
+              "bytes": 113559,
+              "sha256": "657bfe16423f5290af4199d4bb4f318605202669d4ca2d9547dec6f82ecf41fa",
+              "pages": 13,
               "start": 77,
-              "end": 88
+              "end": 89
             },
             "en": {
               "path": "resources/premiere-07/teacher-en.pdf",
@@ -2762,9 +2772,9 @@ export const resourceCatalog = {
               "end": 87
             }
           },
-          "pages": 12,
-          "bytes": 97648,
-          "end": 88,
+          "pages": 13,
+          "bytes": 113559,
+          "end": 89,
           "englishPath": "resources/premiere-07/teacher-en.pdf",
           "englishPages": 11,
           "englishBytes": 201556
@@ -2797,8 +2807,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/premiere-08/chapter.pdf",
-              "bytes": 90016,
-              "sha256": "a31a09004f6cd73c1b43874cfaa84c5134de8af1c76705cf2ca76a4e58bd0f0b",
+              "bytes": 102439,
+              "sha256": "98f603c08bc806af2b8e6893a23d18cd3b25ec7effa259c60a805a0320a05121",
               "pages": 10,
               "start": 67,
               "end": 76
@@ -2813,7 +2823,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 10,
-          "bytes": 90016,
+          "bytes": 102439,
           "end": 76,
           "englishPath": "resources/premiere-08/chapter-en.pdf",
           "englishPages": 10,
@@ -2827,8 +2837,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/premiere-08/teacher.pdf",
-              "bytes": 109236,
-              "sha256": "60d93eb648ca237a628fe1b117591e728e704ca9709aef0bf60e63060214ba0d",
+              "bytes": 123147,
+              "sha256": "620e831df86796a2e49e6fc16fedc2113f4abd78065105dd1e9abedbfe850a55",
               "pages": 13,
               "start": 88,
               "end": 100
@@ -2843,7 +2853,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 13,
-          "bytes": 109236,
+          "bytes": 123147,
           "end": 100,
           "englishPath": "resources/premiere-08/teacher-en.pdf",
           "englishPages": 13,
@@ -2876,8 +2886,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/premiere-09/chapter.pdf",
-              "bytes": 93338,
-              "sha256": "1ebe29d00f698ba5f9a40c33e691b3d56e8e863abb15f7dd8a2370a6e4ceeab2",
+              "bytes": 105788,
+              "sha256": "f97f78f62786423ba5859eddd4caa92c9f86271d672fc467fedc5f2587865bd5",
               "pages": 11,
               "start": 76,
               "end": 86
@@ -2892,7 +2902,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 11,
-          "bytes": 93338,
+          "bytes": 105788,
           "end": 86,
           "englishPath": "resources/premiere-09/chapter-en.pdf",
           "englishPages": 11,
@@ -2906,8 +2916,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/premiere-09/teacher.pdf",
-              "bytes": 110668,
-              "sha256": "d389189aa7429acdba6a0608d553de825719e6e343d180bb9a7dcb0a59783213",
+              "bytes": 124984,
+              "sha256": "966c55ee5505cb5313d93fcb681ea83b6fcc337c6c9656f4f620133c33f03e22",
               "pages": 14,
               "start": 100,
               "end": 113
@@ -2922,7 +2932,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 14,
-          "bytes": 110668,
+          "bytes": 124984,
           "end": 113,
           "englishPath": "resources/premiere-09/teacher-en.pdf",
           "englishPages": 14,
@@ -2956,8 +2966,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/premiere-10/chapter.pdf",
-              "bytes": 85257,
-              "sha256": "17857b7bc7edb7a29a9333e97a36c15f884b2d9c17b5a97b9ca5d06b2780e3b0",
+              "bytes": 97413,
+              "sha256": "15025024c0107955ea9d51e4a98ee876ea063708287a07fc2e4a083ee70bf76f",
               "pages": 11,
               "start": 85,
               "end": 95
@@ -2972,7 +2982,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 11,
-          "bytes": 85257,
+          "bytes": 97413,
           "end": 95,
           "englishPath": "resources/premiere-10/chapter-en.pdf",
           "englishPages": 11,
@@ -2986,8 +2996,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/premiere-10/teacher.pdf",
-              "bytes": 103021,
-              "sha256": "d272549809639227bd1010091cd9cfdbf711c9ecc52c96812fca5767b5564be7",
+              "bytes": 116894,
+              "sha256": "6ccccf5e680555473b990a8cefd657bb15f0da92c19aad478f969097a32d17cf",
               "pages": 14,
               "start": 112,
               "end": 125
@@ -3002,7 +3012,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 14,
-          "bytes": 103021,
+          "bytes": 116894,
           "end": 125,
           "englishPath": "resources/premiere-10/teacher-en.pdf",
           "englishPages": 14,
@@ -3036,8 +3046,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/terminale-01/chapter.pdf",
-              "bytes": 62889,
-              "sha256": "ab6ddd6738c92de00498b0ba32e79b17d77b37315ccd6497613cd3609103cad6",
+              "bytes": 73642,
+              "sha256": "ab33aeb8074b884d220914ab6ed0214a9a35e1055857ea6c4ca3f334e987d0b4",
               "pages": 5,
               "start": 11,
               "end": 15
@@ -3052,7 +3062,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 5,
-          "bytes": 62889,
+          "bytes": 73642,
           "end": 15,
           "englishPath": "resources/terminale-01/chapter-en.pdf",
           "englishPages": 5,
@@ -3066,8 +3076,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/terminale-01/teacher.pdf",
-              "bytes": 88153,
-              "sha256": "fe53fdf1c88964666b3e98e523ec9650d3cf9b098993ea010c08c875c64ca46f",
+              "bytes": 99199,
+              "sha256": "d2e74361f6bee346554ee8a9a68a4fced5a924f6af943d0791d0638f092b020a",
               "pages": 8,
               "start": 15,
               "end": 22
@@ -3082,7 +3092,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 8,
-          "bytes": 88153,
+          "bytes": 99199,
           "end": 22,
           "englishPath": "resources/terminale-01/teacher-en.pdf",
           "englishPages": 7,
@@ -3117,8 +3127,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/terminale-02/chapter.pdf",
-              "bytes": 60108,
-              "sha256": "26f8560099fabb6fab018426c7143fad66a15a35a184400abd934a13286158b7",
+              "bytes": 70839,
+              "sha256": "bb1d3bb85d803138d5b012e494275724896d1cd8552cb030dca2d00c46675e57",
               "pages": 5,
               "start": 16,
               "end": 20
@@ -3133,7 +3143,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 5,
-          "bytes": 60108,
+          "bytes": 70839,
           "end": 20,
           "englishPath": "resources/terminale-02/chapter-en.pdf",
           "englishPages": 5,
@@ -3147,8 +3157,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/terminale-02/teacher.pdf",
-              "bytes": 72949,
-              "sha256": "b1b3774ae06f100a829d36fc107905d6faaa58adcfe25a205a2c4347ad6c1ea2",
+              "bytes": 83894,
+              "sha256": "af691fd5d5bcc081420ca2ed3bb07a1711858e14a1a2becb95181b6dacfaff2d",
               "pages": 7,
               "start": 22,
               "end": 28
@@ -3163,7 +3173,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 7,
-          "bytes": 72949,
+          "bytes": 83894,
           "end": 28,
           "englishPath": "resources/terminale-02/teacher-en.pdf",
           "englishPages": 7,
@@ -3197,8 +3207,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/terminale-03/chapter.pdf",
-              "bytes": 64968,
-              "sha256": "73284c37352843138acc812d912e72b5646955800ef36780bc876575136d09ab",
+              "bytes": 75251,
+              "sha256": "59819a6e5cf7837402111f9186bbeb86f88d5938350de2b68d6d2192f60a77cd",
               "pages": 5,
               "start": 21,
               "end": 25
@@ -3213,7 +3223,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 5,
-          "bytes": 64968,
+          "bytes": 75251,
           "end": 25,
           "englishPath": "resources/terminale-03/chapter-en.pdf",
           "englishPages": 5,
@@ -3227,8 +3237,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/terminale-03/teacher.pdf",
-              "bytes": 79501,
-              "sha256": "9675020093e9e8d0cce0ffd856e534f0152a16565d4dc745bea4a8a6db856226",
+              "bytes": 90171,
+              "sha256": "e7b63bc8b479e7790cb8034d76313486b1b253288ba627197faf68129ab699c5",
               "pages": 7,
               "start": 29,
               "end": 35
@@ -3243,7 +3253,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 7,
-          "bytes": 79501,
+          "bytes": 90171,
           "end": 35,
           "englishPath": "resources/terminale-03/teacher-en.pdf",
           "englishPages": 7,
@@ -3278,8 +3288,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/terminale-04/chapter.pdf",
-              "bytes": 63535,
-              "sha256": "7d35a55c4721909ac237e121bd53bee93de4c9281996f48d04dd6c15cb3c9d66",
+              "bytes": 74322,
+              "sha256": "b3beea6029150ea0b68f5e6320b1054e1652f791dd7e804b801a1cc1c97ef94d",
               "pages": 5,
               "start": 26,
               "end": 30
@@ -3294,7 +3304,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 5,
-          "bytes": 63535,
+          "bytes": 74322,
           "end": 30,
           "englishPath": "resources/terminale-04/chapter-en.pdf",
           "englishPages": 5,
@@ -3308,8 +3318,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/terminale-04/teacher.pdf",
-              "bytes": 75589,
-              "sha256": "d4a90ba9616747545b8bc8552c09782236fdc55efb552c60dd6555baab83f6e3",
+              "bytes": 86437,
+              "sha256": "e7cdadf411ba66eb74cd6c26cfff3fdb66ebbdc88005b0f0b3bd195ad53d3358",
               "pages": 7,
               "start": 36,
               "end": 42
@@ -3324,7 +3334,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 7,
-          "bytes": 75589,
+          "bytes": 86437,
           "end": 42,
           "englishPath": "resources/terminale-04/teacher-en.pdf",
           "englishPages": 7,
@@ -3356,8 +3366,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/terminale-05/chapter.pdf",
-              "bytes": 59211,
-              "sha256": "0e59bb09853bfdabe2d4ab0bf109c0c5787bc71f656eb3d257382b4cbbb67202",
+              "bytes": 69403,
+              "sha256": "2b6d09a9f3bd102ce6c8091e63478b9d6f606914dbd5c35bdddbcd022daef96e",
               "pages": 5,
               "start": 31,
               "end": 35
@@ -3372,7 +3382,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 5,
-          "bytes": 59211,
+          "bytes": 69403,
           "end": 35,
           "englishPath": "resources/terminale-05/chapter-en.pdf",
           "englishPages": 5,
@@ -3386,8 +3396,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/terminale-05/teacher.pdf",
-              "bytes": 70369,
-              "sha256": "8182469ac44f46f1045d1b0f0288833c5315e190b927c6081a81811025539669",
+              "bytes": 80973,
+              "sha256": "fee0bc1d13f81d7137211be5ba3e3a88f8062749a3a35ec62eb50c8f9bf8f597",
               "pages": 7,
               "start": 43,
               "end": 49
@@ -3402,7 +3412,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 7,
-          "bytes": 70369,
+          "bytes": 80973,
           "end": 49,
           "englishPath": "resources/terminale-05/teacher-en.pdf",
           "englishPages": 7,
@@ -3437,8 +3447,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/terminale-06/chapter.pdf",
-              "bytes": 66214,
-              "sha256": "16af38371be77d0797d54e63ec331bb1a144a1141781ba1d643034fe6061c455",
+              "bytes": 76365,
+              "sha256": "51fc5faf5ad8844414304561d0c919dba20aa25280a2c6dc15ae60b142c1bde8",
               "pages": 5,
               "start": 36,
               "end": 40
@@ -3453,7 +3463,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 5,
-          "bytes": 66214,
+          "bytes": 76365,
           "end": 40,
           "englishPath": "resources/terminale-06/chapter-en.pdf",
           "englishPages": 5,
@@ -3467,8 +3477,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/terminale-06/teacher.pdf",
-              "bytes": 93374,
-              "sha256": "c7e31d6c438e023538c19d14023cc29cabeb3f87785d972410b3b11360f18a75",
+              "bytes": 103813,
+              "sha256": "29ef782fdf4de36f55438cbd1d3d3021c718709d6f804f541f11581976268c38",
               "pages": 8,
               "start": 50,
               "end": 57
@@ -3483,7 +3493,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 8,
-          "bytes": 93374,
+          "bytes": 103813,
           "end": 57,
           "englishPath": "resources/terminale-06/teacher-en.pdf",
           "englishPages": 8,
@@ -3517,8 +3527,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/terminale-07/chapter.pdf",
-              "bytes": 64960,
-              "sha256": "1c797031de20514a4d3603a8dd316e767a77ebd2384a175ba5efbc3b7aa4b206",
+              "bytes": 75325,
+              "sha256": "f5e2eb77f9f03ba7b1297645c2aac22e0f38b449ffd59f0e381f462e61f5187e",
               "pages": 5,
               "start": 41,
               "end": 45
@@ -3533,7 +3543,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 5,
-          "bytes": 64960,
+          "bytes": 75325,
           "end": 45,
           "englishPath": "resources/terminale-07/chapter-en.pdf",
           "englishPages": 5,
@@ -3547,8 +3557,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/terminale-07/teacher.pdf",
-              "bytes": 77615,
-              "sha256": "ab8c3e8ec1887555b29e464091702415db88525f477cfa51720fb42b673db010",
+              "bytes": 88661,
+              "sha256": "7066a9a07c3875cc7bfc09b63a80de08267cbf4458d73194dcc7802cf76ff81e",
               "pages": 7,
               "start": 58,
               "end": 64
@@ -3563,7 +3573,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 7,
-          "bytes": 77615,
+          "bytes": 88661,
           "end": 64,
           "englishPath": "resources/terminale-07/teacher-en.pdf",
           "englishPages": 7,
@@ -3597,8 +3607,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/terminale-08/chapter.pdf",
-              "bytes": 65086,
-              "sha256": "58089bbd24f196db7a54591666c2e032ca151f48ac02aea4e41236d4e5668141",
+              "bytes": 75135,
+              "sha256": "2d1c913a33db110f2e398c17a974da8bb811b041cba2b24dcfb468e0c888bd95",
               "pages": 5,
               "start": 46,
               "end": 50
@@ -3613,7 +3623,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 5,
-          "bytes": 65086,
+          "bytes": 75135,
           "end": 50,
           "englishPath": "resources/terminale-08/chapter-en.pdf",
           "englishPages": 5,
@@ -3627,8 +3637,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/terminale-08/teacher.pdf",
-              "bytes": 78450,
-              "sha256": "98e1b553b90ff689e6f766f8488a273ae83c3e45740a9a46e4f05caa5e5d8fd7",
+              "bytes": 88625,
+              "sha256": "0767d93d10e2175704ec995ea4ecc0bc149d3037c937c3d99abdf6b31e296d16",
               "pages": 7,
               "start": 65,
               "end": 71
@@ -3643,7 +3653,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 7,
-          "bytes": 78450,
+          "bytes": 88625,
           "end": 71,
           "englishPath": "resources/terminale-08/teacher-en.pdf",
           "englishPages": 7,
@@ -3675,8 +3685,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/terminale-09/chapter.pdf",
-              "bytes": 65450,
-              "sha256": "62e7d3d6d9005c45b212c3539353c3e242692ce3e70e5a7006a06b40fe0f8668",
+              "bytes": 77558,
+              "sha256": "bea27747d8c8c076b9950b79f68d59e016dd56cdbda76ffc1597168948cd9cb4",
               "pages": 5,
               "start": 51,
               "end": 55
@@ -3691,7 +3701,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 5,
-          "bytes": 65450,
+          "bytes": 77558,
           "end": 55,
           "englishPath": "resources/terminale-09/chapter-en.pdf",
           "englishPages": 5,
@@ -3705,8 +3715,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/terminale-09/teacher.pdf",
-              "bytes": 78614,
-              "sha256": "692758e4a0023e8c935399251d32947ba7568d80c8aba2f294be0d3ddec3ab28",
+              "bytes": 91332,
+              "sha256": "d93600f7a8ba0cb454a7659a364c881426e2a42097ea3fb134760629230b55e1",
               "pages": 7,
               "start": 72,
               "end": 78
@@ -3721,7 +3731,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 7,
-          "bytes": 78614,
+          "bytes": 91332,
           "end": 78,
           "englishPath": "resources/terminale-09/teacher-en.pdf",
           "englishPages": 7,
@@ -3755,8 +3765,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/terminale-10/chapter.pdf",
-              "bytes": 62951,
-              "sha256": "fb32d9f280ee914a5c10df6a50e36bea79895c00e3de10d9bcbfa2f9a04f302f",
+              "bytes": 73989,
+              "sha256": "c86c8c04f998f1879298d517e5953963e3f5d685c73a441f2ed7bce7128ffc6c",
               "pages": 5,
               "start": 56,
               "end": 60
@@ -3771,7 +3781,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 5,
-          "bytes": 62951,
+          "bytes": 73989,
           "end": 60,
           "englishPath": "resources/terminale-10/chapter-en.pdf",
           "englishPages": 5,
@@ -3785,8 +3795,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/terminale-10/teacher.pdf",
-              "bytes": 84400,
-              "sha256": "116c94b46c59a479f0481f02987ec19e09f2110d60aa6257754750c8ae710b5c",
+              "bytes": 95645,
+              "sha256": "846f6a4c46cdbf6856a0d44029fac52a0e0e4ead44d2c9cc346e47d8e6d7be21",
               "pages": 7,
               "start": 79,
               "end": 85
@@ -3801,7 +3811,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 7,
-          "bytes": 84400,
+          "bytes": 95645,
           "end": 85,
           "englishPath": "resources/terminale-10/teacher-en.pdf",
           "englishPages": 7,
@@ -3835,11 +3845,11 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/terminale-11/chapter.pdf",
-              "bytes": 64945,
-              "sha256": "cd5a610dab5ef83e24766b3b53796b17416f660d8f1dbc320a7bc7aa7bf836a1",
-              "pages": 5,
+              "bytes": 77497,
+              "sha256": "7c44347bdbc473ababc55ccff78cf1a4cffe5b4c37340f08267354717c57e367",
+              "pages": 6,
               "start": 61,
-              "end": 65
+              "end": 66
             },
             "en": {
               "path": "resources/terminale-11/chapter-en.pdf",
@@ -3850,9 +3860,9 @@ export const resourceCatalog = {
               "end": 65
             }
           },
-          "pages": 5,
-          "bytes": 64945,
-          "end": 65,
+          "pages": 6,
+          "bytes": 77497,
+          "end": 66,
           "englishPath": "resources/terminale-11/chapter-en.pdf",
           "englishPages": 5,
           "englishBytes": 191179
@@ -3865,11 +3875,11 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/terminale-11/teacher.pdf",
-              "bytes": 90045,
-              "sha256": "b9e71c2c2e8c67e017bf00f125a511e2c4a4f8264c8865c41b1a9cd7b6554271",
-              "pages": 8,
+              "bytes": 102906,
+              "sha256": "1d909b9b00ab9f4e03907336c411f10d170446ab78a59c56623feae75916cf7c",
+              "pages": 9,
               "start": 86,
-              "end": 93
+              "end": 94
             },
             "en": {
               "path": "resources/terminale-11/teacher-en.pdf",
@@ -3880,9 +3890,9 @@ export const resourceCatalog = {
               "end": 93
             }
           },
-          "pages": 8,
-          "bytes": 90045,
-          "end": 93,
+          "pages": 9,
+          "bytes": 102906,
+          "end": 94,
           "englishPath": "resources/terminale-11/teacher-en.pdf",
           "englishPages": 8,
           "englishBytes": 235612
@@ -3916,8 +3926,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/terminale-12/chapter.pdf",
-              "bytes": 66702,
-              "sha256": "1dbf77c102076e8b45037e2d1a40281a3183edac3f28c120e3527884ae63f769",
+              "bytes": 80339,
+              "sha256": "8ec8391126fb5a3de9077d26e50b6d137b4dd2e7a45fd56791fa77b84c9ee401",
               "pages": 5,
               "start": 66,
               "end": 70
@@ -3932,7 +3942,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 5,
-          "bytes": 66702,
+          "bytes": 80339,
           "end": 70,
           "englishPath": "resources/terminale-12/chapter-en.pdf",
           "englishPages": 5,
@@ -3946,8 +3956,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/terminale-12/teacher.pdf",
-              "bytes": 100269,
-              "sha256": "0ea57c003498afcc31e04157c9fe42800987cd6193bde6f27a04db9b3f8748b8",
+              "bytes": 114055,
+              "sha256": "4e097f2840dbe704fcc3fbb33a12b38cd0eb171ad0ef1d7780e3853286bf1e5e",
               "pages": 7,
               "start": 94,
               "end": 100
@@ -3962,7 +3972,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 7,
-          "bytes": 100269,
+          "bytes": 114055,
           "end": 100,
           "englishPath": "resources/terminale-12/teacher-en.pdf",
           "englishPages": 7,
@@ -3997,8 +4007,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/terminale-13/chapter.pdf",
-              "bytes": 61779,
-              "sha256": "a17931401740edfff16b843d03f0283ca09685ac14a7dcda766fd4d829366565",
+              "bytes": 74461,
+              "sha256": "bb17edb1b3557454f573da6425caab1af9468e7cc2046dde267a46e629190a1b",
               "pages": 5,
               "start": 71,
               "end": 75
@@ -4013,7 +4023,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 5,
-          "bytes": 61779,
+          "bytes": 74461,
           "end": 75,
           "englishPath": "resources/terminale-13/chapter-en.pdf",
           "englishPages": 5,
@@ -4027,8 +4037,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/terminale-13/teacher.pdf",
-              "bytes": 74216,
-              "sha256": "1eb7ff4ac754101c9f1d075794348e4db89c4f9a56508e082d14f34c6614b3d8",
+              "bytes": 86967,
+              "sha256": "97770d8f9634347ab8af43db066a415add5ee5fd1de6391458cf0451bb2e78be",
               "pages": 7,
               "start": 101,
               "end": 107
@@ -4043,7 +4053,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 7,
-          "bytes": 74216,
+          "bytes": 86967,
           "end": 107,
           "englishPath": "resources/terminale-13/teacher-en.pdf",
           "englishPages": 7,
@@ -4077,8 +4087,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/terminale-14/chapter.pdf",
-              "bytes": 61416,
-              "sha256": "a96a7a749f97871950be112628ce42a1776fbcf26a43461d8d220061adce4508",
+              "bytes": 71601,
+              "sha256": "ae5f19c2dfeb5665a0113ca7114216acd6e0850aa3b83318db7c3beef33452b6",
               "pages": 5,
               "start": 76,
               "end": 80
@@ -4093,7 +4103,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 5,
-          "bytes": 61416,
+          "bytes": 71601,
           "end": 80,
           "englishPath": "resources/terminale-14/chapter-en.pdf",
           "englishPages": 5,
@@ -4107,8 +4117,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/terminale-14/teacher.pdf",
-              "bytes": 73878,
-              "sha256": "2c9a906429b5a7b8db2d1a876787937958b455c93681a15e62688cb8c18c0eeb",
+              "bytes": 84140,
+              "sha256": "f61869fc49b562123edd4833dd2dda08b1937038afcc137d58c3c40f0b9d109a",
               "pages": 7,
               "start": 108,
               "end": 114
@@ -4123,7 +4133,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 7,
-          "bytes": 73878,
+          "bytes": 84140,
           "end": 114,
           "englishPath": "resources/terminale-14/teacher-en.pdf",
           "englishPages": 7,
@@ -4157,27 +4167,27 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/expertes-01/chapter.pdf",
-              "bytes": 77697,
-              "sha256": "bccc21b8b42c065877531852cb101424f643cb127becbaa0dc950510cec5fcc2",
+              "bytes": 89547,
+              "sha256": "2afc0e003feda819c7425545e637046af3bc6c51bc1220f3c176654379a29247",
               "pages": 8,
               "start": 5,
               "end": 12
             },
             "en": {
               "path": "resources/expertes-01/chapter-en.pdf",
-              "bytes": 76279,
-              "sha256": "8c162ecf1c2fe135848562fb3d4f026cb5bf375a569b92a2db20fb1d2b255774",
+              "bytes": 88661,
+              "sha256": "dc9be83efb2835da6c300f30709d877f910f81de4fd439cc0a98a78716430c90",
               "pages": 8,
               "start": 5,
               "end": 12
             }
           },
           "pages": 8,
-          "bytes": 77697,
+          "bytes": 89547,
           "end": 12,
           "englishPath": "resources/expertes-01/chapter-en.pdf",
           "englishPages": 8,
-          "englishBytes": 76279
+          "englishBytes": 88661
         },
         {
           "kind": "teacher",
@@ -4187,27 +4197,27 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/expertes-01/teacher.pdf",
-              "bytes": 90039,
-              "sha256": "505cd9517b0350c9445cf1ac59931a981fc673f22a2fd1492ad5e824486c5648",
+              "bytes": 102369,
+              "sha256": "2031a25e36964803dd4a01efc9e9924bf09c6de688691e5111c6b69893ed13e6",
               "pages": 9,
               "start": 7,
               "end": 15
             },
             "en": {
               "path": "resources/expertes-01/teacher-en.pdf",
-              "bytes": 88375,
-              "sha256": "4a3748f73351b5b0401a994693a644993a92688d57e4b4c41bc1782915f2cd4a",
+              "bytes": 101393,
+              "sha256": "acc6110cc7aa4f7cca77094820af6245598b09db068a889d5ee252ae139eb630",
               "pages": 9,
               "start": 7,
               "end": 15
             }
           },
           "pages": 9,
-          "bytes": 90039,
+          "bytes": 102369,
           "end": 15,
           "englishPath": "resources/expertes-01/teacher-en.pdf",
           "englishPages": 9,
-          "englishBytes": 88375
+          "englishBytes": 101393
         }
       ],
       "labs": [
@@ -4237,27 +4247,27 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/expertes-02/chapter.pdf",
-              "bytes": 75931,
-              "sha256": "688fe1692292510b1e4ed55b75c7be643071520e61bd15c2ecce92dc4187bdc1",
+              "bytes": 88081,
+              "sha256": "81b32029b45926d3c9e30927a7df8a43251bb7f153978c4383b21a1e2cb5f939",
               "pages": 7,
               "start": 13,
               "end": 19
             },
             "en": {
               "path": "resources/expertes-02/chapter-en.pdf",
-              "bytes": 74665,
-              "sha256": "9cce0394affb39339f536a846086c9f198665a4914c0c4f67eafeecab80c9103",
+              "bytes": 86682,
+              "sha256": "f72bd892280278d31fd731bfa5056ec6b5c61dc354602feec534d57a6645c32b",
               "pages": 7,
               "start": 13,
               "end": 19
             }
           },
           "pages": 7,
-          "bytes": 75931,
+          "bytes": 88081,
           "end": 19,
           "englishPath": "resources/expertes-02/chapter-en.pdf",
           "englishPages": 7,
-          "englishBytes": 74665
+          "englishBytes": 86682
         },
         {
           "kind": "teacher",
@@ -4267,27 +4277,27 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/expertes-02/teacher.pdf",
-              "bytes": 93218,
-              "sha256": "006d9288f4dc95d7c742d08631c3297323b6b63a8381f7ec10969456a57b40cd",
+              "bytes": 105779,
+              "sha256": "526e4418ac416325fdde07ebe027c83dd90e1e5227578317bcd1a4625d618270",
               "pages": 9,
               "start": 16,
               "end": 24
             },
             "en": {
               "path": "resources/expertes-02/teacher-en.pdf",
-              "bytes": 91653,
-              "sha256": "f26b217efd4e30c2cefca42fe92c18e404d6985b24b7d9dd21ca981226a74231",
+              "bytes": 104349,
+              "sha256": "8ad81ce1b205300f27bb639ba08a52722b5140826b9dfe6fcd683b00c87bdc18",
               "pages": 9,
               "start": 16,
               "end": 24
             }
           },
           "pages": 9,
-          "bytes": 93218,
+          "bytes": 105779,
           "end": 24,
           "englishPath": "resources/expertes-02/teacher-en.pdf",
           "englishPages": 9,
-          "englishBytes": 91653
+          "englishBytes": 104349
         }
       ],
       "labs": [
@@ -4318,27 +4328,27 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/expertes-03/chapter.pdf",
-              "bytes": 73292,
-              "sha256": "b953ce1a9a0548faf54f78d68ea5f339fb1c5eb481b0cd936b0dece58f9bc12f",
+              "bytes": 85080,
+              "sha256": "1d9fc3b4f349d3cfce1da4185f047d59b7510d906eb72f94517f4e340d631908",
               "pages": 7,
               "start": 20,
               "end": 26
             },
             "en": {
               "path": "resources/expertes-03/chapter-en.pdf",
-              "bytes": 72489,
-              "sha256": "2c92a1be21150378be4681dfb90d46572c06209996699f1763746f9f60e48e17",
+              "bytes": 84534,
+              "sha256": "9a85301c61eb9a3e45889a6345a3775ea832e850fd017396f7848d4a835a9e8e",
               "pages": 7,
               "start": 20,
               "end": 26
             }
           },
           "pages": 7,
-          "bytes": 73292,
+          "bytes": 85080,
           "end": 26,
           "englishPath": "resources/expertes-03/chapter-en.pdf",
           "englishPages": 7,
-          "englishBytes": 72489
+          "englishBytes": 84534
         },
         {
           "kind": "teacher",
@@ -4348,27 +4358,27 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/expertes-03/teacher.pdf",
-              "bytes": 89117,
-              "sha256": "22662d026796602c1f5eb35ff934a8387fe2b16c4c045f85aba71cd9bfb85438",
-              "pages": 8,
+              "bytes": 103307,
+              "sha256": "e92f3ade94a7b7a662b78de107265b2496d7fbc51f5cfc6f3bb2499ebf5e97ca",
+              "pages": 9,
               "start": 25,
-              "end": 32
+              "end": 33
             },
             "en": {
               "path": "resources/expertes-03/teacher-en.pdf",
-              "bytes": 88099,
-              "sha256": "03a3f8145575cb2cb09b8841b99d600b7246ad478411ac200a2693f6c36e8297",
-              "pages": 8,
+              "bytes": 102873,
+              "sha256": "94754e632495d8d723944095655e38e7077f6b3d729d5cb8ae07e48c4933afa2",
+              "pages": 9,
               "start": 25,
-              "end": 32
+              "end": 33
             }
           },
-          "pages": 8,
-          "bytes": 89117,
-          "end": 32,
+          "pages": 9,
+          "bytes": 103307,
+          "end": 33,
           "englishPath": "resources/expertes-03/teacher-en.pdf",
-          "englishPages": 8,
-          "englishBytes": 88099
+          "englishPages": 9,
+          "englishBytes": 102873
         }
       ],
       "labs": [
@@ -4399,57 +4409,57 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/expertes-04/chapter.pdf",
-              "bytes": 70334,
-              "sha256": "5470d1f62abfd9eb6c6f8b89289a74b449df3030095169264fa5f278940ad92d",
+              "bytes": 81503,
+              "sha256": "391accf57c00062cf5da355156f4069993aaac15d7fd2dcd89422ecfd87056c6",
               "pages": 6,
               "start": 27,
               "end": 32
             },
             "en": {
               "path": "resources/expertes-04/chapter-en.pdf",
-              "bytes": 69075,
-              "sha256": "803c785a7af0df9f2a39a226321cc0ff75952d75a6e164b22278f8d2db61854b",
+              "bytes": 80145,
+              "sha256": "e4e9db609dd3450b5eea81d011e11cbc86ee7ee46cecefdcb89147b4f6589674",
               "pages": 6,
               "start": 27,
               "end": 32
             }
           },
           "pages": 6,
-          "bytes": 70334,
+          "bytes": 81503,
           "end": 32,
           "englishPath": "resources/expertes-04/chapter-en.pdf",
           "englishPages": 6,
-          "englishBytes": 69075
+          "englishBytes": 80145
         },
         {
           "kind": "teacher",
           "source": "expertes-prof.pdf",
-          "start": 33,
+          "start": 34,
           "path": "resources/expertes-04/teacher.pdf",
           "editions": {
             "fr": {
               "path": "resources/expertes-04/teacher.pdf",
-              "bytes": 80984,
-              "sha256": "1e2252d58cafe0fc36d4ec4d28a5cce1349e0ee6a504894a3ce0e37745f77271",
+              "bytes": 92793,
+              "sha256": "d37a3b2db16518a10ed002b52871741beca2aa824be9c1193c47574504395d9d",
               "pages": 7,
-              "start": 33,
-              "end": 39
+              "start": 34,
+              "end": 40
             },
             "en": {
               "path": "resources/expertes-04/teacher-en.pdf",
-              "bytes": 79697,
-              "sha256": "fb52a940bfafd9306ce997693823d39aa409294b845c3680e18f153e7232ba4b",
+              "bytes": 91474,
+              "sha256": "f5006353505bc7d47c033919d567ba91bd617d30a48ed5893bbcfd13f829fa4f",
               "pages": 7,
-              "start": 33,
-              "end": 39
+              "start": 34,
+              "end": 40
             }
           },
           "pages": 7,
-          "bytes": 80984,
-          "end": 39,
+          "bytes": 92793,
+          "end": 40,
           "englishPath": "resources/expertes-04/teacher-en.pdf",
           "englishPages": 7,
-          "englishBytes": 79697
+          "englishBytes": 91474
         }
       ],
       "labs": [
@@ -4480,57 +4490,57 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/expertes-05/chapter.pdf",
-              "bytes": 70256,
-              "sha256": "dba82eeed65c2531c4913d87c45cfb18b7837eaf683da630916beef021091330",
+              "bytes": 81724,
+              "sha256": "da4b30d3c9a19259bf09db8ba98e1aa262579449e5a3f3ea22e8709ffb9ad2e1",
               "pages": 6,
               "start": 33,
               "end": 38
             },
             "en": {
               "path": "resources/expertes-05/chapter-en.pdf",
-              "bytes": 69065,
-              "sha256": "9aee2633e1e0002f916765403f1f3a467d2a90df81bc7614b6bb5eb7351bfa1e",
+              "bytes": 80306,
+              "sha256": "e393665f9e465bbe20806be15da04a93f560e852a9a57a026d9370f2e7543d99",
               "pages": 6,
               "start": 33,
               "end": 38
             }
           },
           "pages": 6,
-          "bytes": 70256,
+          "bytes": 81724,
           "end": 38,
           "englishPath": "resources/expertes-05/chapter-en.pdf",
           "englishPages": 6,
-          "englishBytes": 69065
+          "englishBytes": 80306
         },
         {
           "kind": "teacher",
           "source": "expertes-prof.pdf",
-          "start": 40,
+          "start": 41,
           "path": "resources/expertes-05/teacher.pdf",
           "editions": {
             "fr": {
               "path": "resources/expertes-05/teacher.pdf",
-              "bytes": 82886,
-              "sha256": "61fcbd5cbff2f36cfdac9656674360fd19d15b82e01513332e98ff12adc393aa",
+              "bytes": 95015,
+              "sha256": "24c898f9689ebd2399aa9f3b9a638196fbd004f764f41df33beb43530b55c365",
               "pages": 7,
-              "start": 40,
-              "end": 46
+              "start": 41,
+              "end": 47
             },
             "en": {
               "path": "resources/expertes-05/teacher-en.pdf",
-              "bytes": 82035,
-              "sha256": "58da67f4080ffd473e05280921447fd2bfdb721b6a5b4c2ed0239d1304730d00",
+              "bytes": 93822,
+              "sha256": "59815991a10a16604c07ea0ec4d61197f2c2bcf80c64b2575e84b8fc490ea73c",
               "pages": 7,
-              "start": 40,
-              "end": 46
+              "start": 41,
+              "end": 47
             }
           },
           "pages": 7,
-          "bytes": 82886,
-          "end": 46,
+          "bytes": 95015,
+          "end": 47,
           "englishPath": "resources/expertes-05/teacher-en.pdf",
           "englishPages": 7,
-          "englishBytes": 82035
+          "englishBytes": 93822
         }
       ],
       "labs": [
@@ -4561,57 +4571,57 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/expertes-06/chapter.pdf",
-              "bytes": 67798,
-              "sha256": "553f518b38bc003397344bec7174a27f3253951cc23b42131622bbc3d38c7687",
+              "bytes": 79365,
+              "sha256": "ed948b9418e13ca1a7dbddd12e78074b136f94b14b5fb78f73e082631a7fdba7",
               "pages": 6,
               "start": 39,
               "end": 44
             },
             "en": {
               "path": "resources/expertes-06/chapter-en.pdf",
-              "bytes": 66335,
-              "sha256": "1d3caab8b6bd4143278a10f95116bcf570bfabc6259aef274b9c1bb710c8f5df",
+              "bytes": 78068,
+              "sha256": "82cb3ea8118e506dac1055c49860b3ba65b844e16012ef1195fae0697cd51b5f",
               "pages": 6,
               "start": 39,
               "end": 44
             }
           },
           "pages": 6,
-          "bytes": 67798,
+          "bytes": 79365,
           "end": 44,
           "englishPath": "resources/expertes-06/chapter-en.pdf",
           "englishPages": 6,
-          "englishBytes": 66335
+          "englishBytes": 78068
         },
         {
           "kind": "teacher",
           "source": "expertes-prof.pdf",
-          "start": 47,
+          "start": 48,
           "path": "resources/expertes-06/teacher.pdf",
           "editions": {
             "fr": {
               "path": "resources/expertes-06/teacher.pdf",
-              "bytes": 77272,
-              "sha256": "ff5ad454f56110e82931115893b29a863beb9f0e7f83f0767cd431a08cb336a6",
+              "bytes": 89338,
+              "sha256": "96edf42a8b866a3470bf89ce8485283d03b2f5cca300cada919b241d3b3398ee",
               "pages": 7,
-              "start": 47,
-              "end": 53
+              "start": 48,
+              "end": 54
             },
             "en": {
               "path": "resources/expertes-06/teacher-en.pdf",
-              "bytes": 76047,
-              "sha256": "8aca92cb3779833c3166356eba4858f7f91422c69bf4f8f11d32f8f021bf6426",
+              "bytes": 88217,
+              "sha256": "a611f927607d2f0dc8385f2cf481693619bdd19534d37e2f38af0a6a1be794a9",
               "pages": 7,
-              "start": 47,
-              "end": 53
+              "start": 48,
+              "end": 54
             }
           },
           "pages": 7,
-          "bytes": 77272,
-          "end": 53,
+          "bytes": 89338,
+          "end": 54,
           "englishPath": "resources/expertes-06/teacher-en.pdf",
           "englishPages": 7,
-          "englishBytes": 76047
+          "englishBytes": 88217
         }
       ],
       "labs": []
@@ -4639,57 +4649,57 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/expertes-07/chapter.pdf",
-              "bytes": 73518,
-              "sha256": "c450fa816e987ddbfaf124e7631cd014eadbc7c5e292863fc2d5cf044f4f58d1",
+              "bytes": 85127,
+              "sha256": "dab9596111521b99909dc88bb3c925fa70cdeeb07797350ffcd57ff1b84cc73a",
               "pages": 6,
               "start": 45,
               "end": 50
             },
             "en": {
               "path": "resources/expertes-07/chapter-en.pdf",
-              "bytes": 72289,
-              "sha256": "c0fa9bef3d3846c34612825fd5f261fc6f9fce33a7bcdcbff28c3deddeb5d85a",
+              "bytes": 83656,
+              "sha256": "a8d9b74900ed31ec3f8b1d8330aa1f1f24d248f0ac9bb0bab72026b45edc26fd",
               "pages": 6,
               "start": 45,
               "end": 50
             }
           },
           "pages": 6,
-          "bytes": 73518,
+          "bytes": 85127,
           "end": 50,
           "englishPath": "resources/expertes-07/chapter-en.pdf",
           "englishPages": 6,
-          "englishBytes": 72289
+          "englishBytes": 83656
         },
         {
           "kind": "teacher",
           "source": "expertes-prof.pdf",
-          "start": 54,
+          "start": 55,
           "path": "resources/expertes-07/teacher.pdf",
           "editions": {
             "fr": {
               "path": "resources/expertes-07/teacher.pdf",
-              "bytes": 83947,
-              "sha256": "34bb4ff5a1c0df35e486fc98ae332c89850667d15016527202b3c6f6976ac09c",
+              "bytes": 96265,
+              "sha256": "0f9981f4441ca5bd4fbe6be0202156fbed62525061700425864a8626f3a9adfb",
               "pages": 7,
-              "start": 54,
-              "end": 60
+              "start": 55,
+              "end": 61
             },
             "en": {
               "path": "resources/expertes-07/teacher-en.pdf",
-              "bytes": 82430,
-              "sha256": "ead0554454323fbb1f66da0fd6082948889dcbbd86f2701b8cfe58e9d6491092",
+              "bytes": 94687,
+              "sha256": "f3ee3ab2c81ed44eda123b7a2ceebac50f38408a63062fd5db4b7851e8b65f36",
               "pages": 7,
-              "start": 54,
-              "end": 60
+              "start": 55,
+              "end": 61
             }
           },
           "pages": 7,
-          "bytes": 83947,
-          "end": 60,
+          "bytes": 96265,
+          "end": 61,
           "englishPath": "resources/expertes-07/teacher-en.pdf",
           "englishPages": 7,
-          "englishBytes": 82430
+          "englishBytes": 94687
         }
       ],
       "labs": []
@@ -4717,57 +4727,57 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/expertes-08/chapter.pdf",
-              "bytes": 81626,
-              "sha256": "399f8f37cfead7d1e8f0a5775e5d2ba9184deb929ad9c3f75de5c694c50304b9",
+              "bytes": 93168,
+              "sha256": "59c3afe6f31bc62899b3f0a14397f3ce23ff0a43581d6d4f485c1bea1fad63fe",
               "pages": 7,
               "start": 51,
               "end": 57
             },
             "en": {
               "path": "resources/expertes-08/chapter-en.pdf",
-              "bytes": 80914,
-              "sha256": "a7700952498f61cc1133bad5aebd8e9c6c497412492b4cc2f4ae973a030bf2b8",
+              "bytes": 91960,
+              "sha256": "0d211a46ccbe0d3499454ec85dedfabbac293ec311402158f5f7b582c5f24f98",
               "pages": 7,
               "start": 51,
               "end": 57
             }
           },
           "pages": 7,
-          "bytes": 81626,
+          "bytes": 93168,
           "end": 57,
           "englishPath": "resources/expertes-08/chapter-en.pdf",
           "englishPages": 7,
-          "englishBytes": 80914
+          "englishBytes": 91960
         },
         {
           "kind": "teacher",
           "source": "expertes-prof.pdf",
-          "start": 61,
+          "start": 62,
           "path": "resources/expertes-08/teacher.pdf",
           "editions": {
             "fr": {
               "path": "resources/expertes-08/teacher.pdf",
-              "bytes": 92300,
-              "sha256": "f008f43aebb5cb92c945ec098ceb7f77e2190e9f2b60f39c2228d8738118e754",
-              "pages": 8,
-              "start": 61,
-              "end": 68
+              "bytes": 106512,
+              "sha256": "ee14af1955a6329d2489cafc1450ce2969d163b44df69d83c2e7b85e3475a400",
+              "pages": 9,
+              "start": 62,
+              "end": 70
             },
             "en": {
               "path": "resources/expertes-08/teacher-en.pdf",
-              "bytes": 91541,
-              "sha256": "cf3ed2fd5ff99c3b2e88a41a57c2b05f7da266a08f7f461caf4752879499045a",
-              "pages": 8,
-              "start": 61,
-              "end": 68
+              "bytes": 105175,
+              "sha256": "463ef345a0b7da6bc489c02a5d9f9bf73c37210b2bca23ece71f205c8b17aeb2",
+              "pages": 9,
+              "start": 62,
+              "end": 70
             }
           },
-          "pages": 8,
-          "bytes": 92300,
-          "end": 68,
+          "pages": 9,
+          "bytes": 106512,
+          "end": 70,
           "englishPath": "resources/expertes-08/teacher-en.pdf",
-          "englishPages": 8,
-          "englishBytes": 91541
+          "englishPages": 9,
+          "englishBytes": 105175
         }
       ],
       "labs": [
@@ -4792,63 +4802,63 @@ export const resourceCatalog = {
           "path": "resources/expertes-09/chapter.pdf",
           "sections": {
             "lesson": 1,
-            "practice": 5,
-            "problem": 6
+            "practice": 6,
+            "problem": 7
           },
           "editions": {
             "fr": {
               "path": "resources/expertes-09/chapter.pdf",
-              "bytes": 70345,
-              "sha256": "46e219af0e9c67532c2f88e095398247fe26d7bc816f2f31d3fe8a25a637e3ca",
-              "pages": 6,
+              "bytes": 83903,
+              "sha256": "5ac0ec9c31446f3ebbbb8dba4acefab10049cbef97059d6565600562d978e0f3",
+              "pages": 7,
               "start": 58,
-              "end": 63
+              "end": 64
             },
             "en": {
               "path": "resources/expertes-09/chapter-en.pdf",
-              "bytes": 69783,
-              "sha256": "c208fff1211a9c8f696813fb29cfc833cf1c7d9e16b9b3ab86ccd2585d5fef54",
-              "pages": 6,
+              "bytes": 82987,
+              "sha256": "3c95354fceef4bb68583b1c52f0e8d2fcf711ecb9dccce2a2e987b1e6c4ed59f",
+              "pages": 7,
               "start": 58,
-              "end": 63
+              "end": 64
             }
           },
-          "pages": 6,
-          "bytes": 70345,
-          "end": 63,
+          "pages": 7,
+          "bytes": 83903,
+          "end": 64,
           "englishPath": "resources/expertes-09/chapter-en.pdf",
-          "englishPages": 6,
-          "englishBytes": 69783
+          "englishPages": 7,
+          "englishBytes": 82987
         },
         {
           "kind": "teacher",
           "source": "expertes-prof.pdf",
-          "start": 69,
+          "start": 71,
           "path": "resources/expertes-09/teacher.pdf",
           "editions": {
             "fr": {
               "path": "resources/expertes-09/teacher.pdf",
-              "bytes": 83539,
-              "sha256": "aa75627420a6dd1a0ca31b8b88a6ba557bfc914c2c4a0b7c24c6281e17288352",
-              "pages": 8,
-              "start": 69,
-              "end": 76
+              "bytes": 99637,
+              "sha256": "22557db4b18af8794df753ef3a5868112a76e7774ec0af0ded2ffedd16dda8d8",
+              "pages": 10,
+              "start": 71,
+              "end": 80
             },
             "en": {
               "path": "resources/expertes-09/teacher-en.pdf",
-              "bytes": 82853,
-              "sha256": "abb377b3c8be87ab89167ba87112dc9d00fea474b22f7616d996ef9834cd0cad",
-              "pages": 8,
-              "start": 69,
-              "end": 76
+              "bytes": 98569,
+              "sha256": "1f7751eb8ecb886c02f83ec3e2b4d19d717e0ebd4f342ac416205b893bdea10a",
+              "pages": 10,
+              "start": 71,
+              "end": 80
             }
           },
-          "pages": 8,
-          "bytes": 83539,
-          "end": 76,
+          "pages": 10,
+          "bytes": 99637,
+          "end": 80,
           "englishPath": "resources/expertes-09/teacher-en.pdf",
-          "englishPages": 8,
-          "englishBytes": 82853
+          "englishPages": 10,
+          "englishBytes": 98569
         }
       ],
       "labs": [
@@ -4868,7 +4878,7 @@ export const resourceCatalog = {
         {
           "kind": "chapter",
           "source": "expertes-eleve.pdf",
-          "start": 64,
+          "start": 65,
           "path": "resources/expertes-10/chapter.pdf",
           "sections": {
             "lesson": 1,
@@ -4878,57 +4888,57 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/expertes-10/chapter.pdf",
-              "bytes": 71590,
-              "sha256": "c185eda06c42e1ee936d73273fcad33dce28e877d2aea852dc58b250dd6754d4",
+              "bytes": 82419,
+              "sha256": "cd376e554471cf367fafbde274d298a1a10a7aa33a4f5530423db47afcb16508",
               "pages": 7,
-              "start": 64,
-              "end": 70
+              "start": 65,
+              "end": 71
             },
             "en": {
               "path": "resources/expertes-10/chapter-en.pdf",
-              "bytes": 70217,
-              "sha256": "3ff47a25020d9d90d6e06bcc108b7822b9527ac4edf961b0100574a58c72e00e",
+              "bytes": 80765,
+              "sha256": "dd5cc26977796c23519a85e4470577d54ce8cdf246216446ae2179e852ab2406",
               "pages": 7,
-              "start": 64,
-              "end": 70
+              "start": 65,
+              "end": 71
             }
           },
           "pages": 7,
-          "bytes": 71590,
-          "end": 70,
+          "bytes": 82419,
+          "end": 71,
           "englishPath": "resources/expertes-10/chapter-en.pdf",
           "englishPages": 7,
-          "englishBytes": 70217
+          "englishBytes": 80765
         },
         {
           "kind": "teacher",
           "source": "expertes-prof.pdf",
-          "start": 77,
+          "start": 81,
           "path": "resources/expertes-10/teacher.pdf",
           "editions": {
             "fr": {
               "path": "resources/expertes-10/teacher.pdf",
-              "bytes": 82600,
-              "sha256": "018c68c0db7d63d9afec21910763cf45fd1a9061b4e8722f7e8222af84b72bd9",
+              "bytes": 93906,
+              "sha256": "4f00ae846725532210ec0fae14a447014a3a0cc2d9e6ab4109a01197d0005ef4",
               "pages": 8,
-              "start": 77,
-              "end": 84
+              "start": 81,
+              "end": 88
             },
             "en": {
               "path": "resources/expertes-10/teacher-en.pdf",
-              "bytes": 81028,
-              "sha256": "111b8ecd6b9bfe3985b671aeb62b67ea94fad1fc7c8a5873ee98f3f4c9917abe",
+              "bytes": 92072,
+              "sha256": "bb96f1a04a3e374aa43503931dbcafbb86aca187d3a8966172f1de7626dd689e",
               "pages": 8,
-              "start": 77,
-              "end": 84
+              "start": 81,
+              "end": 88
             }
           },
           "pages": 8,
-          "bytes": 82600,
-          "end": 84,
+          "bytes": 93906,
+          "end": 88,
           "englishPath": "resources/expertes-10/teacher-en.pdf",
           "englishPages": 8,
-          "englishBytes": 81028
+          "englishBytes": 92072
         }
       ],
       "labs": []
@@ -4946,7 +4956,7 @@ export const resourceCatalog = {
         {
           "kind": "chapter",
           "source": "expertes-eleve.pdf",
-          "start": 71,
+          "start": 72,
           "path": "resources/expertes-11/chapter.pdf",
           "sections": {
             "lesson": 1,
@@ -4956,57 +4966,57 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/expertes-11/chapter.pdf",
-              "bytes": 76192,
-              "sha256": "997761035c85b77fd1a33c1358731c3bf9802e14763d21d619c7741e8f9ad39b",
+              "bytes": 88242,
+              "sha256": "dd9b28b17ba49cdbc610b5b3dee6242009c2418bd978df6781cfa4a57677df5b",
               "pages": 7,
-              "start": 71,
-              "end": 77
+              "start": 72,
+              "end": 78
             },
             "en": {
               "path": "resources/expertes-11/chapter-en.pdf",
-              "bytes": 74524,
-              "sha256": "c7b331d68e442ad14bd5d726e003c85e9603550fa0142a0fef3711759949bda8",
+              "bytes": 86303,
+              "sha256": "b183adf3b27773532962fa7a0aa8645e02c9532f8fb326d610352a390296ab74",
               "pages": 7,
-              "start": 71,
-              "end": 77
+              "start": 72,
+              "end": 78
             }
           },
           "pages": 7,
-          "bytes": 76192,
-          "end": 77,
+          "bytes": 88242,
+          "end": 78,
           "englishPath": "resources/expertes-11/chapter-en.pdf",
           "englishPages": 7,
-          "englishBytes": 74524
+          "englishBytes": 86303
         },
         {
           "kind": "teacher",
           "source": "expertes-prof.pdf",
-          "start": 85,
+          "start": 89,
           "path": "resources/expertes-11/teacher.pdf",
           "editions": {
             "fr": {
               "path": "resources/expertes-11/teacher.pdf",
-              "bytes": 93013,
-              "sha256": "071f7ef94ad419245115ff1e538eaa56cfcbf6d68223c8d73eacf7755e95c1f9",
-              "pages": 9,
-              "start": 85,
-              "end": 93
+              "bytes": 107461,
+              "sha256": "a0d8fec08202cce185ef5fdd2d4df9e61e3f73c91d8a04fcefc3cec47815ac52",
+              "pages": 10,
+              "start": 89,
+              "end": 98
             },
             "en": {
               "path": "resources/expertes-11/teacher-en.pdf",
-              "bytes": 91398,
-              "sha256": "573f13fd05c58f3b3ad1f16543e906a9c7fa66d8284cb7915e34dbbf10d5535e",
-              "pages": 9,
-              "start": 85,
-              "end": 93
+              "bytes": 105582,
+              "sha256": "e4c095ca2106f52393423f0b937ceddc3ad4951cf97412fda75699ecbecb4f87",
+              "pages": 10,
+              "start": 89,
+              "end": 98
             }
           },
-          "pages": 9,
-          "bytes": 93013,
-          "end": 93,
+          "pages": 10,
+          "bytes": 107461,
+          "end": 98,
           "englishPath": "resources/expertes-11/teacher-en.pdf",
-          "englishPages": 9,
-          "englishBytes": 91398
+          "englishPages": 10,
+          "englishBytes": 105582
         }
       ],
       "labs": [
@@ -5037,8 +5047,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/stmg-01/chapter.pdf",
-              "bytes": 120136,
-              "sha256": "155de847600251e7911403f9e758bac9a84cbb7646f10db0b464f6d443c670cc",
+              "bytes": 134765,
+              "sha256": "2448a6b6421a8eaa7dbe246e927949e7ed0e280edd370f4d5e3697e84035ef2a",
               "pages": 15,
               "start": 7,
               "end": 21
@@ -5053,7 +5063,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 15,
-          "bytes": 120136,
+          "bytes": 134765,
           "end": 21,
           "englishPath": "resources/stmg-01/chapter-en.pdf",
           "englishPages": 15,
@@ -5067,11 +5077,11 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/stmg-01/teacher.pdf",
-              "bytes": 149038,
-              "sha256": "51c8c41147df71d729b0d75d48285c8d1740a68fa9e04006294bc6db04dd5342",
-              "pages": 19,
+              "bytes": 166647,
+              "sha256": "f76b1d7771fed1036e7c9e51200a2d1b850c5e26dc12a2deec35c50800cbec10",
+              "pages": 20,
               "start": 7,
-              "end": 25
+              "end": 26
             },
             "en": {
               "path": "resources/stmg-01/teacher-en.pdf",
@@ -5082,9 +5092,9 @@ export const resourceCatalog = {
               "end": 24
             }
           },
-          "pages": 19,
-          "bytes": 149038,
-          "end": 25,
+          "pages": 20,
+          "bytes": 166647,
+          "end": 26,
           "englishPath": "resources/stmg-01/teacher-en.pdf",
           "englishPages": 18,
           "englishBytes": 247700
@@ -5118,8 +5128,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/stmg-02/chapter.pdf",
-              "bytes": 138222,
-              "sha256": "3976e5e307efb99ef2cea48837099b588a8b830f74d129673361fa453f32cd0c",
+              "bytes": 151436,
+              "sha256": "1a534b56327ebd14ba26a28bcf0d860ed723937fca5d1890cd9481ef32e0e598",
               "pages": 19,
               "start": 21,
               "end": 39
@@ -5134,7 +5144,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 19,
-          "bytes": 138222,
+          "bytes": 151436,
           "end": 39,
           "englishPath": "resources/stmg-02/chapter-en.pdf",
           "englishPages": 18,
@@ -5148,11 +5158,11 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/stmg-02/teacher.pdf",
-              "bytes": 175343,
-              "sha256": "2948459eb10b6a653a1c93c80ff4aaeefae51af93da752cc7c31ea6548a24eba",
-              "pages": 23,
+              "bytes": 196380,
+              "sha256": "392ade4179d3a043b49c13872049b16a61defd02ff7418b058c1ea272e703a80",
+              "pages": 26,
               "start": 26,
-              "end": 48
+              "end": 51
             },
             "en": {
               "path": "resources/stmg-02/teacher-en.pdf",
@@ -5163,9 +5173,9 @@ export const resourceCatalog = {
               "end": 47
             }
           },
-          "pages": 23,
-          "bytes": 175343,
-          "end": 48,
+          "pages": 26,
+          "bytes": 196380,
+          "end": 51,
           "englishPath": "resources/stmg-02/teacher-en.pdf",
           "englishPages": 22,
           "englishBytes": 299407
@@ -5198,8 +5208,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/stmg-03/chapter.pdf",
-              "bytes": 116194,
-              "sha256": "7ee6c98b262b31148a3e121c7d99f9420eda30950647010edc327f1cf4962a5c",
+              "bytes": 127462,
+              "sha256": "e3febc57276a4934d270b107fe8a4062c81ab34f1d6d9695480c4d67b8fe7616",
               "pages": 17,
               "start": 39,
               "end": 55
@@ -5214,7 +5224,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 17,
-          "bytes": 116194,
+          "bytes": 127462,
           "end": 55,
           "englishPath": "resources/stmg-03/chapter-en.pdf",
           "englishPages": 17,
@@ -5228,11 +5238,11 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/stmg-03/teacher.pdf",
-              "bytes": 172401,
-              "sha256": "203e95939aeefe69aafa5f74a5ef7a90d40fcc51feb5204f19a4b0df1f6f6b62",
-              "pages": 24,
+              "bytes": 191715,
+              "sha256": "9116afa29fe9163d35c3cd2d9e2c47ebad9722e2f5ff9d176f517d06ed51b87a",
+              "pages": 25,
               "start": 49,
-              "end": 72
+              "end": 73
             },
             "en": {
               "path": "resources/stmg-03/teacher-en.pdf",
@@ -5243,9 +5253,9 @@ export const resourceCatalog = {
               "end": 72
             }
           },
-          "pages": 24,
-          "bytes": 172401,
-          "end": 72,
+          "pages": 25,
+          "bytes": 191715,
+          "end": 73,
           "englishPath": "resources/stmg-03/teacher-en.pdf",
           "englishPages": 24,
           "englishBytes": 298578
@@ -5276,8 +5286,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/stmg-04/chapter.pdf",
-              "bytes": 138846,
-              "sha256": "2de112591bdee09858fc0b0dd8de721d426feaf33e059304cbdcc48377194497",
+              "bytes": 151831,
+              "sha256": "11df6ac44ac3a919d821122472365026a76c9167c1e2062567e40f9ffd093c0d",
               "pages": 20,
               "start": 56,
               "end": 75
@@ -5292,7 +5302,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 20,
-          "bytes": 138846,
+          "bytes": 151831,
           "end": 75,
           "englishPath": "resources/stmg-04/chapter-en.pdf",
           "englishPages": 20,
@@ -5306,8 +5316,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/stmg-04/teacher.pdf",
-              "bytes": 202556,
-              "sha256": "d90b43d93970f4c37370741c8b9a8eb2e1c9dec64cae77865a4b42c6dcf5b319",
+              "bytes": 218718,
+              "sha256": "59366c8c884e3e95dc374f024dbd49d252acacc86943831c1880f3b179ffb0a5",
               "pages": 27,
               "start": 74,
               "end": 100
@@ -5322,7 +5332,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 27,
-          "bytes": 202556,
+          "bytes": 218718,
           "end": 100,
           "englishPath": "resources/stmg-04/teacher-en.pdf",
           "englishPages": 26,
@@ -5354,8 +5364,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/stmg-05/chapter.pdf",
-              "bytes": 122546,
-              "sha256": "f02a097dd87aa10c31b590b9645750b93813f23aac1af6acfb1ef19690f036a2",
+              "bytes": 133265,
+              "sha256": "74f076a272e7f5b6153592e0ff2f29b618ac6980c34d0c2d2ba7a25338a13d60",
               "pages": 18,
               "start": 73,
               "end": 90
@@ -5370,7 +5380,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 18,
-          "bytes": 122546,
+          "bytes": 133265,
           "end": 90,
           "englishPath": "resources/stmg-05/chapter-en.pdf",
           "englishPages": 18,
@@ -5384,8 +5394,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/stmg-05/teacher.pdf",
-              "bytes": 166467,
-              "sha256": "52c33134a85dcf6e72b2f854dc1e0afbbac924946ee4f5021ab85a432cb0e435",
+              "bytes": 182107,
+              "sha256": "2edddc4164a0b8206065afd5c62f9f55e44dbb44dc2e085a25b772e2a903540b",
               "pages": 25,
               "start": 99,
               "end": 123
@@ -5400,7 +5410,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 25,
-          "bytes": 166467,
+          "bytes": 182107,
           "end": 123,
           "englishPath": "resources/stmg-05/teacher-en.pdf",
           "englishPages": 25,
@@ -5434,8 +5444,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/stmg-06/chapter.pdf",
-              "bytes": 114530,
-              "sha256": "8f2296697f68a61e794cba098c053215cbcc64080805d39ea94029161e1c5eaf",
+              "bytes": 125688,
+              "sha256": "c733714249dda4148e9e81cfdd1c3330ba887d6c76fc39d4c062fe415ed8633d",
               "pages": 17,
               "start": 90,
               "end": 106
@@ -5450,7 +5460,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 17,
-          "bytes": 114530,
+          "bytes": 125688,
           "end": 106,
           "englishPath": "resources/stmg-06/chapter-en.pdf",
           "englishPages": 17,
@@ -5464,11 +5474,11 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/stmg-06/teacher.pdf",
-              "bytes": 158552,
-              "sha256": "28cf076d13b83461f71b89bb469781388b9880ac8ab9e04e01be7bff4e26970d",
-              "pages": 24,
+              "bytes": 175222,
+              "sha256": "7a3a59fc6884ef99d6820930b1753fd6f2dc969a6c4404dc11e5337623fefaa3",
+              "pages": 25,
               "start": 124,
-              "end": 147
+              "end": 148
             },
             "en": {
               "path": "resources/stmg-06/teacher-en.pdf",
@@ -5479,9 +5489,9 @@ export const resourceCatalog = {
               "end": 146
             }
           },
-          "pages": 24,
-          "bytes": 158552,
-          "end": 147,
+          "pages": 25,
+          "bytes": 175222,
+          "end": 148,
           "englishPath": "resources/stmg-06/teacher-en.pdf",
           "englishPages": 23,
           "englishBytes": 250810
@@ -5514,8 +5524,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/stmg-07/chapter.pdf",
-              "bytes": 90923,
-              "sha256": "e95a8be889d74368d469340f8b9a75aa833b26fd71437d6d2fcef1c531d06fb2",
+              "bytes": 101401,
+              "sha256": "79dc8e111a4f9a8eab0ed97648808a260e1c931337251442d3c4577f3802b3da",
               "pages": 12,
               "start": 107,
               "end": 118
@@ -5530,7 +5540,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 12,
-          "bytes": 90923,
+          "bytes": 101401,
           "end": 118,
           "englishPath": "resources/stmg-07/chapter-en.pdf",
           "englishPages": 11,
@@ -5544,8 +5554,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/stmg-07/teacher.pdf",
-              "bytes": 122171,
-              "sha256": "34434a94ae7a75f4d12940ade1b4b473d17449bbe217eef4be218a728de12ef5",
+              "bytes": 135980,
+              "sha256": "0178442264ba4aa27af69843bc4be8d03ecea535ce1d4b32cdf229ee9990046e",
               "pages": 17,
               "start": 149,
               "end": 165
@@ -5560,7 +5570,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 17,
-          "bytes": 122171,
+          "bytes": 135980,
           "end": 165,
           "englishPath": "resources/stmg-07/teacher-en.pdf",
           "englishPages": 16,
@@ -5593,8 +5603,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/stmg-08/chapter.pdf",
-              "bytes": 92952,
-              "sha256": "a02259479175b338fb613444d4263a833783fb682bcc6f02671ffef3d21f2ac8",
+              "bytes": 107226,
+              "sha256": "12452be0de3a952292f373b8760f8e8f3af564d9b3a597ed98b9ca637de030eb",
               "pages": 11,
               "start": 119,
               "end": 129
@@ -5609,7 +5619,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 11,
-          "bytes": 92952,
+          "bytes": 107226,
           "end": 129,
           "englishPath": "resources/stmg-08/chapter-en.pdf",
           "englishPages": 11,
@@ -5623,11 +5633,11 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/stmg-08/teacher.pdf",
-              "bytes": 114531,
-              "sha256": "43e57d3430900453cb6949fdd62e6bb0bcb3e4b87d59cc36639ff4421ee59353",
-              "pages": 13,
+              "bytes": 132575,
+              "sha256": "f4f660fc8808fb14c24e3ed6814349e1fb7b2eadaf3ed899b5483e472f172450",
+              "pages": 14,
               "start": 166,
-              "end": 178
+              "end": 179
             },
             "en": {
               "path": "resources/stmg-08/teacher-en.pdf",
@@ -5638,9 +5648,9 @@ export const resourceCatalog = {
               "end": 178
             }
           },
-          "pages": 13,
-          "bytes": 114531,
-          "end": 178,
+          "pages": 14,
+          "bytes": 132575,
+          "end": 179,
           "englishPath": "resources/stmg-08/teacher-en.pdf",
           "englishPages": 13,
           "englishBytes": 220056
@@ -7164,6 +7174,1109 @@ export const resourceCatalog = {
       "labs": [
         "probability/run"
       ]
+    },
+    {
+      "id": "t12c-01",
+      "course": "t12c",
+      "number": 1,
+      "title": [
+        "Arithmétique",
+        "Arithmetic"
+      ],
+      "topic": "arithmetic",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 8,
+          "path": "resources/t12c-01/chapter.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-01/chapter.pdf",
+              "bytes": 478664,
+              "sha256": "ecb2b2ad894248586cfc3251e0cc3f540b6659de249239414745d1dbe4f99175",
+              "pages": 20,
+              "start": 8,
+              "end": 27
+            }
+          },
+          "pages": 20,
+          "bytes": 478664,
+          "end": 27
+        },
+        {
+          "kind": "teacher",
+          "source": "t12-prof.pdf",
+          "start": 10,
+          "path": "resources/t12c-01/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-01/teacher.pdf",
+              "bytes": 532050,
+              "sha256": "ac8ce0476220d221757377b6a2fee00a28754d2c2cee71e72e435aa9e6243dfd",
+              "pages": 26,
+              "start": 10,
+              "end": 35
+            }
+          },
+          "pages": 26,
+          "bytes": 532050,
+          "end": 35
+        }
+      ],
+      "labs": [
+        "euler-primes/hunt"
+      ]
+    },
+    {
+      "id": "t12c-02",
+      "course": "t12c",
+      "number": 2,
+      "title": [
+        "Probabilités",
+        "Probability"
+      ],
+      "topic": "binomial",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 28,
+          "path": "resources/t12c-02/chapter.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-02/chapter.pdf",
+              "bytes": 427446,
+              "sha256": "e42f2bf03c9fbdbcfebc88c0ea5706193b0aeafe15d13d723f58a8e4a68341cd",
+              "pages": 16,
+              "start": 28,
+              "end": 43
+            }
+          },
+          "pages": 16,
+          "bytes": 427446,
+          "end": 43
+        },
+        {
+          "kind": "teacher",
+          "source": "t12-prof.pdf",
+          "start": 36,
+          "path": "resources/t12c-02/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-02/teacher.pdf",
+              "bytes": 472248,
+              "sha256": "68fb4b9faca3bca4a93da2072ac4c7ca8a82082d5041c140ffda1356e2c70b95",
+              "pages": 22,
+              "start": 36,
+              "end": 57
+            }
+          },
+          "pages": 22,
+          "bytes": 472248,
+          "end": 57
+        }
+      ],
+      "labs": [
+        "probability/run"
+      ]
+    },
+    {
+      "id": "t12c-03",
+      "course": "t12c",
+      "number": 3,
+      "title": [
+        "Systèmes d’équations linéaires dans R³",
+        "Linear systems in R³"
+      ],
+      "topic": "algebra",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 46,
+          "path": "resources/t12c-03/chapter.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-03/chapter.pdf",
+              "bytes": 351885,
+              "sha256": "1140c9163731f1ae6268bfc2b848d44494880c9dc3fed97f83ac6e68823ff61d",
+              "pages": 6,
+              "start": 46,
+              "end": 51
+            }
+          },
+          "pages": 6,
+          "bytes": 351885,
+          "end": 51
+        },
+        {
+          "kind": "teacher",
+          "source": "t12-prof.pdf",
+          "start": 60,
+          "path": "resources/t12c-03/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-03/teacher.pdf",
+              "bytes": 365141,
+              "sha256": "57bfa38eef06e7219e25d77ab96adec2ae95b808b9cd520aa3c6f84d64dd8c9c",
+              "pages": 7,
+              "start": 60,
+              "end": 66
+            }
+          },
+          "pages": 7,
+          "bytes": 365141,
+          "end": 66
+        }
+      ],
+      "labs": [
+        "line/direction"
+      ]
+    },
+    {
+      "id": "t12c-04",
+      "course": "t12c",
+      "number": 4,
+      "title": [
+        "Nombres complexes",
+        "Complex numbers"
+      ],
+      "topic": "complex-algebra",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 52,
+          "path": "resources/t12c-04/chapter.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-04/chapter.pdf",
+              "bytes": 450802,
+              "sha256": "6320667099d142761906654662081622df52b567e747d42870942ea0570d9859",
+              "pages": 24,
+              "start": 52,
+              "end": 75
+            }
+          },
+          "pages": 24,
+          "bytes": 450802,
+          "end": 75
+        },
+        {
+          "kind": "teacher",
+          "source": "t12-prof.pdf",
+          "start": 67,
+          "path": "resources/t12c-04/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-04/teacher.pdf",
+              "bytes": 570774,
+              "sha256": "c3caf889890df04bf278d9a3dafe3fc254fb050f563de91cd69b5d62e1b1ea39",
+              "pages": 39,
+              "start": 67,
+              "end": 105
+            }
+          },
+          "pages": 39,
+          "bytes": 570774,
+          "end": 105
+        }
+      ],
+      "labs": [
+        "complex/scale"
+      ]
+    },
+    {
+      "id": "t12c-05",
+      "course": "t12c",
+      "number": 5,
+      "title": [
+        "Barycentres",
+        "Barycentres"
+      ],
+      "topic": "vectors",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 76,
+          "path": "resources/t12c-05/chapter.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-05/chapter.pdf",
+              "bytes": 387889,
+              "sha256": "b5329437f6bf3e517c587cb9e4aa0a40c0384ae5398c1e5c298f987219dcacca",
+              "pages": 10,
+              "start": 76,
+              "end": 85
+            }
+          },
+          "pages": 10,
+          "bytes": 387889,
+          "end": 85
+        },
+        {
+          "kind": "teacher",
+          "source": "t12-prof.pdf",
+          "start": 106,
+          "path": "resources/t12c-05/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-05/teacher.pdf",
+              "bytes": 411118,
+              "sha256": "89be921456bf651fe57084a2fc16ff2cf629210f9f292dd096fefef06ae29623",
+              "pages": 12,
+              "start": 106,
+              "end": 117
+            }
+          },
+          "pages": 12,
+          "bytes": 411118,
+          "end": 117
+        }
+      ],
+      "labs": []
+    },
+    {
+      "id": "t12c-06",
+      "course": "t12c",
+      "number": 6,
+      "title": [
+        "Applications affines et isométries",
+        "Affine maps and isometries"
+      ],
+      "topic": "lines",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 86,
+          "path": "resources/t12c-06/chapter.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-06/chapter.pdf",
+              "bytes": 429653,
+              "sha256": "75d7cc930e8862dabd1615015ce9bcb0aa1b8ba446acea0b8a692e103c0efe37",
+              "pages": 12,
+              "start": 86,
+              "end": 97
+            }
+          },
+          "pages": 12,
+          "bytes": 429653,
+          "end": 97
+        },
+        {
+          "kind": "teacher",
+          "source": "t12-prof.pdf",
+          "start": 118,
+          "path": "resources/t12c-06/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-06/teacher.pdf",
+              "bytes": 466172,
+              "sha256": "8fc27186145a30a4c8b59cc5895a9ed1d69d797e1b89102d8145740ae099c126",
+              "pages": 16,
+              "start": 118,
+              "end": 133
+            }
+          },
+          "pages": 16,
+          "bytes": 466172,
+          "end": 133
+        }
+      ],
+      "labs": []
+    },
+    {
+      "id": "t12c-07",
+      "course": "t12c",
+      "number": 7,
+      "title": [
+        "Similitudes planes",
+        "Plane similarities"
+      ],
+      "topic": "complex-plane",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 98,
+          "path": "resources/t12c-07/chapter.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-07/chapter.pdf",
+              "bytes": 391361,
+              "sha256": "2e74cc62220f27fade70bbfc2c22d2d523e9ec7f61dfebcc44ac234f4f600b8f",
+              "pages": 7,
+              "start": 98,
+              "end": 104
+            }
+          },
+          "pages": 7,
+          "bytes": 391361,
+          "end": 104
+        },
+        {
+          "kind": "teacher",
+          "source": "t12-prof.pdf",
+          "start": 134,
+          "path": "resources/t12c-07/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-07/teacher.pdf",
+              "bytes": 447457,
+              "sha256": "c88479adb7b27578282256fa523d274e542c96266e8e100a73f65e7fdf534fc2",
+              "pages": 12,
+              "start": 134,
+              "end": 145
+            }
+          },
+          "pages": 12,
+          "bytes": 447457,
+          "end": 145
+        }
+      ],
+      "labs": [
+        "complex/angles"
+      ]
+    },
+    {
+      "id": "t12c-08",
+      "course": "t12c",
+      "number": 8,
+      "title": [
+        "Suites numériques",
+        "Sequences"
+      ],
+      "topic": "sequences",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 107,
+          "path": "resources/t12c-08/chapter.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-08/chapter.pdf",
+              "bytes": 405954,
+              "sha256": "10eb3019057747baf95740cf1c93e74e1b33c67971092ae97660b32734d1c512",
+              "pages": 11,
+              "start": 107,
+              "end": 117
+            }
+          },
+          "pages": 11,
+          "bytes": 405954,
+          "end": 117
+        },
+        {
+          "kind": "teacher",
+          "source": "t12-prof.pdf",
+          "start": 148,
+          "path": "resources/t12c-08/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-08/teacher.pdf",
+              "bytes": 430101,
+              "sha256": "5098c7f155320fbaa8f09a58b8b3d8f34962530419f0770451792d12a67772ed",
+              "pages": 13,
+              "start": 148,
+              "end": 160
+            }
+          },
+          "pages": 13,
+          "bytes": 430101,
+          "end": 160
+        }
+      ],
+      "labs": [
+        "sequences/formula"
+      ]
+    },
+    {
+      "id": "t12c-09",
+      "course": "t12c",
+      "number": 9,
+      "title": [
+        "Limites, continuité et dérivation",
+        "Functions"
+      ],
+      "topic": "functions",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 118,
+          "path": "resources/t12c-09/chapter.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-09/chapter.pdf",
+              "bytes": 492699,
+              "sha256": "c3b14ffd2d8e9ff3f2a2f83168c22e4fd1eecb85eda62bd56e0334a61058052a",
+              "pages": 14,
+              "start": 118,
+              "end": 131
+            }
+          },
+          "pages": 14,
+          "bytes": 492699,
+          "end": 131
+        },
+        {
+          "kind": "teacher",
+          "source": "t12-prof.pdf",
+          "start": 161,
+          "path": "resources/t12c-09/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-09/teacher.pdf",
+              "bytes": 539525,
+              "sha256": "c71f35d3bd598d2ada2d4409baa3e903d142fd4d93f7357d7e45408e9ccbab09",
+              "pages": 20,
+              "start": 161,
+              "end": 180
+            }
+          },
+          "pages": 20,
+          "bytes": 539525,
+          "end": 180
+        }
+      ],
+      "labs": [
+        "derivative/where"
+      ]
+    },
+    {
+      "id": "t12c-10",
+      "course": "t12c",
+      "number": 10,
+      "title": [
+        "Fonctions exponentielle et logarithme",
+        "Exponential and logarithm"
+      ],
+      "topic": "exponential",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 132,
+          "path": "resources/t12c-10/chapter.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-10/chapter.pdf",
+              "bytes": 360155,
+              "sha256": "5f04b7159dab225d035c03bdaede10f5af701e3a005e425d9fde6d55d5aef916",
+              "pages": 11,
+              "start": 132,
+              "end": 142
+            }
+          },
+          "pages": 11,
+          "bytes": 360155,
+          "end": 142
+        },
+        {
+          "kind": "teacher",
+          "source": "t12-prof.pdf",
+          "start": 181,
+          "path": "resources/t12c-10/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-10/teacher.pdf",
+              "bytes": 430278,
+              "sha256": "5157eedfcfea645391cfe7157e7a4f3fee2f8a5e8aae67adec32fb02b2b08edd",
+              "pages": 19,
+              "start": 181,
+              "end": 199
+            }
+          },
+          "pages": 19,
+          "bytes": 430278,
+          "end": 199
+        }
+      ],
+      "labs": []
+    },
+    {
+      "id": "t12c-11",
+      "course": "t12c",
+      "number": 11,
+      "title": [
+        "Primitives et intégrales",
+        "Primitives and integrals"
+      ],
+      "topic": "integral",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 156,
+          "path": "resources/t12c-11/chapter.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-11/chapter.pdf",
+              "bytes": 417040,
+              "sha256": "0d3698729d645711647d9b5cc41e70d08625140ea3475d22f1db25e0c62bd8fb",
+              "pages": 10,
+              "start": 156,
+              "end": 165
+            }
+          },
+          "pages": 10,
+          "bytes": 417040,
+          "end": 165
+        },
+        {
+          "kind": "teacher",
+          "source": "t12-prof.pdf",
+          "start": 216,
+          "path": "resources/t12c-11/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-11/teacher.pdf",
+              "bytes": 446863,
+              "sha256": "e05378e2333c372303cd108fb83b727b56cbeb75e840c1eb7afbc033affce048",
+              "pages": 13,
+              "start": 216,
+              "end": 228
+            }
+          },
+          "pages": 13,
+          "bytes": 446863,
+          "end": 228
+        }
+      ],
+      "labs": [
+        "integral/bound"
+      ]
+    },
+    {
+      "id": "t12c-12",
+      "course": "t12c",
+      "number": 12,
+      "title": [
+        "Équations différentielles",
+        "Differential equations"
+      ],
+      "topic": "primitives",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 166,
+          "path": "resources/t12c-12/chapter.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-12/chapter.pdf",
+              "bytes": 316172,
+              "sha256": "07a2ebc9abb2a6e974a02b6a007344604cd813c40c9f1096cad1bb02344b25d9",
+              "pages": 6,
+              "start": 166,
+              "end": 171
+            }
+          },
+          "pages": 6,
+          "bytes": 316172,
+          "end": 171
+        },
+        {
+          "kind": "teacher",
+          "source": "t12-prof.pdf",
+          "start": 229,
+          "path": "resources/t12c-12/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-12/teacher.pdf",
+              "bytes": 339460,
+              "sha256": "e7b054adc3f63cd6915e0b503f01d57d9992d9447a925a81423a3bdf5608a250",
+              "pages": 8,
+              "start": 229,
+              "end": 236
+            }
+          },
+          "pages": 8,
+          "bytes": 339460,
+          "end": 236
+        }
+      ],
+      "labs": []
+    },
+    {
+      "id": "t12d-01",
+      "course": "t12d",
+      "number": 1,
+      "title": [
+        "Probabilités",
+        "Probability"
+      ],
+      "topic": "binomial",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 28,
+          "path": "resources/t12d-01/chapter.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12d-01/chapter.pdf",
+              "bytes": 427446,
+              "sha256": "e42f2bf03c9fbdbcfebc88c0ea5706193b0aeafe15d13d723f58a8e4a68341cd",
+              "pages": 16,
+              "start": 28,
+              "end": 43
+            }
+          },
+          "pages": 16,
+          "bytes": 427446,
+          "end": 43
+        },
+        {
+          "kind": "teacher",
+          "source": "t12-prof.pdf",
+          "start": 36,
+          "path": "resources/t12d-01/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12d-01/teacher.pdf",
+              "bytes": 472248,
+              "sha256": "68fb4b9faca3bca4a93da2072ac4c7ca8a82082d5041c140ffda1356e2c70b95",
+              "pages": 22,
+              "start": 36,
+              "end": 57
+            }
+          },
+          "pages": 22,
+          "bytes": 472248,
+          "end": 57
+        }
+      ],
+      "labs": [
+        "probability/run"
+      ]
+    },
+    {
+      "id": "t12d-02",
+      "course": "t12d",
+      "number": 2,
+      "title": [
+        "Systèmes d’équations linéaires dans R³",
+        "Linear systems in R³"
+      ],
+      "topic": "algebra",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 46,
+          "path": "resources/t12d-02/chapter.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12d-02/chapter.pdf",
+              "bytes": 351885,
+              "sha256": "1140c9163731f1ae6268bfc2b848d44494880c9dc3fed97f83ac6e68823ff61d",
+              "pages": 6,
+              "start": 46,
+              "end": 51
+            }
+          },
+          "pages": 6,
+          "bytes": 351885,
+          "end": 51
+        },
+        {
+          "kind": "teacher",
+          "source": "t12-prof.pdf",
+          "start": 60,
+          "path": "resources/t12d-02/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12d-02/teacher.pdf",
+              "bytes": 365141,
+              "sha256": "57bfa38eef06e7219e25d77ab96adec2ae95b808b9cd520aa3c6f84d64dd8c9c",
+              "pages": 7,
+              "start": 60,
+              "end": 66
+            }
+          },
+          "pages": 7,
+          "bytes": 365141,
+          "end": 66
+        }
+      ],
+      "labs": [
+        "line/direction"
+      ]
+    },
+    {
+      "id": "t12d-03",
+      "course": "t12d",
+      "number": 3,
+      "title": [
+        "Nombres complexes",
+        "Complex numbers"
+      ],
+      "topic": "complex-algebra",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 52,
+          "path": "resources/t12d-03/chapter.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12d-03/chapter.pdf",
+              "bytes": 450802,
+              "sha256": "6320667099d142761906654662081622df52b567e747d42870942ea0570d9859",
+              "pages": 24,
+              "start": 52,
+              "end": 75
+            }
+          },
+          "pages": 24,
+          "bytes": 450802,
+          "end": 75
+        },
+        {
+          "kind": "teacher",
+          "source": "t12-prof.pdf",
+          "start": 67,
+          "path": "resources/t12d-03/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12d-03/teacher.pdf",
+              "bytes": 570774,
+              "sha256": "c3caf889890df04bf278d9a3dafe3fc254fb050f563de91cd69b5d62e1b1ea39",
+              "pages": 39,
+              "start": 67,
+              "end": 105
+            }
+          },
+          "pages": 39,
+          "bytes": 570774,
+          "end": 105
+        }
+      ],
+      "labs": [
+        "complex/scale"
+      ]
+    },
+    {
+      "id": "t12d-04",
+      "course": "t12d",
+      "number": 4,
+      "title": [
+        "Similitudes planes",
+        "Plane similarities"
+      ],
+      "topic": "complex-plane",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 98,
+          "path": "resources/t12d-04/chapter.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12d-04/chapter.pdf",
+              "bytes": 391361,
+              "sha256": "2e74cc62220f27fade70bbfc2c22d2d523e9ec7f61dfebcc44ac234f4f600b8f",
+              "pages": 7,
+              "start": 98,
+              "end": 104
+            }
+          },
+          "pages": 7,
+          "bytes": 391361,
+          "end": 104
+        },
+        {
+          "kind": "teacher",
+          "source": "t12-prof.pdf",
+          "start": 134,
+          "path": "resources/t12d-04/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12d-04/teacher.pdf",
+              "bytes": 447457,
+              "sha256": "c88479adb7b27578282256fa523d274e542c96266e8e100a73f65e7fdf534fc2",
+              "pages": 12,
+              "start": 134,
+              "end": 145
+            }
+          },
+          "pages": 12,
+          "bytes": 447457,
+          "end": 145
+        }
+      ],
+      "labs": [
+        "complex/angles"
+      ]
+    },
+    {
+      "id": "t12d-05",
+      "course": "t12d",
+      "number": 5,
+      "title": [
+        "Suites numériques",
+        "Sequences"
+      ],
+      "topic": "sequences",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 107,
+          "path": "resources/t12d-05/chapter.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12d-05/chapter.pdf",
+              "bytes": 405954,
+              "sha256": "10eb3019057747baf95740cf1c93e74e1b33c67971092ae97660b32734d1c512",
+              "pages": 11,
+              "start": 107,
+              "end": 117
+            }
+          },
+          "pages": 11,
+          "bytes": 405954,
+          "end": 117
+        },
+        {
+          "kind": "teacher",
+          "source": "t12-prof.pdf",
+          "start": 148,
+          "path": "resources/t12d-05/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12d-05/teacher.pdf",
+              "bytes": 430101,
+              "sha256": "5098c7f155320fbaa8f09a58b8b3d8f34962530419f0770451792d12a67772ed",
+              "pages": 13,
+              "start": 148,
+              "end": 160
+            }
+          },
+          "pages": 13,
+          "bytes": 430101,
+          "end": 160
+        }
+      ],
+      "labs": [
+        "sequences/formula"
+      ]
+    },
+    {
+      "id": "t12d-06",
+      "course": "t12d",
+      "number": 6,
+      "title": [
+        "Limites, continuité et dérivation",
+        "Functions"
+      ],
+      "topic": "functions",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 118,
+          "path": "resources/t12d-06/chapter.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12d-06/chapter.pdf",
+              "bytes": 492699,
+              "sha256": "c3b14ffd2d8e9ff3f2a2f83168c22e4fd1eecb85eda62bd56e0334a61058052a",
+              "pages": 14,
+              "start": 118,
+              "end": 131
+            }
+          },
+          "pages": 14,
+          "bytes": 492699,
+          "end": 131
+        },
+        {
+          "kind": "teacher",
+          "source": "t12-prof.pdf",
+          "start": 161,
+          "path": "resources/t12d-06/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12d-06/teacher.pdf",
+              "bytes": 539525,
+              "sha256": "c71f35d3bd598d2ada2d4409baa3e903d142fd4d93f7357d7e45408e9ccbab09",
+              "pages": 20,
+              "start": 161,
+              "end": 180
+            }
+          },
+          "pages": 20,
+          "bytes": 539525,
+          "end": 180
+        }
+      ],
+      "labs": [
+        "derivative/where"
+      ]
+    },
+    {
+      "id": "t12d-07",
+      "course": "t12d",
+      "number": 7,
+      "title": [
+        "Fonctions exponentielle et logarithme",
+        "Exponential and logarithm"
+      ],
+      "topic": "exponential",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 132,
+          "path": "resources/t12d-07/chapter.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12d-07/chapter.pdf",
+              "bytes": 360155,
+              "sha256": "5f04b7159dab225d035c03bdaede10f5af701e3a005e425d9fde6d55d5aef916",
+              "pages": 11,
+              "start": 132,
+              "end": 142
+            }
+          },
+          "pages": 11,
+          "bytes": 360155,
+          "end": 142
+        },
+        {
+          "kind": "teacher",
+          "source": "t12-prof.pdf",
+          "start": 181,
+          "path": "resources/t12d-07/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12d-07/teacher.pdf",
+              "bytes": 430278,
+              "sha256": "5157eedfcfea645391cfe7157e7a4f3fee2f8a5e8aae67adec32fb02b2b08edd",
+              "pages": 19,
+              "start": 181,
+              "end": 199
+            }
+          },
+          "pages": 19,
+          "bytes": 430278,
+          "end": 199
+        }
+      ],
+      "labs": []
+    },
+    {
+      "id": "t12d-08",
+      "course": "t12d",
+      "number": 8,
+      "title": [
+        "Statistiques",
+        "Statistics"
+      ],
+      "topic": "statistics",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 143,
+          "path": "resources/t12d-08/chapter.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12d-08/chapter.pdf",
+              "bytes": 392176,
+              "sha256": "ef6391e85a5cf5ff9119ecefcdb6669e69a7220f21ab8834fd9b4c0ffaa4a122",
+              "pages": 13,
+              "start": 143,
+              "end": 155
+            }
+          },
+          "pages": 13,
+          "bytes": 392176,
+          "end": 155
+        },
+        {
+          "kind": "teacher",
+          "source": "t12-prof.pdf",
+          "start": 200,
+          "path": "resources/t12d-08/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12d-08/teacher.pdf",
+              "bytes": 420633,
+              "sha256": "766995cedce5c4f4926e5ec1d4b7fecb42952dd0de3b836f21dc38b2e104650e",
+              "pages": 16,
+              "start": 200,
+              "end": 215
+            }
+          },
+          "pages": 16,
+          "bytes": 420633,
+          "end": 215
+        }
+      ],
+      "labs": [
+        "statistics/mean"
+      ]
+    },
+    {
+      "id": "t12d-09",
+      "course": "t12d",
+      "number": 9,
+      "title": [
+        "Primitives et intégrales",
+        "Primitives and integrals"
+      ],
+      "topic": "integral",
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 156,
+          "path": "resources/t12d-09/chapter.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12d-09/chapter.pdf",
+              "bytes": 417040,
+              "sha256": "0d3698729d645711647d9b5cc41e70d08625140ea3475d22f1db25e0c62bd8fb",
+              "pages": 10,
+              "start": 156,
+              "end": 165
+            }
+          },
+          "pages": 10,
+          "bytes": 417040,
+          "end": 165
+        },
+        {
+          "kind": "teacher",
+          "source": "t12-prof.pdf",
+          "start": 216,
+          "path": "resources/t12d-09/teacher.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12d-09/teacher.pdf",
+              "bytes": 446863,
+              "sha256": "e05378e2333c372303cd108fb83b727b56cbeb75e840c1eb7afbc033affce048",
+              "pages": 13,
+              "start": 216,
+              "end": 228
+            }
+          },
+          "pages": 13,
+          "bytes": 446863,
+          "end": 228
+        }
+      ],
+      "labs": [
+        "integral/bound"
+      ]
     }
   ],
   "supplements": [
@@ -7184,8 +8297,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/premiere-methods-eleve.pdf",
-              "bytes": 67611,
-              "sha256": "9ae5f09e6fbc14a0ab67a21a9739c5bc7882b27f64422110c96d7874c0755452",
+              "bytes": 78390,
+              "sha256": "052b9720696230ce7ff9e82dc98bfa390a9d58c48322c9de0cb2306425107ffa",
               "pages": 4,
               "start": 94,
               "end": 97
@@ -7200,7 +8313,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 4,
-          "bytes": 67611,
+          "bytes": 78390,
           "end": 97,
           "englishPath": "resources/premiere-methods-eleve-en.pdf",
           "englishPages": 4,
@@ -7214,8 +8327,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/premiere-methods-prof.pdf",
-              "bytes": 69443,
-              "sha256": "260269522b5906b4270b38cfd5313b792f9497488f5cfc4f8603a6055c384a1d",
+              "bytes": 80304,
+              "sha256": "616c41c8f3ce45b1a537e9f656ff94fc17980237706cff6d112b917406dbffb8",
               "pages": 4,
               "start": 124,
               "end": 127
@@ -7230,7 +8343,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 4,
-          "bytes": 69443,
+          "bytes": 80304,
           "end": 127,
           "englishPath": "resources/premiere-methods-prof-en.pdf",
           "englishPages": 4,
@@ -7255,8 +8368,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/premiere-fluency-eleve.pdf",
-              "bytes": 68812,
-              "sha256": "15955ffbf9ee666062f44d73d5fa4e4666ff5ccd7ba86a030f32c6cce0e969a8",
+              "bytes": 75310,
+              "sha256": "23c835057424578973dee567840e0cc17e48f6cc77a44d55f54cafc294f0edbb",
               "pages": 8,
               "start": 98,
               "end": 105
@@ -7271,7 +8384,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 8,
-          "bytes": 68812,
+          "bytes": 75310,
           "end": 105,
           "englishPath": "resources/premiere-fluency-eleve-en.pdf",
           "englishPages": 8,
@@ -7285,8 +8398,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/premiere-fluency-prof.pdf",
-              "bytes": 106957,
-              "sha256": "9a95f57f807388b18c771e5918740b5ec03a540b91ef1711bc35d99403832735",
+              "bytes": 117738,
+              "sha256": "b82d2d1af7699bad749b7e26fd6be71034e130f2f10e650ff8199bae0d30411b",
               "pages": 14,
               "start": 128,
               "end": 141
@@ -7301,7 +8414,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 14,
-          "bytes": 106957,
+          "bytes": 117738,
           "end": 141,
           "englishPath": "resources/premiere-fluency-prof-en.pdf",
           "englishPages": 13,
@@ -7326,8 +8439,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/premiere-assessments-eleve.pdf",
-              "bytes": 114354,
-              "sha256": "789830f64cf457e1b246665c15d457e0a9a1fbc94acb0a2c9bead3fcd87b9045",
+              "bytes": 121165,
+              "sha256": "d00208d62798255f46d9c507215e4e6bd0fc2111dc6ad4dbc87ee8beb2ccc2ef",
               "pages": 17,
               "start": 106,
               "end": 122
@@ -7342,7 +8455,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 17,
-          "bytes": 114354,
+          "bytes": 121165,
           "end": 122,
           "englishPath": "resources/premiere-assessments-eleve-en.pdf",
           "englishPages": 17,
@@ -7356,8 +8469,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/premiere-assessments-prof.pdf",
-              "bytes": 271351,
-              "sha256": "190968946398ce5c5d6d6478739f00c8c7deb8e4eb7bb9080df0bfb7680bea01",
+              "bytes": 274982,
+              "sha256": "dcb53b55a64c108e4c26858f181b69c059e458dd298d519cb84afc7fcaa5d00b",
               "pages": 49,
               "start": 141,
               "end": 189
@@ -7372,7 +8485,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 49,
-          "bytes": 271351,
+          "bytes": 274982,
           "end": 189,
           "englishPath": "resources/premiere-assessments-prof-en.pdf",
           "englishPages": 49,
@@ -7397,8 +8510,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/terminale-algorithms-eleve.pdf",
-              "bytes": 55603,
-              "sha256": "ed2722c6755d0dcdba177921f517c629ae16f3e64b7f5d3cd8a6c70d6fbadfff",
+              "bytes": 62643,
+              "sha256": "2ea27eb1eb86b08be51e48cc720f1b028f4f7eeb2867799f80ab220c30aad9ed",
               "pages": 4,
               "start": 81,
               "end": 84
@@ -7413,7 +8526,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 4,
-          "bytes": 55603,
+          "bytes": 62643,
           "end": 84,
           "englishPath": "resources/terminale-algorithms-eleve-en.pdf",
           "englishPages": 3,
@@ -7427,8 +8540,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/terminale-algorithms-prof.pdf",
-              "bytes": 56437,
-              "sha256": "74f6db7a9ccc27ec09ee18888bbc3a93220e5b14dff1f83525467dc5328507f8",
+              "bytes": 63280,
+              "sha256": "0ff9203a8e69646751288f0e991baea4e2a02ba9145023f963f4b396e01ccc47",
               "pages": 4,
               "start": 115,
               "end": 118
@@ -7443,7 +8556,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 4,
-          "bytes": 56437,
+          "bytes": 63280,
           "end": 118,
           "englishPath": "resources/terminale-algorithms-prof-en.pdf",
           "englishPages": 3,
@@ -7468,8 +8581,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/terminale-proofs-eleve.pdf",
-              "bytes": 37329,
-              "sha256": "8a5b32b932375a8b2613ba71bdcae98874ef846564395ae29d2848d3a370b6b6",
+              "bytes": 42792,
+              "sha256": "31806810cd285b028bdf7546a24b16752e3101a9f213556070022ede5485b7db",
               "pages": 1,
               "start": 84,
               "end": 84
@@ -7484,7 +8597,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 1,
-          "bytes": 37329,
+          "bytes": 42792,
           "end": 84,
           "englishPath": "resources/terminale-proofs-eleve-en.pdf",
           "englishPages": 1,
@@ -7498,8 +8611,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/terminale-proofs-prof.pdf",
-              "bytes": 37771,
-              "sha256": "f4d096b8283748aaf21460545da76a325de2c91d32f369ee54bb3e9273ef6ea8",
+              "bytes": 43222,
+              "sha256": "c87812e40f8fec5f261772218c3e450a1d0af2c27a2fcb92cefe3398f1d68f8d",
               "pages": 1,
               "start": 118,
               "end": 118
@@ -7514,7 +8627,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 1,
-          "bytes": 37771,
+          "bytes": 43222,
           "end": 118,
           "englishPath": "resources/terminale-proofs-prof-en.pdf",
           "englishPages": 1,
@@ -7539,8 +8652,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/terminale-oral-eleve.pdf",
-              "bytes": 31312,
-              "sha256": "94ce9bfb0e147652a988cf3b0691151bd208373da648ecd6fba5d08ea0e8e414",
+              "bytes": 40488,
+              "sha256": "77cdaa9035b3b8d46a86e198dbb31238caf6e21b2e6f82304fd01800146443e0",
               "pages": 1,
               "start": 85,
               "end": 85
@@ -7555,7 +8668,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 1,
-          "bytes": 31312,
+          "bytes": 40488,
           "end": 85,
           "englishPath": "resources/terminale-oral-eleve-en.pdf",
           "englishPages": 1,
@@ -7569,8 +8682,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/terminale-oral-prof.pdf",
-              "bytes": 32244,
-              "sha256": "dc76cebe32dc0bae5f0b85c2ae5cb48e196d082ab744b04ae912b6d7906b0555",
+              "bytes": 42836,
+              "sha256": "eca04160054a4b979e09cbf0b262474daee790e73a3741fa6516f241be8b108a",
               "pages": 1,
               "start": 119,
               "end": 119
@@ -7585,7 +8698,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 1,
-          "bytes": 32244,
+          "bytes": 42836,
           "end": 119,
           "englishPath": "resources/terminale-oral-prof-en.pdf",
           "englishPages": 1,
@@ -7610,8 +8723,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/terminale-assessments-eleve.pdf",
-              "bytes": 231432,
-              "sha256": "7f80b05244e2339aaba357d24ea0246b55f502abba5fa8e7a4a68377ad9781eb",
+              "bytes": 239958,
+              "sha256": "ab494defb9c5b1a5f46b4212087ba0de69395d7c7ecde995af7021e5f0e9f632",
               "pages": 41,
               "start": 86,
               "end": 126
@@ -7626,7 +8739,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 41,
-          "bytes": 231432,
+          "bytes": 239958,
           "end": 126,
           "englishPath": "resources/terminale-assessments-eleve-en.pdf",
           "englishPages": 37,
@@ -7640,8 +8753,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/terminale-assessments-prof.pdf",
-              "bytes": 930326,
-              "sha256": "e60860011d5ca3d8ee62055739d27dd7411e6d9eb56fbc6acae60021a5f26e06",
+              "bytes": 919969,
+              "sha256": "9d6c94b6f5a0ed64f745671a789ad26ea84830d00f7b218d7d16da4ecbbe3d65",
               "pages": 181,
               "start": 120,
               "end": 300
@@ -7656,7 +8769,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 181,
-          "bytes": 930326,
+          "bytes": 919969,
           "end": 300,
           "englishPath": "resources/terminale-assessments-prof-en.pdf",
           "englishPages": 169,
@@ -7681,8 +8794,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/stmg-assessments-eleve.pdf",
-              "bytes": 104263,
-              "sha256": "f5987e1d1041fa5cc4fdf5a7175fbd8058524ffc4dcb1c9c04cd9d890e02f850",
+              "bytes": 114318,
+              "sha256": "287b99f3ecc95cb4b99c88a2c43bbc8cd03ed3e1b69db01b8d07001fc35b7aac",
               "pages": 15,
               "start": 128,
               "end": 142
@@ -7697,7 +8810,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 15,
-          "bytes": 104263,
+          "bytes": 114318,
           "end": 142,
           "englishPath": "resources/stmg-assessments-eleve-en.pdf",
           "englishPages": 15,
@@ -7711,11 +8824,11 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/stmg-assessments-prof.pdf",
-              "bytes": 122043,
-              "sha256": "fdda24c50f36a522d6b631d2b0d584e9ac8e042021f140a4d73a4e80116c4f2a",
-              "pages": 16,
+              "bytes": 136647,
+              "sha256": "9728b40e945d942cc36e2f99dd8dbe9a9c461eaa6f2d4cdba140813bedbc1f46",
+              "pages": 17,
               "start": 179,
-              "end": 194
+              "end": 195
             },
             "en": {
               "path": "resources/stmg-assessments-prof-en.pdf",
@@ -7726,9 +8839,9 @@ export const resourceCatalog = {
               "end": 194
             }
           },
-          "pages": 16,
-          "bytes": 122043,
-          "end": 194,
+          "pages": 17,
+          "bytes": 136647,
+          "end": 195,
           "englishPath": "resources/stmg-assessments-prof-en.pdf",
           "englishPages": 16,
           "englishBytes": 227294
@@ -7752,8 +8865,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/stmg-formulas-eleve.pdf",
-              "bytes": 35283,
-              "sha256": "fef01574dbe173fcd6d1a47d2c91c0b9679c9c0317f332602a8bed15a99ba1f5",
+              "bytes": 37855,
+              "sha256": "8961d09ede2fde815f1f79c7c7ea70824f7e32e4657f64c2a86075b7425f3c02",
               "pages": 1,
               "start": 143,
               "end": 143
@@ -7768,7 +8881,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 1,
-          "bytes": 35283,
+          "bytes": 37855,
           "end": 143,
           "englishPath": "resources/stmg-formulas-eleve-en.pdf",
           "englishPages": 1,
@@ -7782,8 +8895,8 @@ export const resourceCatalog = {
           "editions": {
             "fr": {
               "path": "resources/stmg-formulas-prof.pdf",
-              "bytes": 35839,
-              "sha256": "cb1560140f8e497bd9852a475a8674a5a1d59a4e4f733ad5cbeeda4c9c13a4e8",
+              "bytes": 38395,
+              "sha256": "9111aadde4c8ecadd0b31d1546ced9cf03bff3b474fed9cfdd8883b4d87230aa",
               "pages": 1,
               "start": 194,
               "end": 194
@@ -7798,7 +8911,7 @@ export const resourceCatalog = {
             }
           },
           "pages": 1,
-          "bytes": 35839,
+          "bytes": 38395,
           "end": 194,
           "englishPath": "resources/stmg-formulas-prof-en.pdf",
           "englishPages": 1,
@@ -7818,29 +8931,29 @@ export const resourceCatalog = {
         {
           "kind": "teacher",
           "source": "premiere-prof.pdf",
-          "start": 206,
+          "start": 209,
           "path": "resources/premiere-revision/matrix.pdf",
           "editions": {
             "fr": {
               "path": "resources/premiere-revision/matrix.pdf",
-              "bytes": 59674,
-              "sha256": "3f4736bade5571b315633804fe74c710b4365ebe1423157706e87dd9ebab7305",
+              "bytes": 62940,
+              "sha256": "881c1f1165860c66bc032f2096e45ab4da4a564dbc8e3bb4d815012b6484f024",
               "pages": 7,
-              "start": 206,
-              "end": 212
+              "start": 209,
+              "end": 215
             },
             "en": {
               "path": "resources/premiere-revision/matrix-en.pdf",
               "bytes": 94583,
               "sha256": "427efa79d8540f9279e01f3b39954a6ce54b8f573559afc5136d7780e3905d3e",
               "pages": 6,
-              "start": 206,
-              "end": 211
+              "start": 209,
+              "end": 214
             }
           },
           "pages": 7,
-          "bytes": 59674,
-          "end": 212,
+          "bytes": 62940,
+          "end": 215,
           "englishPath": "resources/premiere-revision/matrix-en.pdf",
           "englishPages": 6,
           "englishBytes": 94583
@@ -7859,29 +8972,29 @@ export const resourceCatalog = {
         {
           "kind": "teacher",
           "source": "premiere-prof.pdf",
-          "start": 213,
+          "start": 216,
           "path": "resources/premiere-revision/schedule.pdf",
           "editions": {
             "fr": {
               "path": "resources/premiere-revision/schedule.pdf",
-              "bytes": 95638,
-              "sha256": "925bbfbbe7110e37926715624ecb92a173566c4fbe5a87487bae213a3d3493c7",
+              "bytes": 101323,
+              "sha256": "ee209ea4754fa2fbb35ffd3be0af80d3bd05119737189edbae538ce4671c139e",
               "pages": 18,
-              "start": 213,
-              "end": 230
+              "start": 216,
+              "end": 233
             },
             "en": {
               "path": "resources/premiere-revision/schedule-en.pdf",
               "bytes": 141425,
               "sha256": "24dcb05285b7b080e680940adf82a895255844e5b45ddb431708d158be4cf20f",
               "pages": 17,
-              "start": 213,
-              "end": 229
+              "start": 216,
+              "end": 232
             }
           },
           "pages": 18,
-          "bytes": 95638,
-          "end": 230,
+          "bytes": 101323,
+          "end": 233,
           "englishPath": "resources/premiere-revision/schedule-en.pdf",
           "englishPages": 17,
           "englishBytes": 141425
@@ -8192,6 +9305,2092 @@ export const resourceCatalog = {
           "pages": 2,
           "bytes": 56033,
           "end": 150
+        }
+      ]
+    },
+    {
+      "id": "t12c-problems",
+      "course": "t12c",
+      "kind": "problems",
+      "title": [
+        "Problèmes de synthèse",
+        "Synthesis problems"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 172,
+          "path": "resources/t12c-problems-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-problems-eleve.pdf",
+              "bytes": 324595,
+              "sha256": "eb988f9392dddef1c6afe3701c9a10a29352a43a49417af3412ea45de68af4fe",
+              "pages": 7,
+              "start": 172,
+              "end": 178
+            }
+          },
+          "pages": 7,
+          "bytes": 324595,
+          "end": 178
+        },
+        {
+          "kind": "teacher",
+          "source": "t12-prof.pdf",
+          "start": 237,
+          "path": "resources/t12c-problems-prof.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-problems-prof.pdf",
+              "bytes": 418924,
+              "sha256": "4fff2477f63984945f302366431910f724c4477988934da30fd2357f6987c854",
+              "pages": 18,
+              "start": 237,
+              "end": 254
+            }
+          },
+          "pages": 18,
+          "bytes": 418924,
+          "end": 254
+        }
+      ]
+    },
+    {
+      "id": "t12c-annexes",
+      "course": "t12c",
+      "kind": "annexes",
+      "title": [
+        "Annexes : rappels",
+        "Appendices: reminders"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 265,
+          "path": "resources/t12c-annexes-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-annexes-eleve.pdf",
+              "bytes": 381630,
+              "sha256": "aa9a4f82648a408bebd501fde0fad0c9857c1c2d5123683181a1cfaf12e68bc5",
+              "pages": 10,
+              "start": 265,
+              "end": 274
+            }
+          },
+          "pages": 10,
+          "bytes": 381630,
+          "end": 274
+        }
+      ]
+    },
+    {
+      "id": "t12c-bac-2018",
+      "course": "t12c",
+      "kind": "bac",
+      "title": [
+        "Baccalauréat série C 2018",
+        "Baccalauréat (Madagascar), series C, 2018"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 181,
+          "path": "resources/t12c-bac-2018-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-bac-2018-eleve.pdf",
+              "bytes": 260637,
+              "sha256": "13459b161b022ba232f92a7067c6179b3228cb754895ff1d3d49ab7edbc075d3",
+              "pages": 2,
+              "start": 181,
+              "end": 182
+            }
+          },
+          "pages": 2,
+          "bytes": 260637,
+          "end": 182
+        },
+        {
+          "kind": "teacher",
+          "source": "t12-prof.pdf",
+          "start": 257,
+          "path": "resources/t12c-bac-2018-prof.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-bac-2018-prof.pdf",
+              "bytes": 320871,
+              "sha256": "b5be6d7822735a26ac979cf0de8ae5f0af377097eb3de4c7cfde3e7c21193dbb",
+              "pages": 5,
+              "start": 257,
+              "end": 261
+            }
+          },
+          "pages": 5,
+          "bytes": 320871,
+          "end": 261
+        }
+      ]
+    },
+    {
+      "id": "t12c-bac-2017",
+      "course": "t12c",
+      "kind": "bac",
+      "title": [
+        "Baccalauréat série C 2017",
+        "Baccalauréat (Madagascar), series C, 2017"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 183,
+          "path": "resources/t12c-bac-2017-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-bac-2017-eleve.pdf",
+              "bytes": 261338,
+              "sha256": "d6c6c45c4b5853a8145e379f439b12cf7f38f1bc9a6d941db50a281fb18ebbf3",
+              "pages": 2,
+              "start": 183,
+              "end": 184
+            }
+          },
+          "pages": 2,
+          "bytes": 261338,
+          "end": 184
+        },
+        {
+          "kind": "teacher",
+          "source": "t12-prof.pdf",
+          "start": 259,
+          "path": "resources/t12c-bac-2017-prof.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-bac-2017-prof.pdf",
+              "bytes": 301464,
+              "sha256": "9315f04a7d4487246956457bd6c07519bd8004dd840a57f2a56122e1c48b02e3",
+              "pages": 7,
+              "start": 259,
+              "end": 265
+            }
+          },
+          "pages": 7,
+          "bytes": 301464,
+          "end": 265
+        }
+      ]
+    },
+    {
+      "id": "t12c-bac-2016",
+      "course": "t12c",
+      "kind": "bac",
+      "title": [
+        "Baccalauréat série C 2016",
+        "Baccalauréat (Madagascar), series C, 2016"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 185,
+          "path": "resources/t12c-bac-2016-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-bac-2016-eleve.pdf",
+              "bytes": 262960,
+              "sha256": "eb2d6e301c60f488fd81491118e5d0262324fed845e3a4e488c56087affa7e3d",
+              "pages": 2,
+              "start": 185,
+              "end": 186
+            }
+          },
+          "pages": 2,
+          "bytes": 262960,
+          "end": 186
+        },
+        {
+          "kind": "teacher",
+          "source": "t12-prof.pdf",
+          "start": 261,
+          "path": "resources/t12c-bac-2016-prof.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-bac-2016-prof.pdf",
+              "bytes": 289503,
+              "sha256": "61031cf17cb08b96c01c04dbefd3ee062f5ded260d5f0179903cfa6b75dcd063",
+              "pages": 5,
+              "start": 261,
+              "end": 265
+            }
+          },
+          "pages": 5,
+          "bytes": 289503,
+          "end": 265
+        }
+      ]
+    },
+    {
+      "id": "t12c-bac-2015",
+      "course": "t12c",
+      "kind": "bac",
+      "title": [
+        "Baccalauréat série C 2015",
+        "Baccalauréat (Madagascar), series C, 2015"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 187,
+          "path": "resources/t12c-bac-2015-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-bac-2015-eleve.pdf",
+              "bytes": 264217,
+              "sha256": "9fccb50495e2bb4e95ded2ceb8f765129651b96f97e9b7602cc3e5ed14c50642",
+              "pages": 3,
+              "start": 187,
+              "end": 189
+            }
+          },
+          "pages": 3,
+          "bytes": 264217,
+          "end": 189
+        },
+        {
+          "kind": "teacher",
+          "source": "t12-prof.pdf",
+          "start": 263,
+          "path": "resources/t12c-bac-2015-prof.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-bac-2015-prof.pdf",
+              "bytes": 297858,
+              "sha256": "e63d1a63b28cebd5b12428e2447e419361966bf8351fffc2bc8403dcf1dbbac4",
+              "pages": 7,
+              "start": 263,
+              "end": 269
+            }
+          },
+          "pages": 7,
+          "bytes": 297858,
+          "end": 269
+        }
+      ]
+    },
+    {
+      "id": "t12c-bac-2014",
+      "course": "t12c",
+      "kind": "bac",
+      "title": [
+        "Baccalauréat série C 2014",
+        "Baccalauréat (Madagascar), series C, 2014"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 190,
+          "path": "resources/t12c-bac-2014-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-bac-2014-eleve.pdf",
+              "bytes": 264489,
+              "sha256": "2d1f68796f4deef6080d2ddbf7022f88d977441d1fb4be461d8b278f9634c571",
+              "pages": 2,
+              "start": 190,
+              "end": 191
+            }
+          },
+          "pages": 2,
+          "bytes": 264489,
+          "end": 191
+        },
+        {
+          "kind": "teacher",
+          "source": "t12-prof.pdf",
+          "start": 266,
+          "path": "resources/t12c-bac-2014-prof.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-bac-2014-prof.pdf",
+              "bytes": 290274,
+              "sha256": "5474a3f1785678b0dd52017d1d2a06fbf8813084854fb6a99b2bfd3c05a0eacf",
+              "pages": 5,
+              "start": 266,
+              "end": 270
+            }
+          },
+          "pages": 5,
+          "bytes": 290274,
+          "end": 270
+        }
+      ]
+    },
+    {
+      "id": "t12c-bac-2013",
+      "course": "t12c",
+      "kind": "bac",
+      "title": [
+        "Baccalauréat série C 2013",
+        "Baccalauréat (Madagascar), series C, 2013"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 192,
+          "path": "resources/t12c-bac-2013-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-bac-2013-eleve.pdf",
+              "bytes": 264075,
+              "sha256": "9f395d596d3ecef8cf4a3494c7dd887698921c432ca09ba9dfc13d38efcc338b",
+              "pages": 2,
+              "start": 192,
+              "end": 193
+            }
+          },
+          "pages": 2,
+          "bytes": 264075,
+          "end": 193
+        },
+        {
+          "kind": "teacher",
+          "source": "t12-prof.pdf",
+          "start": 268,
+          "path": "resources/t12c-bac-2013-prof.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-bac-2013-prof.pdf",
+              "bytes": 333797,
+              "sha256": "0603b1f1c4ab471b96ffc4f98c6f0ed25f66e8eb9f22b1a4870730ca3b5e46eb",
+              "pages": 6,
+              "start": 268,
+              "end": 273
+            }
+          },
+          "pages": 6,
+          "bytes": 333797,
+          "end": 273
+        }
+      ]
+    },
+    {
+      "id": "t12c-bac-2012",
+      "course": "t12c",
+      "kind": "bac",
+      "title": [
+        "Baccalauréat série C 2012",
+        "Baccalauréat (Madagascar), series C, 2012"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 194,
+          "path": "resources/t12c-bac-2012-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-bac-2012-eleve.pdf",
+              "bytes": 262082,
+              "sha256": "385219edfbf9c7a4c99cf5bf999a621e2ac0eb4f682e379057d0f1c39bed589a",
+              "pages": 2,
+              "start": 194,
+              "end": 195
+            }
+          },
+          "pages": 2,
+          "bytes": 262082,
+          "end": 195
+        },
+        {
+          "kind": "teacher",
+          "source": "t12-prof.pdf",
+          "start": 270,
+          "path": "resources/t12c-bac-2012-prof.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-bac-2012-prof.pdf",
+              "bytes": 327823,
+              "sha256": "b5168aa42650b39f71570c21a1295b9618e823879e86c818c55a562583f5e05e",
+              "pages": 6,
+              "start": 270,
+              "end": 275
+            }
+          },
+          "pages": 6,
+          "bytes": 327823,
+          "end": 275
+        }
+      ]
+    },
+    {
+      "id": "t12c-bac-2011",
+      "course": "t12c",
+      "kind": "bac",
+      "title": [
+        "Baccalauréat série C 2011",
+        "Baccalauréat (Madagascar), series C, 2011"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 196,
+          "path": "resources/t12c-bac-2011-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-bac-2011-eleve.pdf",
+              "bytes": 262438,
+              "sha256": "46be68a4d700e0bf3a11b8b611d90bb9cd86fea38b475b27f9a9db4da3487e20",
+              "pages": 2,
+              "start": 196,
+              "end": 197
+            }
+          },
+          "pages": 2,
+          "bytes": 262438,
+          "end": 197
+        },
+        {
+          "kind": "teacher",
+          "source": "t12-prof.pdf",
+          "start": 272,
+          "path": "resources/t12c-bac-2011-prof.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-bac-2011-prof.pdf",
+              "bytes": 294483,
+              "sha256": "1012f31c28be2ef8ce5103ff3aa640cb968bf8e098134d2d1645347f69f525bd",
+              "pages": 6,
+              "start": 272,
+              "end": 277
+            }
+          },
+          "pages": 6,
+          "bytes": 294483,
+          "end": 277
+        }
+      ]
+    },
+    {
+      "id": "t12c-bac-2010",
+      "course": "t12c",
+      "kind": "bac",
+      "title": [
+        "Baccalauréat série C 2010",
+        "Baccalauréat (Madagascar), series C, 2010"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 198,
+          "path": "resources/t12c-bac-2010-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-bac-2010-eleve.pdf",
+              "bytes": 261350,
+              "sha256": "9ad1b08f4a8cb6df4682ed6bb8cba10109c60165f322a6bfaa79273016d6c0b9",
+              "pages": 2,
+              "start": 198,
+              "end": 199
+            }
+          },
+          "pages": 2,
+          "bytes": 261350,
+          "end": 199
+        },
+        {
+          "kind": "teacher",
+          "source": "t12-prof.pdf",
+          "start": 274,
+          "path": "resources/t12c-bac-2010-prof.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-bac-2010-prof.pdf",
+              "bytes": 327324,
+              "sha256": "bade2daaa522ea4a1288c7802bdc0ed34c9ea518c97d1f25d0a282b9d1a1d0f2",
+              "pages": 6,
+              "start": 274,
+              "end": 279
+            }
+          },
+          "pages": 6,
+          "bytes": 327324,
+          "end": 279
+        }
+      ]
+    },
+    {
+      "id": "t12c-bac-2009",
+      "course": "t12c",
+      "kind": "bac",
+      "title": [
+        "Baccalauréat série C 2009",
+        "Baccalauréat (Madagascar), series C, 2009"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 200,
+          "path": "resources/t12c-bac-2009-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-bac-2009-eleve.pdf",
+              "bytes": 296831,
+              "sha256": "072c19f6235e6e5148f98193d0c4fa7110095e35c82b2db3df167ef5f49fb950",
+              "pages": 2,
+              "start": 200,
+              "end": 201
+            }
+          },
+          "pages": 2,
+          "bytes": 296831,
+          "end": 201
+        },
+        {
+          "kind": "teacher",
+          "source": "t12-prof.pdf",
+          "start": 276,
+          "path": "resources/t12c-bac-2009-prof.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-bac-2009-prof.pdf",
+              "bytes": 325188,
+              "sha256": "24c66ddcff4f96bd96bacfa5c0ef577a954e92915dd127369802886ad3d2b77d",
+              "pages": 6,
+              "start": 276,
+              "end": 281
+            }
+          },
+          "pages": 6,
+          "bytes": 325188,
+          "end": 281
+        }
+      ]
+    },
+    {
+      "id": "t12c-bac-2008",
+      "course": "t12c",
+      "kind": "bac",
+      "title": [
+        "Baccalauréat série C 2008",
+        "Baccalauréat (Madagascar), series C, 2008"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 202,
+          "path": "resources/t12c-bac-2008-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-bac-2008-eleve.pdf",
+              "bytes": 261985,
+              "sha256": "22f5b18956193ee16838d64f15c14580ef136654d6bb38dafae5ca3f70d14c8f",
+              "pages": 2,
+              "start": 202,
+              "end": 203
+            }
+          },
+          "pages": 2,
+          "bytes": 261985,
+          "end": 203
+        },
+        {
+          "kind": "teacher",
+          "source": "t12-prof.pdf",
+          "start": 278,
+          "path": "resources/t12c-bac-2008-prof.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-bac-2008-prof.pdf",
+              "bytes": 293915,
+              "sha256": "1662c5189cbeb8ac70acc50c6d8d2a954b040c59ba9c39aee348a3fb67c18ed3",
+              "pages": 6,
+              "start": 278,
+              "end": 283
+            }
+          },
+          "pages": 6,
+          "bytes": 293915,
+          "end": 283
+        }
+      ]
+    },
+    {
+      "id": "t12c-bac-2007",
+      "course": "t12c",
+      "kind": "bac",
+      "title": [
+        "Baccalauréat série C 2007",
+        "Baccalauréat (Madagascar), series C, 2007"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 204,
+          "path": "resources/t12c-bac-2007-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-bac-2007-eleve.pdf",
+              "bytes": 263423,
+              "sha256": "d25c89f102e364c15deed760d1dc90959410e1b115c6cbb0d1726527e49a52e3",
+              "pages": 2,
+              "start": 204,
+              "end": 205
+            }
+          },
+          "pages": 2,
+          "bytes": 263423,
+          "end": 205
+        },
+        {
+          "kind": "teacher",
+          "source": "t12-prof.pdf",
+          "start": 280,
+          "path": "resources/t12c-bac-2007-prof.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-bac-2007-prof.pdf",
+              "bytes": 295361,
+              "sha256": "af80177d0c3089a28c10779ee2d0396fa276ea03353f339445301ce2298afe69",
+              "pages": 6,
+              "start": 280,
+              "end": 285
+            }
+          },
+          "pages": 6,
+          "bytes": 295361,
+          "end": 285
+        }
+      ]
+    },
+    {
+      "id": "t12c-bac-2006",
+      "course": "t12c",
+      "kind": "bac",
+      "title": [
+        "Baccalauréat série C 2006",
+        "Baccalauréat (Madagascar), series C, 2006"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 206,
+          "path": "resources/t12c-bac-2006-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-bac-2006-eleve.pdf",
+              "bytes": 261509,
+              "sha256": "b141df250ee9441832d36e496ea21d58bb0ba208a48129b1c0c3133be7d70c44",
+              "pages": 2,
+              "start": 206,
+              "end": 207
+            }
+          },
+          "pages": 2,
+          "bytes": 261509,
+          "end": 207
+        },
+        {
+          "kind": "teacher",
+          "source": "t12-prof.pdf",
+          "start": 282,
+          "path": "resources/t12c-bac-2006-prof.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-bac-2006-prof.pdf",
+              "bytes": 298551,
+              "sha256": "10df86fc37e019f2f22a675fcdf6832e6b3fe394c3d40130fcbd258cf7b2fa9a",
+              "pages": 7,
+              "start": 282,
+              "end": 288
+            }
+          },
+          "pages": 7,
+          "bytes": 298551,
+          "end": 288
+        }
+      ]
+    },
+    {
+      "id": "t12c-bac-2005",
+      "course": "t12c",
+      "kind": "bac",
+      "title": [
+        "Baccalauréat série C 2005",
+        "Baccalauréat (Madagascar), series C, 2005"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 208,
+          "path": "resources/t12c-bac-2005-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-bac-2005-eleve.pdf",
+              "bytes": 263388,
+              "sha256": "6ef62312f9189e3b6ae2f8f6d5836fda25bafb1cd76a95f681e1b7f8dcdcebfc",
+              "pages": 2,
+              "start": 208,
+              "end": 209
+            }
+          },
+          "pages": 2,
+          "bytes": 263388,
+          "end": 209
+        },
+        {
+          "kind": "teacher",
+          "source": "t12-prof.pdf",
+          "start": 284,
+          "path": "resources/t12c-bac-2005-prof.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-bac-2005-prof.pdf",
+              "bytes": 328632,
+              "sha256": "3cfcc834325f1e960160a247656ac8c32d08b4c15f29d0387bfc20e6e2c88ccd",
+              "pages": 6,
+              "start": 284,
+              "end": 289
+            }
+          },
+          "pages": 6,
+          "bytes": 328632,
+          "end": 289
+        }
+      ]
+    },
+    {
+      "id": "t12c-bac-2004",
+      "course": "t12c",
+      "kind": "bac",
+      "title": [
+        "Baccalauréat série C 2004",
+        "Baccalauréat (Madagascar), series C, 2004"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 210,
+          "path": "resources/t12c-bac-2004-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-bac-2004-eleve.pdf",
+              "bytes": 262253,
+              "sha256": "f4e172e770a2b28a32fbdbe8e42955b67e8e2fd55d34ab56a1cc80f66e543eae",
+              "pages": 2,
+              "start": 210,
+              "end": 211
+            }
+          },
+          "pages": 2,
+          "bytes": 262253,
+          "end": 211
+        },
+        {
+          "kind": "teacher",
+          "source": "t12-prof.pdf",
+          "start": 286,
+          "path": "resources/t12c-bac-2004-prof.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-bac-2004-prof.pdf",
+              "bytes": 352550,
+              "sha256": "7013cd075cf969c9feb8fb2efd20eb824573b90c61378386faf05cd6faf38a07",
+              "pages": 10,
+              "start": 286,
+              "end": 295
+            }
+          },
+          "pages": 10,
+          "bytes": 352550,
+          "end": 295
+        }
+      ]
+    },
+    {
+      "id": "t12c-bac-2003",
+      "course": "t12c",
+      "kind": "bac",
+      "title": [
+        "Baccalauréat série C 2003",
+        "Baccalauréat (Madagascar), series C, 2003"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 212,
+          "path": "resources/t12c-bac-2003-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-bac-2003-eleve.pdf",
+              "bytes": 262043,
+              "sha256": "cb2d82b215b712b40f5aea60f3641061cba3247de061b36a9560955e009df172",
+              "pages": 2,
+              "start": 212,
+              "end": 213
+            }
+          },
+          "pages": 2,
+          "bytes": 262043,
+          "end": 213
+        },
+        {
+          "kind": "teacher",
+          "source": "t12-prof.pdf",
+          "start": 288,
+          "path": "resources/t12c-bac-2003-prof.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-bac-2003-prof.pdf",
+              "bytes": 374640,
+              "sha256": "8604e5266d17c69f878f2d215efae89218a5f634015e82f8220b09eba47cc9da",
+              "pages": 11,
+              "start": 288,
+              "end": 298
+            }
+          },
+          "pages": 11,
+          "bytes": 374640,
+          "end": 298
+        }
+      ]
+    },
+    {
+      "id": "t12c-practice-sujet-c6",
+      "course": "t12c",
+      "kind": "practice",
+      "title": [
+        "Sujet type C Sujet C6",
+        "Practice paper type C Sujet C6"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 255,
+          "path": "resources/t12c-practice-sujet-c6-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-practice-sujet-c6-eleve.pdf",
+              "bytes": 258985,
+              "sha256": "fc6581948e8a3b4aec52cd2169a6cff5f925c301a4e09209bcdac26c1050b742",
+              "pages": 2,
+              "start": 255,
+              "end": 256
+            }
+          },
+          "pages": 2,
+          "bytes": 258985,
+          "end": 256
+        }
+      ]
+    },
+    {
+      "id": "t12c-practice-sujet-c5",
+      "course": "t12c",
+      "kind": "practice",
+      "title": [
+        "Sujet type C Sujet C5",
+        "Practice paper type C Sujet C5"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 253,
+          "path": "resources/t12c-practice-sujet-c5-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-practice-sujet-c5-eleve.pdf",
+              "bytes": 249109,
+              "sha256": "db0c51cd48dca1d4072cf20332d5e2d9c36d4369921a6e9f0c91d631cd3a825e",
+              "pages": 2,
+              "start": 253,
+              "end": 254
+            }
+          },
+          "pages": 2,
+          "bytes": 249109,
+          "end": 254
+        }
+      ]
+    },
+    {
+      "id": "t12c-practice-sujet-c4",
+      "course": "t12c",
+      "kind": "practice",
+      "title": [
+        "Sujet type C Sujet C4",
+        "Practice paper type C Sujet C4"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 251,
+          "path": "resources/t12c-practice-sujet-c4-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-practice-sujet-c4-eleve.pdf",
+              "bytes": 247435,
+              "sha256": "66ca536ee66ac082e05f75d3630f3ed04fd2de52393bf41ee6fec6f3d7a7d3d2",
+              "pages": 2,
+              "start": 251,
+              "end": 252
+            }
+          },
+          "pages": 2,
+          "bytes": 247435,
+          "end": 252
+        }
+      ]
+    },
+    {
+      "id": "t12c-practice-sujet-c3",
+      "course": "t12c",
+      "kind": "practice",
+      "title": [
+        "Sujet type C Sujet C3",
+        "Practice paper type C Sujet C3"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 249,
+          "path": "resources/t12c-practice-sujet-c3-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-practice-sujet-c3-eleve.pdf",
+              "bytes": 259441,
+              "sha256": "c239eea434331cef924461bb25d5bb4213fd54f8988e9df3de8e4822a41f79dd",
+              "pages": 2,
+              "start": 249,
+              "end": 250
+            }
+          },
+          "pages": 2,
+          "bytes": 259441,
+          "end": 250
+        }
+      ]
+    },
+    {
+      "id": "t12c-practice-sujet-c2",
+      "course": "t12c",
+      "kind": "practice",
+      "title": [
+        "Sujet type C Sujet C2",
+        "Practice paper type C Sujet C2"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 247,
+          "path": "resources/t12c-practice-sujet-c2-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-practice-sujet-c2-eleve.pdf",
+              "bytes": 248655,
+              "sha256": "526cb622c285da048f2e4f1f2f756ea519cf79f93d9eea7d4cf15ae6fc768f15",
+              "pages": 2,
+              "start": 247,
+              "end": 248
+            }
+          },
+          "pages": 2,
+          "bytes": 248655,
+          "end": 248
+        }
+      ]
+    },
+    {
+      "id": "t12c-practice-sujet-c1",
+      "course": "t12c",
+      "kind": "practice",
+      "title": [
+        "Sujet type C Sujet C1",
+        "Practice paper type C Sujet C1"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 245,
+          "path": "resources/t12c-practice-sujet-c1-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12c-practice-sujet-c1-eleve.pdf",
+              "bytes": 261449,
+              "sha256": "fff76149fefc5ae4fc4dd57d7d3f5c6f75d4ad6422b064a671f3be6aaea2a506",
+              "pages": 2,
+              "start": 245,
+              "end": 246
+            }
+          },
+          "pages": 2,
+          "bytes": 261449,
+          "end": 246
+        }
+      ]
+    },
+    {
+      "id": "t12d-problems",
+      "course": "t12d",
+      "kind": "problems",
+      "title": [
+        "Problèmes de synthèse",
+        "Synthesis problems"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 172,
+          "path": "resources/t12d-problems-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12d-problems-eleve.pdf",
+              "bytes": 324595,
+              "sha256": "eb988f9392dddef1c6afe3701c9a10a29352a43a49417af3412ea45de68af4fe",
+              "pages": 7,
+              "start": 172,
+              "end": 178
+            }
+          },
+          "pages": 7,
+          "bytes": 324595,
+          "end": 178
+        },
+        {
+          "kind": "teacher",
+          "source": "t12-prof.pdf",
+          "start": 237,
+          "path": "resources/t12d-problems-prof.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12d-problems-prof.pdf",
+              "bytes": 418924,
+              "sha256": "4fff2477f63984945f302366431910f724c4477988934da30fd2357f6987c854",
+              "pages": 18,
+              "start": 237,
+              "end": 254
+            }
+          },
+          "pages": 18,
+          "bytes": 418924,
+          "end": 254
+        }
+      ]
+    },
+    {
+      "id": "t12d-annexes",
+      "course": "t12d",
+      "kind": "annexes",
+      "title": [
+        "Annexes : rappels",
+        "Appendices: reminders"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 265,
+          "path": "resources/t12d-annexes-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12d-annexes-eleve.pdf",
+              "bytes": 381630,
+              "sha256": "aa9a4f82648a408bebd501fde0fad0c9857c1c2d5123683181a1cfaf12e68bc5",
+              "pages": 10,
+              "start": 265,
+              "end": 274
+            }
+          },
+          "pages": 10,
+          "bytes": 381630,
+          "end": 274
+        }
+      ]
+    },
+    {
+      "id": "t12d-bac-2018",
+      "course": "t12d",
+      "kind": "bac",
+      "title": [
+        "Baccalauréat série D 2018",
+        "Baccalauréat (Madagascar), series D, 2018"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 214,
+          "path": "resources/t12d-bac-2018-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12d-bac-2018-eleve.pdf",
+              "bytes": 209145,
+              "sha256": "3fa883a81b02ce66f61b351ec2709e1a65d6fdec05115f7ea3f8d5e2be2a947f",
+              "pages": 2,
+              "start": 214,
+              "end": 215
+            }
+          },
+          "pages": 2,
+          "bytes": 209145,
+          "end": 215
+        },
+        {
+          "kind": "teacher",
+          "source": "t12-prof.pdf",
+          "start": 362,
+          "path": "resources/t12d-bac-2018-prof.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12d-bac-2018-prof.pdf",
+              "bytes": 282677,
+              "sha256": "10836dd64cea96ca593d08746792240612202013f9207033d80a88da9d6ec359",
+              "pages": 5,
+              "start": 362,
+              "end": 366
+            }
+          },
+          "pages": 5,
+          "bytes": 282677,
+          "end": 366
+        }
+      ]
+    },
+    {
+      "id": "t12d-bac-2017",
+      "course": "t12d",
+      "kind": "bac",
+      "title": [
+        "Baccalauréat série D 2017",
+        "Baccalauréat (Madagascar), series D, 2017"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 216,
+          "path": "resources/t12d-bac-2017-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12d-bac-2017-eleve.pdf",
+              "bytes": 260930,
+              "sha256": "ab0f89502bd73aeaec8844cba0f8ccb20f9010cecc7bfce053f96f8c8a0a8c85",
+              "pages": 2,
+              "start": 216,
+              "end": 217
+            }
+          },
+          "pages": 2,
+          "bytes": 260930,
+          "end": 217
+        },
+        {
+          "kind": "teacher",
+          "source": "t12-prof.pdf",
+          "start": 364,
+          "path": "resources/t12d-bac-2017-prof.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12d-bac-2017-prof.pdf",
+              "bytes": 302376,
+              "sha256": "00ac8323d81a4cb66f120b46b87385a68b23cafb219ea62c218a843ba075b4b6",
+              "pages": 6,
+              "start": 364,
+              "end": 369
+            }
+          },
+          "pages": 6,
+          "bytes": 302376,
+          "end": 369
+        }
+      ]
+    },
+    {
+      "id": "t12d-bac-2016",
+      "course": "t12d",
+      "kind": "bac",
+      "title": [
+        "Baccalauréat série D 2016",
+        "Baccalauréat (Madagascar), series D, 2016"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 218,
+          "path": "resources/t12d-bac-2016-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12d-bac-2016-eleve.pdf",
+              "bytes": 252633,
+              "sha256": "d0e5dbf6a70352bdfb517082f20a5ff3948d1d7b0ecb746fab73657591e59ef2",
+              "pages": 2,
+              "start": 218,
+              "end": 219
+            }
+          },
+          "pages": 2,
+          "bytes": 252633,
+          "end": 219
+        },
+        {
+          "kind": "teacher",
+          "source": "t12-prof.pdf",
+          "start": 366,
+          "path": "resources/t12d-bac-2016-prof.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12d-bac-2016-prof.pdf",
+              "bytes": 288334,
+              "sha256": "c9a9b252845b6782c129e409b83cf8a268d54c0bccbfe1230241b2e154056b4f",
+              "pages": 5,
+              "start": 366,
+              "end": 370
+            }
+          },
+          "pages": 5,
+          "bytes": 288334,
+          "end": 370
+        }
+      ]
+    },
+    {
+      "id": "t12d-bac-2015",
+      "course": "t12d",
+      "kind": "bac",
+      "title": [
+        "Baccalauréat série D 2015",
+        "Baccalauréat (Madagascar), series D, 2015"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 220,
+          "path": "resources/t12d-bac-2015-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12d-bac-2015-eleve.pdf",
+              "bytes": 248432,
+              "sha256": "4899177d6cecd1cb804b58a09ca45cbde024342590a57ffec2bf5af03a63f8aa",
+              "pages": 2,
+              "start": 220,
+              "end": 221
+            }
+          },
+          "pages": 2,
+          "bytes": 248432,
+          "end": 221
+        },
+        {
+          "kind": "teacher",
+          "source": "t12-prof.pdf",
+          "start": 368,
+          "path": "resources/t12d-bac-2015-prof.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12d-bac-2015-prof.pdf",
+              "bytes": 331266,
+              "sha256": "73e4ab4392ea438218325acbfe324930f54bfb94dfc5df6b7b67c893bd2071fb",
+              "pages": 6,
+              "start": 368,
+              "end": 373
+            }
+          },
+          "pages": 6,
+          "bytes": 331266,
+          "end": 373
+        }
+      ]
+    },
+    {
+      "id": "t12d-bac-2014",
+      "course": "t12d",
+      "kind": "bac",
+      "title": [
+        "Baccalauréat série D 2014",
+        "Baccalauréat (Madagascar), series D, 2014"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 222,
+          "path": "resources/t12d-bac-2014-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12d-bac-2014-eleve.pdf",
+              "bytes": 209513,
+              "sha256": "478f23616cee5289147895a3d29fd0d3a69b392b6bf36177f4141ee611ac871f",
+              "pages": 2,
+              "start": 222,
+              "end": 223
+            }
+          },
+          "pages": 2,
+          "bytes": 209513,
+          "end": 223
+        },
+        {
+          "kind": "teacher",
+          "source": "t12-prof.pdf",
+          "start": 370,
+          "path": "resources/t12d-bac-2014-prof.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12d-bac-2014-prof.pdf",
+              "bytes": 325391,
+              "sha256": "74194cd534861cecd92610100b05676d958d7848d91e1f2d8b11ce92d0817785",
+              "pages": 5,
+              "start": 370,
+              "end": 374
+            }
+          },
+          "pages": 5,
+          "bytes": 325391,
+          "end": 374
+        }
+      ]
+    },
+    {
+      "id": "t12d-bac-2013",
+      "course": "t12d",
+      "kind": "bac",
+      "title": [
+        "Baccalauréat série D 2013",
+        "Baccalauréat (Madagascar), series D, 2013"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 224,
+          "path": "resources/t12d-bac-2013-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12d-bac-2013-eleve.pdf",
+              "bytes": 259427,
+              "sha256": "b79a2258386599e5195d8cedf754421121373d095347e333b19e2c7a12b70065",
+              "pages": 2,
+              "start": 224,
+              "end": 225
+            }
+          },
+          "pages": 2,
+          "bytes": 259427,
+          "end": 225
+        },
+        {
+          "kind": "teacher",
+          "source": "t12-prof.pdf",
+          "start": 372,
+          "path": "resources/t12d-bac-2013-prof.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12d-bac-2013-prof.pdf",
+              "bytes": 284327,
+              "sha256": "3497fdce63fbff27f0a0853a0f4521e8e4ddc34e5a3071f94bb9735486ffbb6d",
+              "pages": 5,
+              "start": 372,
+              "end": 376
+            }
+          },
+          "pages": 5,
+          "bytes": 284327,
+          "end": 376
+        }
+      ]
+    },
+    {
+      "id": "t12d-bac-2012",
+      "course": "t12d",
+      "kind": "bac",
+      "title": [
+        "Baccalauréat série D 2012",
+        "Baccalauréat (Madagascar), series D, 2012"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 226,
+          "path": "resources/t12d-bac-2012-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12d-bac-2012-eleve.pdf",
+              "bytes": 258457,
+              "sha256": "a306a23681c22e5209c3a25084f5a89bf8c94f032930dc795d53c9ad05ef6fd8",
+              "pages": 2,
+              "start": 226,
+              "end": 227
+            }
+          },
+          "pages": 2,
+          "bytes": 258457,
+          "end": 227
+        },
+        {
+          "kind": "teacher",
+          "source": "t12-prof.pdf",
+          "start": 374,
+          "path": "resources/t12d-bac-2012-prof.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12d-bac-2012-prof.pdf",
+              "bytes": 326069,
+              "sha256": "03e34c46d3ce7a91446f45adda5f24c47bfa6fda84f27a28b329b3aea54e2b2d",
+              "pages": 5,
+              "start": 374,
+              "end": 378
+            }
+          },
+          "pages": 5,
+          "bytes": 326069,
+          "end": 378
+        }
+      ]
+    },
+    {
+      "id": "t12d-bac-2011",
+      "course": "t12d",
+      "kind": "bac",
+      "title": [
+        "Baccalauréat série D 2011",
+        "Baccalauréat (Madagascar), series D, 2011"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 228,
+          "path": "resources/t12d-bac-2011-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12d-bac-2011-eleve.pdf",
+              "bytes": 261648,
+              "sha256": "a3feca60231a6fad415e7630948e7543798020e51819799a9ddda8a05c05ff75",
+              "pages": 2,
+              "start": 228,
+              "end": 229
+            }
+          },
+          "pages": 2,
+          "bytes": 261648,
+          "end": 229
+        },
+        {
+          "kind": "teacher",
+          "source": "t12-prof.pdf",
+          "start": 376,
+          "path": "resources/t12d-bac-2011-prof.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12d-bac-2011-prof.pdf",
+              "bytes": 333984,
+              "sha256": "3327919349c942705973ed3e8f3b744a568239b68ea2a626a23de5b740ce9eb1",
+              "pages": 7,
+              "start": 376,
+              "end": 382
+            }
+          },
+          "pages": 7,
+          "bytes": 333984,
+          "end": 382
+        }
+      ]
+    },
+    {
+      "id": "t12d-bac-2010",
+      "course": "t12d",
+      "kind": "bac",
+      "title": [
+        "Baccalauréat série D 2010",
+        "Baccalauréat (Madagascar), series D, 2010"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 230,
+          "path": "resources/t12d-bac-2010-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12d-bac-2010-eleve.pdf",
+              "bytes": 207742,
+              "sha256": "b5ffd441fb02431b804d081241067b8bbbf948cff4db32ce98336face16b2f53",
+              "pages": 2,
+              "start": 230,
+              "end": 231
+            }
+          },
+          "pages": 2,
+          "bytes": 207742,
+          "end": 231
+        },
+        {
+          "kind": "teacher",
+          "source": "t12-prof.pdf",
+          "start": 378,
+          "path": "resources/t12d-bac-2010-prof.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12d-bac-2010-prof.pdf",
+              "bytes": 324663,
+              "sha256": "c1fba7ea535359c61dbd50df0e9e05ebbd0cb028614a348cb1609fd271491b0f",
+              "pages": 5,
+              "start": 378,
+              "end": 382
+            }
+          },
+          "pages": 5,
+          "bytes": 324663,
+          "end": 382
+        }
+      ]
+    },
+    {
+      "id": "t12d-bac-2009",
+      "course": "t12d",
+      "kind": "bac",
+      "title": [
+        "Baccalauréat série D 2009",
+        "Baccalauréat (Madagascar), series D, 2009"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 232,
+          "path": "resources/t12d-bac-2009-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12d-bac-2009-eleve.pdf",
+              "bytes": 208483,
+              "sha256": "8e935a1350e3025eb12ec5416b3fbf36d56d9f1da859f80b650a2d01ae45f469",
+              "pages": 2,
+              "start": 232,
+              "end": 233
+            }
+          },
+          "pages": 2,
+          "bytes": 208483,
+          "end": 233
+        },
+        {
+          "kind": "teacher",
+          "source": "t12-prof.pdf",
+          "start": 380,
+          "path": "resources/t12d-bac-2009-prof.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12d-bac-2009-prof.pdf",
+              "bytes": 301536,
+              "sha256": "156142c1e0e0ec06c2556b7fcc2b35b28e1fca9a96dd3cb653e7b51589e71aa1",
+              "pages": 5,
+              "start": 380,
+              "end": 384
+            }
+          },
+          "pages": 5,
+          "bytes": 301536,
+          "end": 384
+        }
+      ]
+    },
+    {
+      "id": "t12d-bac-2008",
+      "course": "t12d",
+      "kind": "bac",
+      "title": [
+        "Baccalauréat série D 2008",
+        "Baccalauréat (Madagascar), series D, 2008"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 234,
+          "path": "resources/t12d-bac-2008-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12d-bac-2008-eleve.pdf",
+              "bytes": 257871,
+              "sha256": "7a57830f390fd536bb3930e55de1aae2de847adb69d56c3a08bdc0132e62db47",
+              "pages": 1,
+              "start": 234,
+              "end": 234
+            }
+          },
+          "pages": 1,
+          "bytes": 257871,
+          "end": 234
+        },
+        {
+          "kind": "teacher",
+          "source": "t12-prof.pdf",
+          "start": 382,
+          "path": "resources/t12d-bac-2008-prof.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12d-bac-2008-prof.pdf",
+              "bytes": 281437,
+              "sha256": "7b8758402b726d219bdad19a2a12952a72bcd69cc961f180288a4e169839514e",
+              "pages": 4,
+              "start": 382,
+              "end": 385
+            }
+          },
+          "pages": 4,
+          "bytes": 281437,
+          "end": 385
+        }
+      ]
+    },
+    {
+      "id": "t12d-bac-2007",
+      "course": "t12d",
+      "kind": "bac",
+      "title": [
+        "Baccalauréat série D 2007",
+        "Baccalauréat (Madagascar), series D, 2007"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 235,
+          "path": "resources/t12d-bac-2007-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12d-bac-2007-eleve.pdf",
+              "bytes": 261518,
+              "sha256": "18e194a1ead45bd00a8fb960c4da573d5226c6b10c92777bd760b522b1c1c25a",
+              "pages": 2,
+              "start": 235,
+              "end": 236
+            }
+          },
+          "pages": 2,
+          "bytes": 261518,
+          "end": 236
+        },
+        {
+          "kind": "teacher",
+          "source": "t12-prof.pdf",
+          "start": 383,
+          "path": "resources/t12d-bac-2007-prof.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12d-bac-2007-prof.pdf",
+              "bytes": 289174,
+              "sha256": "a9a8cb233a1ecdbf7361c98d88325b29316bb6e8206474505d895636c91c669b",
+              "pages": 5,
+              "start": 383,
+              "end": 387
+            }
+          },
+          "pages": 5,
+          "bytes": 289174,
+          "end": 387
+        }
+      ]
+    },
+    {
+      "id": "t12d-bac-2006",
+      "course": "t12d",
+      "kind": "bac",
+      "title": [
+        "Baccalauréat série D 2006",
+        "Baccalauréat (Madagascar), series D, 2006"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 237,
+          "path": "resources/t12d-bac-2006-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12d-bac-2006-eleve.pdf",
+              "bytes": 208879,
+              "sha256": "e6601a86cc0efb29332adc8eae99a07165a0338d3bb7d73f6e32603fd8693bd4",
+              "pages": 2,
+              "start": 237,
+              "end": 238
+            }
+          },
+          "pages": 2,
+          "bytes": 208879,
+          "end": 238
+        },
+        {
+          "kind": "teacher",
+          "source": "t12-prof.pdf",
+          "start": 385,
+          "path": "resources/t12d-bac-2006-prof.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12d-bac-2006-prof.pdf",
+              "bytes": 333143,
+              "sha256": "27385ab6133d4ac8e6d1495dee8cbe3b9da6f34156d2759790b4a832c8b76576",
+              "pages": 5,
+              "start": 385,
+              "end": 389
+            }
+          },
+          "pages": 5,
+          "bytes": 333143,
+          "end": 389
+        }
+      ]
+    },
+    {
+      "id": "t12d-bac-2005",
+      "course": "t12d",
+      "kind": "bac",
+      "title": [
+        "Baccalauréat série D 2005",
+        "Baccalauréat (Madagascar), series D, 2005"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 239,
+          "path": "resources/t12d-bac-2005-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12d-bac-2005-eleve.pdf",
+              "bytes": 209865,
+              "sha256": "08b742b2aef376cb241271b83ac5510e5594834a98ffedf48f8044d255a7df64",
+              "pages": 2,
+              "start": 239,
+              "end": 240
+            }
+          },
+          "pages": 2,
+          "bytes": 209865,
+          "end": 240
+        },
+        {
+          "kind": "teacher",
+          "source": "t12-prof.pdf",
+          "start": 387,
+          "path": "resources/t12d-bac-2005-prof.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12d-bac-2005-prof.pdf",
+              "bytes": 295086,
+              "sha256": "9894882cfb1daf28465c4644a4c4db6d58c2c3209d9d8a341df46e3b2b3e9419",
+              "pages": 5,
+              "start": 387,
+              "end": 391
+            }
+          },
+          "pages": 5,
+          "bytes": 295086,
+          "end": 391
+        }
+      ]
+    },
+    {
+      "id": "t12d-bac-2004",
+      "course": "t12d",
+      "kind": "bac",
+      "title": [
+        "Baccalauréat série D 2004",
+        "Baccalauréat (Madagascar), series D, 2004"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 241,
+          "path": "resources/t12d-bac-2004-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12d-bac-2004-eleve.pdf",
+              "bytes": 261453,
+              "sha256": "5a6ebc42bdf890c8d6e4aed974e60edc5b092caf00ce6eb2f525ae482c8af85f",
+              "pages": 2,
+              "start": 241,
+              "end": 242
+            }
+          },
+          "pages": 2,
+          "bytes": 261453,
+          "end": 242
+        },
+        {
+          "kind": "teacher",
+          "source": "t12-prof.pdf",
+          "start": 389,
+          "path": "resources/t12d-bac-2004-prof.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12d-bac-2004-prof.pdf",
+              "bytes": 295211,
+              "sha256": "8cc8fb1719c7aba9e048c51937e2397b8d750db79eca86a3f6996b4bf861fbbf",
+              "pages": 6,
+              "start": 389,
+              "end": 394
+            }
+          },
+          "pages": 6,
+          "bytes": 295211,
+          "end": 394
+        }
+      ]
+    },
+    {
+      "id": "t12d-bac-2003",
+      "course": "t12d",
+      "kind": "bac",
+      "title": [
+        "Baccalauréat série D 2003",
+        "Baccalauréat (Madagascar), series D, 2003"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 243,
+          "path": "resources/t12d-bac-2003-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12d-bac-2003-eleve.pdf",
+              "bytes": 244098,
+              "sha256": "5b283b61c977232ec305cf7ae7229f40066cbead2254c7a3e7e93c1ec5d7dd29",
+              "pages": 2,
+              "start": 243,
+              "end": 244
+            }
+          },
+          "pages": 2,
+          "bytes": 244098,
+          "end": 244
+        },
+        {
+          "kind": "teacher",
+          "source": "t12-prof.pdf",
+          "start": 391,
+          "path": "resources/t12d-bac-2003-prof.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12d-bac-2003-prof.pdf",
+              "bytes": 329939,
+              "sha256": "298c4562bafaece243a2edde80193dde4f4ee2ac11d28a08b564b549f549bf72",
+              "pages": 6,
+              "start": 391,
+              "end": 396
+            }
+          },
+          "pages": 6,
+          "bytes": 329939,
+          "end": 396
+        }
+      ]
+    },
+    {
+      "id": "t12d-practice-sujet-d6",
+      "course": "t12d",
+      "kind": "practice",
+      "title": [
+        "Sujet type D Sujet D6",
+        "Practice paper type D Sujet D6"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 264,
+          "path": "resources/t12d-practice-sujet-d6-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12d-practice-sujet-d6-eleve.pdf",
+              "bytes": 206332,
+              "sha256": "a3764c30d88f125e3a56b644849aea1e39f8b35c724aeff0e65fc0209be5fb85",
+              "pages": 1,
+              "start": 264,
+              "end": 264
+            }
+          },
+          "pages": 1,
+          "bytes": 206332,
+          "end": 264
+        }
+      ]
+    },
+    {
+      "id": "t12d-practice-sujet-d5",
+      "course": "t12d",
+      "kind": "practice",
+      "title": [
+        "Sujet type D Sujet D5",
+        "Practice paper type D Sujet D5"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 263,
+          "path": "resources/t12d-practice-sujet-d5-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12d-practice-sujet-d5-eleve.pdf",
+              "bytes": 194738,
+              "sha256": "1e4338c82da5b46b24670312f603cd63a9994bbbe23d3e07499f9c23384bee85",
+              "pages": 1,
+              "start": 263,
+              "end": 263
+            }
+          },
+          "pages": 1,
+          "bytes": 194738,
+          "end": 263
+        }
+      ]
+    },
+    {
+      "id": "t12d-practice-sujet-d4",
+      "course": "t12d",
+      "kind": "practice",
+      "title": [
+        "Sujet type D Sujet D4",
+        "Practice paper type D Sujet D4"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 262,
+          "path": "resources/t12d-practice-sujet-d4-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12d-practice-sujet-d4-eleve.pdf",
+              "bytes": 257623,
+              "sha256": "a204f51e530f931a8766b202886fee0ab8234aacf8c13dc7d85b238973f68770",
+              "pages": 1,
+              "start": 262,
+              "end": 262
+            }
+          },
+          "pages": 1,
+          "bytes": 257623,
+          "end": 262
+        }
+      ]
+    },
+    {
+      "id": "t12d-practice-sujet-d3",
+      "course": "t12d",
+      "kind": "practice",
+      "title": [
+        "Sujet type D Sujet D3",
+        "Practice paper type D Sujet D3"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 261,
+          "path": "resources/t12d-practice-sujet-d3-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12d-practice-sujet-d3-eleve.pdf",
+              "bytes": 206541,
+              "sha256": "a511b06a53dd8a354ee4c0ea7771ac5fe13c0768b1bdfe5d1cf3e3e442469fc3",
+              "pages": 1,
+              "start": 261,
+              "end": 261
+            }
+          },
+          "pages": 1,
+          "bytes": 206541,
+          "end": 261
+        }
+      ]
+    },
+    {
+      "id": "t12d-practice-sujet-d2",
+      "course": "t12d",
+      "kind": "practice",
+      "title": [
+        "Sujet type D Sujet D2",
+        "Practice paper type D Sujet D2"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 259,
+          "path": "resources/t12d-practice-sujet-d2-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12d-practice-sujet-d2-eleve.pdf",
+              "bytes": 247434,
+              "sha256": "018c5235d667d4d4e3475c263140eb9068f28389c6d74721f9a2a5a6174a7cd0",
+              "pages": 2,
+              "start": 259,
+              "end": 260
+            }
+          },
+          "pages": 2,
+          "bytes": 247434,
+          "end": 260
+        }
+      ]
+    },
+    {
+      "id": "t12d-practice-sujet-d1",
+      "course": "t12d",
+      "kind": "practice",
+      "title": [
+        "Sujet type D Sujet D1",
+        "Practice paper type D Sujet D1"
+      ],
+      "files": [
+        {
+          "kind": "chapter",
+          "source": "t12-eleve.pdf",
+          "start": 257,
+          "path": "resources/t12d-practice-sujet-d1-eleve.pdf",
+          "editions": {
+            "fr": {
+              "path": "resources/t12d-practice-sujet-d1-eleve.pdf",
+              "bytes": 247655,
+              "sha256": "962eb34a174c83eece348d3f2689d00527efc52be9f1806e6c63e24517604aae",
+              "pages": 2,
+              "start": 257,
+              "end": 258
+            }
+          },
+          "pages": 2,
+          "bytes": 247655,
+          "end": 258
         }
       ]
     }

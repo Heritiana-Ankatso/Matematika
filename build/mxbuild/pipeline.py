@@ -27,6 +27,8 @@ COURSES = {
     'terminale': ['scripts/build-tex-resources.py', 'terminale', '--chapters', *map(str, chapter_numbers('terminale')), '--appendices'],
     'expertes': ['scripts/build-expertes.py'],
     'enrichment': ['scripts/build-enrichment.py'],
+    'mada-t10': ['scripts/build-mada-t10.py'],   # native Malagasy T10 course, unpublished: PDFs stay in build/out
+    'mada-t11s': ['scripts/build-mada-t11s.py'],   # native Malagasy T11 S course, unpublished: PDFs stay in build/out
 }
 
 
@@ -112,6 +114,7 @@ CHECKS = [
     ('notation: class and web agree, rewrite', [PY, 'tests/test_notation.py']),
     ('Malagasy books converter (T12 vocabulary, synthetic)', [PY, 'tests/test_mada.py']),
     ('T12 C/D sources: anonymous, no third-party exercise, index', [PY, 'tests/test_t12_sources.py']),
+    ('T12 C/D published PDFs and records match the index', [PY, 'tests/test_t12_pdfs.py']),
     ('slide MathJax table from mx-math', [PY, '-m', 'mxbuild', 'notation', '--check']),
     ('slides check', [PY, 'tests/slides_check.py']),
     ('slide HTML exports: up to date, skill lint', [PY, 'tests/slides_export_check.py']),

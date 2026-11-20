@@ -2,7 +2,12 @@
 \makeatletter\IfFileExists{core/beamer/beamerthememx.sty}{\def\mxcorepath{core/}\def\input@path{{core/beamer/}{core/}}}{\def\mxcorepath{../core/}\def\input@path{{../core/beamer/}{../core/}}}\makeatother
 \documentclass[aspectratio=169,10pt,t]{beamer}
 \usetheme{mx}
-\usepackage{graphicx,booktabs}
+\usepackage{graphicx,booktabs,mathtools,array,adjustbox}
+\usepackage[all]{xy}
+\providecommand{\actualtextwidth}{\textwidth}
+\providecommand{\veccor}[2]{\left(\begin{matrix}#1\\#2\end{matrix}\right)}
+\DeclarePairedDelimiter{\VecNorm}{\lVert}{\rVert}
+\providecommand{\ETC}{\ldots}
 \usepackage[english]{babel}
 \setlength{\parskip}{.45em}
 \hypersetup{pdfauthor={},pdfsubject={Lecture slides},pdfkeywords={},pdftitle={Antiderivatives and differential equations}}
@@ -36,17 +41,17 @@
 \author{}
 \begin{document}
 \mxtitleframe
-\begin{frame}{Objectives}
+\begin{frame}[allowframebreaks]{Objectives}
 Calculate antiderivatives; solve a differential equation with an initial condition; interpret an Euler approximation.
 \end{frame}
-\begin{frame}{Antiderivatives on an interval}
+\begin{frame}[allowframebreaks]{Antiderivatives on an interval}
 At this stage we accept that every continuous function on an interval has antiderivatives; the link with area will be established in chapter 8.
 An antiderivative of \(f\) on an interval \(I\) is a differentiable function \(F\) such that \(F'=f\) on \(I\). If \(F\) is an antiderivative, all the antiderivatives on \(I\) are \(F+C\), \(C\in\R\).
 \end{frame}
-\begin{frame}{Antiderivatives on an interval}
+\begin{frame}[allowframebreaks]{Antiderivatives on an interval}
 If \(F'=G'=f\), then \((F-G)'=0\) on the interval; \(F-G\) is therefore constant. Conversely, \((F+C)'=f\). The interval hypothesis is essential: on a union of disjoint intervals, such as \(\mathbb{R}\setminus\{0\}\), a union of two intervals, the constant may differ from one interval to the other.
 \end{frame}
-\begin{frame}{Antiderivatives on an interval}
+\begin{frame}[allowframebreaks]{Antiderivatives on an interval}
 \[\begin{array}{c|c}
 f(x)&F(x)\\\hline
 x^n\ (n\in\Z,\ n\ne-1)&\dfrac{x^{n+1}}{n+1}\\
@@ -56,38 +61,40 @@ e^x&e^x\\
 \cos x&\sin x\\
 \sin x&-\cos x
 \end{array}\]
+
 The additive constant can always be added. The last two lines will be revisited after the study of trigonometry.
 \end{frame}
-\begin{frame}{Recognising a composition}
+\begin{frame}[allowframebreaks]{Recognising a composition}
 For a differentiable function \(u\), the antiderivatives of \(u'u^n\), \(u'e^u\), \(\dfrac{u'}{u}\) are respectively \(\dfrac{u^{n+1}}{n+1}\) (\(n\ne-1\)), \(e^u\), \(\ln|u|\), on the intervals where the expressions make sense. Linearity allows us to handle sums.
 \end{frame}
-\begin{frame}{Recognising a composition}
+\begin{frame}[allowframebreaks]{Recognising a composition}
 An antiderivative of \(6x(x^2+1)^2\) is \((x^2+1)^3\); an antiderivative of \(e^{3x}\) is \(\dfrac{e^{3x}}{3}\). To impose \(F(0)=2\) in the latter case, take \(F(x)=\dfrac{e^{3x}}{3}+\dfrac{5}{3}\).
 \end{frame}
-\begin{frame}{Differential equations}
+\begin{frame}[allowframebreaks]{Differential equations}
 A differential equation relates an unknown function to its derivatives. A solution must be verified on a specified interval.
 \end{frame}
-\begin{frame}{Differential equations}
+\begin{frame}[allowframebreaks]{Differential equations}
 \(y'=ay\) has solutions \(y(x)=Ce^{ax}\). For \(a\ne0\), \(y'=ay+b\) has solutions
 \[y(x)=Ce^{ax}-\dfrac ba.\]
+
 If \(a=0\), the equation becomes \(y'=b\) and \(y(x)=bx+C\).
 If \(g\) is a known particular solution of \(y'=ay+f(x)\), the solutions are \(y=g+Ce^{ax}\).
 \end{frame}
-\begin{frame}{Differential equations}
+\begin{frame}[allowframebreaks]{Differential equations}
 If \(y\) is a solution, \(z(x)=e^{-ax}y(x)\) satisfies \(z'=e^{-ax}(y'-ay)=0\); \(z=C\). Conversely, the derivative of \(Ce^{ax}\) is \(aCe^{ax}\). For \(y'=ay+b\), subtracting the constant solution \(-\dfrac{b}{a}\) reduces it to the homogeneous equation. For a variable right-hand side, do the same with \(g\).
 \end{frame}
-\begin{frame}{Differential equations}
+\begin{frame}[allowframebreaks]{Differential equations}
 \(y'=-2y+6\) and \(y(0)=1\) give \(y=3+Ce^{-2x}\), then \(C=-2\). The solution \(3-2e^{-2x}\) increases towards the equilibrium \(3\) as \(x\to+\infty\).
 \end{frame}
-\begin{frame}{Euler's method}
+\begin{frame}[allowframebreaks]{Euler's method}
 For \(y'=ay+b\), with step \(h>0\), we approximate \(y(t_k)\) by \(Y_k\) according to \(t_{k+1}=t_k+h\), \(Y_{k+1}=Y_k+h(aY_k+b)\). This is an approximation using the tangent, not an equality for the exact solution. A smaller step may improve the approximation; check the error numerically on a known solution.
 \end{frame}
-\begin{frame}{Research activity}
+\begin{frame}[allowframebreaks]{Research activity}
 \textbf{Cooling of a drink - 40 min.}
 
 A drink initially at \(80\,^{\circ}\mathrm C\) is placed in a room kept at \(20\,^{\circ}\mathrm C\). For \(t\ge0\), let \(T(t)\) denote its temperature in degrees Celsius, where \(t\) is the time elapsed in minutes. We accept the model \(T' (t)=-0.1(T(t)-20)\) and \(T(0)=80\).
 \end{frame}
-\begin{frame}{Research activity (2)}
+\begin{frame}[allowframebreaks]{Research activity (2)}
 \begin{enumerate}
 \setcounter{enumi}{0}\item Solve this initial value problem and give the expression of \(T(t)\).
 
@@ -97,7 +104,7 @@ A drink initially at \(80\,^{\circ}\mathrm C\) is placed in a room kept at \(20\
 
 \end{enumerate}
 \end{frame}
-\begin{frame}{Research activity (3)}
+\begin{frame}[allowframebreaks]{Research activity (3)}
 \begin{enumerate}
 \setcounter{enumi}{3}\item Apply two steps of Euler's method with a step of \(1\) minute. Compare the approximation obtained after two minutes with the exact value \(T(2)\).
 

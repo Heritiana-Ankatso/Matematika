@@ -225,3 +225,41 @@ Kept here only as material for a later chapter or an enrichment workshop (`conte
 - **Sum of the first n odd numbers via the Gauss formula** (was Sommes (4)). Σ_{k=1}^{n}(2k−1) = 2·n(n+1)/2 − n = n².
   Suggested place: the sums/sequences chapter (T11), where Σ notation and 1+…+n = n(n+1)/2 are taught, or alongside a
   proof by induction if that chapter introduces it.
+
+## 6. Native adaptation built (16 November 2026, issue 26, branch `mada-t10-ch01`): status and what is left
+
+Steps 2, 4, 5, 6 and 7 of section 4 are built; step 3 (manifest) is deliberately not done. Nothing is published: no manifest
+entry, no `dist/` file, the experiment is not in `registry.js`.
+
+**Programme mapping (recorded in `content/malagasy/chapters.json`, unit `mada-t10-01`, keys `programme` and `native`).** The
+official programme of the T10 class (Ministère de l'Éducation nationale, Enseignement technique et professionnel; the owner's
+verified text extraction), section ALGEBRE > LOGIQUE, 2 weeks of 4 hours. Objectives covered: recognise a proposition (énoncé,
+proposition); connectors ET, OU (inclusif and exclusif), implication, équivalence; quantifiers existential and universal; truth
+tables used to argue or demonstrate; negation of a quantifier and of a proposition; translating a sentence to quantifiers and back.
+Contraposée and absurd are not in the programme: kept only as the clearly marked `beyond` block ("Hors programme") and one
+beyond-programme slide. Level of the plan's section 3 question "which programme": settled by the owner; still open: the official
+URL of the PDF (`programme.url` is null).
+
+**Rewrite, not copy.** The unit, exercises and solutions are new text and new numbers with the same mathematical objectives
+(for example the hunt uses n² + n + 17, which first fails at 16; the puzzles are different). The intake copy in
+`content/malagasy/source/t10/` (errors E1 to E20 already fixed) stays the reference of the original.
+
+| Step | Delivered |
+|---|---|
+| 2 course unit | `content/tex/courses/mada-t10/c01.fr.tex`, `corriges/c01.fr.tex` (teacher edition only), French only, native environments; `scripts/build-mada-t10.py`, `COURSES['mada-t10']`; `FRENCH_ONLY` in `build/mxbuild/twin.py` |
+| 4 experiment | `logic-truth` (template `logic`): build a truth table cell by cell, find the one non-equivalent pair among six, hunt a counter-example, test a quantified statement on a set; no hint UI; not registered |
+| 5 slides | `content/slides/mada-t10-01.json` (interactive, French only, five `lab` widgets); skipped by the builder until the chapter is in the manifest. The independent Beamer lecture edition is not built |
+| 6 PDFs | student and teacher PDFs compile with XeLaTeX (`make tex COURSE=mada-t10`) into `build/out/tex/mada-t10/`; they are not committed |
+| 7 map and tests | `MAP.md`, folder indexes, `tests/logic-truth.test.mjs`, `tests/mada-t10-01.test.mjs`, `scripts/check-mada-t10-logic.py` (committed checker) |
+
+**Publication steps left (all after two independent audits and the owner's approval).** Add the course `mada-t10` (curriculum
+`mg`, `contentLanguage` `fr`) and the chapter `mada-t10-01` (topic `logic`, `labs: ["logic-truth/open"]`) to
+`content/data/manifest.json`; register the experiment and the template (`site/js/lab/CLAUDE.md`); cut the PDFs into excerpts and
+register them in the builder; check that the schema and navigation accept a second Malagasy course next to `t10`; run
+`make site`; browser, phone and keyboard checks of the registered experiment. The older course `t10` (the owner's compiled book
+cut into PDFs) is live and untouched; decide whether `mada-t10` replaces or sits beside it.
+
+**`dist/` and CI.** Adding a file under `site/` makes `python -m mxbuild site --check` ("dist/ matches site/") fail until `make site`
+copies it, because `site/index.html` and `site/slides/player.html` carry generated import maps. The branch leaves `dist/` unchanged on
+purpose; the `check` job will report those copies until the owner decides to sync them (a sync adds two unreachable modules and
+changes only generated files).

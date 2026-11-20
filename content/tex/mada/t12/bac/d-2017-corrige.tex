@@ -1,0 +1,255 @@
+% Baccalauréat malgache, série D, 2017 : corrigé.
+\TCDBacAttribution{D}{2017}
+\providecommand{\Courbe}{(\mathscr{C})}
+\providecommand{\CourbeP}{(\mathscr{C}')}
+\providecommand{\cm}{~\mathrm{cm}}
+\providecommand{\dx}{~\mathrm{d}x}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\noindent \underline{\textsc{\textbf{Exercice I}}} (5 points)
+	\begin{enumerate}
+		\item \begin{enumerate}
+			\item \vln{Résolution de $(E_1)$ :}
+				$\Delta = 4 - 8 = -4 = (2i)^2$, donc $z = \frac{2 \pm 2i}{2}$.
+
+				\ansbox{$S_{\mathbb{C}} = \{1 - i\ ;\ 1 + i\}$.}
+			\item \vln{Module et argument :}
+				$|1 + i| = |1 - i| = \sqrt{2}$ ; $1 + i = \sqrt{2}\left(\frac{\sqrt{2}}{2} + i\frac{\sqrt{2}}{2}\right)$ et $1 - i$ est son conjugué.
+
+				\ansbox{$|1+i| = \sqrt{2}$, $\arg(1+i) = \frac{\pi}{4}$ ; $|1-i| = \sqrt{2}$, $\arg(1-i) = -\frac{\pi}{4}$.}
+			\item \vln{Résolution de $(E_2)$ :}
+				avec $Z = -iz + 3i + 3$, $(E_2)$ s'écrit $Z^2 - 2Z + 2 = 0$, donc $Z = 1 + i$ ou $Z = 1 - i$.
+				De $-iz = Z - 3 - 3i$ on tire (en multipliant par $i$) $z = iZ + 3 - 3i$.
+				\begin{itemize}
+					\item $Z = 1 + i$ : $z = i - 1 + 3 - 3i = 2 - 2i$ ;
+					\item $Z = 1 - i$ : $z = i + 1 + 3 - 3i = 4 - 2i$.
+				\end{itemize}
+
+				\ansbox{$S_{\mathbb{C}} = \{2 - 2i\ ;\ 4 - 2i\}$.}
+		\end{enumerate}
+		\item \begin{enumerate}
+			\item \vln{Placement :} $A(1;1)$, $B(1;-1)$, $C(2;-2)$ (figure ci-dessous, avec $E(3;0)$).
+			\item \vln{Forme trigonométrique de $U$ :}
+				\[
+					U = \frac{3 - 2 + 2i}{3 - 1 - i} = \frac{1 + 2i}{2 - i} = \frac{(1+2i)(2+i)}{5} = \frac{2 + i + 4i - 2}{5} = i.
+				\]
+
+				\ansbox{$U = \cos\frac{\pi}{2} + i\sin\frac{\pi}{2}$.}
+			\item \vln{Nature de $AEC$ :}
+				$|U| = \frac{EC}{EA} = 1$ et $\left(\overrightarrow{EA},\overrightarrow{EC}\right) = \arg U = \frac{\pi}{2}~[2\pi]$.
+
+				\ansbox{$AEC$ est un triangle rectangle isocèle en $E$.}
+		\end{enumerate}
+		\item \begin{enumerate}
+			\item \vln{Expression complexe de $R$ :}
+				$z' = x' + iy' = -y + i(x - 4) = i(x + iy) - 4i$.
+
+				\ansbox{$R : z' = iz - 4i$.}
+			\item \vln{Nature de $R$ :}
+				$i = \cos\frac{\pi}{2} + i\sin\frac{\pi}{2}$ est de module $1$ : $R$ est une rotation d'angle $\frac{\pi}{2}$.
+				Son centre vérifie $\omega = i\omega - 4i$, soit $\omega = \frac{-4i}{1-i} = \frac{-4i(1+i)}{2} = 2 - 2i = z_C$.
+
+				\ansbox{$R$ est la rotation de centre $C$ et d'angle $\frac{\pi}{2}$.}
+			\item \vln{Image de $(\Gamma)$ :}
+				une rotation conserve les distances : l'image du cercle de centre $E$ et de rayon $\sqrt{5}$ est le cercle de centre $E' = R(E)$
+				et de même rayon. $z_{E'} = 3i - 4i = -i$.
+
+				\ansbox{$(\Gamma')$ est le cercle de centre $E'(0;-1)$ et de rayon $\sqrt{5}$.}
+
+				Remarque : $EA = |{-2} + i| = \sqrt{5}$ et $EC = \sqrt{5}$, donc $(\Gamma)$ passe par $A$ et $C$ ;
+				$(\Gamma')$ passe par $R(C) = C$ et par $R(A)$ d'affixe $i(1+i) - 4i = -1 - 3i$.
+				\begin{center}
+				\begin{tikzpicture}[scale=.6,>=stealth]
+					\draw[very thin,gray!40] (-3,-4) grid (6,3);
+					\draw[->] (-3,0) -- (6.3,0) node[below] {$x$};
+					\draw[->] (0,-4) -- (0,3.3) node[left] {$y$};
+					\draw[loko1,thick] (3,0) circle (2.236);
+					\draw[loko3,thick] (0,-1) circle (2.236);
+					\draw[gray] (1,1) -- (3,0) -- (2,-2);
+					\foreach \p/\n/\pos in {(1,1)/A/above left,(1,-1)/B/left,(2,-2)/C/below right,(3,0)/E/above right,(0,-1)/E'/below left,(-1,-3)/R(A)/below left}
+						\fill \p circle (3pt) node[\pos] {$\n$};
+					\node[loko1] at (5.5,1.8) {$(\Gamma)$};
+					\node[loko3] at (-2.5,1.2) {$(\Gamma')$};
+				\end{tikzpicture}
+				\end{center}
+		\end{enumerate}
+	\end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\noindent \underline{\textsc{\textbf{Exercice II}}} (5 points)
+	\begin{description}
+		\item[A.]
+			\begin{enumerate}
+				\item Les tirages successifs sans remise de $3$ boules parmi $8$ sont les arrangements : $A_8^3 = 8\times7\times6 = 336$.
+					\begin{itemize}
+						\item \vln{Événement $E_1$ :}
+							les numéros pairs sont $0$, $2$, $2$, $2$, $4$ ($0$ est pair) : $5$ boules, d'où $A_5^3 = 60$ tirages.
+
+							\ansbox{$P(E_1) = \frac{60}{336} = \frac{5}{28}$.}
+						\item \vln{Événement $E_2$ :}
+							les ensembles de $3$ boules de somme $6$ sont : $\{0;2;4\}$ ($3$ choix du 2), $\{2;2;2\}$ ($1$ choix),
+							$\{0;3;3\}$ ($1$ choix), soit $5$ ensembles, chacun donnant $3! = 6$ tirages ordonnés : $30$ tirages.
+
+							\ansbox{$P(E_2) = \frac{30}{336} = \frac{5}{56}$.}
+					\end{itemize}
+				\item Le tirage de $2$ boules de $U_2$ ($\Comb{5}{2} = 10$ paires) et celui d'une boule de $U_1$ sont indépendants.
+					Dans $U_2$ : aucun 2 : $\frac{\Comb{3}{2}}{10} = \frac{3}{10}$ ; un 2 : $\frac{2\times3}{10} = \frac{6}{10}$ ; deux 2 : $\frac{1}{10}$.
+					Dans $U_1$ : un 2 avec la probabilité $\frac{3}{8}$, sinon $\frac{5}{8}$.
+					\begin{enumerate}
+						\item \vln{Loi de $X$ :} $X(\Omega) = \{0;1;2;3\}$ et
+							\begin{align*}
+								P(X=0) &= \tfrac{3}{10}\times\tfrac{5}{8} = \tfrac{15}{80} = \tfrac{3}{16}, &
+								P(X=1) &= \tfrac{6}{10}\times\tfrac{5}{8} + \tfrac{3}{10}\times\tfrac{3}{8} = \tfrac{39}{80}, \\
+								P(X=2) &= \tfrac{1}{10}\times\tfrac{5}{8} + \tfrac{6}{10}\times\tfrac{3}{8} = \tfrac{23}{80}, &
+								P(X=3) &= \tfrac{1}{10}\times\tfrac{3}{8} = \tfrac{3}{80}.
+							\end{align*}
+							\[
+							\begin{array}{|c|c|c|c|c|}
+								\hline
+								k & 0 & 1 & 2 & 3 \\ \hline
+								P(X=k) & \frac{3}{16} & \frac{39}{80} & \frac{23}{80} & \frac{3}{80} \\[.5ex] \hline
+							\end{array}
+							\]
+							(Vérification : $15 + 39 + 23 + 3 = 80$.)
+						\item \vln{Espérance :}
+							$E(X) = \frac{0\times15 + 1\times39 + 2\times23 + 3\times3}{80} = \frac{94}{80}$.
+
+							\ansbox{$E(X) = \frac{47}{40}$.}
+					\end{enumerate}
+			\end{enumerate}
+		\item[B.]
+			\begin{enumerate}
+				\item \vln{Coefficient de corrélation :}
+					$\bar{x} = \frac{15}{4} = 3{,}75$ ; $\bar{y} = \frac{13}{4} = 3{,}25$ ;
+					$V(x) = \frac{1 + 4 + 25 + 49}{4} - 3{,}75^2 = 19{,}75 - 14{,}0625 = 5{,}6875$ ;
+					$V(y) = \frac{4 + 4 + 16 + 25}{4} - 3{,}25^2 = 12{,}25 - 10{,}5625 = 1{,}6875$ ;
+					$\mathrm{cov}(x,y) = \frac{2 + 4 + 20 + 35}{4} - 3{,}75\times3{,}25 = 15{,}25 - 12{,}1875 = 3{,}0625$.
+					\[
+						r = \frac{3{,}0625}{\sqrt{5{,}6875\times1{,}6875}} \simeq 0{,}99.
+					\]
+
+					\ansbox{$r \simeq 0{,}99$ :}
+
+					très proche de $1$ : forte corrélation linéaire positive entre les deux bonus, un ajustement affine est justifié.
+				\item \vln{Droite de régression de $y$ en $x$ :}
+					$a = \frac{\mathrm{cov}(x,y)}{V(x)} = \frac{3{,}0625}{5{,}6875} = \frac{7}{13} \simeq 0{,}54$ et
+					$b = \bar{y} - a\bar{x} = \frac{13}{4} - \frac{7}{13}\times\frac{15}{4} = \frac{16}{13} \simeq 1{,}23$.
+
+					\ansbox{$y = \frac{7}{13}x + \frac{16}{13} \simeq 0{,}54\,x + 1{,}23$.}
+				\item \vln{Estimation :} pour $x = 9$, $y = \frac{63 + 16}{13} = \frac{79}{13} \simeq 6{,}08$.
+
+					\ansbox{Le bonus estimé en saut est d'environ $6$ points ($6{,}08$).}
+			\end{enumerate}
+	\end{description}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\noindent \underline{\textsc{\textbf{Probleme}}} (10 points)
+	\begin{enumerate}
+		\item \vln{Continuité en $0$ :}
+			$f(0) = 1 - \expo{0} = 0$ ; $\lim_{x\to0^-}\left(1 - \expo{x}\right) = 0$ ;
+			$\lim_{x\to0^+} x(-1 + \ln x) = \lim_{x\to0^+}\left(x\ln x - x\right) = 0$ (limite usuelle $x\ln x \to 0$).
+
+			\ansbox{$f$ est continue en $0$.}
+		\item \begin{enumerate}
+			\item \vln{Limites des taux d'accroissement :}
+				à gauche, $\frac{f(x) - f(0)}{x} = -\frac{\expo{x} - 1}{x} \to -1$ (car $\lim_{x\to0}\frac{\expo{x}-1}{x} = 1$) ;
+				à droite, $\frac{f(x) - f(0)}{x} = -1 + \ln x \to -\infty$.
+
+				\ansbox{$\lim_{x\to0^-}\frac{f(x)-f(0)}{x} = -1$ et $\lim_{x\to0^+}\frac{f(x)-f(0)}{x} = -\infty$.}
+			\item \vln{Interprétation :}
+				$f$ n'est pas dérivable en $0$. À gauche, $\Courbe$ admet en $O$ une demi-tangente de coefficient directeur $-1$
+				(portée par $y = -x$, $x \leq 0$) ; à droite, une demi-tangente verticale (dirigée vers le bas, car $f(x) < 0$ pour $0 < x < \expo{}$).
+			\item \vln{Limites à l'infini :}
+				en $-\infty$, $\expo{x} \to 0$ ; en $+\infty$, $x \to +\infty$ et $\ln x - 1 \to +\infty$.
+
+				\ansbox{$\lim_{x\to-\infty} f(x) = 1$ et $\lim_{x\to+\infty} f(x) = +\infty$.}
+		\end{enumerate}
+		\item \begin{enumerate}
+			\item \vln{Pour $x > 0$ :} $f'(x) = (-1 + \ln x) + x\times\frac{1}{x}$, soit
+
+				\ansbox{$f'(x) = \ln x$ :}
+
+				négatif sur $]0;1[$, nul en $1$, positif sur $]1;+\infty[$.
+			\item \vln{Pour $x \leq 0$ :} $f'(x) = -\expo{x}$ (dérivée à gauche en $0$ : $-1$).
+
+				\ansbox{$f'(x) = -\expo{x} < 0$.}
+			\item \vln{Tableau de variation :} $f(1) = 1\times(-1 + 0) = -1$.
+				\[
+				\begin{array}{c|ccccccc}
+					x & -\infty & & 0 & & 1 & & +\infty \\ \hline
+					f'(x) & & - & \| & - & 0 & + & \\ \hline
+					f(x) & 1 & \searrow & 0 & \searrow & -1 & \nearrow & +\infty
+				\end{array}
+				\]
+		\end{enumerate}
+		\item \vln{Tangente en $\expo{}$ :} $f(\expo{}) = \expo{}(-1 + 1) = 0$ et $f'(\expo{}) = \ln\expo{} = 1$.
+
+			\ansbox{$(T) : y = x - \expo{}$.}
+		\item \begin{enumerate}
+			\item \vln{Calcul :} $f\left(\expo{2}\right) = \expo{2}\left(-1 + 2\right)$.
+
+				\ansbox{$f\left(\expo{2}\right) = \expo{2}$.}
+			\item \vln{Branches infinies :}
+				en $-\infty$, $\lim f = 1$ : la droite d'équation $y = 1$ est asymptote horizontale (et $\Courbe$ est au-dessous, car $1 - \expo{x} < 1$).
+				En $+\infty$, $\frac{f(x)}{x} = \ln x - 1 \to +\infty$ :
+
+				\ansbox{asymptote $y = 1$ en $-\infty$ ; branche parabolique de direction $(Oy)$ en $+\infty$.}
+		\end{enumerate}
+		\item \vln{Construction :} (la courbe $\CourbeP$ de la question 7.c y figure aussi).
+			\begin{center}
+			\begin{tikzpicture}[x=.75cm,y=.75cm,>=stealth]
+				\draw[very thin,gray!40] (-5,-2) grid (10,9);
+				\draw[->] (-5,0) -- (10.3,0) node[below] {$x$};
+				\draw[->] (0,-2) -- (0,9.3) node[left] {$y$};
+				\draw (1,0) node[below] {\small $1$} (0,1) node[left] {\small $1$};
+				\clip (-5,-2) rectangle (10,9);
+				\draw[gray,dashed] (-2,-2) -- (9,9);
+				\draw[loko3,dashed] (-5,1) -- (0,1);
+				\draw[gray,thick] plot[domain=0.7:10] (\x,{\x-exp(1)});
+				\draw[loko5,thick] (-1.2,1.2) -- (0,0) -- (0,-1.2);
+				\draw[loko1,very thick,smooth,samples=60] plot[domain=-5:0] (\x,{1-exp(\x)});
+				\draw[loko1,very thick,smooth,samples=120] plot[domain=0.001:8.1] (\x,{\x*(ln(\x)-1)});
+				\draw[loko5,very thick,smooth,samples=80] plot[domain=2.71828:8.4] ({\x*(ln(\x)-1)},\x);
+				\fill (2.718,0) circle (2pt) node[below right] {\small $\expo{}$};
+				\fill (7.389,7.389) circle (2pt);
+				\node[gray] at (9.3,5.7) {$(T)$};
+				\node[loko1] at (6.6,8.3) {$\Courbe$};
+				\node[loko5] at (9.2,8.0) {$\CourbeP$};
+			\end{tikzpicture}
+			\end{center}
+		\item \begin{enumerate}
+			\item \vln{Fonction réciproque :}
+				sur $I = [\expo{};+\infty[$, $g'(x) = \ln x \geq 1 > 0$ : $g$ est continue et strictement croissante,
+				avec $g(\expo{}) = 0$ et $\lim_{+\infty} g = +\infty$. Elle réalise donc une bijection de $I$ sur $J$.
+
+				\ansbox{$g^{-1}$ est définie sur $J = [0;+\infty[$, à valeurs dans $[\expo{};+\infty[$.}
+			\item \vln{Tableau de variation de $g^{-1}$ :} $g^{-1}$ a le même sens de variation que $g$.
+				\[
+				\begin{array}{c|ccc}
+					x & 0 & & +\infty \\ \hline
+					g^{-1}(x) & \expo{} & \nearrow & +\infty
+				\end{array}
+				\]
+			\item \vln{Courbe $\CourbeP$ :} symétrique, par rapport à la droite $y = x$, de la partie de $\Courbe$ d'abscisses $x \geq \expo{}$
+				(voir la figure) ; elle part du point $(0;\expo{})$ et passe par $\left(\expo{2};\expo{2}\right)$.
+			\item \vln{Calcul de $\left(g^{-1}\right)'\left(\expo{2}\right)$ :}
+				$g\left(\expo{2}\right) = \expo{2}$, et $g'\left(\expo{2}\right) = \ln\expo{2} = 2 \neq 0$, donc
+				$\left(g^{-1}\right)'\left(\expo{2}\right) = \frac{1}{g'\left(\expo{2}\right)}$.
+
+				\ansbox{$\left(g^{-1}\right)'\left(\expo{2}\right) = \frac{1}{2}$.}
+		\end{enumerate}
+		\item \vln{Aire :}
+			sur $[\expo{};\expo{2}]$, $\ln x \geq 1$ donc $f(x) \geq 0$ ; l'unité d'aire vaut $1\cm^2$.
+			On calcule $\int x\ln x\dx$ par parties : $u = \ln x$, $v' = x$, $u' = \frac{1}{x}$, $v = \frac{x^2}{2}$ :
+			\[
+				\int_{\expo{}}^{\expo{2}} x\ln x\dx = \left[\frac{x^2}{2}\ln x\right]_{\expo{}}^{\expo{2}} - \int_{\expo{}}^{\expo{2}}\frac{x}{2}\dx
+				= \left[\frac{x^2}{2}\ln x - \frac{x^2}{4}\right]_{\expo{}}^{\expo{2}}.
+			\]
+			Donc
+			\[
+				\mathcal{A} = \int_{\expo{}}^{\expo{2}}\left(x\ln x - x\right)\dx = \left[\frac{x^2}{2}\ln x - \frac{3x^2}{4}\right]_{\expo{}}^{\expo{2}}
+				= \left(\expo{4} - \frac{3\expo{4}}{4}\right) - \left(\frac{\expo{2}}{2} - \frac{3\expo{2}}{4}\right) = \frac{\expo{4}}{4} + \frac{\expo{2}}{4}.
+			\]
+
+			\ansbox{$\mathcal{A} = \frac{\expo{4} + \expo{2}}{4}\cm^2 \simeq 15{,}5\cm^2$}
+
+			(avec $\expo{2} \simeq 7{,}4$ : $\frac{7{,}4^2 + 7{,}4}{4} \simeq 15{,}54$).
+	\end{enumerate}

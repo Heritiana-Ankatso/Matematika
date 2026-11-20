@@ -1,0 +1,251 @@
+% Baccalauréat malgache, série D, 2004 : corrigé.
+\TCDBacAttribution{D}{2004}
+\providecommand{\Plan}{(\mathscr{P})}
+\providecommand{\Ouv}{(O ; \vec{u} , \vec{v})}
+\providecommand{\Courbe}{(\mathscr{C})}
+\providecommand{\CourbeP}{(\mathscr{C}')}
+\providecommand{\cm}{~\mathrm{cm}}
+\providecommand{\dx}{~\mathrm{d}x}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\noindent \underline{\textsc{\textbf{Exercice I}}} (5 points)
+\begin{enumerate}
+   \item \vln{R\'esolution de $z^2 - (4 + 5i)z - 1 + 7i = 0$ :}
+      $\Delta = (4 + 5i)^2 - 4(-1 + 7i) = 16 + 40i - 25 + 4 - 28i = -5 + 12i$.
+      On cherche $\delta = a + ib$ avec $a^2 - b^2 = -5$, $a^2 + b^2 = |\Delta| = 13$, $2ab = 12$ :
+      $a^2 = 4$, $b^2 = 9$, $ab > 0$, d'o\`u $\delta = 2 + 3i$.
+      \[
+         z_1 = \frac{4 + 5i + 2 + 3i}{2} = 3 + 4i, \qquad z_2 = \frac{4 + 5i - 2 - 3i}{2} = 1 + i.
+      \]
+      \par\noindent\ansbox{$S_{\mathbb{C}} = \{ 1 + i \,;\, 3 + 4i \}$} (ce sont les affixes de $A$ et de $B$).
+   \item
+      \begin{enumerate}
+         \item \vln{Expression complexe de $S$ :}
+            On cherche $S : z' = az + b$ avec $z_B = a z_A + b$ et $z_C = a z_B + b$. Par soustraction :
+            \[
+               a = \frac{z_C - z_B}{z_B - z_A} = \frac{1 - 5i}{2 + 3i} = \frac{(1 - 5i)(2 - 3i)}{13} = \frac{-13 - 13i}{13} = -1 - i,
+            \]
+            puis $b = z_B - a z_A = 3 + 4i + (1 + i)^2 = 3 + 4i + 2i = 3 + 6i$.
+            \par\noindent\ansbox{$S : z' = (-1 - i)\,z + 3 + 6i$.}
+            (V\'erification : $(-1-i)(3+4i) + 3 + 6i = 1 - 7i + 3 + 6i = 4 - i = z_C$.)
+         \item \vln{\'El\'ements caract\'eristiques :}
+            $a = -1 - i = \sqrt{2}\,\expo{-i\frac{3\pi}{4}}$ : rapport $\sqrt{2}$, angle $-\frac{3\pi}{4}$.
+            Centre : $\omega = \dfrac{b}{1 - a} = \dfrac{3 + 6i}{2 + i} = \dfrac{(3 + 6i)(2 - i)}{5} = \dfrac{12 + 9i}{5}$.
+            \par\noindent\ansbox{$S$ : similitude directe de centre $\Omega\left(\frac{12}{5} ; \frac{9}{5}\right)$, de rapport $\sqrt{2}$, d'angle $-\frac{3\pi}{4}$.}
+      \end{enumerate}
+   \item
+      \begin{enumerate}
+         \item \vln{Affixe de $I$ :}
+            \par\noindent\ansbox{$z_I = \frac{z_B + z_C}{2} = \frac{7 + 3i}{2}$.}
+         \item \vln{Figure :} voir ci-dessous.
+         \item \vln{Ensemble $\Courbe$ :}
+            $\left| z - \frac{7 + 3i}{2} \right| = \frac{\sqrt{26}}{2}$ s'\'ecrit $IM = \frac{\sqrt{26}}{2}$.
+            Or $BC = |z_C - z_B| = |1 - 5i| = \sqrt{26}$, donc $\frac{\sqrt{26}}{2} = \frac{BC}{2}$.
+            \par\noindent\ansbox{$\Courbe$ est le cercle de diam\`etre $[BC]$ (centre $I$, rayon $\frac{\sqrt{26}}{2}$).}
+            Il passe par $A$ : $|z_A - z_I| = \left|-\frac{5}{2} - \frac{1}{2}i\right| = \frac{\sqrt{26}}{2}$
+            (le triangle $ABC$ est donc rectangle en $A$).
+
+            \vln{Ensemble $\CourbeP = S\big(\Courbe\big)$ :}
+            L'image d'un cercle par une similitude de rapport $\sqrt{2}$ est le cercle de centre l'image du centre et
+            de rayon multipli\'e par $\sqrt{2}$.
+            $S(I)$ : $(-1 - i)\frac{7 + 3i}{2} + 3 + 6i = \frac{-4 - 10i}{2} + 3 + 6i = 1 + i = z_A$.
+            Rayon : $\sqrt{2}\cdot\frac{\sqrt{26}}{2} = \sqrt{13}$.
+            \par\noindent\ansbox{$\CourbeP$ est le cercle de centre $A(1 ; 1)$ et de rayon $\sqrt{13}$.}
+            (Il passe par $S(B) = C$, ce qui se v\'erifie : $AC = |3 - 2i| = \sqrt{13}$.)
+            \begin{center}
+            \begin{tikzpicture}[scale=0.6,>=stealth]
+               \draw[very thin,gray!30] (-3,-3) grid (7,5);
+               \draw[->] (-3,0) -- (7,0) node[below left] {$x$};
+               \draw[->] (0,-3) -- (0,5) node[below left] {$y$};
+               \foreach \t in {-2,...,6} \draw (\t,0.08) -- (\t,-0.08) node[below] {\tiny $\t$};
+               \foreach \t in {-2,...,4} \draw (0.08,\t) -- (-0.08,\t) node[left] {\tiny $\t$};
+               \begin{scope}
+                  \clip (-3,-3) rectangle (7,5);
+                  \draw[loko1,thick] (3.5,1.5) circle ({sqrt(26)/2});
+                  \draw[loko4,thick] (1,1) circle ({sqrt(13)});
+               \end{scope}
+               \draw (3,4) -- (4,-1);
+               \fill (1,1) circle (2pt) node[below left] {$A$};
+               \fill (3,4) circle (2pt) node[above right] {$B$};
+               \fill (4,-1) circle (2pt) node[below right] {$C$};
+               \fill (3.5,1.5) circle (2pt) node[right] {$I$};
+               \fill (2.4,1.8) circle (2pt) node[above] {$\Omega$};
+               \node[loko1] at (6.2,2.8) {$\Courbe$};
+               \node[loko4] at (-2.2,3.8) {$\CourbeP$};
+            \end{tikzpicture}
+            \end{center}
+      \end{enumerate}
+\end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\noindent \underline{\textsc{\textbf{Exercice II}}} (5 points)
+\begin{enumerate}
+   \item \vln{Tirage simultan\'e de trois boules de $U_1$ :}
+      Les tirages sont les parties \`a 3 \'el\'ements d'un ensemble de 6 boules : $\mathrm{C}_6^3 = 20$ cas \'equiprobables.
+      \begin{itemize}
+         \item $A$ (somme $4$) : $\{2, 2, 0\}$ : $\mathrm{C}_3^2 \times \mathrm{C}_1^1 = 3$ ; $\{2, 1, 1\}$ : $\mathrm{C}_3^1 \times \mathrm{C}_2^2 = 3$.
+            \par\noindent\ansbox{$P(A) = \frac{6}{20} = \frac{3}{10}$.}
+         \item $B$ (exactement deux << 2 >>) : $\mathrm{C}_3^2 \times \mathrm{C}_3^1 = 9$.
+            \par\noindent\ansbox{$P(B) = \frac{9}{20}$.}
+         \item $C$ (produit non nul) : aucune boule << 0 >>, donc trois boules parmi les 5 autres : $\mathrm{C}_5^3 = 10$.
+            \par\noindent\ansbox{$P(C) = \frac{10}{20} = \frac{1}{2}$.}
+         \item $D$ (m\^eme num\'ero) : seul $\{2,2,2\}$ est possible (il n'y a qu'un << 0 >> et deux << 1 >>) : $1$ cas.
+            \par\noindent\ansbox{$P(D) = \frac{1}{20}$.}
+      \end{itemize}
+   \item Une \'eventualit\'e est form\'ee d'une boule de $U_1$ (6 choix) et d'une paire de boules de $U_2$ ($\mathrm{C}_5^2 = 10$ choix) :
+      $6 \times 10 = 60$ \'eventualit\'es \'equiprobables.
+      \begin{enumerate}
+         \item \vln{Univers image :}
+            Si une boule << 0 >> est tir\'ee, $X = 0$. Sinon, la boule de $U_1$ porte $1$ ou $2$ et la paire de $U_2$ est
+            prise parmi les boules $\{1, 2, 2\}$ : c'est $\{1, 2\}$ ou $\{2, 2\}$, de produit $2$ ou $4$.
+            Les produits possibles sont $1\times2 = 2$, $1 \times 4 = 4$, $2 \times 2 = 4$, $2 \times 4 = 8$.
+            \par\noindent\ansbox{$X(\Omega) = \{0 ; 2 ; 4 ; 8\}$.}
+         \item \vln{$P(X = 0)$ et $P(X \geq 4)$ :}
+            $X \neq 0$ exige une boule non nulle de $U_1$ (5 cas) et une paire sans << 0 >> dans $U_2$ ($\mathrm{C}_3^2 = 3$ cas) :
+            $P(X \neq 0) = \frac{5 \times 3}{60} = \frac{1}{4}$, donc \ansbox{$P(X = 0) = \frac{3}{4}$.}
+
+            $X = 4$ : (boule 1 de $U_1$ et paire $\{2,2\}$) : $2 \times 1 = 2$ cas ; (boule 2 et paire $\{1,2\}$) : $3 \times 2 = 6$ cas.
+            $X = 8$ : boule 2 et paire $\{2,2\}$ : $3 \times 1 = 3$ cas.
+            Donc $P(X \geq 4) = \frac{2 + 6 + 3}{60}$, \ansbox{$P(X \geq 4) = \frac{11}{60}$.}
+         \item \vln{$P(X = 2)$ :}
+            $P(X = 2) = 1 - P(X = 0) - P(X \geq 4) = 1 - \frac{45}{60} - \frac{11}{60} = \frac{4}{60}$
+            (directement : boule 1 et paire $\{1,2\}$ : $2 \times 2 = 4$ cas). \ansbox{$P(X = 2) = \frac{1}{15}$.}
+         \item \vln{Tableau :}
+            \[
+               \begin{array}{|l|c|c|c|c|}
+                  \hline
+                  k & 0 & 2 & 4 & 8 \\ \hline
+                  P(X = k) & \frac{3}{4} & \frac{1}{15} & \frac{2}{15} & \frac{1}{20} \\ \hline
+               \end{array}
+            \]
+            ($P(X = 4) = \frac{8}{60} = \frac{2}{15}$ et $P(X = 8) = \frac{3}{60} = \frac{1}{20}$ ; la somme vaut $\frac{45 + 4 + 8 + 3}{60} = 1$.)
+         \item \vln{Esp\'erance :}
+            $E(X) = 0 \cdot \frac{3}{4} + 2 \cdot \frac{4}{60} + 4 \cdot \frac{8}{60} + 8 \cdot \frac{3}{60} = \frac{8 + 32 + 24}{60} = \frac{64}{60}$,
+            \par\noindent\ansbox{$E(X) = \frac{16}{15}$.}
+         \item \vln{Fonction de r\'epartition :} $F(x) = P(X \leq x)$.
+            \[
+               F(x) = \begin{cases}
+                  0 & \text{si } x < 0, \\
+                  \frac{3}{4} & \text{si } 0 \leq x < 2, \\
+                  \frac{49}{60} & \text{si } 2 \leq x < 4, \\
+                  \frac{19}{20} & \text{si } 4 \leq x < 8, \\
+                  1 & \text{si } x \geq 8.
+               \end{cases}
+            \]
+            C'est une fonction en escalier, continue \`a droite (rep\`ere : $1\cm$ en abscisse, $6\cm$ en ordonn\'ee).
+            \begin{center}
+            \begin{tikzpicture}[x=0.8cm,y=4.8cm,>=stealth]
+               \draw[->] (-2,0) -- (10,0) node[below left] {$x$};
+               \draw[->] (0,0) -- (0,1.15) node[below left] {$F(x)$};
+               \foreach \t in {2,4,8} \draw (\t,0.015) -- (\t,-0.015) node[below] {\scriptsize $\t$};
+               \foreach \v/\l in {0.75/\frac{3}{4},0.8167/\frac{49}{60},0.95/\frac{19}{20},1/1}
+                  \draw[gray,dashed] (0,\v) -- (-0.08,\v) node[left] {\scriptsize $\l$};
+               \draw[loko1,very thick] (-2,0) -- (0,0);
+               \draw[loko1,very thick] (0,0.75) -- (2,0.75);
+               \draw[loko1,very thick] (2,0.8167) -- (4,0.8167);
+               \draw[loko1,very thick] (4,0.95) -- (8,0.95);
+               \draw[loko1,very thick,->] (8,1) -- (9.8,1);
+               \foreach \a/\v in {0/0.75,2/0.8167,4/0.95,8/1} \fill[loko1] (\a,\v) circle (2pt);
+               \foreach \a/\v in {0/0,2/0.75,4/0.8167,8/0.95} \draw[loko1,fill=white] (\a,\v) circle (2pt);
+            \end{tikzpicture}
+            \end{center}
+      \end{enumerate}
+\end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\noindent \underline{\textsc{\textbf{Probl\`eme}}} (10 points)
+\begin{enumerate}
+   \item
+      \begin{enumerate}
+         \item \vln{Limites de $g$ :}
+            Pour $x > 0$, $g(x) = \frac{x^2 \ln x + 2x - 1}{x^2}$. En $0^+$, $x^2\ln x \to 0$ et $2x \to 0$, donc le num\'erateur
+            tend vers $-1$ tandis que $x^2 \to 0^+$ : \ansbox{$\lim\limits_{x\to0^+} g(x) = -\infty$.}
+            En $+\infty$, $\ln x \to +\infty$, $\frac{2}{x} \to 0$, $\frac{1}{x^2} \to 0$ : \ansbox{$\lim\limits_{x\to+\infty} g(x) = +\infty$.}
+         \item \vln{D\'eriv\'ee :}
+            \par\noindent\ansbox{$g'(x) = \frac{1}{x} - \frac{2}{x^2} + \frac{2}{x^3} = \frac{x^2 - 2x + 2}{x^3}$.}
+            Le trin\^ome $x^2 - 2x + 2 = (x - 1)^2 + 1$ est toujours strictement positif et $x^3 > 0$ : $g'(x) > 0$ sur $]0 ; +\infty[$.
+         \item \vln{Tableau de variation de $g$ :}
+            \[
+               \begin{array}{c|ccc}
+                  x & 0 & & +\infty \\ \hline
+                  g'(x) & & + & \\ \hline
+                  & & & +\infty \\
+                  g & & \nearrow & \\
+                  & -\infty & &
+               \end{array}
+            \]
+         \item \vln{Existence et unicit\'e de $\alpha$ :}
+            $g$ est continue et strictement croissante sur $\left[\frac{1}{2} ; 1\right]$, avec
+            $g\left(\frac{1}{2}\right) = -\ln 2 + 4 - 4 = -\ln 2 < 0$ et $g(1) = 0 + 2 - 1 = 1 > 0$.
+            D'apr\`es le th\'eor\`eme des valeurs interm\'ediaires (cas d'une fonction strictement monotone),
+            \par\noindent\ansbox{l'\'equation $g(x) = 0$ a une unique solution $\alpha$, et $\frac{1}{2} < \alpha < 1$}
+            ; c'est la seule sur $]0 ; +\infty[$ puisque $g$ y est strictement croissante ($\alpha \simeq 0{,}59$).
+            On en d\'eduit : $g < 0$ sur $]0 ; \alpha[$ et $g > 0$ sur $]\alpha ; +\infty[$.
+      \end{enumerate}
+   \item
+      \begin{enumerate}
+         \item \vln{Calcul de $f'(x)$ :}
+            $(\expo{x}\ln x)' = \expo{x}\ln x + \frac{\expo{x}}{x}$ et
+            $\left(\frac{\expo{x}}{x}\right)' = \frac{x\expo{x} - \expo{x}}{x^2} = \frac{\expo{x}}{x} - \frac{\expo{x}}{x^2}$, donc
+            \par\noindent\ansbox{$f'(x) = \expo{x}\ln x + \frac{2\expo{x}}{x} - \frac{\expo{x}}{x^2}$.}
+         \item \vln{\'Egalit\'e $f'(x) = \expo{x} g(x)$ :}
+            En factorisant par $\expo{x}$ : $f'(x) = \expo{x}\left(\ln x + \frac{2}{x} - \frac{1}{x^2}\right) = \expo{x} g(x)$.
+         \item \vln{$f'(\alpha)$ :}
+            \par\noindent\ansbox{$f'(\alpha) = \expo{\alpha} g(\alpha) = 0$}
+            : la tangente au point d'abscisse $\alpha$ est horizontale.
+         \item \vln{Limites de $f$ :}
+            $f(x) = \frac{\expo{x}}{x}(x\ln x + 1)$. En $0^+$ : $x\ln x \to 0$ donc $x \ln x + 1 \to 1$, et
+            $\frac{\expo{x}}{x} \to +\infty$ ; \ansbox{$\lim\limits_{x\to0^+} f(x) = +\infty$.}
+            En $+\infty$ : $\frac{\expo{x}}{x} \to +\infty$ et $x\ln x + 1 \to +\infty$ ; \ansbox{$\lim\limits_{x\to+\infty} f(x) = +\infty$.}
+         \item \vln{Tableau de variation de $f$ :}
+            $\expo{x} > 0$, donc $f'(x)$ a le signe de $g(x)$ :
+            \[
+               \begin{array}{c|ccccc}
+                  x & 0 & & \alpha & & +\infty \\ \hline
+                  f'(x) & & - & 0 & + & \\ \hline
+                  & +\infty & & & & +\infty \\
+                  f & & \searrow & & \nearrow & \\
+                  & & & f(\alpha) & &
+               \end{array}
+            \]
+            avec $f(\alpha) \simeq 2{,}1$ ; $f$ admet un minimum $f(\alpha) > 0$.
+      \end{enumerate}
+   \item
+      \begin{enumerate}
+         \item \vln{Tangente au point d'abscisse $1$ :}
+            $f(1) = 0 + e = e$ et $f'(1) = e\, g(1) = e$. La tangente a pour \'equation $y = e(x - 1) + e$, soit
+            \par\noindent\ansbox{$(T) : y = e\,x$} : elle passe par l'origine.
+         \item \vln{Trac\'e} (figure r\'eduite ; unit\'e de l'\'enonc\'e : $2\cm$) :
+            \begin{center}
+            \begin{tikzpicture}[x=1.4cm,y=0.7cm,>=stealth]
+               \draw[very thin,gray!30] (-0.3,-0.5) grid (2.6,9);
+               \draw[->] (-0.3,0) -- (2.6,0) node[below left] {$x$};
+               \draw[->] (0,-0.5) -- (0,9) node[below left] {$y$};
+               \foreach \t in {1,2} \draw (\t,0.1) -- (\t,-0.1) node[below] {\scriptsize $\t$};
+               \foreach \t in {2,4,6,8} \draw (0.05,\t) -- (-0.05,\t) node[left] {\scriptsize $\t$};
+               \begin{scope}
+                  \clip (-0.3,-0.5) rectangle (2.6,9);
+                  \draw[loko4,thick] plot[domain=-0.1:2.6] (\x,{2.71828*\x});
+                  \draw[loko1,very thick,smooth,samples=120] plot[domain=0.12:2.25] (\x,{exp(\x)*ln(\x)+exp(\x)/\x});
+               \end{scope}
+               \draw[dashed] (0.592,0) node[below] {\scriptsize $\alpha$} -- (0.592,2.106) -- (0,2.106) node[left] {\scriptsize $f(\alpha)$};
+               \fill (1,2.718) circle (1.5pt);
+               \node[loko4] at (2.5,5.8) {$(T)$};
+               \node[loko1] at (0.4,8) {$\Courbe$};
+            \end{tikzpicture}
+            \end{center}
+            ($\Courbe$ est au-dessus de $(T)$ au voisinage du point de contact ; l'axe des ordonn\'ees est asymptote verticale.)
+      \end{enumerate}
+   \item \vln{$h$ est une primitive de $f$ :}
+      $h$ est d\'erivable sur $]0 ; +\infty[$ et $h'(x) = \expo{x}\ln x + \expo{x}\cdot\frac{1}{x} = f(x)$.
+      \par\noindent\ansbox{$h$ est une primitive de $f$ sur $]0 ; +\infty[$.}
+   \item
+      \begin{enumerate}
+         \item \vln{Calcul de $I$ :}
+            $I = h(1) - h(\alpha) = \expo{1}\ln 1 - \expo{\alpha}\ln\alpha = -\expo{\alpha}\ln\alpha$.
+            Or $g(\alpha) = 0$ donne $\ln\alpha = -\frac{2}{\alpha} + \frac{1}{\alpha^2}$. Donc
+            \par\noindent\ansbox{$I = \expo{\alpha}\left(\frac{2}{\alpha} - \frac{1}{\alpha^2}\right)$} ($\simeq 0{,}95$).
+         \item \vln{Interpr\'etation :}
+            Sur $[\alpha ; 1]$, $f(x) \geq f(\alpha) > 0$ : $I$ est l'aire, en unit\'es d'aire, du domaine limit\'e par $\Courbe$,
+            l'axe des abscisses et les droites $x = \alpha$, $x = 1$. L'unit\'e d'aire valant $2\cm \times 2\cm = 4\cm^2$,
+            \par\noindent\ansbox{cette aire vaut $4I = 4\expo{\alpha}\left(\frac{2}{\alpha} - \frac{1}{\alpha^2}\right)\cm^2 \simeq 3{,}8\cm^2$.}
+      \end{enumerate}
+\end{enumerate}

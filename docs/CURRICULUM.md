@@ -29,6 +29,25 @@ figures, pseudo-code and exercise sections dropped); each deck ends with the cha
 their web lesson from these decks, and the 29 lecture PDFs are built like the others. When the books change upstream, copy the
 changed chapter files again and run `make site`. Not yet done: generators for T10 and T11 S in the exercise bank.
 
+### T12 séries C et D (16 November 2026)
+
+The book is one source, `content/tex/mada/t12/` (`chapitres.json` lists the chapters, the order of each course and the Bac files), and two
+courses, `t12c` (12 chapters) and `t12d` (9 chapters), curriculum `mg`, French; the shared chapters appear in both. `python3
+scripts/build-mada.py --t12` (also the `t12` job of `make site`) compiles both editions with pdfLaTeX through `build/mxbuild/t12.py`,
+cuts them by bookmark into `dist/resources/t12c-NN/` and `t12d-NN/` (`chapter.pdf`; `teacher.pdf` only for a chapter whose teacher edition
+prints answers), then the supplements `t12{c,d}-problems`, `-annexes`, one `-bac-YYYY` per year of its series (statement; with the checked
+solution as teacher file for C 2003, 2004, 2005 partial) and `-practice-YYYY` papers if the book has any; it checks every page of every PDF
+(no banned name, empty author, running footer "Terminales C et D" except on a chapter opening page) and writes the manifest records and
+the sources `t12-student`, `t12-teacher`. A rerun is needed after any change of `content/tex/mada/t12/` (`make site` does it), and
+`tests/test_t12_pdfs.py` fails when a published PDF no longer matches `chapitres.json`.
+
+Build-only stand-ins (the source is never changed; used only when `pplr8t.tfm` is not installed): `mathpazo` becomes `amsmath` +
+`newpxtext` + `newpxmath` (amssymb and amsfonts declared as loaded, `\openbox` freed because amsthm follows, `\mathbold` as
+`\boldsymbol`), `mathrsfs` makes `\mathscr` equal to `\mathcal`, `wasysym` is empty (no symbol of it is used), `helvet` becomes Latin
+Modern Sans. The dates are fixed (`SOURCE_DATE_EPOCH` = last commit of the folder), so the same source gives the same bytes. The
+bookmarks give the chapter ranges, so a chapter must start on its own page (it does: `\chapter`). Not yet done: slide decks and chapter
+lessons for T12 (steps 5 and 6 of the audit), the exercise bank.
+
 Use the [official annual-distribution index](https://www.education.gov.mg/repartition-annuelle-du-programme-detudes/), which separates T10 and T11/T12 S, OSE and L. Its linked editions reviewed here are **2024–2025**. No official 2026–2027 replacement or declaration of continuing applicability was verified. The older [lycée page](https://www.education.gov.mg/systeme-educatif/lycee/) foregrounds A/C/D resources and is not evidence that those streams match S/OSE/L.
 
 | Reference | Sections checked (printed PDF pages) | Selected lab relationship |

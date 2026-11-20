@@ -144,6 +144,24 @@
         ],
         "curriculum": "mg",
         "contentLanguage": "fr"
+      },
+      {
+        "id": "t12c",
+        "title": [
+          "T12 série C",
+          "T12 C · Malagasy curriculum"
+        ],
+        "curriculum": "mg",
+        "contentLanguage": "fr"
+      },
+      {
+        "id": "t12d",
+        "title": [
+          "T12 série D",
+          "T12 D · Malagasy curriculum"
+        ],
+        "curriculum": "mg",
+        "contentLanguage": "fr"
       }
     ],
     "chapters": [
@@ -2367,6 +2385,269 @@
         "topic": "random",
         "labs": [
           "probability/run"
+        ]
+      },
+      {
+        "id": "t12c-01",
+        "course": "t12c",
+        "number": 1,
+        "title": [
+          "Arithmétique",
+          "Arithmetic"
+        ],
+        "topic": "arithmetic",
+        "labs": [
+          "euler-primes/hunt"
+        ]
+      },
+      {
+        "id": "t12c-02",
+        "course": "t12c",
+        "number": 2,
+        "title": [
+          "Probabilités",
+          "Probability"
+        ],
+        "topic": "binomial",
+        "labs": [
+          "probability/run"
+        ]
+      },
+      {
+        "id": "t12c-03",
+        "course": "t12c",
+        "number": 3,
+        "title": [
+          "Systèmes d’équations linéaires dans R³",
+          "Linear systems in R³"
+        ],
+        "topic": "algebra",
+        "labs": [
+          "line/direction"
+        ]
+      },
+      {
+        "id": "t12c-04",
+        "course": "t12c",
+        "number": 4,
+        "title": [
+          "Nombres complexes",
+          "Complex numbers"
+        ],
+        "topic": "complex-algebra",
+        "labs": [
+          "complex/scale"
+        ]
+      },
+      {
+        "id": "t12c-05",
+        "course": "t12c",
+        "number": 5,
+        "title": [
+          "Barycentres",
+          "Barycentres"
+        ],
+        "topic": "vectors",
+        "labs": []
+      },
+      {
+        "id": "t12c-06",
+        "course": "t12c",
+        "number": 6,
+        "title": [
+          "Applications affines et isométries",
+          "Affine maps and isometries"
+        ],
+        "topic": "geometry",
+        "labs": []
+      },
+      {
+        "id": "t12c-07",
+        "course": "t12c",
+        "number": 7,
+        "title": [
+          "Similitudes planes",
+          "Plane similarities"
+        ],
+        "topic": "complex-plane",
+        "labs": [
+          "complex/angles"
+        ]
+      },
+      {
+        "id": "t12c-08",
+        "course": "t12c",
+        "number": 8,
+        "title": [
+          "Suites numériques",
+          "Sequences"
+        ],
+        "topic": "sequences",
+        "labs": [
+          "sequences/formula"
+        ]
+      },
+      {
+        "id": "t12c-09",
+        "course": "t12c",
+        "number": 9,
+        "title": [
+          "Limites, continuité et dérivation",
+          "Functions"
+        ],
+        "topic": "functions",
+        "labs": [
+          "derivative/where"
+        ]
+      },
+      {
+        "id": "t12c-10",
+        "course": "t12c",
+        "number": 10,
+        "title": [
+          "Fonctions exponentielle et logarithme",
+          "Exponential and logarithm"
+        ],
+        "topic": "exponential",
+        "labs": []
+      },
+      {
+        "id": "t12c-11",
+        "course": "t12c",
+        "number": 11,
+        "title": [
+          "Primitives et intégrales",
+          "Primitives and integrals"
+        ],
+        "topic": "integral",
+        "labs": [
+          "integral/bound"
+        ]
+      },
+      {
+        "id": "t12c-12",
+        "course": "t12c",
+        "number": 12,
+        "title": [
+          "Équations différentielles",
+          "Differential equations"
+        ],
+        "topic": "differential",
+        "labs": []
+      },
+      {
+        "id": "t12d-01",
+        "course": "t12d",
+        "number": 1,
+        "title": [
+          "Probabilités",
+          "Probability"
+        ],
+        "topic": "binomial",
+        "labs": [
+          "probability/run"
+        ]
+      },
+      {
+        "id": "t12d-02",
+        "course": "t12d",
+        "number": 2,
+        "title": [
+          "Systèmes d’équations linéaires dans R³",
+          "Linear systems in R³"
+        ],
+        "topic": "algebra",
+        "labs": [
+          "line/direction"
+        ]
+      },
+      {
+        "id": "t12d-03",
+        "course": "t12d",
+        "number": 3,
+        "title": [
+          "Nombres complexes",
+          "Complex numbers"
+        ],
+        "topic": "complex-algebra",
+        "labs": [
+          "complex/scale"
+        ]
+      },
+      {
+        "id": "t12d-04",
+        "course": "t12d",
+        "number": 4,
+        "title": [
+          "Similitudes planes",
+          "Plane similarities"
+        ],
+        "topic": "complex-plane",
+        "labs": [
+          "complex/angles"
+        ]
+      },
+      {
+        "id": "t12d-05",
+        "course": "t12d",
+        "number": 5,
+        "title": [
+          "Suites numériques",
+          "Sequences"
+        ],
+        "topic": "sequences",
+        "labs": [
+          "sequences/formula"
+        ]
+      },
+      {
+        "id": "t12d-06",
+        "course": "t12d",
+        "number": 6,
+        "title": [
+          "Limites, continuité et dérivation",
+          "Functions"
+        ],
+        "topic": "functions",
+        "labs": [
+          "derivative/where"
+        ]
+      },
+      {
+        "id": "t12d-07",
+        "course": "t12d",
+        "number": 7,
+        "title": [
+          "Fonctions exponentielle et logarithme",
+          "Exponential and logarithm"
+        ],
+        "topic": "exponential",
+        "labs": []
+      },
+      {
+        "id": "t12d-08",
+        "course": "t12d",
+        "number": 8,
+        "title": [
+          "Statistiques",
+          "Statistics"
+        ],
+        "topic": "statistics",
+        "labs": [
+          "statistics/mean"
+        ]
+      },
+      {
+        "id": "t12d-09",
+        "course": "t12d",
+        "number": 9,
+        "title": [
+          "Primitives et intégrales",
+          "Primitives and integrals"
+        ],
+        "topic": "integral",
+        "labs": [
+          "integral/bound"
         ]
       }
     ],
@@ -8727,7 +9008,7 @@
         "source": "expertes-teacher",
         "sourcePages": [
           25,
-          32
+          33
         ],
         "review": "source-unverified"
       },
@@ -8888,8 +9169,8 @@
         },
         "source": "expertes-teacher",
         "sourcePages": [
-          29,
-          32
+          30,
+          33
         ],
         "review": "source-unverified"
       },
@@ -8942,8 +9223,8 @@
         },
         "source": "expertes-teacher",
         "sourcePages": [
-          33,
-          39
+          34,
+          40
         ],
         "review": "source-unverified"
       },
@@ -9104,8 +9385,8 @@
         },
         "source": "expertes-teacher",
         "sourcePages": [
-          37,
-          39
+          38,
+          40
         ],
         "review": "source-unverified"
       },
@@ -9158,8 +9439,8 @@
         },
         "source": "expertes-teacher",
         "sourcePages": [
-          40,
-          46
+          41,
+          47
         ],
         "review": "source-unverified"
       },
@@ -9320,8 +9601,8 @@
         },
         "source": "expertes-teacher",
         "sourcePages": [
-          44,
-          46
+          45,
+          47
         ],
         "review": "source-unverified"
       },
@@ -9374,8 +9655,8 @@
         },
         "source": "expertes-teacher",
         "sourcePages": [
-          47,
-          53
+          48,
+          54
         ],
         "review": "source-unverified"
       },
@@ -9536,8 +9817,8 @@
         },
         "source": "expertes-teacher",
         "sourcePages": [
-          51,
-          53
+          52,
+          54
         ],
         "review": "source-unverified"
       },
@@ -9590,8 +9871,8 @@
         },
         "source": "expertes-teacher",
         "sourcePages": [
-          54,
-          60
+          55,
+          61
         ],
         "review": "source-unverified"
       },
@@ -9752,8 +10033,8 @@
         },
         "source": "expertes-teacher",
         "sourcePages": [
-          58,
-          60
+          59,
+          61
         ],
         "review": "source-unverified"
       },
@@ -9806,8 +10087,8 @@
         },
         "source": "expertes-teacher",
         "sourcePages": [
-          61,
-          68
+          62,
+          70
         ],
         "review": "source-unverified"
       },
@@ -9968,8 +10249,8 @@
         },
         "source": "expertes-teacher",
         "sourcePages": [
-          66,
-          68
+          67,
+          70
         ],
         "review": "source-unverified"
       },
@@ -9996,7 +10277,7 @@
         "source": "expertes-student",
         "sourcePages": [
           58,
-          63
+          64
         ],
         "review": "source-unverified"
       },
@@ -10022,8 +10303,8 @@
         },
         "source": "expertes-teacher",
         "sourcePages": [
-          69,
-          76
+          71,
+          80
         ],
         "review": "source-unverified"
       },
@@ -10104,7 +10385,7 @@
         "source": "expertes-student",
         "sourcePages": [
           60,
-          61
+          62
         ],
         "review": "source-unverified"
       },
@@ -10130,8 +10411,8 @@
         },
         "source": "expertes-student",
         "sourcePages": [
-          62,
-          62
+          63,
+          63
         ],
         "review": "source-unverified"
       },
@@ -10157,8 +10438,8 @@
         },
         "source": "expertes-student",
         "sourcePages": [
-          63,
-          63
+          64,
+          64
         ],
         "review": "source-unverified"
       },
@@ -10184,8 +10465,8 @@
         },
         "source": "expertes-teacher",
         "sourcePages": [
-          73,
-          76
+          76,
+          80
         ],
         "review": "source-unverified"
       },
@@ -10211,8 +10492,8 @@
         },
         "source": "expertes-student",
         "sourcePages": [
-          64,
-          70
+          65,
+          71
         ],
         "review": "source-unverified"
       },
@@ -10238,8 +10519,8 @@
         },
         "source": "expertes-teacher",
         "sourcePages": [
-          77,
-          84
+          81,
+          88
         ],
         "review": "source-unverified"
       },
@@ -10265,8 +10546,8 @@
         },
         "source": "expertes-student",
         "sourcePages": [
-          64,
-          64
+          65,
+          65
         ],
         "review": "source-unverified"
       },
@@ -10292,8 +10573,8 @@
         },
         "source": "expertes-student",
         "sourcePages": [
-          65,
-          65
+          66,
+          66
         ],
         "review": "source-unverified"
       },
@@ -10319,8 +10600,8 @@
         },
         "source": "expertes-student",
         "sourcePages": [
-          66,
-          67
+          67,
+          68
         ],
         "review": "source-unverified"
       },
@@ -10346,8 +10627,8 @@
         },
         "source": "expertes-student",
         "sourcePages": [
-          68,
-          69
+          69,
+          70
         ],
         "review": "source-unverified"
       },
@@ -10373,8 +10654,8 @@
         },
         "source": "expertes-student",
         "sourcePages": [
-          70,
-          70
+          71,
+          71
         ],
         "review": "source-unverified"
       },
@@ -10400,8 +10681,8 @@
         },
         "source": "expertes-teacher",
         "sourcePages": [
-          81,
-          84
+          85,
+          88
         ],
         "review": "source-unverified"
       },
@@ -10427,8 +10708,8 @@
         },
         "source": "expertes-student",
         "sourcePages": [
-          71,
-          77
+          72,
+          78
         ],
         "review": "source-unverified"
       },
@@ -10454,8 +10735,8 @@
         },
         "source": "expertes-teacher",
         "sourcePages": [
-          85,
-          93
+          89,
+          98
         ],
         "review": "source-unverified"
       },
@@ -10481,8 +10762,8 @@
         },
         "source": "expertes-student",
         "sourcePages": [
-          71,
-          71
+          72,
+          72
         ],
         "review": "source-unverified"
       },
@@ -10508,8 +10789,8 @@
         },
         "source": "expertes-student",
         "sourcePages": [
-          72,
-          72
+          73,
+          73
         ],
         "review": "source-unverified"
       },
@@ -10535,8 +10816,8 @@
         },
         "source": "expertes-student",
         "sourcePages": [
-          73,
-          74
+          74,
+          75
         ],
         "review": "source-unverified"
       },
@@ -10562,8 +10843,8 @@
         },
         "source": "expertes-student",
         "sourcePages": [
-          75,
-          76
+          76,
+          77
         ],
         "review": "source-unverified"
       },
@@ -10589,8 +10870,8 @@
         },
         "source": "expertes-student",
         "sourcePages": [
-          77,
-          77
+          78,
+          78
         ],
         "review": "source-unverified"
       },
@@ -10616,8 +10897,8 @@
         },
         "source": "expertes-teacher",
         "sourcePages": [
-          89,
-          93
+          94,
+          98
         ],
         "review": "source-unverified"
       },
@@ -19649,8 +19930,8 @@
           "Curriculum coverage matrix · teacher"
         ],
         "sourcePages": [
-          206,
-          212
+          209,
+          215
         ],
         "editions": {
           "fr": {
@@ -19676,8 +19957,8 @@
           "Annual schedule and time slots · teacher"
         ],
         "sourcePages": [
-          213,
-          230
+          216,
+          233
         ],
         "editions": {
           "fr": {
@@ -21173,6 +21454,1014 @@
             "path": "./resources/t11s-20/teacher.pdf"
           }
         }
+      },
+      {
+        "id": "t12c-01-chapter",
+        "chapter": "t12c-01",
+        "course": "t12c",
+        "type": "booklet",
+        "title": [
+          "Chapitre complet · élève",
+          "Complete chapter · student"
+        ],
+        "audience": "student",
+        "format": "PDF",
+        "url": "./resources/t12c-01/chapter.pdf",
+        "source": "t12-student",
+        "sourcePages": [
+          8,
+          27
+        ],
+        "review": "source-unverified",
+        "editions": {
+          "fr": {
+            "path": "./resources/t12c-01/chapter.pdf"
+          }
+        }
+      },
+      {
+        "id": "t12c-01-teacher",
+        "chapter": "t12c-01",
+        "course": "t12c",
+        "type": "solutions",
+        "title": [
+          "Chapitre complet · professeur (cours et corrigés)",
+          "Complete chapter · teacher (notes and solutions)"
+        ],
+        "audience": "teacher",
+        "format": "PDF",
+        "url": "./resources/t12c-01/teacher.pdf",
+        "source": "t12-teacher",
+        "sourcePages": [
+          10,
+          35
+        ],
+        "review": "source-unverified",
+        "editions": {
+          "fr": {
+            "path": "./resources/t12c-01/teacher.pdf"
+          }
+        }
+      },
+      {
+        "id": "t12c-02-chapter",
+        "chapter": "t12c-02",
+        "course": "t12c",
+        "type": "booklet",
+        "title": [
+          "Chapitre complet · élève",
+          "Complete chapter · student"
+        ],
+        "audience": "student",
+        "format": "PDF",
+        "url": "./resources/t12c-02/chapter.pdf",
+        "source": "t12-student",
+        "sourcePages": [
+          28,
+          43
+        ],
+        "review": "source-unverified",
+        "editions": {
+          "fr": {
+            "path": "./resources/t12c-02/chapter.pdf"
+          }
+        }
+      },
+      {
+        "id": "t12c-02-teacher",
+        "chapter": "t12c-02",
+        "course": "t12c",
+        "type": "solutions",
+        "title": [
+          "Chapitre complet · professeur (cours et corrigés)",
+          "Complete chapter · teacher (notes and solutions)"
+        ],
+        "audience": "teacher",
+        "format": "PDF",
+        "url": "./resources/t12c-02/teacher.pdf",
+        "source": "t12-teacher",
+        "sourcePages": [
+          36,
+          57
+        ],
+        "review": "source-unverified",
+        "editions": {
+          "fr": {
+            "path": "./resources/t12c-02/teacher.pdf"
+          }
+        }
+      },
+      {
+        "id": "t12c-03-chapter",
+        "chapter": "t12c-03",
+        "course": "t12c",
+        "type": "booklet",
+        "title": [
+          "Chapitre complet · élève",
+          "Complete chapter · student"
+        ],
+        "audience": "student",
+        "format": "PDF",
+        "url": "./resources/t12c-03/chapter.pdf",
+        "source": "t12-student",
+        "sourcePages": [
+          46,
+          51
+        ],
+        "review": "source-unverified",
+        "editions": {
+          "fr": {
+            "path": "./resources/t12c-03/chapter.pdf"
+          }
+        }
+      },
+      {
+        "id": "t12c-03-teacher",
+        "chapter": "t12c-03",
+        "course": "t12c",
+        "type": "solutions",
+        "title": [
+          "Chapitre complet · professeur (cours et corrigés)",
+          "Complete chapter · teacher (notes and solutions)"
+        ],
+        "audience": "teacher",
+        "format": "PDF",
+        "url": "./resources/t12c-03/teacher.pdf",
+        "source": "t12-teacher",
+        "sourcePages": [
+          60,
+          66
+        ],
+        "review": "source-unverified",
+        "editions": {
+          "fr": {
+            "path": "./resources/t12c-03/teacher.pdf"
+          }
+        }
+      },
+      {
+        "id": "t12c-04-chapter",
+        "chapter": "t12c-04",
+        "course": "t12c",
+        "type": "booklet",
+        "title": [
+          "Chapitre complet · élève",
+          "Complete chapter · student"
+        ],
+        "audience": "student",
+        "format": "PDF",
+        "url": "./resources/t12c-04/chapter.pdf",
+        "source": "t12-student",
+        "sourcePages": [
+          52,
+          75
+        ],
+        "review": "source-unverified",
+        "editions": {
+          "fr": {
+            "path": "./resources/t12c-04/chapter.pdf"
+          }
+        }
+      },
+      {
+        "id": "t12c-04-teacher",
+        "chapter": "t12c-04",
+        "course": "t12c",
+        "type": "solutions",
+        "title": [
+          "Chapitre complet · professeur (cours et corrigés)",
+          "Complete chapter · teacher (notes and solutions)"
+        ],
+        "audience": "teacher",
+        "format": "PDF",
+        "url": "./resources/t12c-04/teacher.pdf",
+        "source": "t12-teacher",
+        "sourcePages": [
+          67,
+          105
+        ],
+        "review": "source-unverified",
+        "editions": {
+          "fr": {
+            "path": "./resources/t12c-04/teacher.pdf"
+          }
+        }
+      },
+      {
+        "id": "t12c-05-chapter",
+        "chapter": "t12c-05",
+        "course": "t12c",
+        "type": "booklet",
+        "title": [
+          "Chapitre complet · élève",
+          "Complete chapter · student"
+        ],
+        "audience": "student",
+        "format": "PDF",
+        "url": "./resources/t12c-05/chapter.pdf",
+        "source": "t12-student",
+        "sourcePages": [
+          76,
+          85
+        ],
+        "review": "source-unverified",
+        "editions": {
+          "fr": {
+            "path": "./resources/t12c-05/chapter.pdf"
+          }
+        }
+      },
+      {
+        "id": "t12c-05-teacher",
+        "chapter": "t12c-05",
+        "course": "t12c",
+        "type": "solutions",
+        "title": [
+          "Chapitre complet · professeur (cours et corrigés)",
+          "Complete chapter · teacher (notes and solutions)"
+        ],
+        "audience": "teacher",
+        "format": "PDF",
+        "url": "./resources/t12c-05/teacher.pdf",
+        "source": "t12-teacher",
+        "sourcePages": [
+          106,
+          117
+        ],
+        "review": "source-unverified",
+        "editions": {
+          "fr": {
+            "path": "./resources/t12c-05/teacher.pdf"
+          }
+        }
+      },
+      {
+        "id": "t12c-06-chapter",
+        "chapter": "t12c-06",
+        "course": "t12c",
+        "type": "booklet",
+        "title": [
+          "Chapitre complet · élève",
+          "Complete chapter · student"
+        ],
+        "audience": "student",
+        "format": "PDF",
+        "url": "./resources/t12c-06/chapter.pdf",
+        "source": "t12-student",
+        "sourcePages": [
+          86,
+          97
+        ],
+        "review": "source-unverified",
+        "editions": {
+          "fr": {
+            "path": "./resources/t12c-06/chapter.pdf"
+          }
+        }
+      },
+      {
+        "id": "t12c-06-teacher",
+        "chapter": "t12c-06",
+        "course": "t12c",
+        "type": "solutions",
+        "title": [
+          "Chapitre complet · professeur (cours et corrigés)",
+          "Complete chapter · teacher (notes and solutions)"
+        ],
+        "audience": "teacher",
+        "format": "PDF",
+        "url": "./resources/t12c-06/teacher.pdf",
+        "source": "t12-teacher",
+        "sourcePages": [
+          118,
+          133
+        ],
+        "review": "source-unverified",
+        "editions": {
+          "fr": {
+            "path": "./resources/t12c-06/teacher.pdf"
+          }
+        }
+      },
+      {
+        "id": "t12c-07-chapter",
+        "chapter": "t12c-07",
+        "course": "t12c",
+        "type": "booklet",
+        "title": [
+          "Chapitre complet · élève",
+          "Complete chapter · student"
+        ],
+        "audience": "student",
+        "format": "PDF",
+        "url": "./resources/t12c-07/chapter.pdf",
+        "source": "t12-student",
+        "sourcePages": [
+          98,
+          104
+        ],
+        "review": "source-unverified",
+        "editions": {
+          "fr": {
+            "path": "./resources/t12c-07/chapter.pdf"
+          }
+        }
+      },
+      {
+        "id": "t12c-07-teacher",
+        "chapter": "t12c-07",
+        "course": "t12c",
+        "type": "solutions",
+        "title": [
+          "Chapitre complet · professeur (cours et corrigés)",
+          "Complete chapter · teacher (notes and solutions)"
+        ],
+        "audience": "teacher",
+        "format": "PDF",
+        "url": "./resources/t12c-07/teacher.pdf",
+        "source": "t12-teacher",
+        "sourcePages": [
+          134,
+          145
+        ],
+        "review": "source-unverified",
+        "editions": {
+          "fr": {
+            "path": "./resources/t12c-07/teacher.pdf"
+          }
+        }
+      },
+      {
+        "id": "t12c-08-chapter",
+        "chapter": "t12c-08",
+        "course": "t12c",
+        "type": "booklet",
+        "title": [
+          "Chapitre complet · élève",
+          "Complete chapter · student"
+        ],
+        "audience": "student",
+        "format": "PDF",
+        "url": "./resources/t12c-08/chapter.pdf",
+        "source": "t12-student",
+        "sourcePages": [
+          107,
+          117
+        ],
+        "review": "source-unverified",
+        "editions": {
+          "fr": {
+            "path": "./resources/t12c-08/chapter.pdf"
+          }
+        }
+      },
+      {
+        "id": "t12c-08-teacher",
+        "chapter": "t12c-08",
+        "course": "t12c",
+        "type": "solutions",
+        "title": [
+          "Chapitre complet · professeur (cours et corrigés)",
+          "Complete chapter · teacher (notes and solutions)"
+        ],
+        "audience": "teacher",
+        "format": "PDF",
+        "url": "./resources/t12c-08/teacher.pdf",
+        "source": "t12-teacher",
+        "sourcePages": [
+          148,
+          160
+        ],
+        "review": "source-unverified",
+        "editions": {
+          "fr": {
+            "path": "./resources/t12c-08/teacher.pdf"
+          }
+        }
+      },
+      {
+        "id": "t12c-09-chapter",
+        "chapter": "t12c-09",
+        "course": "t12c",
+        "type": "booklet",
+        "title": [
+          "Chapitre complet · élève",
+          "Complete chapter · student"
+        ],
+        "audience": "student",
+        "format": "PDF",
+        "url": "./resources/t12c-09/chapter.pdf",
+        "source": "t12-student",
+        "sourcePages": [
+          118,
+          131
+        ],
+        "review": "source-unverified",
+        "editions": {
+          "fr": {
+            "path": "./resources/t12c-09/chapter.pdf"
+          }
+        }
+      },
+      {
+        "id": "t12c-09-teacher",
+        "chapter": "t12c-09",
+        "course": "t12c",
+        "type": "solutions",
+        "title": [
+          "Chapitre complet · professeur (cours et corrigés)",
+          "Complete chapter · teacher (notes and solutions)"
+        ],
+        "audience": "teacher",
+        "format": "PDF",
+        "url": "./resources/t12c-09/teacher.pdf",
+        "source": "t12-teacher",
+        "sourcePages": [
+          161,
+          180
+        ],
+        "review": "source-unverified",
+        "editions": {
+          "fr": {
+            "path": "./resources/t12c-09/teacher.pdf"
+          }
+        }
+      },
+      {
+        "id": "t12c-10-chapter",
+        "chapter": "t12c-10",
+        "course": "t12c",
+        "type": "booklet",
+        "title": [
+          "Chapitre complet · élève",
+          "Complete chapter · student"
+        ],
+        "audience": "student",
+        "format": "PDF",
+        "url": "./resources/t12c-10/chapter.pdf",
+        "source": "t12-student",
+        "sourcePages": [
+          132,
+          142
+        ],
+        "review": "source-unverified",
+        "editions": {
+          "fr": {
+            "path": "./resources/t12c-10/chapter.pdf"
+          }
+        }
+      },
+      {
+        "id": "t12c-10-teacher",
+        "chapter": "t12c-10",
+        "course": "t12c",
+        "type": "solutions",
+        "title": [
+          "Chapitre complet · professeur (cours et corrigés)",
+          "Complete chapter · teacher (notes and solutions)"
+        ],
+        "audience": "teacher",
+        "format": "PDF",
+        "url": "./resources/t12c-10/teacher.pdf",
+        "source": "t12-teacher",
+        "sourcePages": [
+          181,
+          199
+        ],
+        "review": "source-unverified",
+        "editions": {
+          "fr": {
+            "path": "./resources/t12c-10/teacher.pdf"
+          }
+        }
+      },
+      {
+        "id": "t12c-11-chapter",
+        "chapter": "t12c-11",
+        "course": "t12c",
+        "type": "booklet",
+        "title": [
+          "Chapitre complet · élève",
+          "Complete chapter · student"
+        ],
+        "audience": "student",
+        "format": "PDF",
+        "url": "./resources/t12c-11/chapter.pdf",
+        "source": "t12-student",
+        "sourcePages": [
+          156,
+          165
+        ],
+        "review": "source-unverified",
+        "editions": {
+          "fr": {
+            "path": "./resources/t12c-11/chapter.pdf"
+          }
+        }
+      },
+      {
+        "id": "t12c-11-teacher",
+        "chapter": "t12c-11",
+        "course": "t12c",
+        "type": "solutions",
+        "title": [
+          "Chapitre complet · professeur (cours et corrigés)",
+          "Complete chapter · teacher (notes and solutions)"
+        ],
+        "audience": "teacher",
+        "format": "PDF",
+        "url": "./resources/t12c-11/teacher.pdf",
+        "source": "t12-teacher",
+        "sourcePages": [
+          216,
+          228
+        ],
+        "review": "source-unverified",
+        "editions": {
+          "fr": {
+            "path": "./resources/t12c-11/teacher.pdf"
+          }
+        }
+      },
+      {
+        "id": "t12c-12-chapter",
+        "chapter": "t12c-12",
+        "course": "t12c",
+        "type": "booklet",
+        "title": [
+          "Chapitre complet · élève",
+          "Complete chapter · student"
+        ],
+        "audience": "student",
+        "format": "PDF",
+        "url": "./resources/t12c-12/chapter.pdf",
+        "source": "t12-student",
+        "sourcePages": [
+          166,
+          171
+        ],
+        "review": "source-unverified",
+        "editions": {
+          "fr": {
+            "path": "./resources/t12c-12/chapter.pdf"
+          }
+        }
+      },
+      {
+        "id": "t12c-12-teacher",
+        "chapter": "t12c-12",
+        "course": "t12c",
+        "type": "solutions",
+        "title": [
+          "Chapitre complet · professeur (cours et corrigés)",
+          "Complete chapter · teacher (notes and solutions)"
+        ],
+        "audience": "teacher",
+        "format": "PDF",
+        "url": "./resources/t12c-12/teacher.pdf",
+        "source": "t12-teacher",
+        "sourcePages": [
+          229,
+          236
+        ],
+        "review": "source-unverified",
+        "editions": {
+          "fr": {
+            "path": "./resources/t12c-12/teacher.pdf"
+          }
+        }
+      },
+      {
+        "id": "t12d-01-chapter",
+        "chapter": "t12d-01",
+        "course": "t12d",
+        "type": "booklet",
+        "title": [
+          "Chapitre complet · élève",
+          "Complete chapter · student"
+        ],
+        "audience": "student",
+        "format": "PDF",
+        "url": "./resources/t12d-01/chapter.pdf",
+        "source": "t12-student",
+        "sourcePages": [
+          28,
+          43
+        ],
+        "review": "source-unverified",
+        "editions": {
+          "fr": {
+            "path": "./resources/t12d-01/chapter.pdf"
+          }
+        }
+      },
+      {
+        "id": "t12d-01-teacher",
+        "chapter": "t12d-01",
+        "course": "t12d",
+        "type": "solutions",
+        "title": [
+          "Chapitre complet · professeur (cours et corrigés)",
+          "Complete chapter · teacher (notes and solutions)"
+        ],
+        "audience": "teacher",
+        "format": "PDF",
+        "url": "./resources/t12d-01/teacher.pdf",
+        "source": "t12-teacher",
+        "sourcePages": [
+          36,
+          57
+        ],
+        "review": "source-unverified",
+        "editions": {
+          "fr": {
+            "path": "./resources/t12d-01/teacher.pdf"
+          }
+        }
+      },
+      {
+        "id": "t12d-02-chapter",
+        "chapter": "t12d-02",
+        "course": "t12d",
+        "type": "booklet",
+        "title": [
+          "Chapitre complet · élève",
+          "Complete chapter · student"
+        ],
+        "audience": "student",
+        "format": "PDF",
+        "url": "./resources/t12d-02/chapter.pdf",
+        "source": "t12-student",
+        "sourcePages": [
+          46,
+          51
+        ],
+        "review": "source-unverified",
+        "editions": {
+          "fr": {
+            "path": "./resources/t12d-02/chapter.pdf"
+          }
+        }
+      },
+      {
+        "id": "t12d-02-teacher",
+        "chapter": "t12d-02",
+        "course": "t12d",
+        "type": "solutions",
+        "title": [
+          "Chapitre complet · professeur (cours et corrigés)",
+          "Complete chapter · teacher (notes and solutions)"
+        ],
+        "audience": "teacher",
+        "format": "PDF",
+        "url": "./resources/t12d-02/teacher.pdf",
+        "source": "t12-teacher",
+        "sourcePages": [
+          60,
+          66
+        ],
+        "review": "source-unverified",
+        "editions": {
+          "fr": {
+            "path": "./resources/t12d-02/teacher.pdf"
+          }
+        }
+      },
+      {
+        "id": "t12d-03-chapter",
+        "chapter": "t12d-03",
+        "course": "t12d",
+        "type": "booklet",
+        "title": [
+          "Chapitre complet · élève",
+          "Complete chapter · student"
+        ],
+        "audience": "student",
+        "format": "PDF",
+        "url": "./resources/t12d-03/chapter.pdf",
+        "source": "t12-student",
+        "sourcePages": [
+          52,
+          75
+        ],
+        "review": "source-unverified",
+        "editions": {
+          "fr": {
+            "path": "./resources/t12d-03/chapter.pdf"
+          }
+        }
+      },
+      {
+        "id": "t12d-03-teacher",
+        "chapter": "t12d-03",
+        "course": "t12d",
+        "type": "solutions",
+        "title": [
+          "Chapitre complet · professeur (cours et corrigés)",
+          "Complete chapter · teacher (notes and solutions)"
+        ],
+        "audience": "teacher",
+        "format": "PDF",
+        "url": "./resources/t12d-03/teacher.pdf",
+        "source": "t12-teacher",
+        "sourcePages": [
+          67,
+          105
+        ],
+        "review": "source-unverified",
+        "editions": {
+          "fr": {
+            "path": "./resources/t12d-03/teacher.pdf"
+          }
+        }
+      },
+      {
+        "id": "t12d-04-chapter",
+        "chapter": "t12d-04",
+        "course": "t12d",
+        "type": "booklet",
+        "title": [
+          "Chapitre complet · élève",
+          "Complete chapter · student"
+        ],
+        "audience": "student",
+        "format": "PDF",
+        "url": "./resources/t12d-04/chapter.pdf",
+        "source": "t12-student",
+        "sourcePages": [
+          98,
+          104
+        ],
+        "review": "source-unverified",
+        "editions": {
+          "fr": {
+            "path": "./resources/t12d-04/chapter.pdf"
+          }
+        }
+      },
+      {
+        "id": "t12d-04-teacher",
+        "chapter": "t12d-04",
+        "course": "t12d",
+        "type": "solutions",
+        "title": [
+          "Chapitre complet · professeur (cours et corrigés)",
+          "Complete chapter · teacher (notes and solutions)"
+        ],
+        "audience": "teacher",
+        "format": "PDF",
+        "url": "./resources/t12d-04/teacher.pdf",
+        "source": "t12-teacher",
+        "sourcePages": [
+          134,
+          145
+        ],
+        "review": "source-unverified",
+        "editions": {
+          "fr": {
+            "path": "./resources/t12d-04/teacher.pdf"
+          }
+        }
+      },
+      {
+        "id": "t12d-05-chapter",
+        "chapter": "t12d-05",
+        "course": "t12d",
+        "type": "booklet",
+        "title": [
+          "Chapitre complet · élève",
+          "Complete chapter · student"
+        ],
+        "audience": "student",
+        "format": "PDF",
+        "url": "./resources/t12d-05/chapter.pdf",
+        "source": "t12-student",
+        "sourcePages": [
+          107,
+          117
+        ],
+        "review": "source-unverified",
+        "editions": {
+          "fr": {
+            "path": "./resources/t12d-05/chapter.pdf"
+          }
+        }
+      },
+      {
+        "id": "t12d-05-teacher",
+        "chapter": "t12d-05",
+        "course": "t12d",
+        "type": "solutions",
+        "title": [
+          "Chapitre complet · professeur (cours et corrigés)",
+          "Complete chapter · teacher (notes and solutions)"
+        ],
+        "audience": "teacher",
+        "format": "PDF",
+        "url": "./resources/t12d-05/teacher.pdf",
+        "source": "t12-teacher",
+        "sourcePages": [
+          148,
+          160
+        ],
+        "review": "source-unverified",
+        "editions": {
+          "fr": {
+            "path": "./resources/t12d-05/teacher.pdf"
+          }
+        }
+      },
+      {
+        "id": "t12d-06-chapter",
+        "chapter": "t12d-06",
+        "course": "t12d",
+        "type": "booklet",
+        "title": [
+          "Chapitre complet · élève",
+          "Complete chapter · student"
+        ],
+        "audience": "student",
+        "format": "PDF",
+        "url": "./resources/t12d-06/chapter.pdf",
+        "source": "t12-student",
+        "sourcePages": [
+          118,
+          131
+        ],
+        "review": "source-unverified",
+        "editions": {
+          "fr": {
+            "path": "./resources/t12d-06/chapter.pdf"
+          }
+        }
+      },
+      {
+        "id": "t12d-06-teacher",
+        "chapter": "t12d-06",
+        "course": "t12d",
+        "type": "solutions",
+        "title": [
+          "Chapitre complet · professeur (cours et corrigés)",
+          "Complete chapter · teacher (notes and solutions)"
+        ],
+        "audience": "teacher",
+        "format": "PDF",
+        "url": "./resources/t12d-06/teacher.pdf",
+        "source": "t12-teacher",
+        "sourcePages": [
+          161,
+          180
+        ],
+        "review": "source-unverified",
+        "editions": {
+          "fr": {
+            "path": "./resources/t12d-06/teacher.pdf"
+          }
+        }
+      },
+      {
+        "id": "t12d-07-chapter",
+        "chapter": "t12d-07",
+        "course": "t12d",
+        "type": "booklet",
+        "title": [
+          "Chapitre complet · élève",
+          "Complete chapter · student"
+        ],
+        "audience": "student",
+        "format": "PDF",
+        "url": "./resources/t12d-07/chapter.pdf",
+        "source": "t12-student",
+        "sourcePages": [
+          132,
+          142
+        ],
+        "review": "source-unverified",
+        "editions": {
+          "fr": {
+            "path": "./resources/t12d-07/chapter.pdf"
+          }
+        }
+      },
+      {
+        "id": "t12d-07-teacher",
+        "chapter": "t12d-07",
+        "course": "t12d",
+        "type": "solutions",
+        "title": [
+          "Chapitre complet · professeur (cours et corrigés)",
+          "Complete chapter · teacher (notes and solutions)"
+        ],
+        "audience": "teacher",
+        "format": "PDF",
+        "url": "./resources/t12d-07/teacher.pdf",
+        "source": "t12-teacher",
+        "sourcePages": [
+          181,
+          199
+        ],
+        "review": "source-unverified",
+        "editions": {
+          "fr": {
+            "path": "./resources/t12d-07/teacher.pdf"
+          }
+        }
+      },
+      {
+        "id": "t12d-08-chapter",
+        "chapter": "t12d-08",
+        "course": "t12d",
+        "type": "booklet",
+        "title": [
+          "Chapitre complet · élève",
+          "Complete chapter · student"
+        ],
+        "audience": "student",
+        "format": "PDF",
+        "url": "./resources/t12d-08/chapter.pdf",
+        "source": "t12-student",
+        "sourcePages": [
+          143,
+          155
+        ],
+        "review": "source-unverified",
+        "editions": {
+          "fr": {
+            "path": "./resources/t12d-08/chapter.pdf"
+          }
+        }
+      },
+      {
+        "id": "t12d-08-teacher",
+        "chapter": "t12d-08",
+        "course": "t12d",
+        "type": "solutions",
+        "title": [
+          "Chapitre complet · professeur (cours et corrigés)",
+          "Complete chapter · teacher (notes and solutions)"
+        ],
+        "audience": "teacher",
+        "format": "PDF",
+        "url": "./resources/t12d-08/teacher.pdf",
+        "source": "t12-teacher",
+        "sourcePages": [
+          200,
+          215
+        ],
+        "review": "source-unverified",
+        "editions": {
+          "fr": {
+            "path": "./resources/t12d-08/teacher.pdf"
+          }
+        }
+      },
+      {
+        "id": "t12d-09-chapter",
+        "chapter": "t12d-09",
+        "course": "t12d",
+        "type": "booklet",
+        "title": [
+          "Chapitre complet · élève",
+          "Complete chapter · student"
+        ],
+        "audience": "student",
+        "format": "PDF",
+        "url": "./resources/t12d-09/chapter.pdf",
+        "source": "t12-student",
+        "sourcePages": [
+          156,
+          165
+        ],
+        "review": "source-unverified",
+        "editions": {
+          "fr": {
+            "path": "./resources/t12d-09/chapter.pdf"
+          }
+        }
+      },
+      {
+        "id": "t12d-09-teacher",
+        "chapter": "t12d-09",
+        "course": "t12d",
+        "type": "solutions",
+        "title": [
+          "Chapitre complet · professeur (cours et corrigés)",
+          "Complete chapter · teacher (notes and solutions)"
+        ],
+        "audience": "teacher",
+        "format": "PDF",
+        "url": "./resources/t12d-09/teacher.pdf",
+        "source": "t12-teacher",
+        "sourcePages": [
+          216,
+          228
+        ],
+        "review": "source-unverified",
+        "editions": {
+          "fr": {
+            "path": "./resources/t12d-09/teacher.pdf"
+          }
+        }
       }
     ],
     "sources": [
@@ -21284,16 +22573,16 @@
       {
         "name": "expertes-student",
         "title": "expertes-eleve.pdf",
-        "modified": "2026-11-07T15:00:11.000Z",
-        "sha256": "1346a5ad5c62bee3b17a79f56e3507d46665b78a45bc9807381d32b4ab8edce3",
-        "bytes": 313851
+        "modified": "2026-11-19T19:44:49.000Z",
+        "sha256": "39663c575cd67b1ddf6080ad467ea23009ca239ee94df13eccec068f020df2d3",
+        "bytes": 340183
       },
       {
         "name": "expertes-teacher",
         "title": "expertes-prof.pdf",
-        "modified": "2026-11-07T15:00:11.000Z",
-        "sha256": "5f6181d2e6969ea4fa580ec430bb6df73bb992d9f21c5611f940b3dc9d0656f8",
-        "bytes": 431314
+        "modified": "2026-11-19T19:44:49.000Z",
+        "sha256": "5a164db88fdcdd13463fc5a945586f844a7e596cb44b3de28b36d66bd980dcb6",
+        "bytes": 467608
       },
       {
         "name": "t10-student",
@@ -21322,6 +22611,20 @@
         "modified": "2026-11-01T12:50:32.000Z",
         "sha256": "f83402b5986241bd0d4016583b0bc0684a5bcf442f460b041d1a618fba89983c",
         "bytes": 694538
+      },
+      {
+        "name": "t12-student",
+        "title": "Manuel de mathématiques T12 C et D, édition élève",
+        "modified": "2026-11-16T14:44:02.000Z",
+        "sha256": "582e09882f70b329f40530fe53ce6eaa94bc2e34017eda8eafbc969c5ba1455b",
+        "bytes": 1780978
+      },
+      {
+        "name": "t12-teacher",
+        "title": "Manuel de mathématiques T12 C et D, édition professeur",
+        "modified": "2026-11-16T14:44:02.000Z",
+        "sha256": "3a7f380371502c27726b9d7c2e2d102f899b3d37b10444ec977af01c88287bde",
+        "bytes": 3410610
       }
     ]
   },
@@ -21381,12 +22684,12 @@
       {
         "name": "expertes-eleve.pdf",
         "title": "expertes-eleve.pdf",
-        "modified": "2026-11-07T15:00:11.000Z"
+        "modified": "2026-11-19T19:44:49.000Z"
       },
       {
         "name": "expertes-prof.pdf",
         "title": "expertes-prof.pdf",
-        "modified": "2026-11-07T15:00:11.000Z"
+        "modified": "2026-11-19T19:44:49.000Z"
       },
       {
         "name": "premiere-unsorted-automatismes",
@@ -21412,6 +22715,16 @@
         "name": "t11s-prof.pdf",
         "title": "Manuel de mathématiques T11 S, édition professeur",
         "modified": "2026-11-01T12:50:32.000Z"
+      },
+      {
+        "name": "t12-eleve.pdf",
+        "title": "Manuel de mathématiques T12 C et D, édition élève",
+        "modified": "2026-11-16T14:44:02.000Z"
+      },
+      {
+        "name": "t12-prof.pdf",
+        "title": "Manuel de mathématiques T12 C et D, édition professeur",
+        "modified": "2026-11-16T14:44:02.000Z"
       }
     ],
     "chapters": [
@@ -23815,7 +25128,7 @@
           {
             "kind": "teacher",
             "source": "expertes-prof.pdf",
-            "start": 33,
+            "start": 34,
             "path": "resources/expertes-04/teacher.pdf",
             "editions": {
               "fr": {
@@ -23860,7 +25173,7 @@
           {
             "kind": "teacher",
             "source": "expertes-prof.pdf",
-            "start": 40,
+            "start": 41,
             "path": "resources/expertes-05/teacher.pdf",
             "editions": {
               "fr": {
@@ -23905,7 +25218,7 @@
           {
             "kind": "teacher",
             "source": "expertes-prof.pdf",
-            "start": 47,
+            "start": 48,
             "path": "resources/expertes-06/teacher.pdf",
             "editions": {
               "fr": {
@@ -23950,7 +25263,7 @@
           {
             "kind": "teacher",
             "source": "expertes-prof.pdf",
-            "start": 54,
+            "start": 55,
             "path": "resources/expertes-07/teacher.pdf",
             "editions": {
               "fr": {
@@ -23995,7 +25308,7 @@
           {
             "kind": "teacher",
             "source": "expertes-prof.pdf",
-            "start": 61,
+            "start": 62,
             "path": "resources/expertes-08/teacher.pdf",
             "editions": {
               "fr": {
@@ -24025,8 +25338,8 @@
             "path": "resources/expertes-09/chapter.pdf",
             "sections": {
               "lesson": 1,
-              "practice": 5,
-              "problem": 6
+              "practice": 6,
+              "problem": 7
             },
             "editions": {
               "fr": {
@@ -24040,7 +25353,7 @@
           {
             "kind": "teacher",
             "source": "expertes-prof.pdf",
-            "start": 69,
+            "start": 71,
             "path": "resources/expertes-09/teacher.pdf",
             "editions": {
               "fr": {
@@ -24066,7 +25379,7 @@
           {
             "kind": "chapter",
             "source": "expertes-eleve.pdf",
-            "start": 64,
+            "start": 65,
             "path": "resources/expertes-10/chapter.pdf",
             "sections": {
               "lesson": 1,
@@ -24085,7 +25398,7 @@
           {
             "kind": "teacher",
             "source": "expertes-prof.pdf",
-            "start": 77,
+            "start": 81,
             "path": "resources/expertes-10/teacher.pdf",
             "editions": {
               "fr": {
@@ -24111,7 +25424,7 @@
           {
             "kind": "chapter",
             "source": "expertes-eleve.pdf",
-            "start": 71,
+            "start": 72,
             "path": "resources/expertes-11/chapter.pdf",
             "sections": {
               "lesson": 1,
@@ -24130,7 +25443,7 @@
           {
             "kind": "teacher",
             "source": "expertes-prof.pdf",
-            "start": 85,
+            "start": 89,
             "path": "resources/expertes-11/teacher.pdf",
             "editions": {
               "fr": {
@@ -25487,6 +26800,720 @@
             }
           }
         ]
+      },
+      {
+        "id": "t12c-01",
+        "course": "t12c",
+        "number": 1,
+        "title": [
+          "Arithmétique",
+          "Arithmetic"
+        ],
+        "topic": "arithmetic",
+        "files": [
+          {
+            "kind": "chapter",
+            "source": "t12-eleve.pdf",
+            "start": 8,
+            "path": "resources/t12c-01/chapter.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12c-01/chapter.pdf"
+              }
+            }
+          },
+          {
+            "kind": "teacher",
+            "source": "t12-prof.pdf",
+            "start": 10,
+            "path": "resources/t12c-01/teacher.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12c-01/teacher.pdf"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "t12c-02",
+        "course": "t12c",
+        "number": 2,
+        "title": [
+          "Probabilités",
+          "Probability"
+        ],
+        "topic": "binomial",
+        "files": [
+          {
+            "kind": "chapter",
+            "source": "t12-eleve.pdf",
+            "start": 28,
+            "path": "resources/t12c-02/chapter.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12c-02/chapter.pdf"
+              }
+            }
+          },
+          {
+            "kind": "teacher",
+            "source": "t12-prof.pdf",
+            "start": 36,
+            "path": "resources/t12c-02/teacher.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12c-02/teacher.pdf"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "t12c-03",
+        "course": "t12c",
+        "number": 3,
+        "title": [
+          "Systèmes d’équations linéaires dans R³",
+          "Linear systems in R³"
+        ],
+        "topic": "algebra",
+        "files": [
+          {
+            "kind": "chapter",
+            "source": "t12-eleve.pdf",
+            "start": 46,
+            "path": "resources/t12c-03/chapter.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12c-03/chapter.pdf"
+              }
+            }
+          },
+          {
+            "kind": "teacher",
+            "source": "t12-prof.pdf",
+            "start": 60,
+            "path": "resources/t12c-03/teacher.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12c-03/teacher.pdf"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "t12c-04",
+        "course": "t12c",
+        "number": 4,
+        "title": [
+          "Nombres complexes",
+          "Complex numbers"
+        ],
+        "topic": "complex-algebra",
+        "files": [
+          {
+            "kind": "chapter",
+            "source": "t12-eleve.pdf",
+            "start": 52,
+            "path": "resources/t12c-04/chapter.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12c-04/chapter.pdf"
+              }
+            }
+          },
+          {
+            "kind": "teacher",
+            "source": "t12-prof.pdf",
+            "start": 67,
+            "path": "resources/t12c-04/teacher.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12c-04/teacher.pdf"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "t12c-05",
+        "course": "t12c",
+        "number": 5,
+        "title": [
+          "Barycentres",
+          "Barycentres"
+        ],
+        "topic": "vectors",
+        "files": [
+          {
+            "kind": "chapter",
+            "source": "t12-eleve.pdf",
+            "start": 76,
+            "path": "resources/t12c-05/chapter.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12c-05/chapter.pdf"
+              }
+            }
+          },
+          {
+            "kind": "teacher",
+            "source": "t12-prof.pdf",
+            "start": 106,
+            "path": "resources/t12c-05/teacher.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12c-05/teacher.pdf"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "t12c-06",
+        "course": "t12c",
+        "number": 6,
+        "title": [
+          "Applications affines et isométries",
+          "Affine maps and isometries"
+        ],
+        "topic": "lines",
+        "files": [
+          {
+            "kind": "chapter",
+            "source": "t12-eleve.pdf",
+            "start": 86,
+            "path": "resources/t12c-06/chapter.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12c-06/chapter.pdf"
+              }
+            }
+          },
+          {
+            "kind": "teacher",
+            "source": "t12-prof.pdf",
+            "start": 118,
+            "path": "resources/t12c-06/teacher.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12c-06/teacher.pdf"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "t12c-07",
+        "course": "t12c",
+        "number": 7,
+        "title": [
+          "Similitudes planes",
+          "Plane similarities"
+        ],
+        "topic": "complex-plane",
+        "files": [
+          {
+            "kind": "chapter",
+            "source": "t12-eleve.pdf",
+            "start": 98,
+            "path": "resources/t12c-07/chapter.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12c-07/chapter.pdf"
+              }
+            }
+          },
+          {
+            "kind": "teacher",
+            "source": "t12-prof.pdf",
+            "start": 134,
+            "path": "resources/t12c-07/teacher.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12c-07/teacher.pdf"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "t12c-08",
+        "course": "t12c",
+        "number": 8,
+        "title": [
+          "Suites numériques",
+          "Sequences"
+        ],
+        "topic": "sequences",
+        "files": [
+          {
+            "kind": "chapter",
+            "source": "t12-eleve.pdf",
+            "start": 107,
+            "path": "resources/t12c-08/chapter.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12c-08/chapter.pdf"
+              }
+            }
+          },
+          {
+            "kind": "teacher",
+            "source": "t12-prof.pdf",
+            "start": 148,
+            "path": "resources/t12c-08/teacher.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12c-08/teacher.pdf"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "t12c-09",
+        "course": "t12c",
+        "number": 9,
+        "title": [
+          "Limites, continuité et dérivation",
+          "Functions"
+        ],
+        "topic": "functions",
+        "files": [
+          {
+            "kind": "chapter",
+            "source": "t12-eleve.pdf",
+            "start": 118,
+            "path": "resources/t12c-09/chapter.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12c-09/chapter.pdf"
+              }
+            }
+          },
+          {
+            "kind": "teacher",
+            "source": "t12-prof.pdf",
+            "start": 161,
+            "path": "resources/t12c-09/teacher.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12c-09/teacher.pdf"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "t12c-10",
+        "course": "t12c",
+        "number": 10,
+        "title": [
+          "Fonctions exponentielle et logarithme",
+          "Exponential and logarithm"
+        ],
+        "topic": "exponential",
+        "files": [
+          {
+            "kind": "chapter",
+            "source": "t12-eleve.pdf",
+            "start": 132,
+            "path": "resources/t12c-10/chapter.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12c-10/chapter.pdf"
+              }
+            }
+          },
+          {
+            "kind": "teacher",
+            "source": "t12-prof.pdf",
+            "start": 181,
+            "path": "resources/t12c-10/teacher.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12c-10/teacher.pdf"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "t12c-11",
+        "course": "t12c",
+        "number": 11,
+        "title": [
+          "Primitives et intégrales",
+          "Primitives and integrals"
+        ],
+        "topic": "integral",
+        "files": [
+          {
+            "kind": "chapter",
+            "source": "t12-eleve.pdf",
+            "start": 156,
+            "path": "resources/t12c-11/chapter.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12c-11/chapter.pdf"
+              }
+            }
+          },
+          {
+            "kind": "teacher",
+            "source": "t12-prof.pdf",
+            "start": 216,
+            "path": "resources/t12c-11/teacher.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12c-11/teacher.pdf"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "t12c-12",
+        "course": "t12c",
+        "number": 12,
+        "title": [
+          "Équations différentielles",
+          "Differential equations"
+        ],
+        "topic": "primitives",
+        "files": [
+          {
+            "kind": "chapter",
+            "source": "t12-eleve.pdf",
+            "start": 166,
+            "path": "resources/t12c-12/chapter.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12c-12/chapter.pdf"
+              }
+            }
+          },
+          {
+            "kind": "teacher",
+            "source": "t12-prof.pdf",
+            "start": 229,
+            "path": "resources/t12c-12/teacher.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12c-12/teacher.pdf"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "t12d-01",
+        "course": "t12d",
+        "number": 1,
+        "title": [
+          "Probabilités",
+          "Probability"
+        ],
+        "topic": "binomial",
+        "files": [
+          {
+            "kind": "chapter",
+            "source": "t12-eleve.pdf",
+            "start": 28,
+            "path": "resources/t12d-01/chapter.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12d-01/chapter.pdf"
+              }
+            }
+          },
+          {
+            "kind": "teacher",
+            "source": "t12-prof.pdf",
+            "start": 36,
+            "path": "resources/t12d-01/teacher.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12d-01/teacher.pdf"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "t12d-02",
+        "course": "t12d",
+        "number": 2,
+        "title": [
+          "Systèmes d’équations linéaires dans R³",
+          "Linear systems in R³"
+        ],
+        "topic": "algebra",
+        "files": [
+          {
+            "kind": "chapter",
+            "source": "t12-eleve.pdf",
+            "start": 46,
+            "path": "resources/t12d-02/chapter.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12d-02/chapter.pdf"
+              }
+            }
+          },
+          {
+            "kind": "teacher",
+            "source": "t12-prof.pdf",
+            "start": 60,
+            "path": "resources/t12d-02/teacher.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12d-02/teacher.pdf"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "t12d-03",
+        "course": "t12d",
+        "number": 3,
+        "title": [
+          "Nombres complexes",
+          "Complex numbers"
+        ],
+        "topic": "complex-algebra",
+        "files": [
+          {
+            "kind": "chapter",
+            "source": "t12-eleve.pdf",
+            "start": 52,
+            "path": "resources/t12d-03/chapter.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12d-03/chapter.pdf"
+              }
+            }
+          },
+          {
+            "kind": "teacher",
+            "source": "t12-prof.pdf",
+            "start": 67,
+            "path": "resources/t12d-03/teacher.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12d-03/teacher.pdf"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "t12d-04",
+        "course": "t12d",
+        "number": 4,
+        "title": [
+          "Similitudes planes",
+          "Plane similarities"
+        ],
+        "topic": "complex-plane",
+        "files": [
+          {
+            "kind": "chapter",
+            "source": "t12-eleve.pdf",
+            "start": 98,
+            "path": "resources/t12d-04/chapter.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12d-04/chapter.pdf"
+              }
+            }
+          },
+          {
+            "kind": "teacher",
+            "source": "t12-prof.pdf",
+            "start": 134,
+            "path": "resources/t12d-04/teacher.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12d-04/teacher.pdf"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "t12d-05",
+        "course": "t12d",
+        "number": 5,
+        "title": [
+          "Suites numériques",
+          "Sequences"
+        ],
+        "topic": "sequences",
+        "files": [
+          {
+            "kind": "chapter",
+            "source": "t12-eleve.pdf",
+            "start": 107,
+            "path": "resources/t12d-05/chapter.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12d-05/chapter.pdf"
+              }
+            }
+          },
+          {
+            "kind": "teacher",
+            "source": "t12-prof.pdf",
+            "start": 148,
+            "path": "resources/t12d-05/teacher.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12d-05/teacher.pdf"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "t12d-06",
+        "course": "t12d",
+        "number": 6,
+        "title": [
+          "Limites, continuité et dérivation",
+          "Functions"
+        ],
+        "topic": "functions",
+        "files": [
+          {
+            "kind": "chapter",
+            "source": "t12-eleve.pdf",
+            "start": 118,
+            "path": "resources/t12d-06/chapter.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12d-06/chapter.pdf"
+              }
+            }
+          },
+          {
+            "kind": "teacher",
+            "source": "t12-prof.pdf",
+            "start": 161,
+            "path": "resources/t12d-06/teacher.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12d-06/teacher.pdf"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "t12d-07",
+        "course": "t12d",
+        "number": 7,
+        "title": [
+          "Fonctions exponentielle et logarithme",
+          "Exponential and logarithm"
+        ],
+        "topic": "exponential",
+        "files": [
+          {
+            "kind": "chapter",
+            "source": "t12-eleve.pdf",
+            "start": 132,
+            "path": "resources/t12d-07/chapter.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12d-07/chapter.pdf"
+              }
+            }
+          },
+          {
+            "kind": "teacher",
+            "source": "t12-prof.pdf",
+            "start": 181,
+            "path": "resources/t12d-07/teacher.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12d-07/teacher.pdf"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "t12d-08",
+        "course": "t12d",
+        "number": 8,
+        "title": [
+          "Statistiques",
+          "Statistics"
+        ],
+        "topic": "statistics",
+        "files": [
+          {
+            "kind": "chapter",
+            "source": "t12-eleve.pdf",
+            "start": 143,
+            "path": "resources/t12d-08/chapter.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12d-08/chapter.pdf"
+              }
+            }
+          },
+          {
+            "kind": "teacher",
+            "source": "t12-prof.pdf",
+            "start": 200,
+            "path": "resources/t12d-08/teacher.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12d-08/teacher.pdf"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "t12d-09",
+        "course": "t12d",
+        "number": 9,
+        "title": [
+          "Primitives et intégrales",
+          "Primitives and integrals"
+        ],
+        "topic": "integral",
+        "files": [
+          {
+            "kind": "chapter",
+            "source": "t12-eleve.pdf",
+            "start": 156,
+            "path": "resources/t12d-09/chapter.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12d-09/chapter.pdf"
+              }
+            }
+          },
+          {
+            "kind": "teacher",
+            "source": "t12-prof.pdf",
+            "start": 216,
+            "path": "resources/t12d-09/teacher.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12d-09/teacher.pdf"
+              }
+            }
+          }
+        ]
       }
     ],
     "supplements": [
@@ -25853,7 +27880,7 @@
           {
             "kind": "teacher",
             "source": "premiere-prof.pdf",
-            "start": 206,
+            "start": 209,
             "path": "resources/premiere-revision/matrix.pdf",
             "editions": {
               "fr": {
@@ -25878,7 +27905,7 @@
           {
             "kind": "teacher",
             "source": "premiere-prof.pdf",
-            "start": 213,
+            "start": 216,
             "path": "resources/premiere-revision/schedule.pdf",
             "editions": {
               "fr": {
@@ -26095,6 +28122,1436 @@
             "editions": {
               "fr": {
                 "path": "resources/t11s-planning-prof.pdf"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "t12c-problems",
+        "course": "t12c",
+        "kind": "problems",
+        "title": [
+          "Problèmes de synthèse",
+          "Synthesis problems"
+        ],
+        "files": [
+          {
+            "kind": "chapter",
+            "source": "t12-eleve.pdf",
+            "start": 172,
+            "path": "resources/t12c-problems-eleve.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12c-problems-eleve.pdf"
+              }
+            }
+          },
+          {
+            "kind": "teacher",
+            "source": "t12-prof.pdf",
+            "start": 237,
+            "path": "resources/t12c-problems-prof.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12c-problems-prof.pdf"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "t12c-annexes",
+        "course": "t12c",
+        "kind": "annexes",
+        "title": [
+          "Annexes : rappels",
+          "Appendices: reminders"
+        ],
+        "files": [
+          {
+            "kind": "chapter",
+            "source": "t12-eleve.pdf",
+            "start": 265,
+            "path": "resources/t12c-annexes-eleve.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12c-annexes-eleve.pdf"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "t12c-bac-2018",
+        "course": "t12c",
+        "kind": "bac",
+        "title": [
+          "Baccalauréat série C 2018",
+          "Baccalauréat (Madagascar), series C, 2018"
+        ],
+        "files": [
+          {
+            "kind": "chapter",
+            "source": "t12-eleve.pdf",
+            "start": 181,
+            "path": "resources/t12c-bac-2018-eleve.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12c-bac-2018-eleve.pdf"
+              }
+            }
+          },
+          {
+            "kind": "teacher",
+            "source": "t12-prof.pdf",
+            "start": 257,
+            "path": "resources/t12c-bac-2018-prof.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12c-bac-2018-prof.pdf"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "t12c-bac-2017",
+        "course": "t12c",
+        "kind": "bac",
+        "title": [
+          "Baccalauréat série C 2017",
+          "Baccalauréat (Madagascar), series C, 2017"
+        ],
+        "files": [
+          {
+            "kind": "chapter",
+            "source": "t12-eleve.pdf",
+            "start": 183,
+            "path": "resources/t12c-bac-2017-eleve.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12c-bac-2017-eleve.pdf"
+              }
+            }
+          },
+          {
+            "kind": "teacher",
+            "source": "t12-prof.pdf",
+            "start": 259,
+            "path": "resources/t12c-bac-2017-prof.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12c-bac-2017-prof.pdf"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "t12c-bac-2016",
+        "course": "t12c",
+        "kind": "bac",
+        "title": [
+          "Baccalauréat série C 2016",
+          "Baccalauréat (Madagascar), series C, 2016"
+        ],
+        "files": [
+          {
+            "kind": "chapter",
+            "source": "t12-eleve.pdf",
+            "start": 185,
+            "path": "resources/t12c-bac-2016-eleve.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12c-bac-2016-eleve.pdf"
+              }
+            }
+          },
+          {
+            "kind": "teacher",
+            "source": "t12-prof.pdf",
+            "start": 261,
+            "path": "resources/t12c-bac-2016-prof.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12c-bac-2016-prof.pdf"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "t12c-bac-2015",
+        "course": "t12c",
+        "kind": "bac",
+        "title": [
+          "Baccalauréat série C 2015",
+          "Baccalauréat (Madagascar), series C, 2015"
+        ],
+        "files": [
+          {
+            "kind": "chapter",
+            "source": "t12-eleve.pdf",
+            "start": 187,
+            "path": "resources/t12c-bac-2015-eleve.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12c-bac-2015-eleve.pdf"
+              }
+            }
+          },
+          {
+            "kind": "teacher",
+            "source": "t12-prof.pdf",
+            "start": 263,
+            "path": "resources/t12c-bac-2015-prof.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12c-bac-2015-prof.pdf"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "t12c-bac-2014",
+        "course": "t12c",
+        "kind": "bac",
+        "title": [
+          "Baccalauréat série C 2014",
+          "Baccalauréat (Madagascar), series C, 2014"
+        ],
+        "files": [
+          {
+            "kind": "chapter",
+            "source": "t12-eleve.pdf",
+            "start": 190,
+            "path": "resources/t12c-bac-2014-eleve.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12c-bac-2014-eleve.pdf"
+              }
+            }
+          },
+          {
+            "kind": "teacher",
+            "source": "t12-prof.pdf",
+            "start": 266,
+            "path": "resources/t12c-bac-2014-prof.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12c-bac-2014-prof.pdf"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "t12c-bac-2013",
+        "course": "t12c",
+        "kind": "bac",
+        "title": [
+          "Baccalauréat série C 2013",
+          "Baccalauréat (Madagascar), series C, 2013"
+        ],
+        "files": [
+          {
+            "kind": "chapter",
+            "source": "t12-eleve.pdf",
+            "start": 192,
+            "path": "resources/t12c-bac-2013-eleve.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12c-bac-2013-eleve.pdf"
+              }
+            }
+          },
+          {
+            "kind": "teacher",
+            "source": "t12-prof.pdf",
+            "start": 268,
+            "path": "resources/t12c-bac-2013-prof.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12c-bac-2013-prof.pdf"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "t12c-bac-2012",
+        "course": "t12c",
+        "kind": "bac",
+        "title": [
+          "Baccalauréat série C 2012",
+          "Baccalauréat (Madagascar), series C, 2012"
+        ],
+        "files": [
+          {
+            "kind": "chapter",
+            "source": "t12-eleve.pdf",
+            "start": 194,
+            "path": "resources/t12c-bac-2012-eleve.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12c-bac-2012-eleve.pdf"
+              }
+            }
+          },
+          {
+            "kind": "teacher",
+            "source": "t12-prof.pdf",
+            "start": 270,
+            "path": "resources/t12c-bac-2012-prof.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12c-bac-2012-prof.pdf"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "t12c-bac-2011",
+        "course": "t12c",
+        "kind": "bac",
+        "title": [
+          "Baccalauréat série C 2011",
+          "Baccalauréat (Madagascar), series C, 2011"
+        ],
+        "files": [
+          {
+            "kind": "chapter",
+            "source": "t12-eleve.pdf",
+            "start": 196,
+            "path": "resources/t12c-bac-2011-eleve.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12c-bac-2011-eleve.pdf"
+              }
+            }
+          },
+          {
+            "kind": "teacher",
+            "source": "t12-prof.pdf",
+            "start": 272,
+            "path": "resources/t12c-bac-2011-prof.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12c-bac-2011-prof.pdf"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "t12c-bac-2010",
+        "course": "t12c",
+        "kind": "bac",
+        "title": [
+          "Baccalauréat série C 2010",
+          "Baccalauréat (Madagascar), series C, 2010"
+        ],
+        "files": [
+          {
+            "kind": "chapter",
+            "source": "t12-eleve.pdf",
+            "start": 198,
+            "path": "resources/t12c-bac-2010-eleve.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12c-bac-2010-eleve.pdf"
+              }
+            }
+          },
+          {
+            "kind": "teacher",
+            "source": "t12-prof.pdf",
+            "start": 274,
+            "path": "resources/t12c-bac-2010-prof.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12c-bac-2010-prof.pdf"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "t12c-bac-2009",
+        "course": "t12c",
+        "kind": "bac",
+        "title": [
+          "Baccalauréat série C 2009",
+          "Baccalauréat (Madagascar), series C, 2009"
+        ],
+        "files": [
+          {
+            "kind": "chapter",
+            "source": "t12-eleve.pdf",
+            "start": 200,
+            "path": "resources/t12c-bac-2009-eleve.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12c-bac-2009-eleve.pdf"
+              }
+            }
+          },
+          {
+            "kind": "teacher",
+            "source": "t12-prof.pdf",
+            "start": 276,
+            "path": "resources/t12c-bac-2009-prof.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12c-bac-2009-prof.pdf"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "t12c-bac-2008",
+        "course": "t12c",
+        "kind": "bac",
+        "title": [
+          "Baccalauréat série C 2008",
+          "Baccalauréat (Madagascar), series C, 2008"
+        ],
+        "files": [
+          {
+            "kind": "chapter",
+            "source": "t12-eleve.pdf",
+            "start": 202,
+            "path": "resources/t12c-bac-2008-eleve.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12c-bac-2008-eleve.pdf"
+              }
+            }
+          },
+          {
+            "kind": "teacher",
+            "source": "t12-prof.pdf",
+            "start": 278,
+            "path": "resources/t12c-bac-2008-prof.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12c-bac-2008-prof.pdf"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "t12c-bac-2007",
+        "course": "t12c",
+        "kind": "bac",
+        "title": [
+          "Baccalauréat série C 2007",
+          "Baccalauréat (Madagascar), series C, 2007"
+        ],
+        "files": [
+          {
+            "kind": "chapter",
+            "source": "t12-eleve.pdf",
+            "start": 204,
+            "path": "resources/t12c-bac-2007-eleve.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12c-bac-2007-eleve.pdf"
+              }
+            }
+          },
+          {
+            "kind": "teacher",
+            "source": "t12-prof.pdf",
+            "start": 280,
+            "path": "resources/t12c-bac-2007-prof.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12c-bac-2007-prof.pdf"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "t12c-bac-2006",
+        "course": "t12c",
+        "kind": "bac",
+        "title": [
+          "Baccalauréat série C 2006",
+          "Baccalauréat (Madagascar), series C, 2006"
+        ],
+        "files": [
+          {
+            "kind": "chapter",
+            "source": "t12-eleve.pdf",
+            "start": 206,
+            "path": "resources/t12c-bac-2006-eleve.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12c-bac-2006-eleve.pdf"
+              }
+            }
+          },
+          {
+            "kind": "teacher",
+            "source": "t12-prof.pdf",
+            "start": 282,
+            "path": "resources/t12c-bac-2006-prof.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12c-bac-2006-prof.pdf"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "t12c-bac-2005",
+        "course": "t12c",
+        "kind": "bac",
+        "title": [
+          "Baccalauréat série C 2005",
+          "Baccalauréat (Madagascar), series C, 2005"
+        ],
+        "files": [
+          {
+            "kind": "chapter",
+            "source": "t12-eleve.pdf",
+            "start": 208,
+            "path": "resources/t12c-bac-2005-eleve.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12c-bac-2005-eleve.pdf"
+              }
+            }
+          },
+          {
+            "kind": "teacher",
+            "source": "t12-prof.pdf",
+            "start": 284,
+            "path": "resources/t12c-bac-2005-prof.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12c-bac-2005-prof.pdf"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "t12c-bac-2004",
+        "course": "t12c",
+        "kind": "bac",
+        "title": [
+          "Baccalauréat série C 2004",
+          "Baccalauréat (Madagascar), series C, 2004"
+        ],
+        "files": [
+          {
+            "kind": "chapter",
+            "source": "t12-eleve.pdf",
+            "start": 210,
+            "path": "resources/t12c-bac-2004-eleve.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12c-bac-2004-eleve.pdf"
+              }
+            }
+          },
+          {
+            "kind": "teacher",
+            "source": "t12-prof.pdf",
+            "start": 286,
+            "path": "resources/t12c-bac-2004-prof.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12c-bac-2004-prof.pdf"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "t12c-bac-2003",
+        "course": "t12c",
+        "kind": "bac",
+        "title": [
+          "Baccalauréat série C 2003",
+          "Baccalauréat (Madagascar), series C, 2003"
+        ],
+        "files": [
+          {
+            "kind": "chapter",
+            "source": "t12-eleve.pdf",
+            "start": 212,
+            "path": "resources/t12c-bac-2003-eleve.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12c-bac-2003-eleve.pdf"
+              }
+            }
+          },
+          {
+            "kind": "teacher",
+            "source": "t12-prof.pdf",
+            "start": 288,
+            "path": "resources/t12c-bac-2003-prof.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12c-bac-2003-prof.pdf"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "t12c-practice-sujet-c6",
+        "course": "t12c",
+        "kind": "practice",
+        "title": [
+          "Sujet type C Sujet C6",
+          "Practice paper type C Sujet C6"
+        ],
+        "files": [
+          {
+            "kind": "chapter",
+            "source": "t12-eleve.pdf",
+            "start": 255,
+            "path": "resources/t12c-practice-sujet-c6-eleve.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12c-practice-sujet-c6-eleve.pdf"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "t12c-practice-sujet-c5",
+        "course": "t12c",
+        "kind": "practice",
+        "title": [
+          "Sujet type C Sujet C5",
+          "Practice paper type C Sujet C5"
+        ],
+        "files": [
+          {
+            "kind": "chapter",
+            "source": "t12-eleve.pdf",
+            "start": 253,
+            "path": "resources/t12c-practice-sujet-c5-eleve.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12c-practice-sujet-c5-eleve.pdf"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "t12c-practice-sujet-c4",
+        "course": "t12c",
+        "kind": "practice",
+        "title": [
+          "Sujet type C Sujet C4",
+          "Practice paper type C Sujet C4"
+        ],
+        "files": [
+          {
+            "kind": "chapter",
+            "source": "t12-eleve.pdf",
+            "start": 251,
+            "path": "resources/t12c-practice-sujet-c4-eleve.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12c-practice-sujet-c4-eleve.pdf"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "t12c-practice-sujet-c3",
+        "course": "t12c",
+        "kind": "practice",
+        "title": [
+          "Sujet type C Sujet C3",
+          "Practice paper type C Sujet C3"
+        ],
+        "files": [
+          {
+            "kind": "chapter",
+            "source": "t12-eleve.pdf",
+            "start": 249,
+            "path": "resources/t12c-practice-sujet-c3-eleve.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12c-practice-sujet-c3-eleve.pdf"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "t12c-practice-sujet-c2",
+        "course": "t12c",
+        "kind": "practice",
+        "title": [
+          "Sujet type C Sujet C2",
+          "Practice paper type C Sujet C2"
+        ],
+        "files": [
+          {
+            "kind": "chapter",
+            "source": "t12-eleve.pdf",
+            "start": 247,
+            "path": "resources/t12c-practice-sujet-c2-eleve.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12c-practice-sujet-c2-eleve.pdf"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "t12c-practice-sujet-c1",
+        "course": "t12c",
+        "kind": "practice",
+        "title": [
+          "Sujet type C Sujet C1",
+          "Practice paper type C Sujet C1"
+        ],
+        "files": [
+          {
+            "kind": "chapter",
+            "source": "t12-eleve.pdf",
+            "start": 245,
+            "path": "resources/t12c-practice-sujet-c1-eleve.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12c-practice-sujet-c1-eleve.pdf"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "t12d-problems",
+        "course": "t12d",
+        "kind": "problems",
+        "title": [
+          "Problèmes de synthèse",
+          "Synthesis problems"
+        ],
+        "files": [
+          {
+            "kind": "chapter",
+            "source": "t12-eleve.pdf",
+            "start": 172,
+            "path": "resources/t12d-problems-eleve.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12d-problems-eleve.pdf"
+              }
+            }
+          },
+          {
+            "kind": "teacher",
+            "source": "t12-prof.pdf",
+            "start": 237,
+            "path": "resources/t12d-problems-prof.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12d-problems-prof.pdf"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "t12d-annexes",
+        "course": "t12d",
+        "kind": "annexes",
+        "title": [
+          "Annexes : rappels",
+          "Appendices: reminders"
+        ],
+        "files": [
+          {
+            "kind": "chapter",
+            "source": "t12-eleve.pdf",
+            "start": 265,
+            "path": "resources/t12d-annexes-eleve.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12d-annexes-eleve.pdf"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "t12d-bac-2018",
+        "course": "t12d",
+        "kind": "bac",
+        "title": [
+          "Baccalauréat série D 2018",
+          "Baccalauréat (Madagascar), series D, 2018"
+        ],
+        "files": [
+          {
+            "kind": "chapter",
+            "source": "t12-eleve.pdf",
+            "start": 214,
+            "path": "resources/t12d-bac-2018-eleve.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12d-bac-2018-eleve.pdf"
+              }
+            }
+          },
+          {
+            "kind": "teacher",
+            "source": "t12-prof.pdf",
+            "start": 362,
+            "path": "resources/t12d-bac-2018-prof.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12d-bac-2018-prof.pdf"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "t12d-bac-2017",
+        "course": "t12d",
+        "kind": "bac",
+        "title": [
+          "Baccalauréat série D 2017",
+          "Baccalauréat (Madagascar), series D, 2017"
+        ],
+        "files": [
+          {
+            "kind": "chapter",
+            "source": "t12-eleve.pdf",
+            "start": 216,
+            "path": "resources/t12d-bac-2017-eleve.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12d-bac-2017-eleve.pdf"
+              }
+            }
+          },
+          {
+            "kind": "teacher",
+            "source": "t12-prof.pdf",
+            "start": 364,
+            "path": "resources/t12d-bac-2017-prof.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12d-bac-2017-prof.pdf"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "t12d-bac-2016",
+        "course": "t12d",
+        "kind": "bac",
+        "title": [
+          "Baccalauréat série D 2016",
+          "Baccalauréat (Madagascar), series D, 2016"
+        ],
+        "files": [
+          {
+            "kind": "chapter",
+            "source": "t12-eleve.pdf",
+            "start": 218,
+            "path": "resources/t12d-bac-2016-eleve.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12d-bac-2016-eleve.pdf"
+              }
+            }
+          },
+          {
+            "kind": "teacher",
+            "source": "t12-prof.pdf",
+            "start": 366,
+            "path": "resources/t12d-bac-2016-prof.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12d-bac-2016-prof.pdf"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "t12d-bac-2015",
+        "course": "t12d",
+        "kind": "bac",
+        "title": [
+          "Baccalauréat série D 2015",
+          "Baccalauréat (Madagascar), series D, 2015"
+        ],
+        "files": [
+          {
+            "kind": "chapter",
+            "source": "t12-eleve.pdf",
+            "start": 220,
+            "path": "resources/t12d-bac-2015-eleve.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12d-bac-2015-eleve.pdf"
+              }
+            }
+          },
+          {
+            "kind": "teacher",
+            "source": "t12-prof.pdf",
+            "start": 368,
+            "path": "resources/t12d-bac-2015-prof.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12d-bac-2015-prof.pdf"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "t12d-bac-2014",
+        "course": "t12d",
+        "kind": "bac",
+        "title": [
+          "Baccalauréat série D 2014",
+          "Baccalauréat (Madagascar), series D, 2014"
+        ],
+        "files": [
+          {
+            "kind": "chapter",
+            "source": "t12-eleve.pdf",
+            "start": 222,
+            "path": "resources/t12d-bac-2014-eleve.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12d-bac-2014-eleve.pdf"
+              }
+            }
+          },
+          {
+            "kind": "teacher",
+            "source": "t12-prof.pdf",
+            "start": 370,
+            "path": "resources/t12d-bac-2014-prof.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12d-bac-2014-prof.pdf"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "t12d-bac-2013",
+        "course": "t12d",
+        "kind": "bac",
+        "title": [
+          "Baccalauréat série D 2013",
+          "Baccalauréat (Madagascar), series D, 2013"
+        ],
+        "files": [
+          {
+            "kind": "chapter",
+            "source": "t12-eleve.pdf",
+            "start": 224,
+            "path": "resources/t12d-bac-2013-eleve.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12d-bac-2013-eleve.pdf"
+              }
+            }
+          },
+          {
+            "kind": "teacher",
+            "source": "t12-prof.pdf",
+            "start": 372,
+            "path": "resources/t12d-bac-2013-prof.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12d-bac-2013-prof.pdf"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "t12d-bac-2012",
+        "course": "t12d",
+        "kind": "bac",
+        "title": [
+          "Baccalauréat série D 2012",
+          "Baccalauréat (Madagascar), series D, 2012"
+        ],
+        "files": [
+          {
+            "kind": "chapter",
+            "source": "t12-eleve.pdf",
+            "start": 226,
+            "path": "resources/t12d-bac-2012-eleve.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12d-bac-2012-eleve.pdf"
+              }
+            }
+          },
+          {
+            "kind": "teacher",
+            "source": "t12-prof.pdf",
+            "start": 374,
+            "path": "resources/t12d-bac-2012-prof.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12d-bac-2012-prof.pdf"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "t12d-bac-2011",
+        "course": "t12d",
+        "kind": "bac",
+        "title": [
+          "Baccalauréat série D 2011",
+          "Baccalauréat (Madagascar), series D, 2011"
+        ],
+        "files": [
+          {
+            "kind": "chapter",
+            "source": "t12-eleve.pdf",
+            "start": 228,
+            "path": "resources/t12d-bac-2011-eleve.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12d-bac-2011-eleve.pdf"
+              }
+            }
+          },
+          {
+            "kind": "teacher",
+            "source": "t12-prof.pdf",
+            "start": 376,
+            "path": "resources/t12d-bac-2011-prof.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12d-bac-2011-prof.pdf"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "t12d-bac-2010",
+        "course": "t12d",
+        "kind": "bac",
+        "title": [
+          "Baccalauréat série D 2010",
+          "Baccalauréat (Madagascar), series D, 2010"
+        ],
+        "files": [
+          {
+            "kind": "chapter",
+            "source": "t12-eleve.pdf",
+            "start": 230,
+            "path": "resources/t12d-bac-2010-eleve.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12d-bac-2010-eleve.pdf"
+              }
+            }
+          },
+          {
+            "kind": "teacher",
+            "source": "t12-prof.pdf",
+            "start": 378,
+            "path": "resources/t12d-bac-2010-prof.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12d-bac-2010-prof.pdf"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "t12d-bac-2009",
+        "course": "t12d",
+        "kind": "bac",
+        "title": [
+          "Baccalauréat série D 2009",
+          "Baccalauréat (Madagascar), series D, 2009"
+        ],
+        "files": [
+          {
+            "kind": "chapter",
+            "source": "t12-eleve.pdf",
+            "start": 232,
+            "path": "resources/t12d-bac-2009-eleve.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12d-bac-2009-eleve.pdf"
+              }
+            }
+          },
+          {
+            "kind": "teacher",
+            "source": "t12-prof.pdf",
+            "start": 380,
+            "path": "resources/t12d-bac-2009-prof.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12d-bac-2009-prof.pdf"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "t12d-bac-2008",
+        "course": "t12d",
+        "kind": "bac",
+        "title": [
+          "Baccalauréat série D 2008",
+          "Baccalauréat (Madagascar), series D, 2008"
+        ],
+        "files": [
+          {
+            "kind": "chapter",
+            "source": "t12-eleve.pdf",
+            "start": 234,
+            "path": "resources/t12d-bac-2008-eleve.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12d-bac-2008-eleve.pdf"
+              }
+            }
+          },
+          {
+            "kind": "teacher",
+            "source": "t12-prof.pdf",
+            "start": 382,
+            "path": "resources/t12d-bac-2008-prof.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12d-bac-2008-prof.pdf"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "t12d-bac-2007",
+        "course": "t12d",
+        "kind": "bac",
+        "title": [
+          "Baccalauréat série D 2007",
+          "Baccalauréat (Madagascar), series D, 2007"
+        ],
+        "files": [
+          {
+            "kind": "chapter",
+            "source": "t12-eleve.pdf",
+            "start": 235,
+            "path": "resources/t12d-bac-2007-eleve.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12d-bac-2007-eleve.pdf"
+              }
+            }
+          },
+          {
+            "kind": "teacher",
+            "source": "t12-prof.pdf",
+            "start": 383,
+            "path": "resources/t12d-bac-2007-prof.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12d-bac-2007-prof.pdf"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "t12d-bac-2006",
+        "course": "t12d",
+        "kind": "bac",
+        "title": [
+          "Baccalauréat série D 2006",
+          "Baccalauréat (Madagascar), series D, 2006"
+        ],
+        "files": [
+          {
+            "kind": "chapter",
+            "source": "t12-eleve.pdf",
+            "start": 237,
+            "path": "resources/t12d-bac-2006-eleve.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12d-bac-2006-eleve.pdf"
+              }
+            }
+          },
+          {
+            "kind": "teacher",
+            "source": "t12-prof.pdf",
+            "start": 385,
+            "path": "resources/t12d-bac-2006-prof.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12d-bac-2006-prof.pdf"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "t12d-bac-2005",
+        "course": "t12d",
+        "kind": "bac",
+        "title": [
+          "Baccalauréat série D 2005",
+          "Baccalauréat (Madagascar), series D, 2005"
+        ],
+        "files": [
+          {
+            "kind": "chapter",
+            "source": "t12-eleve.pdf",
+            "start": 239,
+            "path": "resources/t12d-bac-2005-eleve.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12d-bac-2005-eleve.pdf"
+              }
+            }
+          },
+          {
+            "kind": "teacher",
+            "source": "t12-prof.pdf",
+            "start": 387,
+            "path": "resources/t12d-bac-2005-prof.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12d-bac-2005-prof.pdf"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "t12d-bac-2004",
+        "course": "t12d",
+        "kind": "bac",
+        "title": [
+          "Baccalauréat série D 2004",
+          "Baccalauréat (Madagascar), series D, 2004"
+        ],
+        "files": [
+          {
+            "kind": "chapter",
+            "source": "t12-eleve.pdf",
+            "start": 241,
+            "path": "resources/t12d-bac-2004-eleve.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12d-bac-2004-eleve.pdf"
+              }
+            }
+          },
+          {
+            "kind": "teacher",
+            "source": "t12-prof.pdf",
+            "start": 389,
+            "path": "resources/t12d-bac-2004-prof.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12d-bac-2004-prof.pdf"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "t12d-bac-2003",
+        "course": "t12d",
+        "kind": "bac",
+        "title": [
+          "Baccalauréat série D 2003",
+          "Baccalauréat (Madagascar), series D, 2003"
+        ],
+        "files": [
+          {
+            "kind": "chapter",
+            "source": "t12-eleve.pdf",
+            "start": 243,
+            "path": "resources/t12d-bac-2003-eleve.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12d-bac-2003-eleve.pdf"
+              }
+            }
+          },
+          {
+            "kind": "teacher",
+            "source": "t12-prof.pdf",
+            "start": 391,
+            "path": "resources/t12d-bac-2003-prof.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12d-bac-2003-prof.pdf"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "t12d-practice-sujet-d6",
+        "course": "t12d",
+        "kind": "practice",
+        "title": [
+          "Sujet type D Sujet D6",
+          "Practice paper type D Sujet D6"
+        ],
+        "files": [
+          {
+            "kind": "chapter",
+            "source": "t12-eleve.pdf",
+            "start": 264,
+            "path": "resources/t12d-practice-sujet-d6-eleve.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12d-practice-sujet-d6-eleve.pdf"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "t12d-practice-sujet-d5",
+        "course": "t12d",
+        "kind": "practice",
+        "title": [
+          "Sujet type D Sujet D5",
+          "Practice paper type D Sujet D5"
+        ],
+        "files": [
+          {
+            "kind": "chapter",
+            "source": "t12-eleve.pdf",
+            "start": 263,
+            "path": "resources/t12d-practice-sujet-d5-eleve.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12d-practice-sujet-d5-eleve.pdf"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "t12d-practice-sujet-d4",
+        "course": "t12d",
+        "kind": "practice",
+        "title": [
+          "Sujet type D Sujet D4",
+          "Practice paper type D Sujet D4"
+        ],
+        "files": [
+          {
+            "kind": "chapter",
+            "source": "t12-eleve.pdf",
+            "start": 262,
+            "path": "resources/t12d-practice-sujet-d4-eleve.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12d-practice-sujet-d4-eleve.pdf"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "t12d-practice-sujet-d3",
+        "course": "t12d",
+        "kind": "practice",
+        "title": [
+          "Sujet type D Sujet D3",
+          "Practice paper type D Sujet D3"
+        ],
+        "files": [
+          {
+            "kind": "chapter",
+            "source": "t12-eleve.pdf",
+            "start": 261,
+            "path": "resources/t12d-practice-sujet-d3-eleve.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12d-practice-sujet-d3-eleve.pdf"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "t12d-practice-sujet-d2",
+        "course": "t12d",
+        "kind": "practice",
+        "title": [
+          "Sujet type D Sujet D2",
+          "Practice paper type D Sujet D2"
+        ],
+        "files": [
+          {
+            "kind": "chapter",
+            "source": "t12-eleve.pdf",
+            "start": 259,
+            "path": "resources/t12d-practice-sujet-d2-eleve.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12d-practice-sujet-d2-eleve.pdf"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "t12d-practice-sujet-d1",
+        "course": "t12d",
+        "kind": "practice",
+        "title": [
+          "Sujet type D Sujet D1",
+          "Practice paper type D Sujet D1"
+        ],
+        "files": [
+          {
+            "kind": "chapter",
+            "source": "t12-eleve.pdf",
+            "start": 257,
+            "path": "resources/t12d-practice-sujet-d1-eleve.pdf",
+            "editions": {
+              "fr": {
+                "path": "resources/t12d-practice-sujet-d1-eleve.pdf"
               }
             }
           }

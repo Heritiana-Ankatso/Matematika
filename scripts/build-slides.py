@@ -536,15 +536,18 @@ def add_widgets(cid, slides):
     return slides
 
 
+MADA_COURSES = ('t10', 't11s', 't12c', 't12d')
+
+
 def mada_text(cid, course, n, source):
     """A chapter of a Malagasy book in the canonical vocabulary (T10 entry activities inlined; teacher material, figures and
     exercise sections dropped; the books' macros expanded)."""
-    base = MADA / course
+    base = MADA / ('t12' if course.startswith('t12') else course)
     text = source.read_text(encoding='utf8')
     text = re.sub(r'\\input\{activities/([^}]+)\}', lambda m: (base / 'activities' / (m.group(1) + '.tex')).read_text(encoding='utf8') if (base / 'activities' / (m.group(1) + '.tex')).exists() else '', text)
     defs = mada.macros(*[p.read_text(encoding='utf8') for p in sorted(base.rglob('*.sty')) + sorted(base.glob('*.cls'))])
     title = next(c['title'][0] for c in CATALOG['chapters'] if c['id'] == cid)
-    return mada.prepare(text, defs, n, title)
+    return mada.prepare(text, defs, n, title, t12=course.startswith('t12'))
 
 
 def files():
@@ -556,6 +559,11 @@ def files():
     }
     # Malagasy books (content/tex/mada/<course>/, copied from the owner's Mada-Boky repository): French only, the n-th chapter file
     mada_parser = lambda src, n: canonical(src, n, extra={'proof': 'proof'}, skip_sections=r'(Exercices|Problèmes|Défis|Logique & Algorithmes)')
+    t12 = json.loads((MADA / 't12/chapitres.json').read_text(encoding='utf8'))
+    for course in ('t12c', 't12d'):   # one source per book chapter, shared by both series: the course lists the book's chapter numbers
+        by_number = {c['number']: MADA / 't12' / c['file'] for c in t12['chapters']}
+        for chapter in [c for c in CATALOG['chapters'] if c['course'] == course and c.get('number')]:
+            yield chapter['id'], course, chapter['number'], by_number[t12['courses'][course][chapter['number'] - 1]], MADA / 't12/none.en.tex', mada_parser
     for course, folder in (('t10', 'chapters'), ('t11s', 'chapitres')):
         names = sorted((MADA / course / folder).glob('*.tex'), key=lambda p: p.name if course == 't10' else re.sub(r'^ch(\d+).*', r'\1', p.name).zfill(3))
         for chapter in [c for c in CATALOG['chapters'] if c['course'] == course and c.get('number')]:
@@ -573,12 +581,12 @@ def main():
     index = []; problems = []; decks = {}; jobs = {}
     # Malagasy decks (French only, no English heading to match): the chapter's laboratory references close the deck
     for c in CATALOG['chapters']:
-        if c['course'] in ('t10', 't11s') and c.get('labs'): WIDGETS.setdefault(c['id'], [(END, lab(ref)) for ref in c['labs']])
+        if c['course'] in MADA_COURSES and c.get('labs'): WIDGETS.setdefault(c['id'], [(END, lab(ref)) for ref in c['labs']])
     for cid, course, n, fr, en, fn in files():
         sequences = {}
         for lang, source in (('fr', fr), ('en', en)):
             if not source.exists(): continue
-            if course in ('t10', 't11s'): body, figures = extract_figs(mada_text(cid, course, n, source))
+            if course in MADA_COURSES: body, figures = extract_figs(mada_text(cid, course, n, source))
             else: body, figures = extract_figs(notation.expand(resolve_counts(inline_includes(source.read_text(encoding='utf8'), SRC / course, lang), lang), lang))
             parsed = fn(body, n)
             for slide in parsed:

@@ -13,8 +13,8 @@ const fmt=(n,d=4)=>n.toFixed(d),t=p=>p[0];
 test('all retained chapter extracts match the provenance manifest and have valid page pointers',async()=>{
  const resourceCatalog=completeCatalog;
  const manifest=JSON.parse(await readFile(new URL('../content/data/RESOURCE_PROVENANCE.json',import.meta.url)));
- assert.equal(resourceCatalog.chapters.length,87);/* 58 French chapters, 9 T10 and 20 T11 S (Malagasy curriculum) */assert.equal(manifest.length,[...resourceCatalog.chapters,...resourceCatalog.supplements].reduce((n,c)=>n+c.files.length,0));
- assert.equal(new Set(resourceCatalog.chapters.map(c=>c.id)).size,87);
+ assert.equal(resourceCatalog.chapters.length,108);/* 58 French chapters, 9 T10, 20 T11 S and 21 T12 C/D (Malagasy curriculum) */assert.equal(manifest.length,[...resourceCatalog.chapters,...resourceCatalog.supplements].reduce((n,c)=>n+c.files.length,0));
+ assert.equal(new Set(resourceCatalog.chapters.map(c=>c.id)).size,108);
  for(const c of [...resourceCatalog.chapters,...resourceCatalog.supplements]){if(c.topic)assert.ok(guides[c.topic]);for(const f of c.files){
  const p=manifest.find(p=>p.path===f.path);assert.ok(p);assert.deepEqual(p.pages,[f.start,f.end]);assert.equal(f.pages,f.end-f.start+1);
  for(const page of Object.values(f.sections||{}))assert.ok(Number.isInteger(page)&&page>=1&&page<=f.pages);
@@ -27,7 +27,7 @@ test('all chapter sections render in both languages and resolve their experiment
  for(const c of resourceCatalog.chapters){const g=guides[c.topic];assert.ok(scenes[g.scene]);if(g.lab)assert.ok(labs.some(l=>l.id===g.lab));
  for(const lang of [0,1])for(const tab of ['cours','manipuler','exercices','documents','understand','experiment','practice','prepare','review']){const html=chapterPage(c.id,tab,p=>{assert.equal(p.length,2);assert.ok(p.every(x=>typeof x==='string'&&x));return p[lang]},labs);assert.ok(!/NaN|[="'>]undefined["<]|\.\/undefined/.test(html),c.id+' '+tab);assert.ok(html.includes(`chapter/${c.id}/documents`));if(tab==='documents')for(const f of c.files)assert.ok(html.includes('./'+assetHref((lang&&f.englishPath)||f.path)+'#page='));/* a French-only course (Malagasy curriculum) links its French edition */}
  }
- assert.equal(matchingChapters('all','arithmetique').length,1);assert.equal(matchingChapters('stmg','logarithme').length,1);assert.equal(matchingChapters('all','never_a_chapter').length,0);assert.equal(matchingSupplements('terminale','algorithms').length,1);assert.ok(libraryPage(t).includes('href="#chapter/seconde-01"'));
+ assert.equal(matchingChapters('all','arithmetique').length,2)/* Expertes and T12 C */;assert.equal(matchingChapters('stmg','logarithme').length,1);assert.equal(matchingChapters('all','never_a_chapter').length,0);assert.equal(matchingSupplements('terminale','algorithms').length,1);assert.ok(libraryPage(t).includes('href="#chapter/seconde-01"'));
 });
 test('every visual model stays finite across its declared parameter domain and produces an accessible diagram',()=>{
  function finite(o){for(const x of Object.values(o))if(Array.isArray(x))x.forEach(v=>assert.ok(Number.isFinite(v)));else if(typeof x==='number')assert.ok(Number.isFinite(x));}

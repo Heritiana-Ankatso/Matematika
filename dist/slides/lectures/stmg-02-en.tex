@@ -2,7 +2,12 @@
 \makeatletter\IfFileExists{core/beamer/beamerthememx.sty}{\def\mxcorepath{core/}\def\input@path{{core/beamer/}{core/}}}{\def\mxcorepath{../core/}\def\input@path{{../core/beamer/}{../core/}}}\makeatother
 \documentclass[aspectratio=169,10pt,t]{beamer}
 \usetheme{mx}
-\usepackage{graphicx,booktabs}
+\usepackage{graphicx,booktabs,mathtools,array,adjustbox}
+\usepackage[all]{xy}
+\providecommand{\actualtextwidth}{\textwidth}
+\providecommand{\veccor}[2]{\left(\begin{matrix}#1\\#2\end{matrix}\right)}
+\DeclarePairedDelimiter{\VecNorm}{\lVert}{\rVert}
+\providecommand{\ETC}{\ldots}
 \usepackage[english]{babel}
 \setlength{\parskip}{.45em}
 \hypersetup{pdfauthor={},pdfsubject={Lecture slides},pdfkeywords={},pdftitle={Exponential functions}}
@@ -36,16 +41,16 @@
 \author{}
 \begin{document}
 \mxtitleframe
-\begin{frame}{Core Course Notes}
+\begin{frame}[allowframebreaks]{Core Course Notes}
 If \(a>1\), \(x\mapsto a^x\) is strictly increasing. If \(0<a<1\), it is strictly decreasing. For \(f(x)=ka^x\), multiplying by \(k<0\) reverses the direction of variation. In every case, \(a^x>0\).
 \end{frame}
-\begin{frame}{Core Course Notes}
+\begin{frame}[allowframebreaks]{Core Course Notes}
 In general, \(a^x+a^y\neq a^{x+y}\). The rules apply to products and quotients, not to sums.
 \end{frame}
-\begin{frame}{Core Course Notes}
+\begin{frame}[allowframebreaks]{Core Course Notes}
 A company's turnover goes from \(80{,}000\) to \(95{,}000\) euros in four years. The overall multiplier is \(Q=\dfrac{95{,}000}{80{,}000}=1.1875\). The average annual multiplier is \(q=1.1875^{\dfrac14}\approx1.0439\): the average annual rate is therefore about \(4.39\%\).
 \end{frame}
-\begin{frame}{Definition and direction of variation of \(a^x\)}
+\begin{frame}[allowframebreaks]{Definition and direction of variation of \(a^x\)}
 \begin{itemize}
 \item Make sense of \(a^x\).
 \item Link the base to the direction of variation.
@@ -64,20 +69,20 @@ Using a calculator, complete a table of values of \(1.5^x\) and \(0.7^x\) for \(
 \end{column}
 \end{columns}
 \end{frame}
-\begin{frame}{Definition and direction of variation of \(a^x\)}
+\begin{frame}[allowframebreaks]{Definition and direction of variation of \(a^x\)}
 For \(a>0\), \(a^x\) is defined for every real number \(x\). The function is increasing if \(a>1\) and decreasing if \(0<a<1\).
 \end{frame}
-\begin{frame}{Definition and direction of variation of \(a^x\)}
+\begin{frame}[allowframebreaks]{Definition and direction of variation of \(a^x\)}
 Take the data from the investigation and write up the solution in this order: definition of the objects, property used, exact or approximate calculation, then a sentence giving the answer. The model answer appears in the teacher edition.
 \end{frame}
-\begin{frame}{Definition and direction of variation of \(a^x\)}
+\begin{frame}[allowframebreaks]{Definition and direction of variation of \(a^x\)}
 \textbf{1 h session:} 7 min of fluency; 10 min of pooling and written record; 35 min of essential exercises; 5 min of correction; 3 min of exit ticket.
 
 \textbf{2 h session:} add 20 min of investigation, 20 min of formalisation, a second independent exercise and 10 min of comparative correction.
 
 \textbf{Differentiation:} give struggling students a four-box sheet (data, model, calculation, conclusion). Ask fast finishers to produce a counterexample, a justification or a second method.
 \end{frame}
-\begin{frame}{Powers and algebraic rules}
+\begin{frame}[allowframebreaks]{Powers and algebraic rules}
 \begin{itemize}
 \item Transform powers.
 \item Use negative exponents.
@@ -85,23 +90,23 @@ Take the data from the investigation and write up the solution in this order: de
 
 \end{itemize}
 \end{frame}
-\begin{frame}{Powers and algebraic rules}
+\begin{frame}[allowframebreaks]{Powers and algebraic rules}
 Simplify \(2^3\times2^{-5}\), \(5^{x+2}\div5^x\) and \((3^x)^2\). Then invent a numerical counterexample to \(a^x+a^y=a^{x+y}\).
 \end{frame}
-\begin{frame}{Powers and algebraic rules}
+\begin{frame}[allowframebreaks]{Powers and algebraic rules}
 \(a^{x+y}=a^xa^y\), \(a^{x-y}=\dfrac{a^x}{a^y}\) and \((a^x)^y=a^{xy}\). These rules require the same positive base.
 \end{frame}
-\begin{frame}{Powers and algebraic rules}
+\begin{frame}[allowframebreaks]{Powers and algebraic rules}
 Take the data from the investigation and write up the solution in this order: definition of the objects, property used, exact or approximate calculation, then a sentence giving the answer. The model answer appears in the teacher edition.
 \end{frame}
-\begin{frame}{Powers and algebraic rules}
+\begin{frame}[allowframebreaks]{Powers and algebraic rules}
 \textbf{1 h session:} 7 min of fluency; 10 min of pooling and written record; 35 min of essential exercises; 5 min of correction; 3 min of exit ticket.
 
 \textbf{2 h session:} add 20 min of investigation, 20 min of formalisation, a second independent exercise and 10 min of comparative correction.
 
 \textbf{Differentiation:} give struggling students a four-box sheet (data, model, calculation, conclusion). Ask fast finishers to produce a counterexample, a justification or a second method.
 \end{frame}
-\begin{frame}{Functions \(x\mapsto k a^x\): variation and graph}
+\begin{frame}[allowframebreaks]{Functions \(x\mapsto k a^x\): variation and graph}
 \begin{itemize}
 \item Study \(ka^x\).
 \item Combine sign and variation.
@@ -120,20 +125,20 @@ The four curves \(\mathcal C_1\), \(\mathcal C_2\), \(\mathcal C_3\) and \(\math
 \end{column}
 \end{columns}
 \end{frame}
-\begin{frame}{Functions \(x\mapsto k a^x\): variation and graph}
+\begin{frame}[allowframebreaks]{Functions \(x\mapsto k a^x\): variation and graph}
 For \(f(x)=ka^x\), the sign is that of \(k\). If \(k<0\), multiplying by \(k\) reverses the direction of variation of \(a^x\).
 \end{frame}
-\begin{frame}{Functions \(x\mapsto k a^x\): variation and graph}
+\begin{frame}[allowframebreaks]{Functions \(x\mapsto k a^x\): variation and graph}
 Take the data from the investigation and write up the solution in this order: definition of the objects, property used, exact or approximate calculation, then a sentence giving the answer. The model answer appears in the teacher edition.
 \end{frame}
-\begin{frame}{Functions \(x\mapsto k a^x\): variation and graph}
+\begin{frame}[allowframebreaks]{Functions \(x\mapsto k a^x\): variation and graph}
 \textbf{1 h session:} 7 min of fluency; 10 min of pooling and written record; 35 min of essential exercises; 5 min of correction; 3 min of exit ticket.
 
 \textbf{2 h session:} add 20 min of investigation, 20 min of formalisation, a second independent exercise and 10 min of comparative correction.
 
 \textbf{Differentiation:} give struggling students a four-box sheet (data, model, calculation, conclusion). Ask fast finishers to produce a counterexample, a justification or a second method.
 \end{frame}
-\begin{frame}{Average rate of change}
+\begin{frame}[allowframebreaks]{Average rate of change}
 \begin{itemize}
 \item Calculate an average rate.
 \item Distinguish overall and average rates.
@@ -141,23 +146,23 @@ Take the data from the investigation and write up the solution in this order: de
 
 \end{itemize}
 \end{frame}
-\begin{frame}{Average rate of change}
+\begin{frame}[allowframebreaks]{Average rate of change}
 The price of a service goes from \(18\) to \(23.50\) euros in five years. Calculate the overall multiplier, then the average annual multiplier and the average annual rate. Check by applying the change five times in a row.
 \end{frame}
-\begin{frame}{Average rate of change}
+\begin{frame}[allowframebreaks]{Average rate of change}
 If \(Q\) is the overall multiplier of \(n\) identical changes, the average multiplier is \(q=Q^{\dfrac1n}\) and the average rate is \(q-1\).
 \end{frame}
-\begin{frame}{Average rate of change}
+\begin{frame}[allowframebreaks]{Average rate of change}
 Take the data from the investigation and write up the solution in this order: definition of the objects, property used, exact or approximate calculation, then a sentence giving the answer. The model answer appears in the teacher edition.
 \end{frame}
-\begin{frame}{Average rate of change}
+\begin{frame}[allowframebreaks]{Average rate of change}
 \textbf{1 h session:} 7 min of fluency; 10 min of pooling and written record; 35 min of essential exercises; 5 min of correction; 3 min of exit ticket.
 
 \textbf{2 h session:} add 20 min of investigation, 20 min of formalisation, a second independent exercise and 10 min of comparative correction.
 
 \textbf{Differentiation:} give struggling students a four-box sheet (data, model, calculation, conclusion). Ask fast finishers to produce a counterexample, a justification or a second method.
 \end{frame}
-\begin{frame}{Reading graphical representations}
+\begin{frame}[allowframebreaks]{Reading graphical representations}
 \begin{itemize}
 \item Read outputs and find the inputs that give them.
 \item Compare two models.
@@ -176,20 +181,20 @@ Two commercial offers are modelled by \(f(x)=120\times1.08^x\) and \(g(x)=180\ti
 \end{column}
 \end{columns}
 \end{frame}
-\begin{frame}{Reading graphical representations}
+\begin{frame}[allowframebreaks]{Reading graphical representations}
 Reading \(f(x)\) means going from \(x\) to the curve and then to the \emph{y}-axis. Finding an input for a given \(y\) means going from \(y\) to the curve and then to the \emph{x}-axis.
 \end{frame}
-\begin{frame}{Reading graphical representations}
+\begin{frame}[allowframebreaks]{Reading graphical representations}
 Take the data from the investigation and write up the solution in this order: definition of the objects, property used, exact or approximate calculation, then a sentence giving the answer. The model answer appears in the teacher edition.
 \end{frame}
-\begin{frame}{Reading graphical representations}
+\begin{frame}[allowframebreaks]{Reading graphical representations}
 \textbf{1 h session:} 7 min of fluency; 10 min of pooling and written record; 35 min of essential exercises; 5 min of correction; 3 min of exit ticket.
 
 \textbf{2 h session:} add 20 min of investigation, 20 min of formalisation, a second independent exercise and 10 min of comparative correction.
 
 \textbf{Differentiation:} give struggling students a four-box sheet (data, model, calculation, conclusion). Ask fast finishers to produce a counterexample, a justification or a second method.
 \end{frame}
-\begin{frame}{Simple exponential equations}
+\begin{frame}[allowframebreaks]{Simple exponential equations}
 \begin{itemize}
 \item Solve using a common base.
 \item Approximate a solution.
@@ -197,23 +202,23 @@ Take the data from the investigation and write up the solution in this order: de
 
 \end{itemize}
 \end{frame}
-\begin{frame}{Simple exponential equations}
+\begin{frame}[allowframebreaks]{Simple exponential equations}
 Solve \(4^x=64\), \(9^x=\dfrac13\) and \(1.12^x=2\): first using a common base when possible, then numerically for the last one. Bracket the last solution between two integers.
 \end{frame}
-\begin{frame}{Simple exponential equations}
+\begin{frame}[allowframebreaks]{Simple exponential equations}
 For \(a>0\) and \(a\neq1\), to solve \(a^x=b\): use a common base when possible; otherwise bracket the solution or use a numerical tool. Check that \(b>0\).
 \end{frame}
-\begin{frame}{Simple exponential equations}
+\begin{frame}[allowframebreaks]{Simple exponential equations}
 Take the data from the investigation and write up the solution in this order: definition of the objects, property used, exact or approximate calculation, then a sentence giving the answer. The model answer appears in the teacher edition.
 \end{frame}
-\begin{frame}{Simple exponential equations}
+\begin{frame}[allowframebreaks]{Simple exponential equations}
 \textbf{1 h session:} 7 min of fluency; 10 min of pooling and written record; 35 min of essential exercises; 5 min of correction; 3 min of exit ticket.
 
 \textbf{2 h session:} add 20 min of investigation, 20 min of formalisation, a second independent exercise and 10 min of comparative correction.
 
 \textbf{Differentiation:} give struggling students a four-box sheet (data, model, calculation, conclusion). Ask fast finishers to produce a counterexample, a justification or a second method.
 \end{frame}
-\begin{frame}{Modelling with an exponential function}
+\begin{frame}[allowframebreaks]{Modelling with an exponential function}
 \begin{itemize}
 \item Build an exponential model.
 \item Identify the parameters.
@@ -232,20 +237,20 @@ An app has \(12{,}000\) users at launch and its usage grows by \(9\%\) per month
 \end{column}
 \end{columns}
 \end{frame}
-\begin{frame}{Modelling with an exponential function}
+\begin{frame}[allowframebreaks]{Modelling with an exponential function}
 A constant relative change with multiplier \(q\) is modelled by \(f(t)=V_0q^t\). \(V_0\) is the initial value and \(q\) the multiplier per unit of time.
 \end{frame}
-\begin{frame}{Modelling with an exponential function}
+\begin{frame}[allowframebreaks]{Modelling with an exponential function}
 Take the data from the investigation and write up the solution in this order: definition of the objects, property used, exact or approximate calculation, then a sentence giving the answer. The model answer appears in the teacher edition.
 \end{frame}
-\begin{frame}{Modelling with an exponential function}
+\begin{frame}[allowframebreaks]{Modelling with an exponential function}
 \textbf{1 h session:} 7 min of fluency; 10 min of pooling and written record; 35 min of essential exercises; 5 min of correction; 3 min of exit ticket.
 
 \textbf{2 h session:} add 20 min of investigation, 20 min of formalisation, a second independent exercise and 10 min of comparative correction.
 
 \textbf{Differentiation:} give struggling students a four-box sheet (data, model, calculation, conclusion). Ask fast finishers to produce a counterexample, a justification or a second method.
 \end{frame}
-\begin{frame}{Review and chapter assessment}
+\begin{frame}[allowframebreaks]{Review and chapter assessment}
 \begin{itemize}
 \item Use what the chapter has covered.
 \item Write up a modelling solution.
@@ -253,10 +258,10 @@ Take the data from the investigation and write up the solution in this order: de
 
 \end{itemize}
 \end{frame}
-\begin{frame}{Review and chapter assessment}
+\begin{frame}[allowframebreaks]{Review and chapter assessment}
 Using four pieces of student work, spot and correct: rate/multiplier confusion, a false power rule, an error in the direction of variation and a conclusion without a unit.
 \end{frame}
-\begin{frame}{Review and chapter assessment (2)}
+\begin{frame}[allowframebreaks]{Review and chapter assessment (2)}
 \begin{enumerate}
 \setcounter{enumi}{0}
 \item A population of \(2{,}000\) inhabitants increases by \(3\%\) per year. Léa writes: “\(P(n)=2{,}000\times3^n\).”
@@ -269,13 +274,13 @@ Using four pieces of student work, spot and correct: rate/multiplier confusion, 
 
 \end{enumerate}
 \end{frame}
-\begin{frame}{Review and chapter assessment}
+\begin{frame}[allowframebreaks]{Review and chapter assessment}
 To validate an exponential model: identify \(V_0\) and \(q\), calculate with the units, check the order of magnitude and interpret the result.
 \end{frame}
-\begin{frame}{Review and chapter assessment}
+\begin{frame}[allowframebreaks]{Review and chapter assessment}
 Take the data from the investigation and write up the solution in this order: definition of the objects, property used, exact or approximate calculation, then a sentence giving the answer. The model answer appears in the teacher edition.
 \end{frame}
-\begin{frame}{Review and chapter assessment}
+\begin{frame}[allowframebreaks]{Review and chapter assessment}
 \textbf{1 h session:} 7 min of fluency; 10 min of pooling and written record; 35 min of essential exercises; 5 min of correction; 3 min of exit ticket.
 
 \textbf{2 h session:} add 20 min of investigation, 20 min of formalisation, a second independent exercise and 10 min of comparative correction.

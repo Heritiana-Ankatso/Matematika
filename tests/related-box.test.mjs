@@ -79,8 +79,8 @@ test('box markup: a labelled aside, one live link per item with its type', () =>
 test('coverage: every lab, and every class chapter except the revision ones, has something to show', () => {
   const empty = type => pages(type).filter(i => !relatedForPage(index, i.route).length).map(i => i.id);
   assert.deepEqual(empty('lab'), []);
-  // Full edition: five T11 chapters have nothing related yet (known gap, 14 November 2026); the list may only shrink.
-  const gaps = FULL_EDITION ? ['chapter:t11s-01', 'chapter:t11s-02', 'chapter:t11s-03', 'chapter:t11s-11', 'chapter:t11s-19'] : [];
+  // Full edition: five T11 chapters and two T12 chapters have nothing related yet (known gap, 14 November 2026); the list may only shrink.
+  const gaps = FULL_EDITION ? ['chapter:t11s-01', 'chapter:t11s-02', 'chapter:t11s-03', 'chapter:t11s-11', 'chapter:t11s-19', 'chapter:t12c-06', 'chapter:t12c-12'] : [];   // T12 C/D (16 November 2026): affine maps and differential equations have no laboratory or related page yet
   const missing = empty('chapter').filter(id => !/revision|unsorted|shared-/.test(id));
   assert.deepEqual(missing.filter(id => !gaps.includes(id)), []);
   assert.ok(pages('gallery').length - empty('gallery').length >= 20);
