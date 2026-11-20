@@ -1,6 +1,7 @@
 \chapter{Problèmes}
 \section{Synthèse}
 \begin{exo}
+\label{exo:pb fibonacci}
 \index{Fibonacci!Suite de}
 	On d\'efinit la suite de Fibonacci $(F_n)_{n\in\mathbb{N}}$ par :
 	\[
@@ -10,27 +11,28 @@
 			F_{n+2} = F_{n+1} + F_{n} .
 		\end{multiform}
 	\]
-	Montrer que, pour tous entiers naturels $a$ et $b$ tels que $a \geq b$, on a
+	Montrer que, pour tous entiers naturels $a$ et $b$ non tous deux nuls tels que $a \geq b$, on a
 	$\pgcd{a}{b} = \pgcd{b}{a-b}$.
 	En d\'eduire que deux nombres de Fibonacci cons\'ecutifs, c'est-\`a-dire
 	$F_n$ et $F_{n+1}$, sont premiers entre eux.
 \end{exo}
 
 \begin{exo}
-	On lance un d\'e dod\'eca\`edrique (\`a 12 faces) r\'egulier non-truqu\'e dont 
+\label{exo:pb de base trois}
+	On lance un d\'e dod\'eca\`edrique (\`a 12 faces) r\'egulier non truqu\'e dont
 	les faces sont num\'erot\'ees de z\'ero \`a onze.
 	On s'int\'eresse au nombre \'ecrit sur la face sup\'erieure du d\'e.
 	Les nombres sur ses faces sont \'ecrits en base trois.
 	\begin{enumerate}
-		\item 
+		\item
 			\begin{enumerate}
 				\item Montrer qu'un nombre \'ecrit en base trois est un multiple de $3$ si et seulement s'il se termine par $0$.
 				\item Calculer alors la probabilit\'e que le nombre obtenu par le lancer du d\'e se termine par $0$.
 			\end{enumerate}
 		\item On r\'ep\`ete le lancer cinq fois successivement, de mani\`ere ind\'ependante.
 			On consid\`ere comme succ\`es l'obtention d'une face dont le nombre inscrit se termine par $0$,
-			et par cons\'equent comme \'echec tout autre \'eventualit\'e.
-			\`A chaque succ\'es on inscrit le chiffre $1$ sur un tableau et \`a chaque \'echec on inscrit le chiffre $0$.
+			et par cons\'equent comme \'echec toute autre \'eventualit\'e.
+			\`A chaque succ\`es on inscrit le chiffre $1$ sur un tableau et \`a chaque \'echec on inscrit le chiffre $0$.
 			On obtient de cette mani\`ere un nombre de cinq chiffres en base deux.
 			(Exemple : \'echec--succ\`es--succ\`es--\'echec--succ\`es correspond \`a $\base{01101}{2}$.)
 			On s'int\'eresse alors au nombre ainsi obtenu :
@@ -49,6 +51,7 @@
 
 \section{Analyse}
 \begin{exo}
+\label{exo:pb x sur ln}
 Soit $f$ la fonction d\'efinie sur
 $\mathcal{D}_f = [0 ; 1[ \cup ]1 ; +\infty[$ par
 \[
@@ -62,14 +65,14 @@ Soit $(\mathscr{C})$ sa courbe repr\'esentative dans le plan muni d'un rep\`ere
 orthonorm\'e \Oij{} d'unit\'e 1~cm.
 \begin{enumerate}
 \item \begin{enumerate}
-      \item Montrer que $f$ est continue et d\'erivable au point $x_0 = 0$.
+      \item Montrer que $f$ est continue et d\'erivable \`a droite au point $x_0 = 0$.
       \item Calculer les limites de $f$ aux bornes de $\mathcal{D}_f$.
       \end{enumerate}
 \item \begin{enumerate}
       \item Calculer la fonction d\'eriv\'ee de $f$ et \'etudier son signe sur $\mathcal{D}_f$.
 	      \item Dresser le tableau de variation de $f$.
-	      \item \'Etudier les branches infinies de $f$ et tracer $(\mathscr{C})$ ainsi que 
-            la droite $(T)$, tangente \`a $(\mathscr{C})$ au point d'abscisse $e^{-1}$ dans le rep\`ere \Oij. 
+	      \item \'Etudier les branches infinies de $(\mathscr{C})$ et tracer $(\mathscr{C})$ ainsi que
+            la droite $(T)$, tangente \`a $(\mathscr{C})$ au point d'abscisse $e^{-1}$ dans le rep\`ere \Oij.
       \end{enumerate}
 \item Soit $g$ la fonction d\'efinie sur $\mathcal{D}_g = ]1 ; +\infty[$ par
       $g(x) = \frac{x + \ln x}{\ln x}$.
@@ -77,12 +80,13 @@ orthonorm\'e \Oij{} d'unit\'e 1~cm.
       \begin{enumerate}
       \item \'Etudier la position relative de $(\Gamma)$ et $(\mathscr{C})$.
       \item Dresser le tableau de variation de $g$ et tracer $(\Gamma)$ dans le m\^eme rep\`ere que $(\mathscr{C})$.
-      \item Calculer, en $\text{cm}^2$, l'aire du domaine plan limit\'e par les deux courbes $(\mathscr{C})$ et $(\Gamma)$ 
+      \item Calculer, en $\text{cm}^2$, l'aire du domaine plan limit\'e par les deux courbes $(\mathscr{C})$ et $(\Gamma)$
             et les droites d'\'equations respectives $x = 2$ et $x = e$.
       \end{enumerate}
 \end{enumerate}
 \end{exo}
 \begin{exo}
+\label{exo:pb exp moins x}
 On consid\`ere la fonction $f$ d\'efinie sur $I = [ 0 \; ; \ + \infty[$ par $f(x) = \frac{\expo{x} - 1}{\expo{x} - x}$
 et on note $(\mathscr{C})$ sa courbe repr\'esentative dans un rep\`ere orthonorm\'e
 \Oij{} d'unit\'e 2~cm.
@@ -90,7 +94,7 @@ et on note $(\mathscr{C})$ sa courbe repr\'esentative dans un rep\`ere orthonorm
 \item Soit $h$ la fonction d\'efinie sur $I$ par : $h(x) = 2 \; \expo{x} - x \; \expo{x} - 1$.
       \begin{enumerate}
 	      \item \'Etudier les variations de $h$.
-      \item Montrer que l'\'equation $h(x) = 0$ admet une solution unique $\alpha$ dans $I$. 
+      \item Montrer que l'\'equation $h(x) = 0$ admet une solution unique $\alpha$ dans $I$.
             V\'erifier que ${\alpha \in \; \left] \frac{3}{2} \; ; \; 2 \right[}$.
       \item En d\'eduire le signe de $h(x)$ suivant les valeurs de $x$.
       \end{enumerate}
@@ -98,26 +102,27 @@ et on note $(\mathscr{C})$ sa courbe repr\'esentative dans un rep\`ere orthonorm
       \item D\'eterminer la limite de $f(x)$ quand $x$ tend vers $+\infty$.
             Interpr\'eter le r\'esultat graphiquement.
       \item \'Etudier la position de $(\mathscr{C})$ par rapport \`a la droite $(\mathcal{D})$ d'\'equation $y = 1$.
-            (On admet que $\expo{x} > x $ pour tout $x \in I$)
+            (On admet que $\expo{x} > x $ pour tout $x \in I$.)
       \end{enumerate}
 \item \begin{enumerate}
       \item Montrer que pour tout $x \in I$, $f'(x) = \frac{h(x)}{\left(\expo{x} - x \right)^2}$.
       \item Montrer que $f(\alpha) = \frac{1}{\alpha - 1}$.
             Dresser le tableau des variations de $f$.
-      \item Tracer $(\mathscr{C})$ et $(\mathcal{D})$ dans le m\^eme rep\`ere \Oij . 
-            (On prendra $ \alpha \simeq 1,84$ et $f(\alpha) \simeq 1,20 $)
+      \item Tracer $(\mathscr{C})$ et $(\mathcal{D})$ dans le m\^eme rep\`ere \Oij .
+            (On prendra $ \alpha \simeq 1{,}84$ et $f(\alpha) \simeq 1{,}19 $.)
       \end{enumerate}
-\item D\'eterminer la primitive $F$ de $f$ qui prend la valeur $e$ quand $x = 0$.
+\item D\'eterminer la primitive $F$ de $f$ sur $I$ qui prend la valeur $e$ quand $x = 0$.
 \end{enumerate}
 \end{exo}
 \begin{exo}
+\label{exo:pb x moins un}
 Soit $f$ la fonction d\'efinie sur $\mathbb{R}$ par $f(x) = x - 1 + 2 \; \expo{-\frac{x}{2}}$.
 On note $(\mathscr{C})$ sa courbe repr\'esentative dans le plan rapport\'e \`a un
 rep\`ere orthonorm\'e \Oij{} d'unit\'e 1~cm.
 \begin{enumerate}
 \item \begin{enumerate}
       \item \'Etudier les variations de $f$.
-      \item Donner l'\'equation de l'asymptote oblique $(\mathcal{D})$ de $(\mathscr{C})$ et 
+      \item Donner l'\'equation de l'asymptote oblique $(\mathcal{D})$ de $(\mathscr{C})$ et
       pr\'eciser la position de $(\mathscr{C})$ par rapport \`a $(\mathcal{D})$.
       \item Tracer $(\mathscr{C})$ et $(\mathcal{D})$.
       \end{enumerate}
@@ -131,6 +136,7 @@ rep\`ere orthonorm\'e \Oij{} d'unit\'e 1~cm.
 \end{enumerate}
 \end{exo}
 \begin{exo}
+\label{exo:pb un plus ln}
 Soit $f$ la fonction d\'efinie sur $\mathbb{R}^*_+$ par $f(x) = \frac{1 + \ln (x)}{x}$.
 On note $(\mathscr{C})$ sa courbe repr\'esentative dans un rep\`ere orthonorm\'e
 \Oij{} d'unit\'e 2~cm.
@@ -146,622 +152,1251 @@ On note $(\mathscr{C})$ sa courbe repr\'esentative dans un rep\`ere orthonorm\'e
       \item Trouver la primitive $F$ de $f$ qui s'annule en $1$.
       \item D\'eterminer les limites de $F$ aux bornes de son domaine de d\'efinition puis dresser son tableau de variation.
       \item D\'eterminer les coordonn\'ees des points d'intersection de la courbe repr\'esentative de $F$ avec l'axe des abscisses.
-      \item Repr\'esenter $F$ graphiquement. 
+      \item Repr\'esenter $F$ graphiquement.
       \end{enumerate}
 \end{description}
 \end{exo}
 \begin{exo}
+\label{exo:pb deux x plus trois}
       \begin{description}
-            \item[I.] On consid\`ere la fonction $g$ telle que $g(x) = (2 x + 3) \expo{-2x} + 1$.
+            \item[I.] On consid\`ere la fonction $g$ d\'efinie sur $\mathbb{R}$ par $g(x) = (2 x + 3) \expo{-2x} + 1$.
                   \begin{enumerate}
-                        \item Dresser le tableau de variation de $g$.                                                                  
-                        \item Montrer qu'il existe un r\'eel unique $\alpha$ dans $] -2 ; - \frac{3}{2} [$ 
-                              tel que $g(\alpha) = 0$.      
-                        \item En d\'eduire le signe de $g(x)$.                                                                         
+                        \item Dresser le tableau de variation de $g$.
+                        \item Montrer qu'il existe un r\'eel unique $\alpha$ dans $] -2 ; - \frac{3}{2} [$
+                              tel que $g(\alpha) = 0$.
+                        \item En d\'eduire le signe de $g(x)$.
                   \end{enumerate}
-            \item[II.] On donne la fonction $f$ telle que $f(x) = (x+2) \expo{-2x} + 1 - x$.
+            \item[II.] On donne la fonction $f$ d\'efinie sur $\mathbb{R}$ par $f(x) = (x+2) \expo{-2x} + 1 - x$.
                        On note $(\mathscr{C})$ sa courbe repr\'esentative dans un rep\`ere orthonorm\'e d'unit\'e 1~cm.
                   \begin{enumerate}
-                        \item Exprimer $f'(x)$ en fonction de $g(x)$ o\`u $f'$ est la fonction d\'eriv\'ee de $f$.                    
-                        \item En d\'eduire le tableau de variation de $f$.                                                             
+                        \item Exprimer $f'(x)$ en fonction de $g(x)$ o\`u $f'$ est la fonction d\'eriv\'ee de $f$.
+                        \item En d\'eduire le tableau de variation de $f$.
                         \item \begin{enumerate}
-                                    \item \'Etudier les branches infinies de $(\mathscr{C})$.                                                               
-                                    \item Pr\'eciser la position de $(\mathscr{C})$ par rapport \`a son asymptote oblique $(\mathscr{D})$.                
-                                    \item Montrer que l'\'equation $f(x) = 0$ admet une solution unique $a$ dans $]1 ; 2[$.                  
-                                    \item Tracer $(\mathscr{C})$.                                                                                         
+                                    \item \'Etudier les branches infinies de $(\mathscr{C})$.
+                                    \item Pr\'eciser la position de $(\mathscr{C})$ par rapport \`a son asymptote oblique $(\mathscr{D})$.
+                                    \item Montrer que l'\'equation $f(x) = 0$ admet une solution unique $a$ dans $]1 ; 2[$.
+                                    \item Tracer $(\mathscr{C})$.
                               \end{enumerate}
-                        \item Calculer l'aire du domaine plan limit\'e par $(\mathscr{C})$, 
-                              l'axe des abscisses et les droites d'\'equations $x=0$ et $x=1$.                                         
+                        \item Calculer l'aire du domaine plan limit\'e par $(\mathscr{C})$,
+                              l'axe des abscisses et les droites d'\'equations $x=0$ et $x=1$.
                         \item On note $h$ la restriction de $f$ \`a l'intervalle $[0 ; +\infty[$.
                               \begin{enumerate}
-                                    \item Montrer que $h$ r\'ealise une bijection de $[0 ; +\infty[$ 
-                                          vers un intervalle $J$ que l'on pr\'ecisera.                                                       
-                                    \item Calculer $(h^{-1})'(0)$.                                                                          
+                                    \item Montrer que $h$ r\'ealise une bijection de $[0 ; +\infty[$
+                                          vers un intervalle $J$ que l'on pr\'ecisera.
+                                    \item Calculer $(h^{-1})'(0)$ (on exprimera le r\'esultat \`a l'aide de $a$).
                                     \item Tracer la courbe $(\mathscr{C}')$, repr\'esentative de $h^{-1}$,
-                                          dans le m\^eme rep\`ere que $(\mathscr{C})$.                
+                                          dans le m\^eme rep\`ere que $(\mathscr{C})$.
                               \end{enumerate}
                   \end{enumerate}
       \end{description}
 \end{exo}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{exo}
-      On consid\`ere la fonction $f$ d\'efinie sur l'intervalle $[0 ; +\infty[$ par :
+\label{exo:pb x ln x}
+      On consid\`ere la fonction $f$ d\'efinie sur l'intervalle $[0 ; +\infty[$ par
       \[
-      f(x) = 
-            \left\lbrace
-                  \begin{array}{lcl}
-                        x \ln \left( 1 + \frac{1}{x^2} \right) & \text{ si } & x \neq 0 \\
-                        0                                      & \text{ si } & x = 0 \;.
-                  \end{array}
-            \right.
+            f(x) = x \ln x - \frac{x^2}{4} \quad \text{si } x > 0, \qquad f(0) = 0 .
       \]
-      On note $(\mathscr{C})$ la courbe repr\'esentative de $f$
-      dans un rep\`ere orthonormal $(O ; \vec{\imath} , \vec{\jmath})$ (unit\'e graphique : 5~cm).
+      On note $(\mathscr{C})$ sa courbe repr\'esentative dans un rep\`ere orthonorm\'e
+      $(O ; \vec{\imath} , \vec{\jmath})$ d'unit\'e 1~cm.
       \begin{description}
-            \item[Partie A :]
-                  On consid\`ere la fonction $g$ d\'efinie sur l'intervalle $]0 ; +\infty[$ par 
-                  $g(x) = \ln \left( 1 + \frac{1}{x^2} \right) - \frac{2}{x^2 + 1}$.
+            \item[Partie A : une fonction auxiliaire.]
+                  Soit $g$ la fonction d\'efinie sur $]0 ; +\infty[$ par $g(x) = \ln x + 1 - \frac{x}{2}$.
+                  \begin{enumerate}
+                        \item Calculer les limites de $g$ en $0$ et en $+\infty$.
+                        \item \'Etudier les variations de $g$ et dresser son tableau de variation.
+                        \item Montrer que l'\'equation $g(x) = 0$ admet exactement deux solutions $\alpha$ et $\beta$,
+                              avec $\alpha < \beta$, puis v\'erifier que
+                              $0{,}46 < \alpha < 0{,}47$ et $5{,}35 < \beta < 5{,}36$.
+                        \item En d\'eduire le signe de $g(x)$ sur $]0 ; +\infty[$.
+                  \end{enumerate}
+            \item[Partie B : \'etude de $f$.]
                   \begin{enumerate}
                         \item \begin{enumerate}
-                                    \item Calculer la d\'eriv\'ee $g'$ de $g$.
-                                          Montrer que pour tout $x \in ]0 ; +\infty[$, 
-                                          $g'(x) = \frac{2 (x^2 -1)}{x (x^2 + 1)^2}$.
-                                    \item \'Etudier le signe de $g'(x)$ suivant les valeurs de $x$.
+                                    \item Montrer que $f$ est continue en $0$.
+                                    \item $f$ est-elle d\'erivable \`a droite en $0$ ?
+                                          Interpr\'eter graphiquement le r\'esultat.
                               \end{enumerate}
-                        \item D\'eterminer les limites de $g$ aux bornes de son domaine de d\'efinition.
+                        \item Calculer la limite de $f$ en $+\infty$ et \'etudier la branche infinie de $(\mathscr{C})$.
+                        \item V\'erifier que, pour tout $x > 0$, $f'(x) = g(x)$.
+                              Dresser le tableau de variation de $f$.
                         \item \begin{enumerate}
-                                    \item Dresser le tableau de variation de $g$.
-                                    \item En d\'eduire qu'il existe un nombre r\'eel $\alpha > 0$ unique tel que 
-                                          $g(\alpha) = 0$.
-                                          V\'erifier que $0,5 < \alpha < 0,51$.
+                                    \item En utilisant l'\'egalit\'e $g(\alpha) = 0$, montrer que
+                                          $f(\alpha) = \frac{\alpha^2}{4} - \alpha$. \'Etablir de m\^eme une expression
+                                          de $f(\beta)$ sans logarithme.
+                                    \item \'Etudier les variations de la fonction $\varphi : t \mapsto \frac{t^2}{4} - t$
+                                          et en d\'eduire un encadrement de $f(\alpha)$ et de $f(\beta)$
+                                          d'amplitude inf\'erieure \`a $2 \cdot 10^{-2}$.
                               \end{enumerate}
-                        \item D\'eduire des questions pr\'ec\'edentes le signe de $g(x)$ sur l'intervalle $]0 ; +\infty[$.
+                        \item Montrer que l'\'equation $f(x) = 0$ admet, sur $]0 ; +\infty[$, exactement deux solutions
+                              $x_1$ et $x_2$, et que $1{,}4 < x_1 < 1{,}5$ et $8{,}6 < x_2 < 8{,}7$.
+                        \item Donner une \'equation de la tangente $(T)$ \`a $(\mathscr{C})$ au point d'abscisse $1$,
+                              puis tracer $(T)$ et $(\mathscr{C})$.
                   \end{enumerate}
-            \item[Partie B :]
+            \item[Partie C : une aire.]
+                  Soit $\lambda$ un r\'eel de $]0 ; 1]$.
                   \begin{enumerate}
-                        \item Montrer que pour tout $x\in ]0 ; +\infty[$ on a $f'(x) = g(x)$.
-                              En d\'eduire les variations de $f$ sur $]0 ; +\infty[$.
-                        \item \begin{enumerate}
-                                    \item Calculer la limite quand $x$ tend vers $+\infty$ de $x f(x)$.
-                                          (On pourra poser $X = \frac{1}{x^2}$.)
-                                    \item En d\'eduire la limite de $f(x)$ quand $x$ tend vers $+\infty$.
-                              \end{enumerate}
-                        \item \begin{enumerate}
-                                    \item D\'eterminer la limite de $f$ en $0$.
-                                          (On pourra \'ecrire $f(x)$ sous la forme $ x \ln (x^2+1) - 2 x \ln x$.)
-                                    \item \'Etudier la d\'erivabilit\'e de $f$ en $0$.
-                                          Pr\'eciser la tangente \`a la courbe $(\mathscr{C})$ en $0$.
-                              \end{enumerate}
-                        \item \begin{enumerate}
-                                    \item Prouver que, pour tout $x \in [ 0,5 ; \alpha ]$,
-                                          $ 0 \leq f'(x) \leq f'(0,5)$.
-                                    \item En d\'eduire que, pour tout \'el\'ement $x$ de $[0,5 ; \alpha]$, 
-                                          $0 \leq f(\alpha) - f(0,5) \leq (\alpha - 0,5) f'(0,5)$,
-                                          puis que 
-                                          $0 \leq f(\alpha) - f(0,5) \leq \frac{1}{100} f'(0,5)$.
-                                    \item En d\'eduire une valeur approch\'ee de $f(\alpha)$ \`a $10^{-3}$ pr\`es.
-                              \end{enumerate}
-                        \item Dresser le tableau de variation de $f$ puis tracer la courbe $(\mathscr{C})$.
+                        \item \`A l'aide d'une int\'egration par parties, calculer $\displaystyle \int_\lambda^1 x \ln x \dx$.
+                        \item En d\'eduire $J(\lambda) = \displaystyle \int_\lambda^1 f(x) \dx$.
+                        \item Calculer la limite de $J(\lambda)$ quand $\lambda$ tend vers $0$.
+                              On admet que l'oppos\'e de cette limite est l'aire, en unit\'es d'aire, du domaine limit\'e
+                              par $(\mathscr{C})$, l'axe des abscisses et la droite d'\'equation $x = 1$.
+                              Justifier ce signe et donner cette aire en $\text{cm}^2$.
                   \end{enumerate}
-            \item[Partie C :]
-                  Soit $\lambda$ un nombre r\'eel appartenant \`a l'intervalle $]0 ; 1]$.
-                  \begin{enumerate}
-                        \item En utilisant une int\'egration par parties, calculer l'int\'egrale
-                              $J_\lambda = \int_{\lambda}^{1} f(x) \dx$.
-                              Donner une interpr\'etation g\'eom\'etrique de cette int\'egrale.
-                        \item Calculer $\displaystyle{\lim_{\lambda \rightarrow 0} J_\lambda}$.
-                              On admet que cette limite est l'aire de la partie du plan constitu\'ee
-                              des points dont les coordonn\'ees $(x ; y)$ v\'erifient : 
-                              $
-                              \left\lbrace
-                                    \begin{array}{l}
-                                          0 \leq x \leq 1    \\
-                                          0 \leq y \leq f(x) \;.
-                                    \end{array}
-                              \right.
-                              $
-                              En d\'eduire la valeur de cette aire exprim\'ee en $\mathrm{cm}^2$.
-                  \end{enumerate}
-      \end{description}
-\end{exo}
-\begin{exo} 
-      \begin{description}
-      \item[Partie A :]
-            Pour tout entier naturel $n>0$, soit la fonction num\'erique $f_n$ de la variable r\'eelle $x$
-            d\'efinie sur $\mathbb{R} \setminus \{ -1 \}$ par :
-            \[
-                  f_n(x) = \frac{\expo{-x}}{(1+x)^n}.
-            \]
-            On note $(\mathscr{C}_n)$ la courbe repr\'esentative de $f_n$ dans un rep\`ere orthonorm\'e
-            $(O ; \vec{\imath} , \vec{\jmath} )$ d'unit\'e 1~cm.
-            \begin{enumerate}
-                  \item \begin{enumerate}
-                              \item Calculer les limites de $f_n$ aux bornes de son domaine de d\'efinition
-                                    (on distinguera le cas o\`u $n$ est pair ou impair).
-                              \item Calculer $f'_n (x)$ en fonction de $x$ et de $n$.
-                              \item Dresser le tableau de variation de $f_n$ selon la parit\'e de $n$.
-                        \end{enumerate}
-                  \item Montrer que toutes les courbes $(\mathscr{C}_n)$ passent par un point 
-                        fixe dont on pr\'ecisera les coordonn\'ees.
-                  \item Calculer $\displaystyle{\lim_{x\rightarrow-\infty} \frac{f_n(x)}{x}}$
-                        (distinguer le cas o\`u $n$ est pair ou impair).
-                  \item \begin{enumerate}
-                              \item \'Etudier la position relative des courbes $(\mathscr{C}_1)$ et $(\mathscr{C}_2)$.
-                              \item Tracer $(\mathscr{C}_1)$ et $(\mathscr{C}_2)$ dans le m\^eme rep\`ere.
-                        \end{enumerate}
-            \end{enumerate}
-
-      \item[Partie B :]
-            Pour tout entier naturel $n > 0$, soit $\displaystyle{I_n = \int_{0}^{1} f_n (x) \dx }$.
-            \begin{enumerate}
-                  \item Donner l'expression de $f_n'(x)$ en fonction de $f_n (x)$ et de $f_{n+1} (x)$.
-                  \item \begin{enumerate}
-                              \item Montrer que la suite $(I_n)$ est d\'ecroissante.
-                              \item En d\'eduire que la suite $(I_n)$ est convergente.
-                        \end{enumerate}
-                  \item \begin{enumerate}
-                              \item D\'emontrer que, pour tout entier naturel $n > 0$ et tout $x \in [0 ; 1]$, on a
-                                    \[
-                                      \frac{\expo{-1}}{(1+x)^n}
-                                      \leq f_n(x)
-                                      \leq \frac{1}{(1+x)^n}.
-                                    \]
-                              \item En d\'eduire que, pour tout $n > 1$, on a
-                                    \[
-                                      \begin{aligned}
-                                        \frac{\expo{-1}}{n-1}
-                                        \left(1-\frac{1}{2^{n-1}}\right)
-                                        &\leq I_n, \\
-                                        I_n
-                                        &\leq \frac{1}{n-1}
-                                        \left(1-\frac{1}{2^{n-1}}\right).
-                                      \end{aligned}
-                                    \]
-                              \item Calculer $\displaystyle{\lim_{n\rightarrow+\infty} I_n}$.
-                        \end{enumerate}
-                  \item \begin{enumerate}
-                              \item En utilisant la question 1 de la Partie B, montrer que 
-                                    $I_n + n I_{n+1} = 1 - \frac{\expo{-1}}{2^n}$.
-                              \item En d\'eduire $\displaystyle{\lim_{n\rightarrow+\infty} n I_{n+1}}$.
-                        \end{enumerate}
-            \end{enumerate}
       \end{description}
 \end{exo}
 \begin{exo}
-      \begin{description}
-      \item[Partie A :]
-      Soit $f$ la fonction d\'efinie sur $[0 ; +\infty[$ par
-      $\displaystyle f(x) = \frac{\expo{-x^2}}{1+x}$.
-      On note $(\mathscr{C})$ sa courbe repr\'esentative dans un rep\`ere
-      orthonorm\'e d'unit\'e 2~cm.
-      \begin{enumerate}
-      \item \'Etudier les variations de $f$ et dresser son tableau de variations.
-      \item Tracer la courbe $(\mathscr{C})$.
-      \item Dans cette question, on se propose d'encadrer l'int\'egrale
-            \[
-              K = \int_0^1 \frac{\expo{-x^2}}{1+x} \dx.
-            \]
-            \begin{enumerate}
-            \item Interpr\'eter g\'eom\'etriquement l'int\'egrale $K$.
-            \item En \'etudiant les variations des fonctions 
-                  $g : x \mapsto \expo{-x} + x - 1$ et 
-                  $h : x \mapsto 1 - x + \frac{x^2}{2} - \expo{-x}$
-                  sur l'intervalle $[0 , 1]$, d\'emontrer que pour tout $x $ de $[0 , 1]$,
-                  \begin{equation} \label{eq:first}
-                  1 - x \leq \expo{-x} \leq 1 - x + \frac{x^2}{2} \; .
-                  \end{equation}
-            \item En d\'eduire un encadrement de $\expo{-x^2}$ pour $x$ \'el\'ement de $[0 , 1]$ 
-                  puis montrer que pour tout $x$ de 
-                  $[0 , 1]$ : 
-                  \begin{equation} \label{eq:second}
-                  1-x \leq \frac{\expo{-x^2}}{1 + x} \leq 1 - x + \frac{x^4}{2 \cdot (1 + x)} \; .
-                  \end{equation} 
-            \end{enumerate}
-            \item Montrer que, pour tout $x$ de $[0 , 1]$,
-                  \[
-                    \frac{x^4}{1 + x} = x^3 - x^2 + x - 1 + \frac{1}{1 + x}.
-                  \]
-            \item D\'eduire alors de \eqref{eq:second} que
-                  \[
-                    \frac{1}{2} \leq K \leq \frac{5}{24} + \frac{\ln 2}{2}.
-                  \]
-      \end{enumerate}
-      \item[Partie B :]
-      Dans cette partie, 
-      on \'etudie la convergence de la suite $(u_n)_{n \in \mathbb{N}^*}$ d\'efinie, pour tout entier naturel non nul $n$, par : 
-      \[ 
-        u_n = \int_0^1 \frac{\expo{-x^2}}{(1 + x)^n} \dx.
+\label{exo:pb famille fn}
+      Pour tout entier naturel $n \geq 1$, on consid\`ere la fonction $f_n$ d\'efinie sur $\mathbb{R}$ par
+      \[
+            f_n(x) = \frac{\expo{-nx}}{1 + \expo{-x}} ,
       \]
-      \begin{enumerate}
-      \item \'Etudier la variation de la suite $(u_n)$.
-      \item En d\'eduire que la suite $(u_n)$ est convergente.     
-      \item Montrer que, pour tout $n \geq 2$, on a
-            \[
-              \begin{aligned}
-                \frac{1}{e(n-1)}\left(1-\frac{1}{2^{n-1}}\right)
-                &\leq u_n, \\
-                u_n
-                &\leq \frac{1}{n-1}\left(1-\frac{1}{2^{n-1}}\right).
-              \end{aligned}
-            \]
-      \item En d\'eduire la limite de la suite $(u_n)$.      
-      \end{enumerate}
-      \end{description}
-\end{exo}
-\begin{exo}
-      On d\'esigne par $f$ la fonction num\'erique d\'efinie sur $]0 ; +\infty[$ par $f(x) = \frac{\ln x}{\sqrt{x}}$.
-      On note $(\mathscr{C})$ la courbe repr\'esentative de $f$ dans un rep\`ere
-      $(O;\vec{\imath},\vec{\jmath})$ d'unit\'e 1~cm.
+      et l'on note $(\mathscr{C}_n)$ sa courbe repr\'esentative dans un rep\`ere orthonorm\'e d'unit\'e 4~cm.
       \begin{description}
-            \item[I. \'Etude de la fonction $f$.] ~\\[-1.5\baselineskip]
-            \begin{enumerate}
-                  \item Calculer les limites de $f$ aux bornes de son domaine de d\'efinition
-                        puis dresser le tableau de variation de $f$.
-                  \item On d\'esigne par $(T)$ la tangente \`a $(\mathscr{C})$ au point d'abscisse 1.
-                        \begin{enumerate}
-                              \item D\'eterminer une \'equation de $(T)$.
-                              \item On d\'esigne par $g$ la fonction d\'efinie sur $]0;+\infty[$ par 
-                                    $g(x) = (x-1) - f(x)$.
-                                    Montrer que 
-                                    $g'(x) = \displaystyle{
-                                          \frac{1}{2x\sqrt{x}}
-                                                \left[
-                                                      \ln x + 2 \left( x \sqrt{x} - 1 \right)
-                                                \right]
-                                          }$.
-                                    Calculer $g'(1)$ et \'etudier le signe de $g'$ sur chacun des intervalles
-                                    $]0;1[$ et $]1;+\infty[$.
-                              \item Calculer $g(1)$ et, \`a l'aide du sens de variation de $g$, \'etudier le signe de $g(x)$.
-                                    En d\'eduire la position de $(\mathscr{C})$ par rapport \`a $(T)$.
-                        \end{enumerate}
-                  \item Tracer la courbe $(\mathscr{C})$ ainsi que ses asymptotes.
-            \end{enumerate}
-            \item[II. \'Etude de suites.] ~\\
-            Pour tout entier naturel $n$ sup\'erieur ou \'egal \`a $8$, on pose
-            $u_n = \sum_{k=8}^n f(k) = f(8) + f(9) + \cdots + f(n)$.
-            \begin{enumerate}
-                  \item \label{quest:pbm1}
-                         \begin{enumerate}
-                              \item Soit $k$ un entier sup\'erieur ou \'egal \`a $8$. \label{quest:pbm1a}
-                                    D\'emontrer que : $f(k+1) \leq \int_{k}^{k+1} f(t) \dt \leq f(k)$.
-                              \item En d\'eduire que, pour tout entier $n \geq 8$, 
-                                    $u_{n+1} - f(8) \leq \int_{8}^{n+1} f(t) \dt \leq u_n$.
-                              \item \`A l'aide d'une int\'egration par parties, calculer $I_n = \int_{8}^{n+1} f(t) \dt$.
-                              \item D\'eduire des questions pr\'ec\'edentes la limite de $(u_n)$.
-                        \end{enumerate}
-                  \item Pour tout entier naturel $n \geq 8$, on pose 
-                        $v_n = u_n - \int_{8}^{n+1} f(t) \dt$.
-                        \begin{enumerate}
-                              \item \'Etudier le sens de variation de $(u_n)$ et en d\'eduire que 
-                                    $u_n - f(8) \leq \int_{8}^{n+1} f(t) \dt \leq u_n$
-                                    puis montrer que la suite $(v_n)$ est born\'ee.
-                              \item En utilisant la question \ref{quest:pbm1}~\ref{quest:pbm1a} 
-                                    \'etudier le sens de variation de $(v_n)$.
-                              \item Justifier que la suite $(v_n)$ est convergente et d\'emontrer que sa limite
-                                    $\ell$ v\'erifie : $0 \leq \ell \leq 0,74$.
-                        \end{enumerate}
-            \end{enumerate}
-      \end{description}
-\end{exo}
-%
-\begin{exo}
-      \begin{description}
-            \item[Partie A :]
-                  On consid\`ere la fonction $g$ d\'efinie sur l'intervalle
-                  $I = \left[ -\frac{1}{2} ; +\infty \right[$ par 
-                  $g(x) = \ln (1+x) - x + \frac{x^2}{2} - \frac{x^3}{3}$.
+            \item[Partie A : la famille de courbes.]
                   \begin{enumerate}
+                        \item V\'erifier que, pour tout r\'eel $x$, $f_n(x) = \dfrac{\expo{-(n-1)x}}{\expo{x} + 1}$.
+                              En d\'eduire les limites de $f_n$ en $+\infty$ et en $-\infty$
+                              (on distinguera le cas $n = 1$ et le cas $n \geq 2$).
+                        \item Montrer que, pour tout r\'eel $x$,
+                              $f_n'(x) = - \dfrac{\expo{-(n-1)x} \left( n\,\expo{x} + n - 1 \right)}{\left( \expo{x} + 1 \right)^2}$
+                              et dresser le tableau de variation de $f_n$.
+                        \item Montrer que toutes les courbes $(\mathscr{C}_n)$ passent par un m\^eme point $A$ dont on donnera les
+                              coordonn\'ees, et donner l'\'equation de la tangente \`a $(\mathscr{C}_n)$ en $A$.
                         \item \begin{enumerate}
-                                    \item D\'emontrer que, pour tout $t$ de $I$, on a : $g'(t) = - \frac{t^3}{1 + t}$.
-                                    \item Montrer alors que, pour tout $t$ de $I$, on a : 
-                                          $\left| g'(t) \right| \leq 2 |t|^3$.
+                                    \item Montrer que $A$ est centre de sym\'etrie de $(\mathscr{C}_1)$.
+                                    \item Pour $n \geq 2$, \'etudier la branche infinie de $(\mathscr{C}_n)$ en $-\infty$.
                               \end{enumerate}
-                        \item D\'emontrer que, pour tout $x$ de $I$, on a :
-                              $|g(x)| \leq \frac{x^4}{2}$.
+                        \item Exprimer $f_{n+1}(x)$ en fonction de $f_n(x)$ et en d\'eduire la position relative
+                              de $(\mathscr{C}_n)$ et $(\mathscr{C}_{n+1})$.
+                        \item Tracer $(\mathscr{C}_1)$ et $(\mathscr{C}_2)$ dans le m\^eme rep\`ere.
                   \end{enumerate}
-            \item[Partie B :]
-                  Soit $f$ la fonction d\'efinie sur $]-1 ; +\infty[$ par 
-                  \[
-                        f(x) = 
-                        \left\lbrace
-                              \begin{array}{ll}
-                                    \frac{x-\ln(1+x)}{x^2} & \text{ si } x \neq 0 \\
-                                    \frac{1}{2} & \text{ si } x = 0.
-                              \end{array}
-                        \right.
-                  \]
-                  On note $(\mathscr{C})$ la courbe repr\'esentative de $f$ dans un rep\`ere orthogonal $(O ; \vec{\imath} , \vec{\jmath})$ d'unit\'e 2~cm.
+            \item[Partie B : une suite d'int\'egrales.]
+                  Pour tout entier $n \geq 1$, on pose $\displaystyle I_n = \int_0^1 f_n(x) \dx$.
                   \begin{enumerate}
-                        \item En utilisant les encadrements obtenus dans la partie~A, d\'emontrer que la fonction 
-                              $f$ est d\'erivable en $0$ et donner une \'equation de la tangente \`a $(\mathscr{C})$ au point $A(0 ; \frac{1}{2})$.
-                              Montrer que $f$ est continue en $0$.
-                        \item Soit $h$ la fonction d\'efinie sur $]-1 ; +\infty[$ par : 
-                              $h(x) = \frac{-x^2-2x}{1+x}+2\ln(1+x)$.
+                        \item Calculer $I_1$.
+                        \item Montrer que, pour tout $n \geq 1$, $I_n + I_{n+1} = \dfrac{1 - \expo{-n}}{n}$.
+                              En d\'eduire $I_2$ et $I_3$.
+                        \item Montrer que la suite $(I_n)$ est d\'ecroissante et qu'elle converge.
+                        \item Montrer que, pour tout $n \geq 1$,
+                              $\dfrac{1 - \expo{-n}}{2n} \leq I_n \leq \dfrac{e}{e+1} \cdot \dfrac{1 - \expo{-n}}{n}$,
+                              puis d\'eterminer la limite de $(I_n)$.
+                        \item \begin{enumerate}
+                                    \item \`A l'aide des questions 2 et 3, montrer que, pour tout $n \geq 1$,
+                                          $2 I_{n+1} \leq \dfrac{1 - \expo{-n}}{n} \leq 2 I_n$.
+                                    \item En d\'eduire que, pour tout $n \geq 2$,
+                                          $\dfrac{1 - \expo{-n}}{2n} \leq I_n \leq \dfrac{1 - \expo{-(n-1)}}{2(n-1)}$,
+                                          puis la limite de la suite $(n I_n)$.
+                              \end{enumerate}
+                  \end{enumerate}
+      \end{description}
+\end{exo}
+\begin{exo}
+\label{exo:pb exp moins un sur x}
+      On consid\`ere la fonction $f$ d\'efinie sur $\mathbb{R}$ par
+      \[
+            f(x) = \frac{\expo{x} - 1}{x} \quad \text{si } x \neq 0, \qquad f(0) = 1 ,
+      \]
+      et l'on note $(\mathscr{C})$ sa courbe repr\'esentative dans un rep\`ere orthonorm\'e d'unit\'e 2~cm.
+      \begin{description}
+            \item[Partie A : \'etude de $f$.]
+                  \begin{enumerate}
+                        \item Montrer que $f$ est continue en $0$.
+                        \item Calculer les limites de $f$ en $-\infty$ et en $+\infty$ ; \'etudier les branches infinies de $(\mathscr{C})$.
+                        \item Soit $N$ la fonction d\'efinie sur $\mathbb{R}$ par $N(x) = (x - 1)\expo{x} + 1$.
+                              \'Etudier les variations de $N$ et en d\'eduire son signe.
+                        \item Calculer $f'(x)$ pour $x \neq 0$ et montrer que $f$ est strictement croissante sur $\mathbb{R}$.
+                              Dresser le tableau de variation de $f$ et tracer $(\mathscr{C})$.
+                  \end{enumerate}
+            \item[Partie B : encadrement d'une int\'egrale.]
+                  \begin{enumerate}
+                        \item Soit $\chi$ la fonction d\'efinie sur $[0 ; +\infty[$ par $\chi(x) = \expo{x} - 1 - x - \frac{x^2}{2}$.
+                              En \'etudiant successivement les signes de $\chi''$, $\chi'$ et $\chi$, montrer que
+                              $\chi(x) \geq 0$ pour tout $x \geq 0$.
+                        \item Soit $\psi$ la fonction d\'efinie sur $[0 ; 1]$ par $\psi(x) = 1 + x + (e-2)x^2 - \expo{x}$.
                               \begin{enumerate}
-                                    \item \'Etudier le sens de variation de $h$ (on ne demande pas les limites aux bornes).
-                                    \item Pr\'eciser $h(0)$. En d\'eduire le signe de $h(x)$ sur $]-1 ; +\infty[$.
+                                    \item Calculer $\psi'(x)$ et $\psi''(x)$. Montrer que $\psi''$ s'annule en un unique r\'eel
+                                          $x_0 = \ln\left(2(e-2)\right)$ de $]0 ; 1[$.
+                                    \item En d\'eduire les variations de $\psi'$, puis qu'il existe un unique r\'eel $x_1$ de
+                                          $]x_0 ; 1[$ tel que $\psi'(x_1) = 0$.
+                                    \item Dresser le tableau de variation de $\psi$ et montrer que $\psi(x) \geq 0$ pour tout $x$ de $[0 ; 1]$.
                               \end{enumerate}
-                        \item Calculer $f'(x)$ pour $x \in ]-1 ; +\infty[ \setminus \{0\}$ et exprimer $f'(x)$ en fonction de $x$ et de $h(x)$.
-                              En d\'eduire la variation de $f$.
-                        \item \'Etudier les limites de $f$ en $-1$ et en $+\infty$.
-                        \item Construire la courbe $(\mathscr{C})$ en pr\'ecisant ses asymptotes.
+                        \item En d\'eduire que, pour tout $x$ de $]0 ; 1]$, $1 + \dfrac{x}{2} \leq f(x) \leq 1 + (e - 2)x$.
+                        \item On pose $K = \displaystyle \int_0^1 f(x) \dx$ (on ne cherchera pas \`a la calculer).
+                              Interpr\'eter $K$ graphiquement et montrer que $\dfrac{5}{4} \leq K \leq \dfrac{e}{2}$.
                   \end{enumerate}
-            \item[Partie C :]
+            \item[Partie C : une suite d'int\'egrales.]
+                  Pour tout entier $n \geq 1$, on pose $\displaystyle u_n = \int_0^1 \expo{x^n} \dx$.
                   \begin{enumerate}
-                        \item \begin{enumerate}
-                                    \item D\'emontrer que, pour tout r\'eel $t$ positif ou nul, on a : $-t^2 \leq h'(t) \leq 0$.
-                                    \item Pour tout r\'eel $x$ positif ou nul, 
-                                    en d\'eduire par int\'egration un encadrement de $h(x)$, puis d\'emontrer que $|f'(x)| \leq \frac{1}{3}$.
-                              \end{enumerate}
-                        \item On d\'efinit la fonction $\varphi$ sur $]0 ; +\infty[$ par : $\varphi (x) = f(x) - x$.
-                              De l'\'etude de la variation de $\varphi$, d\'eduire que l'\'equation $f(x) = x$ admet une solution r\'eelle strictement positive qu'on notera $\alpha$.
-                              V\'erifier que $\alpha < 1$.
-                  \end{enumerate}
-            \item[Partie D :]
-                  \begin{enumerate}
-                        \item On pose $u_0 = 1$ et $u_{n+1} = f(u_n)$ pour tout entier naturel $n$.
-                              Montrer, en utilisant la variation de $f$, que cette suite est bien d\'efinie et que,
-                              pour tout entier naturel $n$, on a : $0 \leq u_n \leq 1$.
-                        \item \begin{enumerate}
-                                    \item D\'emontrer que, pour tout entier naturel $n$, on a :
-                                          $| u_{n+1} - \alpha | \leq \frac{1}{3} |u_n - \alpha|$.
-                                          Montrer ensuite que : 
-                                          $|u_n - \alpha | \leq \frac{1}{3^n}$.
-                                    \item Prouver que la suite $(u_n)$ converge et pr\'eciser sa limite.
-                                    \item Donner une valeur approch\'ee de $\alpha$ \`a $10^{-2}$ pr\`es.
-                              \end{enumerate}
+                        \item Calculer $u_1$.
+                        \item Montrer que la suite $(u_n)$ est d\'ecroissante et minor\'ee par $1$. Que peut-on en d\'eduire ?
+                        \item \`A l'aide du sens de variation de $f$, montrer que, pour tout $t$ de $[0 ; 1]$,
+                              $1 + t \leq \expo{t} \leq 1 + (e - 1)t$.
+                        \item En d\'eduire que, pour tout $n \geq 1$,
+                              $1 + \dfrac{1}{n+1} \leq u_n \leq 1 + \dfrac{e-1}{n+1}$, puis la limite de $(u_n)$.
+                        \item D\'eterminer un entier $n_0$ tel que, pour tout $n \geq n_0$, $0 \leq u_n - 1 \leq 10^{-2}$.
                   \end{enumerate}
       \end{description}
 \end{exo}
-%
 \begin{exo}
+\label{exo:pb somme ln k}
+      On d\'esigne par $f$ la fonction d\'efinie sur $]0 ; +\infty[$ par $f(x) = \dfrac{\ln x}{x^2}$
+      et par $(\mathscr{C})$ sa courbe repr\'esentative dans un rep\`ere orthogonal (unit\'es : 1~cm en abscisse, 10~cm en ordonn\'ee).
       \begin{description}
-            \item[Partie A :]
-                  On consid\`ere la fonction $f$ d\'efinie sur $[0 ; +\infty[$ par : 
-                  \[
-                        f(x) = 
-                              \left\lbrace
-                              \begin{array}{ll}
-                                    x \; \ln \left( \frac{x+2}{x} \right) + \frac{x}{4} + \frac{1}{2} & \text{ si } x > 0 \\
-                                    \frac{1}{2} & \text{ si } x = 0.
-                              \end{array}
-                              \right.
-                  \]
-                  On note $(\mathscr{C})$ sa courbe repr\'esentative dans un rep\`ere orthonormal $(O ; \vec{\imath} , \vec{\jmath})$ d'unit\'e graphique 2~cm.
+            \item[Partie A : \'etude de $f$.]
                   \begin{enumerate}
-                        \item Soit $g$ la fonction d\'efinie sur $]0 ; +\infty[$ par 
-                              $g(x) = \ln (x+2) - \ln (x) - \frac{2}{x+2} + \frac{1}{4}$.
-                              \begin{enumerate}
-                                    \item \begin{enumerate}
-                                                \item \'Etudier la variation de $g$.
-                                                \item D\'eterminer $\displaystyle{\lim_{x\rightarrow +\infty} g(x)}$.
-                                                \item En d\'eduire le signe de $g$ sur $]0 ; +\infty[$.
-                                          \end{enumerate}
-                                    \item Montrer que pour tout $x \in [ 2 ; 3 ]$ on a $g(x) < \frac{1}{2}$.
-                              \end{enumerate}
+                        \item Calculer les limites de $f$ en $0$ et en $+\infty$ et interpr\'eter graphiquement.
+                        \item Calculer $f'(x)$, \'etudier son signe et dresser le tableau de variation de $f$.
                         \item \begin{enumerate}
-                                    \item D\'eterminer la limite quand $x$ tend vers $0$ par valeur sup\'erieure de
-                                          $x \; \ln \left( \frac{x+2}{x} \right)$ (on pourra poser $t = \frac{1}{x}$)
-                                          et d\'emontrer que $f$ est continue en $0$.
-                                    \item Calculer $\displaystyle{\lim_{x\rightarrow 0^+} \frac{f(x) - f(0)}{x-0}}$.
-                                          Interpr\'eter ce r\'esultat.
-                                    \item \'Etudier les variations de $f$.
-                                    \item \begin{enumerate}
-                                                \item D\'emontrer que 
-                                                      $\displaystyle{
-                                                      \lim_{x\rightarrow+\infty} x \; \ln \left( \frac{x+2}{x} \right) = 2
-                                                      }$.
-                                                \item En d\'eduire la limite de $f(x)$ quand $x$ tend vers $+\infty$.
-                                                \item Montrer que la droite $\Delta$ d'\'equation 
-                                                      $ y = \frac{x}{4} + \frac{5}{2}$
-                                                      est asymptote \`a la courbe $(\mathscr{C})$ au voisinage de $+\infty$.
-                                          \end{enumerate}
-                                    \item Tracer $(\mathscr{C})$, la droite $\Delta$ ainsi que la droite $(y=x)$ 
-                                          dans le m\^eme rep\`ere.
+                                    \item Donner une \'equation de la tangente $(T)$ \`a $(\mathscr{C})$ au point d'abscisse $1$.
+                                    \item Soit $g$ la fonction d\'efinie sur $]0 ; +\infty[$ par $g(x) = x - 1 - f(x)$.
+                                          Montrer que $g'(x) = \dfrac{x^3 - 1 + 2\ln x}{x^3}$ et \'etudier le signe de $g'(x)$
+                                          (on pourra \'etudier le sens de variation du num\'erateur).
+                                    \item En d\'eduire la position de $(\mathscr{C})$ par rapport \`a $(T)$.
                               \end{enumerate}
+                        \item Tracer $(T)$ et $(\mathscr{C})$.
+                        \item V\'erifier que la fonction $F : x \mapsto -\dfrac{1 + \ln x}{x}$ est une primitive de $f$ sur
+                              $]0 ; +\infty[$ (on pourra aussi la retrouver par une int\'egration par parties).
                   \end{enumerate}
-            \item[Partie B :]
-                  Dans cette partie, on d\'esigne par $I$ l'intervalle $[2;3]$.
+            \item[Partie B : une somme compar\'ee \`a une int\'egrale.]
+                  Pour tout entier $n \geq 2$, on pose
+                  $\displaystyle S_n = \sum_{k=2}^{n} \frac{\ln k}{k^2} = f(2) + f(3) + \cdots + f(n)$.
                   \begin{enumerate}
-                        \item \begin{enumerate}
-                                    \item Soit la fonction $h$ d\'efinie sur $I$ par $h(x) = f(x) - x$.
-                                          Montrer que pour tout $x \in I$, $h'(x) < 0$
-                                          (remarquer que $h'(x) = g(x) - 1$).
-                                    \item En d\'eduire la variation de $h$ et montrer que l'\'equation $h(x) = 0$
-                                          admet une solution unique $\alpha$ dans $I$.
-                              \end{enumerate}
-                        \item \begin{enumerate}
-                                    \item Montrer que pour tout $x \in I$, $ 0 < f'(x) < \frac{1}{2}$.
-                                    \item En d\'eduire que pour tout $x \in I$, 
-                                          $|f(x) - \alpha | \leq \frac{1}{2} | x- \alpha|$.
-                              \end{enumerate}
-                  \end{enumerate}
-            \item[Partie C :]
-                  Soit $(u_n)$ la suite num\'erique d\'efinie pour tout entier naturel $n$ par :       
-                  \[
-                        \left\lbrace
-                              \begin{array}{l}
-                                    u_0 = \frac{9}{4}            \\
-                                    u_{n+1} = f(u_n)             \;.
-                              \end{array}
-                        \right.
-                  \]
-                  \begin{enumerate}
-                        \item Montrer que pour tout $n\in\mathbb{N}$, $u_n \in I$.
-                        \item Montrer, en utilisant l'in\'egalit\'e des accroissements finis, que pour tout $n$, on a :
+                        \item Justifier que $f$ est d\'ecroissante sur $[2 ; +\infty[$ et montrer que, pour tout entier $k \geq 2$,
                               \[
-                                    | u_{n+1} - \alpha | \leq \frac{1}{2} | u_n - \alpha |.
+                                    f(k+1) \leq \int_k^{k+1} f(t) \dt \leq f(k) .
                               \]
-                        \item Montrer que la suite $(u_n)$ converge vers $\alpha$.
-                  \end{enumerate}
-      \end{description}
-\end{exo}
-%
-\begin{exo}
-      On consid\`ere la fonction $f$ d\'efinie par $f(x) = \displaystyle{ 3 - x + \frac{\ln |x|}{x^3} }$.
-      On note $(\mathscr{C})$ la courbe repr\'esentative de $f$ dans un rep\`ere 
-      orthonormal $(O ; \vec{\imath} , \vec{\jmath} )$ d'unit\'e 2~cm.
-      \begin{description}
-            \item[Partie A :]
-                  \begin{enumerate}
-                        \item Soit $h$ la fonction d\'efinie sur $\mathbb{R}^*$ par : 
-                              $h(x) = - x^4 + 1 - 3 \ln |x|$.
+                        \item Montrer que la suite $(S_n)$ est croissante.
+                        \item Montrer que, pour tout $n \geq 3$, $\displaystyle S_n - f(2) \leq \int_2^n f(t) \dt$,
+                              puis que $S_n \leq \dfrac{2 + 3 \ln 2}{4}$.
+                              En d\'eduire que $(S_n)$ converge ; on note $\ell$ sa limite.
+                        \item Montrer de m\^eme que, pour tout $n \geq 3$,
+                              $\displaystyle S_n \geq f(2) + \int_3^{n+1} f(t) \dt$, et en d\'eduire que
+                              $\dfrac{\ln 2}{4} + \dfrac{1 + \ln 3}{3} \leq \ell \leq \dfrac{2 + 3\ln 2}{4}$.
+                              Donner des valeurs d\'ecimales de ces deux bornes \`a $10^{-2}$ pr\`es.
+                        \item \emph{Pr\'ecision de l'approximation.}
                               \begin{enumerate}
-                                    \item Calculer $h(1)$ et $h(-1)$.
-                                    \item Calculer $h'(x)$ et dresser le tableau de variation de $h$.
-                                          En d\'eduire le signe de $h(x)$ suivant les valeurs de $x$.
-                              \end{enumerate}
-                        \item \begin{enumerate}
-                                    \item D\'eterminer le domaine de d\'efinition $D_f$ de $f$.
-                                    \item Calculer $f'(x)$ et montrer que $f'(x) = h(x) \cdot x^{-4}$.
-                                    \item Dresser le tableau de variation de $f$.
-                                    \item Montrer que l'\'equation $f(x) = 0$ admet exactement deux solutions 
-                                          positives $\alpha$ et $\beta$ telles que
-                                          $\alpha \in [\frac{1}{2} ; 1]$ et $\beta \in [3 ; 4]$.
-                              \end{enumerate}
-                        \item \begin{enumerate}
-                                    \item Montrer que $(\mathscr{C})$ poss\`ede une asymptote oblique $\Delta$ 
-                                          dont on pr\'ecisera l'\'equation.
-                                    \item \'Etudier la position relative de $(\mathscr{C})$ par rapport \`a $\Delta$.
-                                    \item D\'eterminer les coordonn\'ees du point $A$ d'abscisse positive
-                                           tel que la tangente \`a $(\mathscr{C})$ au point $A$ est parall\`ele \`a $\Delta$.
-                              \end{enumerate}
-                        \item Tracer $(\mathscr{C})$ et $\Delta$.
-                  \end{enumerate}
-            \item[Partie B :]
-                  On consid\`ere la fonction $g$ d\'efinie pour tout $x \geq 3$ par 
-                  $g(x) = \displaystyle{ 3 + \frac{\ln x}{x^3} }$.
-                  \begin{enumerate}
-                        \item \begin{enumerate}
-                                    \item Calculer $g'(x)$ et $g''(x)$.
-                                          Dresser les tableaux de variation de $g'$ et de $g$.
-                                    \item Montrer que $g\left( [ 3 ; 4 ] \right) \subset [ 3 ; 4 ]$.
-                              \end{enumerate}
-                        \item Tracer sur le m\^eme rep\`ere que $(\mathscr{C})$ la courbe 
-                              repr\'esentative $(\Gamma)$ de $g$.
-                        \item \begin{enumerate}
-                                    \item Montrer que l'\'equation $g(x) = x$ admet une solution $\gamma \in [ 3 ; 4 ]$.
-                                    \item Que peut-on dire de $\beta$ et de $\gamma$\,?
-                              \end{enumerate}
-                        \item \begin{enumerate}
-                                    \item Montrer que $\forall x \in [ 3 ; 4 ]$, on a $g'(x) \leq 0$
-                                          et que $|g'(x)| \leq \frac{3}{x^3}$ (indication : $\ln x \leq x$).
-                                    \item En d\'eduire que $\forall x \in [ 3 ; 4 ]$, $|g'(x)| \leq \frac{1}{9}$
-                                          (indication : $x \mapsto \frac{1}{x^3}$ est d\'ecroissante).
-                                    \item Montrer que $\forall (a,b) \in [3;4] \times [3;4]$,
-                                          $
-                                                \left| g(b) - g(a) \right| 
-                                                      \leq 
-                                                \frac{1}{9} |b-a|
-                                          $.
-                              \end{enumerate}
-                        \item On consid\`ere la suite $(u_n)$ d\'efinie par 
-                              \[
-                                    \left\lbrace
-                                          \begin{array}{l}
-                                                u_0 = 3 \\
-                                                u_{n+1} =
-                                                      \displaystyle{ 3+\frac{\ln (u_n)}{\left( u_n \right)^3} 
-                                                                    }
-                                                                    \quad \forall n\in\mathbb{N}
-                                          \end{array}
-                                    \right.
-                              \]
-                              \begin{enumerate}
-                                    \item Montrer par r\'ecurrence que $\forall n \geq 0$, $3 \leq u_n \leq 4$.
-                                    \item Montrer que $\forall n \geq 0$,
-                                          $
-                                          |u_{n+1} - \gamma | \leq \frac{1}{9} |u_n - \gamma |
-                                          $
-                                          et que 
-                                          $
-                                          |u_n - \gamma | \leq \left( \frac{1}{9} \right)^n.
-                                          $
-                                    \item Donner une valeur approch\'ee de $\gamma$ \`a $10^{-2}$ pr\`es.
-                                    \item Calculer la limite de $u_n$ quand $n$ tend vers $+\infty$.
-                              \end{enumerate}
-                  \end{enumerate}
-      \end{description}
-\end{exo}
-%
-\begin{exo}
-      \begin{description}
-            \item[Partie A :]
-                  On consid\`ere la fonction $f$ d\'efinie sur $\mathbb{R}$ par $f(x) = \ln \left( 1 + \expo{-2x} \right)$.
-                  On d\'esigne par $(\mathscr{C})$ sa courbe repr\'esentative dans le plan rapport\'e \`a un rep\`ere 
-                  orthonormal $(O ; \vec{\imath} , \vec{\jmath} )$ d'unit\'e 2~cm.
-                  \begin{enumerate}
-                        \item \'Etudier les variations de $f$ et dresser son tableau de variation.
-                        \item \begin{enumerate}
-                                    \item Montrer que pour tout $x$ r\'eel, 
-                                          $f(x) = \ln \left( 1 + \expo{2x} \right) - 2x $.
-                                    \item En d\'eduire que la courbe $(\mathscr{C})$ admet comme asymptote la droite 
-                                          $(\mathscr{D})$ d'\'equation $y = -2x$.
-                                    \item \'Etudier la position relative de $(\mathscr{C})$ et $(\mathscr{D})$.
-                              \end{enumerate}
-                        \item Tracer la droite $(\mathscr{D})$ et la courbe $(\mathscr{C})$.
-                        \item \begin{enumerate}
-                                    \item Montrer que $f$ r\'ealise une bijection 
-                                          de $\mathbb{R}$ sur un intervalle $J$ \`a pr\'eciser.
-                                    \item D\'eterminer l'expression explicite de $f^{-1} (x)$.
-                              \end{enumerate}
-                  \end{enumerate}
-            \item[Partie B :]
-                  Pour tout $x$ appartenant \`a l'intervalle $[ 0 ; +\infty[$, 
-                  on pose $F(x) = \displaystyle{\int_{0}^{x} \ln \left( 1 + \expo{-2t} \right) \dt }$.
-                  (On ne cherchera pas \`a calculer $F(x)$).
-                  \begin{enumerate}
-                        \item Pour $x > 0$, donner une interpr\'etation g\'eom\'etrique de $F(x)$.
-                        \item \'Etudier le sens de variation de $F$ sur $[0 ; +\infty[$.
-                        \item Soit $a$ un r\'eel strictement positif. \label{quest:log-inequality}
-                              \begin{enumerate}
-                                    \item Montrer que pour tout $t \in [1 ; 1 + a ]$, on a 
-                                          $\frac{1}{1+a} \leq \frac{1}{t} \leq 1$.
-                                    \item En appliquant le th\'eor\`eme des accroissements finis
-                                          \`a la fonction logarithme n\'ep\'erien, \'etablir que : 
+                                    \item Soit $n \geq 2$. Montrer que, pour tout entier $p > n$,
                                           \[
-                                                \frac{a}{1+a} \leq \ln (1 + a ) \leq a .
+                                                \int_{n+1}^{p+1} f(t) \dt \leq S_p - S_n \leq \int_n^p f(t) \dt ,
                                           \]
+                                          puis, en faisant tendre $p$ vers $+\infty$, que
+                                          $\dfrac{1 + \ln (n+1)}{n+1} \leq \ell - S_n \leq \dfrac{1 + \ln n}{n}$.
+                                    \item On donne $S_{10} \approx 0{,}6185$ \`a $10^{-4}$ pr\`es.
+                                          En d\'eduire un encadrement de $\ell$ d'amplitude inf\'erieure \`a $3 \cdot 10^{-2}$.
                               \end{enumerate}
-                        \item Soit $x$ un r\'eel strictement positif.
-                              D\'eduire de la question~\ref{quest:log-inequality} que 
+                  \end{enumerate}
+      \end{description}
+\end{exo}
+\begin{exo}
+\label{exo:pb sinus cardinal}
+      Dans ce probl\`eme, on \'etudie la fonction $f$ d\'efinie sur $[0 ; \pi]$ par
+      \[
+            f(x) = \frac{\sin x}{x} \quad \text{si } 0 < x \leq \pi, \qquad f(0) = 1 ,
+      \]
+      puis une suite qui permet d'approcher la solution de l'\'equation $\sin x = x^2$ sur $]0 ; 1]$.
+      On note $(\mathscr{C})$ la courbe de $f$ dans un rep\`ere orthonorm\'e d'unit\'e 4~cm.
+      \begin{description}
+            \item[Partie A : encadrements trigonom\'etriques.]
+                  \begin{enumerate}
+                        \item En \'etudiant des fonctions convenables, d\'emontrer successivement que, pour tout $x \geq 0$ :
                               \[
-                                \begin{aligned}
-                                  \int_{0}^{x}\frac{\expo{-2t}}{1+\expo{-2t}}\dt
-                                  &\leq F(x), \\
-                                  F(x) &\leq \int_{0}^{x}\expo{-2t}\dt.
-                                \end{aligned}
+                                    \sin x \leq x , \qquad
+                                    \cos x \geq 1 - \frac{x^2}{2} , \qquad
+                                    \sin x \geq x - \frac{x^3}{6} .
                               \]
-                              Puis
-                              \[
-                                \begin{aligned}
-                                  \frac{1}{2}\ln 2
-                                  -\frac{1}{2}\ln\left(1+\expo{-2x}\right)
-                                  &\leq F(x), \\
-                                  F(x) &\leq \frac{1}{2}-\frac{1}{2}\expo{-2x}.
-                                \end{aligned}
-                              \]
-                        \item On admet que la limite de $F(x)$ en $+\infty$ existe et est un nombre r\'eel $\ell$.
-                              \'Etablir que $\frac{1}{2} \ln 2 \leq \ell \leq \frac{1}{2}$.
-                        \item Pour tout entier naturel $n$, on pose 
-                              $
-                              u_n = \displaystyle{
-                                          \int_{n}^{n+1} \ln \left( 1 + \expo{-2t} \right) \dt
-                                    }
-                              $.
+                        \item Soit $h$ la fonction d\'efinie sur $[0 ; \pi]$ par $h(x) = x \cos x - \sin x$.
                               \begin{enumerate}
-                                    \item Montrer que pour tout entier naturel $n$, on a 
-                                          $0 \leq u_n \leq \ln (1 + \expo{-2n})$
-                                          (Utiliser le sens de variation de $f$).
-                                    \item D\'eterminer la limite de la suite $(u_n)$.
+                                    \item Calculer $h'(x)$ et montrer que, pour tout $t$ de $[0 ; \pi]$, $-t^2 \leq h'(t) \leq 0$.
+                                    \item En d\'eduire que, pour tout $x$ de $[0 ; \pi]$, $-\dfrac{x^3}{3} \leq h(x) \leq 0$,
+                                          et que $h(x) < 0$ pour $0 < x \leq \pi$.
                               \end{enumerate}
-                        \item Pour tout entier naturel $n$, on pose $S_n = u_0 + u_1 + \cdots + u_n$.
+                  \end{enumerate}
+            \item[Partie B : \'etude de $f$.]
+                  \begin{enumerate}
+                        \item Montrer que $f$ est continue en $0$, puis, \`a l'aide de la partie A, qu'elle est d\'erivable \`a droite
+                              en $0$ avec $f'(0) = 0$. Interpr\'eter graphiquement.
+                        \item Montrer que, pour tout $x$ de $]0 ; \pi]$, $f'(x) = \dfrac{h(x)}{x^2}$.
+                              Dresser le tableau de variation de $f$ sur $[0 ; \pi]$.
+                        \item Donner une \'equation de la tangente \`a $(\mathscr{C})$ au point d'abscisse $\pi$.
+                        \item Montrer que, pour tout $x$ de $[0 ; \pi]$, $1 - \dfrac{x^2}{6} \leq f(x) \leq 1$ et
+                              que, pour tout $x$ de $[0 ; 1]$, $\left| f'(x) \right| \leq \dfrac{1}{3}$.
+                        \item Tracer $(\mathscr{C})$ ainsi que la parabole d'\'equation $y = 1 - \frac{x^2}{6}$.
+                        \item Montrer que $\dfrac{17}{18} \leq \displaystyle \int_0^1 f(x) \dx \leq 1$.
+                  \end{enumerate}
+            \item[Partie C : une suite r\'ecurrente.]
+                  \begin{enumerate}
+                        \item Montrer que l'\'equation $f(x) = x$ admet une unique solution $\alpha$ dans $[0 ; 1]$
+                              et que $\alpha$ est aussi l'unique solution de $\sin x = x^2$ dans $]0 ; 1]$.
+                        \item Montrer que $f\left( [0 ; 1] \right) \subset [0 ; 1]$.
+                        \item On d\'efinit la suite $(u_n)$ par $u_0 = 1$ et $u_{n+1} = f(u_n)$ pour tout $n \in \mathbb{N}$.
                               \begin{enumerate}
-                                    \item Exprimer $S_n$ en fonction de $F$ et de $n$.
-                                    \item Montrer que la suite $(S_n)$ converge et pr\'eciser sa limite.
+                                    \item Montrer que, pour tout $n$, $u_n \in [0 ; 1]$.
+                                    \item \`A l'aide de l'in\'egalit\'e des accroissements finis, montrer que, pour tout $n$,
+                                          $\left| u_{n+1} - \alpha \right| \leq \dfrac{1}{3} \left| u_n - \alpha \right|$,
+                                          puis que $\left| u_n - \alpha \right| \leq \left( \dfrac{1}{3} \right)^n$.
+                                    \item En d\'eduire que $(u_n)$ converge vers $\alpha$.
+                                    \item D\'eterminer un entier $n$ pour lequel $u_n$ est une valeur approch\'ee de $\alpha$ \`a $10^{-2}$ pr\`es,
+                                          calculer $u_1, \ldots, u_n$ \`a la calculatrice et donner une valeur approch\'ee de $\alpha$.
+                              \end{enumerate}
+                  \end{enumerate}
+      \end{description}
+\end{exo}
+\begin{exo}
+\label{exo:pb x e moins x}
+      Soit $f$ la fonction d\'efinie sur $\mathbb{R}$ par $f(x) = \dfrac{x}{2} + 1 + x\,\expo{-x}$.
+      On note $(\mathscr{C})$ sa courbe repr\'esentative dans un rep\`ere orthonorm\'e $(O ; \vec{\imath} , \vec{\jmath})$
+      d'unit\'e 2~cm.
+      \begin{description}
+            \item[Partie A : une fonction auxiliaire.]
+                  Soit $g$ la fonction d\'efinie sur $\mathbb{R}$ par $g(x) = \dfrac{1}{2} + (1 - x)\expo{-x}$.
+                  \begin{enumerate}
+                        \item Calculer les limites de $g$ en $-\infty$ et en $+\infty$.
+                        \item \'Etudier les variations de $g$ et montrer que $g(x) > 0$ pour tout r\'eel $x$.
+                  \end{enumerate}
+            \item[Partie B : \'etude de $f$.]
+                  \begin{enumerate}
+                        \item Calculer les limites de $f$ en $-\infty$ et en $+\infty$.
+                        \item V\'erifier que $f' = g$ et dresser le tableau de variation de $f$.
+                        \item \begin{enumerate}
+                                    \item Montrer que la droite $(\Delta)$ d'\'equation $y = \frac{x}{2} + 1$ est asymptote \`a
+                                          $(\mathscr{C})$ en $+\infty$ et \'etudier la position de $(\mathscr{C})$ par rapport \`a $(\Delta)$.
+                                    \item \'Etudier la branche infinie de $(\mathscr{C})$ en $-\infty$.
+                              \end{enumerate}
+                        \item Montrer que $(\mathscr{C})$ admet un unique point d'inflexion $I$, dont on donnera les coordonn\'ees.
+                              Donner une \'equation de la tangente \`a $(\mathscr{C})$ au point d'abscisse $0$.
+                        \item Montrer que l'\'equation $f(x) = 0$ admet une unique solution $\beta$ et que $-0{,}5 < \beta < -0{,}4$.
+                        \item Tracer $(\Delta)$ et $(\mathscr{C})$.
+                  \end{enumerate}
+            \item[Partie C : aire entre la courbe et son asymptote.]
+                  Pour $\lambda > 0$, on note $\mathcal{A}(\lambda)$ l'aire, en $\text{cm}^2$, du domaine limit\'e par $(\mathscr{C})$,
+                  $(\Delta)$ et les droites d'\'equations $x = 0$ et $x = \lambda$.
+                  \begin{enumerate}
+                        \item \`A l'aide d'une int\'egration par parties, calculer $\mathcal{A}(\lambda)$.
+                        \item Calculer la limite de $\mathcal{A}(\lambda)$ quand $\lambda$ tend vers $+\infty$.
+                  \end{enumerate}
+            \item[Partie D : approximation d'un point fixe.]
+                  On note $I = [2 ; 3]$.
+                  \begin{enumerate}
+                        \item Soit $\theta$ la fonction d\'efinie sur $I$ par $\theta(x) = f(x) - x$.
+                              Montrer que $\theta$ est strictement d\'ecroissante sur $I$, puis que l'\'equation $f(x) = x$ admet
+                              une unique solution $\alpha$ dans $I$ et que $2{,}4 < \alpha < 2{,}5$.
+                        \item Montrer que, pour tout $x$ de $I$, $0 < f'(x) < \dfrac{1}{2}$, et que $f(I) \subset I$.
+                        \item Soit $(u_n)$ la suite d\'efinie par $u_0 = 2$ et $u_{n+1} = f(u_n)$ pour tout $n \in \mathbb{N}$.
+                              \begin{enumerate}
+                                    \item Montrer que, pour tout $n$, $u_n \in I$ et que la suite $(u_n)$ est croissante.
+                                    \item Montrer que, pour tout $n$, $\left| u_{n+1} - \alpha \right| \leq \dfrac{1}{2} \left| u_n - \alpha \right|$,
+                                          puis que $\left| u_n - \alpha \right| \leq \left( \dfrac{1}{2} \right)^{n+1}$.
+                                    \item En d\'eduire la limite de $(u_n)$ et une valeur approch\'ee de $\alpha$ \`a $10^{-2}$ pr\`es.
+                              \end{enumerate}
+                  \end{enumerate}
+      \end{description}
+\end{exo}
+\begin{exo}
+\label{exo:pb ln abs x sur x}
+      On consid\`ere la fonction $f$ d\'efinie sur $\mathbb{R}^*$ par
+      $f(x) = 2x - 3 - \dfrac{2\ln |x|}{x}$.
+      On note $(\mathscr{C})$ sa courbe repr\'esentative dans un rep\`ere orthonorm\'e $(O ; \vec{\imath} , \vec{\jmath})$
+      d'unit\'e 1~cm.
+      \begin{description}
+            \item[Partie A : une fonction auxiliaire.]
+                  Soit $h$ la fonction d\'efinie sur $]0 ; +\infty[$ par $h(x) = x^2 - 1 + \ln x$.
+                  \begin{enumerate}
+                        \item \'Etudier le sens de variation de $h$ et calculer $h(1)$.
+                        \item En d\'eduire le signe de $h(x)$ sur $]0 ; +\infty[$.
+                  \end{enumerate}
+            \item[Partie B : \'etude de $f$.]
+                  \begin{enumerate}
+                        \item Montrer que, pour tout $x \neq 0$, $f(-x) + f(x) = -6$. Interpr\'eter graphiquement ce r\'esultat.
+                              Dans la suite de cette partie, on \'etudie $f$ sur $]0 ; +\infty[$ et l'on compl\`ete par sym\'etrie.
+                        \item Calculer les limites de $f$ en $0$ (\`a droite) et en $+\infty$.
+                        \item Montrer que, pour tout $x > 0$, $f'(x) = \dfrac{2h(x)}{x^2}$.
+                              Dresser le tableau de variation de $f$ sur $]0 ; +\infty[$, puis sur $\mathbb{R}^*$.
+                        \item \begin{enumerate}
+                                    \item Montrer que la droite $(\Delta)$ d'\'equation $y = 2x - 3$ est asymptote \`a $(\mathscr{C})$
+                                          en $+\infty$ et en $-\infty$.
+                                    \item \'Etudier la position relative de $(\mathscr{C})$ et de $(\Delta)$ sur $\mathbb{R}^*$.
+                                    \item D\'eterminer les points de $(\mathscr{C})$ o\`u la tangente est parall\`ele \`a $(\Delta)$.
+                              \end{enumerate}
+                        \item \begin{enumerate}
+                                    \item Montrer que l'\'equation $f(x) = 0$ n'a pas de solution sur $]-\infty ; 0[$.
+                                    \item Montrer qu'elle admet exactement deux solutions $\alpha$ et $\beta$ sur $]0 ; +\infty[$, avec
+                                          $0{,}5 < \alpha < 0{,}6$ et $1{,}8 < \beta < 1{,}9$.
+                              \end{enumerate}
+                        \item Tracer $(\Delta)$ et $(\mathscr{C})$.
+                  \end{enumerate}
+            \item[Partie C : une suite d'aires.]
+                  Pour tout entier naturel $n$, on note $\mathcal{A}_n$ l'aire, en $\text{cm}^2$, du domaine limit\'e par $(\mathscr{C})$,
+                  $(\Delta)$ et les droites d'\'equations $x = \expo{n}$ et $x = \expo{n+1}$.
+                  \begin{enumerate}
+                        \item Montrer que $\mathcal{A}_n = \displaystyle \int_{\expo{n}}^{\expo{n+1}} \frac{2\ln x}{x} \dx$ et calculer $\mathcal{A}_n$.
+                        \item Montrer que $(\mathcal{A}_n)$ est une suite arithm\'etique dont on pr\'ecisera la raison.
+                        \item Calculer $\mathcal{A}_0 + \mathcal{A}_1 + \cdots + \mathcal{A}_{n-1}$ et interpr\'eter ce nombre comme une aire.
+                              \`A partir de quelle valeur de $n$ cette aire d\'epasse-t-elle $100~\text{cm}^2$ ?
+                        \item Calculer l'aire du domaine limit\'e par $(\mathscr{C})$, $(\Delta)$ et les droites d'\'equations
+                              $x = \expo{-1}$ et $x = 1$, puis celle du domaine sym\'etrique situ\'e entre $x = -1$ et $x = -\expo{-1}$.
+                  \end{enumerate}
+      \end{description}
+\end{exo}
+\begin{exo}
+\label{exo:pb argument sinus hyperbolique}
+      Soit $f$ la fonction d\'efinie par $f(x) = \ln \left( x + \sqrt{x^2 + 1} \right)$.
+      On note $(\mathscr{C})$ sa courbe repr\'esentative dans un rep\`ere orthonorm\'e $(O ; \vec{\imath} , \vec{\jmath})$
+      d'unit\'e 2~cm.
+      \begin{description}
+            \item[Partie A : \'etude de $f$ et de sa r\'eciproque.]
+                  \begin{enumerate}
+                        \item Montrer que, pour tout r\'eel $x$, $\sqrt{x^2+1} > |x|$. En d\'eduire que $f$ est d\'efinie sur $\mathbb{R}$.
+                        \item Montrer que $f$ est impaire.
+                        \item Montrer que, pour tout r\'eel $x$, $f'(x) = \dfrac{1}{\sqrt{x^2+1}}$.
+                              Calculer la limite de $f$ en $+\infty$ et dresser le tableau de variation de $f$ sur $\mathbb{R}$.
+                        \item \begin{enumerate}
+                                    \item Calculer $\displaystyle \lim_{x \to +\infty} \frac{f(x)}{x}$ et interpr\'eter graphiquement.
+                                    \item Montrer que, pour $x > 0$, $f(x) - \ln(2x) = \ln \left( \dfrac{1}{2} + \dfrac{1}{2}\sqrt{1 + \dfrac{1}{x^2}} \right)$.
+                                          En d\'eduire la limite de $f(x) - \ln (2x)$ en $+\infty$ et la position de $(\mathscr{C})$
+                                          par rapport \`a la courbe $(\Gamma)$ de la fonction $x \mapsto \ln(2x)$ sur $]0 ; +\infty[$.
+                              \end{enumerate}
+                        \item Donner une \'equation de la tangente $(T)$ \`a $(\mathscr{C})$ en $O$ et
+                              \'etudier la position de $(\mathscr{C})$ par rapport \`a $(T)$
+                              (on pourra \'etudier $\varphi : x \mapsto x - f(x)$).
+                        \item \begin{enumerate}
+                                    \item Montrer que $f$ r\'ealise une bijection de $\mathbb{R}$ sur un intervalle $J$ \`a pr\'eciser.
+                                    \item Soit $y$ un r\'eel et $x = f^{-1}(y)$. Montrer que $x + \sqrt{x^2+1} = \expo{y}$ et que
+                                          $\sqrt{x^2+1} - x = \expo{-y}$. En d\'eduire l'expression explicite de $f^{-1}(y)$.
+                              \end{enumerate}
+                        \item Tracer $(T)$, $(\mathscr{C})$ et la courbe $(\mathscr{C}')$ de $f^{-1}$ dans le m\^eme rep\`ere.
+                  \end{enumerate}
+            \item[Partie B : int\'egrale et somme.]
+                  \begin{enumerate}
+                        \item Montrer que la fonction $G : x \mapsto x f(x) - \sqrt{x^2+1}$ est une primitive de $f$ sur $\mathbb{R}$.
+                              En d\'eduire l'aire, en $\text{cm}^2$, du domaine limit\'e par $(\mathscr{C})$, l'axe des abscisses et
+                              les droites d'\'equations $x = 0$ et $x = 1$.
+                        \item Soit $\Phi$ la fonction d\'efinie sur $[0 ; 1]$ par $\Phi(t) = \dfrac{1}{\sqrt{1+t^2}}$.
+                              Justifier que $\displaystyle \int_0^1 \Phi(t) \dt = \ln \left( 1 + \sqrt{2} \right)$.
+                        \item Pour tout entier $n \geq 1$, on pose
+                              $\displaystyle S_n = \sum_{k=1}^{n} \frac{1}{\sqrt{n^2 + k^2}}$.
+                              \begin{enumerate}
+                                    \item V\'erifier que $S_n = \dfrac{1}{n} \displaystyle \sum_{k=1}^n \Phi\left( \frac{k}{n} \right)$.
+                                    \item Montrer que $\Phi$ est d\'ecroissante sur $[0 ; 1]$ et que, pour tout $k \in \{1 , \ldots , n\}$,
+                                          \[
+                                                \frac{1}{n}\Phi\left( \frac{k}{n} \right) \leq \int_{\frac{k-1}{n}}^{\frac{k}{n}} \Phi(t) \dt
+                                                \leq \frac{1}{n}\Phi\left( \frac{k-1}{n} \right) .
+                                          \]
+                                    \item En d\'eduire que
+                                          $\ln\left( 1 + \sqrt{2} \right) - \dfrac{1}{n}\left( 1 - \dfrac{\sqrt{2}}{2} \right) \leq S_n
+                                          \leq \ln\left( 1 + \sqrt{2} \right)$, puis la limite de $(S_n)$.
+                                    \item Quel rang $n$ suffit-il de prendre pour que $S_n$ soit une valeur approch\'ee de
+                                          $\ln\left(1 + \sqrt{2}\right)$ \`a $10^{-3}$ pr\`es ?
                               \end{enumerate}
                   \end{enumerate}
       \end{description}
 \end{exo}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                CORRIGÉS (édition du professeur)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{corrige}
+\section{Solutions des probl\`emes}
+Dans les tableaux de variation, les fl\`eches $\nearrow$ et $\searrow$ indiquent une fonction strictement croissante ou
+strictement d\'ecroissante sur l'intervalle correspondant ; une double barre $\|$ marque une valeur interdite.
+Les valeurs d\'ecimales sont arrondies ; « u.a. » d\'esigne l'unit\'e d'aire du rep\`ere.
 
+%-------------------------------------------------------------------------------- 1
+\begin{sol} ~ \\
+(Solution de l'Exercice \ref{exo:pb fibonacci})
+
+\textbf{L'\'egalit\'e des PGCD.} Soit $d = \pgcd{a}{b}$ et $d' = \pgcd{b}{a-b}$.
+Comme $d$ divise $a$ et $b$, il divise $b$ et $a - b$, donc $d$ divise $d'$.
+Comme $d'$ divise $b$ et $a - b$, il divise $(a - b) + b = a$ et $b$, donc $d'$ divise $d$.
+Deux entiers naturels non nuls qui se divisent mutuellement sont \'egaux : $\boxed{\pgcd{a}{b} = \pgcd{b}{a-b}}$.
+
+\textbf{Application.} Par r\'ecurrence imm\'ediate, tous les $F_n$ sont des entiers naturels, et pour $n \geq 1$,
+$F_{n+1} - F_n = F_{n-1} \geq 0$ ; pour $n = 0$, $F_1 = 1 \geq F_0 = 0$.
+Posons $d_n = \pgcd{F_{n+1}}{F_n}$. Pour $n \geq 1$, on applique le r\'esultat avec $a = F_{n+1} \geq b = F_n$ :
+\[
+	d_n = \pgcd{F_n}{F_{n+1} - F_n} = \pgcd{F_n}{F_{n-1}} = d_{n-1} .
+\]
+La suite $(d_n)$ est donc constante : $d_n = d_0 = \pgcd{1}{0} = 1$.
+Ainsi \boxed{F_n \text{ et } F_{n+1} \text{ sont premiers entre eux}} pour tout $n$.
+\end{sol}
+
+%-------------------------------------------------------------------------------- 2
+\begin{sol} ~ \\
+(Solution de l'Exercice \ref{exo:pb de base trois})
+\begin{enumerate}
+\item \begin{enumerate}
+      \item Si $N = \overline{a_p \cdots a_1 a_0}^{\,3} = a_0 + 3\left( a_1 + 3a_2 + \cdots + 3^{p-1}a_p \right)$ avec
+            $a_0 \in \{0 ; 1 ; 2\}$, alors $a_0$ est le reste de la division euclidienne de $N$ par $3$.
+            Donc $3$ divise $N$ si et seulement si $a_0 = 0$.
+      \item Les multiples de $3$ entre $0$ et $11$ sont $0$, $3$, $6$, $9$ (\'ecrits $0$, $10$, $20$, $100$ en base trois) :
+            la probabilit\'e cherch\'ee est $\boxed{p = \frac{4}{12} = \frac{1}{3}}$.
+      \end{enumerate}
+\item Les cinq chiffres sont ind\'ependants et chacun vaut $1$ avec la probabilit\'e $\frac{1}{3}$. Un mot de cinq chiffres
+      comportant $k$ chiffres $1$ a la probabilit\'e $\left(\frac{1}{3}\right)^k \left(\frac{2}{3}\right)^{5-k} = \frac{2^{5-k}}{243}$.
+      Le nombre \'ecrit est un entier compris entre $0$ et $31$.
+      \begin{itemize}
+      \item $A$ : un nombre \'ecrit en base deux est pair si et seulement s'il se termine par $0$, c'est-\`a-dire si le
+            cinqui\`eme lancer est un \'echec : $\boxed{P(A) = \frac{2}{3}}$.
+      \item $B$ : on choisit les trois rangs des succ\`es : $P(B) = \binom{5}{3}\left(\frac{1}{3}\right)^3\left(\frac{2}{3}\right)^2
+            = 10 \times \frac{4}{243} = \boxed{\frac{40}{243}}$.
+      \item $C$ : les multiples de $5$ entre $0$ et $31$ sont $0, 5, 10, 15, 20, 25, 30$, soit
+            $00000$, $00101$, $01010$, $01111$, $10100$, $11001$, $11110$, avec respectivement $0, 2, 2, 4, 2, 3, 4$ chiffres $1$.
+            $P(C) = \frac{32 + 8 + 8 + 2 + 8 + 4 + 2}{243} = \boxed{\frac{64}{243}}$.
+      \item $D$ : les nombres premiers inf\'erieurs \`a $31$ sont $2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31$, qui comportent
+            respectivement $1, 2, 2, 3, 3, 3, 2, 3, 4, 4, 5$ chiffres $1$ en base deux
+            ($2 = 10$, $3 = 11$, $5 = 101$, $7 = 111$, $11 = 1011$, $13 = 1101$, $17 = 10001$, $19 = 10011$,
+            $23 = 10111$, $29 = 11101$, $31 = 11111$).
+            $P(D) = \frac{16 + 3 \times 8 + 4 \times 4 + 2 \times 2 + 1}{243} = \boxed{\frac{61}{243}}$.
+      \end{itemize}
+\end{enumerate}
+\end{sol}
+
+%-------------------------------------------------------------------------------- 3
+\begin{sol} ~ \\
+(Solution de l'Exercice \ref{exo:pb x sur ln})
+\begin{enumerate}
+\item \begin{enumerate}
+      \item Quand $x \to 0^+$, $\ln x \to -\infty$ donc $f(x) = \frac{x}{\ln x} \to 0 = f(0)$ : $f$ est continue \`a droite en $0$.
+            De plus $\frac{f(x) - f(0)}{x - 0} = \frac{1}{\ln x} \to 0$ : $f$ est d\'erivable \`a droite en $0$ et $f'(0) = 0$
+            (tangente horizontale en $O$).
+      \item En $1^-$ : $\ln x \to 0^-$ donc $\lim_{1^-} f = -\infty$ ; en $1^+$ : $\ln x \to 0^+$ donc $\lim_{1^+} f = +\infty$.
+            En $+\infty$ : $\frac{f(x)}{x} = \frac{1}{\ln x}$, et $\frac{\ln x}{x} \to 0^+$, donc $\lim_{+\infty} f = +\infty$.
+      \end{enumerate}
+\item \begin{enumerate}
+      \item Pour $x \in \mathcal{D}_f \setminus \{0\}$ : $f'(x) = \frac{\ln x - x \cdot \frac{1}{x}}{(\ln x)^2} = \frac{\ln x - 1}{(\ln x)^2}$,
+            du signe de $\ln x - 1$ : $f'(x) < 0$ sur $]0 ; 1[$ et sur $]1 ; e[$, $f'(e) = 0$, $f'(x) > 0$ sur $]e ; +\infty[$.
+      \item $f(e) = e$.
+            \[
+            \begin{array}{c|ccccccc}
+            x & 0 & & 1 & & e & & +\infty \\ \hline
+            f'(x) & 0 & - & \| & - & 0 & + & \\ \hline
+            f(x) & 0 & \searrow & -\infty \, \| \, +\infty & \searrow & e & \nearrow & +\infty
+            \end{array}
+            \]
+      \item La droite $x = 1$ est asymptote verticale. En $+\infty$, $\frac{f(x)}{x} = \frac{1}{\ln x} \to 0$ : branche
+            parabolique de direction $(Ox)$.
+            Tangente en $x = e^{-1}$ : $f(e^{-1}) = \frac{e^{-1}}{-1} = -\frac{1}{e}$ et $f'(e^{-1}) = \frac{-2}{1} = -2$, d'o\`u
+            $\boxed{(T) : y = -2x + \frac{1}{e}}$.
+            La courbe part de $O$ avec une tangente horizontale, descend vers $-\infty$ le long de l'asymptote $x = 1$,
+            repart de $+\infty$ \`a droite de $x = 1$, passe par son minimum $(e ; e)$ puis monte lentement.
+      \end{enumerate}
+\item \begin{enumerate}
+      \item Pour $x > 1$, $g(x) = \frac{x}{\ln x} + 1 = f(x) + 1$ : $g(x) - f(x) = 1 > 0$. $(\Gamma)$ est au-dessus de $(\mathscr{C})$ ;
+            c'est l'image de la partie de $(\mathscr{C})$ situ\'ee sur $]1;+\infty[$ par la translation de vecteur $\vec{\jmath}$.
+      \item $g' = f'$ sur $]1 ; +\infty[$ :
+            \[
+            \begin{array}{c|ccccc}
+            x & 1 & & e & & +\infty \\ \hline
+            g'(x) & \| & - & 0 & + & \\ \hline
+            g(x) & +\infty & \searrow & e + 1 & \nearrow & +\infty
+            \end{array}
+            \]
+      \item Sur $[2 ; e]$, $(\Gamma)$ est au-dessus de $(\mathscr{C})$, donc l'aire vaut
+            $\int_2^e \left( g(x) - f(x) \right) \dx = \int_2^e 1 \dx = e - 2$ u.a., soit $\boxed{(e - 2)~\text{cm}^2 \approx 0{,}72~\text{cm}^2}$.
+      \end{enumerate}
+\end{enumerate}
+\end{sol}
+
+%-------------------------------------------------------------------------------- 4
+\begin{sol} ~ \\
+(Solution de l'Exercice \ref{exo:pb exp moins x})
+\begin{enumerate}
+\item \begin{enumerate}
+      \item $h'(x) = 2\expo{x} - \expo{x} - x\expo{x} = (1 - x)\expo{x}$. En $+\infty$, $h(x) = \expo{x}(2 - x) - 1 \to -\infty$.
+            \[
+            \begin{array}{c|ccccc}
+            x & 0 & & 1 & & +\infty \\ \hline
+            h'(x) & & + & 0 & - & \\ \hline
+            h(x) & 1 & \nearrow & e - 1 & \searrow & -\infty
+            \end{array}
+            \]
+      \item Sur $[0 ; 1]$, $h(x) \geq 1 > 0$ : pas de solution. Sur $[1 ; +\infty[$, $h$ est continue et strictement d\'ecroissante
+            de $e - 1 > 0$ vers $-\infty$ : l'\'equation $h(x) = 0$ y a une unique solution $\alpha$.
+            $h\left(\frac{3}{2}\right) = \frac{1}{2}\expo{3/2} - 1 \approx 1{,}24 > 0$ et $h(2) = -1 < 0$, donc $\alpha \in \left]\frac{3}{2} ; 2\right[$
+            ($\alpha \approx 1{,}841$).
+      \item $h(x) > 0$ sur $[0 ; \alpha[$, $h(\alpha) = 0$, $h(x) < 0$ sur $]\alpha ; +\infty[$.
+      \end{enumerate}
+\item \begin{enumerate}
+      \item $f(x) = \frac{1 - \expo{-x}}{1 - x\expo{-x}}$ et $x\expo{-x} \to 0$, donc $\lim_{+\infty} f = 1$ :
+            la droite $(\mathcal{D}) : y = 1$ est asymptote horizontale en $+\infty$.
+      \item $f(x) - 1 = \frac{(\expo{x} - 1) - (\expo{x} - x)}{\expo{x} - x} = \frac{x - 1}{\expo{x} - x}$, avec $\expo{x} - x > 0$ :
+            $(\mathscr{C})$ est au-dessous de $(\mathcal{D})$ sur $[0 ; 1[$, au-dessus sur $]1 ; +\infty[$, et les coupe en $(1 ; 1)$.
+      \end{enumerate}
+\item \begin{enumerate}
+      \item $f'(x) = \frac{\expo{x}(\expo{x} - x) - (\expo{x} - 1)(\expo{x} - 1)}{(\expo{x} - x)^2}
+            = \frac{\expo{2x} - x\expo{x} - \expo{2x} + 2\expo{x} - 1}{(\expo{x} - x)^2} = \frac{h(x)}{(\expo{x} - x)^2}$.
+      \item $h(\alpha) = 0$ donne $\expo{\alpha}(2 - \alpha) = 1$, soit $\expo{\alpha} = \frac{1}{2 - \alpha}$. Alors
+            \[
+            f(\alpha) = \frac{\frac{1}{2-\alpha} - 1}{\frac{1}{2-\alpha} - \alpha} = \frac{\alpha - 1}{1 - 2\alpha + \alpha^2}
+            = \frac{\alpha - 1}{(\alpha - 1)^2} = \boxed{\frac{1}{\alpha - 1}} \approx 1{,}19 .
+            \]
+            \[
+            \begin{array}{c|ccccc}
+            x & 0 & & \alpha & & +\infty \\ \hline
+            f'(x) & & + & 0 & - & \\ \hline
+            f(x) & 0 & \nearrow & \frac{1}{\alpha - 1} & \searrow & 1
+            \end{array}
+            \]
+      \item $(\mathscr{C})$ part de $O$ avec la tangente $y = x$ (car $f'(0) = h(0) = 1$), coupe $(\mathcal{D})$ en $(1 ; 1)$,
+            atteint son maximum en $(\alpha ; 1{,}19)$ puis redescend vers $(\mathcal{D})$ en restant au-dessus.
+      \end{enumerate}
+\item Sur $I$, $f = \frac{u'}{u}$ avec $u(x) = \expo{x} - x > 0$ ; donc $F(x) = \ln(\expo{x} - x) + c$ et $F(0) = c = e$ :
+      $\boxed{F(x) = \ln\left(\expo{x} - x\right) + e}$.
+\end{enumerate}
+\end{sol}
+
+%-------------------------------------------------------------------------------- 5
+\begin{sol} ~ \\
+(Solution de l'Exercice \ref{exo:pb x moins un})
+\begin{enumerate}
+\item \begin{enumerate}
+      \item $f'(x) = 1 - \expo{-x/2}$, positif si et seulement si $x \geq 0$. $f(0) = 1$.
+            En $+\infty$, $f(x) \to +\infty$. En $-\infty$, $f(x) = \expo{-x/2}\left( 2 + (x - 1)\expo{x/2} \right)$ et
+            $(x-1)\expo{x/2} \to 0$, donc $f(x) \to +\infty$.
+            \[
+            \begin{array}{c|ccccc}
+            x & -\infty & & 0 & & +\infty \\ \hline
+            f'(x) & & - & 0 & + & \\ \hline
+            f(x) & +\infty & \searrow & 1 & \nearrow & +\infty
+            \end{array}
+            \]
+      \item $f(x) - (x - 1) = 2\expo{-x/2} \to 0$ en $+\infty$ : $\boxed{(\mathcal{D}) : y = x - 1}$ est asymptote en $+\infty$,
+            et comme $2\expo{-x/2} > 0$, $(\mathscr{C})$ est toujours au-dessus de $(\mathcal{D})$.
+            En $-\infty$, $\frac{f(x)}{x} = 1 - \frac{1}{x} + \frac{2\expo{-x/2}}{x} \to -\infty$ : branche parabolique de direction $(Oy)$.
+      \item La courbe descend depuis la gauche (tr\`es raide), atteint son minimum $(0 ; 1)$ avec une tangente horizontale,
+            puis remonte en se rapprochant de $(\mathcal{D})$ par au-dessus.
+      \end{enumerate}
+\item $F(x) = \frac{x^2}{2} - x - 4\expo{-x/2} + c$ et $F(0) = -4 + c = 0$ :
+      $\boxed{F(x) = \frac{x^2}{2} - x - 4\expo{-x/2} + 4}$.
+\item \begin{enumerate}
+      \item $g$ est continue et strictement croissante sur $I$, $g(0) = 1$ et $\lim_{+\infty} g = +\infty$ :
+            $g$ r\'ealise une bijection de $I$ sur $\boxed{J = [1 ; +\infty[}$.
+      \item $g(1) = 0 + 2\expo{-1/2} = \frac{2}{\sqrt{e}}$, donc $\boxed{g^{-1}\left(\frac{2}{\sqrt{e}}\right) = 1}$.
+      \end{enumerate}
+\item La courbe de $g^{-1}$ est la sym\'etrique de la partie de $(\mathscr{C})$ d'abscisses positives par rapport \`a la droite
+      $y = x$ : elle part de $(1 ; 0)$ avec une tangente verticale et admet en $+\infty$ l'asymptote $y = x + 1$
+      (sym\'etrique de $(\mathcal{D})$), en restant au-dessous de celle-ci.
+\end{enumerate}
+\end{sol}
+
+%-------------------------------------------------------------------------------- 6
+\begin{sol} ~ \\
+(Solution de l'Exercice \ref{exo:pb un plus ln})
+\begin{description}
+\item[A.] \begin{enumerate}
+      \item En $0^+$ : $1 + \ln x \to -\infty$ et $\frac{1}{x} \to +\infty$, donc $\lim_{0^+} f = -\infty$ (asymptote $x = 0$).
+            En $+\infty$ : $f(x) = \frac{1}{x} + \frac{\ln x}{x} \to 0$ (asymptote $y = 0$).
+      \item $f'(x) = \frac{\frac{1}{x} \cdot x - (1 + \ln x)}{x^2} = -\frac{\ln x}{x^2}$, positif sur $]0;1]$, n\'egatif sur $[1;+\infty[$.
+            \[
+            \begin{array}{c|ccccc}
+            x & 0 & & 1 & & +\infty \\ \hline
+            f'(x) & \| & + & 0 & - & \\ \hline
+            f(x) & -\infty & \nearrow & 1 & \searrow & 0
+            \end{array}
+            \]
+      \item $f(x) = 0 \iff \ln x = -1 \iff x = \expo{-1}$ : $I\left(\frac{1}{e} ; 0\right)$.
+            $f'\left(\frac{1}{e}\right) = -\frac{-1}{e^{-2}} = e^2$, d'o\`u $\boxed{(T) : y = e^2 x - e}$.
+      \item La courbe monte depuis $-\infty$ le long de l'axe $(Oy)$, coupe l'axe des abscisses en $I$ (pente $e^2 \approx 7{,}4$),
+            atteint son maximum $(1 ; 1)$ puis d\'ecro\^it vers $0$ en restant positive.
+      \end{enumerate}
+\item[B.] \begin{enumerate}
+      \item $f(x) = \frac{1}{x} + \frac{1}{x}\ln x$ et $\left( \frac{(\ln x)^2}{2} \right)' = \frac{\ln x}{x}$, donc
+            $\boxed{F(x) = \ln x + \frac{(\ln x)^2}{2}}$ (on a bien $F(1) = 0$).
+      \item Avec $X = \ln x$ : $F(x) = X + \frac{X^2}{2}$ tend vers $+\infty$ quand $X \to -\infty$ (c'est-\`a-dire $x \to 0^+$) et quand
+            $X \to +\infty$. $F' = f$ s'annule en $\frac{1}{e}$ et $F\left(\frac{1}{e}\right) = -1 + \frac{1}{2} = -\frac{1}{2}$.
+            \[
+            \begin{array}{c|ccccc}
+            x & 0 & & \frac{1}{e} & & +\infty \\ \hline
+            F'(x) & \| & - & 0 & + & \\ \hline
+            F(x) & +\infty & \searrow & -\frac{1}{2} & \nearrow & +\infty
+            \end{array}
+            \]
+      \item $F(x) = \ln x\left( 1 + \frac{\ln x}{2} \right) = 0 \iff \ln x = 0$ ou $\ln x = -2$ : les points $(1 ; 0)$ et $(\expo{-2} ; 0)$.
+      \item Asymptote verticale $x = 0$ ; en $+\infty$, $\frac{F(x)}{x} \to 0$ : branche parabolique de direction $(Ox)$.
+            La courbe descend de $+\infty$, coupe l'axe en $\expo{-2} \approx 0{,}14$, atteint son minimum $\left(\frac{1}{e} ; -\frac{1}{2}\right)$,
+            recoupe l'axe en $1$ (pente $F'(1) = 1$) puis cro\^it lentement.
+      \end{enumerate}
+\end{description}
+\end{sol}
+
+%-------------------------------------------------------------------------------- 7
+\begin{sol} ~ \\
+(Solution de l'Exercice \ref{exo:pb deux x plus trois})
+\begin{description}
+\item[I.] \begin{enumerate}
+      \item $g'(x) = 2\expo{-2x} - 2(2x + 3)\expo{-2x} = -4(x + 1)\expo{-2x}$ ; $g(-1) = e^2 + 1$.
+            En $-\infty$ : $2x + 3 \to -\infty$ et $\expo{-2x} \to +\infty$, donc $g \to -\infty$.
+            En $+\infty$ : $(2x + 3)\expo{-2x} \to 0$ (avec $X = 2x$, $X\expo{-X} \to 0$), donc $g \to 1$.
+            \[
+            \begin{array}{c|ccccc}
+            x & -\infty & & -1 & & +\infty \\ \hline
+            g'(x) & & + & 0 & - & \\ \hline
+            g(x) & -\infty & \nearrow & e^2 + 1 & \searrow & 1
+            \end{array}
+            \]
+      \item Sur $]-\infty ; -1]$, $g$ est continue et strictement croissante ; $g(-2) = 1 - e^4 < 0$ et $g\left(-\frac{3}{2}\right) = 1 > 0$,
+            donc $g$ s'annule une seule fois sur cet intervalle, en un r\'eel $\alpha \in \left]-2 ; -\frac{3}{2}\right[$
+            ($\alpha \approx -1{,}524$). Sur $[-1 ; +\infty[$, $g(x) > 1$ : $\alpha$ est l'unique z\'ero de $g$.
+      \item $g(x) < 0$ si $x < \alpha$ ; $g(x) > 0$ si $x > \alpha$.
+      \end{enumerate}
+\item[II.] \begin{enumerate}
+      \item $f'(x) = \expo{-2x} - 2(x + 2)\expo{-2x} - 1 = -(2x + 3)\expo{-2x} - 1 = \boxed{-g(x)}$.
+      \item $f$ est croissante sur $]-\infty ; \alpha]$ et d\'ecroissante sur $[\alpha ; +\infty[$.
+            En $-\infty$ : $f(x) = \expo{-2x}\left[ x + 2 + (1 - x)\expo{2x} \right]$ et $(1 - x)\expo{2x} \to 0$, donc $f \to -\infty$.
+            En $+\infty$ : $(x + 2)\expo{-2x} \to 0$ et $1 - x \to -\infty$, donc $f \to -\infty$.
+            Comme $\expo{-2\alpha} = -\frac{1}{2\alpha + 3}$, $f(\alpha) = -\frac{\alpha + 2}{2\alpha + 3} + 1 - \alpha \approx 12{,}55$.
+            \[
+            \begin{array}{c|ccccc}
+            x & -\infty & & \alpha & & +\infty \\ \hline
+            f'(x) & & + & 0 & - & \\ \hline
+            f(x) & -\infty & \nearrow & f(\alpha) & \searrow & -\infty
+            \end{array}
+            \]
+      \item \begin{enumerate}
+            \item En $+\infty$ : $f(x) - (1 - x) = (x + 2)\expo{-2x} \to 0$ : la droite $(\mathscr{D}) : y = 1 - x$ est asymptote.
+                  En $-\infty$ : $\frac{f(x)}{x} = \frac{x + 2}{x}\expo{-2x} + \frac{1}{x} - 1 \to +\infty$ : branche parabolique de direction $(Oy)$.
+            \item $f(x) - (1 - x) = (x + 2)\expo{-2x}$ a le signe de $x + 2$ : $(\mathscr{C})$ est au-dessous de $(\mathscr{D})$ sur
+                  $]-\infty ; -2[$, au-dessus sur $]-2 ; +\infty[$ ; elles se coupent en $(-2 ; 3)$.
+            \item $[1 ; 2] \subset [\alpha ; +\infty[$ : $f$ y est continue et strictement d\'ecroissante, $f(1) = 3\expo{-2} \approx 0{,}41 > 0$
+                  et $f(2) = 4\expo{-4} - 1 \approx -0{,}93 < 0$ : une unique solution $a \in ]1 ; 2[$ ($a \approx 1{,}26$).
+                  (L'\'equation a aussi une solution sur $]-\infty ; \alpha[$, voisine de $-2{,}05$.)
+            \item La courbe monte depuis $-\infty$, coupe l'axe des abscisses vers $-2{,}05$, passe par $(-2 ; 3)$,
+                  atteint son maximum $(\alpha ; f(\alpha)) \approx (-1{,}52 ; 12{,}55)$, redescend en passant par $(0 ; 3)$ et $(a ; 0)$
+                  et rejoint son asymptote $(\mathscr{D})$ par au-dessus.
+            \end{enumerate}
+      \item Sur $[0 ; 1] \subset [\alpha ; +\infty[$, $f$ d\'ecro\^it de $3$ \`a $f(1) > 0$, donc $f \geq 0$.
+            Par parties ($u = x + 2$, $v' = \expo{-2x}$) :
+            $\int_0^1 (x + 2)\expo{-2x}\dx = \left[ -\frac{(x+2)\expo{-2x}}{2} \right]_0^1 + \frac{1}{2}\int_0^1 \expo{-2x}\dx
+            = 1 - \frac{3}{2}\expo{-2} + \frac{1}{4} - \frac{1}{4}\expo{-2} = \frac{5}{4} - \frac{7}{4}\expo{-2}$,
+            et $\int_0^1 (1 - x)\dx = \frac{1}{2}$. L'aire vaut
+            $\boxed{\frac{7}{4}\left( 1 - \expo{-2} \right)~\text{cm}^2 \approx 1{,}51~\text{cm}^2}$.
+      \item \begin{enumerate}
+            \item Sur $[0 ; +\infty[ \subset ]\alpha ; +\infty[$, $h' = -g < 0$ : $h$ est continue et strictement d\'ecroissante,
+                  $h(0) = 3$ et $\lim_{+\infty} h = -\infty$ ; $h$ r\'ealise une bijection de $[0 ; +\infty[$ sur $\boxed{J = ]-\infty ; 3]}$.
+            \item $h(a) = 0$ et $h'(a) = -g(a) \neq 0$, donc $(h^{-1})'(0) = \frac{1}{h'(a)} = -\frac{1}{g(a)}$.
+                  De $f(a) = 0$ on tire $\expo{-2a} = \frac{a - 1}{a + 2}$, d'o\`u
+                  $g(a) = \frac{(2a+3)(a-1)}{a+2} + 1 = \frac{2a^2 + 2a - 1}{a + 2}$ et
+                  $\boxed{(h^{-1})'(0) = -\frac{a + 2}{2a^2 + 2a - 1}} \approx -0{,}69$.
+            \item $(\mathscr{C}')$ est la sym\'etrique de la partie de $(\mathscr{C})$ d'abscisses positives par rapport \`a $y = x$ :
+                  elle part de $(3 ; 0)$, passe par $(0 ; a)$ et admet la m\^eme asymptote $y = 1 - x$ (droite invariante par cette sym\'etrie)
+                  quand $x \to -\infty$.
+            \end{enumerate}
+      \end{enumerate}
+\end{description}
+\end{sol}
+
+%-------------------------------------------------------------------------------- 8
+\begin{sol} ~ \\
+(Solution de l'Exercice \ref{exo:pb x ln x})
+\begin{description}
+\item[Partie A.] \begin{enumerate}
+      \item En $0^+$ : $\ln x \to -\infty$ donc $g \to -\infty$.
+            En $+\infty$ : $g(x) = x\left( \frac{\ln x}{x} + \frac{1}{x} - \frac{1}{2} \right)$ et la parenth\`ese tend vers $-\frac{1}{2}$,
+            donc $g \to -\infty$.
+      \item $g'(x) = \frac{1}{x} - \frac{1}{2} = \frac{2 - x}{2x}$ ; $g(2) = \ln 2$.
+            \[
+            \begin{array}{c|ccccc}
+            x & 0 & & 2 & & +\infty \\ \hline
+            g'(x) & \| & + & 0 & - & \\ \hline
+            g(x) & -\infty & \nearrow & \ln 2 & \searrow & -\infty
+            \end{array}
+            \]
+      \item Sur $]0 ; 2]$, $g$ est continue, strictement croissante, de $-\infty$ \`a $\ln 2 > 0$ : un unique z\'ero $\alpha$.
+            Sur $[2 ; +\infty[$, $g$ est continue, strictement d\'ecroissante, de $\ln 2$ \`a $-\infty$ : un unique z\'ero $\beta$.
+            $g(0{,}46) \approx -0{,}0065 < 0 < g(0{,}47) \approx 0{,}0100$, donc $0{,}46 < \alpha < 0{,}47$ ;
+            $g(5{,}35) \approx 0{,}0021 > 0 > g(5{,}36) \approx -0{,}0010$, donc $5{,}35 < \beta < 5{,}36$.
+      \item $g(x) < 0$ sur $]0 ; \alpha[ \cup ]\beta ; +\infty[$, $g(x) > 0$ sur $]\alpha ; \beta[$, $g(\alpha) = g(\beta) = 0$.
+      \end{enumerate}
+\item[Partie B.] \begin{enumerate}
+      \item \begin{enumerate}
+            \item $\lim_{x \to 0^+} x\ln x = 0$, donc $\lim_{0^+} f = 0 = f(0)$ : $f$ est continue en $0$.
+            \item $\frac{f(x) - f(0)}{x} = \ln x - \frac{x}{4} \to -\infty$ : $f$ n'est pas d\'erivable \`a droite en $0$ ;
+                  $(\mathscr{C})$ admet en $O$ une demi-tangente verticale (dirig\'ee vers le bas).
+            \end{enumerate}
+      \item $f(x) = x^2\left( \frac{\ln x}{x} - \frac{1}{4} \right) \to -\infty$, et $\frac{f(x)}{x} = \ln x - \frac{x}{4} = x\left( \frac{\ln x}{x} - \frac{1}{4} \right) \to -\infty$ :
+            branche parabolique de direction $(Oy)$.
+      \item $f'(x) = \ln x + x \cdot \frac{1}{x} - \frac{x}{2} = g(x)$.
+            \[
+            \begin{array}{c|ccccccc}
+            x & 0 & & \alpha & & \beta & & +\infty \\ \hline
+            f'(x) & & - & 0 & + & 0 & - & \\ \hline
+            f(x) & 0 & \searrow & f(\alpha) & \nearrow & f(\beta) & \searrow & -\infty
+            \end{array}
+            \]
+      \item \begin{enumerate}
+            \item $g(\alpha) = 0$ donne $\ln \alpha = \frac{\alpha}{2} - 1$, donc
+                  $f(\alpha) = \alpha\left( \frac{\alpha}{2} - 1 \right) - \frac{\alpha^2}{4} = \boxed{\frac{\alpha^2}{4} - \alpha}$ ;
+                  de m\^eme $\boxed{f(\beta) = \frac{\beta^2}{4} - \beta}$.
+            \item $\varphi'(t) = \frac{t}{2} - 1$ : $\varphi$ est d\'ecroissante sur $[0 ; 2]$ et croissante sur $[2 ; +\infty[$.
+                  Comme $0{,}46 < \alpha < 0{,}47$ : $\varphi(0{,}47) < f(\alpha) < \varphi(0{,}46)$, soit
+                  $\boxed{-0{,}4148 < f(\alpha) < -0{,}4071}$.
+                  Comme $5{,}35 < \beta < 5{,}36$ : $\varphi(5{,}35) < f(\beta) < \varphi(5{,}36)$, soit
+                  $\boxed{1{,}8056 < f(\beta) < 1{,}8224}$ (amplitudes $0{,}008$ et $0{,}017$).
+            \end{enumerate}
+      \item Sur $]0 ; \alpha]$, $f$ est strictement d\'ecroissante \`a partir de $f(0) = 0$, donc $f(x) < 0$ : pas de z\'ero.
+            Sur $[\alpha ; \beta]$, $f$ est continue et strictement croissante de $f(\alpha) < 0$ \`a $f(\beta) > 0$ : un unique z\'ero $x_1$.
+            Sur $[\beta ; +\infty[$, $f$ est continue et strictement d\'ecroissante de $f(\beta) > 0$ vers $-\infty$ : un unique z\'ero $x_2$.
+            $f(1{,}4) \approx -0{,}019 < 0 < f(1{,}5) \approx 0{,}046$ et $f(8{,}6) \approx 0{,}015 > 0 > f(8{,}7) \approx -0{,}102$,
+            donc $1{,}4 < x_1 < 1{,}5$ et $8{,}6 < x_2 < 8{,}7$ ($x_1 \approx 1{,}430$, $x_2 \approx 8{,}613$).
+            (Pour $x > 0$, $f(x) = 0 \iff \ln x = \frac{x}{4}$.)
+      \item $f(1) = -\frac{1}{4}$ et $f'(1) = g(1) = \frac{1}{2}$ : $\boxed{(T) : y = \frac{x}{2} - \frac{3}{4}}$.
+            La courbe part de $O$ verticalement vers le bas, atteint son minimum vers $(0{,}46 ; -0{,}41)$, remonte en passant par
+            $\left(1 ; -\frac{1}{4}\right)$, $(x_1 ; 0)$, $(2 ; 2\ln 2 - 1 \approx 0{,}39)$, $(4 ; 4\ln 4 - 4 \approx 1{,}55)$, atteint son maximum
+            vers $(5{,}36 ; 1{,}82)$, puis redescend, coupe l'axe en $x_2$ et plonge ($f(10) \approx -1{,}97$).
+      \end{enumerate}
+\item[Partie C.] \begin{enumerate}
+      \item Avec $u = \ln x$, $v' = x$, $u' = \frac{1}{x}$, $v = \frac{x^2}{2}$ :
+            $\int_\lambda^1 x\ln x\dx = \left[ \frac{x^2}{2}\ln x \right]_\lambda^1 - \int_\lambda^1 \frac{x}{2}\dx
+            = \boxed{-\frac{\lambda^2\ln\lambda}{2} - \frac{1 - \lambda^2}{4}}$.
+      \item $\int_\lambda^1 \frac{x^2}{4}\dx = \frac{1 - \lambda^3}{12}$, d'o\`u
+            $\boxed{J(\lambda) = -\frac{\lambda^2\ln\lambda}{2} - \frac{1 - \lambda^2}{4} - \frac{1 - \lambda^3}{12}}$.
+      \item $\lambda^2\ln\lambda = \lambda \cdot (\lambda\ln\lambda) \to 0$, donc $\lim_{\lambda\to 0} J(\lambda) = -\frac{1}{4} - \frac{1}{12} = -\frac{1}{3}$.
+            Sur $]0 ; 1]$, $f < 0$ (car $1 < x_1$), d'o\`u le signe : l'aire vaut $\frac{1}{3}$ u.a., soit
+            $\boxed{\frac{1}{3}~\text{cm}^2}$.
+      \end{enumerate}
+\end{description}
+\end{sol}
+
+%-------------------------------------------------------------------------------- 9
+\begin{sol} ~ \\
+(Solution de l'Exercice \ref{exo:pb famille fn})
+\begin{description}
+\item[Partie A.] \begin{enumerate}
+      \item En multipliant num\'erateur et d\'enominateur par $\expo{x}$ : $f_n(x) = \frac{\expo{-(n-1)x}}{\expo{x} + 1}$.
+            En $+\infty$ : $\expo{-nx} \to 0$ et $1 + \expo{-x} \to 1$, donc $\lim_{+\infty} f_n = 0$.
+            En $-\infty$ : $\expo{x} + 1 \to 1$ ; si $n = 1$ le num\'erateur vaut $1$ et $\lim_{-\infty} f_1 = 1$ ;
+            si $n \geq 2$, $\expo{-(n-1)x} \to +\infty$ et $\lim_{-\infty} f_n = +\infty$.
+      \item Avec $u = \expo{-(n-1)x}$ ($u' = -(n-1)u$) et $v = \expo{x} + 1$ :
+            $f_n' = \frac{u'v - uv'}{v^2} = \frac{u\left[ -(n-1)(\expo{x} + 1) - \expo{x} \right]}{v^2}
+            = -\frac{\expo{-(n-1)x}\left( n\expo{x} + n - 1 \right)}{(\expo{x} + 1)^2} < 0$.
+            \[
+            \begin{array}{c|ccc}
+            x & -\infty & & +\infty \\ \hline
+            f_n'(x) & & - & \\ \hline
+            f_n(x) & 1 \text{ si } n = 1 ;\ +\infty \text{ si } n \geq 2 & \searrow & 0
+            \end{array}
+            \]
+      \item $f_n(0) = \frac{1}{2}$ pour tout $n$ : toutes les courbes passent par $\boxed{A\left(0 ; \frac{1}{2}\right)}$.
+            $f_n'(0) = -\frac{2n - 1}{4}$ : tangente $y = \frac{1}{2} - \frac{2n - 1}{4}x$.
+      \item \begin{enumerate}
+            \item $f_1(x) = \frac{1}{\expo{x} + 1}$ et $f_1(-x) = \frac{1}{\expo{-x} + 1} = \frac{\expo{x}}{1 + \expo{x}}$, donc
+                  $f_1(x) + f_1(-x) = 1 = 2 \times \frac{1}{2}$ : $A$ est centre de sym\'etrie de $(\mathscr{C}_1)$.
+            \item Pour $n \geq 2$, $\frac{f_n(x)}{x} = \frac{\expo{-(n-1)x}}{x(\expo{x} + 1)} \to -\infty$ en $-\infty$
+                  (avec $X = -(n-1)x \to +\infty$, $\frac{\expo{X}}{X} \to +\infty$) : branche parabolique de direction $(Oy)$.
+            \end{enumerate}
+      \item $f_{n+1}(x) = \expo{-x} f_n(x)$, donc $f_{n+1}(x) - f_n(x) = (\expo{-x} - 1)f_n(x)$ avec $f_n(x) > 0$ :
+            $(\mathscr{C}_{n+1})$ est au-dessous de $(\mathscr{C}_n)$ sur $]0 ; +\infty[$, au-dessus sur $]-\infty ; 0[$ ; elles se coupent en $A$.
+      \item $(\mathscr{C}_1)$ est une courbe en S d\'ecroissante, d'asymptotes $y = 1$ en $-\infty$ et $y = 0$ en $+\infty$,
+            sym\'etrique par rapport \`a $A$, de pente $-\frac{1}{4}$ en $A$.
+            $(\mathscr{C}_2)$ passe par $A$ avec la pente $-\frac{3}{4}$, est au-dessus de $(\mathscr{C}_1)$ \`a gauche de $A$
+            (elle monte vers $+\infty$ avec une branche parabolique) et au-dessous \`a droite (asymptote $y = 0$).
+      \end{enumerate}
+\item[Partie B.] \begin{enumerate}
+      \item $f_1(x) = \frac{\expo{-x}}{1 + \expo{-x}} = -\frac{w'(x)}{w(x)}$ avec $w(x) = 1 + \expo{-x} > 0$, donc
+            $I_1 = \left[ -\ln(1 + \expo{-x}) \right]_0^1 = \ln 2 - \ln\left( 1 + \expo{-1} \right) = \boxed{\ln\frac{2e}{e+1}} \approx 0{,}380$.
+      \item $f_n(x) + f_{n+1}(x) = \frac{\expo{-nx}(1 + \expo{-x})}{1 + \expo{-x}} = \expo{-nx}$, donc par lin\'earit\'e
+            $I_n + I_{n+1} = \int_0^1 \expo{-nx}\dx = \left[ -\frac{\expo{-nx}}{n} \right]_0^1 = \frac{1 - \expo{-n}}{n}$.
+            D'o\`u $\boxed{I_2 = 1 - \frac{1}{e} - \ln\frac{2e}{e+1}} \approx 0{,}252$ et
+            $\boxed{I_3 = \frac{1 - \expo{-2}}{2} - I_2 = -\frac{1}{2} + \frac{1}{e} - \frac{1}{2e^2} + \ln\frac{2e}{e+1}} \approx 0{,}180$.
+      \item Pour $x \in [0 ; 1]$, $f_{n+1}(x) = \expo{-x}f_n(x) \leq f_n(x)$, donc $I_{n+1} \leq I_n$ : $(I_n)$ est d\'ecroissante.
+            Elle est minor\'ee par $0$ (int\'egrale d'une fonction positive), donc convergente.
+      \item Pour $x \in [0 ; 1]$, $1 + \frac{1}{e} \leq 1 + \expo{-x} \leq 2$, donc
+            $\frac{\expo{-nx}}{2} \leq f_n(x) \leq \frac{\expo{-nx}}{1 + \frac{1}{e}} = \frac{e}{e+1}\expo{-nx}$.
+            En int\'egrant sur $[0 ; 1]$ : $\frac{1 - \expo{-n}}{2n} \leq I_n \leq \frac{e}{e+1}\cdot\frac{1 - \expo{-n}}{n}$.
+            Les deux bornes tendent vers $0$ : $\boxed{\lim I_n = 0}$.
+      \item \begin{enumerate}
+            \item Comme $I_{n+1} \leq I_n$ : $2I_{n+1} \leq I_n + I_{n+1} \leq 2I_n$, c'est-\`a-dire
+                  $2I_{n+1} \leq \frac{1 - \expo{-n}}{n} \leq 2I_n$.
+            \item L'in\'egalit\'e de droite donne $I_n \geq \frac{1 - \expo{-n}}{2n}$ ; celle de gauche, \'ecrite au rang $n - 1 \geq 1$,
+                  donne $I_n \leq \frac{1 - \expo{-(n-1)}}{2(n-1)}$. Alors
+                  $\frac{1 - \expo{-n}}{2} \leq nI_n \leq \frac{n}{n-1}\cdot\frac{1 - \expo{-(n-1)}}{2}$ et les deux bornes tendent vers
+                  $\frac{1}{2}$ : $\boxed{\lim nI_n = \frac{1}{2}}$ (par exemple $2I_2 \approx 0{,}504$, $4I_4 \approx 0{,}547$).
+            \end{enumerate}
+      \end{enumerate}
+\end{description}
+\end{sol}
+
+%-------------------------------------------------------------------------------- 10
+\begin{sol} ~ \\
+(Solution de l'Exercice \ref{exo:pb exp moins un sur x})
+\begin{description}
+\item[Partie A.] \begin{enumerate}
+      \item $\frac{\expo{x} - 1}{x - 0}$ est le taux d'accroissement de l'exponentielle en $0$ ; il tend vers $\exp'(0) = 1 = f(0)$.
+      \item En $-\infty$ : $\expo{x} - 1 \to -1$ et $x \to -\infty$, donc $f \to 0$ : asymptote $y = 0$ (la courbe est au-dessus,
+            car $\expo{x} - 1$ et $x$ ont le m\^eme signe, donc $f > 0$).
+            En $+\infty$ : $f(x) = \frac{\expo{x}}{x} - \frac{1}{x} \to +\infty$ et $\frac{f(x)}{x} = \frac{\expo{x}}{x^2} - \frac{1}{x^2} \to +\infty$ :
+            branche parabolique de direction $(Oy)$.
+      \item $N'(x) = \expo{x} + (x - 1)\expo{x} = x\expo{x}$ : $N$ d\'ecro\^it sur $]-\infty ; 0]$ et cro\^it sur $[0 ; +\infty[$,
+            $N(0) = 0$. Donc $N(x) > 0$ pour tout $x \neq 0$.
+      \item Pour $x \neq 0$, $f'(x) = \frac{x\expo{x} - (\expo{x} - 1)}{x^2} = \frac{N(x)}{x^2} > 0$. $f$ est donc strictement croissante
+            sur $]-\infty ; 0]$ et sur $[0 ; +\infty[$ (elle est continue en $0$), donc sur $\mathbb{R}$.
+            \[
+            \begin{array}{c|ccccc}
+            x & -\infty & & 0 & & +\infty \\ \hline
+            f(x) & 0 & \nearrow & 1 & \nearrow & +\infty
+            \end{array}
+            \]
+            Points utiles : $f(-1) = 1 - \frac{1}{e} \approx 0{,}63$, $f(1) = e - 1 \approx 1{,}72$, $f(2) = \frac{e^2 - 1}{2} \approx 3{,}19$.
+            La courbe sort de l'asymptote $y = 0$ \`a gauche, passe par $(0 ; 1)$ et monte de plus en plus vite.
+      \end{enumerate}
+\item[Partie B.] \begin{enumerate}
+      \item $\chi'(x) = \expo{x} - 1 - x$ et $\chi''(x) = \expo{x} - 1 \geq 0$ sur $[0 ; +\infty[$. Donc $\chi'$ est croissante et
+            $\chi'(x) \geq \chi'(0) = 0$ ; donc $\chi$ est croissante et $\chi(x) \geq \chi(0) = 0$.
+      \item \begin{enumerate}
+            \item $\psi'(x) = 1 + 2(e - 2)x - \expo{x}$ et $\psi''(x) = 2(e - 2) - \expo{x}$.
+                  $\psi''(x) = 0 \iff \expo{x} = 2(e - 2) \iff x = x_0 = \ln(2(e - 2))$ ; comme $1 < 2(e - 2) \approx 1{,}44 < e$,
+                  $x_0 \in ]0 ; 1[$ ($x_0 \approx 0{,}36$). $\psi'' > 0$ sur $[0 ; x_0[$ et $\psi'' < 0$ sur $]x_0 ; 1]$.
+            \item $\psi'$ cro\^it sur $[0 ; x_0]$ et d\'ecro\^it sur $[x_0 ; 1]$. $\psi'(0) = 0$, donc $\psi' > 0$ sur $]0 ; x_0]$ ;
+                  $\psi'(1) = 1 + 2e - 4 - e = e - 3 < 0$. Sur $[x_0 ; 1]$, $\psi'$ est continue, strictement d\'ecroissante, de
+                  $\psi'(x_0) > 0$ \`a $e - 3 < 0$ : elle s'annule en un unique $x_1 \in ]x_0 ; 1[$.
+            \item $\psi' > 0$ sur $]0 ; x_1[$ et $\psi' < 0$ sur $]x_1 ; 1]$ ; $\psi(0) = 1 - 1 = 0$ et $\psi(1) = 2 + e - 2 - e = 0$.
+                  \[
+                  \begin{array}{c|ccccc}
+                  x & 0 & & x_1 & & 1 \\ \hline
+                  \psi'(x) & 0 & + & 0 & - & \\ \hline
+                  \psi(x) & 0 & \nearrow & \psi(x_1) & \searrow & 0
+                  \end{array}
+                  \]
+                  Sur $[0 ; x_1]$, $\psi(x) \geq \psi(0) = 0$ ; sur $[x_1 ; 1]$, $\psi(x) \geq \psi(1) = 0$.
+            \end{enumerate}
+      \item Pour $0 < x \leq 1$ : $\chi(x) \geq 0$ donne $\expo{x} - 1 \geq x + \frac{x^2}{2}$ et $\psi(x) \geq 0$ donne
+            $\expo{x} - 1 \leq x + (e - 2)x^2$. En divisant par $x > 0$ : $1 + \frac{x}{2} \leq f(x) \leq 1 + (e - 2)x$.
+      \item $f > 0$ : $K$ est l'aire, en u.a. ($1$ u.a. $= 4~\text{cm}^2$), du domaine compris entre $(\mathscr{C})$, l'axe des abscisses
+            et les droites $x = 0$, $x = 1$. L'encadrement est vrai aussi en $x = 0$ ; en int\'egrant :
+            $\int_0^1 \left( 1 + \frac{x}{2} \right)\dx = \frac{5}{4}$ et $\int_0^1 \left( 1 + (e - 2)x \right)\dx = 1 + \frac{e - 2}{2} = \frac{e}{2}$ :
+            $\boxed{\frac{5}{4} \leq K \leq \frac{e}{2}}$, soit $1{,}25 \leq K \leq 1{,}36$ (en fait $K \approx 1{,}318$).
+      \end{enumerate}
+\item[Partie C.] \begin{enumerate}
+      \item $u_1 = \int_0^1 \expo{x}\dx = \boxed{e - 1}$.
+      \item Pour $x \in [0 ; 1]$, $0 \leq x^{n+1} \leq x^n$, donc $\expo{x^{n+1}} \leq \expo{x^n}$ et $u_{n+1} \leq u_n$.
+            De plus $\expo{x^n} \geq 1$, donc $u_n \geq 1$. D\'ecroissante et minor\'ee, la suite $(u_n)$ converge.
+      \item $f$ est croissante : pour $t \in ]0 ; 1]$, $f(0) \leq f(t) \leq f(1)$, soit $1 \leq \frac{\expo{t} - 1}{t} \leq e - 1$ ;
+            en multipliant par $t > 0$ : $1 + t \leq \expo{t} \leq 1 + (e - 1)t$, encore vrai (avec \'egalit\'e) pour $t = 0$.
+      \item Avec $t = x^n \in [0 ; 1]$ : $1 + x^n \leq \expo{x^n} \leq 1 + (e - 1)x^n$ ; comme $\int_0^1 x^n\dx = \frac{1}{n+1}$,
+            $1 + \frac{1}{n+1} \leq u_n \leq 1 + \frac{e - 1}{n + 1}$. Par encadrement, $\boxed{\lim u_n = 1}$.
+            (Pour $n = 1$ : $1{,}5 \leq e - 1 \approx 1{,}718 \leq \frac{e+1}{2} \approx 1{,}859$.)
+      \item $0 \leq u_n - 1 \leq \frac{e-1}{n+1} \leq 10^{-2}$ d\`es que $n + 1 \geq 100(e - 1) \approx 171{,}8$, soit $n \geq 171$ :
+            $\boxed{n_0 = 171}$ convient.
+      \end{enumerate}
+\end{description}
+\end{sol}
+
+%-------------------------------------------------------------------------------- 11
+\begin{sol} ~ \\
+(Solution de l'Exercice \ref{exo:pb somme ln k})
+\begin{description}
+\item[Partie A.] \begin{enumerate}
+      \item En $0^+$ : $\ln x \to -\infty$ et $\frac{1}{x^2} \to +\infty$, donc $f \to -\infty$ (asymptote $x = 0$).
+            En $+\infty$ : $f(x) = \frac{\ln x}{x} \cdot \frac{1}{x} \to 0$ (asymptote $y = 0$).
+      \item $f'(x) = \frac{\frac{1}{x} \cdot x^2 - 2x\ln x}{x^4} = \frac{1 - 2\ln x}{x^3}$, nul pour $x = \sqrt{e}$ ;
+            $f(\sqrt{e}) = \frac{1/2}{e} = \frac{1}{2e} \approx 0{,}18$.
+            \[
+            \begin{array}{c|ccccc}
+            x & 0 & & \sqrt{e} & & +\infty \\ \hline
+            f'(x) & \| & + & 0 & - & \\ \hline
+            f(x) & -\infty & \nearrow & \frac{1}{2e} & \searrow & 0
+            \end{array}
+            \]
+      \item \begin{enumerate}
+            \item $f(1) = 0$ et $f'(1) = 1$ : $\boxed{(T) : y = x - 1}$.
+            \item $g'(x) = 1 - f'(x) = 1 - \frac{1 - 2\ln x}{x^3} = \frac{x^3 - 1 + 2\ln x}{x^3}$.
+                  Le num\'erateur $k(x) = x^3 - 1 + 2\ln x$ est strictement croissant (somme de fonctions croissantes) et $k(1) = 0$ :
+                  $g'(x) < 0$ sur $]0 ; 1[$ et $g'(x) > 0$ sur $]1 ; +\infty[$.
+            \item $g$ admet donc en $1$ un minimum $g(1) = 0$ : $g(x) \geq 0$, c'est-\`a-dire $(\mathscr{C})$ est au-dessous de $(T)$,
+                  qu'elle touche seulement en $(1 ; 0)$.
+            \end{enumerate}
+      \item La courbe monte depuis $-\infty$ le long de $(Oy)$, coupe l'axe en $(1 ; 0)$ avec la pente $1$, atteint son maximum
+            $\left( \sqrt{e} ; \frac{1}{2e} \right) \approx (1{,}65 ; 0{,}18)$ puis d\'ecro\^it vers $0$ en restant positive.
+      \item $F'(x) = -\frac{\frac{1}{x} \cdot x - (1 + \ln x)}{x^2} = \frac{\ln x}{x^2} = f(x)$.
+            (Par parties, $u = \ln t$, $v' = \frac{1}{t^2}$, $v = -\frac{1}{t}$ :
+            $\int \frac{\ln t}{t^2}\dt = -\frac{\ln t}{t} + \int \frac{1}{t^2}\dt = -\frac{\ln t}{t} - \frac{1}{t}$.)
+      \end{enumerate}
+\item[Partie B.] \begin{enumerate}
+      \item $\sqrt{e} \approx 1{,}65 < 2$, donc $f$ est d\'ecroissante sur $[2 ; +\infty[$. Pour $k \geq 2$ et $t \in [k ; k+1]$,
+            $f(k + 1) \leq f(t) \leq f(k)$ ; on int\`egre sur cet intervalle de longueur $1$.
+      \item $S_{n+1} - S_n = f(n + 1) = \frac{\ln(n+1)}{(n+1)^2} > 0$ : $(S_n)$ est croissante.
+      \item Pour $3 \leq k \leq n$, l'in\'egalit\'e de gauche au rang $k - 1 \geq 2$ donne $f(k) \leq \int_{k-1}^{k} f(t)\dt$ ; en sommant,
+            $S_n - f(2) = \sum_{k=3}^n f(k) \leq \int_2^n f(t)\dt = F(n) - F(2) = \frac{1 + \ln 2}{2} - \frac{1 + \ln n}{n} \leq \frac{1 + \ln 2}{2}$.
+            Donc $S_n \leq \frac{\ln 2}{4} + \frac{1 + \ln 2}{2} = \frac{2 + 3\ln 2}{4}$ (aussi pour $n = 2$).
+            Croissante et major\'ee, $(S_n)$ converge vers $\ell \leq \frac{2 + 3\ln 2}{4}$.
+      \item Pour $3 \leq k \leq n$, $f(k) \geq \int_k^{k+1} f(t)\dt$, d'o\`u
+            $S_n - f(2) \geq \int_3^{n+1} f(t)\dt = \frac{1 + \ln 3}{3} - \frac{1 + \ln(n+1)}{n+1}$.
+            Comme $\frac{1 + \ln(n+1)}{n+1} \to 0$, on obtient en passant \`a la limite
+            $\boxed{\frac{\ln 2}{4} + \frac{1 + \ln 3}{3} \leq \ell \leq \frac{2 + 3\ln 2}{4}}$, soit $0{,}87 \leq \ell \leq 1{,}02$
+            (bornes $\approx 0{,}8728$ et $\approx 1{,}0199$).
+      \item \begin{enumerate}
+            \item $S_p - S_n = \sum_{k=n+1}^{p} f(k)$ avec $k \geq 3$ : en sommant $\int_k^{k+1} f \leq f(k) \leq \int_{k-1}^k f$, on obtient
+                  $\int_{n+1}^{p+1} f(t)\dt \leq S_p - S_n \leq \int_n^p f(t)\dt$, c'est-\`a-dire
+                  \[
+                  \frac{1 + \ln(n+1)}{n+1} - \frac{1 + \ln(p+1)}{p+1} \leq S_p - S_n \leq \frac{1 + \ln n}{n} - \frac{1 + \ln p}{p} .
+                  \]
+                  Quand $p \to +\infty$, $S_p \to \ell$ et les termes en $p$ tendent vers $0$ :
+                  $\frac{1 + \ln(n+1)}{n+1} \leq \ell - S_n \leq \frac{1 + \ln n}{n}$.
+            \item Pour $n = 10$ : $\frac{1 + \ln 11}{11} \approx 0{,}3089$ et $\frac{1 + \ln 10}{10} \approx 0{,}3303$ ;
+                  avec $0{,}61845 \leq S_{10} \leq 0{,}61855$ :
+                  $0{,}9273 \leq \ell \leq 0{,}9489$, encadrement d'amplitude $0{,}022 < 3\cdot 10^{-2}$ ; en particulier
+                  $\boxed{0{,}92 < \ell < 0{,}95}$. La convergence est lente : l'\'ecart $\ell - S_n$ est de l'ordre de $\frac{\ln n}{n}$.
+            \end{enumerate}
+      \end{enumerate}
+\end{description}
+\end{sol}
+
+%-------------------------------------------------------------------------------- 12
+\begin{sol} ~ \\
+(Solution de l'Exercice \ref{exo:pb sinus cardinal})
+\begin{description}
+\item[Partie A.] \begin{enumerate}
+      \item Sur $[0 ; +\infty[$ :
+            \begin{itemize}
+            \item $a(x) = x - \sin x$ : $a'(x) = 1 - \cos x \geq 0$ et $a(0) = 0$, donc $a \geq 0$ : $\sin x \leq x$.
+            \item $b(x) = \cos x - 1 + \frac{x^2}{2}$ : $b'(x) = x - \sin x = a(x) \geq 0$ et $b(0) = 0$, donc $\cos x \geq 1 - \frac{x^2}{2}$.
+            \item $c(x) = \sin x - x + \frac{x^3}{6}$ : $c'(x) = \cos x - 1 + \frac{x^2}{2} = b(x) \geq 0$ et $c(0) = 0$, donc
+                  $\sin x \geq x - \frac{x^3}{6}$.
+            \end{itemize}
+      \item \begin{enumerate}
+            \item $h'(x) = \cos x - x\sin x - \cos x = -x\sin x$. Pour $t \in [0 ; \pi]$, $0 \leq \sin t \leq t$ et $t \geq 0$, donc
+                  $-t^2 \leq -t\sin t \leq 0$.
+            \item $h' \leq 0$ et $h(0) = 0$ donnent $h(x) \leq 0$. La fonction $k : x \mapsto h(x) + \frac{x^3}{3}$ a pour d\'eriv\'ee
+                  $h'(x) + x^2 \geq 0$ et $k(0) = 0$, donc $h(x) \geq -\frac{x^3}{3}$.
+                  Enfin $h'(t) = -t\sin t < 0$ sur $]0 ; \pi[$ : $h$ est strictement d\'ecroissante sur $[0 ; \pi]$ et $h(x) < h(0) = 0$
+                  pour $0 < x \leq \pi$.
+            \end{enumerate}
+      \end{enumerate}
+\item[Partie B.] \begin{enumerate}
+      \item $\lim_{x\to 0} \frac{\sin x}{x} = 1 = f(0)$ : $f$ est continue en $0$.
+            Pour $0 < x \leq \pi$, $\frac{f(x) - f(0)}{x} = \frac{\sin x - x}{x^2}$ et, d'apr\`es A.1,
+            $-\frac{x}{6} \leq \frac{\sin x - x}{x^2} \leq 0$ ; par encadrement, la limite en $0$ est $0$ : $f'(0) = 0$,
+            et $(\mathscr{C})$ admet au point $(0 ; 1)$ une tangente horizontale.
+      \item $f'(x) = \frac{x\cos x - \sin x}{x^2} = \frac{h(x)}{x^2} < 0$ sur $]0 ; \pi]$ ; $f(\pi) = 0$.
+            \[
+            \begin{array}{c|ccc}
+            x & 0 & & \pi \\ \hline
+            f'(x) & 0 & - & -\frac{1}{\pi} \\ \hline
+            f(x) & 1 & \searrow & 0
+            \end{array}
+            \]
+      \item $f'(\pi) = \frac{\pi \cos\pi - \sin\pi}{\pi^2} = -\frac{1}{\pi}$ : la tangente est $\boxed{y = -\frac{x}{\pi} + 1}$.
+      \item Pour $x \in ]0 ; \pi]$, on divise par $x > 0$ l'encadrement $x - \frac{x^3}{6} \leq \sin x \leq x$ :
+            $1 - \frac{x^2}{6} \leq f(x) \leq 1$ (vrai aussi en $0$).
+            Pour $x \in ]0 ; 1]$ : $|f'(x)| = \frac{|h(x)|}{x^2} \leq \frac{x^3/3}{x^2} = \frac{x}{3} \leq \frac{1}{3}$, et $f'(0) = 0$.
+      \item $(\mathscr{C})$ descend de $(0 ; 1)$ (tangente horizontale) jusqu'\`a $(\pi ; 0)$, entre la droite $y = 1$ et la parabole ;
+            par exemple $f\left( \frac{\pi}{2} \right) = \frac{2}{\pi} \approx 0{,}64$, alors que la parabole y vaut $\approx 0{,}59$.
+      \item En int\'egrant sur $[0 ; 1]$ : $\int_0^1 \left( 1 - \frac{x^2}{6} \right)\dx = 1 - \frac{1}{18} = \frac{17}{18}$, d'o\`u
+            $\frac{17}{18} \leq \int_0^1 f(x)\dx \leq 1$ (l'int\'egrale vaut environ $0{,}946$).
+      \end{enumerate}
+\item[Partie C.] \begin{enumerate}
+      \item $\varphi : x \mapsto f(x) - x$ est continue et strictement d\'ecroissante sur $[0 ; 1]$, $\varphi(0) = 1 > 0$ et
+            $\varphi(1) = \sin 1 - 1 < 0$ : $\varphi$ s'annule en un unique $\alpha \in ]0 ; 1[$.
+            Pour $x \in ]0 ; 1]$, $f(x) = x \iff \sin x = x^2$ ; comme $0$ n'est pas solution de $f(x) = x$, $\alpha$ est l'unique solution
+            de $\sin x = x^2$ dans $]0 ; 1]$.
+      \item $f$ \'etant d\'ecroissante, $f([0 ; 1]) = [f(1) ; f(0)] = [\sin 1 ; 1] \subset [0 ; 1]$ ($\sin 1 \approx 0{,}84$).
+      \item \begin{enumerate}
+            \item $u_0 = 1 \in [0 ; 1]$ et, si $u_n \in [0 ; 1]$, alors $u_{n+1} = f(u_n) \in [0 ; 1]$ : r\'ecurrence.
+            \item $u_n$ et $\alpha$ sont dans $[0 ; 1]$ o\`u $|f'| \leq \frac{1}{3}$ ; l'in\'egalit\'e des accroissements finis donne
+                  $|f(u_n) - f(\alpha)| \leq \frac{1}{3}|u_n - \alpha|$, soit $|u_{n+1} - \alpha| \leq \frac{1}{3}|u_n - \alpha|$.
+                  Par r\'ecurrence, $|u_n - \alpha| \leq \left( \frac{1}{3} \right)^n |u_0 - \alpha| \leq \left( \frac{1}{3} \right)^n$.
+            \item $\left( \frac{1}{3} \right)^n \to 0$, donc $\boxed{\lim u_n = \alpha}$.
+            \item $\left( \frac{1}{3} \right)^n \leq 10^{-2} \iff 3^n \geq 100$, vrai pour $n = 5$ ($3^5 = 243$).
+                  $u_1 = \sin 1 \approx 0{,}8415$, $u_2 \approx 0{,}8861$, $u_3 \approx 0{,}8742$, $u_4 \approx 0{,}8774$,
+                  $u_5 \approx 0{,}8765$ (les termes encadrent alternativement $\alpha$, car $f$ est d\'ecroissante).
+                  Comme $|u_5 - \alpha| \leq \frac{1}{243} < 0{,}0042$ : $0{,}872 \leq \alpha \leq 0{,}881$ et $\boxed{\alpha \approx 0{,}88}$
+                  \`a $10^{-2}$ pr\`es ($\alpha \approx 0{,}8767$).
+            \end{enumerate}
+      \end{enumerate}
+\end{description}
+\end{sol}
+
+%-------------------------------------------------------------------------------- 13
+\begin{sol} ~ \\
+(Solution de l'Exercice \ref{exo:pb x e moins x})
+\begin{description}
+\item[Partie A.] \begin{enumerate}
+      \item En $-\infty$ : $1 - x \to +\infty$ et $\expo{-x} \to +\infty$, donc $g \to +\infty$.
+            En $+\infty$ : $(1 - x)\expo{-x} = \expo{-x} - x\expo{-x} \to 0$, donc $g \to \frac{1}{2}$.
+      \item $g'(x) = -\expo{-x} - (1 - x)\expo{-x} = (x - 2)\expo{-x}$ ; $g(2) = \frac{1}{2} - \expo{-2} \approx 0{,}365$.
+            \[
+            \begin{array}{c|ccccc}
+            x & -\infty & & 2 & & +\infty \\ \hline
+            g'(x) & & - & 0 & + & \\ \hline
+            g(x) & +\infty & \searrow & \frac{1}{2} - \expo{-2} & \nearrow & \frac{1}{2}
+            \end{array}
+            \]
+            Le minimum $\frac{1}{2} - \frac{1}{e^2}$ est strictement positif ($e^2 > 2$), donc $g(x) > 0$ pour tout $x$.
+      \end{enumerate}
+\item[Partie B.] \begin{enumerate}
+      \item En $-\infty$ : $\frac{x}{2} + 1 \to -\infty$ et $x\expo{-x} \to -\infty$, donc $f \to -\infty$.
+            En $+\infty$ : $x\expo{-x} \to 0$, donc $f \to +\infty$.
+      \item $f'(x) = \frac{1}{2} + \expo{-x} - x\expo{-x} = g(x) > 0$ : $f$ est strictement croissante de $-\infty$ \`a $+\infty$, avec $f(0) = 1$.
+            \[
+            \begin{array}{c|ccccc}
+            x & -\infty & & 0 & & +\infty \\ \hline
+            f'(x) & & + & \frac{3}{2} & + & \\ \hline
+            f(x) & -\infty & \nearrow & 1 & \nearrow & +\infty
+            \end{array}
+            \]
+      \item \begin{enumerate}
+            \item $f(x) - \left( \frac{x}{2} + 1 \right) = x\expo{-x} \to 0$ en $+\infty$ : $(\Delta)$ est asymptote.
+                  Cette diff\'erence a le signe de $x$ : $(\mathscr{C})$ est au-dessous de $(\Delta)$ sur $]-\infty ; 0[$, au-dessus sur
+                  $]0 ; +\infty[$, et les coupe en $(0 ; 1)$.
+            \item $\frac{f(x)}{x} = \frac{1}{2} + \frac{1}{x} + \expo{-x} \to +\infty$ en $-\infty$ : branche parabolique de direction $(Oy)$.
+            \end{enumerate}
+      \item $f'' = g'$ s'annule en changeant de signe uniquement en $2$ : point d'inflexion unique
+            $\boxed{I\left( 2 ; 2 + 2\expo{-2} \right)} \approx (2 ; 2{,}27)$.
+            $f'(0) = g(0) = \frac{3}{2}$ : tangente $\boxed{y = \frac{3}{2}x + 1}$.
+      \item $f$ est continue et strictement croissante de $-\infty$ \`a $+\infty$ : l'\'equation $f(x) = 0$ a une unique solution $\beta$.
+            $f(-0{,}5) = 0{,}75 - 0{,}5\expo{0{,}5} \approx -0{,}074 < 0$ et $f(-0{,}4) = 0{,}8 - 0{,}4\expo{0{,}4} \approx 0{,}203 > 0$,
+            donc $-0{,}5 < \beta < -0{,}4$ ($\beta \approx -0{,}475$).
+      \item La courbe monte depuis $-\infty$ (branche parabolique), coupe l'axe des abscisses en $\beta$, coupe $(\Delta)$ en $(0 ; 1)$ avec la
+            pente $\frac{3}{2}$, change de concavit\'e en $I$ puis se rapproche de $(\Delta)$ par au-dessus.
+      \end{enumerate}
+\item[Partie C.] \begin{enumerate}
+      \item Sur $[0 ; \lambda]$, $(\mathscr{C})$ est au-dessus de $(\Delta)$ ; en u.a. ($1$ u.a. $= 4~\text{cm}^2$), l'aire est
+            $\int_0^\lambda x\expo{-x}\dx = \left[ -x\expo{-x} \right]_0^\lambda + \int_0^\lambda \expo{-x}\dx = 1 - (1 + \lambda)\expo{-\lambda}$.
+            Donc $\boxed{\mathcal{A}(\lambda) = 4\left( 1 - (1 + \lambda)\expo{-\lambda} \right)~\text{cm}^2}$.
+      \item $\lambda\expo{-\lambda} \to 0$ et $\expo{-\lambda} \to 0$ : $\boxed{\lim_{\lambda\to+\infty} \mathcal{A}(\lambda) = 4~\text{cm}^2}$.
+      \end{enumerate}
+\item[Partie D.] \begin{enumerate}
+      \item $\theta'(x) = g(x) - 1 = -\frac{1}{2} + (1 - x)\expo{-x} < 0$ sur $I$ (car $1 - x < 0$) : $\theta$ est strictement d\'ecroissante.
+            $\theta(2) = 2\expo{-2} \approx 0{,}27 > 0$ et $\theta(3) = -\frac{1}{2} + 3\expo{-3} \approx -0{,}35 < 0$ : une unique solution
+            $\alpha \in I$. De plus $\theta(2{,}4) = -0{,}2 + 2{,}4\expo{-2{,}4} \approx 0{,}018 > 0$ et
+            $\theta(2{,}5) = -0{,}25 + 2{,}5\expo{-2{,}5} \approx -0{,}045 < 0$, donc $2{,}4 < \alpha < 2{,}5$.
+      \item $g$ est croissante sur $[2 ; 3]$, donc $0 < \frac{1}{2} - \expo{-2} \leq f'(x) \leq \frac{1}{2} - 2\expo{-3} < \frac{1}{2}$.
+            $f$ \'etant croissante, $f(I) = [f(2) ; f(3)] = \left[ 2 + 2\expo{-2} ; \frac{5}{2} + 3\expo{-3} \right] \approx [2{,}27 ; 2{,}65] \subset I$.
+      \item \begin{enumerate}
+            \item $u_0 = 2 \in I$ et $f(I) \subset I$ : par r\'ecurrence $u_n \in I$.
+                  $u_1 = f(2) \approx 2{,}27 > u_0$ ; si $u_n \leq u_{n+1}$, alors $f(u_n) \leq f(u_{n+1})$, soit $u_{n+1} \leq u_{n+2}$ :
+                  $(u_n)$ est croissante.
+            \item Sur $I$, $|f'| \leq \frac{1}{2}$ ; l'in\'egalit\'e des accroissements finis entre $u_n$ et $\alpha$ donne
+                  $|u_{n+1} - \alpha| = |f(u_n) - f(\alpha)| \leq \frac{1}{2}|u_n - \alpha|$. Par r\'ecurrence,
+                  $|u_n - \alpha| \leq \left( \frac{1}{2} \right)^n |u_0 - \alpha|$ et $|u_0 - \alpha| = \alpha - 2 < \frac{1}{2}$, d'o\`u
+                  $|u_n - \alpha| \leq \left( \frac{1}{2} \right)^{n+1}$.
+            \item $\left( \frac{1}{2} \right)^{n+1} \to 0$ : $\boxed{\lim u_n = \alpha}$. On a $\left( \frac{1}{2} \right)^{n+1} \leq 10^{-2}$ d\`es
+                  que $2^{n+1} \geq 100$, soit $n \geq 6$. \`A la calculatrice : $u_1 \approx 2{,}2707$, $u_2 \approx 2{,}3698$,
+                  $u_3 \approx 2{,}4065$, $u_4 \approx 2{,}4201$, $u_5 \approx 2{,}4252$, $u_6 \approx 2{,}4271$.
+                  La suite \'etant croissante de limite $\alpha$ : $u_6 \leq \alpha \leq u_6 + \frac{1}{128}$, soit
+                  $2{,}427 \leq \alpha \leq 2{,}436$ et $\boxed{\alpha \approx 2{,}43}$ \`a $10^{-2}$ pr\`es ($\alpha \approx 2{,}4283$).
+            \end{enumerate}
+      \end{enumerate}
+\end{description}
+\end{sol}
+
+%-------------------------------------------------------------------------------- 14
+\begin{sol} ~ \\
+(Solution de l'Exercice \ref{exo:pb ln abs x sur x})
+\begin{description}
+\item[Partie A.] \begin{enumerate}
+      \item $h'(x) = 2x + \frac{1}{x} > 0$ : $h$ est strictement croissante sur $]0 ; +\infty[$, et $h(1) = 0$.
+      \item $h(x) < 0$ sur $]0 ; 1[$, $h(x) > 0$ sur $]1 ; +\infty[$.
+      \end{enumerate}
+\item[Partie B.] \begin{enumerate}
+      \item $f(-x) = -2x - 3 - \frac{2\ln|x|}{-x} = -2x - 3 + \frac{2\ln|x|}{x}$, donc $f(-x) + f(x) = -6 = 2 \times (-3)$ :
+            le point $\boxed{\Omega(0 ; -3)}$ est centre de sym\'etrie de $(\mathscr{C})$.
+      \item En $0^+$ : $-2\ln x \to +\infty$ et $\frac{1}{x} \to +\infty$, donc $-\frac{2\ln x}{x} \to +\infty$ et $f \to +\infty$.
+            En $+\infty$ : $\frac{\ln x}{x} \to 0$ et $2x - 3 \to +\infty$, donc $f \to +\infty$.
+      \item Pour $x > 0$ : $\left( \frac{\ln x}{x} \right)' = \frac{1 - \ln x}{x^2}$, donc
+            $f'(x) = 2 - \frac{2(1 - \ln x)}{x^2} = \frac{2(x^2 - 1 + \ln x)}{x^2} = \frac{2h(x)}{x^2}$ ; $f(1) = -1$.
+            Par sym\'etrie ($f(x) = -6 - f(-x)$ donne $f'(x) = f'(-x)$), $f$ est croissante sur $]-\infty ; -1]$, d\'ecroissante sur
+            $[-1 ; 0[$, $f(-1) = -5$, $\lim_{-\infty} f = \lim_{0^-} f = -\infty$.
+            \[
+            \begin{array}{c|ccccccccc}
+            x & -\infty & & -1 & & 0 & & 1 & & +\infty \\ \hline
+            f'(x) & & + & 0 & - & \| & - & 0 & + & \\ \hline
+            f(x) & -\infty & \nearrow & -5 & \searrow & -\infty \, \| \, +\infty & \searrow & -1 & \nearrow & +\infty
+            \end{array}
+            \]
+            La droite $x = 0$ est asymptote verticale.
+      \item \begin{enumerate}
+            \item $f(x) - (2x - 3) = -\frac{2\ln|x|}{x} \to 0$ en $\pm\infty$ (car $\frac{\ln X}{X} \to 0$ quand $X = |x| \to +\infty$).
+            \item Le signe de $d(x) = -\frac{2\ln|x|}{x}$ : $d > 0$ sur $]-\infty ; -1[$ et sur $]0 ; 1[$ ($(\mathscr{C})$ au-dessus de $(\Delta)$),
+                  $d < 0$ sur $]-1 ; 0[$ et sur $]1 ; +\infty[$ ($(\mathscr{C})$ au-dessous) ; elles se coupent en $(-1 ; -5)$ et $(1 ; -1)$.
+            \item Pour $x > 0$, $f'(x) = 2 \iff \frac{1 - \ln x}{x^2} = 0 \iff x = e$ ; par sym\'etrie aussi $x = -e$.
+                  Points : $\boxed{A\left( e ; 2e - 3 - \frac{2}{e} \right) \approx (2{,}72 ; 1{,}70)}$ et
+                  $\boxed{B\left( -e ; -2e - 3 + \frac{2}{e} \right) \approx (-2{,}72 ; -7{,}70)}$, sym\'etriques par rapport \`a $\Omega$.
+            \end{enumerate}
+      \item \begin{enumerate}
+            \item Sur $]-\infty ; 0[$, le maximum de $f$ est $f(-1) = -5 < 0$ : pas de solution.
+            \item Sur $]0 ; 1]$, $f$ est continue, strictement d\'ecroissante, de $+\infty$ \`a $-1$ : un unique z\'ero $\alpha$ ;
+                  sur $[1 ; +\infty[$, strictement croissante de $-1$ \`a $+\infty$ : un unique z\'ero $\beta$.
+                  $f(0{,}5) = -2 + 4\ln 2 \approx 0{,}77 > 0$, $f(0{,}6) \approx -0{,}10 < 0$ : $0{,}5 < \alpha < 0{,}6$ ($\alpha \approx 0{,}59$) ;
+                  $f(1{,}8) \approx -0{,}05 < 0$, $f(1{,}9) \approx 0{,}12 > 0$ : $1{,}8 < \beta < 1{,}9$ ($\beta \approx 1{,}83$).
+            \end{enumerate}
+      \item Sur $]0 ; +\infty[$, la courbe descend de $+\infty$ le long de $(Oy)$, coupe l'axe en $\alpha$, coupe $(\Delta)$ en son minimum
+            $(1 ; -1)$, recoupe l'axe en $\beta$, a la pente $2$ en $A$ et se rapproche de $(\Delta)$ par au-dessous. La partie
+            $x < 0$ s'obtient par la sym\'etrie de centre $\Omega$.
+      \end{enumerate}
+\item[Partie C.] \begin{enumerate}
+      \item Pour $x \geq 1$, $(\mathscr{C})$ est au-dessous de $(\Delta)$, donc, l'unit\'e d'aire valant $1~\text{cm}^2$,
+            $\mathcal{A}_n = \int_{\expo{n}}^{\expo{n+1}} \left( (2x - 3) - f(x) \right)\dx = \int_{\expo{n}}^{\expo{n+1}} \frac{2\ln x}{x}\dx
+            = \left[ (\ln x)^2 \right]_{\expo{n}}^{\expo{n+1}} = (n+1)^2 - n^2 = \boxed{2n + 1}$.
+      \item $\mathcal{A}_{n+1} - \mathcal{A}_n = 2$ : suite arithm\'etique de raison $2$ et de premier terme $\mathcal{A}_0 = 1$.
+      \item $\mathcal{A}_0 + \cdots + \mathcal{A}_{n-1} = \int_1^{\expo{n}} \frac{2\ln x}{x}\dx = \boxed{n^2}$ (somme des $n$ premiers
+            nombres impairs) : c'est l'aire du domaine compris entre $(\mathscr{C})$, $(\Delta)$ et les droites $x = 1$ et $x = \expo{n}$.
+            Elle vaut $100~\text{cm}^2$ pour $n = 10$ et d\'epasse $100~\text{cm}^2$ d\`es $n = 11$.
+      \item Sur $[\expo{-1} ; 1]$, $(\mathscr{C})$ est au-dessus de $(\Delta)$ :
+            $\int_{\expo{-1}}^{1} -\frac{2\ln x}{x}\dx = \left[ -(\ln x)^2 \right]_{\expo{-1}}^{1} = 0 - (-1) = \boxed{1~\text{cm}^2}$.
+            La sym\'etrie de centre $\Omega$ conserve les aires et laisse $(\Delta)$ invariante ($\Omega \in (\Delta)$) : le domaine
+            sym\'etrique, entre $x = -1$ et $x = -\expo{-1}$, a aussi une aire de $1~\text{cm}^2$.
+      \end{enumerate}
+\end{description}
+\end{sol}
+
+%-------------------------------------------------------------------------------- 15
+\begin{sol} ~ \\
+(Solution de l'Exercice \ref{exo:pb argument sinus hyperbolique})
+\begin{description}
+\item[Partie A.] \begin{enumerate}
+      \item $x^2 + 1 > x^2$ et la racine carr\'ee est strictement croissante : $\sqrt{x^2 + 1} > \sqrt{x^2} = |x| \geq -x$.
+            Donc $x + \sqrt{x^2 + 1} > 0$ et $f$ est d\'efinie sur $\mathbb{R}$.
+      \item $\left( \sqrt{x^2+1} - x \right)\left( \sqrt{x^2+1} + x \right) = x^2 + 1 - x^2 = 1$, donc
+            $f(-x) = \ln\left( \sqrt{x^2+1} - x \right) = \ln \frac{1}{x + \sqrt{x^2+1}} = -f(x)$ : $f$ est impaire.
+      \item Avec $u(x) = x + \sqrt{x^2+1}$ : $u'(x) = 1 + \frac{x}{\sqrt{x^2+1}} = \frac{u(x)}{\sqrt{x^2+1}}$, donc
+            $f'(x) = \frac{u'(x)}{u(x)} = \frac{1}{\sqrt{x^2+1}} > 0$.
+            En $+\infty$, $u(x) \to +\infty$ donc $f \to +\infty$ ; par imparit\'e, $f \to -\infty$ en $-\infty$.
+            \[
+            \begin{array}{c|ccccc}
+            x & -\infty & & 0 & & +\infty \\ \hline
+            f'(x) & & + & 1 & + & \\ \hline
+            f(x) & -\infty & \nearrow & 0 & \nearrow & +\infty
+            \end{array}
+            \]
+      \item \begin{enumerate}
+            \item Pour $x \geq 1$, $\sqrt{x^2+1} \leq \sqrt{2x^2} \leq 2x$, donc $0 < f(x) \leq \ln(3x)$ et
+                  $0 < \frac{f(x)}{x} \leq \frac{\ln 3}{x} + \frac{\ln x}{x} \to 0$ : $\lim \frac{f(x)}{x} = 0$, branche parabolique de direction $(Ox)$.
+            \item Pour $x > 0$, $x + \sqrt{x^2+1} = x\left( 1 + \sqrt{1 + \frac{1}{x^2}} \right)$ ; en divisant par $2x$ on obtient la formule.
+                  Quand $x \to +\infty$, l'argument du logarithme tend vers $1$ : $\lim \left( f(x) - \ln(2x) \right) = 0$.
+                  Comme $\sqrt{1 + \frac{1}{x^2}} > 1$, cet argument est $> 1$ : $(\mathscr{C})$ est au-dessus de $(\Gamma)$, et les deux
+                  courbes se rapprochent ind\'efiniment (courbes asymptotes).
+            \end{enumerate}
+      \item $f(0) = 0$, $f'(0) = 1$ : $\boxed{(T) : y = x}$. $\varphi'(x) = 1 - \frac{1}{\sqrt{x^2+1}} \geq 0$ (nul seulement en $0$) :
+            $\varphi$ est strictement croissante et $\varphi(0) = 0$. Donc $(\mathscr{C})$ est au-dessous de $(T)$ sur $]0 ; +\infty[$ et
+            au-dessus sur $]-\infty ; 0[$ : la courbe traverse sa tangente en $O$ (point d'inflexion).
+      \item \begin{enumerate}
+            \item $f$ est continue, strictement croissante, de limites $-\infty$ et $+\infty$ : bijection de $\mathbb{R}$ sur $\boxed{J = \mathbb{R}}$.
+            \item $y = f(x) \iff x + \sqrt{x^2+1} = \expo{y}$, et d'apr\`es A.2, $\sqrt{x^2+1} - x = \frac{1}{x + \sqrt{x^2+1}} = \expo{-y}$.
+                  Par diff\'erence, $2x = \expo{y} - \expo{-y}$ : $\boxed{f^{-1}(y) = \frac{\expo{y} - \expo{-y}}{2}}$.
+            \end{enumerate}
+      \item $(\mathscr{C}')$ est la sym\'etrique de $(\mathscr{C})$ par rapport \`a la droite $y = x$ ; $(T)$ est leur tangente commune
+            en $O$. $(\mathscr{C})$ cro\^it lentement comme $\ln(2x)$ ; $(\mathscr{C}')$ cro\^it tr\`es vite comme $\frac{\expo{x}}{2}$ et
+            est au-dessus de $(T)$ pour $x > 0$. Points : $f(1) = \ln(1 + \sqrt{2}) \approx 0{,}88$, $f(2) = \ln(2 + \sqrt{5}) \approx 1{,}44$,
+            $f^{-1}(1) \approx 1{,}18$.
+      \end{enumerate}
+\item[Partie B.] \begin{enumerate}
+      \item $G'(x) = f(x) + x f'(x) - \frac{x}{\sqrt{x^2+1}} = f(x)$. Sur $[0 ; 1]$, $f \geq 0$, donc l'aire vaut
+            $G(1) - G(0) = \ln(1 + \sqrt{2}) - \sqrt{2} + 1$ u.a. $\approx 0{,}467$ u.a. ; avec $1$ u.a. $= 4~\text{cm}^2$ :
+            $\boxed{4\left( \ln(1 + \sqrt{2}) + 1 - \sqrt{2} \right)~\text{cm}^2 \approx 1{,}87~\text{cm}^2}$.
+      \item $\Phi = f'$ sur $[0 ; 1]$, donc $\int_0^1 \Phi(t)\dt = f(1) - f(0) = \ln(1 + \sqrt{2})$.
+      \item \begin{enumerate}
+            \item $\frac{1}{\sqrt{n^2 + k^2}} = \frac{1}{n\sqrt{1 + (k/n)^2}} = \frac{1}{n}\Phi\left( \frac{k}{n} \right)$ ; on somme.
+            \item $\Phi'(t) = -\frac{t}{(1 + t^2)^{3/2}} \leq 0$ : $\Phi$ est d\'ecroissante. Pour $t \in \left[ \frac{k-1}{n} ; \frac{k}{n} \right]$,
+                  $\Phi\left( \frac{k}{n} \right) \leq \Phi(t) \leq \Phi\left( \frac{k-1}{n} \right)$ ; on int\`egre sur cet intervalle
+                  de longueur $\frac{1}{n}$.
+            \item En sommant pour $k = 1, \ldots, n$ (relation de Chasles) :
+                  $S_n \leq \int_0^1 \Phi(t)\dt \leq \frac{1}{n}\sum_{k=0}^{n-1}\Phi\left( \frac{k}{n} \right) = S_n + \frac{1}{n}\left( \Phi(0) - \Phi(1) \right)
+                  = S_n + \frac{1}{n}\left( 1 - \frac{\sqrt{2}}{2} \right)$.
+                  D'o\`u l'encadrement annonc\'e, et par encadrement $\boxed{\lim S_n = \ln(1 + \sqrt{2})} \approx 0{,}8814$.
+            \item $0 \leq \ln(1 + \sqrt{2}) - S_n \leq \frac{1}{n}\left( 1 - \frac{\sqrt{2}}{2} \right) \leq 10^{-3}$ d\`es que
+                  $n \geq 1000\left( 1 - \frac{\sqrt{2}}{2} \right) \approx 292{,}9$ : $\boxed{n = 293}$ suffit.
+            \end{enumerate}
+      \end{enumerate}
+\end{description}
+\end{sol}
+\end{corrige}

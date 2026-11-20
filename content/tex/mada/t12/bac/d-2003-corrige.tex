@@ -1,0 +1,225 @@
+% Baccalauréat malgache, série D, 2003 : corrigé.
+\TCDBacAttribution{D}{2003}
+\providecommand{\Plan}{(\mathscr{P})}
+\providecommand{\Ouv}{(O ; \vec{u} , \vec{v})}
+\providecommand{\Courbe}{(\mathscr{C})}
+\providecommand{\D}{(\mathscr{D})}
+\providecommand{\cm}{~\mathrm{cm}}
+\providecommand{\dx}{~\mathrm{d}x}
+\providecommand{\Arg}[1]{\mathrm{Arg}\left( #1 \right)}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\noindent \underline{\textsc{\textbf{Exercice I}}} (5 points)
+\begin{enumerate}
+   \item \vln{Calcul de $p_1$ puis des autres $p_i$ :}
+      Posons $p = p_1$. Alors $p_2 = p_3 = p$, $p_4 = 3p$, $p_6 = 4p_4 = 12p$ et $p_5 = \frac{p_6}{2} = 6p$.
+      La somme des probabilit\'es des six faces vaut $1$ :
+      \[
+         p + p + p + 3p + 6p + 12p = 24p = 1 \quad\text{donc}\quad p_1 = \frac{1}{24}.
+      \]
+      \par\noindent\ansbox{$p_1 = p_2 = p_3 = \frac{1}{24}$ ; $p_4 = \frac{1}{8}$ ; $p_5 = \frac{1}{4}$ ; $p_6 = \frac{1}{2}$.}
+   \item
+      \begin{enumerate}
+         \item \vln{Loi de $X$ :}
+            Les quatre lancers sont ind\'ependants et, \`a chaque lancer, la face 5 appara\^it avec la probabilit\'e
+            $p_5 = \frac{1}{4}$. Donc $X$ suit la loi binomiale de param\`etres $n = 4$ et $p = \frac{1}{4}$ :
+            $P(X = k) = \mathrm{C}_4^k \left(\frac{1}{4}\right)^k \left(\frac{3}{4}\right)^{4-k}$ pour $k \in \{0,1,2,3,4\}$.
+            \[
+               \begin{array}{|c|c|c|c|c|c|}
+                  \hline
+                  k & 0 & 1 & 2 & 3 & 4 \\ \hline
+                  P(X = k) & \frac{81}{256} & \frac{27}{64} & \frac{27}{128} & \frac{3}{64} & \frac{1}{256} \\ \hline
+               \end{array}
+            \]
+            (On v\'erifie : $81 + 108 + 54 + 12 + 1 = 256$.)
+         \item \vln{Esp\'erance et variance :}
+            Pour une loi binomiale, $E(X) = np$ et $V(X) = np(1-p)$ :
+            \par\noindent\ansbox{$E(X) = 4 \times \frac{1}{4} = 1$ et $V(X) = 4 \times \frac{1}{4} \times \frac{3}{4} = \frac{3}{4}$.}
+      \end{enumerate}
+   \item \vln{Lancer simultan\'e de $D$ et $D'$ :}
+      Le d\'e $D'$ est \'equilibr\'e et porte trois faces 1, deux faces 2 et une face 4, donc
+      $p_1' = \frac{1}{2}$, $p_2' = \frac{1}{3}$, $p_4' = \frac{1}{6}$.
+      Les deux d\'es sont ind\'ependants : la probabilit\'e d'obtenir $i$ sur $D$ et $j$ sur $D'$ est $p_i\, p_j'$.
+      \begin{itemize}
+         \item $A$ : somme \'egale \`a $5$ : couples $(4,1)$, $(3,2)$, $(1,4)$.
+            \[
+               P(A) = \frac{1}{8}\cdot\frac{1}{2} + \frac{1}{24}\cdot\frac{1}{3} + \frac{1}{24}\cdot\frac{1}{6}
+                    = \frac{9}{144} + \frac{2}{144} + \frac{1}{144} = \frac{12}{144},
+               \quad \text{soit } \ansbox{$P(A) = \frac{1}{12}$}.
+            \]
+         \item $B$ : somme inf\'erieure ou \'egale \`a $7$. On passe par l'\'ev\`enement contraire
+            $\overline{B}$ : << somme $\geq 8$ >>, r\'ealis\'e par les couples $(6,2)$, $(6,4)$, $(5,4)$, $(4,4)$ :
+            \[
+               P(\overline{B}) = \frac{1}{2}\cdot\frac{1}{3} + \frac{1}{2}\cdot\frac{1}{6} + \frac{1}{4}\cdot\frac{1}{6}
+                  + \frac{1}{8}\cdot\frac{1}{6} = \frac{8 + 4 + 2 + 1}{48} = \frac{5}{16},
+               \quad \text{donc } \ansbox{$P(B) = 1 - \frac{5}{16} = \frac{11}{16}$}.
+            \]
+         \item $C$ : num\'eros identiques : couples $(1,1)$, $(2,2)$, $(4,4)$.
+            \[
+               P(C) = \frac{1}{24}\cdot\frac{1}{2} + \frac{1}{24}\cdot\frac{1}{3} + \frac{1}{8}\cdot\frac{1}{6}
+                    = \frac{3 + 2 + 3}{144} = \frac{8}{144},
+               \quad \text{soit } \ansbox{$P(C) = \frac{1}{18}$}.
+            \]
+      \end{itemize}
+\end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\noindent \underline{\textsc{\textbf{Exercice II}}} (5 points)
+\begin{enumerate}
+   \item \vln{R\'esolution de $P(z) = 0$ :}
+      $\Delta = (1+i)^2 - 4(2 + 2i) = 2i - 8 - 8i = -8 - 6i$.
+      Cherchons $\delta = a + ib$ tel que $\delta^2 = -8 - 6i$ : $a^2 - b^2 = -8$, $2ab = -6$ et
+      $a^2 + b^2 = |\Delta| = 10$ ; d'o\`u $a^2 = 1$, $b^2 = 9$, $ab < 0$, et $\delta = 1 - 3i$.
+      \[
+         z_1 = \frac{(1+i) + (1 - 3i)}{2} = 1 - i, \qquad z_2 = \frac{(1+i) - (1-3i)}{2} = 2i.
+      \]
+      \par\noindent\ansbox{$S_{\mathbb{C}} = \{ 1 - i \,;\, 2i \}$.}
+      (V\'erification : $z_1 + z_2 = 1 + i$ et $z_1 z_2 = 2i + 2$.)
+   \item
+      \begin{enumerate}
+         \item \vln{Expression complexe de $S$ :}
+            $z' = x' + iy' = (-x - y + 3) + i(x - y + 1) = (-x - y) + i(x - y) + 3 + i$.
+            Or $(-1+i)(x + iy) = -x - iy + ix - y = (-x - y) + i(x - y)$. Donc
+            \par\noindent\ansbox{$S : z' = (-1+i)\,z + 3 + i$.}
+         \item \vln{\'El\'ements caract\'eristiques :}
+            $S$ est de la forme $z' = az + b$ avec $a = -1 + i = \sqrt{2}\,\expo{i\frac{3\pi}{4}}$ ($a \neq 1$).
+            \begin{itemize}
+               \item rapport $k = |a| = \sqrt{2}$ ; angle $\theta = \frac{3\pi}{4}$ ;
+               \item centre $\Omega$ d'affixe $\omega = \dfrac{b}{1 - a} = \dfrac{3 + i}{2 - i} = \dfrac{(3+i)(2+i)}{5} = \dfrac{5 + 5i}{5} = 1 + i$.
+            \end{itemize}
+            \par\noindent\ansbox{$S$ est la similitude directe de centre $\Omega(1 ; 1)$, de rapport $\sqrt{2}$ et d'angle $\frac{3\pi}{4}$.}
+         \item \vln{Images de $A$ et de $I$ :}
+            $z_A = 2i$ : $(-1+i)(2i) + 3 + i = -2i - 2 + 3 + i = 1 - i$.
+            $z_I = 1 + 2i$ : $(-1+i)(1+2i) + 3 + i = (-3 - i) + 3 + i = 0$.
+            \par\noindent\ansbox{$S(A)$ est le point d'affixe $1 - i$, c'est-\`a-dire $(1 ; -1)$, et $S(I) = O$.}
+      \end{enumerate}
+   \item \vln{Nature de $S' = R \circ S$ :}
+      La rotation $R$ de centre $A(2i)$ et d'angle $\frac{\pi}{2}$ s'\'ecrit $z' = i(z - 2i) + 2i = iz + 2 + 2i$. Donc
+      \[
+         S' : z' = i\big[(-1+i)z + 3 + i\big] + 2 + 2i = (-1 - i)\,z + 1 + 5i.
+      \]
+      Comme $-1 - i = \sqrt{2}\,\expo{-i\frac{3\pi}{4}}$, $S'$ est une similitude directe de rapport $\sqrt{2}$
+      (produit des rapports $1 \times \sqrt{2}$) et d'angle $-\frac{3\pi}{4}$ (somme $\frac{\pi}{2} + \frac{3\pi}{4} = \frac{5\pi}{4}$, \`a $2\pi$ pr\`es).
+      Son centre a pour affixe $\dfrac{1 + 5i}{1 - (-1-i)} = \dfrac{1 + 5i}{2 + i} = \dfrac{(1+5i)(2-i)}{5} = \dfrac{7 + 9i}{5}$.
+      \par\noindent\ansbox{$S'$ est la similitude directe de centre $\Omega'\left(\frac{7}{5} ; \frac{9}{5}\right)$, de rapport $\sqrt{2}$ et d'angle $\frac{5\pi}{4}$ (soit $-\frac{3\pi}{4}$).}
+   \item \vln{Ensemble $(E)$ :}
+      On met $-1 + i$ en facteur : $\dfrac{3 + i}{-1 + i} = \dfrac{(3+i)(-1-i)}{2} = \dfrac{-2 - 4i}{2} = -1 - 2i$, donc
+      $(-1 + i)z + 3 + i = (-1+i)\big(z - (1 + 2i)\big)$ et
+      \[
+         |(-1+i)z + 3 + i| = \sqrt{2} \iff \sqrt{2}\,|z - (1 + 2i)| = \sqrt{2} \iff |z - z_I| = 1 \iff IM = 1.
+      \]
+      \par\noindent\ansbox{$(E)$ est le cercle de centre $I(1 ; 2)$ et de rayon $1$.}
+      (Autre lecture : $|z_{S(M)}| = \sqrt{2}$, et $S(I) = O$ : l'image de $(E)$ par $S$ est le cercle de centre $O$ et de rayon $\sqrt{2}$.)
+\end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\noindent \underline{\textsc{\textbf{Probl\`eme}}} (10 points) \newline
+La fonction $f : x \mapsto 1 - \frac{1}{2}x - \frac{\ln x}{x}$ est d\'efinie et d\'erivable (deux fois) sur $]0 ; +\infty[$.
+\begin{enumerate}
+   \item \vln{Calcul de $f'$ et $f''$ :}
+      $\left(\frac{\ln x}{x}\right)' = \frac{\frac{1}{x}\cdot x - \ln x}{x^2} = \frac{1 - \ln x}{x^2}$, donc
+      \par\noindent\ansbox{$f'(x) = -\frac{1}{2} - \frac{1 - \ln x}{x^2} = \frac{2\ln x - x^2 - 2}{2x^2}$.}
+
+      Puis $\left(\frac{1 - \ln x}{x^2}\right)' = \frac{-\frac{1}{x}\cdot x^2 - (1 - \ln x)\cdot 2x}{x^4} = \frac{-3 + 2\ln x}{x^3}$, donc
+      \par\noindent\ansbox{$f''(x) = \frac{3 - 2\ln x}{x^3}$.}
+   \item
+      \begin{enumerate}
+         \item \vln{Variation de $f'$ :}
+            Sur $]0 ; +\infty[$, $x^3 > 0$, donc $f''(x)$ a le signe de $3 - 2\ln x$ :
+            $f''(x) > 0 \iff \ln x < \frac{3}{2} \iff x < \expo{\frac{3}{2}}$.
+            Ainsi $f'$ est croissante sur $\left]0 ; \expo{\frac{3}{2}}\right]$ et d\'ecroissante sur $\left[\expo{\frac{3}{2}} ; +\infty\right[$.
+            Son maximum vaut
+            \[
+               f'\left(\expo{\frac{3}{2}}\right) = -\frac{1}{2} - \frac{1 - \frac{3}{2}}{\expo{3}} = -\frac{1}{2} + \frac{\expo{-3}}{2} \simeq -0{,}475.
+            \]
+            Limites : en $0^+$, $1 - \ln x \to +\infty$ et $x^2 \to 0^+$, donc $f'(x) \to -\infty$ ; en $+\infty$,
+            $\frac{1}{x^2} \to 0$ et $\frac{\ln x}{x^2} \to 0$, donc $f'(x) \to -\frac{1}{2}$.
+            \[
+               \begin{array}{c|ccccc}
+                  x & 0 & & \expo{\frac{3}{2}} & & +\infty \\ \hline
+                  f''(x) & & + & 0 & - & \\ \hline
+                  & & & \frac{-1 + \expo{-3}}{2} & & \\
+                  f' & & \nearrow & & \searrow & \\
+                  & -\infty & & & & -\frac{1}{2}
+               \end{array}
+            \]
+         \item \vln{Signe de $f'(x)$ :}
+            Le maximum de $f'$ est $\frac{-1 + \expo{-3}}{2} < 0$ (car $\expo{-3} < 1$).
+            \par\noindent\ansbox{Pour tout $x > 0$, $f'(x) < 0$.}
+      \end{enumerate}
+   \item \vln{Variation de $f$ :}
+      $f$ est strictement d\'ecroissante sur $]0 ; +\infty[$.
+      En $0^+$ : $\frac{1}{x} \to +\infty$ et $-\ln x \to +\infty$, donc $-\frac{\ln x}{x} \to +\infty$ et $f(x) \to +\infty$
+      (l'axe des ordonn\'ees est asymptote verticale).
+      En $+\infty$ : $\frac{\ln x}{x} \to 0$ et $1 - \frac{x}{2} \to -\infty$, donc $f(x) \to -\infty$.
+      \[
+         \begin{array}{c|ccc}
+            x & 0 & & +\infty \\ \hline
+            f'(x) & & - & \\ \hline
+            & +\infty & & \\
+            f & & \searrow & \\
+            & & & -\infty
+         \end{array}
+      \]
+   \item \vln{Asymptote oblique et position :}
+      $f(x) - \left(-\frac{1}{2}x + 1\right) = -\frac{\ln x}{x}$, qui tend vers $0$ en $+\infty$ :
+      \par\noindent\ansbox{$\D : y = -\frac{1}{2}x + 1$ est asymptote oblique \`a $\Courbe$ en $+\infty$.}
+      La diff\'erence $-\frac{\ln x}{x}$ a le signe de $-\ln x$ :
+      \begin{itemize}
+         \item sur $]0 ; 1[$, $\ln x < 0$ : $\Courbe$ est au-dessus de $\D$ ;
+         \item en $x = 1$ : $\Courbe$ et $\D$ se coupent au point $\left(1 ; \frac{1}{2}\right)$ ;
+         \item sur $]1 ; +\infty[$, $\ln x > 0$ : $\Courbe$ est au-dessous de $\D$.
+      \end{itemize}
+   \item \vln{Tangente parall\`ele \`a $\D$ :}
+      La tangente au point d'abscisse $x$ est parall\`ele \`a $\D$ si et seulement si $f'(x) = -\frac{1}{2}$, c'est-\`a-dire
+      $\frac{1 - \ln x}{x^2} = 0$, soit $\ln x = 1$, soit $x = e$. Cette \'equation a une seule solution :
+      \par\noindent\ansbox{le point $A$ est unique : $A\left(e \,;\, 1 - \frac{e}{2} - \frac{1}{e}\right) \simeq (2{,}72 \,;\, -0{,}73)$.}
+      Sa tangente : $y = -\frac{1}{2}(x - e) + 1 - \frac{e}{2} - \frac{1}{e}$, soit
+      \par\noindent\ansbox{$(T) : y = -\frac{1}{2}x + 1 - \frac{1}{e}$} (avec $\expo{-1} \simeq 0{,}37$ : $y \simeq -0{,}5x + 0{,}63$).
+   \item \vln{Trac\'e :}
+      Points utiles : $\left(1 ; \frac{1}{2}\right)$, $A(e ; -0{,}73)$ ; $f(0{,}5) \simeq 2{,}14$ ; $f(5) \simeq -1{,}82$.
+      \begin{center}
+      \begin{tikzpicture}[x=0.8cm,y=0.8cm,>=stealth]
+         \draw[very thin,gray!30] (-0.5,-4) grid (9,5);
+         \draw[->] (-0.5,0) -- (9,0) node[below left] {$x$};
+         \draw[->] (0,-4) -- (0,5) node[below left] {$y$};
+         \foreach \t in {1,2,3,4,5,6,7,8} \draw (\t,0.08) -- (\t,-0.08) node[below] {\scriptsize $\t$};
+         \foreach \t in {-3,-2,-1,1,2,3,4} \draw (0.08,\t) -- (-0.08,\t) node[left] {\scriptsize $\t$};
+         \begin{scope}
+            \clip (-0.5,-4) rectangle (9,5);
+            \draw[loko4,thick] plot[domain=-0.5:9] (\x,{1-0.5*\x});
+            \draw[loko3,thick,dashed] plot[domain=-0.5:9] (\x,{1-0.5*\x-0.3679});
+            \draw[loko1,very thick,smooth,samples=150] plot[domain=0.22:9] (\x,{1-0.5*\x-ln(\x)/\x});
+         \end{scope}
+         \fill (1,0.5) circle (1.5pt);
+         \fill (2.718,-0.727) circle (1.5pt) node[below left] {$A$};
+         \node[loko4] at (7.5,-2.4) {$\D$};
+         \node[loko3] at (7.6,-3.5) {$(T)$};
+         \node[loko1] at (0.9,4) {$\Courbe$};
+      \end{tikzpicture}
+      \end{center}
+   \item \vln{Aire du domaine :}
+      Sur $[1 ; e]$, $\Courbe$ est au-dessous de $\D$ ; l'\'ecart vaut $\left(-\frac{1}{2}x + 1\right) - f(x) = \frac{\ln x}{x} \geq 0$.
+      Comme $\frac{\ln x}{x} = (\ln x)'\,\ln x$, une primitive est $\frac{(\ln x)^2}{2}$ :
+      \[
+         \mathscr{A} = \int_1^e \frac{\ln x}{x} \dx = \left[ \frac{(\ln x)^2}{2} \right]_1^e = \frac{1}{2} - 0 = \frac{1}{2} \text{ unit\'e d'aire}.
+      \]
+      L'unit\'e d'aire vaut $1\cm \times 1\cm = 1\cm^2$ : \ansbox{$\mathscr{A} = \frac{1}{2}\cm^2 = 0{,}5\cm^2$.}
+   \item
+      \begin{enumerate}
+         \item \vln{$g$ est d\'ecroissante :}
+            $g(x) = -\frac{1}{2}x + 1 - f(x) = \frac{\ln x}{x}$ et $g'(x) = \frac{1 - \ln x}{x^2}$.
+            Pour $x \geq 3$, $\ln x \geq \ln 3 > 1$ (car $3 > e$), donc $g'(x) < 0$ :
+            \par\noindent\ansbox{$g$ est (strictement) d\'ecroissante sur $[3 ; +\infty[$.}
+         \item \vln{Encadrement de $g(x)$ :}
+            Si $3 \leq n \leq x \leq n + 1$, la d\'ecroissance de $g$ donne $g(x) \leq g(n)$ ;
+            de plus $x > 1$ donc $\ln x > 0$ et $g(x) = \frac{\ln x}{x} > 0$.
+            \par\noindent\ansbox{$0 < g(x) \leq g(n) = \frac{\ln n}{n}$ pour $x \in [n ; n+1]$.}
+         \item \vln{Encadrement de $U_n$ et limite :}
+            On int\`egre l'encadrement sur $[n ; n+1]$, intervalle de longueur $1$ (et on a aussi $g(x) \geq g(n+1)$) :
+            \[
+               0 < \frac{\ln(n+1)}{n+1} \leq U_n \leq \frac{\ln n}{n}.
+            \]
+            Comme $\displaystyle\lim_{n\to+\infty} \frac{\ln n}{n} = 0$, le th\'eor\`eme des gendarmes donne
+            \par\noindent\ansbox{$\displaystyle\lim_{n\to+\infty} U_n = 0$.}
+            (On peut aussi calculer directement $U_n = \frac{(\ln(n+1))^2 - (\ln n)^2}{2}$.)
+      \end{enumerate}
+\end{enumerate}

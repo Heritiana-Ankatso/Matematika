@@ -2,7 +2,12 @@
 \makeatletter\IfFileExists{core/beamer/beamerthememx.sty}{\def\mxcorepath{core/}\def\input@path{{core/beamer/}{core/}}}{\def\mxcorepath{../core/}\def\input@path{{../core/beamer/}{../core/}}}\makeatother
 \documentclass[aspectratio=169,10pt,t]{beamer}
 \usetheme{mx}
-\usepackage{graphicx,booktabs}
+\usepackage{graphicx,booktabs,mathtools,array,adjustbox}
+\usepackage[all]{xy}
+\providecommand{\actualtextwidth}{\textwidth}
+\providecommand{\veccor}[2]{\left(\begin{matrix}#1\\#2\end{matrix}\right)}
+\DeclarePairedDelimiter{\VecNorm}{\lVert}{\rVert}
+\providecommand{\ETC}{\ldots}
 \usepackage[french]{babel}
 \setlength{\parskip}{.45em}
 \hypersetup{pdfauthor={},pdfsubject={Lecture slides},pdfkeywords={},pdftitle={Trigonométrie}}
@@ -36,12 +41,12 @@
 \author{}
 \begin{document}
 \mxtitleframe
-\begin{frame}{}
+\begin{frame}[allowframebreaks]{}
 Sur des cercles de rayons différents, construire un arc de longueur égale au
 rayon. Comparer l'angle au centre obtenu. Cette invariance conduit à définir le
 radian; en déduire la mesure d'un tour complet.
 \end{frame}
-\begin{frame}{Objectifs}
+\begin{frame}[allowframebreaks]{Objectifs}
 \begin{itemize}
 
   \item Convertir entre degrés et radians.
@@ -56,41 +61,43 @@ radian; en déduire la mesure d'un tour complet.
 
 \end{itemize}
 \end{frame}
-\begin{frame}{Radians}
+\begin{frame}[allowframebreaks]{Radians}
 Le \textbf{radian} est l'unité d'angle SI. Un angle de \(1\) rad correspond
 à un arc de longueur égale au rayon.
 \[\alpha_\circ \times \dfrac{\pi}{180} = \alpha_\text{rad},\qquad
   \alpha_\text{rad} \times \dfrac{180}{\pi} = \alpha_\circ.\]
 \end{frame}
-\begin{frame}{Valeurs remarquables et relations}
+\begin{frame}[allowframebreaks]{Valeurs remarquables et relations}
 \begin{center}\begin{tabular}{lllllll}
-\(\theta\) & \(0\) & \(\dfrac{\pi}{6}\) & \(\dfrac{\pi}{4}\) & \(\dfrac{\pi}{3}\) & \(\dfrac{\pi}{2}\) & \(\pi\) \\ 
-\(\cos\theta\) & \(1\) & \(\dfrac{\sqrt{3}}{2}\) & \(\dfrac{\sqrt{2}}{2}\) & \(\dfrac{1}{2}\) & \(0\) & \(-1\) \\ 
-\(\sin\theta\) & \(0\) & \(\dfrac{1}{2}\) & \(\dfrac{\sqrt{2}}{2}\) & \(\dfrac{\sqrt{3}}{2}\) & \(1\) & \(0\) \\ 
+\(\theta\) & \(0\) & \(\dfrac{\pi}{6}\) & \(\dfrac{\pi}{4}\) & \(\dfrac{\pi}{3}\) & \(\dfrac{\pi}{2}\) & \(\pi\) \\ {}
+\(\cos\theta\) & \(1\) & \(\dfrac{\sqrt{3}}{2}\) & \(\dfrac{\sqrt{2}}{2}\) & \(\dfrac{1}{2}\) & \(0\) & \(-1\) \\ {}
+\(\sin\theta\) & \(0\) & \(\dfrac{1}{2}\) & \(\dfrac{\sqrt{2}}{2}\) & \(\dfrac{\sqrt{3}}{2}\) & \(1\) & \(0\) \\ {}
 \end{tabular}\end{center}
 \end{frame}
-\begin{frame}{Valeurs remarquables et relations}
+\begin{frame}[allowframebreaks]{Valeurs remarquables et relations}
 Pour tout angle \(\theta\) :
 \[\cos^2\theta + \sin^2\theta = 1.\]
 \end{frame}
-\begin{frame}{Le cercle trigonométrique}
+\begin{frame}[allowframebreaks]{Le cercle trigonométrique}
 On place un angle \(\theta\) (en radians) sur le cercle unité, en partant
 du point \(A(1,0)\) et en tournant dans le sens direct (sens anti-horaire).
 Le point \(M\) ainsi obtenu a pour coordonnées :
 \[M(\cos\theta,\, \sin\theta).\]
+
 Pour \(\cos\theta\ne0\), on définit aussi la \textbf{tangente} :
 \[\tan\theta = \dfrac{\sin\theta}{\cos\theta}.\]
 \end{frame}
-\begin{frame}{Le cercle trigonométrique}
+\begin{frame}[allowframebreaks]{Le cercle trigonométrique}
+\footnotesize
 \begin{center}\begin{tabular}{lll}
-Symétrie & Cosinus & Sinus \\ 
-Opposé : \(-\theta\) & \(\cos(-\theta)=\cos\theta\) & \(\sin(-\theta)=-\sin\theta\) \\ 
-Supplément : \(\pi-\theta\) & \(\cos(\pi-\theta)=-\cos\theta\) & \(\sin(\pi-\theta)=\sin\theta\) \\ 
-Antipose : \(\pi+\theta\) & \(\cos(\pi+\theta)=-\cos\theta\) & \(\sin(\pi+\theta)=-\sin\theta\) \\ 
-Période : \(\theta+2k\pi\) & \(\cos(\theta+2k\pi)=\cos\theta\) & \(\sin(\theta+2k\pi)=\sin\theta\) \\ 
+Symétrie & Cosinus & Sinus \\ {}
+Opposé : \(-\theta\) & \(\cos(-\theta)=\cos\theta\) & \(\sin(-\theta)=-\sin\theta\) \\ {}
+Supplément : \(\pi-\theta\) & \(\cos(\pi-\theta)=-\cos\theta\) & \(\sin(\pi-\theta)=\sin\theta\) \\ {}
+Antipose : \(\pi+\theta\) & \(\cos(\pi+\theta)=-\cos\theta\) & \(\sin(\pi+\theta)=-\sin\theta\) \\ {}
+Période : \(\theta+2k\pi\) & \(\cos(\theta+2k\pi)=\cos\theta\) & \(\sin(\theta+2k\pi)=\sin\theta\) \\ {}
 \end{tabular}\end{center}
 \end{frame}
-\begin{frame}{Le cercle trigonométrique}
+\begin{frame}[allowframebreaks]{Le cercle trigonométrique}
 \begin{enumerate}
 \setcounter{enumi}{0}
   \item Repérer le quadrant (\(\cos\) et \(\sin\) sont positifs ou négatifs).
@@ -105,7 +112,7 @@ Période : \(\theta+2k\pi\) & \(\cos(\theta+2k\pi)=\cos\theta\) & \(\sin(\theta+
 \(\dfrac{5\pi}{6} = \pi - \dfrac{\pi}{6}\) : second quadrant.
 \(\cos(\dfrac{5\pi}{6}) = -\cos(\dfrac{\pi}{6}) = -\dfrac{\sqrt{3}}{2}\).
 \end{frame}
-\begin{frame}{Résolution d'équations trigonométriques}
+\begin{frame}[allowframebreaks]{Résolution d'équations trigonométriques}
 \begin{enumerate}
 \setcounter{enumi}{0}
   \item Si \(|a|>1\) : pas de solution.
@@ -117,7 +124,7 @@ Période : \(\theta+2k\pi\) & \(\cos(\theta+2k\pi)=\cos\theta\) & \(\sin(\theta+
 
 \end{enumerate}
 \end{frame}
-\begin{frame}{Résolution d'équations trigonométriques}
+\begin{frame}[allowframebreaks]{Résolution d'équations trigonométriques}
 \begin{enumerate}
 \setcounter{enumi}{0}
   \item Si \(|a|>1\) : pas de solution.
@@ -130,16 +137,16 @@ Période : \(\theta+2k\pi\) & \(\cos(\theta+2k\pi)=\cos\theta\) & \(\sin(\theta+
 
 \end{enumerate}
 \end{frame}
-\begin{frame}{Résolution d'équations trigonométriques}
+\begin{frame}[allowframebreaks]{Résolution d'équations trigonométriques}
 L'angle de référence : \(\cos(\dfrac{\pi}{3})=\dfrac{1}{2}\), donc \(\cos(\pi-\dfrac{\pi}{3})=-\dfrac{1}{2}\).
 \(\alpha = \dfrac{2\pi}{3}\).
 Solutions : \(x = \dfrac{2\pi}{3}\) et \(x = 2\pi - \dfrac{2\pi}{3} = \dfrac{4\pi}{3}\).
 \end{frame}
-\begin{frame}{Résolution d'équations trigonométriques}
+\begin{frame}[allowframebreaks]{Résolution d'équations trigonométriques}
 \(\sin(\dfrac{\pi}{4})=\dfrac{\sqrt{2}}{2}\).
 Solutions : \(x = \dfrac{\pi}{4}\) et \(x = \pi - \dfrac{\pi}{4} = \dfrac{3\pi}{4}\).
 \end{frame}
-\begin{frame}{Résolution d'équations trigonométriques}
+\begin{frame}[allowframebreaks]{Résolution d'équations trigonométriques}
 \(\tan\theta = \dfrac{\sin\theta}{\cos\theta}\) est définie pour \(\cos\theta\ne0\),
 c'est-à-dire \(\theta\ne\dfrac{\pi}{2}+k\pi\).
 

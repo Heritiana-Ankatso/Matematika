@@ -21,7 +21,11 @@ const decks = fs.readdirSync(new URL('../dist/slides/data/', import.meta.url)).f
 const tableRefs = [...read('scripts/build-slides.py').matchAll(/\blab\('([^']+)'\)/g)].map((m) => m[1]);
 // Lab widgets of the built decks (the table placements and the authored slides).
 const deckRefs = decks.flatMap((d) => d.slides.filter((s) => s.k === 'widget' && s.w?.type === 'lab').map((s) => ({ deck: d.id, ref: s.w.ref })));
+// A deck of an unpublished chapter (id absent from the manifest, e.g. mada-t10-01) may name an experiment that is not registered yet;
+// tests/mada-t10-01.test.mjs resolves those references against the experiment file itself.
+const chapterIds = new Set(chapters.map((c) => c.id));
 const authoredRefs = fs.readdirSync(new URL('../content/slides/', import.meta.url)).filter((f) => f.endsWith('.json'))
+  .filter((f) => chapterIds.has(f.replace(/\.json$/, '')))
   .flatMap((f) => JSON.parse(read('content/slides/' + f)).slides.filter((s) => s.k === 'widget' && s.w?.type === 'lab').map((s) => ({ deck: f, ref: s.w.ref })));
 
 test('resolveRef: the one resolver of a lab reference', () => {

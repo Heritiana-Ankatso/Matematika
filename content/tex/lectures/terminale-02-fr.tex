@@ -2,7 +2,12 @@
 \makeatletter\IfFileExists{core/beamer/beamerthememx.sty}{\def\mxcorepath{core/}\def\input@path{{core/beamer/}{core/}}}{\def\mxcorepath{../core/}\def\input@path{{../core/beamer/}{../core/}}}\makeatother
 \documentclass[aspectratio=169,10pt,t]{beamer}
 \usetheme{mx}
-\usepackage{graphicx,booktabs}
+\usepackage{graphicx,booktabs,mathtools,array,adjustbox}
+\usepackage[all]{xy}
+\providecommand{\actualtextwidth}{\textwidth}
+\providecommand{\veccor}[2]{\left(\begin{matrix}#1\\#2\end{matrix}\right)}
+\DeclarePairedDelimiter{\VecNorm}{\lVert}{\rVert}
+\providecommand{\ETC}{\ldots}
 \usepackage[french]{babel}
 \setlength{\parskip}{.45em}
 \hypersetup{pdfauthor={},pdfsubject={Lecture slides},pdfkeywords={},pdftitle={Vecteurs, droites et plans de l'espace}}
@@ -36,37 +41,38 @@
 \author{}
 \begin{document}
 \mxtitleframe
-\begin{frame}{Objectifs}
+\begin{frame}[allowframebreaks]{Objectifs}
 Calculer avec des vecteurs ; utiliser colinéarité et coplanarité ; caractériser droites et plans ; travailler dans un repère.
 \end{frame}
-\begin{frame}{Calcul vectoriel}
+\begin{frame}[allowframebreaks]{Calcul vectoriel}
 La relation de Chasles \(\vect{AB}+\vect{BC}=\vect{AC}\), la somme de vecteurs et le produit par un réel se prolongent à l'espace. Deux vecteurs non nuls sont colinéaires si l'un est un multiple de l'autre. Le vecteur nul est colinéaire à tout vecteur.
 Trois vecteurs sont coplanaires s'ils appartiennent à un même plan vectoriel. Si \(\vec u,\vec v\) ne sont pas colinéaires, \(\vec u,\vec v,\vec w\) sont coplanaires si et seulement si \(\vec w=\alpha\vec u+\beta\vec v\) pour certains réels \(\alpha,\beta\).
 \end{frame}
-\begin{frame}{Calcul vectoriel}
+\begin{frame}[allowframebreaks]{Calcul vectoriel}
 La droite passant par \(A\) de vecteur directeur non nul \(\vec u\) est l'ensemble des points \(M\) tels que \(\vect{AM}=t\vec u\) pour un réel \(t\).
 Le plan passant par \(A\) et dirigé par deux vecteurs non colinéaires \(\vec u,\vec v\) est l'ensemble des points \(M\) tels que \(\vect{AM}=s\vec u+t\vec v\) pour des réels \(s,t\).
 \end{frame}
-\begin{frame}{Calcul vectoriel}
+\begin{frame}[allowframebreaks]{Calcul vectoriel}
 Trois points non alignés définissent un plan. Quatre points \(A,B,C,D\), avec \(A,B,C\) non alignés, sont coplanaires si et seulement si \(\vect{AD}\) est combinaison linéaire de \(\vect{AB}\) et \(\vect{AC}\).
 \end{frame}
-\begin{frame}{Positions relatives}
+\begin{frame}[allowframebreaks]{Positions relatives}
 Deux droites sont confondues, strictement parallèles, sécantes ou non coplanaires. Des vecteurs directeurs colinéaires caractérisent des droites parallèles au sens large. Des directeurs non colinéaires n'assurent pas l'intersection.
 Une droite et un plan : droite incluse dans le plan, parallèle et disjointe, ou sécante en un seul point. Deux plans : confondus, strictement parallèles, ou sécants suivant une droite.
 \end{frame}
-\begin{frame}{Positions relatives}
+\begin{frame}[allowframebreaks]{Positions relatives}
 Dans \(ABCDEFGH\), les faces \(ABCD\) et \(EFGH\) sont parallèles et les arêtes \(AE,BF,CG,DH\) se correspondent. Les droites \((AB)\) et \((CG)\) ne sont ni parallèles ni sécantes : elles sont non coplanaires.
 \end{frame}
-\begin{frame}{Base et coordonnées}
+\begin{frame}[allowframebreaks]{Base et coordonnées}
 Une base de l'espace est une famille de trois vecteurs non coplanaires. Tout vecteur s'y écrit de manière unique \(x\vi +y\vj +z\vec k\). Un repère est constitué d'une origine \(O\) et d'une base.
 \[\vect{AB}=(x_B-x_A;y_B-y_A;z_B-z_A),\qquad
 I=\left(\dfrac{x_A+x_B}2,\dfrac{y_A+y_B}2,\dfrac{z_A+z_B}2\right).\]
+
 Dans un repère orthonormé, \(\|\vec u\|=\sqrt{x^2+y^2+z^2}\) et \(AB=\sqrt{(x_B-x_A)^2+(y_B-y_A)^2+(z_B-z_A)^2}\).
 \end{frame}
-\begin{frame}{Base et coordonnées}
+\begin{frame}[allowframebreaks]{Base et coordonnées}
 Dans un repère orthonormé, pour \(A(1;0;2)\), \(B(3;-1;4)\), \(\vect{AB}=(2;-1;2)\), \(AB=3\) et le milieu est \((2;-\dfrac{1}{2};3)\).
 \end{frame}
-\begin{frame}{Base et coordonnées}
+\begin{frame}[allowframebreaks]{Base et coordonnées}
 Écrire les trois égalités de coordonnées. Déterminer les coefficients à partir de deux équations quand c'est possible, puis vérifier la troisième. Une contradiction prouve la non-appartenance ; on ne supprime pas l'équation gênante.
 \end{frame}
 \begin{frame}{Activité de recherche}

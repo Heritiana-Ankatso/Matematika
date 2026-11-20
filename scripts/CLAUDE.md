@@ -8,7 +8,7 @@ Builders called by `build/mxbuild` (see `pipeline.py` `COURSES`) or by `make`. E
 | `build-expertes.py`, `build-stmg.py`, `build-automatismes.py` | Maths expertes, STMG, automatismes PDFs | `make tex` |
 | `build-enrichment.py`, `enrichment_sections.py` | enrichment PDFs, HTML and site data | `make tex COURSE=enrichment` |
 | `build-slides.py` | slide decks and figures from TeX and `content/slides` (`WIDGETS` table places canvases) | `make slides` |
-| `build-mada.py` | Malagasy curriculum (T10, T11 S): chapter and supplement PDFs cut from the owner's compiled Mada-Boky books, manifest records | by hand, then `make site` |
+| `build-mada.py` | Malagasy curriculum (T10, T11 S: `--books`; T12 C and D: `--t12`): chapter and supplement PDFs cut from the compiled books, manifest records, T12 footer/anonymity check | `--t12` by `make site` (job `t12` of `refresh.py`); `--books` by hand |
 | `export-slides.py` | one self-contained HTML per deck | `make slides`, `make site` |
 | `build-lecture-slides.py` | Beamer lecture PDFs | `make lectures` |
 | `extract-terminale-slides.py` | one-off: Terminale French drafts from LaTeX | by hand |
@@ -38,3 +38,13 @@ Builders called by `build/mxbuild` (see `pipeline.py` `COURSES`) or by `make`. E
 `build-annals-pdf.py`: native course-style annales statement/correction PDFs and their portable source bundle with precompiled vector figures; `data/annals-pdf-build.json` records source/output integrity.
 
 `annals-code.py`: protects literal listings and table-based programs before semantic HTML conversion; retains indentation, source operators, line numbers and mathematical pseudocode. Used by `build-annals.py`; `--html-only` reuses published figures, and `build-annals-pdf.py --reuse-inputs` retains PDF books only when their archived typesetting inputs and output hashes are identical.
+
+`fetch-benford-population.py`: regenerates `site/js/lab/models/benford-data.js` from the World Bank API (country populations, 2022). Needs network; run by hand, never in the build.
+
+`build-mada-t10.py`: the native Malagasy T10 course (unpublished; `COURSES['mada-t10']`, `make tex COURSE=mada-t10`): writes its own French-only student and teacher mains (not in `manifest.json`) from `content/tex/courses/mada-t10/` and leaves the two PDFs in the `mada-t10` folder of the build output (ignored by git); nothing goes to `dist/`.
+
+`check-mada-t10-logic.py`: independent brute-force check of every computation of the chapter 1 (Logique) of that course: the connector tables read back from the TeX unit, equivalences, tautologies, the numbers of the exercises and solutions, the puzzles (knights and knaves, the vase, the four cards), the lamp circuit. Exits 1 on the first disagreement; run it after any change to `content/tex/courses/mada-t10/c01.fr.tex` or `content/tex/courses/mada-t10/corriges/c01.fr.tex`.
+
+`build-mada-t11s.py`: the native Malagasy T11 S course (unpublished; `COURSES['mada-t11s']`, `make tex COURSE=mada-t11s`): same shape as `build-mada-t10.py`, from `content/tex/courses/mada-t11s/`, the two PDFs stay in the git-ignored build output; nothing goes to `dist/`.
+
+`check-mada-t11s-functions.py`: independent check (exact fractions, dense sampling, period scans) of every computation of chapter 1 of that course: images and antecedents, domains, variation, parity, axes and centres, periods and their minimality, the table of the activity read back from the TeX unit, the two problems, and the facts of the laboratory model. Exits 1 on the first disagreement; run it after any change to `content/tex/courses/mada-t11s/c01.fr.tex`, its solutions or `site/js/lab/models/function-symmetry.js`.

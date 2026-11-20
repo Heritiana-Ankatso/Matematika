@@ -2,7 +2,12 @@
 \makeatletter\IfFileExists{core/beamer/beamerthememx.sty}{\def\mxcorepath{core/}\def\input@path{{core/beamer/}{core/}}}{\def\mxcorepath{../core/}\def\input@path{{../core/beamer/}{../core/}}}\makeatother
 \documentclass[aspectratio=169,10pt,t]{beamer}
 \usetheme{mx}
-\usepackage{graphicx,booktabs}
+\usepackage{graphicx,booktabs,mathtools,array,adjustbox}
+\usepackage[all]{xy}
+\providecommand{\actualtextwidth}{\textwidth}
+\providecommand{\veccor}[2]{\left(\begin{matrix}#1\\#2\end{matrix}\right)}
+\DeclarePairedDelimiter{\VecNorm}{\lVert}{\rVert}
+\providecommand{\ETC}{\ldots}
 \usepackage[english]{babel}
 \setlength{\parskip}{.45em}
 \hypersetup{pdfauthor={},pdfsubject={Lecture slides},pdfkeywords={},pdftitle={Functions: representations and reference functions}}
@@ -36,19 +41,19 @@
 \author{}
 \begin{document}
 \mxtitleframe
-\begin{frame}{Function, image and preimage}
+\begin{frame}[allowframebreaks]{Function, image and preimage}
 A real-valued function associates to each real number \(x\) of its domain \(D_f\) a unique real number \(f(x)\), called the image of \(x\). A preimage of \(y\) is a real number \(x\in D_f\) such that \(f(x)=y\). We write \(f:x\mapsto f(x)\). A number may have no preimage, one, or several.
 \end{frame}
-\begin{frame}{Function, image and preimage}
+\begin{frame}[allowframebreaks]{Function, image and preimage}
 Let \(g(x)=x^2-4x+32\) on \(\R\). Calculate \(g(-5)\). Let \(h(x)=3x+5\); determine the preimage of \(6\) under \(h\).
 \end{frame}
-\begin{frame}{Worked answer: Function, image and preimage}
+\begin{frame}[allowframebreaks]{Worked answer: Function, image and preimage}
 \(g(-5)=25+20+32=77\): \(77\) is the image of \(-5\), and \(-5\) is a preimage of \(77\). For \(h\), \(3x+5=6\iff x=1/3\). The only preimage is \(1/3\).
 \end{frame}
-\begin{frame}{Function, image and preimage}
+\begin{frame}[allowframebreaks]{Function, image and preimage}
 For the square function, calculate the images of \(-3\) and \(3\), then the preimages of \(9\), \(0\) and \(-1\).
 \end{frame}
-\begin{frame}{Worked answer: Function, image and preimage}
+\begin{frame}[allowframebreaks]{Worked answer: Function, image and preimage}
 \(f(-3)=f(3)=9\). The preimages of \(9\) are \(-3,3\); \(0\) has a single preimage, \(0\); \(-1\) has none in \(\R\).
 \end{frame}
 \begin{frame}[fragile]{Python}
@@ -58,32 +63,32 @@ def g(x):
     return x*x - 4*x + 32
 \end{verbatim}
 \end{frame}
-\begin{frame}{Function, image and preimage}
+\begin{frame}[allowframebreaks]{Function, image and preimage}
 Distinguish \texttt{g(-5)} from \texttt{x = -5}.
 \end{frame}
-\begin{frame}{Worked answer: Function, image and preimage}
+\begin{frame}[allowframebreaks]{Worked answer: Function, image and preimage}
 The first calls the function and returns \(77\). The second assigns \(-5\) to the variable \texttt{x}, without calculating the image under \(g\).
 \end{frame}
-\begin{frame}{Domain of definition}
+\begin{frame}[allowframebreaks]{Domain of definition}
 \(D_f\) contains the values for which the process defining \(f\) makes sense. A denominator must be nonzero; a number under a square root must be positive or zero. Also respect any domain imposed by the statement or the context.
 \end{frame}
-\begin{frame}{Domain of definition}
+\begin{frame}[allowframebreaks]{Domain of definition}
 Determine the domains of definition:
 \[f(x)=3x^2-5x+2,\quad g(x)=\dfrac{2x+1}{x-4},\quad h(x)=\dfrac{x}{x^2-9},\quad k(x)=\sqrt{2x-6}.\]
 \end{frame}
-\begin{frame}{Worked answer: Domain of definition}
+\begin{frame}[allowframebreaks]{Worked answer: Domain of definition}
 \(D_f=\R\). \(D_g=(-\infty,4)\cup(4,+\infty)\) since \(x-4\ne0\). \(D_h=(-\infty,-3)\cup(-3,3)\cup(3,+\infty)\) since \(x^2-9\ne0\). \(D_k=[3,+\infty)\) since \(2x-6\geq0\).
 \end{frame}
-\begin{frame}{Domain of definition}
+\begin{frame}[allowframebreaks]{Domain of definition}
 The square root of a negative number does not exist in \(\R\); it is not “a negative square root” that is excluded.
 \end{frame}
-\begin{frame}{Domain of definition}
+\begin{frame}[allowframebreaks]{Domain of definition}
 A rectangle of perimeter \(20\) m has width \(x\) m. Express its area and state the domain if both dimensions must be strictly positive.
 \end{frame}
-\begin{frame}{Worked answer: Domain of definition}
+\begin{frame}[allowframebreaks]{Worked answer: Domain of definition}
 The length is \(10-x\), so \(A(x)=x(10-x)\) in m\(^2\). \(x>0\) and \(10-x>0\) give \(D_A=(0,10)\). If degenerate rectangles were allowed, we could take \([0,10]\).
 \end{frame}
-\begin{frame}{Table of values and representative curve}
+\begin{frame}[allowframebreaks]{Table of values and representative curve}
 \(\mathcal C_f\) is the set of points \((x,f(x))\), with \(x\in D_f\). Thus \(M(a,b)\in\mathcal C_f\iff a\in D_f\) and \(b=f(a)\).
 \end{frame}
 \begin{frame}{Table of values and representative curve}
@@ -97,10 +102,10 @@ On \([-1,4]\), \(f(x)=x^2-2x-1\). Complete the table, then draw the curve over t
 \end{column}
 \end{columns}
 \end{frame}
-\begin{frame}{Worked answer: Table of values and representative curve}
+\begin{frame}[allowframebreaks]{Worked answer: Table of values and representative curve}
 Images: \(2\); \(0.25\); \(-1\); \(-2\); \(-1.75\); \(-1\); \(2\); \(7\). Plot the points then draw the parabola. Segments joining only these points would give just an approximation.
 \end{frame}
-\begin{frame}{Graphical solving of equations and inequalities}
+\begin{frame}[allowframebreaks]{Graphical solving of equations and inequalities}
 The solutions of \(f(x)=k\) are the abscissae of the intersections of \(\mathcal C_f\) with \(y=k\). For \(f(x)\leq k\), read the abscissae where the curve is below this line, intersections included; with \(<\), the intersections are excluded.
 \end{frame}
 \begin{frame}{Graphical solving of equations and inequalities}
@@ -114,10 +119,10 @@ The curve represents \(f(x)=1+\dfrac14(x+3)(x+1)(x-2)\) on \([-4,3]\). Solve gra
 \end{column}
 \end{columns}
 \end{frame}
-\begin{frame}{Worked answer: Graphical solving of equations and inequalities}
+\begin{frame}[allowframebreaks]{Worked answer: Graphical solving of equations and inequalities}
 \(f(x)=1\): \(-3,-1,2\). \(f(x)\leq1\): \([-4,-3]\cup[-1,2]\). \(f(x)>1\): \((-3,-1)\cup(2,3]\). The endpoints \(-4,3\) come from the domain. The factorisation checks the intersections exactly; the algebraic study of the sign will be consolidated in sequence 8.
 \end{frame}
-\begin{frame}{Comparing two functions; reading a sign}
+\begin{frame}[allowframebreaks]{Comparing two functions; reading a sign}
 \(f(x)=g(x)\) is read at the intersections of the curves. For \(f(x)<g(x)\), \(\mathcal C_f\) is strictly below \(\mathcal C_g\) at the same abscissa. The sign of \(f(x)\) is read relative to the x-axis.
 \end{frame}
 \begin{frame}{Comparing two functions; reading a sign}
@@ -131,10 +136,10 @@ On \([-3,3]\), \(f(x)=x^2\) and \(g(x)=x+2\). Solve \(f=g\), \(f<g\), \(f\geq g\
 \end{column}
 \end{columns}
 \end{frame}
-\begin{frame}{Worked answer: Comparing two functions; reading a sign}
+\begin{frame}[allowframebreaks]{Worked answer: Comparing two functions; reading a sign}
 \(f=g\) for \(x=-1,2\); \(f<g\) on \((-1,2)\); \(f\geq g\) on \([-3,-1]\cup[2,3]\). \(g\) is strictly negative on \([-3,-2)\), zero at \(-2\), strictly positive on \((-2,3]\). Sign and variations are different pieces of information.
 \end{frame}
-\begin{frame}{Affine functions and absolute value}
+\begin{frame}[allowframebreaks]{Affine functions and absolute value}
 An affine function is \(f(x)=mx+p\) on \(\R\). It is linear if \(p=0\), constant if \(m=0\). For \(m\ne0\), it vanishes at \(-p/m\); its sign is that of \(m\) to the right of this number.
 The function \(x\mapsto|x|\) is defined on \(\R\), positive or zero, and vanishes only at \(0\).
 \end{frame}
@@ -149,18 +154,19 @@ Classify (several answers possible) as affine, linear, constant: \(5x+2\); \(5x\
 \end{column}
 \end{columns}
 \end{frame}
-\begin{frame}{Worked answer: Affine functions and absolute value}
+\begin{frame}[allowframebreaks]{Worked answer: Affine functions and absolute value}
 All are affine. \(5x\) and \(7+2x-7=2x\) are linear; \(6\) and \(6x+5-6x=5\) are constant; \(5x+2\) and \(6(4x-2)=24x-12\) are neither linear nor constant.
 \end{frame}
-\begin{frame}{Affine functions and absolute value}
+\begin{frame}[allowframebreaks]{Affine functions and absolute value}
 If \(k<0\), \(|x|=k\) and \(|x|\leq k\) have no solution, and \(|x|\geq k\) is true on \(\R\). If \(k=0\), the first two give \(x=0\), the third is true on \(\R\). For \(k>0\):
 \[|x|=k\iff x\in\{-k,k\},\quad |x|\leq k\iff x\in[-k,k],\]
+
 \[|x|\geq k\iff x\in(-\infty,-k]\cup[k,+\infty).\]
 \end{frame}
-\begin{frame}{Affine functions and absolute value}
+\begin{frame}[allowframebreaks]{Affine functions and absolute value}
 Solve \(|x|=5\), \(|x|=-3\), \(|x|\leq3\), \(|x|\geq4\).
 \end{frame}
-\begin{frame}{Worked answer: Affine functions and absolute value}
+\begin{frame}[allowframebreaks]{Worked answer: Affine functions and absolute value}
 \(\{-5,5\}\); \(\varnothing\); \([-3,3]\); \((-\infty,-4]\cup[4,+\infty)\).
 \end{frame}
 \begin{frame}{Square and inverse functions}
@@ -176,30 +182,31 @@ Solve \(|x|=5\), \(|x|=-3\), \(|x|\leq3\), \(|x|\geq4\).
 \end{column}
 \end{columns}
 \end{frame}
-\begin{frame}{Square and inverse functions}
+\begin{frame}[allowframebreaks]{Square and inverse functions}
 If \(k<0\), \(x^2=k\) and \(x^2\leq k\) have no solution; \(x^2\geq k\) is true on \(\R\). If \(k=0\), the first two give \(x=0\), the third is true on \(\R\). For \(k>0\):
 \[x^2=k\iff x\in\{-\sqrt k,\sqrt k\},\quad x^2\leq k\iff x\in[-\sqrt k,\sqrt k],\]
+
 \[x^2\geq k\iff x\in(-\infty,-\sqrt k]\cup[\sqrt k,+\infty).\]
 \end{frame}
-\begin{frame}{Square and inverse functions}
+\begin{frame}[allowframebreaks]{Square and inverse functions}
 Solve \(x^2=4\), \(x^2=-1\), \(x^2\geq4\), \(x^2\geq-1\), \(1/x=4\), \(1/x=0\).
 \end{frame}
-\begin{frame}{Worked answer: Square and inverse functions}
+\begin{frame}[allowframebreaks]{Worked answer: Square and inverse functions}
 \(\{-2,2\}\); \(\varnothing\); \((-\infty,-2]\cup[2,+\infty)\); \(\R\); \(\{1/4\}\); \(\varnothing\). More generally, \(1/x=k\) has the unique solution \(1/k\) if \(k\ne0\), none if \(k=0\).
 \end{frame}
-\begin{frame}{Inequalities with the inverse function}
+\begin{frame}[allowframebreaks]{Inequalities with the inverse function}
 Respect \(x\ne0\) and read both branches of the hyperbola. Do not multiply an inequality by \(x\) without knowing its sign.
 \end{frame}
-\begin{frame}{Inequalities with the inverse function}
+\begin{frame}[allowframebreaks]{Inequalities with the inverse function}
 Solve \(1/x\geq2\), \(1/x\leq-1\), \(1/x<1/2\) and \(1/x>-2\).
 \end{frame}
-\begin{frame}{Worked answer: Inequalities with the inverse function}
+\begin{frame}[allowframebreaks]{Worked answer: Inequalities with the inverse function}
 \((0,1/2]\); \([-1,0)\); \((-\infty,0)\cup(2,+\infty)\); \((-\infty,-1/2)\cup(0,+\infty)\). A strict inequality excludes the intersection with \(y=k\); \(0\) is always forbidden.
 \end{frame}
-\begin{frame}{Inequalities with the inverse function}
+\begin{frame}[allowframebreaks]{Inequalities with the inverse function}
 A student writes: “\(1/x\leq2\iff1\leq2x\), so \(x\geq1/2\)”. What is missing?
 \end{frame}
-\begin{frame}{Worked answer: Inequalities with the inverse function}
+\begin{frame}[allowframebreaks]{Worked answer: Inequalities with the inverse function}
 They implicitly assumed \(x>0\). For \(x<0\), \(1/x<0<2\): these values also work. The correct set is \((-\infty,0)\cup[1/2,+\infty)\). The number \(-1\) refutes their equivalence.
 \end{frame}
 \begin{frame}{Using square root and cube}
@@ -215,16 +222,16 @@ They implicitly assumed \(x>0\). For \(x<0\), \(1/x<0<2\): these values also wor
 \end{column}
 \end{columns}
 \end{frame}
-\begin{frame}{Using square root and cube}
+\begin{frame}[allowframebreaks]{Using square root and cube}
 Solve \(\sqrt x=3\); \(\sqrt x=-2\); \(\sqrt x\leq2\); \(\sqrt x>3\); \(x^3=-8\); \(x^3\leq27\).
 \end{frame}
-\begin{frame}{Worked answer: Using square root and cube}
+\begin{frame}[allowframebreaks]{Worked answer: Using square root and cube}
 \(\{9\}\); \(\varnothing\); \([0,4]\); \((9,+\infty)\); \(\{-2\}\); \((-\infty,3]\). Respect the domain for square roots. The cube function preserves order.
 \end{frame}
-\begin{frame}{Using square root and cube}
+\begin{frame}[allowframebreaks]{Using square root and cube}
 Compare \(x^2\) and \(x\) for \(x=1/2\), then \(x=2\). Is the square of a positive number always greater than the number itself?
 \end{frame}
-\begin{frame}{Worked answer: Using square root and cube}
+\begin{frame}[allowframebreaks]{Worked answer: Using square root and cube}
 \(1/4<1/2\) but \(4>2\). The claim is false; \(1/2\) is a counterexample. General study in sequence 10.
 \end{frame}
 \end{document}

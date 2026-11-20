@@ -8,7 +8,7 @@ The pipeline package. Run with `PYTHONPATH=build python3 -m mxbuild <command>` o
 | `__main__.py` | command line (`catalog`, `site`, `tex`, `check`, `twin`, `enrichment`, `notation`) | |
 | `__init__.py` | `ROOT`, `DIST` | |
 | `refresh.py` | dependency-driven rebuild of everything linked; input fingerprints in `content/data/build-state.json` | `make site` |
-| `site.py` | copy `site/` into `dist/`, regenerate import maps (cache busting); the edition name and search description (`content/data/edition.json`; full edition when `FULL_EDITION` is true) are written into the static pages of `NAMED_PAGES` (also used by `offline.py` and `scripts/export-slides.py`), and the full edition's Atlas link (`MX_ATLAS_URL`, required) into `js/config.js` | part of `make site` |
+| `site.py` | copy `site/` into `dist/`, regenerate import maps (cache busting); the edition name and search description (`content/data/edition.json`; full edition when `FULL_EDITION` is true) are written into the static pages of `NAMED_PAGES` (also used by `offline.py` and `scripts/export-slides.py`) | part of `make site` |
 | `offline.py` | writes `dist/sw.js`: `site/sw.js` with the shell manifest (files, content hashes, version) in place of its placeholder; `docs/OFFLINE.md` | part of `make site` |
 | `catalog.py` | `catalog.json`, `resources-data.js`, `RESOURCE_PROVENANCE.json` from the manifest; `load()`/`save()` | `make catalog` |
 | `content_index.py` | `site/js/catalogue-data.js` and the measured content model | part of `make site` |
@@ -20,6 +20,7 @@ The pipeline package. Run with `PYTHONPATH=build python3 -m mxbuild <command>` o
 | `twin.py` | French-to-English twin generation and checked standby snapshots (`docs/ADR-0001-tex-i18n.md`) | |
 | `notation.py` | web side of `mx-notation.sty`, slide MathJax table | |
 | `mada.py` | the Malagasy books' LaTeX (`content/tex/mada/`; T10, T11 S and the vocabulary of the T12 C/D book, class bokiko) rewritten for the slide parser: macros expanded (`\providecommand` and chapter definitions included), boxes unwrapped, teacher material, figures, exercises and answers dropped; tests `tests/test_mada.py` | slides |
+| `t12.py` | build-only compile helper of the T12 C/D book (`content/tex/mada/t12/`): copies the source to the `t12` folder of the build output (ignored by git), stands in for missing fonts (mathpazo, mathrsfs, wasysym, helvet), compiles both editions with pdfLaTeX (3 passes, fixed dates), and `check_pdf` (footer and anonymity of every page); the source is never changed; job `t12` of `refresh.py` runs `scripts/build-mada.py --t12`; tests `tests/test_t12_pdfs.py` | `make site` |
 | `enrichment.py` | enrichment TeX units from `content/data/enrichment.json` | |
 | `migrate.py` | one-off migration of a course to the TeX system (historical) | |
 
