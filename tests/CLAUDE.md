@@ -205,6 +205,8 @@ honest rounding, shared-slide control visibility, root-mode fallback, slider ran
 
 `prerequisites.test.mjs`: adversarial scope and order fixtures, transitive prerequisites, explicit inheritance, same-sequence unit order, question scaffolding, source staleness, lexical hint/solution detection, malformed declarations and advisory/strict CLI integration.
 
+`editions.test.mjs`: every `editions/<id>/scope.json` is valid, the source `edition-scope.js` is the home edition and `live-curriculum.js` follows it.
+
 `live-curriculum.test.mjs`: French-only live course and resource scope, preserved complete catalogues, hidden curriculum routes, restored general collections, search and reciprocal recommendations.
 `ergonomics_browser.py`: shared class context, preserved downloads, grouped optional settings, collection navigation and 352 responsive page/theme/text-size cases.
 

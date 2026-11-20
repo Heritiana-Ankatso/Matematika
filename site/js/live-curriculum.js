@@ -1,10 +1,11 @@
 // Publication scope only. The complete catalogues and archived resources stay intact.
 import { courses, discoveryChapters } from './catalogue-data.js';
 import { pathways } from './content.js';
-// Two editions of the same code. false: the French lycée site (arheritiana.github.io/Maths-explorer).
-// true: the complete edition with the Malagasy, international, university and Olympiad content (Matematika). Everything
-// else that differs follows this flag, and the site name (written by build/mxbuild/site.py).
-export const FULL_EDITION = true;
+import { FULL_EDITION } from './edition-scope.js';
+// Two editions of the same code, chosen by the build from editions/<id>/scope.json (js/edition-scope.js). false: the
+// French lycée site. true: the complete edition with the Malagasy, international, university and Olympiad content
+// (Matematika). Everything else that differs follows this flag, and the site name (written by build/mxbuild/site.py).
+export { FULL_EDITION };
 export const livePathways = FULL_EDITION ? pathways : pathways.filter(p => p.id === 'fr');
 
 export const liveCourses = FULL_EDITION ? courses : courses.filter(c => c.curriculum === 'fr');
