@@ -4,7 +4,7 @@
 
 Same as Maths-explorer #68, #69 and #70: measurements for Galton, Reuleaux and Platonic solids; `#gallery/self-similar`
 (Cantor, Koch, carpet, Menger, tetrahedron stage by stage); `#gallery/polyhedra` (corner cutting from a Platonic solid
-to its dual); the challenge `#challenges/braess` (Braess's paradox, Maths-explorer #71); `#gallery/viviani` (Viviani's theorem, Maths-explorer #72); `#lab/eratosthenes` (Maths-explorer #73, linked from Seconde 9); `#gallery/dandelin` (Dandelin's spheres, Maths-explorer #74) and the band layout fix; `#gallery/cavalieri` (Cavalieri's principle, Maths-explorer #75); the skills `frontend-design` and `web-design-guidelines` in `.claude/skills/`; the one-row phone header.
+to its dual); the challenge `#challenges/braess` (Braess's paradox, Maths-explorer #71); `#gallery/viviani` (Viviani's theorem, Maths-explorer #72); `#lab/eratosthenes` (Maths-explorer #73, linked from Seconde 9); `#gallery/dandelin` (Dandelin's spheres, Maths-explorer #74) and the band layout fix; `#gallery/cavalieri` (Cavalieri's principle, Maths-explorer #75); `#gallery/rupert` (Prince Rupert's cube, Maths-explorer #76, with Cavalieri and Rupert in the collection « contre l'intuition »; Morley and the missing square, Maths-explorer #61, are not here yet); the skills `frontend-design` and `web-design-guidelines` in `.claude/skills/`; the one-row phone header.
 Not yet mirrored from Maths-explorer: Morley's triangle (#61) and design v8 "Bande dessinée" (#66), waiting for the
 owner's decision.
 
