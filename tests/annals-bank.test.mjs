@@ -39,7 +39,7 @@ test('bank and visibility policy accept the new index and stable exercise permal
  assert.match(bankPage(t,'terminale'),/class="curriculum-eyebrow"><span>Programme français</);   // the level names its curriculum (curricula stay distinct)
  assert.ok(!bankPage(t).includes('href="#bank/terminale/'));   // no level in the address: the chooser, nothing assumed
  const index=new JSDOM(bankPage(t,'annales')).window.document;
- assert.equal(index.querySelector('.bank-sections [aria-current]').getAttribute('href'),'#bank/annales');
+ assert.equal(index.querySelector('.bank-sections'),null);   // no switch of its own: the Learn tabs offer Exercises and Past papers
  const detail=new JSDOM(bankPage(t,'annales',ANNALS[0].id)).window.document;
  assert.equal(detail.querySelector('.annal-filters'),null);
  assert.equal(detail.querySelector('.annal-books'),null);

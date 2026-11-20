@@ -120,7 +120,7 @@ with sync_playwright() as p:
         scoped_links()
         go('#bank')
         assert set(page.locator('.res-rail a[href^="#bank/"]').evaluate_all('(nodes) => nodes.map(n => n.getAttribute("href"))')) == {'#bank/' + course for course in COURSES}
-        assert page.locator('.bank-sections a[href="#bank/annales"]').count() == 1
+        assert page.locator('.subnav a[href="#bank/annales"]').count() == 1
         scoped_links()
         go('#pack')
         page.locator('[name=course]').first.wait_for()
