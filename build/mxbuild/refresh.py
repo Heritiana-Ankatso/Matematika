@@ -40,7 +40,7 @@ def inputs():
     result['t12'] = fingerprint(['content/tex/mada/t12/**/*', 'scripts/build-mada.py', 'build/mxbuild/t12.py'])   # T12 C/D book: compiled, cut, checked
     if 'annalsBank' in manifest:
         result['annals'] = fingerprint(['content/tex/annals/**/*', 'content/tex/core/**/*', 'scripts/build-annals.py', 'scripts/annals-code.py', 'scripts/build-annals-pdf.py'], manifest['annalsBank'])
-    result['static-site'] = fingerprint(['site/**/*', 'content/data/edition.json'])
+    result['static-site'] = fingerprint(['site/**/*', 'content/data/edition.json', 'editions/*/scope.json'])
     result['fourier'] = fingerprint(['content/university/fourier/**/*','scripts/build-fourier.py'],[s for s in manifest['university']['sections'] if s['id']=='fourier'])
     result['algebre-1'] = fingerprint(['content/university/algebre-1/**/*', 'scripts/build-algebre1.py', 'site/styles/algebra1.css', 'site/js/algebra1-*.js'],
                                       [s for s in manifest['university']['sections'] if s['id'] == 'algebre-1'])
@@ -54,7 +54,7 @@ def inputs():
     result['slides'] = fingerprint(
         ['content/slides/**/*', 'content/tex/courses/**/*', 'content/tex/core/**/*', 'content/tex/mada/**/*',
          'scripts/build-slides.py','build/mxbuild/slide_editions.py','build/mxbuild/mada.py'], {'chapters':manifest['catalog']['chapters'],'courses':manifest['catalog']['courses']})
-    result['slide-exports']=fingerprint(['scripts/export-slides.py','site/js/live-curriculum.js','content/data/edition.json','build/mxbuild/refresh.py','build/mxbuild/slide_editions.py','site/slides/*','site/js/canvas-navigation.js','site/js/camera3d.js','site/js/lab/**/*','site/js/math.js','site/js/object-kit.js','site/js/fourier-model.js','site/js/gallery/gallery-math.js','site/js/inference-content.js','dist/slides/data/*.json','dist/slides/fig/*.svg'])
+    result['slide-exports']=fingerprint(['scripts/export-slides.py','site/js/live-curriculum.js','site/js/edition-scope.js','content/data/edition.json','editions/*/scope.json','build/mxbuild/refresh.py','build/mxbuild/slide_editions.py','site/slides/*','site/js/canvas-navigation.js','site/js/camera3d.js','site/js/lab/**/*','site/js/math.js','site/js/object-kit.js','site/js/fourier-model.js','site/js/gallery/gallery-math.js','site/js/inference-content.js','dist/slides/data/*.json','dist/slides/fig/*.svg'])
     result['lectures']=fingerprint(['scripts/build-lecture-slides.py','content/tex/core/**/*','build/mxbuild/slide_editions.py','dist/slides/data/*.json','dist/slides/fig/*.svg'])
     result['sources'] = fingerprint(['content/tex/courses/**/*', 'content/tex/core/**/*',
                                      'scripts/publish-sources.py'],

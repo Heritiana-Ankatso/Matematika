@@ -6,7 +6,7 @@ dist/ is what the host serves and is committed (the host has no build step). It 
     js/enrichment-data.js), written by the other pipeline steps.
 Edit site/, never the dist/ copies; `python -m mxbuild site --check` fails when a copy differs from its source.
 """
-import hashlib, json, re, shutil
+import hashlib, json, os, re, shutil
 from . import ROOT, DIST
 
 SITE = ROOT / 'site'
@@ -24,9 +24,21 @@ NAMED_PAGES = {'index.html', 'slides/player.html', 'resources/basics/fractions.h
                'resources/history/mathematicians-timeline.html'}
 
 
+EDITION_ID = os.environ.get('MX_EDITION', 'matematika')   # editions/<id>/scope.json; only the home edition is built here so far
+SCOPE = json.loads((ROOT / 'editions' / EDITION_ID / 'scope.json').read_text(encoding='utf-8'))
+SCOPE_MODULE = 'js/edition-scope.js'
+
+
 def full_edition():
-    m = re.search(r'^export const FULL_EDITION = (true|false);', (SITE / 'js' / 'live-curriculum.js').read_text(encoding='utf-8'), re.M)
-    return m.group(1) == 'true'
+    return bool(SCOPE['full'])
+
+
+def scope_module():
+    """Text of the served js/edition-scope.js for the edition being built."""
+    return ("// The edition this build serves. Source copy = the home edition (Matematika, editions/matematika/scope.json); the build\n"
+            "// (build/mxbuild/site.py) writes the served copy from the scope file of the edition it builds (MX_EDITION).\n"
+            f"export const EDITION_ID = '{SCOPE['id']}';\n"
+            f"export const FULL_EDITION = {'true' if SCOPE['full'] else 'false'};\n")
 
 
 def edition_name():
@@ -45,6 +57,8 @@ def served(src):
     named pages."""
     data = src.read_bytes()
     rel = src.relative_to(SITE).as_posix()
+    if rel == SCOPE_MODULE:
+        return scope_module().encode('utf-8')
     if full_edition() and rel in NAMED_PAGES:
         data = edition_text(data.decode('utf-8')).encode('utf-8')
     return data

@@ -1,0 +1,5 @@
+{
+  "about": "Scope of one edition built from this source (docs/MONOREPO_PLAN.md). Read by build/mxbuild/site.py, which writes site/js/edition-scope.js into the served copy. 'full' is the old FULL_EDITION flag: true shows every curriculum and collection, false only the French lycée curriculum and the general collections.",
+  "id": "matematika",
+  "full": true
+}

@@ -51,6 +51,7 @@ Pick the row of your feature and open only its files. One-line descriptions are 
 | `js/nav-flyout.js` | hover and focus flyouts of the main menu (panels rendered by `header()` in `app.js`), and hover-open for the header folding menus; desktop only, mouse only |
 | `js/resource-editions.js` | exact language edition selection, available language labels and complete pack checks |
 | `js/content-language.js` | language of each route (neutral pages vs curriculum pages) |
+| `js/edition-scope.js` | the edition served (`EDITION_ID`, `FULL_EDITION`); source copy is the home edition, the build writes the served copy from `editions/<id>/scope.json` |
 | `js/live-curriculum.js` | shared live visibility policy: French courses, filtered catalogues, route and discovery scope; complete data is retained |
 | `js/data-loader.js` | `assetHref` (versioned URLs), `fetchJSON` |
 | `js/catalogue-data.js` | GENERATED from `content/data/manifest.json`: courses, university, asset versions |

@@ -11,7 +11,7 @@ STUDENT = "try{if(!localStorage.getItem('mx-teacher-entry'))localStorage.setItem
 
 BASE = os.environ.get('MATHS_EXPLORER_URL', 'http://localhost:4173/')
 COURSES = ['seconde', 'premiere', 'terminale', 'expertes', 'stmg']
-FULL = re.search(r'^export const FULL_EDITION = (true|false);', (Path(__file__).resolve().parents[1] / 'site/js/live-curriculum.js')
+FULL = re.search(r'^export const FULL_EDITION = (true|false);', (Path(__file__).resolve().parents[1] / 'site/js/edition-scope.js')
                  .read_text(encoding='utf-8'), re.M).group(1) == 'true'
 
 with sync_playwright() as p:
