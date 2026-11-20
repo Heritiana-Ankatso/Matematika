@@ -4,7 +4,7 @@
 
 Same as Maths-explorer #68, #69 and #70: measurements for Galton, Reuleaux and Platonic solids; `#gallery/self-similar`
 (Cantor, Koch, carpet, Menger, tetrahedron stage by stage); `#gallery/polyhedra` (corner cutting from a Platonic solid
-to its dual); the skills `frontend-design` and `web-design-guidelines` in `.claude/skills/`; the one-row phone header.
+to its dual); the challenge `#challenges/braess` (Braess's paradox, Maths-explorer #71); the skills `frontend-design` and `web-design-guidelines` in `.claude/skills/`; the one-row phone header.
 Not yet mirrored from Maths-explorer: Morley's triangle (#61) and design v8 "Bande dessinée" (#66), waiting for the
 owner's decision.
 
