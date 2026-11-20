@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Malagasy curriculum books (T10, T11 S): chapter and supplement PDFs cut from the owner's compiled books, and their manifest records.
+"""Malagasy curriculum books (T10, T11 S, T12 C and D): chapter and supplement PDFs cut from the compiled books, and their manifest records.
 
 The books are written in a separate repository (Mada-Boky, LaTeX). This script reads its four compiled PDFs, cuts them by their
 tables of contents (bookmarks), clears the PDF metadata, writes dist/resources/<chapter>/{chapter,teacher}.pdf and the
@@ -8,12 +8,16 @@ content/data/manifest.json (labs and topics are authored in the tables below). R
 
   python3 scripts/build-mada.py --books <Mada-Boky>/Livres            # use the PDFs already compiled there
   python3 scripts/build-mada.py --books <Mada-Boky>/Livres --compile  # compile both editions of both books first
+  python3 scripts/build-mada.py --t12                                 # T12 C and D: compile content/tex/mada/t12 (pdfLaTeX, build-only
+                                                                      # stand-ins of build/mxbuild/t12.py), cut, check every page
+  python3 scripts/build-mada.py --t12 --t12-pdfs <folder>             # same, from t12-eleve.pdf and t12-prof.pdf already compiled
+Each run rebuilds only the courses it was asked for and keeps the records of the others.
 
 Compiling on a TeX installation without the Palatino fonts of mathpazo: put a stand-in mathpazo.sty that loads newpx first on
 TEXINPUTS (see the T10 note in docs/CURRICULUM.md). Only chapter pages are published: the front pages of the books (preface,
 working notes) are never cut into a resource.
 """
-import argparse, datetime, hashlib, json, os, subprocess, sys
+import argparse, datetime, hashlib, json, os, re, shutil, subprocess, sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -59,7 +63,28 @@ T11S = [
 ]
 # the companion lessons of chapter pages name some topics differently from the study guides (same pairs as the French courses)
 COMPANION_TOPIC = {'logic': 'reasoning', 'reals': 'intervals', 'function-limits': 'limitsfunction', 'scalar': 'vectors', 'geometry': 'lines',
-                   'counting': 'combinatorics', 'random': 'randomvariables'}
+                   'counting': 'combinatorics', 'random': 'randomvariables', 'differential': 'primitives'}
+# T12 C and D: one source (content/tex/mada/t12/chapitres.json), two courses; the chapter order of each course is in that file.
+# Per book chapter number: (English title, study-guide topic, laboratory references). French titles come from chapitres.json.
+T12 = {
+    1: ('Arithmetic', 'arithmetic', ['euler-primes/hunt']),
+    2: ('Probability', 'binomial', ['probability/run']),
+    3: ('Linear systems in R³', 'algebra', ['line/direction']),
+    4: ('Complex numbers', 'complex-algebra', ['complex/scale']),
+    5: ('Barycentres', 'vectors', []),
+    6: ('Affine maps and isometries', 'geometry', []),
+    7: ('Plane similarities', 'complex-plane', ['complex/angles']),
+    8: ('Sequences', 'sequences', ['sequences/formula']),
+    9: ('Functions', 'functions', ['derivative/where']),
+    10: ('Exponential and logarithm', 'exponential', []),
+    11: ('Statistics', 'statistics', ['statistics/mean']),
+    12: ('Primitives and integrals', 'integral', ['integral/bound']),
+    13: ('Differential equations', 'differential', []),
+}
+T12_SERIES = {'t12c': 'C', 't12d': 'D'}
+T12_BOOKS = {'t12-eleve.pdf': 'Manuel de mathématiques T12 C et D, édition élève', 't12-prof.pdf': 'Manuel de mathématiques T12 C et D, édition professeur'}
+T12_COURSES = [{'id': 't12c', 'title': ['T12 série C', 'T12 C · Malagasy curriculum'], 'curriculum': 'mg', 'contentLanguage': 'fr'},
+               {'id': 't12d', 'title': ['T12 série D', 'T12 D · Malagasy curriculum'], 'curriculum': 'mg', 'contentLanguage': 'fr'}]
 COURSES = [
     {'id': 't10', 'title': ['T10', 'T10 · Malagasy curriculum'], 'curriculum': 'mg', 'contentLanguage': 'fr'},
     {'id': 't11s', 'title': ['T11 série S', 'T11 S · Malagasy curriculum'], 'curriculum': 'mg', 'contentLanguage': 'fr'},
@@ -102,11 +127,15 @@ def span(toc, i, pages):
     return [start, pages]
 
 
+CUTS = {}
+
+
 def write_pdf(src, ranges, out, title):
     import pymupdf
     out.parent.mkdir(parents=True, exist_ok=True)
-    d = pymupdf.open()
-    for a, b in ranges: d.insert_pdf(src, from_page=a - 1, to_page=b - 1)
+    d = pymupdf.open(); starts = []
+    for a, b in ranges: starts.append(len(d)); d.insert_pdf(src, from_page=a - 1, to_page=b - 1)
+    CUTS[out] = starts   # first page of each cut: a chapter opening page has no running footer
     d.set_metadata({'title': title, 'author': '', 'subject': '', 'keywords': '', 'creator': '', 'producer': ''})
     d.set_toc([])
     d.save(out, garbage=4, deflate=True, no_new_id=True)
@@ -115,15 +144,30 @@ def write_pdf(src, ranges, out, title):
 
 def main():
     import pymupdf
-    ap = argparse.ArgumentParser(); ap.add_argument('--books', required=True, type=Path); ap.add_argument('--compile', action='store_true')
-    a = ap.parse_args(); livres = a.books.resolve()
-    if a.compile: compile_books(livres)
-    docs = {name: pymupdf.open(livres / path) for name, (path, _) in BOOKS.items()}
+    ap = argparse.ArgumentParser(); ap.add_argument('--books', type=Path); ap.add_argument('--compile', action='store_true')
+    ap.add_argument('--t12', action='store_true'); ap.add_argument('--t12-pdfs', type=Path)
+    a = ap.parse_args()
+    if not (a.books or a.t12): ap.error('give --books <Mada-Boky>/Livres (T10, T11 S) and/or --t12 (T12 C and D)')
+    docs, tocs, paths, rebuilt = {}, {}, {}, []
+    if a.books:
+        livres = a.books.resolve()
+        if a.compile: compile_books(livres)
+        for name, (path, _) in BOOKS.items(): paths[name] = livres / path
+        rebuilt += ['t10', 't11s']
+    if a.t12:
+        if a.t12_pdfs: out = {'eleve': a.t12_pdfs / 't12-eleve.pdf', 'prof': a.t12_pdfs / 't12-prof.pdf'}
+        else:
+            from mxbuild import t12 as t12build
+            out = t12build.compile_all()
+        paths['t12-eleve.pdf'], paths['t12-prof.pdf'] = Path(out['eleve']).resolve(), Path(out['prof']).resolve()
+        rebuilt += ['t12c', 't12d']
+    docs = {name: pymupdf.open(path) for name, path in paths.items()}
     tocs = {name: entries(d) for name, d in docs.items()}
     m = catalog.load(); cat, comp = m['catalog'], m['companion']
-    for course in COURSES:   # replace the records of these courses, keep everything else
-        cat['courses'] = [c for c in cat['courses'] if c['id'] != course['id']] + [course]
-    ours = lambda cid: cid.split('-')[0] in ('t10', 't11s')
+    all_courses = COURSES + T12_COURSES
+    for course in all_courses:   # replace the records of the courses rebuilt now, keep everything else
+        if course['id'] in rebuilt: cat['courses'] = [c for c in cat['courses'] if c['id'] != course['id']] + [course]
+    ours = lambda cid: cid.split('-')[0] in rebuilt
     cat['chapters'] = [c for c in cat['chapters'] if not ours(c['id'])]
     cat['resources'] = [r for r in cat['resources'] if not ours(r['chapter'])]
     comp['chapters'] = [c for c in comp['chapters'] if not ours(c['id'])]
@@ -131,22 +175,26 @@ def main():
     made = []
 
     def chapter(course, n, title, topic, labs, student, teacher):
+        """One chapter: the student PDF, and the teacher PDF only when `teacher` is given (T12: only where answers exist)."""
         cid = f'{course}-{n:02d}'; base = DIST / 'resources' / cid
         write_pdf(docs[student[0]], student[1], base / 'chapter.pdf', title[0])
-        write_pdf(docs[teacher[0]], teacher[1], base / 'teacher.pdf', title[0] + ' (professeur)')
+        if teacher: write_pdf(docs[teacher[0]], teacher[1], base / 'teacher.pdf', title[0] + ' (professeur)')
+        elif (base / 'teacher.pdf').exists(): (base / 'teacher.pdf').unlink()
         cat['chapters'].append({'id': cid, 'course': course, 'number': n, 'title': title, 'topic': topic, 'labs': labs})
-        for kind, rtype, aud, label, (src, ranges) in (
+        for kind, rtype, aud, label, part in (
                 ('chapter', 'booklet', 'student', ['Chapitre complet · élève', 'Complete chapter · student'], student),
                 ('teacher', 'solutions', 'teacher', ['Chapitre complet · professeur (cours et corrigés)', 'Complete chapter · teacher (notes and solutions)'], teacher)):
+            if not part: continue
+            src, ranges = part
             path = f'./resources/{cid}/{kind}.pdf'
             rec = {'id': f'{cid}-{kind}', 'chapter': cid, 'course': course, 'type': rtype, 'title': label, 'audience': aud, 'format': 'PDF',
                    'url': path, 'source': catalog_name(src), 'sourcePages': ranges[0], 'review': 'source-unverified', 'editions': {'fr': {'path': path}}}
             if len(ranges) > 1: rec['sourcePagesExtra'] = ranges[1:]
             cat['resources'].append(rec)
-        comp['chapters'].append({'id': cid, 'course': course, 'number': n, 'title': title, 'topic': COMPANION_TOPIC.get(topic, topic), 'files': [
-            {'kind': 'chapter', 'source': student[0], 'start': student[1][0][0], 'path': f'resources/{cid}/chapter.pdf', 'editions': {'fr': {'path': f'resources/{cid}/chapter.pdf'}}},
-            {'kind': 'teacher', 'source': teacher[0], 'start': teacher[1][0][0], 'path': f'resources/{cid}/teacher.pdf', 'editions': {'fr': {'path': f'resources/{cid}/teacher.pdf'}}}]})
-        made.append((cid, student[1], teacher[1]))
+        files = [{'kind': 'chapter', 'source': student[0], 'start': student[1][0][0], 'path': f'resources/{cid}/chapter.pdf', 'editions': {'fr': {'path': f'resources/{cid}/chapter.pdf'}}}]
+        if teacher: files.append({'kind': 'teacher', 'source': teacher[0], 'start': teacher[1][0][0], 'path': f'resources/{cid}/teacher.pdf', 'editions': {'fr': {'path': f'resources/{cid}/teacher.pdf'}}})
+        comp['chapters'].append({'id': cid, 'course': course, 'number': n, 'title': title, 'topic': COMPANION_TOPIC.get(topic, topic), 'files': files})
+        made.append((cid, student[1], teacher[1] if teacher else None))
 
     def supplement(sid, course, kind, title, student, teacher):
         files = []
@@ -158,42 +206,119 @@ def main():
         comp['supplements'].append({'id': sid, 'course': course, 'kind': kind, 'title': title, 'files': files})
         made.append((sid, student[1] if student else None, teacher[1] if teacher else None))
 
-    # ---- T10: chapters are level-2 bookmarks under the parts; the teacher's solutions are under "Corrigés", one per chapter
-    ts, tp = tocs['t10-eleve.pdf'], tocs['t10-prof.pdf']; ns, np_ = len(docs['t10-eleve.pdf']), len(docs['t10-prof.pdf'])
-    sol = find(tp, 'Corrigés', 2)
-    for n, (prefix, title, topic, labs) in enumerate(T10, 1):
-        i, j = find(ts, prefix, 2), find(tp, prefix, 2)
-        k = find(tp, f'Chapitre {n} ', 3, after=sol)
-        chapter('t10', n, title, topic, labs, ('t10-eleve.pdf', [span(ts, i, ns)]), ('t10-prof.pdf', [span(tp, j, np_), span(tp, k, np_)]))
-    bank_sol = find(tp, 'Corrigés de la banque', 2)
-    supplement('t10-fluency', 't10', 'fluency', ['Automatismes de chaque séance', 'Fluency starters for every lesson'],
-               ('t10-eleve.pdf', [span(ts, find(ts, 'Automatismes de chaque', 2), ns)]), ('t10-prof.pdf', [span(tp, find(tp, 'Automatismes de chaque', 2), np_)]))
-    supplement('t10-assessments', 't10', 'assessments', ['Banque d’exercices et de problèmes', 'Bank of exercises and problems'],
-               ('t10-eleve.pdf', [span(ts, find(ts, 'Banque d', 2), ns)]), ('t10-prof.pdf', [span(tp, find(tp, 'Banque d', 2), np_), span(tp, bank_sol, np_)]))
-    supplement('t10-guide', 't10', 'planning', ['Guide du professeur et progression', 'Teacher guide and yearly plan'], None,
-               ('t10-prof.pdf', [span(tp, find(tp, 'Guide du professeur', None), np_)]))
-    # ---- T11 S: chapters are level-1 bookmarks; the teacher edition interleaves notes and solutions in each chapter
-    ss, sp = tocs['t11s-eleve.pdf'], tocs['t11s-prof.pdf']; ns, np_ = len(docs['t11s-eleve.pdf']), len(docs['t11s-prof.pdf'])
-    for n, (prefix, title, topic, labs) in enumerate(T11S, 1):
-        chapter('t11s', n, title, topic, labs, ('t11s-eleve.pdf', [span(ss, find(ss, prefix, 1), ns)]), ('t11s-prof.pdf', [span(sp, find(sp, prefix, 1), np_)]))
-    evals = lambda toc, pages: [span(toc, i, pages) for i, (lv, t, _) in enumerate(toc) if lv == 1 and (t.startswith('Évaluation') or t.startswith('Sujet de synthèse'))]
-    supplement('t11s-assessments', 't11s', 'assessments', ['Évaluations et sujets de synthèse', 'Assessments and synthesis papers'], ('t11s-eleve.pdf', evals(ss, ns)), ('t11s-prof.pdf', evals(sp, np_)))
-    supplement('t11s-formulas', 't11s', 'formulas', ['Formulaire et glossaire', 'Formulas and glossary'],
-               ('t11s-eleve.pdf', [span(ss, find(ss, 'Formulaire', 1), ns), span(ss, find(ss, 'Glossaire', 1), ns)]),
-               ('t11s-prof.pdf', [span(sp, find(sp, 'Formulaire', 1), np_), span(sp, find(sp, 'Glossaire', 1), np_)]))
-    supplement('t11s-planning', 't11s', 'planning', ['Progression indicative', 'Suggested yearly plan'], None, ('t11s-prof.pdf', [span(sp, find(sp, 'Progression indicative', 1), np_)]))
+    if a.books:
+        # ---- T10: chapters are level-2 bookmarks under the parts; the teacher's solutions are under "Corrigés", one per chapter
+        ts, tp = tocs['t10-eleve.pdf'], tocs['t10-prof.pdf']; ns, np_ = len(docs['t10-eleve.pdf']), len(docs['t10-prof.pdf'])
+        sol = find(tp, 'Corrigés', 2)
+        for n, (prefix, title, topic, labs) in enumerate(T10, 1):
+            i, j = find(ts, prefix, 2), find(tp, prefix, 2)
+            k = find(tp, f'Chapitre {n} ', 3, after=sol)
+            chapter('t10', n, title, topic, labs, ('t10-eleve.pdf', [span(ts, i, ns)]), ('t10-prof.pdf', [span(tp, j, np_), span(tp, k, np_)]))
+        bank_sol = find(tp, 'Corrigés de la banque', 2)
+        supplement('t10-fluency', 't10', 'fluency', ['Automatismes de chaque séance', 'Fluency starters for every lesson'],
+                   ('t10-eleve.pdf', [span(ts, find(ts, 'Automatismes de chaque', 2), ns)]), ('t10-prof.pdf', [span(tp, find(tp, 'Automatismes de chaque', 2), np_)]))
+        supplement('t10-assessments', 't10', 'assessments', ['Banque d’exercices et de problèmes', 'Bank of exercises and problems'],
+                   ('t10-eleve.pdf', [span(ts, find(ts, 'Banque d', 2), ns)]), ('t10-prof.pdf', [span(tp, find(tp, 'Banque d', 2), np_), span(tp, bank_sol, np_)]))
+        supplement('t10-guide', 't10', 'planning', ['Guide du professeur et progression', 'Teacher guide and yearly plan'], None,
+                   ('t10-prof.pdf', [span(tp, find(tp, 'Guide du professeur', None), np_)]))
+        # ---- T11 S: chapters are level-1 bookmarks; the teacher edition interleaves notes and solutions in each chapter
+        ss, sp = tocs['t11s-eleve.pdf'], tocs['t11s-prof.pdf']; ns, np_ = len(docs['t11s-eleve.pdf']), len(docs['t11s-prof.pdf'])
+        for n, (prefix, title, topic, labs) in enumerate(T11S, 1):
+            chapter('t11s', n, title, topic, labs, ('t11s-eleve.pdf', [span(ss, find(ss, prefix, 1), ns)]), ('t11s-prof.pdf', [span(sp, find(sp, prefix, 1), np_)]))
+        evals = lambda toc, pages: [span(toc, i, pages) for i, (lv, t, _) in enumerate(toc) if lv == 1 and (t.startswith('Évaluation') or t.startswith('Sujet de synthèse'))]
+        supplement('t11s-assessments', 't11s', 'assessments', ['Évaluations et sujets de synthèse', 'Assessments and synthesis papers'], ('t11s-eleve.pdf', evals(ss, ns)), ('t11s-prof.pdf', evals(sp, np_)))
+        supplement('t11s-formulas', 't11s', 'formulas', ['Formulaire et glossaire', 'Formulas and glossary'],
+                   ('t11s-eleve.pdf', [span(ss, find(ss, 'Formulaire', 1), ns), span(ss, find(ss, 'Glossaire', 1), ns)]),
+                   ('t11s-prof.pdf', [span(sp, find(sp, 'Formulaire', 1), np_), span(sp, find(sp, 'Glossaire', 1), np_)]))
+        supplement('t11s-planning', 't11s', 'planning', ['Progression indicative', 'Suggested yearly plan'], None, ('t11s-prof.pdf', [span(sp, find(sp, 'Progression indicative', 1), np_)]))
+    if a.t12: build_t12(docs, tocs, chapter, supplement)
 
     # ---- sources: name, title, date, hash and size of each compiled book (no path, no storage id)
-    for name, (path, title) in BOOKS.items():
-        data = (livres / path).read_bytes()   # the date is the compiled book's, so a rerun on the same books changes nothing
-        now = datetime.datetime.fromtimestamp((livres / path).stat().st_mtime, datetime.timezone.utc).strftime('%Y-%m-%dT%H:%M:%S.000Z')
+    book_titles = {name: title for name, (_, title) in BOOKS.items()} if a.books else {}
+    if a.t12: book_titles.update(T12_BOOKS)
+    for name, title in book_titles.items():
+        data = paths[name].read_bytes()   # the date is the compiled book's, so a rerun on the same books changes nothing
+        stamp = t12_epoch() if name.startswith('t12-') else paths[name].stat().st_mtime
+        now = datetime.datetime.fromtimestamp(stamp, datetime.timezone.utc).strftime('%Y-%m-%dT%H:%M:%S.000Z')
         rec = {'name': catalog_name(name), 'title': title, 'modified': now, 'sha256': hashlib.sha256(data).hexdigest(), 'bytes': len(data)}
         cat['sources'] = [s for s in cat['sources'] if s['name'] not in (name, rec['name'])] + [rec]
         comp['sources'] = [s for s in comp['sources'] if s['name'] != name] + [{'name': name, 'title': title, 'modified': now}]
     catalog.save(m)
     for item in made: print(*item)
-    print(f'build-mada: {sum(1 for x in made if not x[0].endswith(("fluency", "assessments", "guide", "formulas", "planning")))} chapters, '
+    if a.t12:   # footer and anonymity check on every page of every T12 PDF just written
+        from mxbuild import t12 as t12build
+        problems = [q for pdf in sorted(DIST.glob('resources/t12[cd]-*/*.pdf')) + sorted(DIST.glob('resources/t12[cd]-*.pdf')) for q in t12build.check_pdf(pdf, CUTS[pdf])]
+        if problems: raise SystemExit('build-mada: T12 PDF check failed:\n  ' + '\n  '.join(problems[:30]))
+    print(f'build-mada: {sum(1 for x in made if re.fullmatch(r"[a-z0-9]+-\d\d", x[0]))} chapters, '
           f'{len([s for s in comp["supplements"] if ours(s["id"])])} supplements')
+
+
+def t12_epoch():
+    from mxbuild import t12 as t12build
+    return t12build.source_epoch()
+
+
+def t12_layout(toc, pages):
+    """Where each part of the compiled T12 book is: chapters in book order, then the bookmarks of the supplements and the Bac parts.
+
+    Chapters are the level-2 bookmarks before "Problèmes", in the order of the chapter files; every later level-2 bookmark is
+    classified by its title (statement or solution, series, year from its level-3 bookmarks)."""
+    level2 = [(i, t) for i, (lv, t, _) in enumerate(toc) if lv == 2]
+    first_extra = next((k for k, (i, t) in enumerate(level2) if t.startswith('Problèmes')), None)
+    if first_extra is None: raise SystemExit('build-mada: T12 book has no "Problèmes" chapter')
+    chapters = [span(toc, i, pages) for i, _ in level2[:first_extra]]
+    out = {'chapters': chapters, 'problems': span(toc, level2[first_extra][0], pages), 'annexes': None, 'bac': {}, 'bac-solutions': {}, 'practice': {}, 'practice-solutions': {}}
+    for i, t in level2[first_extra + 1:]:
+        if t.startswith('Annexes'): out['annexes'] = span(toc, i, pages); continue
+        series = 'C' if re.search(r'série C|type C|série\s+C', t) else 'D' if re.search(r'série D|type D', t) else None
+        if series is None: raise SystemExit(f'build-mada: unclassified T12 bookmark {t!r}')
+        solutions = t.lower().startswith('corrigé')
+        practice = bool(re.match(r'(corrigés? des )?sujets?', t, re.I))
+        kind = ('practice' if practice else 'bac') + ('-solutions' if solutions else '')
+        years = {}; later = {}
+        j = i + 1
+        while j < len(toc) and toc[j][0] == 3:
+            ym = re.search(r'(\d{4})\s*$', toc[j][1])
+            key = int(ym.group(1)) if ym else toc[j][1]
+            # the teacher book prints each series' statements, then its corrigés, under one bookmark: a repeated year is the solution
+            (later if key in years and not solutions else years)[key] = span(toc, j, pages); j += 1
+        out[kind][series] = years
+        if later: out[kind + '-solutions'][series] = later
+    return out
+
+
+def build_t12(docs, tocs, chapter, supplement):
+    """T12 C and D: per-course chapters from one book, supplements, Bac statements per year and the checked corrections."""
+    for old in sorted((DIST / 'resources').glob('t12[cd]-*')):   # a rerun after the content changed must leave no orphan PDF
+        shutil.rmtree(old) if old.is_dir() else old.unlink()
+    data = json.loads((ROOT / 'content/tex/mada/t12/chapitres.json').read_text(encoding='utf8'))
+    book = {c['number']: c for c in data['chapters']}
+    st, pr = docs['t12-eleve.pdf'], docs['t12-prof.pdf']
+    ls, lp = t12_layout(tocs['t12-eleve.pdf'], len(st)), t12_layout(tocs['t12-prof.pdf'], len(pr))
+    if len(ls['chapters']) != len(book) or len(lp['chapters']) != len(book):
+        raise SystemExit(f'build-mada: the T12 book has {len(ls["chapters"])} chapters, chapitres.json lists {len(book)}')
+    def text(doc, r): return ''.join(l.replace(' ', '') for i in range(r[0] - 1, r[1]) for l in doc[i].get_text().splitlines() if not l.strip().isdigit())   # page numbers and spacing differ
+    differs = lambda a, b: text(st, a) != text(pr, b)   # the teacher edition prints the corrige environments: more text
+    size = lambda r: r[1] - r[0] + 1
+    answers = {number: differs(ls['chapters'][number - 1], lp['chapters'][number - 1]) for number in book}   # what the teacher edition really prints
+    for number, c in book.items():   # chapitres.json must say the same (tests/test_t12_sources.py fails otherwise); the book wins here
+        if bool(c['answers']) != answers[number]:
+            print(f'build-mada: WARNING chapter {number}: chapitres.json answers={c["answers"]} but the teacher edition {"differs" if answers[number] else "equals the student edition"}', file=sys.stderr)
+    for course, series in T12_SERIES.items():
+        for position, number in enumerate(data['courses'][course], 1):
+            c = book[number]; en, topic, labs = T12[number]
+            teacher = ('t12-prof.pdf', [lp['chapters'][number - 1]]) if answers[number] else None
+            chapter(course, position, [c['title'], en], topic, labs, ('t12-eleve.pdf', [ls['chapters'][number - 1]]), teacher)
+        for sid, key, title in (('problems', 'problems', ['Problèmes de synthèse', 'Synthesis problems']), ('annexes', 'annexes', ['Annexes : rappels', 'Appendices: reminders'])):
+            if not ls[key]: continue
+            teacher = ('t12-prof.pdf', [lp[key]]) if differs(ls[key], lp[key]) else None
+            supplement(f'{course}-{sid}', course, sid, title, ('t12-eleve.pdf', [ls[key]]), teacher)
+        for kind, label in (('bac', ('Baccalauréat série {s} {y}', 'Baccalauréat (Madagascar), series {s}, {y}')), ('practice', ('Sujet type {s} {y}', 'Practice paper type {s} {y}'))):
+            for year, rng in sorted(ls[kind].get(series, {}).items(), reverse=True):
+                teacher = None
+                sol = lp[kind + '-solutions'].get(series, {}).get(year)
+                if sol: teacher = ('t12-prof.pdf', [lp[kind][series][year], sol])
+                supplement(f'{course}-{kind}-' + re.sub(r'[^a-z0-9]+', '-', str(year).lower()).strip('-'), course, kind, [t.format(s=series, y=year) for t in label], ('t12-eleve.pdf', [rng]), teacher)
 
 
 if __name__ == '__main__':

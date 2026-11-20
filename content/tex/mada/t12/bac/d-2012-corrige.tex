@@ -1,0 +1,202 @@
+% Baccalauréat malgache, série D, 2012 : corrigé.
+\TCDBacAttribution{D}{2012}
+\providecommand{\Courbe}{(\mathscr{C})}
+\providecommand{\cm}{~\mathrm{cm}}
+\providecommand{\dx}{~\mathrm{d}x}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\noindent \underline{\textsc{\textbf{Exercice I}}} (5 points)
+	\begin{enumerate}
+		\item \vln{Calcul de $(2-i)^2$ :}
+			$(2-i)^2 = 4 - 4i + i^2$, donc \ansbox{$(2-i)^2 = 3 - 4i$.}
+
+			\vln{Résolution de $(E)$ :}
+			En multipliant par $-i$ (qui est non nul), $(E)$ équivaut à $z^2 - z + (1+i)(-i) = 0$,
+			soit $z^2 - z + 1 - i = 0$.
+			Le discriminant vaut $\Delta = 1 - 4(1-i) = -3 + 4i = -(3-4i) = i^2(2-i)^2 = \left(i(2-i)\right)^2 = (1+2i)^2$.
+			\[
+				z_1 = \frac{1 + (1+2i)}{2} = 1 + i, \qquad z_2 = \frac{1 - (1+2i)}{2} = -i.
+			\]
+
+			\ansbox{$S_{\mathbb{C}} = \left\lbrace -i\ ;\ 1+i \right\rbrace$.}
+		\item \begin{enumerate}
+			\item \vln{Solution réelle :}
+				Pour $x$ réel, $P(x) = \left(x^3 - 4x^2 + 7x - 4\right) + i\left(-x^2 + x\right)$.
+				$P(x) = 0$ impose $-x^2 + x = 0$, soit $x = 0$ ou $x = 1$.
+				Or $P(0) = -4 \neq 0$ et $1 - 4 + 7 - 4 = 0$, donc $P(1) = 0$.
+
+				\ansbox{$\alpha = 1$ est la solution réelle positive de $P(z) = 0$.}
+			\item \vln{Détermination de $a$ et $b$ :}
+				$(z-1)(z-2-2i) = z^2 - (3+2i)z + 2 + 2i$, puis
+				\[
+					(z-1)(z-2-2i)(az+b) = az^3 + \left(b - (3+2i)a\right)z^2 + \left((2+2i)a - (3+2i)b\right)z + (2+2i)b.
+				\]
+				Par identification : $a = 1$ ; $b - 3 - 2i = -4 - i$ donc $b = -1 + i$ ;
+				vérifications : $(2+2i)b = (2+2i)(-1+i) = -4$ \checkmark{} et
+				$(2+2i) - (3+2i)(-1+i) = 2 + 2i + 5 - i = 7 + i$ \checkmark.
+
+				\ansbox{$a = 1$, $b = -1 + i$ : $P(z) = (z-1)(z-2-2i)(z-1+i)$.}
+				Les solutions de $P(z) = 0$ sont donc $1$, $2+2i$ et $1-i$.
+		\end{enumerate}
+		\item \begin{enumerate}
+			\item \vln{Forme trigonométrique de $U$ :}
+				$U = \frac{(2+2i)(1+i)}{(1-i)(1+i)} = \frac{2 + 4i + 2i^2}{2} = 2i$.
+
+				\ansbox{$U = 2\left(\cos\frac{\pi}{2} + i\sin\frac{\pi}{2}\right)$.}
+			\item \vln{Nature de $OBC$ :}
+				$U = \frac{z_B - z_O}{z_C - z_O}$, donc $\left(\overrightarrow{OC},\overrightarrow{OB}\right) = \frac{\pi}{2}~[2\pi]$
+				et $OB = 2\,OC$.
+
+				\ansbox{$OBC$ est un triangle rectangle en $O$} (avec $OB = 2\,OC$, il n'est pas isocèle).
+		\end{enumerate}
+		\item \vln{Expression complexe de $S$ :}
+			Avec $z = x + iy$ et $z' = x' + iy'$ :
+			$z' = (x + y - 1) + i(-x + y + 2) = (x + iy) - i(x + iy) + (-1 + 2i)$, car
+			$(1-i)(x+iy) = (x+y) + i(y-x)$.
+
+			\ansbox{$S : z' = (1-i)z - 1 + 2i$.}
+
+			\vln{Éléments caractéristiques :}
+			$1 - i = \sqrt{2}\left(\cos\left(-\frac{\pi}{4}\right) + i\sin\left(-\frac{\pi}{4}\right)\right)$ :
+			le rapport est $\sqrt{2}$, l'angle $-\frac{\pi}{4}$.
+			Le centre $\Omega$ vérifie $\omega = (1-i)\omega - 1 + 2i$, soit $i\omega = -1 + 2i$, d'où
+			$\omega = \frac{-1+2i}{i} = 2 + i$.
+
+			\ansbox{$S$ est la similitude directe de centre $\Omega(2+i)$, de rapport $\sqrt{2}$ et d'angle $-\frac{\pi}{4}$.}
+	\end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\noindent \underline{\textsc{\textbf{Exercice II}}} (5 points) \newline
+	Un prélèvement est une combinaison de $3$ poissons parmi $10$ : il y en a $\Comb{10}{3} = 120$, équiprobables.
+	\begin{enumerate}
+		\item \begin{itemize}
+			\item \vln{$E_1$ :} les $3$ poissons sont pris parmi les $7$ qui ne sont pas des tanches :
+				$P(E_1) = \frac{\Comb{7}{3}}{120} = \frac{35}{120}$, \ansbox{$P(E_1) = \frac{7}{24}$.}
+			\item \vln{$E_2$ :} l'événement contraire est << aucune carpe >>, de probabilité $\frac{\Comb{8}{3}}{120} = \frac{56}{120}$.
+				$P(E_2) = 1 - \frac{56}{120} = \frac{64}{120}$, \ansbox{$P(E_2) = \frac{8}{15}$.}
+			\item \vln{$E_3$ :} $2$ gardons parmi $5$ et $1$ autre poisson parmi $5$ :
+				$P(E_3) = \frac{\Comb{5}{2}\times\Comb{5}{1}}{120} = \frac{50}{120}$, \ansbox{$P(E_3) = \frac{5}{12}$.}
+		\end{itemize}
+		\item On répète $4$ fois, de façon indépendante, une épreuve dont le << succès >> $E_3$ a la probabilité $p = \frac{5}{12}$ :
+			$X$ suit la loi binomiale $\mathscr{B}\left(4;\frac{5}{12}\right)$.
+			\textit{(L'énoncé écrit $E(x)$, $V(x)$ et $P(x\leq 3)$ : il s'agit de $E(X)$, $V(X)$ et $P(X \leq 3)$.)}
+			\begin{enumerate}
+				\item \vln{Loi de $X$ :} $X(\Omega) = \{0;1;2;3;4\}$ et
+					$P(X = k) = \Comb{4}{k}\left(\frac{5}{12}\right)^k\left(\frac{7}{12}\right)^{4-k} = \frac{\Comb{4}{k}\,5^k\,7^{4-k}}{20\,736}$.
+					\[
+					\begin{array}{|c|c|c|c|c|c|}
+						\hline
+						k & 0 & 1 & 2 & 3 & 4 \\ \hline
+						P(X=k) & \frac{2\,401}{20\,736} & \frac{6\,860}{20\,736} = \frac{1\,715}{5\,184} & \frac{7\,350}{20\,736} = \frac{1\,225}{3\,456}
+							& \frac{3\,500}{20\,736} = \frac{875}{5\,184} & \frac{625}{20\,736} \\[1ex] \hline
+					\end{array}
+					\]
+					(La somme des numérateurs sur $20\,736$ vaut $2\,401 + 6\,860 + 7\,350 + 3\,500 + 625 = 20\,736$.)
+				\item \vln{Espérance et variance :}
+					pour une loi binomiale, $E(X) = np = 4 \times \frac{5}{12}$ et $V(X) = np(1-p) = 4\times\frac{5}{12}\times\frac{7}{12}$.
+
+					\ansbox{$E(X) = \frac{5}{3}$ et $V(X) = \frac{35}{36}$.}
+				\item \vln{Calcul de $P(X \leq 3)$ :}
+					$P(X \leq 3) = 1 - P(X = 4) = 1 - \frac{625}{20\,736}$.
+
+					\ansbox{$P(X \leq 3) = \frac{20\,111}{20\,736}$.}
+			\end{enumerate}
+	\end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\noindent \underline{\textsc{\textbf{Probleme}}} (10 points)
+	\begin{description}
+		\item[I.]
+			\begin{enumerate}
+				\item \vln{Dérivée et variations de $g$ :}
+					$g'(x) = 2x - \frac{2}{x} = \frac{2(x^2 - 1)}{x} = \frac{2(x-1)(x+1)}{x}$.
+					Sur $]0;+\infty[$, $x > 0$ et $x + 1 > 0$ : $g'(x)$ a le signe de $x - 1$.
+
+					\ansbox{$g$ est strictement décroissante sur $]0;1]$ et strictement croissante sur $[1;+\infty[$.}
+				\item \vln{Signe de $g$ :}
+					$g(1) = 1 + 2 - 0 = 3$. D'après les variations, $g(1) = 3$ est le minimum de $g$ sur $]0;+\infty[$ :
+					pour tout $x > 0$, $g(x) \geq 3 > 0$.
+
+					\ansbox{$g(x) > 0$ pour tout $x \in\ ]0;+\infty[$.}
+			\end{enumerate}
+		\item[II.]
+			\begin{enumerate}
+				\item \begin{enumerate}
+					\item \vln{Limite en $0^+$ :}
+						$\lim_{x\to0^+}\ln x = -\infty$ et $\lim_{x\to 0^+}\frac{1}{x} = +\infty$, donc $\frac{2\ln x}{x} \to -\infty$,
+						et $x - 1 \to -1$.
+
+						\ansbox{$\lim_{x\to 0^+} f(x) = -\infty$ :} la droite d'équation $x = 0$ (axe des ordonnées) est asymptote verticale à $\Courbe$.
+					\item \vln{Limite en $+\infty$ :}
+						$\lim_{x\to+\infty}\frac{\ln x}{x} = 0$ et $x - 1 \to +\infty$, donc \ansbox{$\lim_{x\to+\infty} f(x) = +\infty$.}
+				\end{enumerate}
+				\item \begin{enumerate}
+					\item \vln{Asymptote oblique :}
+						$f(x) - (x-1) = \frac{2\ln x}{x} \to 0$ quand $x \to +\infty$ :
+
+						\ansbox{$(\Delta) : y = x - 1$ est asymptote oblique à $\Courbe$ en $+\infty$.}
+					\item \vln{Position :} $f(x) - (x-1) = \frac{2\ln x}{x}$ a le signe de $\ln x$ (car $x > 0$).
+
+						\ansbox{$\Courbe$ est au-dessous de $(\Delta)$ sur $]0;1[$, au-dessus sur $]1;+\infty[$ ;}
+						elles se coupent au point $(1;0)$.
+				\end{enumerate}
+				\item \begin{enumerate}
+					\item \vln{Dérivée :}
+						$\left(\frac{\ln x}{x}\right)' = \frac{\frac{1}{x}\cdot x - \ln x}{x^2} = \frac{1 - \ln x}{x^2}$, donc
+						\[
+							f'(x) = 1 + \frac{2 - 2\ln x}{x^2} = \frac{x^2 + 2 - 2\ln x}{x^2} = \frac{g(x)}{x^2}.
+						\]
+						\textit{(Dans l'énoncé, << où $f$ désigne la fonction dérivée de $f$ >> doit se lire << où $f'$ désigne la fonction dérivée de $f$ >>.)}
+					\item \vln{Signe de $f'$ :} $x^2 > 0$ sur $]0;+\infty[$, donc $f'(x)$ a le signe de $g(x)$ :
+
+						\ansbox{$f'(x) > 0$ pour tout $x > 0$.}
+					\item \vln{Tableau de variation :}
+						\[
+						\begin{array}{c|ccc}
+							x & 0 & & +\infty \\ \hline
+							f'(x) & \| & + & \\ \hline
+							f(x) & \| \; -\infty & \nearrow & +\infty
+						\end{array}
+						\]
+				\end{enumerate}
+				\item \begin{enumerate}
+					\item \vln{Tangente en $x_0 = 1$ :} $f(1) = 0$ et $f'(1) = \frac{g(1)}{1} = 3$.
+
+						\ansbox{$(T) : y = 3x - 3$.}
+					\item \vln{Construction :} (figure à l'échelle $\frac{1}{2}$ : $1$ unité représentée par $1\cm$).
+						\begin{center}
+						\begin{tikzpicture}[x=1cm,y=1cm,>=stealth]
+							\draw[very thin,gray!40] (-1,-5) grid (6,6);
+							\draw[->] (-1,0) -- (6.3,0) node[below] {$x$};
+							\draw[->] (0,-5) -- (0,6.3) node[left] {$y$};
+							\draw (1,0) node[below right] {\small $1$} (0,1) node[left] {\small $1$};
+							\clip (-1,-5) rectangle (6,6);
+							\draw[loko3,thick] plot[domain=-1:6] (\x,{\x-1});
+							\draw[gray,thick] plot[domain=-0.6:2.9] (\x,{3*\x-3});
+							\draw[loko1,very thick,smooth,samples=100] plot[domain=0.4:6] (\x,{\x-1+2*ln(\x)/\x});
+							\node[loko3] at (5.3,3.6) {$(\Delta)$};
+							\node[gray] at (2.4,5.2) {$(T)$};
+							\node[loko1] at (4.4,4.5) {$\Courbe$};
+							\fill (1,0) circle (2pt);
+						\end{tikzpicture}
+						\end{center}
+				\end{enumerate}
+				\item \begin{enumerate}
+					\item \vln{Dérivée de $h$ :} $h'(x) = \frac{1}{2}\times 2\ln x \times \frac{1}{x}$, \ansbox{$h'(x) = \frac{\ln x}{x}$.}
+
+						\vln{Calcul de $I(\alpha)$ :}
+						Une primitive de $f$ sur $]0;+\infty[$ est $F(x) = \frac{x^2}{2} - x + 2h(x) = \frac{x^2}{2} - x + (\ln x)^2$. Donc
+						\[
+							I(\alpha) = F(\alpha) - F(1) = \frac{\alpha^2}{2} - \alpha + (\ln\alpha)^2 - \left(\frac{1}{2} - 1\right).
+						\]
+
+						\ansbox{$I(\alpha) = \frac{\alpha^2}{2} - \alpha + (\ln \alpha)^2 + \frac{1}{2}$.}
+					\item \vln{Aire :}
+						$f$ est croissante et $f(1) = 0$, donc $f(x) \geq 0$ sur $[1;\expo{}]$. L'unité d'aire vaut $2\cm\times2\cm = 4\cm^2$ :
+						\[
+							A = 4\,I(\expo{}) = 4\left(\frac{\expo{2}}{2} - \expo{} + 1 + \frac{1}{2}\right) = \left(2\expo{2} - 4\expo{} + 6\right)\cm^2.
+						\]
+
+						\ansbox{$A = \left(2\expo{2} - 4\expo{} + 6\right)\cm^2 \simeq 9{,}78\cm^2$} avec $\expo{} \simeq 2{,}7$
+						(la valeur exacte arrondie est $9{,}90\cm^2$).
+				\end{enumerate}
+			\end{enumerate}
+	\end{description}

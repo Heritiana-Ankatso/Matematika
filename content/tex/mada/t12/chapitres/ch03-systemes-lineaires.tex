@@ -4,8 +4,8 @@
 \TCDLessonStyleOn
 \chapter{Syst\`emes d'\'equations lin\'eaires dans $\mathbb{R}^3$}
 \index{Systeme lineaire@Syst\`emes lin\'eaires}
-On s'interesse \`a la r\'esolution de syst\`emes de trois \'equations lin\'eaires \`a trois inconnues ;
-c'est-\`a-dire \`a des \'equations de la forme :
+On s'int\'eresse \`a la r\'esolution de syst\`emes de trois \'equations lin\'eaires \`a trois inconnues ;
+c'est-\`a-dire \`a des syst\`emes de la forme :
 \[
 	\begin{multiform}
 		a_1 x + b_1 y + c_1 z = d_1	\\
@@ -230,6 +230,36 @@ la m\'ethode de r\'esolution \'etant essentiellement similaire.
 			      \item $z = 3 \cdot 2 + 3 - 11 = -2$.
 			\end{itemize}
 			La solution est donc \mybox{$(x,y,z) = (2,3,-2)$}.
+            \subsection{Syst\`emes sans solution ou avec une infinit\'e de solutions}
+\index{Systeme lineaire@Syst\`emes lin\'eaires!impossible}
+\index{Systeme lineaire@Syst\`emes lin\'eaires!indetermine@ind\'etermin\'e}
+            Un syst\`eme lin\'eaire de trois \'equations \`a trois inconnues a soit une solution unique,
+            soit aucune solution (on dit qu'il est \emph{impossible}), soit une infinit\'e de solutions (on dit qu'il est \emph{ind\'etermin\'e}).
+            La m\'ethode de Gauss permet de le savoir : si, au cours des \'eliminations, on obtient une \'egalit\'e
+            \begin{itemize}
+                  \item fausse, du type $0 = 5$, le syst\`eme n'a aucune solution ;
+                  \item toujours vraie, du type $0 = 0$, une \'equation est cons\'equence des autres : on garde les \'equations restantes,
+                        on choisit une inconnue comme param\`etre et on exprime les autres en fonction de ce param\`etre.
+            \end{itemize}
+            \begin{ex}
+                  Consid\'erons
+                  $\left\lbrace
+                        \begin{array}{lc}
+                              x + y + z = 2 & (1) \\
+                              x - y + 2 z = 1 & (2) \\
+                              2 x + 3 z = 3 & (3)
+                        \end{array}
+                  \right.$.
+                  En additionnant $(1)$ et $(2)$, on obtient $2x + 3z = 3$, qui est exactement $(3)$ :
+                  l'\'equation $(3)$ n'apporte rien. On pose $z = t$ (param\`etre r\'eel) ; $(3)$ donne $x = \frac{3 - 3t}{2}$,
+                  puis $(1)$ donne $y = 2 - x - t = \frac{1 + t}{2}$.
+                  L'ensemble des solutions est
+                  $\left\lbrace \left( \frac{3 - 3t}{2} ; \frac{1 + t}{2} ; t \right) \mid t \in \mathbb{R} \right\rbrace$ :
+                  il y en a une infinit\'e.
+                  
+                  Si la troisi\`eme \'equation \'etait $2x + 3z = 4$, on obtiendrait $3 = 4$ : le syst\`eme n'aurait aucune solution.
+            \end{ex}
+            %
             \section{Probl\`eme se ramenant \`a la r\'esolution de syst\`eme d'\'equations lin\'eaires}
                   \begin{ex}
                         D\'eterminer la fonction polyn\^omiale de second degr\'e $P$ v\'erifiant :
@@ -237,7 +267,7 @@ la m\'ethode de r\'esolution \'etant essentiellement similaire.
                         %
                         \begin{valiny}
                               Soient $a$, $b$ et $c$ trois r\'eels tels que $P(x) = a x^2 + b x + c$.
-                              On alors 
+                              On a alors 
                               \[
                                     \left\lbrace
                                           \begin{array}{lc}
@@ -402,7 +432,7 @@ la m\'ethode de r\'esolution \'etant essentiellement similaire.
 \clearpage
 \newpage
 \subsection{Exercices}
-      \begin{exo}
+      \begin{exo}\label{exo:syslin-1}
             R\'esoudre le syst\`eme d'\'equations suivant :
             \[
                   \begin{multiform}
@@ -412,14 +442,14 @@ la m\'ethode de r\'esolution \'etant essentiellement similaire.
             \]
       \end{exo}
       %
-      \begin{exo}
+      \begin{exo}\label{exo:syslin-2}
             Dans une ferme, il y a des lapins et des canards.
             On compte en tout 62 pattes et 22 t\^etes (lapins et canards m\'elang\'es).
             
             \textsc{Question :} Combien y a-t-il d'animaux de chaque esp\`eces dans cette ferme\,?
       \end{exo}
       %
-      \begin{exo}
+      \begin{exo}\label{exo:syslin-3}
             Un jour, Alice et Bob discutent :
             \begin{description}
                   \item[A : ] L'ann\'ee derni\`ere, mon \^age \'etait le triple du tien.
@@ -429,7 +459,7 @@ la m\'ethode de r\'esolution \'etant essentiellement similaire.
             \textsc{Question :} Quel \^age ont Alice et Bob respectivement\,?
       \end{exo}
       %
-      \begin{exo}
+      \begin{exo}\label{exo:syslin-4}
             \label{exo:mise en equation systeme lineaire a 3 inconnues}
             Alice, Bob et C\'edric comparent leur argent et remarquent les faits suivants :
             \begin{itemize}
@@ -441,15 +471,15 @@ la m\'ethode de r\'esolution \'etant essentiellement similaire.
             \textsc{Question :} Combien poss\`ede chacun de nos trois camarades\,?
       \end{exo}
       %
-            \begin{exo}
+            \begin{exo}\label{exo:syslin-5}
                   Soit $P(x) = a x^2 + b x + c$.
                   Sachant que : $P(1) = 0$, $P(2) = 3$ et $P(3) = 10$ ; d\'eterminer $P$.
                   
-                  M\^eme question pour un polyn\^eme $Q$ v\'erifiant : 
+                  M\^eme question pour un polyn\^ome $Q(x) = a x^2 + b x + c$ v\'erifiant : 
                   $Q(-1) = 3$, $Q(1) = 1$ et $Q(-2) = -5$.
             \end{exo}
       %
-            \begin{exo}
+            \begin{exo}\label{exo:syslin-6}
                   R\'esoudre dans $\mathbb{R}^3$ les syst\`emes d'\'equations suivants :
 	                  \begin{center}
 		                  \begin{tabularx}{\linewidth}{@{}X X@{}}
@@ -522,7 +552,7 @@ la m\'ethode de r\'esolution \'etant essentiellement similaire.
 	                  \end{center}
             \end{exo}
             %
-            \begin{exo}
+            \begin{exo}\label{exo:syslin-7}
                   Pour chacun des cas suivants, d\'eterminer le polyn\^ome $P$
                   v\'erifiant les conditions donn\'ees, le degr\'e de $P$ \'etant aussi petit que possible :
                   \begin{enumerate}
@@ -535,7 +565,7 @@ la m\'ethode de r\'esolution \'etant essentiellement similaire.
                   \end{enumerate}
             \end{exo}
             %
-            \begin{exo}
+            \begin{exo}\label{exo:syslin-8}
                   Trouver les r\'eels $a$, $b$ et $c$ pour avoir l'\'egalit\'e :
                   \begin{enumerate}
                         \item $\displaystyle{
@@ -561,3 +591,103 @@ la m\'ethode de r\'esolution \'etant essentiellement similaire.
                   \end{enumerate}
             \end{exo}
 
+
+\begin{corrige}
+\section*{Solutions des exercices}
+%
+\begin{sol}[Exercice~\ref{exo:syslin-1}]
+La seconde \'equation multipli\'ee par $2$ donne $2x + 2y = 44$ ; en la soustrayant de la premi\`ere : $2y = 18$, donc $y = 9$, puis $x = 22 - 9 = 13$.
+La solution est $\boxed{(x ; y) = (13 ; 9)}$ (v\'erification : $26 + 36 = 62$).
+\end{sol}
+%
+\begin{sol}[Exercice~\ref{exo:syslin-2}]
+Soit $x$ le nombre de canards ($2$ pattes) et $y$ le nombre de lapins ($4$ pattes) : $x + y = 22$ et $2x + 4y = 62$.
+C'est le syst\`eme de l'exercice~\ref{exo:syslin-1} : il y a $13$ canards et $9$ lapins.
+\end{sol}
+%
+\begin{sol}[Exercice~\ref{exo:syslin-3}]
+Soient $a$ l'\^age d'Alice et $b$ celui de Bob aujourd'hui.
+L'ann\'ee derni\`ere : $a - 1 = 3(b - 1)$, soit $a = 3b - 2$. Dans neuf ans : $a + 9 = 2(b + 9)$, soit $a = 2b + 9$.
+Donc $3b - 2 = 2b + 9$, $b = 11$ et $a = 31$. Alice a $31$ ans et Bob $11$ ans
+(v\'erification : l'an dernier $30 = 3 \times 10$, dans neuf ans $40 = 2 \times 20$).
+\end{sol}
+%
+\begin{sol}[Exercice~\ref{exo:syslin-4}]
+Soient $a$, $b$ et $c$ les sommes (en ariary) d'Alice, Bob et C\'edric :
+\[
+\left\lbrace
+\begin{array}{l}
+a = b + c \\
+c + 100 = 2b \\
+b + 300 = \frac{a}{2} .
+\end{array}
+\right.
+\]
+La deuxi\`eme \'equation donne $c = 2b - 100$, puis la premi\`ere $a = 3b - 100$ ; la troisi\`eme devient
+$2b + 600 = 3b - 100$, d'o\`u $b = 700$, $c = 1\,300$ et $a = 2\,000$.
+Alice a $2\,000$~Ar, Bob $700$~Ar et C\'edric $1\,300$~Ar.
+\end{sol}
+%
+\begin{sol}[Exercice~\ref{exo:syslin-5}]
+$P(1) = 0$, $P(2) = 3$, $P(3) = 10$ donnent $a + b + c = 0$, $4a + 2b + c = 3$, $9a + 3b + c = 10$.
+En soustrayant : $3a + b = 3$ et $5a + b = 7$, donc $a = 2$, $b = -3$, $c = 1$ : $\boxed{P(x) = 2x^2 - 3x + 1}$.
+
+$Q(-1) = 3$, $Q(1) = 1$, $Q(-2) = -5$ donnent $a - b + c = 3$, $a + b + c = 1$, $4a - 2b + c = -5$.
+Les deux premi\`eres donnent $b = -1$ et $a + c = 2$ ; la troisi\`eme devient $4a + c = -7$, d'o\`u $3a = -9$, $a = -3$, $c = 5$ :
+$\boxed{Q(x) = -3x^2 - x + 5}$.
+\end{sol}
+%
+\begin{sol}[Exercice~\ref{exo:syslin-6}]
+\begin{enumerate}
+\item La deuxi\`eme \'equation donne $x = 4y - 2z$. En rempla\c{c}ant : $14y - 7z = 7$, soit $2y - z = 1$, et $-7y - 4z = 4$.
+      Avec $z = 2y - 1$ : $-7y - 8y + 4 = 4$, donc $y = 0$, $z = -1$, $x = 2$.
+      $S = \{ (2 ; 0 ; -1) \}$.
+\item La troisi\`eme \'equation donne $x = 5y - z - 4$. En rempla\c{c}ant dans les deux premi\`eres :
+      $26y - 12z = 30$, soit $13y - 6z = 15$, et $-13y + 6z = -19$.
+      En additionnant : $0 = -4$. Le syst\`eme est impossible : $S = \varnothing$.
+\item $(1) + (2)$ donne $3x + z = 3$ ; $(3) + 5 \times (2)$ donne $6x + 2z = 6$, soit encore $3x + z = 3$.
+      Le syst\`eme est ind\'etermin\'e. En posant $z = 3s$ : $x = 1 - s$, puis $y = 3 - x + 2z = 2 + 7s$.
+      $S = \{ (1 - s ; 2 + 7s ; 3s) \mid s \in \mathbb{R} \}$.
+\item La deuxi\`eme \'equation donne $z = -2x + 2y - 3$. En rempla\c{c}ant : $-11x + 9y = 9$ et $11x - 9y = -9$ : c'est la m\^eme \'equation.
+      Le syst\`eme est ind\'etermin\'e. En posant $x = 9s$ : $y = 1 + 11s$, puis $z = -18s + 2 + 22s - 3 = 4s - 1$.
+      $S = \{ (9s ; 1 + 11s ; 4s - 1) \mid s \in \mathbb{R} \}$.
+\item La troisi\`eme \'equation donne $x = 5y - 6z - 2$. En rempla\c{c}ant : $8y - 11z = 5$ et $16y - 22z = -1$.
+      Le double de la premi\`ere donne $16y - 22z = 10 \neq -1$ : le syst\`eme est impossible, $S = \varnothing$.
+\item La premi\`ere \'equation donne $z = 2x - 3y - 6$. En rempla\c{c}ant : $11x - 10y = 21$ et $-2x + 7y = -9$.
+      $2 \times$ la premi\`ere $+ \, 11 \times$ la seconde : $57y = -57$, donc $y = -1$, $x = 1$, $z = -1$.
+      $S = \{ (1 ; -1 ; -1) \}$.
+\end{enumerate}
+On v\'erifie chaque solution dans les trois \'equations de d\'epart.
+\end{sol}
+%
+\begin{sol}[Exercice~\ref{exo:syslin-7}]
+Avec $n$ conditions, on cherche d'abord $P$ de degr\'e au plus $n - 1$ ; on v\'erifie ensuite qu'un degr\'e plus petit ne convient pas.
+\begin{enumerate}
+\item $P(x) = ax + b$ : $-3a + b = -5$ et $2a + b = 10$, donc $a = 3$, $b = 4$ : $P(x) = 3x + 4$.
+\item $-2a + b = 5$ et $3a + b = 2$, donc $a = -\frac{3}{5}$, $b = \frac{19}{5}$ : $P(x) = -\frac{3}{5}x + \frac{19}{5}$.
+\item $P(x) = ax^2 + bx + c$ : $a - b + c = 3$, $a + b + c = 1$, $4a + 2b + c = 9$, donc $b = -1$, $a = 3$, $c = -1$ :
+      $P(x) = 3x^2 - x - 1$ (degr\'e $2$ ; $a \neq 0$, donc aucun polyn\^ome de degr\'e au plus $1$ ne convient).
+\item $a - b + c = 9$, $a + b + c = 5$, $4a + 2b + c = 15$, donc $b = -2$, $a = 4$, $c = 3$ : $P(x) = 4x^2 - 2x + 3$.
+\item $a - b + c = -6$, $4a + 2b + c = 0$, $9a + 3b + c = 2$ ; par diff\'erences $a + b = 2$ et $5a + b = 2$, donc $a = 0$, $b = 2$, $c = -4$ :
+      $P(x) = 2x - 4$, de degr\'e $1$ (les trois points $(-1;-6)$, $(2;0)$, $(3;2)$ sont align\'es).
+\item $P(x) = ax^3 + bx^2 + cx + d$ : $-a + b - c + d = -4$, $a + b + c + d = 0$, $8a + 4b + 2c + d = -1$, $27a + 9b + 3c + d = -12$.
+      Les deux premi\`eres donnent $a + c = 2$ et $b + d = -2$ ; les deux derni\`eres deviennent alors $2a + b = -1$ et $3a + b = -2$.
+      Donc $a = -1$, $b = 1$, $c = 3$, $d = -3$ : $P(x) = -x^3 + x^2 + 3x - 3$ (degr\'e $3$, car $a \neq 0$).
+\end{enumerate}
+\end{sol}
+%
+\begin{sol}[Exercice~\ref{exo:syslin-8}]
+On r\'eduit au m\^eme d\'enominateur et on identifie les coefficients des num\'erateurs (ou on \'evalue en des valeurs bien choisies).
+\begin{enumerate}
+\item $6 = a(x+1)(x+2) + b(x-1)(x+2) + c(x-1)(x+1)$, soit
+      $a + b + c = 0$, $3a + b = 0$, $2a - 2b - c = 6$. Donc $b = -3a$, $c = 2a$, $6a = 6$ :
+      $\boxed{a = 1,\ b = -3,\ c = 2}$.
+\item $5 = (ax+b)(2x+1) + c(x^2+1)$, soit $2a + c = 0$, $a + 2b = 0$, $b + c = 5$ :
+      $\boxed{a = -2,\ b = 1,\ c = 4}$.
+\item $4 = a(x+1)^2 + b(3x+1)(x+1) + c(3x+1)$, soit $a + 3b = 0$, $2a + 4b + 3c = 0$, $a + b + c = 4$ :
+      $\boxed{a = 9,\ b = -3,\ c = -2}$.
+\item $3 = (ax+b)(2x-1) + c(2x^2+1)$, soit $2a + 2c = 0$, $-a + 2b = 0$, $-b + c = 3$ :
+      $\boxed{a = -2,\ b = -1,\ c = 2}$.
+\end{enumerate}
+\end{sol}
+\end{corrige}

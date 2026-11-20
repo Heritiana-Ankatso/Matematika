@@ -5,7 +5,7 @@ const E = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'
 const P = (fr, en, L) => L ? en : fr;
 export function universityPage(lang = 'fr') {
   const L = lang === 'en';
-  return `<main id="main" class="page university-page" tabindex="-1"><nav class="breadcrumb" aria-label="${P('Fil d’Ariane','Breadcrumb',L)}"><a href="#pathways">${P('Parcours','Pathways',L)}</a><span>/</span>${P('Université','University',L)}</nav><div id="university-content" aria-busy="true"><h1>${P('Université','University',L)}</h1><p role="status">${P('Chargement des ressources…','Loading resources…',L)}</p></div></main>`;
+  return `<main id="main" class="page university-page" tabindex="-1"><nav class="breadcrumb" aria-label="${P('Fil d’Ariane','Breadcrumb',L)}"><a href="#pathways/university">${P('Programmes','Curricula',L)}</a><span>/</span>${P('Université','University',L)}</nav><div id="university-content" aria-busy="true"><h1>${P('Université','University',L)}</h1><p role="status">${P('Chargement des ressources…','Loading resources…',L)}</p></div></main>`;
 }
 export function universityContent(index, id = '', lang = 'fr') {
   if(!index.sections.length)return `<h1>${E(index.title[lang==='en'?1:0])}</h1><p>${lang==='en'?'No collections available.':'Aucune collection disponible.'}</p>`;

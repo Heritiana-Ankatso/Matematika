@@ -1,0 +1,231 @@
+% Baccalauréat malgache, série D, 2014 : corrigé.
+\TCDBacAttribution{D}{2014}
+\providecommand{\Courbe}{(\mathscr{C})}
+\providecommand{\cm}{~\mathrm{cm}}
+\providecommand{\dx}{~\mathrm{d}x}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\noindent \underline{\textsc{\textbf{Exercice I}}} (5 points)
+	\begin{enumerate}
+		\item \vln{Valeurs de $a$ et $b$ :}
+			$(2i)^2 = -4$ et $(2i)^3 = -8i$, donc
+			\begin{align*}
+				P(2i) &= -8i - (5+i)(-4) + (a+ib)(2i) - 8 - 16i
+				       = -8i + 20 + 4i + 2ai - 2b - 8 - 16i \\
+				      &= (12 - 2b) + i(2a - 20).
+			\end{align*}
+			$P(2i) = 0$ si et seulement si $12 - 2b = 0$ et $2a - 20 = 0$.
+
+			\ansbox{$a = 10$ et $b = 6$.}
+		\item \vln{Résolution :}
+			D'après 1., $2i$ est solution, et $P(z) = (z - 2i)(z^2 + pz + q)$.
+			En développant : $z^3 + (p - 2i)z^2 + (q - 2ip)z - 2iq$.
+			Par identification : $p - 2i = -5 - i$ donc $p = -5 + i$ ; $-2iq = -8 - 16i$ donc $q = \frac{-8-16i}{-2i} = 8 - 4i$ ;
+			vérification : $q - 2ip = 8 - 4i + 10i + 2 = 10 + 6i$ \checkmark.
+
+			L'équation $z^2 + (-5+i)z + 8 - 4i = 0$ a pour discriminant
+			$\Delta = (-5+i)^2 - 4(8-4i) = 24 - 10i - 32 + 16i = -8 + 6i = (1 + 3i)^2$.
+			Ses solutions sont $\frac{5 - i + 1 + 3i}{2} = 3 + i$ et $\frac{5 - i - 1 - 3i}{2} = 2 - 2i$.
+
+			\ansbox{$S_{\mathbb{C}} = \left\lbrace 2i\ ;\ 3+i\ ;\ 2-2i \right\rbrace$.}
+		\item \begin{enumerate}
+			\item \vln{Placement et construction de $A$ :}
+				$I(0;2)$, $J(3;1)$, $K(2;-2)$.
+				On a $|z_A| = \sqrt{3+1} = 2 = OI$ et $\mathrm{Im}(z_A) = 1 = \frac{1}{2}\,\mathrm{Im}(z_I)$ :
+				$A$ est sur le cercle de centre $O$ de rayon $OI$ et sur la médiatrice de $[OI]$ (droite $y = 1$).
+				\textit{Construction :} tracer au compas le cercle de centre $O$ passant par $I$, puis le cercle de centre $I$
+				passant par $O$ ; ces deux cercles se coupent en deux points, et $A$ est celui d'abscisse positive
+				(le triangle $OIA$ est équilatéral).
+				\begin{center}
+				\begin{tikzpicture}[scale=.8,>=stealth]
+					\draw[very thin,gray!40] (-2,-3) grid (4,3);
+					\draw[->] (-2,0) -- (4.3,0) node[below] {$x$};
+					\draw[->] (0,-3) -- (0,3.3) node[left] {$y$};
+					\draw[loko3,dashed] (0,0) circle (2); \draw[loko3,dashed] (0,2) circle (2);
+					\draw[thick,loko1] (0,2) -- (3,1) -- (2,-2);
+					\draw[thick,loko5] (1.732,1) -- (0,0) -- (1.732,-1) -- (3.464,0) -- cycle;
+					\foreach \p/\n/\pos in {(0,2)/I/above left,(3,1)/J/above right,(2,-2)/K/below,(1.732,1)/A/above,(1.732,-1)/B/below,(3.464,0)/C/below right,(0,0)/O/below left}
+						\fill \p circle (2pt) node[\pos] {$\n$};
+				\end{tikzpicture}
+				\end{center}
+			\item \vln{Perpendicularité :}
+				\[
+					\frac{z_I - z_J}{z_K - z_J} = \frac{-3 + i}{-1 - 3i} = \frac{(-3+i)(-1+3i)}{(-1)^2 + 3^2} = \frac{3 - 9i - i - 3}{10} = -i.
+				\]
+				Ce quotient est imaginaire pur (d'argument $-\frac{\pi}{2}$), donc $\left(\overrightarrow{JK},\overrightarrow{JI}\right) = -\frac{\pi}{2}~[2\pi]$.
+
+				\ansbox{Les droites $(JI)$ et $(JK)$ sont perpendiculaires} (et $JI = JK$ puisque le module vaut $1$).
+		\end{enumerate}
+		\item \begin{enumerate}
+			\item \vln{Distances :} $z_B = \sqrt{3} - i$.
+				$OA = |\sqrt{3} + i| = 2$, $OB = |\sqrt{3} - i| = 2$, $AB = |z_B - z_A| = |-2i| = 2$.
+
+				\ansbox{$OA = OB = AB = 2$ : le triangle $AOB$ est équilatéral.}
+			\item \vln{Point $C$ :}
+				$AOBC$ est un parallélogramme si et seulement si $\overrightarrow{OA} = \overrightarrow{BC}$, soit $z_C = z_A + z_B - z_O = 2\sqrt{3}$ ;
+				comme $OA = OB$, ce parallélogramme est un losange.
+
+				\ansbox{$z_C = 2\sqrt{3}$.}
+		\end{enumerate}
+		\item \vln{Similitude $S$ :}
+			$S$ fixe $O$, donc $S : z' = kz$ avec $k = \frac{z_C}{z_B}$ :
+			\[
+				k = \frac{2\sqrt{3}}{\sqrt{3} - i} = \frac{2\sqrt{3}\left(\sqrt{3} + i\right)}{4} = \frac{3 + \sqrt{3}\,i}{2}
+				= \sqrt{3}\left(\frac{\sqrt{3}}{2} + \frac{1}{2}i\right) = \sqrt{3}\left(\cos\frac{\pi}{6} + i\sin\frac{\pi}{6}\right).
+			\]
+
+			\ansbox{$S : z' = \frac{3 + \sqrt{3}\,i}{2}\,z$ : centre $O$, rapport $\sqrt{3}$, angle $\frac{\pi}{6}$.}
+	\end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\noindent \underline{\textsc{\textbf{Exercice II}}} (5 points)
+	\begin{enumerate}
+		\item \begin{enumerate}
+			\item \vln{Nombre de couples :}
+				le premier numéro $a$ peut être choisi de $6$ façons ; le tirage étant sans remise, il reste $5$ choix pour $b$.
+
+				\ansbox{Il y a $6\times5 = 30$ couples possibles} (arrangements $A_6^2$).
+			\item \vln{Probabilité de $A$ :}
+				les numéros pairs sont $2$, $4$, $6$ : il y a $3\times2 = 6$ couples formés de deux pairs.
+
+				\ansbox{$P(A) = \frac{6}{30} = \frac{1}{5}$.}
+			\item \vln{Probabilité de $B$ :}
+				$B$ est l'événement contraire de $A$ (pas de numéro impair signifie deux numéros pairs).
+
+				\ansbox{$P(B) = 1 - \frac{1}{5} = \frac{4}{5}$.}
+		\end{enumerate}
+		\item \begin{enumerate}
+			\item \vln{Valeurs de $X$ :} les deux numéros sont distincts, entre $1$ et $6$.
+
+				\ansbox{$X(\Omega) = \{1;2;3;4;5\}$.}
+			\item \vln{$P(X=1)$ et $P(X=3)$ :}
+				$X = 1$ pour les paires $\{1;2\}$, $\{2;3\}$, $\{3;4\}$, $\{4;5\}$, $\{5;6\}$, chacune donnant $2$ couples : $10$ couples.
+				$X = 3$ pour $\{1;4\}$, $\{2;5\}$, $\{3;6\}$ : $6$ couples.
+
+				\ansbox{$P(X=1) = \frac{10}{30} = \frac{1}{3}$ et $P(X=3) = \frac{6}{30} = \frac{1}{5}$.}
+			\item \vln{Loi de $X$ :}
+				en général, il y a $6 - d$ paires d'écart $d$, donc $2(6-d)$ couples et $P(X = d) = \frac{6-d}{15}$.
+				\[
+				\begin{array}{|c|c|c|c|c|c|}
+					\hline
+					d & 1 & 2 & 3 & 4 & 5 \\ \hline
+					P(X=d) & \frac{1}{3} & \frac{4}{15} & \frac{1}{5} & \frac{2}{15} & \frac{1}{15} \\[.5ex] \hline
+				\end{array}
+				\]
+				(Vérification : $\frac{5+4+3+2+1}{15} = 1$.)
+			\item \vln{Espérance et variance :}
+				$E(X) = \frac{1\times5 + 2\times4 + 3\times3 + 4\times2 + 5\times1}{15} = \frac{35}{15} = \frac{7}{3}$ ;
+				$E(X^2) = \frac{1\times5 + 4\times4 + 9\times3 + 16\times2 + 25\times1}{15} = \frac{105}{15} = 7$ ;
+				$V(X) = E(X^2) - E(X)^2 = 7 - \frac{49}{9}$.
+
+				\ansbox{$E(X) = \frac{7}{3}$ et $V(X) = \frac{14}{9}$.}
+		\end{enumerate}
+	\end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\noindent \underline{\textsc{\textbf{Probleme}}} (10 points)
+	\begin{enumerate}
+		\item \begin{itemize}
+			\item \vln{Limites aux bornes :}
+				en $0^+$, $(\ln x)^2 \to +\infty$ et $\frac{2}{x} \to +\infty$ ; en $+\infty$, $(\ln x)^2 \to +\infty$ et $\frac{2}{x} \to 0$.
+
+				\ansbox{$\lim_{x\to0^+} f(x) = +\infty$ et $\lim_{x\to+\infty} f(x) = +\infty$.}
+
+				La droite d'équation $x = 0$ est asymptote verticale à $\Courbe$.
+			\item \vln{Limite de $\frac{(\ln x)^2}{x}$ :}
+				on pose $x = X^2$ avec $X > 0$ ; $X \to +\infty$ quand $x \to +\infty$, et
+				$\frac{(\ln x)^2}{x} = \frac{(2\ln X)^2}{X^2} = 4\left(\frac{\ln X}{X}\right)^2$.
+				Comme $\lim_{X\to+\infty}\frac{\ln X}{X} = 0$ :
+
+				\ansbox{$\lim_{x\to+\infty}\frac{(\ln x)^2}{x} = 0$.}
+
+				Alors $\frac{f(x)}{x} = \frac{1}{2}\cdot\frac{(\ln x)^2}{x} + \frac{2}{x^2} \to 0$, tandis que $f(x) \to +\infty$ :
+				$\Courbe$ admet en $+\infty$ une branche parabolique de direction $(Ox)$.
+		\end{itemize}
+		\item \begin{enumerate}
+			\item \vln{Limites de $g$ :}
+				$\lim_{x\to0^+} x\ln x = 0$, donc $\lim_{x\to0^+} g(x) = -2$ ; et $\lim_{x\to+\infty} x\ln x = +\infty$.
+
+				\ansbox{$\lim_{x\to0^+} g(x) = -2$ et $\lim_{x\to+\infty} g(x) = +\infty$.}
+			\item \vln{Variations de $g$ :}
+				$g'(x) = \ln x + x\cdot\frac{1}{x} = \ln x + 1$, qui s'annule pour $x = \expo{-1}$, est négatif avant et positif après.
+				$g\left(\expo{-1}\right) = -\expo{-1} - 2$.
+				\[
+				\begin{array}{c|ccccc}
+					x & 0 & & \expo{-1} & & +\infty \\ \hline
+					g'(x) & & - & 0 & + & \\ \hline
+					g(x) & -2 & \searrow & -2 - \expo{-1} & \nearrow & +\infty
+				\end{array}
+				\]
+			\item \vln{Existence et unicité de $\alpha$ :}
+				sur $\left]0;\expo{-1}\right]$, $g(x) < -2 < 0$ : pas de solution.
+				Sur $\left[\expo{-1};+\infty\right[$, $g$ est continue et strictement croissante, à valeurs dans
+				$\left[-2-\expo{-1};+\infty\right[$ qui contient $0$ : une seule solution $\alpha$.
+				Comme $g(2) = 2\ln 2 - 2 \simeq -0{,}61 < 0$ et $g(\expo{}) = \expo{} - 2 \simeq 0{,}72 > 0$, on a $\alpha \in\ ]2;\expo{}[$
+				(numériquement $\alpha \simeq 2{,}35$).
+
+				\ansbox{$g(x) < 0$ sur $]0;\alpha[$, $g(\alpha) = 0$, $g(x) > 0$ sur $]\alpha;+\infty[$.}
+		\end{enumerate}
+		\item \begin{enumerate}
+			\item \vln{Dérivée de $f$ :}
+				$f'(x) = \frac{1}{2}\times 2\ln x\times\frac{1}{x} - \frac{2}{x^2} = \frac{x\ln x - 2}{x^2}$, donc
+
+				\ansbox{$f'(x) = \frac{g(x)}{x^2}$.}
+			\item \vln{Tableau de variation :} $f'(x)$ a le signe de $g(x)$.
+				\[
+				\begin{array}{c|ccccc}
+					x & 0 & & \alpha & & +\infty \\ \hline
+					f'(x) & \| & - & 0 & + & \\ \hline
+					f(x) & \| \; +\infty & \searrow & f(\alpha) & \nearrow & +\infty
+				\end{array}
+				\]
+				\textit{Remarque : les valeurs proposées par l'énoncé ($\alpha = 2{,}5$, $f(\alpha) = 1{,}12$) sont inexactes :
+				$\alpha \simeq 2{,}35$ et, puisque $\ln\alpha = \frac{2}{\alpha}$, $f(\alpha) = \frac{2}{\alpha^2} + \frac{2}{\alpha} \simeq 1{,}22$.}
+		\end{enumerate}
+		\item \begin{enumerate}
+			\item \vln{Tangente en $1$ :} $f(1) = 0 + 2 = 2$ et $f'(1) = \frac{g(1)}{1} = -2$.
+
+				\ansbox{$(T) : y = -2x + 4$.}
+			\item \vln{Construction :}
+				\begin{center}
+				\begin{tikzpicture}[x=1cm,y=1cm,>=stealth]
+					\draw[very thin,gray!40] (0,-1) grid (10,7);
+					\draw[->] (-0.3,0) -- (10.3,0) node[below] {$x$};
+					\draw[->] (0,-1) -- (0,7.3) node[left] {$y$};
+					\foreach \k in {1,...,9} \draw (\k,0) node[below] {\small $\k$};
+					\foreach \k in {1,...,6} \draw (0,\k) node[left] {\small $\k$};
+					\clip (-0.3,-1) rectangle (10,7);
+					\draw[gray,thick] plot[domain=0:2.5] (\x,{-2*\x+4});
+					\draw[loko1,very thick,smooth,samples=120] plot[domain=0.29:10] (\x,{0.5*ln(\x)^2+2/\x});
+					\fill (1,2) circle (2pt);
+					\fill (2.346,1.216) circle (2pt);
+					\draw[dotted] (2.346,0) node[below] {\small $\alpha$} -- (2.346,1.216);
+					\node[gray] at (2.4,-0.6) {$(T)$};
+					\node[loko1] at (8.5,3.2) {$\Courbe$};
+				\end{tikzpicture}
+				\end{center}
+		\end{enumerate}
+		\item \begin{enumerate}
+			\item \vln{Intégration par parties :}
+				on pose $u(x) = \frac{1}{2}(\ln x)^2$, $v'(x) = 1$, d'où $u'(x) = \frac{\ln x}{x}$ et $v(x) = x$ :
+				\[
+					\int_\alpha^{\expo{}} \frac{1}{2}(\ln x)^2\dx = \left[\frac{x}{2}(\ln x)^2\right]_\alpha^{\expo{}} - \int_\alpha^{\expo{}} \ln x\dx
+					= \frac{\expo{}}{2} - \frac{\alpha}{2}(\ln\alpha)^2 - \left(-\alpha\ln\alpha + \alpha\right).
+				\]
+
+				\ansbox{$\int_\alpha^{\expo{}}\frac{1}{2}(\ln x)^2\dx = \frac{\expo{}}{2} - \frac{\alpha}{2}(\ln\alpha)^2 + \alpha\ln\alpha - \alpha$.}
+
+				(La valeur donnée se vérifie : $\int_\alpha^{\expo{}}\ln x\dx = \big[x\ln x - x\big]_\alpha^{\expo{}} = -\alpha\ln\alpha + \alpha$.)
+			\item \vln{Aire :}
+				$f(x) > 0$ sur $[\alpha;\expo{}]$ ; l'unité d'aire vaut $1\cm^2$.
+				$\int_\alpha^{\expo{}}\frac{2}{x}\dx = 2\left(\ln\expo{} - \ln\alpha\right) = 2 - 2\ln\alpha$, donc
+
+				\ansbox{$\mathscr{A} = \left(\frac{\expo{}}{2} - \frac{\alpha}{2}(\ln\alpha)^2 + \alpha\ln\alpha - \alpha + 2 - 2\ln\alpha\right)\cm^2$.}
+			\item \vln{Simplification :}
+				$g(\alpha) = 0$ donne $\alpha\ln\alpha = 2$, donc $\ln\alpha = \frac{2}{\alpha}$ ; alors
+				$\frac{\alpha}{2}(\ln\alpha)^2 = \frac{\alpha}{2}\times\frac{4}{\alpha^2} = \frac{2}{\alpha}$ et $2\ln\alpha = \frac{4}{\alpha}$.
+				\[
+					\mathscr{A} = \frac{\expo{}}{2} - \frac{2}{\alpha} + 2 - \alpha + 2 - \frac{4}{\alpha}.
+				\]
+
+				\ansbox{$\mathscr{A} = \left(\frac{\expo{}}{2} + 4 - \frac{6}{\alpha} - \alpha\right)\cm^2$} ($\simeq 0{,}46\cm^2$ avec $\alpha \simeq 2{,}346$).
+		\end{enumerate}
+	\end{enumerate}

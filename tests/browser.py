@@ -105,7 +105,7 @@ with sync_playwright() as p:
     assert page.locator('.wonder').count() == len(gallery_ids), 'gallery cards follow the shared catalogue'
     assert {urlparse(a).fragment.split('/')[-1] for a in page.locator('.wonder').evaluate_all('(links) => links.map(a => a.href)')} == set(gallery_ids)
     # The catalogue displays one course at a time, with separate HTML and PDF actions.
-    page.goto(BASE+'/#slides')
+    page.goto(BASE+'/#slides/seconde')
     page.locator('.deck-card').first.wait_for()
     for mode, extension, signature in [('lecture', '.pdf', b'%PDF-'), ('explore', '.html', b'<!doctype html>')]:
         page.locator('[data-slide-type='+mode+']').click()

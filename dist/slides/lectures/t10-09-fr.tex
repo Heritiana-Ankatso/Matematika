@@ -2,7 +2,12 @@
 \makeatletter\IfFileExists{core/beamer/beamerthememx.sty}{\def\mxcorepath{core/}\def\input@path{{core/beamer/}{core/}}}{\def\mxcorepath{../core/}\def\input@path{{../core/beamer/}{../core/}}}\makeatother
 \documentclass[aspectratio=169,10pt,t]{beamer}
 \usetheme{mx}
-\usepackage{graphicx,booktabs}
+\usepackage{graphicx,booktabs,mathtools,array,adjustbox}
+\usepackage[all]{xy}
+\providecommand{\actualtextwidth}{\textwidth}
+\providecommand{\veccor}[2]{\left(\begin{matrix}#1\\#2\end{matrix}\right)}
+\DeclarePairedDelimiter{\VecNorm}{\lVert}{\rVert}
+\providecommand{\ETC}{\ldots}
 \usepackage[french]{babel}
 \setlength{\parskip}{.45em}
 \hypersetup{pdfauthor={},pdfsubject={Lecture slides},pdfkeywords={},pdftitle={Statistiques}}
@@ -36,12 +41,12 @@
 \author{}
 \begin{document}
 \mxtitleframe
-\begin{frame}{}
+\begin{frame}[allowframebreaks]{}
 Comparer les séries \(A=(8,8,8,8,8)\) et \(B=(4,6,8,10,12)\). Elles ont la même
 moyenne. Sont-elles pourtant semblables? Proposer une mesure de la dispersion,
 puis confronter les propositions à la variance et à l'écart-type.
 \end{frame}
-\begin{frame}{Objectifs}
+\begin{frame}[allowframebreaks]{Objectifs}
 \begin{itemize}
 
   \item Organiser des données statistiques : variable discrète et continue.
@@ -57,7 +62,7 @@ puis confronter les propositions à la variance et à l'écart-type.
 
 \end{itemize}
 \end{frame}
-\begin{frame}{Statistiques descriptives}
+\begin{frame}[allowframebreaks]{Statistiques descriptives}
 Pour une série non vide de valeurs \(x_1,\ldots,x_n\) :
 
 \begin{itemize}
@@ -73,23 +78,23 @@ Pour une série non vide de valeurs \(x_1,\ldots,x_n\) :
 
 \end{itemize}
 \end{frame}
-\begin{frame}{Caractéristiques complémentaires}
+\begin{frame}[allowframebreaks]{Caractéristiques complémentaires}
 Le \textbf{mode} d'une série statistique est la valeur (ou la classe) qui
 apparaît le plus souvent. Dans une distribution en classes, on parle de
 \textbf{classe modale}.
 \end{frame}
-\begin{frame}{Caractéristiques complémentaires}
+\begin{frame}[allowframebreaks]{Caractéristiques complémentaires}
 La \textbf{fréquence} d'une valeur \(x_i\) est \(f_i = n_i / N\).
 La \textbf{fréquence cumulée croissante} jusqu'à \(x_k\) est
 \(F_k = \displaystyle\sum_{i \leq k} f_i\).
 La médiane se détermine par les rangs centraux dans la série triée.
 La fréquence cumulée n'atteint pas forcément exactement \(50\%\).
 \end{frame}
-\begin{frame}{Séries statistiques groupées}
+\begin{frame}[allowframebreaks]{Séries statistiques groupées}
 Pour \(n\) valeurs \(x_1,\ldots,x_p\) aux effectifs \(n_1,\ldots,n_p\)
 (avec \(N=\sum n_i\)), la \textbf{fréquence} de \(x_i\) est \(f_i=n_i/N\).
 \end{frame}
-\begin{frame}{Séries statistiques groupées}
+\begin{frame}[allowframebreaks]{Séries statistiques groupées}
 \begin{itemize}
 
   \item \textbf{Moyenne :} \(\bar{x} = \dfrac{1}{N}\sum_{i=1}^p n_i x_i\).
@@ -102,7 +107,7 @@ Pour \(n\) valeurs \(x_1,\ldots,x_p\) aux effectifs \(n_1,\ldots,n_p\)
 
 \end{itemize}
 \end{frame}
-\begin{frame}{Séries statistiques groupées}
+\begin{frame}[allowframebreaks]{Séries statistiques groupées}
 \begin{itemize}
 
   \item \textbf{Étendue :} \(e = x_{\max} - x_{\min}\).
@@ -116,7 +121,7 @@ Pour \(n\) valeurs \(x_1,\ldots,x_p\) aux effectifs \(n_1,\ldots,n_p\)
 
 \end{itemize}
 \end{frame}
-\begin{frame}{Séries statistiques groupées}
+\begin{frame}[allowframebreaks]{Séries statistiques groupées}
 \begin{enumerate}
 \setcounter{enumi}{0}
   \item Trier les valeurs dans l'ordre croissant.
@@ -124,7 +129,7 @@ Pour \(n\) valeurs \(x_1,\ldots,x_p\) aux effectifs \(n_1,\ldots,n_p\)
 \item Calculer les effectifs cumulés.
   
 \item La médiane est :
-
+    
 \begin{itemize}
 
       \item si \(N\) est impair : la valeur de rang \((N+1)/2\).
@@ -135,7 +140,7 @@ Pour \(n\) valeurs \(x_1,\ldots,x_p\) aux effectifs \(n_1,\ldots,n_p\)
 
 \end{enumerate}
 \end{frame}
-\begin{frame}{Séries statistiques groupées}
+\begin{frame}[allowframebreaks]{Séries statistiques groupées}
 Pour des données connues seulement par classes, remplacer les valeurs par
 les centres donne une \textbf{estimation} de la moyenne et de la variance.
 La médiane exacte n'est pas déterminée par les seuls effectifs des classes.

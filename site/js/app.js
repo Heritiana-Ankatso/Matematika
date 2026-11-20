@@ -23,7 +23,6 @@ import { labs, challenges, pathways } from "./content.js";
 import { pathwayPage as pathwayPageView, bindPathways } from "./pathways-view.js";
 import { mountObject } from "./lab-objects.js";
 import { homePage, bindHome, mountHomeFigure, galleryPage as galleryIndex } from "./welcome.js";
-import { MIKAJY_SPARK_DOWNLOAD_URL, MIKAJY_ATLAS_DOWNLOAD_URL } from "./config.js";
 // The name of this edition (Maths Explorer or Matematika), written into index.html by the build (build/mxbuild/site.py).
 const SITE_NAME = document.querySelector('meta[name="application-name"]')?.content || "Maths Explorer";
 import { isReading, readingPage, readAlso } from "./reading.js";
@@ -121,19 +120,23 @@ function link(page, id = "") {
 const brandMark = `<svg class="brandmark" viewBox="0 0 120 120" aria-hidden="true" focusable="false"><rect width="120" height="120" class="bm-bg"/><path d="M90 60A30 30 0 1 1 30 60A30 30 0 1 1 90 60ZM30 0A30 30 0 0 1 0 30M90 0A30 30 0 0 0 120 30M0 90A30 30 0 0 1 30 120M120 90A30 30 0 0 0 90 120" class="bm-arc"/></svg>`;
 // Three sections: "Apprendre" (courses and classroom tools), "Explorer" (laboratory, challenges) and "Lire" (biographies,
 // stories, and the curiosities of the gallery).
-// The main bar names the sections; a row of tabs under it names the pages of the current section.
+// The main bar names the sections; a row of tabs under it names the pages of the current section. A section may fold a
+// second group of pages under one labelled menu (Apprendre: the classroom tools under "Pour enseigner", owner request of
+// 16 November 2026 for a shorter, grouped row); the menu is open on its own pages and for the teacher profile.
 const SECTIONS = [
   ["learn", "Apprendre", "Learn", "books", [
     ["resources", "Cours", "Lessons", "books"],
     ["bank", "Exercices", "Exercises", "seal-check"],
     ["review", "Réviser", "Review", "arrows-clockwise"],
     ["bank/annales", "Annales", "Past papers", "scroll"],
-    ["slides", "Diaporamas", "Slides", "presentation-chart"],
     ["basics", "Bases", "Foundations", "books"],
+    ...(FULL_EDITION ? [["pathways", "Programmes", "Curricula", "path"]] : []),
+  ], ["Pour enseigner", "For teaching", [
+    ["slides", "Diaporamas", "Slides", "presentation-chart"],
     ["automatismes", "Automatismes", "Starters", "lightbulb"],
     ["sheets", "Fiches", "Worksheets", "pencil-simple-line"],
-    ...(FULL_EDITION ? [["pathways", "Parcours", "Pathways", "path"]] : []),
-  ]],
+    ["pack", "Dossier sur mesure", "Custom pack", "package"],
+  ]]],
   ["explore", "Explorer", "Explore", "flask", [
     ["topics", "Domaines", "Topics", "magnifying-glass"],
     ["lab", "Laboratoire", "Laboratory", "flask"],
@@ -150,27 +153,31 @@ const SECTIONS = [
   ]],
 ];
 // pages reached from a tab count as that tab
-const TAB_OF = { chapter: "resources", library: "resources", workshop: "resources", pack: "resources", sources: "resources", university: "pathways" };
+const TAB_OF = { chapter: "resources", library: "resources", workshop: "resources", sources: "pack", university: "pathways" };
+const pagesOf = ([, , , , tabs, fold]) => [...tabs, ...(fold ? fold[2] : [])];
 function header(page) {
   const contentLang = document.documentElement.lang || lang;
   const singleEdition = contentLang === "fr" ? pair("Cette page existe en français seulement.", "This page is only available in French.") : pair("Cette page existe en anglais seulement.", "This page is only available in English.");
   const tab = page === "bank" && route().id === "annales" ? "bank/annales" : TAB_OF[page] || page;
-  const section = SECTIONS.find(([, , , , tabs]) => tabs.some(([id]) => id === tab));
+  const section = SECTIONS.find(s => pagesOf(s).some(([id]) => id === tab));
   const dark = currentTheme() === "nuit";
   const themeLabel = dark ? pair("Passer au thème clair", "Switch to light theme") : pair("Passer au thème sombre", "Switch to dark theme");
   const destination=id=>['resources','bank','slides'].includes(id)&&currentCourse()?link(id,currentCourse()):link(id);
   const sectionLinks = SECTIONS.map(([id, fr, en, ic, tabs]) =>
     `<a href="${destination(tabs[0][0])}" data-section="${id}" ${['resources','bank','slides'].includes(tabs[0][0])?`data-course-page="${tabs[0][0]}"`:''} ${section?.[0] === id ? 'aria-current="true"' : ""}>${icon(ic, 20)}<span>${pair(fr, en)}</span></a>`).join("");
-  const subnav = section ? `<nav class="subnav" aria-label="${pair(section[1], section[2])}"><div class="subnav-inner">${section[4].map(([id, fr, en, ic]) =>
-    `<a href="${destination(id)}" ${['resources','bank','slides'].includes(id)?`data-course-page="${id}"`:''} ${tab === id ? 'aria-current="page"' : ""}>${icon(ic, 18)}<span>${pair(fr, en)}</span></a>`).join("")}${section[0]==='learn'?`<details class="section-tools secondary-tools"><summary>${pair('Pour enseigner','For teaching')}</summary><div><a href="#pack">${pair('Dossier sur mesure','Custom pack')}</a></div></details>`:''}</div></nav>` : "";
   const entry = teacherState.getEntry();
+  const tabLink = ([id, fr, en, ic]) => `<a href="${destination(id)}" ${['resources','bank','slides'].includes(id)?`data-course-page="${id}"`:''} ${tab === id ? 'aria-current="page"' : ""}>${icon(ic, 18)}<span>${pair(fr, en)}</span></a>`;
+  const fold = section?.[5], foldHere = fold?.[2].find(([id]) => id === tab);
+  const subnav = section ? `<nav class="subnav" aria-label="${pair(section[1], section[2])}"><div class="subnav-inner">${section[4].map(tabLink).join("")}${fold ? `<details class="section-tools secondary-tools"${foldHere || effectiveEntry(entry) === "teacher" ? " open" : ""}><summary>${pair(fold[0], fold[1])}${foldHere ? `<span class="sr-only"> : ${pair(foldHere[1], foldHere[2])}</span>` : ""}</summary><div>${fold[2].map(tabLink).join("")}</div></details>` : ""}</div></nav>` : "";
   const modeBar = showModeBar({ entry, page }) ? (active => `<nav class="modebar" aria-label="${pair("Modes", "Modes")}">${MODES.map(m => `<a href="${m.hash}" data-teacher-mode="${m.id}"${active === m.id ? ' aria-current="page"' : ""}>${pair(...m.label)}</a>`).join("")}<a class="modebar-switch" href="#home" data-set-entry="student">${pair("Espace élève", "Student area")}</a></nav>`)(modeOfRoute(page, teacherState.getMode())) : "";
   const audience = effectiveEntry(entry), who = AUDIENCES.find(a => a.id === audience);
   const audienceMenu = `<details class="audience-menu"><summary aria-label="${pair("Profil", "Profile")} : ${t(who.label)}. ${pair("Changer de profil", "Change profile")}" title="${pair("Changer de profil", "Change profile")}">${icon(audience === "teacher" ? "presentation-chart" : audience === "student" ? "graduation-cap" : "user", 20)}<span>${t(who.label)}</span></summary><div class="audience-list" role="group" aria-label="${pair("Profil", "Profile")}">${AUDIENCES.map(a => `<a href="${a.hash}" data-set-entry="${a.id}"${a.id === audience ? ' aria-current="true"' : ""}><b>${t(a.label)}</b><span>${t(a.hint)}</span></a>`).join("")}<p>${pair("Mémorisé sur cet appareil.", "Remembered on this device.")}</p></div></details>`;
   return `<header class="topbar"${lang !== contentLang ? ` lang="${lang}"` : ""}><a class="brand" href="${homeHash(entry)}" aria-label="${SITE_NAME}">${brandMark}<span class="brand-name">${SITE_NAME}</span></a><button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">${pair("Menu","Menu")}</button><nav id="primary-nav" class="mainnav" aria-label="${pair("Navigation principale", "Main navigation")}">${sectionLinks}</nav><div class="tools">${audienceMenu}<a class="icon-btn" href="#search" data-search-link aria-label="${pair("Rechercher une ressource", "Search resources")}" title="${pair("Rechercher une ressource", "Search resources")}"${route().page === "search" ? ' aria-current="page"' : ""}>${icon("magnifying-glass", 22)}</a><button class="icon-btn" data-theme-toggle aria-label="${themeLabel}" title="${themeLabel}">${icon(dark ? "sun" : "moon", 22)}</button><div class="language" role="group" aria-label="${pair("Langue", "Language")}"${lang !== contentLang ? ` aria-describedby="language-note" title="${singleEdition}"` : ""}><button data-lang="fr" aria-pressed="${lang === "fr"}" lang="fr">FR</button><button data-lang="en" aria-pressed="${lang === "en"}" lang="en">EN</button>${lang !== contentLang ? `<span id="language-note" class="sr-only">${singleEdition}</span>` : ""}</div></div></header>${modeBar}${subnav}`;
 }
+// The footer repeats every section and page as a site map, then the other pages.
 function footer() {
-  return `<footer><span class="foot-brand">${SITE_NAME}</span><span>${storageWorks ? pair("Progression enregistrée sur cet appareil.", "Progress saved on this device.") : pair("Stockage indisponible : progression conservée pour cette session.", "Storage unavailable: progress kept for this session.")}</span><nav class="foot-links" aria-label="${pair("Autres pages", "More pages")}">${effectiveEntry(teacherState.getEntry()) !== "teacher" ? `<a class="foot-switch" href="#teacher" data-set-entry="teacher">${pair("Espace professeur", "Teacher area")}</a>` : ""}<a href="#pack">${pair("Dossier sur mesure", "Custom pack")}</a><a href="#sources">${pair("Sources LaTeX", "LaTeX sources")}</a>${FULL_EDITION?`<a href="#pathways">${pair("Programmes & sources", "Curricula & sources")}</a>`:""}<a href="${MIKAJY_SPARK_DOWNLOAD_URL}" target="_blank" rel="noopener noreferrer">Mikajy Spark (Android)</a>${FULL_EDITION && MIKAJY_ATLAS_DOWNLOAD_URL ? `<a href="${MIKAJY_ATLAS_DOWNLOAD_URL}" target="_blank" rel="noopener noreferrer">Mikajy Atlas (Android)</a>` : ""}<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.${lang}" rel="license noopener" target="_blank">${pair("Licence CC BY-NC-SA 4.0", "CC BY-NC-SA 4.0 licence")}</a></nav></footer>`;
+  const columns = SECTIONS.map(sec => `<nav class="foot-col" aria-label="${pair(sec[1], sec[2])}"><p class="foot-title">${pair(sec[1], sec[2])}</p><ul>${pagesOf(sec).map(([id, fr, en]) => `<li><a href="${link(...id.split("/"))}">${pair(fr, en)}</a></li>`).join("")}</ul></nav>`).join("");
+  return `<footer><div class="foot-grid"><div class="foot-about"><a class="foot-brand" href="#home">${brandMark}<span>${SITE_NAME}</span></a><p>${pair("Des mathématiques à voir, à manipuler et à raconter.", "Maths you can see, handle and tell.")}</p><p class="foot-storage">${storageWorks ? pair("Progression enregistrée sur cet appareil.", "Progress saved on this device.") : pair("Stockage indisponible : progression conservée pour cette session.", "Storage unavailable: progress kept for this session.")}</p></div>${columns}<nav class="foot-links foot-col" aria-label="${pair("Autres pages", "More pages")}"><p class="foot-title">${pair("Plus", "More")}</p>${effectiveEntry(teacherState.getEntry()) !== "teacher" ? `<a class="foot-switch" href="#teacher" data-set-entry="teacher">${pair("Espace professeur", "Teacher area")}</a>` : ""}<a href="#pack">${pair("Dossier sur mesure", "Custom pack")}</a><a href="#sources">${pair("Sources LaTeX", "LaTeX sources")}</a>${FULL_EDITION?`<a href="#pathways">${pair("Programmes & sources", "Curricula & sources")}</a>`:""}<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.${lang}" rel="license noopener" target="_blank">${pair("Licence CC BY-NC-SA 4.0", "CC BY-NC-SA 4.0 licence")}</a></nav></div></footer>`;
 }
 // French title of a chapter, for the generators (their content is French)
 const chapterTitleFr = (id) => resourceCatalog.chapters.find((c) => c.id === id)?.title?.[0] || id;
@@ -213,7 +220,7 @@ function render() {
     (r.page === "errors" && isErrorRoute(r.id)) || (r.page === "intuition" && !r.id) ||
     (r.page === "olympiad" && isOlympiadRoute(r.id)) ||
     (r.page === "challenges" && (!r.id || challenges.some(c => c.id === r.id))) ||
-    (r.page === "home" && !r.id) || (r.page === "teacher" && !r.id) || (r.page === "prepare" && !r.id) || (r.page === "relax" && !r.id) || (r.page === "review" && !r.id) || r.page === "search" || (r.page === "basics" && isBasicsRoute(r.id)) || isReading(r.page, r.id) || (r.page === "pathways" && !r.id) || r.page === "library" || r.page === "pack" || r.page === "sources" || r.page === "slides" || r.page === "automatismes" || r.page === "sheets" || (r.page === "bank" && isBankRoute(r.id, r.tab, r.sub)) ||
+    (r.page === "home" && !r.id) || (r.page === "teacher" && !r.id) || (r.page === "prepare" && !r.id) || (r.page === "relax" && !r.id) || (r.page === "review" && !r.id) || r.page === "search" || (r.page === "basics" && isBasicsRoute(r.id)) || isReading(r.page, r.id) || (r.page === "pathways" && (!r.id || livePathways.some(p => p.id === r.id))) || r.page === "library" || r.page === "pack" || r.page === "sources" || r.page === "slides" || r.page === "automatismes" || r.page === "sheets" || (r.page === "bank" && isBankRoute(r.id, r.tab, r.sub)) ||
     r.page === "university" || (r.page === "resources" && isLiveRoute(r)) || (r.page === "workshop" && r.id === "quadratic") ||
     (r.page === "chapter" && resourceCatalog.chapters.some(c => c.id === r.id));
   const page = valid ? r.page : "missing";
@@ -350,6 +357,8 @@ function mountRelated(main, hash) {
     if (typeof IntersectionObserver !== "function") { timer = setTimeout(load, 1500); return; }
     observer = new IntersectionObserver((es) => { if (es.some((e) => e.isIntersecting)) load(); }, { rootMargin: "400px 0px" });
     observer.observe(slot);
+    // the site-map footer is tall: reaching it also means the end of the page is near
+    const foot = document.querySelector("footer"); if (foot) observer.observe(foot);
   };
   const seq = main.querySelector("#chapter-sequence");
   if (seq && seq.getAttribute("aria-busy") !== "false") {
@@ -386,6 +395,9 @@ function bindCommon() {
  const syncCourseLinks=()=>document.querySelectorAll('[data-course-page]').forEach(a=>{const c=currentCourse();a.href=link(a.dataset.coursePage,c);});
  window.addEventListener('mx-course-change',syncCourseLinks);
  stopViews.push(()=>window.removeEventListener('mx-course-change',syncCourseLinks));
+ // a row of tabs that scrolls sideways (phones) shows the current tab
+ const strip=$(".subnav-inner"), here=strip?.querySelector('[aria-current="page"]');
+ if(strip&&here&&strip.scrollWidth>strip.clientWidth)strip.scrollLeft=Math.max(0,here.offsetLeft-strip.clientWidth/2+here.offsetWidth/2);
  const navButton=$(".nav-toggle"), nav=$("#primary-nav");
  const closeMenu=()=>{navButton.setAttribute("aria-expanded","false");nav.classList.remove("is-open");};
  navButton.addEventListener("click",()=>{const open=navButton.getAttribute("aria-expanded")!=="true";navButton.setAttribute("aria-expanded",String(open));nav.classList.toggle("is-open",open);});

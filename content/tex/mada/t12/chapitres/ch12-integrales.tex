@@ -47,7 +47,7 @@
                   Cherchons la primitive de la fonction $f:x\mapsto 3 x^2$ qui s'annule en $1$.
                   La fonction $F:x\mapsto x^3$ est d\'erivable et sa d\'eriv\'ee est $F':x\mapsto 3x^2$.
                   Comme $F(1)=1$, alors on peut prendre $F_0 : x\mapsto x^3 - 1$.
-                  Ainsi, $F_0' (x) = 3x^2$ et $F_0' (1) = 1 - 1 = 0$.
+                  Ainsi, $F_0' (x) = 3x^2$ et $F_0 (1) = 1 - 1 = 0$.
             \end{ex}
       \end{thm}
 %
@@ -70,7 +70,7 @@
             \end{minipage}
       %
             \begin{minipage}{0.45\actualtextwidth}
-                  Notons que la recherche de primitives est en g\'en\'erale difficile.
+                  Notons que la recherche de primitives est en g\'en\'eral difficile.
                   Bien que toute fonction continue admette une primitive, 
                   il existe des fonctions dont on ne 
                   sait pas donner des primitives sous forme de fonctions usuelles.
@@ -87,11 +87,20 @@
       \end{prop}
       %
       \begin{thm}
-            Soient $f$ et $g$ deux fonctions d\'erivables sur un intervalle $I$.
-            Comme la primitive est la r\'eciproque de la d\'erivation, on a :
+            Soient $g$ une fonction d\'erivable sur un intervalle $I$ et $f$ une fonction d\'erivable sur un intervalle
+            contenant $g(I)$.
+            Comme la recherche d'une primitive est l'op\'eration inverse de la d\'erivation, on a :
                   \begin{IEEEeqnarray*}{rCl}
                         \int g'(x) \cdot f'\left( g(x) \right) \dx & = & f\left( g(x) \right) + C       \\
                         \int f'(x) \cdot f^n (x) \dx               & = & \frac{1}{n+1} f^{n+1}(x) + C
+                        \quad (n \in \mathbb{N})
+                  \end{IEEEeqnarray*}
+            En particulier, pour une fonction $u$ d\'erivable sur $I$ (et, selon le cas, $u(x)\neq 0$ ou $u(x)>0$ sur $I$) :
+                  \begin{IEEEeqnarray*}{rCl}
+                        \int \frac{u'(x)}{u(x)} \dx        & = & \ln |u(x)| + C ,      \\
+                        \int u'(x) \, \expo{u(x)} \dx      & = & \expo{u(x)} + C ,     \\
+                        \int \frac{u'(x)}{\sqrt{u(x)}} \dx & = & 2 \sqrt{u(x)} + C ,   \\
+                        \int \frac{u'(x)}{u^2(x)} \dx      & = & -\frac{1}{u(x)} + C .
                   \end{IEEEeqnarray*}
             %
             \begin{ex}~\vspace{-1\baselineskip}
@@ -106,7 +115,7 @@
                                     a(x) & = (x^2)' \cdot \sin' (x^2)            \\
                                          & = g'(x) \cdot f'\left(g(x)\right)     \,.
                                     \end{align*}
-                              Ainsi, la fonction $A$ d\'efinie par $A(x) = \sin x^2$ est une primitive de $a$.
+                              Ainsi, la fonction $A$ d\'efinie par $A(x) = \sin (x^2)$ est une primitive de $a$.
                         \item On veut trouver une primitive de $b(x) = \cos x \cdot \sin^4 x$.
                               On commence par remarquer que $\cos$ est en fait la d\'eriv\'ee de $\sin$.
                               Ainsi, $b(x) = \sin' x \cdot \sin^4 x$.
@@ -145,7 +154,7 @@
 	      \end{defi}
 	      %
 	      \begin{thm}
-	      Soient $f$ et $g$ deux fonction d\'efinies sur un intervalle $I$ et y admettant des primitives.
+	      Soient $f$ et $g$ deux fonctions d\'efinies sur un intervalle $I$ et y admettant des primitives.
 	      Soient $F$ une primitive de $f$ et $G$ une primitive de $g$.
 	      Soient $a$, $b$ et $c$ trois \'el\'ements de $I$ et $\lambda \in \mathbb{R}$.
 	            \begin{enumerate}
@@ -153,7 +162,7 @@
 	                  \item $\int_{a}^{b} (f+g) (x) \dx = \int_{a}^{b} f(x) \dx + \int_{a}^{b} g(x) \dx$
 	                  \item $\int_{a}^{b} \lambda f(x) \dx = \lambda \int_{a}^{b} f(x) \dx$
 	                  \item $\int_{a}^{b} f(x) \dx = \int_{a}^{c} f(x) \dx + \int_{c}^{b} f(x) \dx$
-	                  \item Si $f(x) \leq g(x)$ pour tout $x\in [a,b]$ alors 
+	                  \item Si $a \leq b$ et $f(x) \leq g(x)$ pour tout $x\in [a,b]$ alors 
 	                        $\int_{a}^{b} f(x) \dx \leq \int_{a}^{b} g(x) \dx$.            
 	            \end{enumerate}
 	      \end{thm}
@@ -167,6 +176,8 @@
 	                  \item Si $m\leq f(x) \leq M$ pour tout $x\in [a,b]$, 
 	                        alors $ m \leq \frac{1}{b-a} \int_{a}^{b} f(x) \dx \leq M$.
 	            \end{enumerate}
+	            Le r\'eel $\mu = \frac{1}{b-a} \int_{a}^{b} f(x) \dx$ est appel\'e la \emph{valeur moyenne} de $f$ sur $[a,b]$ ;
+	            le point~4 est l'\emph{in\'egalit\'e de la moyenne}.
 	      \end{prop}
 	      %
 	      \begin{thm}[Int\'egration par parties]
@@ -178,7 +189,7 @@
 	                        \int u(x) \cdot v'(x) \dx = u(x) \cdot v(x) - \int u'(x) \cdot v(x) \dx      
 	                  \label{eq:IPP fonctions}
 	                  \end{equation*}
-	            ou, avec diff\'erente notations :
+	            ou, avec d'autres notations :
 	                  \begin{equation*}
 	                        \int u \ \mathrm{d}v = u \cdot v - \int v \ \mathrm{d}u      \,.
 	                  \label{eq:IPP differentielles}
@@ -200,7 +211,7 @@
 	                  Posons alors $F(x) = \expo{x} (x-1) + C$.
 	                  On cherche alors la valeur de $C$ pour que $F(1) = 1$.
 	                  On a $
-	                              F(0) = \expo{1} (1-1) + C = C
+	                              F(1) = \expo{1} (1-1) + C = C
 	                       $,
 	                       ce qui nous donne $C = 1$.
 	                  D'o\`u $F(x) = \expo{x} (x-1) + 1$.
@@ -210,13 +221,13 @@
 	      \begin{thm}
 	      \index{Primitives!Changement de variable}
 	      Soit $f$ une fonction d\'efinie sur un intervalle $I$ et y admettant une primitive $F$ 
-	      et soit $\varphi$ une fonction d\'efinie et d\'erivable sur un intervalle $J$ tel que $I \subseteq \varphi (J)$.
+	      et soit $\varphi$ une fonction d\'efinie et d\'erivable sur un intervalle $J$ telle que $\varphi (J) \subseteq I$.
 	      La fonction $t \mapsto F\left( \varphi (t) \right)$ est d\'erivable sur $J$ et a pour d\'eriv\'ee 
 	      $t \mapsto \varphi'(t) \cdot F' \left( \varphi (t) \right)  = \varphi'(t) \cdot f\left(\varphi (t) \right) $.
 	      
 	      Si de plus $\varphi$ est une bijection de $J$ vers $I$, on peut poser $x=\varphi (t)$, $x\in I$, on a :
 	            \begin{equation*}
-	                  \int f(x) \dx = \int f'(\varphi(t)) \cdot \varphi'(t) \dt      \,.
+	                  \int f(x) \dx = \int f(\varphi(t)) \cdot \varphi'(t) \dt      \,.
 	            \label{eq:changement de variable primitive}
 	            \end{equation*}
 	            %
@@ -227,12 +238,12 @@
 	                  \begin{align*}
 	                        \int x \sqrt{x+1} \dx & = \int (t^2 - 1) \cdot t \cdot 2t \dt                                     
 	                                                = \int (2t^4 - 2t^2) \dt                                                  \\
-	                                              & = 2 \left[ \frac{t^5}{t} - \frac{t^3}{3} \right] + C                      
+	                                              & = 2 \left[ \frac{t^5}{5} - \frac{t^3}{3} \right] + C                      
 	                                                = \frac{2}{5} (x+1)^{\frac{5}{2}} - \frac{2}{3} (x+1)^{\frac{3}{2}} + C   \,.
 	                  \end{align*}
 	                  Ainsi, la fonction $F$ d\'efinie par 
 	                  $F(x) = \frac{2}{5} (x+1)^{\frac{5}{2}} - \frac{2}{3} (x+1)^{\frac{3}{2}}$
-	                  est une primitive de $f$.
+	                  est une primitive de $f$ sur $]-1,+\infty[$ (on revient \`a la variable $x$ gr\^ace \`a $t = \sqrt{x+1}$).
 	            \end{ex}
 	      \end{thm}
 	      %
@@ -243,7 +254,7 @@
       le plan rapport\'e \`a un rep\`ere orthogonal $(O,\vec{\imath},\vec{\jmath})$.
       L'aire du domaine limit\'e par $\mathscr{C}$, l'axe $x'Ox$ et les droites d'\'equations $x=a$ et $x=b$
       est alors \'egal \`a {$\int_{a}^{b} f(x) \dx$}.
-      Cette valeur s'exprime en unit\'e d'aire : c'est-\`a-dire la surface du rectangle de dimensions $1\times1$.
+      Cette valeur s'exprime en unit\'es d'aire : l'unit\'e d'aire est l'aire du rectangle construit sur $\vec{\imath}$ et $\vec{\jmath}$ (de c\^ot\'es $\|\vec{\imath}\|$ et $\|\vec{\jmath}\|$).
 
       Notons que si $f$ est n\'egative sur $[a,b]$, alors la valeur de $\int_{a}^{b} f(x) \dx$ est aussi n\'egative.
       
@@ -337,7 +348,7 @@
       
       
       \begin{prop}
-            Soient $a>0$ et $f$ une fonction d\'efinie sur $[-a,a]$.
+            Soient $a>0$ et $f$ une fonction continue sur $[-a,a]$.
             \begin{itemize}
                   \item Si $f$ est une fonction paire alors $\int_{-a}^{a} f(x) \dx = 2 \cdot \int_{0}^{a} f(x) \dx$.
                   \item Si $f$ est une fonction impaire alors $\int_{-a}^{a} f(x) \dx = 0$.
@@ -346,11 +357,11 @@
       %
       \begin{thm}
       \index{Integrales@Int\'egrales!Changement de variable}
-      Soit $f$ une fonction continue sur $[a,b]$ et $\psi : J \rightarrow [a,b]$ une fonction d\'erivable et bijective.
+      Soit $f$ une fonction continue sur $[a,b]$ et $\psi : J \rightarrow [a,b]$ une fonction d\'erivable, de d\'eriv\'ee continue, et bijective.
       
       Si $\psi (\alpha) = a$ et $\psi (\beta) = b$, alors : 
             \begin{equation*}
-                  \int_{a}^{b} f(x) \dx = \int_{\alpha}^{\beta} f'(\psi(t)) \cdot \psi'(t) \dt      \,.
+                  \int_{a}^{b} f(x) \dx = \int_{\alpha}^{\beta} f(\psi(t)) \cdot \psi'(t) \dt      \,.
             \label{eq:changement de variable integrale}
             \end{equation*}
             %
@@ -445,7 +456,7 @@
       Calculer les int\'egrales suivantes : 
       \begin{enumerate}
             \item $ \int_{0}^{1} \frac{x}{(1+x^2)^2} \dx $
-            \item $ \int_{0}^{2} x^2 \sqrt{1+x^2} \dx $
+            \item $ \int_{0}^{2} x^2 \sqrt{1+x^3} \dx $
             \item $ \int_{0}^{4} \frac{x}{\sqrt{1+3x^2}} \dx $
             \item $ \int_{0}^{ \frac{ \sqrt{ \pi } }{2} } \frac{2x}{ \cos ^2 x^2 } \dx $
             \item $ \int_{-2}^{3} |x| \dx $
@@ -453,9 +464,9 @@
             \item $ \int_{-1}^{2} |x| \cdot \expo{2x^2} \dx $
             \item $ \int_{0}^{1} x^2 \cdot \expo{x} \dx $
             \item $ \int_{1}^{e} x \cdot \ln x \dx  $
-            \item $ \int_{-2}^{2} \frac{x^2 + 2x + 1}{x+1} \dx $
+            \item $ \int_{0}^{2} \frac{x^2 + 2x + 1}{x+1} \dx $
             \item $ \int_{-2}^{2} \frac{x^2 + 2x + 1}{x^2 + 1} \dx $
-            \item $ \int_{0}^{1} \frac{2x^2 + 3x -2}{x^2-1} \dx $
+            \item $ \int_{0}^{\frac{1}{2}} \frac{2x^2 + 3x -2}{x^2-1} \dx $
             \item $ \int_{0}^{1} \frac{x^2 - 3x + 15}{x^2 -5x +6} \dx $ 
                   (Trouver $a$, $b$ et $c$ tels que
                   $ \frac{x^2 - 3x + 15}{x^2 -5x +6} = a+\frac{b}{x-2}+\frac{c}{x-3} $
@@ -466,22 +477,22 @@
 \begin{exo}
       Calculer les limites suivantes : 
       \begin{enumerate}
-            \item $\displaystyle{ \lim_{x\rightarrow 0} \int_{x}^{1} \frac{1}{\sqrt{t}} \dt}$
-            \item $\displaystyle{ \lim_{x\rightarrow 0} \int_{x}^{1} \frac{1}{t^{\alpha}} \dt}$ o\`u $0 < \alpha < 1$.
-            \item $\displaystyle{ \lim_{x\rightarrow 1} \int_{0}^{x} \frac{t}{\sqrt{1-t^2}} \dt}$
-            \item $\displaystyle{ \lim_{x\rightarrow +\infty} \int_{1}^{x} \frac{1}{x} \dt}$
-            \item $\displaystyle{ \lim_{x\rightarrow +\infty} \int_{1}^{x} \frac{1}{x^{\alpha}} \dt}$ o\`u $\alpha > 1$.
-            \item $\displaystyle{ \lim_{x\rightarrow +\infty} \int_{0}^{x} \expo{-x} \dt}$
+            \item $\displaystyle{ \lim_{x\rightarrow 0^+} \int_{x}^{1} \frac{1}{\sqrt{t}} \dt}$
+            \item $\displaystyle{ \lim_{x\rightarrow 0^+} \int_{x}^{1} \frac{1}{t^{\alpha}} \dt}$ o\`u $0 < \alpha < 1$.
+            \item $\displaystyle{ \lim_{x\rightarrow 1^-} \int_{0}^{x} \frac{t}{\sqrt{1-t^2}} \dt}$
+            \item $\displaystyle{ \lim_{x\rightarrow +\infty} \int_{1}^{x} \frac{1}{t} \dt}$
+            \item $\displaystyle{ \lim_{x\rightarrow +\infty} \int_{1}^{x} \frac{1}{t^{\alpha}} \dt}$ o\`u $\alpha > 1$.
+            \item $\displaystyle{ \lim_{x\rightarrow +\infty} \int_{0}^{x} \expo{-t} \dt}$
       \end{enumerate}
 \end{exo}
 %
 \begin{exo}
-      On consid\`ere les fonction $f$ et $g$ d\'efinies sur $[1,+\infty[$ respectivement par :
+      On consid\`ere les fonctions $f$ et $g$ d\'efinies sur $[1,+\infty[$ respectivement par :
             \[
                   f(x) = \frac{1}{x} \text{ et } g(x) = \frac{1}{x^2}      .
             \]
       On note $\mathscr{C}$ et $\Gamma$ leurs courbes repr\'esentatives respectives.
-      On d\'esigne par $\mathscr{A}(\lambda)$ l'aire du plan compris entre 
+      On d\'esigne par $\mathscr{A}(\lambda)$ l'aire du domaine plan compris entre 
       la courbe $\mathscr{C}$, $\Gamma$ et la droite d'\'equation $x=\lambda$ ($\lambda > 1$).
       \begin{figure}[H]
             \begin{tikzpicture}[line cap=round,line join=round,>=stealth,x=1.0cm,y=1.0cm]
@@ -506,14 +517,14 @@
 \end{exo}
 %
 \begin{exo}
-      On consid\'ere la suite $(S_n)_{n\in\mathbb{N}^*}$ d\'efinie par :
+      On consid\`ere la suite $(S_n)_{n\in\mathbb{N}^*}$ d\'efinie par :
             $\displaystyle{ S_n = \sum_{i=1}^{n} \frac{1}{i^2} }$.
        Pour tout $n\in\mathbb{N}^*$, on pose $ \displaystyle{I_n = \int_{1}^{n} \frac{\dx}{x^2}  } $.
       \begin{enumerate}
             \item Montrer que les suites $(S_n)$ et $(I_n)$ sont croissantes.
             \item \begin{enumerate}
-                        \item Interpreter $I_n$ graphiquement.
-                        \item Que peut \^etre la signification graphique de $S_n$\,?
+                        \item Interpr\'eter $I_n$ graphiquement.
+                        \item Quelle peut \^etre la signification graphique de $S_n - 1$ (voir la figure)\,?
                   \end{enumerate}
             \item \begin{enumerate}
                         \item Calculer $\lim_{n\rightarrow+\infty} I_n$. 
@@ -558,7 +569,7 @@
 \end{exo}
 %
 \begin{exo}
-      On d\'efinit la suite $(I_n)_{n\in\mathbb{N}*}$ par 
+      On d\'efinit la suite $(I_n)_{n\in\mathbb{N}^*}$ par 
             \[
                   I_n = \int_{0}^{n} \frac{\sqrt{x}}{x^4+1} \dx       .
             \]
@@ -574,26 +585,26 @@
 %
 \begin{exo}
       Soit $\alpha$ un nombre entier naturel sup\'erieur ou \'egal \`a $2$.
-      On d\'efinit la suite $(S_n)_{n\in\mathbb{N}}$ par 
+      On d\'efinit la suite $(S_n)_{n\in\mathbb{N}^*}$ par 
             \[
-                  S_n= \sum_{i=1}^n \frac{1}{i^2}      .
+                  S_n= \sum_{i=1}^n \frac{1}{i^\alpha}      .
             \]
       \begin{enumerate}
-            \item On d\'efinit la suite $(I_n)_{n\in\mathbb{N}*}$ par 
+            \item On d\'efinit la suite $(I_n)_{n\in\mathbb{N}^*}$ par 
                   \[
                         I_n = \int_{1}^{n} \frac{1}{x^\alpha} \dx      .
                   \]
                   \begin{enumerate}
-                        \item Montrer que $(I_n)_{n\in\mathbb{N}*}$ est croissante.
-                        \item Montrer que pour tout $n\geq 2$.
+                        \item Montrer que $(I_n)_{n\in\mathbb{N}^*}$ est croissante.
+                        \item Montrer que pour tout $n\geq 2$,
                               \[
                                     S_n \leq S_1+ I_n      .
                               \]
                   \end{enumerate}
             \item \begin{enumerate}
-                        \item Montrer que $(S_n)_{n\in\mathbb{N}*}$ est croissante.
-                        \item En majorant, d'abord $(I_n)_{n\in\mathbb{N}*}$, 
-                              montrer que $(S_n)_{n\in\mathbb{N}*}$ est aussi major\'ee.
+                        \item Montrer que $(S_n)_{n\in\mathbb{N}^*}$ est croissante.
+                        \item En majorant d'abord $(I_n)_{n\in\mathbb{N}^*}$, 
+                              montrer que $(S_n)_{n\in\mathbb{N}^*}$ est aussi major\'ee.
                               Conclure.
                   \end{enumerate}
       \end{enumerate}
@@ -619,7 +630,7 @@
                   U_n=\int_{0}^{1}x^n\ln(x+1)\dx.
             \]
             \begin{enumerate}
-                  \item Etudier le signe de $(x^{n+1} - x^n)$ sur $[0 ; 1]$.
+                  \item \'Etudier le signe de $(x^{n+1} - x^n)$ sur $[0 ; 1]$.
                   \item En d\'eduire le sens de variation de $(U_n)$.
                   \item La suite $(U_n)$ est-elle convergente\,? Justifier.
                   \item D\'emontrer que pour tout entier naturel $n>0$, on a $0 \leq U_n \leq \frac{\ln 2}{n+1}$.
@@ -628,22 +639,178 @@
 \end{exo}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\begin{corrige}
+\section{Solutions des exercices}
+Dans ce corrig\'e, $k$ d\'esigne une constante r\'eelle arbitraire (une par intervalle).
 
+\subsection*{Exercice 1}
+Une fonction continue sur un intervalle y admet des primitives ; on travaille donc sur chaque intervalle
+o\`u $f$ est d\'efinie et continue.
+\begin{enumerate}
+\item Sur $\mathbb{R}$ : $F(x) = \frac{(1+x)^{n+1}}{n+1} + k$.
+\item Sur $\mathbb{R}$ : $F(x) = \frac{(ax+b)^{n+1}}{a(n+1)} + k$ (la d\'eriv\'ee de $(ax+b)^{n+1}$ est $a(n+1)(ax+b)^n$).
+\item $f$ est d\'efinie et continue sur $[-1,+\infty[$. Avec $u(x) = 1+x^3$, $u'(x) = 3x^2$ et
+      $f = \frac{1}{3} u' u^{\frac{1}{2}}$, d'o\`u $F(x) = \frac{2}{9}\left(1+x^3\right)^{\frac{3}{2}} + k$.
+\item Sur $\mathbb{R}$ : $f = \frac{u'}{2\sqrt{u}}$ avec $u = 1+x^2$, donc $F(x) = \sqrt{1+x^2} + k$.
+\item $f$ est d\'efinie sur $]-\infty,0[$ et sur $]0,+\infty[$ et
+      $f(x) = 1 - \frac{2}{\sqrt[3]{x}} + \frac{1}{\sqrt[3]{x^2}}$.
+      Comme $\left(\sqrt[3]{x}\right)' = \frac{1}{3\sqrt[3]{x^2}}$ et $\left(\sqrt[3]{x^2}\right)' = \frac{2}{3\sqrt[3]{x}}$ pour $x\neq 0$,
+      on obtient sur chacun des deux intervalles
+      $F(x) = x - 3\sqrt[3]{x^2} + 3\sqrt[3]{x} + k$.
+\item Sur $]0,+\infty[$ : $f(x) = x^{-\frac{1}{3}} + 2x^{\frac{1}{6}} + x^{\frac{2}{3}}$, donc
+      $F(x) = \frac{3}{2} x^{\frac{2}{3}} + \frac{12}{7} x^{\frac{7}{6}} + \frac{3}{5} x^{\frac{5}{3}} + k$.
+\item Sur $\mathbb{R}$ : $f = u'v + uv'$ avec $u = x^3+1$ et $v = x^2+1$, donc $F(x) = (x^3+1)(x^2+1) + k$.
+\item Sur $\mathbb{R}$ : $f(x) = (x^2)' \sin x + x^2 (\sin x)'$, donc $F(x) = x^2 \sin x + k$.
+\item $f$ est d\'efinie sur $]-\infty,1[$ et sur $]1,+\infty[$, o\`u $f(x) = \frac{(x-1)^3}{x-1} = (x-1)^2$ :
+      $F(x) = \frac{(x-1)^3}{3} + k$.
+\item $x^3 + ax^2 = x^2(x+a)$, donc $f$ est d\'efinie sur $]-\infty,-a[$, $]-a,0[$ et $]0,+\infty[$,
+      o\`u $f(x) = \frac{1}{x^2}$ : $F(x) = -\frac{1}{x} + k$.
+\item Sur chaque intervalle $]p\pi,(p+1)\pi[$, $p\in\mathbb{Z}$ :
+      $\left(\frac{x}{\sin x}\right)' = \frac{\sin x - x\cos x}{\sin^2 x}$, donc $F(x) = \frac{x}{\sin x} + k$.
+\item Sur $]-\infty,0[$ et sur $]0,+\infty[$ :
+      $\left(-\frac{\cos x}{x}\right)' = \frac{x\sin x + \cos x}{x^2}$, donc $F(x) = -\frac{\cos x}{x} + k$.
+\item $x^{10} - x^6 = x^6(x^4-1) \geq 0$ si et seulement si $x = 0$ ou $|x| \geq 1$ ;
+      les intervalles sont $]-\infty,-1]$ et $[1,+\infty[$, et $f(x) = 4|x|^3\sqrt{x^4-1}$.
+      Avec $u = x^4 - 1$, $u' = 4x^3$ et $\left(u^{\frac{3}{2}}\right)' = \frac{3}{2}u'\sqrt{u}$ :
+      sur $[1,+\infty[$, $F(x) = \frac{2}{3}\left(x^4-1\right)^{\frac{3}{2}} + k$ ;
+      sur $]-\infty,-1]$, $|x|^3 = -x^3$ et $F(x) = -\frac{2}{3}\left(x^4-1\right)^{\frac{3}{2}} + k$.
+\item $f(x) = \frac{1}{|x-a|^3}$, d\'efinie sur $]-\infty,a[$ et $]a,+\infty[$.
+      Sur $]a,+\infty[$ : $F(x) = -\frac{1}{2(x-a)^2} + k$ ; sur $]-\infty,a[$ : $F(x) = \frac{1}{2(x-a)^2} + k$.
+\item Sur $\mathbb{R}$, par parties avec $u = x$, $v' = \cos\alpha x$, $v = \frac{\sin \alpha x}{\alpha}$ :
+      $F(x) = \frac{x \sin \alpha x}{\alpha} - \int \frac{\sin\alpha x}{\alpha}\dx
+      = \frac{x\sin\alpha x}{\alpha} + \frac{\cos\alpha x}{\alpha^2} + k$.
+\item Sur $\mathbb{R}$, deux int\'egrations par parties :
+      $\int x^2\sin\alpha x \dx = -\frac{x^2\cos\alpha x}{\alpha} + \frac{2}{\alpha}\int x\cos\alpha x\dx$, d'o\`u
+      $F(x) = -\frac{x^2\cos\alpha x}{\alpha} + \frac{2x\sin\alpha x}{\alpha^2} + \frac{2\cos\alpha x}{\alpha^3} + k$.
+\item Sur $]-1,+\infty[$ : avec $t = \sqrt{x+1}$, $x = t^2-1$, $\dx = 2t\dt$,
+      $\int \frac{x}{\sqrt{x+1}}\dx = \int \frac{t^2-1}{t}\,2t\dt = \frac{2t^3}{3} - 2t + k$, soit
+      $F(x) = \frac{2}{3}(x+1)^{\frac{3}{2}} - 2\sqrt{x+1} + k = \frac{2}{3}(x-2)\sqrt{x+1} + k$.
+\item et 19. Sur $\mathbb{R}$, notons $A = \int \expo{x}\sin x\dx$ et $B = \int\expo{x}\cos x\dx$.
+      Par parties (avec $v' = \expo{x}$) : $A = \expo{x}\sin x - B$ et $B = \expo{x}\cos x + A$.
+      On en tire $A = \frac{\expo{x}(\sin x - \cos x)}{2} + k$ et $B = \frac{\expo{x}(\sin x + \cos x)}{2} + k$
+      (on v\'erifie en d\'erivant).
+\setcounter{enumi}{19}
+\item Sur $]0,+\infty[$ : $f = u'u$ avec $u = \ln x$, donc $F(x) = \frac{(\ln x)^2}{2} + k$.
+\item Sur $]0,+\infty[$, par parties avec $u = \ln x$, $v' = 1$ : $F(x) = x\ln x - x + k$.
+\item Sur $\mathbb{R}$ : $f = \frac{1}{2}u'\expo{u}$ avec $u = x^2$, donc $F(x) = \frac{1}{2}\expo{x^2} + k$.
+\end{enumerate}
 
+\subsection*{Exercice 2}
+\begin{enumerate}
+\item $\int_0^1 \frac{x}{(1+x^2)^2}\dx = \left[-\frac{1}{2(1+x^2)}\right]_0^1 = -\frac{1}{4} + \frac{1}{2} = \boxed{\frac{1}{4}}$.
+\item $\int_0^2 x^2\sqrt{1+x^3}\dx = \left[\frac{2}{9}(1+x^3)^{\frac{3}{2}}\right]_0^2 = \frac{2}{9}(27-1) = \boxed{\frac{52}{9}}$.
+\item $\int_0^4 \frac{x}{\sqrt{1+3x^2}}\dx = \left[\frac{1}{3}\sqrt{1+3x^2}\right]_0^4 = \frac{7-1}{3} = \boxed{2}$.
+\item $\frac{2x}{\cos^2(x^2)} = u'(x)\,\tan'(u(x))$ avec $u = x^2$, et $x^2 \in [0,\frac{\pi}{4}]$ :
+      $\left[\tan(x^2)\right]_0^{\sqrt{\pi}/2} = \tan\frac{\pi}{4} - 0 = \boxed{1}$.
+\item $\int_{-2}^{3}|x|\dx = \int_{-2}^0 (-x)\dx + \int_0^3 x\dx = 2 + \frac{9}{2} = \boxed{\frac{13}{2}}$.
+\item $\int_{-1}^{2}x|x|\dx = \int_{-1}^0 (-x^2)\dx + \int_0^2 x^2\dx = -\frac{1}{3} + \frac{8}{3} = \boxed{\frac{7}{3}}$.
+\item La fonction $x\mapsto |x|\expo{2x^2}$ est paire, donc
+      $\int_{-1}^{2} = \int_{0}^{1} x\expo{2x^2}\dx + \int_0^2 x\expo{2x^2}\dx
+      = \left[\frac{\expo{2x^2}}{4}\right]_0^1 + \left[\frac{\expo{2x^2}}{4}\right]_0^2 = \boxed{\frac{\expo{8} + \expo{2} - 2}{4}}$.
+\item Deux int\'egrations par parties : $\int x^2\expo{x}\dx = (x^2 - 2x + 2)\expo{x} + k$, donc
+      $\int_0^1 x^2\expo{x}\dx = \expo{1} - 2 = \boxed{e - 2}$.
+\item Par parties ($u = \ln x$, $v' = x$) : $\int_1^e x\ln x\dx = \left[\frac{x^2}{2}\ln x\right]_1^e - \int_1^e\frac{x}{2}\dx
+      = \frac{e^2}{2} - \frac{e^2-1}{4} = \boxed{\frac{e^2+1}{4}}$.
+\item Sur $[0,2]$, $x+1 \neq 0$ et $\frac{(x+1)^2}{x+1} = x+1$ : $\int_0^2 (x+1)\dx = \boxed{4}$.
+      (La fonction n'est pas d\'efinie en $-1$ : c'est pourquoi l'intervalle d'int\'egration ne doit pas contenir $-1$.)
+\item $\frac{x^2+2x+1}{x^2+1} = 1 + \frac{2x}{x^2+1}$ ; la seconde fonction est impaire, son int\'egrale sur $[-2,2]$ est nulle :
+      le r\'esultat est $\boxed{4}$.
+\item $2x^2 + 3x - 2 = 2(x^2-1) + 3x$, donc sur $[0,\frac{1}{2}]$ (o\`u $x^2 - 1 < 0$)
+      $\frac{2x^2+3x-2}{x^2-1} = 2 + \frac{3}{2}\cdot\frac{2x}{x^2-1}$ et
+      $\int_0^{1/2} = \left[2x + \frac{3}{2}\ln|x^2-1|\right]_0^{1/2} = \boxed{1 + \frac{3}{2}\ln\frac{3}{4}}$.
+\item En r\'eduisant au m\^eme d\'enominateur et en identifiant : $a = 1$, $b = -13$, $c = 15$
+      (en effet $x^2 - 3x + 15 - (x^2 - 5x + 6) = 2x + 9$, puis $b = \frac{2\cdot 2+9}{2-3}$ et $c = \frac{2\cdot 3+9}{3-2}$).
+      Sur $[0,1]$, $x - 2 < 0$ et $x - 3 < 0$, donc
+      $\int_0^1 = \left[x - 13\ln|x-2| + 15\ln|x-3|\right]_0^1 = 1 + 13\ln 2 + 15(\ln 2 - \ln 3) = \boxed{1 + 28\ln 2 - 15\ln 3}$.
+\end{enumerate}
 
+\subsection*{Exercice 3}
+\begin{enumerate}
+\item $\int_x^1 \frac{\dt}{\sqrt{t}} = 2 - 2\sqrt{x} \to \boxed{2}$ quand $x\to 0^+$.
+\item $\int_x^1 t^{-\alpha}\dt = \frac{1 - x^{1-\alpha}}{1-\alpha}$ ; comme $1 - \alpha > 0$, $x^{1-\alpha}\to 0$ et la limite est $\boxed{\frac{1}{1-\alpha}}$.
+\item $\int_0^x \frac{t}{\sqrt{1-t^2}}\dt = \left[-\sqrt{1-t^2}\right]_0^x = 1 - \sqrt{1-x^2} \to \boxed{1}$ quand $x\to 1^-$.
+\item $\int_1^x \frac{\dt}{t} = \ln x \to \boxed{+\infty}$.
+\item $\int_1^x t^{-\alpha}\dt = \frac{1 - x^{1-\alpha}}{\alpha - 1}$ ; comme $1-\alpha<0$, $x^{1-\alpha}\to 0$ : limite $\boxed{\frac{1}{\alpha-1}}$.
+\item $\int_0^x \expo{-t}\dt = 1 - \expo{-x}\to\boxed{1}$.
+\end{enumerate}
 
+\subsection*{Exercice 4}
+Sur $[1,+\infty[$, $x \geq 1$ donc $x^2 \geq x$ et $\frac{1}{x} \geq \frac{1}{x^2}$ : $\mathscr{C}$ est au-dessus de $\Gamma$.
+Le domaine est limit\'e par les deux courbes (qui se coupent au point d'abscisse $1$) et la droite $x = \lambda$ :
+\[
+\mathscr{A}(\lambda) = \int_1^\lambda\left(\frac{1}{x} - \frac{1}{x^2}\right)\dx = \left[\ln x + \frac{1}{x}\right]_1^\lambda
+= \boxed{\ln\lambda + \frac{1}{\lambda} - 1} \text{ unit\'es d'aire.}
+\]
+Comme $\ln\lambda\to+\infty$ et $\frac{1}{\lambda}\to 0$, $\lim_{\lambda\to+\infty}\mathscr{A}(\lambda) = +\infty$.
 
+\subsection*{Exercice 5}
+\begin{enumerate}
+\item $S_{n+1} - S_n = \frac{1}{(n+1)^2} > 0$ et $I_{n+1} - I_n = \int_n^{n+1}\frac{\dx}{x^2} > 0$ (fonction positive, $n < n+1$) :
+      les deux suites sont croissantes.
+\item (a) $I_n$ est l'aire (en unit\'es d'aire) du domaine limit\'e par la courbe de $x\mapsto\frac{1}{x^2}$, l'axe des abscisses
+      et les droites $x = 1$ et $x = n$.
+      (b) Pour $i \geq 2$, $\frac{1}{i^2}$ est l'aire du rectangle de base $[i-1,i]$ et de hauteur $\frac{1}{i^2}$ ;
+      $S_n - 1 = \sum_{i=2}^n\frac{1}{i^2}$ est donc la somme des aires des rectangles de la figure situ\'es entre $x = 1$ et $x = n$.
+\item (a) $I_n = \left[-\frac{1}{x}\right]_1^n = 1 - \frac{1}{n}$, donc $\lim I_n = 1$ et $I_n \leq 1$ pour tout $n$.
+      (b) Pour $i\geq 2$ et $x\in[i-1,i]$, $\frac{1}{x^2}\geq\frac{1}{i^2}$, donc $\frac{1}{i^2}\leq\int_{i-1}^i\frac{\dx}{x^2}$.
+      En sommant pour $i$ de $2$ \`a $n$ (relation de Chasles) : $S_n - S_1 \leq I_n$.
+      (c) $S_n \leq 1 + I_n \leq 2$ : la suite $(S_n)$ est croissante et major\'ee par $2$, donc elle converge, vers une limite $\ell\leq 2$.
+\end{enumerate}
 
+\subsection*{Exercice 6}
+\begin{enumerate}
+\item $I_{n+1} - I_n = \int_n^{n+1}\frac{\dx}{x^3+1} \geq 0$ car la fonction est positive : $(I_n)$ est croissante.
+\item Pour $x\geq 1$, $x^3 + 1 > x^3 > 0$, donc $\frac{1}{x^3+1} \leq \frac{1}{x^3}$.
+      Par Chasles et l'in\'egalit\'e des int\'egrales ($1\leq n$) :
+      $I_n = I_1 + \int_1^n\frac{\dx}{x^3+1}\leq I_1 + \int_1^n\frac{\dx}{x^3}$.
+\item $\int_1^n\frac{\dx}{x^3} = \frac{1}{2} - \frac{1}{2n^2}\leq\frac{1}{2}$, donc $I_n\leq I_1 + \frac{1}{2}$.
+      La suite $(I_n)$, croissante et major\'ee, converge.
+\end{enumerate}
 
+\subsection*{Exercice 7}
+\begin{enumerate}
+\item La fonction $x\mapsto\frac{\sqrt{x}}{x^4+1}$ est positive sur $[0,+\infty[$, donc $I_{n+1} - I_n = \int_n^{n+1}\frac{\sqrt{x}}{x^4+1}\dx\geq 0$.
+\item Pour $x\geq 1$ : $\frac{\sqrt{x}}{x^4+1}\leq\frac{\sqrt{x}}{x^4} = \frac{1}{x^{7/2}}\leq\frac{1}{x^2}$ (car $x^{7/2}\geq x^2$).
+      Donc, pour $n\geq 2$, $I_n = I_1 + \int_1^n\frac{\sqrt{x}}{x^4+1}\dx\leq I_1 + \int_1^n\frac{\dx}{x^2}$.
+\item $\int_1^n\frac{\dx}{x^2} = 1 - \frac{1}{n}\leq 1$, donc $I_n\leq I_1 + 1$ : $(I_n)$ est croissante et major\'ee, donc convergente.
+\end{enumerate}
 
+\subsection*{Exercice 8}
+\begin{enumerate}
+\item (a) $I_{n+1} - I_n = \int_n^{n+1}\frac{\dx}{x^\alpha}\geq 0$.
+      (b) Pour $i\geq 2$ et $x\in[i-1,i]$, $x^\alpha\leq i^\alpha$, donc $\frac{1}{i^\alpha}\leq\frac{1}{x^\alpha}$ et
+      $\frac{1}{i^\alpha}\leq\int_{i-1}^i\frac{\dx}{x^\alpha}$. En sommant de $i = 2$ \`a $n$ : $S_n - S_1\leq I_n$.
+\item (a) $S_{n+1} - S_n = \frac{1}{(n+1)^\alpha} > 0$.
+      (b) Comme $\alpha\geq 2$, $I_n = \left[\frac{x^{1-\alpha}}{1-\alpha}\right]_1^n = \frac{1}{\alpha-1}\left(1 - \frac{1}{n^{\alpha-1}}\right)\leq\frac{1}{\alpha-1}$.
+      Donc $S_n\leq 1 + \frac{1}{\alpha-1} = \frac{\alpha}{\alpha-1}$ : $(S_n)$ est croissante et major\'ee, elle converge
+      (vers une limite inf\'erieure ou \'egale \`a $\frac{\alpha}{\alpha-1}$).
+\end{enumerate}
 
+\subsection*{Exercice 9}
+\begin{enumerate}
+\item Pour tout r\'eel $x$, $\sqrt{x^2+2} > \sqrt{x^2} = |x| \geq -x$, donc $x + \sqrt{x^2+2} > 0$ et la fonction est d\'efinie sur $\mathbb{R}$.
+      Sa d\'eriv\'ee est
+      \[
+      \frac{1 + \frac{x}{\sqrt{x^2+2}}}{x + \sqrt{x^2+2}} = \frac{\frac{\sqrt{x^2+2} + x}{\sqrt{x^2+2}}}{x+\sqrt{x^2+2}} = \frac{1}{\sqrt{x^2+2}} .
+      \]
+      Une primitive de $f$ sur $\mathbb{R}$ est donc $F(x) = \ln\left(x + \sqrt{x^2+2}\right)$.
+\item (a) $h(x) - g(x) = \frac{x^2 + 2 - x^2}{\sqrt{x^2+2}} = \frac{2}{\sqrt{x^2+2}} = 2f(x)$, et
+      $\left(x\sqrt{x^2+2}\right)' = \sqrt{x^2+2} + \frac{x^2}{\sqrt{x^2+2}} = h(x) + g(x)$.
+      (b) $h = \frac{1}{2}\left[(h+g) + (h-g)\right]$ et $g = \frac{1}{2}\left[(h+g) - (h-g)\right]$, d'o\`u les primitives
+      \[
+      H(x) = \frac{1}{2}x\sqrt{x^2+2} + \ln\left(x+\sqrt{x^2+2}\right), \qquad
+      G(x) = \frac{1}{2}x\sqrt{x^2+2} - \ln\left(x+\sqrt{x^2+2}\right).
+      \]
+\end{enumerate}
 
-
-
-
-
-
-
-
-
-
+\subsection*{Exercice 10}
+\begin{enumerate}
+\item $x^{n+1} - x^n = x^n(x-1)\leq 0$ sur $[0,1]$.
+\item Sur $[0,1]$, $\ln(x+1)\geq 0$, donc $(x^{n+1} - x^n)\ln(x+1)\leq 0$ et $U_{n+1} - U_n = \int_0^1 (x^{n+1}-x^n)\ln(x+1)\dx\leq 0$ :
+      la suite $(U_n)$ est d\'ecroissante.
+\item $x^n\ln(x+1)\geq 0$ sur $[0,1]$, donc $U_n\geq 0$ : la suite est d\'ecroissante et minor\'ee par $0$, donc convergente.
+\item Sur $[0,1]$, $0\leq\ln(x+1)\leq\ln 2$ (la fonction $\ln$ est croissante), donc $0\leq x^n\ln(x+1)\leq x^n\ln 2$ et
+      $0\leq U_n\leq\ln 2\int_0^1 x^n\dx = \frac{\ln 2}{n+1}$.
+\item Comme $\frac{\ln 2}{n+1}\to 0$, le th\'eor\`eme des gendarmes donne $\lim U_n = \boxed{0}$.
+\end{enumerate}
+\end{corrige}
