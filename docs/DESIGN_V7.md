@@ -53,3 +53,20 @@ t-theme.css`).
 
 The full brand guide (logo system, both palettes with contrast, components, slides, PDF page, share card) is the
 canvas "Brand identity proposals", page "Pavage guide".
+
+## Structure (16 November 2026, not part of the brand)
+
+Owner request: "Learn" opened on the French curriculum with no way to choose one first. Cause: with no level in the
+address and none remembered, `libraryPage` took the first course of the manifest (Seconde), and the level rails of
+Lessons and Exercises listed only the French levels, so the published Malagasy levels (T10, T11 S) were unreachable
+from them. Changes (`site/js/curriculum-picker.js`):
+
+- An address without a level (`#resources`, `#bank`, `#slides`) opens a curriculum chooser: Malagasy and French with
+  their levels, University and International as links to their own pages. Nothing is preselected.
+- An address with a level opens it, under a line naming its curriculum, saying it is remembered on this device, and
+  offering "Changer de programme". The remembered class still fills the navigation links (`navigation-state.js`).
+- The level rails are grouped by curriculum, with "Autres programmes" (University, International) at the end. The
+  Exercises chooser lists only levels with online exercises; the Malagasy card says there are none yet.
+- Apprendre keeps six study tabs (Cours, Exercices, Réviser, Annales, Bases, Programmes, formerly Parcours) and folds
+  the classroom tools (Diaporamas, Automatismes, Fiches, Dossier sur mesure) under "Pour enseigner", open on those pages
+  and for the teacher profile.

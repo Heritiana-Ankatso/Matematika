@@ -29,7 +29,8 @@ really need them.
 | a colour, font, spacing, radius or theme | `site/styles/tokens.css` (tokens, both themes) | `docs/DESIGN_V7.md` only for a design decision |
 | the look of one page or component | `site/styles/pages.css` (search the page class, see section 3) | standalone mathematicians: `site/styles/timeline-standalone.css` and `site/resources/history/mathematicians-timeline.html` |
 | shared class memory or grouped optional classroom controls | `site/js/navigation-state.js`, `site/js/page-ergonomics.js`, `site/styles/ergonomics.css` | |
-| the top navigation (Apprendre, Explorer and Lire, with page tabs), footer, theme or language buttons | `site/js/app.js` `SECTIONS`, `TAB_OF`, `header()` / `footer()` | |
+| the top navigation (Apprendre, Explorer and Lire, with page tabs; Apprendre folds its classroom tools under « Pour enseigner »), footer, theme or language buttons | `site/js/app.js` `SECTIONS`, `TAB_OF`, `header()` / `footer()` | |
+| the curriculum and level choice of Lessons, Exercises and Slides (grouped rail, chooser when no level is in the address) | `site/js/curriculum-picker.js`; styles at the end of `site/styles/ergonomics.css` | curriculum names come from `site/js/content.js` `pathways` |
 | a foundations lesson (`#basics`) | `site/js/basics-page.js` (`BASICS_GROUPS`, `basicsPage`, `bindBasics`), `site/resources/basics/place-value.html, site/resources/basics/place-value.en.html`, `site/resources/basics/addition.html, site/resources/basics/addition.en.html`, `site/resources/basics/subtraction.html, site/resources/basics/subtraction.en.html`, `site/resources/basics/multiplication.html, site/resources/basics/multiplication.en.html`, `site/resources/basics/division.html, site/resources/basics/division.en.html`, `site/resources/basics/sets.html, site/resources/basics/sets.en.html` | place value, the four arithmetic operations, sets (shared code, one text table per edition); `site/resources/basics/fractions.html` and `site/resources/basics/fractions.en.html` are the bilingual fractions workbench |
 | a route (add or rename a page) | `site/js/app.js` `route()`, `render()` (validity list and dispatch) | section 3 |
 | any text of a laboratory experiment (missions, prompts, arguments) | `site/js/lab/experiments/<id>.js` (index in `site/js/lab/CLAUDE.md`) | gallery entries only: `site/js/content.js` `labs` (`custom: true`) |
@@ -105,15 +106,15 @@ All pages are rendered by `site/js/app.js` `render()`; the module named builds t
 | `#review` | Apprendre > Réviser | `review-page.js` `mountReviewPage`, loaded on demand; pure `review-model.js`, storage `review-state.js`, styles `styles/review.css`; `docs/REVIEW.md` |
 | `#home` (default) | logo | `welcome.js` `homePage` / `bindHome` / `mountHomeFigure`, class-to-chapter flow |
 | `#basics[/place-value|addition|subtraction|multiplication|division|fractions|sets|logic-propositions|logic-implication|logic-quantifiers|logic-reasoning]` | Apprendre > Bases | `app.js` `basicsPage` / `bindBasics`, `site/resources/basics/place-value.html, site/resources/basics/place-value.en.html`, `site/resources/basics/addition.html, site/resources/basics/addition.en.html` and `site/resources/basics/subtraction.html, site/resources/basics/subtraction.en.html`, `site/resources/basics/multiplication.html, site/resources/basics/multiplication.en.html` and `site/resources/basics/division.html, site/resources/basics/division.en.html` and `site/resources/basics/sets.html, site/resources/basics/sets.en.html` and `site/resources/basics/fractions.html, site/resources/basics/fractions.en.html` (discovery record `FOUNDATION_LESSONS` in `discovery.js`) |
-| `#resources[/<course>]` | Programme français > Cours | `resource-library.js` `libraryPage` / `bindLibrary` (rail of curricula and levels beside the chapter grid; classroom tools in the rail) |
+| `#resources[/<course>]` | Apprendre > Cours | `resource-library.js` `libraryPage` / `bindLibrary` (rail of curricula and levels beside the chapter grid, from `curriculum-picker.js`; without a level, the curriculum chooser) |
 | `#chapter/<id>[/<tab>]` | (Cours) | `resource-library.js` `chapterPage` → `chapter-sequence.js`; "Ressources liées" box from `related-box.js` (also on `#gallery/<id>` and `#lab/<experiment>`) |
 | `#library[/<id>]` | (Cours) | `library.js` `mountLibrary` |
 | `#workshop/quadratic` | (Cours) | `quadratic-workshop.js` |
-| `#pack[/<id>]`, `#sources` | (Cours) | `pack-builder.js` |
-| `#automatismes` | Apprendre > Automatismes | `automatismes.js` (generator, projection, print, LaTeX); engine in `js/exercises/` |
-| `#sheets` | Apprendre > Fiches | `worksheets.js` (worksheets, quizzes, tests; student and teacher versions) |
+| `#pack[/<id>]`, `#sources` | Apprendre > Pour enseigner > Dossier sur mesure | `pack-builder.js` |
+| `#automatismes` | Apprendre > Pour enseigner > Automatismes | `automatismes.js` (generator, projection, print, LaTeX); engine in `js/exercises/` |
+| `#sheets` | Apprendre > Pour enseigner > Fiches | `worksheets.js` (worksheets, quizzes, tests; student and teacher versions) |
 | `#bank[/<course>[/<chapter>[/<exercise id>]]]` | Apprendre > Exercices | `bank-page.js` (online exercise bank; the exercise segment opens the chapter page on that exercise, scrolled to and focused, and is the `open` address of the search items `exercise:<id>`; the selection rule shared with the index is `js/exercises/bank-select.js`); data `js/exercises/bank.js`, annales `js/annals-bank.js` (`#bank/annales[/<id>]`), `authored.js`, `problems.js`, the per-class files (`authored-seconde.js`, `problems-seconde.js`, `problems-seconde-2.js`), `bank-mada.js` |
-| `#slides[/<course>]` | Apprendre > Diaporamas | `slides-page.js` (rail of curricula and levels, deck cards); decks open in `slides/player.html` with `deck=<id>` |
+| `#slides[/<course>]` | Apprendre > Pour enseigner > Diaporamas | `slides-page.js` (rail of curricula and levels, deck cards); decks open in `slides/player.html` with `deck=<id>` |
 | `#lab` | Explorer > Laboratoire | `site/js/lab/page.js` `indexPage` (experiments grouped by type of activity) |
 | `#lab/<experiment>[/<mission>]` | Laboratoire | `site/js/lab/page.js` `experimentPage` + `site/js/lab/mount.js` `mountExperiment`; the mission is kept in the address |
 | `#history[/<kind>[/<id>]]` (`people` or `advances`) | Lire > Chronologies | `history.js`, `history-layout.js`, `history-images.js`; sourced records in `history-data.js` |
@@ -124,8 +125,8 @@ All pages are rendered by `site/js/app.js` `render()`; the module named builds t
 | `#intuition` | Explorer > Contre l’intuition | `intuition-page.js` `intuitionPage`; the entries `intuition-data.js` (`ENTRIES`, `SOON`): each points at an exhibit, experiment or challenge that exists (issue #28); gallery entries `site/js/gallery/gallery-intuition.js` |
 | `#errors[/<id>]` | Explorer > Erreurs | `errors.js` `errorsPage` / `bindErrors`; data and checks `errors-model.js` |
 | `#challenges[/<id>]` | Explorer > Défis | `app.js` `challengePage`, `challengeDetail`, `bindChallenges`; content from `site/js/challenges/registry.js` |
-| `#pathways` | Apprendre > Parcours | `app.js` `pathwayPage`; data `content.js` `pathways` |
-| `#university[/<id>]` | (Parcours) | `university.js` |
+| `#pathways[/<family>]` | Apprendre > Programmes | `app.js` `pathwayPage`; data `content.js` `pathways`; `<family>` (`mg`, `fr`, `int`, `university`) opens that curriculum |
+| `#university[/<id>]` | (Programmes) | `university.js` |
 
 ## 4. Area indexes (read only the one you work in)
 

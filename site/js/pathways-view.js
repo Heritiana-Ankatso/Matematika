@@ -39,6 +39,10 @@ export function bindPathways({ root, pathways, labs, t, pair, link, glyph, compl
   let key = entries[0].key, level = 0, topic = "all";
   const firstLevel = (e) => (e.stages.length > 1 ? 0 : "all");
   try { const saved = sessionStorage.getItem("mx-pathway"); if (saved && entries.some((e) => e.key === saved)) key = saved; } catch { /* storage may be blocked */ }
+  // #pathways/<family>[/<programme>] (links of the curriculum chooser, curriculum-picker.js) opens that curriculum.
+  const asked = (globalThis.location?.hash || "").split("/").slice(1).join("/");
+  const named = asked && entries.find((e) => e.key === asked || e.key.startsWith(asked + "/"));
+  if (named) key = named.key;
 
   const tile = (id) => {
     const l = labOf(id);
