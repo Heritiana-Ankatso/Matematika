@@ -6,7 +6,9 @@ import { FULL_EDITION } from './edition-scope.js';
 // French lycée site. true: the complete edition with the Malagasy, international, university and Olympiad content
 // (Matematika). Everything else that differs follows this flag, and the site name (written by build/mxbuild/site.py).
 export { FULL_EDITION };
-export const livePathways = FULL_EDITION ? pathways : pathways.filter(p => p.id === 'fr');
+// Order of every curriculum list (owner, 21 November 2026): Malagasy, Olympiads (own page), University, French, International.
+const PATHWAY_ORDER = ['mg', 'university', 'fr', 'int'];
+export const livePathways = FULL_EDITION ? [...pathways].sort((a, b) => PATHWAY_ORDER.indexOf(a.id) - PATHWAY_ORDER.indexOf(b.id)) : pathways.filter(p => p.id === 'fr');
 
 export const liveCourses = FULL_EDITION ? courses : courses.filter(c => c.curriculum === 'fr');
 export const isLiveCourse = id => liveCourses.some(c => c.id === id);
