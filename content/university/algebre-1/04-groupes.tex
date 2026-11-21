@@ -13,25 +13,25 @@ Chapitre 1 : applications bijectives, relations d'équivalence, quotient, $\Z/n\
 \end{prerequis}
 
 \section{Lois et structures algébriques}
-\begin{definition}[Loi de composition interne][réf. 4.0]
+\begin{definition}[Loi de composition interne]
 Une \textbf{loi de composition interne} (ou opération binaire) sur un ensemble $E$ est une application $E\times E\to E$, $(x,y)\mapsto x\star y$. Une partie $T\subset E$ est \textbf{fermée} (ou stable) pour $\star$ si $x\star y\in T$ dès que $x,y\in T$. Le couple $(E,\star)$ est une \textbf{structure algébrique}. Pour $E$ fini, la loi se résume dans sa \textbf{table de Cayley} : la case (ligne $x$, colonne $y$) contient $x\star y$.
 \end{definition}
-\begin{definition}[Propriétés d'une loi][réf. 4.0]
+\begin{definition}[Propriétés d'une loi]
 La loi $\star$ est \textbf{associative} si $(x\star y)\star z=x\star(y\star z)$ pour tous $x,y,z$ ; \textbf{commutative} si $x\star y=y\star x$. Un élément $e$ est \textbf{neutre} si $e\star x=x\star e=x$ pour tout $x$. Si $e$ est neutre, $y$ est un \textbf{inverse} (ou symétrique) de $x$ si $x\star y=y\star x=e$.
 \end{definition}
-\begin{proposition}[Unicités][réf. Prop. 4.0.6]\label{prop-unicite-neutre}
+\begin{proposition}[Unicités]\label{prop-unicite-neutre}
 Une loi a au plus un élément neutre. Si la loi est associative, un élément a au plus un inverse, noté $x^{-1}$, et $(x\star y)^{-1}=y^{-1}\star x^{-1}$.
 \end{proposition}
 \begin{preuve}
 Si $e,e'$ sont neutres, $e=e\star e'=e'$. Si $y,y'$ sont inverses de $x$ : $y=y\star e=y\star(x\star y')=(y\star x)\star y'=e\star y'=y'$ ; l'associativité est indispensable ici. Enfin $(x\star y)\star(y^{-1}\star x^{-1})=x\star(y\star y^{-1})\star x^{-1}=e$, et de même de l'autre côté.
 \end{preuve}
-\begin{definition}[Monoïde, groupe][réf. Déf. 4.1.1]\label{def-groupe}
+\begin{definition}[Monoïde, groupe]\label{def-groupe}
 Un \textbf{monoïde} est une structure associative avec élément neutre. Un \textbf{groupe} est un monoïde dans lequel tout élément a un inverse. Il est \textbf{abélien} (ou commutatif) si sa loi est commutative. L'\textbf{ordre} d'un groupe fini $G$ est son nombre d'éléments $\abs G$.
 \end{definition}
 \begin{remarque}[Notations]
 On note souvent la loi d'un groupe multiplicativement ($xy$, neutre $e$ ou $1$, inverse $x^{-1}$, puissances $x^k$) ; pour un groupe abélien, souvent additivement ($x+y$, neutre $0$, opposé $-x$, multiples $kx$). Dans un groupe, on peut \emph{simplifier} : $xy=xz\Rightarrow y=z$ (multiplier à gauche par $x^{-1}$), et l'équation $ax=b$ a l'unique solution $x=a^{-1}b$.
 \end{remarque}
-\begin{exemple}[Exemples et contre-exemples][réf. Ex. 4.1.4, corrigé]
+\begin{exemple}[Exemples et contre-exemples]
 \begin{itemize}
 \item Groupes abéliens : $(\Z,+)$, $(\Q,+)$, $(\R,+)$, $(\C,+)$, $(\Z/n\Z,+)$, $(\Mat_n(\R),+)$, tout espace vectoriel $(V,+)$, $(\Q^*,\times)$, $(\R^*,\times)$, les rotations de centre $O$ du plan, $\Z/n\Z\times\Z/m\Z$ avec la loi composante par composante.
 \item Groupes non abéliens : $\GL_n(\R)$ pour $n\ge2$ ; le groupe $S(E)$ des bijections d'un ensemble $E$ à au moins trois éléments, muni de la composition ; en particulier le groupe symétrique $S_n$ des bijections de $\ens{1,\dots,n}$.
@@ -39,7 +39,7 @@ On note souvent la loi d'un groupe multiplicativement ($xy$, neutre $e$ ou $1$, 
 \item Pas même une loi interne : $(\Z/6\Z\setminus\ens{\cl0},\times)$, car $\cl2\cdot\cl3=\cl0$. En revanche $(\Z/p\Z\setminus\ens{\cl0},\times)$ est un groupe abélien si $p$ est premier (Théorème \voir{thm-inversibles}).
 \end{itemize}
 \end{exemple}
-\begin{proposition}[Produit][réf. Prop. 4.1.3]
+\begin{proposition}[Produit]
 Si $(G_1,\star_1)$ et $(G_2,\star_2)$ sont des monoïdes (resp. des groupes), $G_1\times G_2$ muni de $(x_1,x_2)\star(y_1,y_2)=(x_1\star_1y_1,\ x_2\star_2y_2)$ est un monoïde (resp. un groupe) de neutre $(e_1,e_2)$, l'inverse de $(x_1,x_2)$ étant $(x_1^{-1},x_2^{-1})$.
 \end{proposition}
 \begin{preuve}
@@ -57,34 +57,34 @@ Chaque axiome se vérifie composante par composante.
 \end{methode}
 
 \section{Sous-groupes, ordre, groupes cycliques}
-\begin{definition}[Sous-groupe][réf. Déf. 4.1.5]
+\begin{definition}[Sous-groupe]
 Une partie $H$ d'un groupe $G$ est un \textbf{sous-groupe}, noté $H<G$, si elle est un groupe pour la loi de $G$ restreinte à $H$. Les sous-groupes $\ens e$ et $G$ sont les sous-groupes \textbf{triviaux} ; les autres sont dits propres.
 \end{definition}
-\begin{theoreme}[Critère de sous-groupe][réf. Prop. 4.1.6]\label{thm-critere-sg}
+\begin{theoreme}[Critère de sous-groupe]\label{thm-critere-sg}
 $H\subset G$ est un sous-groupe si et seulement si (i) $e\in H$, (ii) $H$ est stable par la loi, (iii) $H$ est stable par passage à l'inverse. De façon équivalente : $H\neq\varnothing$ et $xy^{-1}\in H$ pour tous $x,y\in H$.
 \end{theoreme}
 \begin{preuve}
 Les conditions sont nécessaires : le neutre $e_H$ de $H$ vérifie $e_He_H=e_H$, et en simplifiant dans $G$, $e_H=e$ ; de même l'inverse dans $H$ est l'inverse dans $G$. Réciproquement, (ii) fait de la restriction une loi sur $H$, associative car elle l'est dans $G$ ; (i) et (iii) fournissent neutre et inverses. Pour le second critère : avec $x\in H$, $e=xx^{-1}\in H$ ; puis $y^{-1}=ey^{-1}\in H$ ; enfin $xy=x(y^{-1})^{-1}\in H$.
 \end{preuve}
-\begin{exemple}[réf. Ex. 4.1.7]
+\begin{exemple}
 $n\Z<(\Z,+)$ ; $\SL_n(\R)=\ens{A\mid\det A=1}<\GL_n(\R)$ ; $S_n<S_{n+1}$ (permutations qui fixent $n+1$) ; le stabilisateur $\ens{\sigma\in S_n\mid\sigma(k)=k}$ ; $\ens{\cl0,\cl2}<\Z/4\Z$ ; dans $\Z/2\Z\times\Z/2\Z$, les trois sous-groupes propres $\ens{(0,0),x}$.
 \end{exemple}
-\begin{proposition}[réf. Prop. 4.1.8]\label{prop-inter-sg}
+\begin{proposition}\label{prop-inter-sg}
 Une intersection de sous-groupes est un sous-groupe. Une réunion de deux sous-groupes n'en est un que si l'un contient l'autre.
 \end{proposition}
 \begin{preuve}
 Le critère se vérifie dans chacun. Pour la réunion, la preuve est celle des sous-espaces (\voir{prop-inter-sev}) : si $h\in H\setminus K$ et $k\in K\setminus H$, alors $hk\notin H\cup K$. Exemple : $2\Z\cup3\Z$ contient $2$ et $3$ mais pas $5$.
 \end{preuve}
-\begin{definition}[Sous-groupe engendré, ordre d'un élément][réf. 4.1]
+\begin{definition}[Sous-groupe engendré, ordre d'un élément]
 Pour $g\in G$, on pose $g^0=e$, $g^{k+1}=g^kg$ et $g^{-k}=(g^{-1})^k$ ; alors $g^{k+l}=g^kg^l$. Le \textbf{sous-groupe engendré} par $g$ est $\langle g\rangle=\ens{g^k\mid k\in\Z}$. $G$ est \textbf{cyclique} s'il existe $g$ avec $G=\langle g\rangle$. L'\textbf{ordre} de $g$, noté $\abs g$, est l'ordre de $\langle g\rangle$ (éventuellement infini).
 \end{definition}
-\begin{proposition}[réf. Prop. 4.1.9]\label{prop-engendre-g}
+\begin{proposition}\label{prop-engendre-g}
 $\langle g\rangle$ est le plus petit sous-groupe de $G$ contenant $g$. Si $g$ est d'ordre fini $m$, alors $m$ est le plus petit entier $k\ge1$ tel que $g^k=e$, $\langle g\rangle=\ens{e,g,\dots,g^{m-1}}$, et $g^k=e\iff m\mid k$.
 \end{proposition}
 \begin{preuve}
 $g^kg^{-l}=g^{k-l}$ : critère vérifié. Tout sous-groupe contenant $g$ contient ses puissances. Si $\langle g\rangle$ est fini, les puissances $g^0,g^1,g^2,\dots$ ne peuvent être toutes distinctes : $g^a=g^b$ avec $a<b$, d'où $g^{b-a}=e$. Soit $m$ le plus petit $k\ge1$ avec $g^k=e$. Pour $k\in\Z$, la division $k=qm+r$, $0\le r<m$, donne $g^k=(g^m)^qg^r=g^r$ : $\langle g\rangle=\ens{e,\dots,g^{m-1}}$, et ces éléments sont distincts (sinon on aurait $g^{s}=e$ avec $0<s<m$). Enfin $g^k=e\iff g^r=e\iff r=0$.
 \end{preuve}
-\begin{exemple}[réf. Prop. 4.1.12]
+\begin{exemple}
 $(\Z,+)$ est cyclique, engendré par $1$ (ou $-1$) ; $(\Z/n\Z,+)$ est cyclique, engendré par $\cl1$. Dans $\Z/n\Z$, l'ordre de $\cl k$ est $\frac n{\pgcd(k,n)}$, et $\cl k$ engendre $\Z/n\Z$ si et seulement si $\pgcd(k,n)=1$. La matrice de rotation d'angle $\frac{2\pi}n$ est d'ordre $n$ dans $\GL_2(\R)$, et $\begin{pmatrix}1&1\\0&1\end{pmatrix}$ est d'ordre infini.
 \end{exemple}
 \begin{theoreme}[Sous-groupes de $\Z$]\label{thm-sg-Z}
@@ -104,7 +104,7 @@ Un sous-groupe $H$ de $\Z/n\Z$ a pour image réciproque par la projection $\pi:\
 \end{preuve}
 
 \section{Homomorphismes}
-\begin{proposition}[Tables de groupes et carrés latins][réf. Déf. 4.2.1, Prop. 4.2.3]\label{prop-carre-latin}
+\begin{proposition}[Tables de groupes et carrés latins]\label{prop-carre-latin}
 La table de Cayley d'un groupe fini est un \textbf{carré latin} : chaque élément apparaît exactement une fois dans chaque ligne et dans chaque colonne. La réciproque est fausse.
 \end{proposition}
 \begin{preuve}
@@ -113,22 +113,22 @@ La ligne de $a$ est $(ax)_{x\in G}$ ; $x\mapsto ax$ est une bijection de $G$ (de
 \begin{intuition}
 Les groupes $(\Z/2\Z,+)$ et $(\ens{1,-1},\times)$ ont \og la même \fg{} table, à un renommage près : $\cl0\leftrightarrow1$, $\cl1\leftrightarrow-1$. Un isomorphisme est précisément un renommage qui respecte la loi ; un homomorphisme est une application qui respecte la loi sans être forcément bijective.
 \end{intuition}
-\begin{definition}[Homomorphisme, isomorphisme][réf. Déf. 4.2.4]
+\begin{definition}[Homomorphisme, isomorphisme]
 Une application $f:(G_1,\star_1)\to(G_2,\star_2)$ entre groupes est un \textbf{homomorphisme} (ou morphisme) si $f(x\star_1y)=f(x)\star_2f(y)$ pour tous $x,y$. Un \textbf{isomorphisme} est un homomorphisme bijectif ; s'il en existe un, $G_1$ et $G_2$ sont \textbf{isomorphes}, noté $G_1\simeq G_2$.
 \end{definition}
-\begin{exemple}[réf. Ex. 4.2.5]
+\begin{exemple}
 $\Id_G$ ; l'inclusion $\Z\hookrightarrow\R$ ; $\Z/2\Z\to\ens{\pm1}$, $\cl x\mapsto(-1)^x$ (isomorphisme) ; la projection $\Z\to\Z/n\Z$ ; $\det:\GL_n(\R)\to\R^*$ (car $\det(AB)=\det A\det B$) ; toute application linéaire, pour l'addition ; $\exp:(\R,+)\to(\R_+^*,\times)$ (isomorphisme, de réciproque $\ln$) ; la signature $S_n\to\ens{\pm1}$ (\voir{thm-signature}).
 \end{exemple}
-\begin{proposition}[réf. Prop. 4.2.6, 4.2.7, Cor. 4.2.8]\label{prop-hom-base}
+\begin{proposition}\label{prop-hom-base}
 Si $f:G_1\to G_2$ est un homomorphisme : $f(e_1)=e_2$ et $f(x^{-1})=f(x)^{-1}$ ; plus généralement $f(x^k)=f(x)^k$. La composée de deux homomorphismes en est un ; la réciproque d'un isomorphisme est un isomorphisme ; l'isomorphie est une relation d'équivalence.
 \end{proposition}
 \begin{preuve}
 $f(e_1)=f(e_1e_1)=f(e_1)f(e_1)$ ; on simplifie par $f(e_1)$ dans $G_2$. Puis $f(x)f(x^{-1})=f(xx^{-1})=f(e_1)=e_2$. Pour la réciproque $g$ d'un isomorphisme $f$ : $f(g(u)g(v))=f(g(u))f(g(v))=uv$, donc $g(u)g(v)=g(uv)$ en appliquant $g$.
 \end{preuve}
-\begin{definition}[Noyau, image][réf. Déf. 4.2.9]
+\begin{definition}[Noyau, image]
 Le \textbf{noyau} de $f$ est $\Ker f=\ens{x\in G_1\mid f(x)=e_2}$ et son \textbf{image} est $\Img f=f(G_1)$.
 \end{definition}
-\begin{proposition}[réf. Prop. 4.2.10, corrigée]\label{prop-hom}
+\begin{proposition}\label{prop-hom}
 Soit $f:G_1\to G_2$ un homomorphisme.
 \begin{enumerate}
 \item Pour tout $H_1<G_1$, l'image directe $f(H_1)$ est un sous-groupe de $G_2$ ; en particulier $\Img f<G_2$.
@@ -140,20 +140,20 @@ Soit $f:G_1\to G_2$ un homomorphisme.
 (1) $e_2=f(e_1)\in f(H_1)$, et $f(h)f(h')^{-1}=f(hh'^{-1})\in f(H_1)$. (2) $e_1\in f^{-1}(H_2)$, et si $f(x),f(y)\in H_2$, alors $f(xy^{-1})=f(x)f(y)^{-1}\in H_2$. (3) Si $\Ker f=\ens{e_1}$ et $f(x)=f(y)$, alors $f(xy^{-1})=e_2$, d'où $xy^{-1}=e_1$ et $x=y$. Réciproquement si $f$ est injectif, $f(x)=e_2=f(e_1)$ entraîne $x=e_1$.
 \end{preuve}
 \begin{attention}
-Le polycopié de référence affirme que l'image d'un sous-groupe n'est pas un sous-groupe en général : c'est faux, elle l'est toujours, par (1). Ce qui peut échouer, c'est la \emph{normalité} : l'image d'un sous-groupe normal de $G_1$ n'est normale que dans $\Img f$, pas forcément dans $G_2$.
+L'image d'un sous-groupe est toujours un sous-groupe, par (1). Ce qui peut échouer, c'est la \emph{normalité} : l'image d'un sous-groupe normal de $G_1$ n'est normale que dans $\Img f$, pas forcément dans $G_2$.
 \end{attention}
 
 \section{Classes à gauche et théorème de Lagrange}
-\begin{definition}[Classes][réf. 4.2.2]
+\begin{definition}[Classes]
 Soit $H<G$. Pour $x\in G$, la \textbf{classe à gauche} de $x$ est $xH=\ens{xh\mid h\in H}$ et sa \textbf{classe à droite} est $Hx$. Ce sont les classes des relations d'équivalence $a\,\mathcal R_g\,b\iff b^{-1}a\in H$ et $a\,\mathcal R_d\,b\iff ab^{-1}\in H$. Le nombre de classes à gauche est l'\textbf{indice} de $H$, noté $[G:H]$.
 \end{definition}
-\begin{lemme}[réf. Lemme 4.2.11]\label{lem-classes}
+\begin{lemme}\label{lem-classes}
 $\mathcal R_g$ est une relation d'équivalence dont les classes sont les $xH$. Deux classes $xH$ et $yH$ sont égales ou disjointes, et $h\mapsto xh$ est une bijection de $H$ sur $xH$.
 \end{lemme}
 \begin{preuve}
 $a^{-1}a=e\in H$ ; si $b^{-1}a\in H$ alors $a^{-1}b=(b^{-1}a)^{-1}\in H$ ; si $b^{-1}a,c^{-1}b\in H$ alors $c^{-1}a=(c^{-1}b)(b^{-1}a)\in H$. La classe de $x$ est $\ens{a\mid x^{-1}a\in H}=\ens{a\mid a\in xH}$. Le reste découle des propriétés générales des classes (\voir{prop-classes}) ; l'application $h\mapsto xh$ est surjective sur $xH$ par définition, et injective par simplification.
 \end{preuve}
-\begin{theoreme}[Lagrange][réf. Thm 4.2.12]\label{thm-lagrange}
+\begin{theoreme}[Lagrange]\label{thm-lagrange}
 Si $G$ est fini et $H<G$, alors $\abs G=[G:H]\cdot\abs H$. En particulier l'ordre d'un sous-groupe divise l'ordre du groupe.
 \end{theoreme}
 \begin{preuve}
@@ -170,29 +170,29 @@ Soit $G$ un groupe fini d'ordre $n$.
 \begin{preuve}
 (1) $\abs g=\abs{\langle g\rangle}$ divise $n$, et $g^n=(g^{\abs g})^{n/\abs g}=e$. (2) Pour $g\neq e$, $\abs g$ divise $n$ premier et vaut plus que $1$ : $\abs g=n$ et $\langle g\rangle=G$. (3) On applique (1) au groupe $((\Z/m\Z)^\times,\times)$, d'ordre $\varphi(m)$.
 \end{preuve}
-\begin{exemple}[Un sous-groupe qui n'est noyau de rien][réf. p. 59]\label{ex-s3-h}
+\begin{exemple}[Un sous-groupe qui n'est noyau de rien]\label{ex-s3-h}
 Dans $S_3$, soit $H=\ens{\id,(1\,2)}$. On calcule, en composant de droite à gauche, $(1\,3)(1\,2)=(1\,2\,3)$ et $(1\,2)(1\,3)=(1\,3\,2)$. Donc
 \[(1\,3)H=\ens{(1\,3),(1\,2\,3)}\neq H(1\,3)=\ens{(1\,3),(1\,3\,2)}.\]
 Classes à gauche et classes à droite ne coïncident pas. On va voir que cela empêche $H$ d'être le noyau d'un homomorphisme.
 \end{exemple}
 
 \section{Sous-groupes normaux et groupes quotients}
-\begin{proposition}[Le noyau est normal][réf. Prop. 4.2.13]\label{prop-noyau-normal}
+\begin{proposition}[Le noyau est normal]\label{prop-noyau-normal}
 Si $f:G_1\to G_2$ est un homomorphisme et $K=\Ker f$, alors pour tout $x\in G_1$ : $xKx^{-1}\subset K$, et $xK=Kx$.
 \end{proposition}
 \begin{preuve}
 Si $k\in K$, $f(xkx^{-1})=f(x)e_2f(x)^{-1}=e_2$. Donc $xKx^{-1}\subset K$, c'est-à-dire $xK\subset Kx$ ; avec $x^{-1}$ à la place de $x$, $x^{-1}Kx\subset K$, c'est-à-dire $Kx\subset xK$.
 \end{preuve}
-\begin{definition}[Sous-groupe normal][réf. Prop. 4.2.14, Déf. 4.2.15]
+\begin{definition}[Sous-groupe normal]
 Un sous-groupe $H<G$ est \textbf{normal} (ou distingué), noté $H\lhd G$, si l'une des conditions équivalentes suivantes est vérifiée : (i) $xH=Hx$ pour tout $x\in G$ ; (ii) $xHx^{-1}=H$ pour tout $x$ ; (iii) $xhx^{-1}\in H$ pour tous $x\in G$, $h\in H$. Les relations $\mathcal R_g$ et $\mathcal R_d$ coïncident alors, et l'ensemble des classes est noté $G/H$.
 \end{definition}
-\begin{proposition}[Cas usuels][réf. Rem. 4.2.17]\label{prop-normaux-usuels}
+\begin{proposition}[Cas usuels]\label{prop-normaux-usuels}
 Tout noyau d'homomorphisme est normal. Dans un groupe abélien, tout sous-groupe est normal. Tout sous-groupe d'indice $2$ est normal.
 \end{proposition}
 \begin{preuve}
 Le premier point est \voir{prop-noyau-normal} ; le deuxième vient de $xhx^{-1}=h$. Si $[G:H]=2$, les deux classes à gauche sont $H$ et $G\setminus H$, et les deux classes à droite aussi ; pour $x\notin H$, $xH=G\setminus H=Hx$, et pour $x\in H$, $xH=H=Hx$.
 \end{preuve}
-\begin{theoreme}[Groupe quotient][réf. Thm 4.2.16]\label{thm-quotient}
+\begin{theoreme}[Groupe quotient]\label{thm-quotient}
 Si $H\lhd G$, la formule $(xH)(yH)=xyH$ définit une loi sur $G/H$, qui en fait un groupe de neutre $H$ et où $(xH)^{-1}=x^{-1}H$. La projection $\pi:G\to G/H$, $x\mapsto xH$ est un homomorphisme surjectif de noyau $H$. Si $G$ est fini, $\abs{G/H}=\abs G/\abs H$.
 \end{theoreme}
 \begin{preuve}
@@ -203,14 +203,14 @@ Sans normalité, la \og loi \fg{} sur les classes n'est pas bien définie. Avec 
 \end{essentiel}
 
 \section{Théorèmes d'isomorphisme}
-\begin{theoreme}[Premier théorème d'isomorphisme][réf. Thm 4.2.18]\label{thm-iso1}
+\begin{theoreme}[Premier théorème d'isomorphisme]\label{thm-iso1}
 Soit $f:G_1\to G_2$ un homomorphisme de noyau $K$. L'application $\overline f:G_1/K\to\Img f$, $xK\mapsto f(x)$ est bien définie et c'est un isomorphisme :
 \[G_1/\Ker f\simeq\Img f.\]
 \end{theoreme}
 \begin{preuve}
 $K$ est normal, donc $G_1/K$ est un groupe. \emph{Bien définie et injective} : $xK=yK\iff y^{-1}x\in K\iff f(y)^{-1}f(x)=e_2\iff f(x)=f(y)$ ; le sens \og $\Rightarrow$ \fg{} donne la bonne définition, le sens \og $\Leftarrow$ \fg{} l'injectivité. \emph{Homomorphisme} : $\overline f(xKyK)=\overline f(xyK)=f(xy)=f(x)f(y)$. \emph{Surjective} sur $\Img f$ par construction. C'est la factorisation canonique du chapitre 1 (\voir{thm-factorisation}), avec en plus les lois.
 \end{preuve}
-\begin{exemple}[réf. Ex. 4.2.19]
+\begin{exemple}
 \begin{itemize}
 \item $\det:\GL_n(\R)\to\R^*$ est surjectif (prendre $\mathrm{diag}(t,1,\dots,1)$), de noyau $\SL_n(\R)$ : $\GL_n(\R)/\SL_n(\R)\simeq\R^*$.
 \item $\theta\mapsto e^{2i\pi\theta}$ est un homomorphisme de $(\R,+)$ sur le cercle $S^1=\ens{z\in\C\mid\abs z=1}$, de noyau $\Z$ : $\R/\Z\simeq S^1$.
@@ -218,16 +218,16 @@ $K$ est normal, donc $G_1/K$ est un groupe. \emph{Bien définie et injective} : 
 \item Si $g$ est d'ordre $n$, $k\mapsto g^k$ va de $\Z$ sur $\langle g\rangle$, de noyau $n\Z$ : $\langle g\rangle\simeq\Z/n\Z$.
 \end{itemize}
 \end{exemple}
-\begin{theoreme}[Troisième théorème d'isomorphisme][réf. Thm 4.2.20]\label{thm-iso3}
+\begin{theoreme}[Troisième théorème d'isomorphisme]\label{thm-iso3}
 Soient $H\subset N$ deux sous-groupes normaux de $G$. Alors $N/H$ est un sous-groupe normal de $G/H$ et $(G/H)/(N/H)\simeq G/N$.
 \end{theoreme}
 \begin{preuve}
 L'application $\varphi:G/H\to G/N$, $xH\mapsto xN$ est bien définie : si $xH=yH$, alors $y^{-1}x\in H\subset N$, donc $xN=yN$. C'est un homomorphisme surjectif ($\varphi(xHyH)=xyN=xNyN$). Son noyau est $\ens{xH\mid x\in N}=N/H$, qui est donc normal, et le premier théorème conclut.
 \end{preuve}
-\begin{exemple}[réf. Ex. 4.2.21]
+\begin{exemple}
 Si $d\mid n$, alors $n\Z\subset d\Z$ et $(\Z/n\Z)/(d\Z/n\Z)\simeq\Z/d\Z$ : réduire modulo $n$ puis modulo $d$ revient à réduire modulo $d$.
 \end{exemple}
-\begin{theoreme}[Classification des groupes cycliques][réf. Thm 4.2.22]\label{thm-cycliques}
+\begin{theoreme}[Classification des groupes cycliques]\label{thm-cycliques}
 Tout groupe cyclique est isomorphe à $\Z$ (s'il est infini) ou à $\Z/n\Z$ (s'il est d'ordre $n$). Deux groupes cycliques de même ordre sont isomorphes.
 \end{theoreme}
 \begin{preuve}
@@ -235,31 +235,31 @@ Si $G=\langle g\rangle$, $\varphi:\Z\to G$, $k\mapsto g^k$ est un homomorphisme 
 \end{preuve}
 
 \section{Le groupe symétrique $S_n$}
-\begin{definition}[Permutations, cycles][réf. 4.3.1]
+\begin{definition}[Permutations, cycles]
 $S_n$ est le groupe des bijections de $\ens{1,\dots,n}$, muni de la composition ; $\abs{S_n}=n!$. On écrit $\sigma$ en \textbf{notation à deux lignes} $\begin{pmatrix}1&2&\cdots&n\\\sigma(1)&\sigma(2)&\cdots&\sigma(n)\end{pmatrix}$. Pour $a_1,\dots,a_k$ distincts, le \textbf{$k$-cycle} $(a_1\,a_2\,\cdots\,a_k)$ envoie $a_1\mapsto a_2\mapsto\cdots\mapsto a_k\mapsto a_1$ et fixe les autres éléments ; son \textbf{support} est $\ens{a_1,\dots,a_k}$. Un $2$-cycle est une \textbf{transposition}. On compose \textbf{de droite à gauche} : $\sigma\tau=\sigma\circ\tau$.
 \end{definition}
-\begin{proposition}[Cycles disjoints, décomposition][réf. Prop. 4.3.1, 4.3.5]\label{prop-cycles}
+\begin{proposition}[Cycles disjoints, décomposition]\label{prop-cycles}
 Deux cycles de supports disjoints commutent. Toute permutation s'écrit comme produit de cycles à supports deux à deux disjoints, de façon unique à l'ordre des facteurs près (en omettant les cycles de longueur $1$).
 \end{proposition}
 \begin{preuve}
 Si les supports sont disjoints, chaque point est déplacé par au plus un des deux cycles, et le résultat ne dépend pas de l'ordre d'application. Décomposition : on part de $1$ et on suit $1,\sigma(1),\sigma^2(1),\dots$ jusqu'à revenir à $1$ (cela arrive, car $\sigma$ est d'ordre fini) ; on obtient un premier cycle. On recommence avec le plus petit élément non encore visité. Les orbites ainsi obtenues sont disjointes et $\sigma$ agit sur chacune comme le cycle correspondant. L'unicité vient de ce que les orbites sont déterminées par $\sigma$.
 \end{preuve}
-\begin{proposition}[Cycles et transpositions][réf. Prop. 4.3.3, Rem. 4.3.4, 4.3.6]\label{prop-transpositions}
+\begin{proposition}[Cycles et transpositions]\label{prop-transpositions}
 $(a_1\,a_2\,\cdots\,a_k)=(a_1\,a_2)(a_2\,a_3)\cdots(a_{k-1}\,a_k)$. Donc toute permutation est un produit de transpositions ; cette écriture n'est pas unique, et les transpositions ne sont pas disjointes en général.
 \end{proposition}
 \begin{preuve}
 Appliquons le produit de droite à gauche à $a_j$, pour $1\le j<k$. Les transpositions $(a_i\,a_{i+1})$ avec $i>j$, appliquées en premier, ne le déplacent pas ; $(a_j\,a_{j+1})$ l'envoie sur $a_{j+1}$ ; les transpositions restantes, $(a_i\,a_{i+1})$ avec $i<j$, ne déplacent pas $a_{j+1}$. Donc $a_j\mapsto a_{j+1}$. Pour $a_k$ : $(a_{k-1}\,a_k)$ l'envoie sur $a_{k-1}$, puis $(a_{k-2}\,a_{k-1})$ sur $a_{k-2}$, etc., jusqu'à $a_1$. Les autres points sont fixes. Exemple de non-unicité : $(1\,2\,3)=(1\,2)(2\,3)=(1\,3)(1\,2)=(2\,3)(1\,3)$.
 \end{preuve}
-\begin{theoreme}[Parité][réf. Thm 4.3.7, démontré ici]\label{thm-parite}
+\begin{theoreme}[Parité]\label{thm-parite}
 Si une permutation $\sigma\in S_n$ s'écrit comme produit de $k$ transpositions et aussi de $k'$ transpositions, alors $k$ et $k'$ ont même parité. Précisément, si $c(\sigma)$ est le nombre de cycles de $\sigma$ \emph{en comptant les points fixes}, alors $k\equiv n-c(\sigma)\pmod2$.
 \end{theoreme}
 \begin{preuve}
-Le polycopié énonce ce résultat sans preuve. Montrons que pour toute transposition $\tau=(a\,b)$, $c(\tau\sigma)=c(\sigma)\pm1$. Si $a$ et $b$ sont dans le même cycle de $\sigma$, écrivons ce cycle $(a\,x_1\cdots x_r\,b\,y_1\cdots y_s)$ ; on vérifie que $(a\,b)(a\,x_1\cdots x_r\,b\,y_1\cdots y_s)=(a\,x_1\cdots x_r)(b\,y_1\cdots y_s)$ : le cycle se coupe en deux. Si $a$ et $b$ sont dans deux cycles différents, la même identité lue de droite à gauche montre que les deux cycles fusionnent. Ainsi chaque multiplication par une transposition change la parité de $c$. Partant de $\id$ ($c=n$), après $k$ transpositions on a $c(\sigma)\equiv n-k\pmod 2$. Donc $k\equiv n-c(\sigma)$, qui ne dépend que de $\sigma$.
+Montrons que pour toute transposition $\tau=(a\,b)$, $c(\tau\sigma)=c(\sigma)\pm1$. Si $a$ et $b$ sont dans le même cycle de $\sigma$, écrivons ce cycle $(a\,x_1\cdots x_r\,b\,y_1\cdots y_s)$ ; on vérifie que $(a\,b)(a\,x_1\cdots x_r\,b\,y_1\cdots y_s)=(a\,x_1\cdots x_r)(b\,y_1\cdots y_s)$ : le cycle se coupe en deux. Si $a$ et $b$ sont dans deux cycles différents, la même identité lue de droite à gauche montre que les deux cycles fusionnent. Ainsi chaque multiplication par une transposition change la parité de $c$. Partant de $\id$ ($c=n$), après $k$ transpositions on a $c(\sigma)\equiv n-k\pmod 2$. Donc $k\equiv n-c(\sigma)$, qui ne dépend que de $\sigma$.
 \end{preuve}
-\begin{definition}[Signature, groupe alterné][réf. Déf. 4.3.8]
+\begin{definition}[Signature, groupe alterné]
 La \textbf{signature} de $\sigma$ est $\sgn(\sigma)=(-1)^k$ si $\sigma$ est produit de $k$ transpositions. $\sigma$ est \textbf{paire} si $\sgn(\sigma)=1$, \textbf{impaire} sinon. Les permutations paires forment le \textbf{groupe alterné} $A_n$.
 \end{definition}
-\begin{theoreme}[La signature est un homomorphisme][réf. 4.3.1]\label{thm-signature}
+\begin{theoreme}[La signature est un homomorphisme]\label{thm-signature}
 $\sgn:S_n\to\ens{\pm1}$ est un homomorphisme, surjectif pour $n\ge2$. Son noyau $A_n$ est un sous-groupe normal d'indice $2$ : $S_n/A_n\simeq\ens{\pm1}$ et $\abs{A_n}=\frac{n!}2$. Un $k$-cycle a pour signature $(-1)^{k-1}$ : il est pair si et seulement si $k$ est impair. Plus généralement, $\sgn(\sigma)=(-1)^{n-c(\sigma)}$, et pour un produit de cycles disjoints de longueurs $k_1,\dots,k_r$, $\sgn(\sigma)=(-1)^{\sum(k_i-1)}$.
 \end{theoreme}
 \begin{preuve}
@@ -272,7 +272,7 @@ L'ordre de $\sigma$ est le ppcm des longueurs des cycles de sa décomposition en
 Un $k$-cycle est d'ordre $k$. Les cycles disjoints commutent, donc $\sigma^m=\gamma_1^m\cdots\gamma_r^m$, et ce produit de permutations à supports disjoints vaut $\id$ si et seulement si chaque $\gamma_i^m=\id$, c'est-à-dire chaque $k_i$ divise $m$.
 \end{preuve}
 \widget{perms}
-\begin{theoreme}[Cayley][réf. Thm 4.3.10]\label{thm-cayley}
+\begin{theoreme}[Cayley]\label{thm-cayley}
 Tout groupe fini $G$ d'ordre $n$ est isomorphe à un sous-groupe de $S_n$.
 \end{theoreme}
 \begin{preuve}
@@ -280,7 +280,7 @@ Pour $g\in G$, la translation $f_g:x\mapsto gx$ est une bijection de $G$ (\voir{
 \end{preuve}
 
 \section{Le groupe diédral $D_n$}
-\begin{proposition}[réf. Prop. 4.3.11, Rem. 4.3.12]\label{prop-diedral}
+\begin{proposition}\label{prop-diedral}
 Pour $n\ge3$, les isométries du plan qui préservent un polygone régulier à $n$ côtés centré en $O$ forment un groupe $D_n$ d'ordre $2n$ : les $n$ rotations $r^k$ d'angle $\frac{2k\pi}n$ et les $n$ réflexions $r^k\tau$, où $\tau$ est la réflexion d'axe passant par $O$ et un sommet. On a
 \[r^n=e,\qquad\tau^2=e,\qquad\tau r\tau=r^{-1},\qquad(r^k\tau)(r^l\tau)=r^{k-l}.\]
 $D_n$ permute les $n$ sommets fidèlement : c'est un sous-groupe de $S_n$, non abélien.
@@ -291,7 +291,7 @@ Une isométrie qui préserve le polygone fixe son centre $O$ et permute ses somm
 \widget{dihedral}
 
 \section{Groupes de matrices}
-\begin{proposition}[réf. 4.3.3, Prop. 4.3.13, corrigée]\label{prop-gl}
+\begin{proposition}\label{prop-gl}
 $\GL_n(\R)$ est un groupe non abélien infini ($n\ge2$). $\det:\GL_n(\R)\to\R^*$ est un homomorphisme surjectif de noyau $\SL_n(\R)$. L'application $\sigma\mapsto P_\sigma$ (où $P_\sigma e_j=e_{\sigma(j)}$) est un homomorphisme injectif de $S_n$ dans $\GL_n(\R)$, d'image le groupe $\mathcal P_n$ des matrices de permutation, et
 \[\det P_\sigma=\sgn(\sigma).\]
 Donc $S_n$ se plonge dans $\GL_n(\R)$ mais pas, par ce plongement, dans $\SL_n(\R)$ ; $A_n$ se plonge dans $\SL_n(\R)$.
@@ -299,19 +299,19 @@ Donc $S_n$ se plonge dans $\GL_n(\R)$ mais pas, par ce plongement, dans $\SL_n(\
 \begin{preuve}
 $P_\sigma P_\tau e_j=P_\sigma e_{\tau(j)}=e_{\sigma\tau(j)}=P_{\sigma\tau}e_j$. L'injectivité est claire. Une transposition donne une matrice $P_{ij}$, de déterminant $-1$ (P2) ; par multiplicativité du déterminant et de la signature, $\det P_\sigma=\sgn(\sigma)$.
 \end{preuve}
-\begin{proposition}[Matrices entières][réf. Prop. 4.3.14]
+\begin{proposition}[Matrices entières]
 Soit $\GL_n(\Z)$ l'ensemble des matrices à coefficients entiers dont l'inverse est à coefficients entiers. C'est un groupe, et une matrice entière $A$ est dans $\GL_n(\Z)$ si et seulement si $\det A=\pm1$. $\SL_n(\Z)$ (déterminant $1$) en est un sous-groupe normal d'indice $2$.
 \end{proposition}
 \begin{preuve}
 La stabilité par produit et inverse est immédiate. Si $A$ et $A^{-1}$ sont entières, $\det A$ et $\det A^{-1}$ sont des entiers de produit $1$ : $\det A=\pm1$. Réciproquement, la formule des cofacteurs (admise) $A^{-1}=\frac1{\det A}\,{}^t\mathrm{Com}(A)$ montre que $A^{-1}$ est entière si $\det A=\pm1$. $\SL_n(\Z)$ est le noyau de $\det:\GL_n(\Z)\to\ens{\pm1}$.
 \end{preuve}
-\begin{proposition}[Le groupe orthogonal $O_2(\R)$][réf. Prop. 4.3.15, Cor. 4.3.16]
+\begin{proposition}[Le groupe orthogonal $O_2(\R)$]
 $O_2(\R)=\ens{A\in\GL_2(\R)\mid A\tr A=I_2}$ est un sous-groupe de $\GL_2(\R)$ dont les éléments sont de déterminant $\pm1$ : les \textbf{rotations} $\begin{pmatrix}\cos\theta&-\sin\theta\\\sin\theta&\cos\theta\end{pmatrix}$ (déterminant $1$, elles forment $SO_2(\R)$) et les \textbf{réflexions} $\begin{pmatrix}\cos\theta&\sin\theta\\\sin\theta&-\cos\theta\end{pmatrix}$ (déterminant $-1$). En prenant $r$ = rotation d'angle $\frac{2\pi}n$ et $\tau=\begin{pmatrix}1&0\\0&-1\end{pmatrix}$, on obtient $D_n$ comme sous-groupe de $O_2(\R)$.
 \end{proposition}
 \begin{preuve}
 La première colonne $(a,c)$ est unitaire : $(a,c)=(\cos\theta,\sin\theta)$. La seconde est unitaire et orthogonale à la première : $\pm(-\sin\theta,\cos\theta)$. Le signe $+$ donne une rotation, le signe $-$ une réflexion. $\det(A\tr A)=(\det A)^2=1$.
 \end{preuve}
-\begin{remarque}[réf. Thm 4.3.17, admis]
+\begin{remarque}
 $\SL_2(\Z)$ est engendré par $S=\begin{pmatrix}0&-1\\1&0\end{pmatrix}$ et $T=\begin{pmatrix}1&1\\0&1\end{pmatrix}$. L'exercice \voir{exo-sl2z} explique pourquoi : c'est l'algorithme d'Euclide écrit avec des matrices.
 \end{remarque}
 
