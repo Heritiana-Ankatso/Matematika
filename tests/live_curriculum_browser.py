@@ -46,7 +46,7 @@ with sync_playwright() as p:
         go('#home')
         classes = page.locator('#home-class option').evaluate_all('(nodes) => nodes.map(n => n.value)')
         assert set(COURSES + ['t10', 't11s']) <= set(classes), classes
-        assert page.locator('.mainnav a').count() == 3
+        assert page.locator('.mainnav a').count() == 4   # Apprendre, Explorer, Résoudre, Lire
         # the home search is scoped to the class: the stored Malagasy class is restored, so choose one with derivatives
         assert page.locator('#home-class').input_value() in ('t10', 't11s')
         page.select_option('#home-class', 'premiere')
@@ -92,7 +92,7 @@ with sync_playwright() as p:
         assert page.locator('#home-class option').count() == 6
         assert page.locator('.secondary-entry[aria-labelledby="beyond-heading"] a').count() == 3
         assert page.locator('.figure-tab').count() == 0
-        assert page.locator('.mainnav a').count() == 3
+        assert page.locator('.mainnav a').count() == 4   # Apprendre, Explorer, Résoudre, Lire
         assert page.locator('.home-resume').count() == 0
         page.locator('#home-query').fill('dérivée')
         page.locator('.home-result').first.wait_for()

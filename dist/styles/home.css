@@ -9,8 +9,6 @@
 .home-simple .search-wrap>.icon{position:absolute;left:12px;pointer-events:none;color:var(--muted)}
 .home-simple .chapter-list .chapter-name{color:var(--ink);font-size:.96rem}
 .home-simple .teacher-entry summary{display:flex;align-items:center;justify-content:space-between;gap:16px}
-.home-simple .teacher-entry summary::after{content:'+';color:var(--accent);font-size:1.25rem}
-.home-simple .teacher-entry[open] summary::after{content:'−'}
 
 .home-annales{margin:18px 0 0;padding:14px 0;border-top:1px solid var(--line)}.home-annales a{display:inline-flex;align-items:center;gap:8px;min-height:44px;font:600 .92rem var(--ui);text-decoration:underline;text-underline-offset:4px}
 

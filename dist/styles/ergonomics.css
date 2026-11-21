@@ -2,8 +2,6 @@
 .secondary-tools{min-width:0;border-top:1px solid var(--line);margin:12px 0}
 .secondary-tools>summary{display:flex;align-items:center;justify-content:space-between;gap:14px;min-height:44px;padding:10px 0;cursor:pointer;list-style:none;font:600 .88rem var(--ui);color:var(--ink)}
 .secondary-tools>summary::-webkit-details-marker{display:none}
-.secondary-tools>summary::after{content:'+';flex:none;color:var(--accent);font-size:1.15rem}
-.secondary-tools[open]>summary::after{content:'−'}
 .secondary-tools-body{padding:10px 0 16px;display:grid;gap:14px}
 .secondary-tools-body:empty{display:none}
 .page:not(.home-simple)>h1,.page:not(.home-simple) .res-top h1{font-size:clamp(1.9rem,3.4vw,2.7rem);line-height:1.1}
@@ -48,11 +46,14 @@
 .deck-downloads>summary{font-size:.75rem;color:var(--muted)}
 .deck-actions{display:flex;flex-wrap:wrap;gap:4px 14px;padding-bottom:12px}
 .deck-actions a{font-size:.8rem;min-height:44px;display:inline-flex;align-items:center;text-decoration:underline;text-underline-offset:3px}
+/* exercise chapters: the same row as the lesson chapters (number, title, what is inside, arrow) */
 .bank-chapters{display:block;list-style:none;padding:0;margin:0}
-.bank-chapters a{grid-template-columns:30px minmax(0,1fr) minmax(120px,180px);border:0;border-bottom:1px solid var(--line);padding:13px 4px;align-items:center;gap:12px;transform:none}
-.bank-chapters a:hover{transform:none;background:var(--sunken)}
-.bank-chapters .bank-ch-meta{grid-column:auto;font-size:.78rem}
+.bank-chapters a{display:grid;grid-template-columns:30px minmax(0,1fr) auto 18px;gap:4px 14px;align-items:center;min-height:52px;border:0;border-bottom:1px solid var(--line);padding:13px 4px;background:transparent;transform:none}
+.bank-chapters a:hover{transform:none;background:var(--sunken);border-color:var(--line)}
+.bank-chapters .bank-ch-no{grid-row:auto;font:400 .8rem var(--ui);color:var(--muted);font-variant-numeric:tabular-nums}
 .bank-chapters .bank-ch-title{font-size:1rem}
+.bank-chapters .bank-ch-meta{font-size:.85rem;text-align:right}
+@media(max-width:700px){.bank-chapters a{grid-template-columns:30px minmax(0,1fr) 18px}.bank-chapters .bank-ch-meta{grid-column:2;grid-row:2;text-align:left}.bank-chapters .chapter-row-arrow{grid-column:3;grid-row:1}}
 .bank-tools{display:flex;align-items:start;flex-wrap:wrap;gap:10px 20px}
 .bank-tools .bank-print-options{margin:0;border:0}
 .bank-print-options .secondary-tools-body{display:flex;flex-wrap:wrap;gap:6px}
@@ -244,7 +245,7 @@
 .sequence-card{scroll-margin-top:calc(var(--chrome) + 20px)}
 /* footer: a site map of every section, then the other pages */
 footer{display:block;margin-top:64px;padding:40px clamp(16px,3vw,32px) 32px}
-.foot-grid{display:grid;grid-template-columns:minmax(220px,1.4fr) repeat(4,minmax(0,1fr));gap:32px;max-width:var(--page-w);margin:0 auto}
+.foot-grid{display:grid;grid-template-columns:minmax(200px,1.2fr) repeat(auto-fit,minmax(130px,1fr));gap:32px;max-width:var(--page-w);margin:0 auto}
 .foot-about p{margin:10px 0 0;max-width:32ch;color:var(--ink-2)}
 .foot-about .foot-storage{color:var(--muted);font-size:.85rem}
 footer .foot-brand{display:inline-flex;align-items:center;gap:10px;padding:0;text-decoration:none;font:800 1rem var(--display);font-stretch:125%;letter-spacing:.04em;text-transform:uppercase}

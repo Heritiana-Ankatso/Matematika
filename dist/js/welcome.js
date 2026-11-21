@@ -12,14 +12,15 @@ const homeChapters=index=>{
 };
 // The figure every home shows: one parabola to move, with its numbers.
 const homeFigure=(pair,link,label)=>`<aside class="quiet-figure" aria-labelledby="figure-heading"><p class="small-label">${label}</p><figure class="home-plate"><figcaption class="plate-top"><b id="figure-heading">${pair("Et si tu déplaçais le sommet ?","What if you moved the vertex?")}</b></figcaption><div class="figure-stage" id="home-figure-stage"><span class="figure-hint">${pair("Glisse un point pour transformer la parabole.","Drag a point to transform the parabola.")}</span></div><div class="figure-numbers" id="home-figure-numbers"></div></figure><p class="figure-description">${pair("Observe ce qui change, puis essaie de l’expliquer.","Observe what changes, then try to explain it.")}</p><a class="text-link quiet-link" href="${link("lab/quadratic")}"><span>${pair("Poursuivre dans le laboratoire","Continue in the laboratory")}</span> →</a><p class="figure-status sr-only" role="status" aria-live="polite"></p></aside>`;
-// Doors of the visitor home: [hash, verb, what is behind]. Only live routes are shown (each edition has its own set).
+// Doors of the visitor home: [hash, verb, what is behind], in the order of the menu (Explorer, Résoudre, Lire, then the
+// curricula). Only live routes are shown (each edition has its own set).
 const DOORS=[
  ['#lab',["Manipuler","Experiment"],["Des expériences où l’on déplace, on prévoit, puis on vérifie.","Experiments where you move things, predict, then check."]],
- ['#stories',["Lire","Read"],["Des histoires de mathématiques, de l’Antiquité à aujourd’hui.","Stories of mathematics, from Antiquity to today."]],
  ['#gallery',["S’étonner","Wonder"],["Des curiosités : objets, paradoxes et belles figures à explorer.","Curiosities: objects, paradoxes and beautiful figures to explore."]],
- ['#history',["Situer","Place in time"],["Les mathématiciens et les découvertes sur une frise chronologique.","Mathematicians and discoveries on a timeline."]],
  ['#challenges',["Chercher","Solve"],["Des défis à résoudre, sans limite de temps.","Challenges to solve, with no time limit."]],
  ['#olympiad',["Se dépasser","Go further"],["Olympiades : techniques, problèmes gradués et solutions rédigées.","Olympiads: techniques, graded problems and written solutions."]],
+ ['#stories',["Lire","Read"],["Des histoires de mathématiques, de l’Antiquité à aujourd’hui.","Stories of mathematics, from Antiquity to today."]],
+ ['#history',["Situer","Place in time"],["Les mathématiciens et les découvertes sur une frise chronologique.","Mathematicians and discoveries on a timeline."]],
  ['#pathways',["S’orienter","Find your curriculum"],["Les programmes malgache, français et internationaux, chacun avec son parcours.","The Malagasy, French and international curricula, each with its own pathway."]],
 ];
 // Visitor home: no class is assumed. It shows what the site is by letting the visitor move a figure, opens the doors of

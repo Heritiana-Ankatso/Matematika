@@ -61,15 +61,14 @@
 .exh-h output { font-variant-numeric: tabular-nums; }
 .exh-note { margin: 0; color: var(--muted); font-size: 0.9rem; }
 .exh-quick { display: flex; flex-wrap: wrap; gap: 6px; }
-.exh-quick button { min-width: 44px; min-height: 40px; padding: 0 10px; border: 1px solid var(--line-strong); background: var(--surface); color: var(--ink); font: 700 0.9rem/1 var(--ui); font-variant-numeric: tabular-nums; cursor: pointer; }
-.exh-quick button[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.exh-quick button { min-width: 44px; min-height: 44px; padding: 0 10px; border: 1px solid var(--line-strong); background: var(--surface); color: var(--ink); font: 700 0.9rem/1 var(--ui); font-variant-numeric: tabular-nums; cursor: pointer; }
+.exh-quick button[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
 .exh-buttons { display: flex; flex-wrap: wrap; gap: 8px; }
 .exh-buttons .btn { white-space: normal; min-height: 44px; flex: 1 1 140px; }
-.exh-buttons .btn[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+.exh-buttons .btn[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
 .exh-layers { display: flex; flex-wrap: wrap; gap: 4px 18px; margin: 4px 0; padding: 0; border: 0; }
 .exh-layers legend { font-weight: 700; padding: 0; margin-bottom: 4px; }
 .exh-layers label, .exh-check { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; cursor: pointer; }
-.exh-layers input, .exh-check input { width: 20px; height: 20px; accent-color: var(--accent); }
 .exh-howto { margin: 0; padding-left: 1.3em; font-size: 0.95rem; display: grid; gap: 4px; }
 .exh-check-room { margin: 4px 0 0; padding: 8px 10px; border-left: 4px solid var(--pos); background: var(--sunken); font-size: 0.95rem; }
 .exh-check-room.is-bad { border-left-color: var(--neg); }
@@ -97,7 +96,7 @@
 .room-lab { display: grid; gap: 8px; }
 .room-lab-bar { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
 .room-lab-bar .btn { min-height: 44px; white-space: normal; }
-.room-lab-bar .btn[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+.room-lab-bar .btn[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
 .room-lab-bar .btn[hidden] { display: none; }
 .room-lab-tools { display: inline-flex; }
 .room-lab-tools button { min-height: 44px; padding: 0 12px; border: 1px solid var(--ink); background: var(--surface); color: var(--ink); font: 700 0.95rem/1 var(--ui); cursor: pointer; }
@@ -146,7 +145,7 @@
 
 /* Laboratory page in free exploration (shell.js `free`): scenes are labelled chips, not numbered progress dots. */
 .lab2-scenes { gap: 8px; }
-.lab2-dot.lab2-scene { width: auto; min-height: 44px; padding: 6px 14px; border-radius: var(--r-pill, 999px); font-weight: 600; text-align: left; line-height: 1.2; }
+.lab2-dot.lab2-scene { width: auto; min-height: 44px; padding: 6px 14px; border-radius: 0; font-weight: 600; text-align: left; line-height: 1.2; }
 .lab2-full .lab2-prompt { color: var(--ink); }
 .art-sources { margin-top: 24px; max-width: 68ch; }
 .art-sources h2 { font-size: 1.1rem; margin: 0 0 6px; }

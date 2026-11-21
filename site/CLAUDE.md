@@ -59,6 +59,7 @@ Pick the row of your feature and open only its files. One-line descriptions are 
 | `js/camera3d.js` | the one orthographic 3D camera (project, unproject, view ray, constraints, turn), used by the laboratory template `space` and by `slides/widgets-3d.js` |
 | `styles/tokens.css` | design tokens: font faces, colours of both themes (Jour, Nuit), shapes; the one source of the look, imported by `explorer.css` and the foundation lessons |
 | `styles/explorer.css` | base elements, layout (imports `tokens.css`) |
+| `styles/controls.css` | the commands, loaded last: focus ring, disabled look, choice of one, toggle, answer option, checkbox and radio, slider, field, disclosure chevron (`docs/DESIGN_V7.md` section "Commands"); components keep only their layout |
 | `share.png` | share image for link previews (Open Graph in `index.html`), drawn by `scripts/share-image.py` |
 | `styles/pages.css` | page and component styles, challenge card colours and animations |
 | `styles/timeline-standalone.css` | standalone mathematicians timeline: shared site chrome, Jour/Nuit tokens, readable portrait lanes and mobile scrolling |
@@ -91,7 +92,7 @@ Pick the row of your feature and open only its files. One-line descriptions are 
 | File | Holds |
 |---|---|
 | `js/lab/` | **the laboratory**: engine, shell, mount (modes `full`, `inline`, `slide`), registry (`resolveRef`), format, templates, models and one file per experiment (quadratic, trig, sequences, derivative, integral, probability, vectors, statistics, complex, line, exponential, cobweb, matrix, space-lines, fourier, tiles, euler-primes, fermat, circle-regions, buffon, bertrand); index in `js/lab/CLAUDE.md`. Also mounted by chapter pages (`chapter-sequence.js`) and by slides (`slides/widgets.js` `type: 'lab'`) |
-| `js/gallery/` | **the gallery** ("Lire > Curiosités"): one `gallery-*` module per exhibit with its pure model; index in `js/gallery/CLAUDE.md` |
+| `js/gallery/` | **the gallery** ("Explorer > Curiosités"): one `gallery-*` module per exhibit with its pure model; index in `js/gallery/CLAUDE.md` |
 | `js/knot-catalogue.js` | 44 verified spatial curves (KnotInfo coordinates) used by the knot exhibit (`js/gallery/gallery-knots.js`) |
 | `js/math.js` | pure maths shared by the labs (quadratic, sequences, binomial, statistics, Riemann...) |
 | `js/lab-objects.js` | `mountObject`: the gallery exhibits (Galton, Reuleaux, Platonic, chaos game and more; pure maths first, then DOM) |
@@ -104,7 +105,7 @@ Pick the row of your feature and open only its files. One-line descriptions are 
 | `js/object-kit.js` | canvas sizing, `palette()` from CSS tokens, sliders, loop |
 | `js/mandelbrot-preview.js` | fixed screen-resolution, antialiased GPU card preview; blended repeating zoom, reduced-motion and CPU still fallback |
 | `js/home-art.js` | live drawings of the home page and the gallery cards |
-| `js/welcome.js` | class-to-chapter homepage, remembered class, chapter search, fixed interactive figure, and gallery index (the "Curiosités" tab of "Lire") |
+| `js/welcome.js` | class-to-chapter homepage, remembered class, chapter search, fixed interactive figure, and gallery index (the "Curiosités" tab of "Explorer") |
 | `js/home-slides.js` | retained five-scene slideshow component; the home now mounts one fixed figure through welcome.js |
 | `js/figure-engine.js` | canvas engine of those figures: free handles, spring easing, pan, Ctrl-wheel and pinch zoom, soft magnet, keyboard; `readouts` |
 | `js/figure-scenes.js` | the five scenes (parabola, unit circle, secant to tangent, left Riemann sum, logistic cobweb), pure and tested; `SLIDES` texts in both languages |
@@ -139,7 +140,7 @@ Seeded and limitless: any text is a seed, the same seed gives the same series. F
 
 To add a generator: write `make` in the class file, give it a manifest chapter, a domain and an `ok()`; `tests/exercise-bank.test.mjs` then checks it (answers, formatting, variety of at least 20 questions).
 
-## Olympiad ("Explorer > Olympiades")
+## Olympiad ("Résoudre > Olympiades")
 
 | File | Holds |
 |---|---|
@@ -147,7 +148,7 @@ To add a generator: write `make` in the class file, give it a manifest chapter, 
 | `js/olympiad.js` | `#olympiad` (index) and `#olympiad/<id>` (one strategy): page markup, inline figure or laboratory experiment, MathJax typesetting |
 | `js/olympiad-widgets.js` | three figures with pure models: nearest neighbours (extremal principle), the inscribed angle, rectangle and square of the same perimeter |
 
-## Reading ("Lire": biographies, stories; the curiosities are the gallery)
+## Reading ("Lire": biographies, stories, timelines; the curiosities are the gallery, under "Explorer")
 
 | File | Holds |
 |---|---|

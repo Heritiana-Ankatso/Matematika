@@ -101,3 +101,38 @@ in `rules.md`, project overrides in its `SKILL.md`). This document wins where th
 phone first with the figure in reach (choices and question above a figure, its buttons right under it, measures after;
 `.exhibit-band` in `site/styles/pages.css`); feedback lines keep their place; the phone header is one row of 64 px so
 `scroll-padding-top` matches it; every drag has a button or key alternative.
+
+## Organisation and commands (21 November 2026, not part of the brand)
+
+Owner request: rework how the site is organised and how its commands work (buttons, sliders, toggles, checkboxes).
+
+**Organisation.** The menu has four sections, each named by what the visitor does there:
+
+| Section | Pages | Why |
+|---|---|---|
+| Apprendre | Cours, Exercices, Réviser, Annales, Bases, Programmes; Pour enseigner (Diaporamas, Automatismes, Fiches, Dossier sur mesure) | unchanged |
+| Explorer | Domaines, Laboratoire, Curiosités, Fractales, Contre l'intuition | everything you handle. Curiosités were under Lire although every exhibit is manipulated, and Fractales and Contre l'intuition (under Explorer) point at those same exhibits |
+| Résoudre | Défis, Olympiades, Erreurs | everything you solve; Explorer had seven tabs mixing handling and solving |
+| Lire | Histoires, Biographies, Chronologies | everything you read |
+
+The exhibit breadcrumb and collection chooser say "Curiosités" like the tab (they said "La galerie"). The home doors follow
+the menu order. The footer site map gets one column per section and no longer repeats "Dossier sur mesure" and
+"Programmes". Exercise chapters are listed in the same row as lesson chapters (small number, title, what is inside,
+arrow). Routes are unchanged: every old address still opens the same page.
+
+**Commands.** One sheet, `site/styles/controls.css`, loaded last, draws every control; page sheets keep only layout.
+Each control is one of these kinds, and each kind shows its state one way:
+
+| Kind | Examples | State |
+|---|---|---|
+| Action | `.btn-primary`, `.btn-secondary`, `.btn-quiet`, `.text-button`, `.icon-btn` | none; primary indigo, secondary graphite outline, quiet underlined |
+| Choice of one | `.seg`, `.filter`, `.pick`, FR/EN, laboratory scenes and segments, exhibit modes | the one that is on: indigo fill (it was graphite on some, indigo on others; scenes were pills) |
+| Toggle | `.btn-secondary[aria-pressed]`, `.gen-chip` (competencies, chapters) | on: indigo fill and a check mark |
+| Answer option | `.lab2-option`, `.lab2-variant`, `.error-step`, `.cl-tok` | picked: indigo border, pale indigo fill; never filled, so a student's pick is not mistaken for a setting |
+| Checkbox, radio | every native one | one 22 px box (it was 18, 20 or 22 px), indigo with a check when on; label and box are one target |
+| Slider | every `input[type=range]` | one 6 px track, square 24 px indigo thumb, 44 px hit height (the thumb was round, then overridden square) |
+| Field | text, number, search, select, textarea | white plate, graphite edge, darker on hover (fields sat on the page colour and read as text) |
+| Folded section | every `details` | a chevron after the words (or at the right edge of a boxed row), down when closed, up when open. The flex summaries had lost the browser's triangle, so most folded sections showed no sign that they open; the "+" signs sat at the far edge of wide rows |
+
+All kinds: 44 px targets, square corners, focus ring `--focus` (indigo by day, ochre at night), a disabled look
+(45 % opacity, no pointer). The slide player and the standalone lessons keep their own sheets.
