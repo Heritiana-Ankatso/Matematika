@@ -25,7 +25,7 @@
   --accent: #2c3d8f; --accent-ink: #ffffff; --accent-soft: #e4e7f4; --object-ink: #8a5a00; --object: #c98b1e; --object-soft: #f4e8cf; --object-on: #ffffff;
   --obj2: #9e3b22; --obj3: #5c6170;
   --pos: #2e6b3f; --pos-soft: #e2efe5; --neg: #a11d2b; --neg-soft: #f6e3e4;
-  --mark: #f0d9a8;
+  --mark: #f0d9a8; --focus: #2c3d8f;   /* focus ring: indigo by day, ochre at night */
   --c1: #2563eb; --c2: #e8710a; --c3: #0f9d58; --c4: #c2185b; --c5: #7b1fa2; --c6: #00838f; --c7: #b8860b; --c8: #d84315;   /* data colours (graph colourings, series); not part of the interface palette */
 }
 :root[data-theme="nuit"] {
@@ -36,7 +36,7 @@
   --accent: #8c9bff; --accent-ink: #121216; --accent-soft: #23253a; --object-ink: #e0a73e; --object: #e0a73e; --object-soft: #2e2412; --object-on: #121216;
   --obj2: #e8805f; --obj3: #8e92a0;
   --pos: #6fc28a; --pos-soft: #16261b; --neg: #ff7a86; --neg-soft: #35161b;
-  --mark: #4a3a12;
+  --mark: #4a3a12; --focus: #e0a73e;
   --c1: #7aa2ff; --c2: #ffa94d; --c3: #5fd0a0; --c4: #ff7eb6; --c5: #c9a6ff; --c6: #4dd0e1; --c7: #ffd54f; --c8: #ff8a65;
 }
 :root {

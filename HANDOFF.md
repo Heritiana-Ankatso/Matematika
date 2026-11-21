@@ -1,5 +1,14 @@
 # Handoff
 
+## Organisation and commands (21 November 2026)
+
+Four menu sections named by what the visitor does: Apprendre, Explorer (Domaines, Laboratoire, Curiosités, Fractales,
+Contre l'intuition), Résoudre (Défis, Olympiades, Erreurs), Lire (Histoires, Biographies, Chronologies). Routes are
+unchanged. Every control is drawn by `site/styles/controls.css` (loaded last) by kind: action, choice of one, toggle,
+answer option, checkbox and radio, slider, field, folded section; rules in `docs/DESIGN_V7.md` section "Organisation and
+commands". Exercise chapters use the lesson row; the footer has one column per section without duplicates.
+Not mirrored to Maths-explorer (design work stays here; owner rule of 20 November 2026).
+
 ## Fractal rendering quality (20 November 2026, mirrored from Maths-explorer)
 
 The 3D fractals are ray marched by one shared progressive renderer (`site/js/gallery/gl-progressive.js`); the Menger

@@ -109,8 +109,6 @@ footer a { color: var(--ink); text-decoration: underline; text-underline-offset:
 .seg + .seg { border-left: 1px solid var(--line); }
 .seg span { font: 400 0.8rem var(--math); color: var(--muted); font-variant-numeric: tabular-nums; }
 .seg:hover { background: var(--sunken); }
-.seg[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
-.seg[aria-pressed="true"] span { color: var(--bg); opacity: 0.75; }
 .search { position: relative; display: flex; align-items: center; }
 .search .icon { position: absolute; left: 14px; color: var(--muted); pointer-events: none; }
 .search input[type="search"] { width: 100%; min-height: 48px; padding: 0 14px 0 44px; background: var(--surface); }
@@ -186,15 +184,7 @@ footer a { color: var(--ink); text-decoration: underline; text-underline-offset:
 [data-fs-target]:fullscreen .results strong, .presenting .results strong { font-size: clamp(1.6rem, 3vw, 2.4rem); }
 [data-fs-target]:fullscreen .lesson-diagram svg, .presenting .lesson-diagram svg { max-height: 68vh; }
 
-/* Range inputs share one look everywhere. */
-input[type="range"] { -webkit-appearance: none; appearance: none; width: 100%; height: 36px; background: transparent; cursor: pointer; margin: 0; }
-input[type="range"]::-webkit-slider-runnable-track { height: 6px; border-radius: 0; background: var(--line-strong); }
-input[type="range"]::-moz-range-track { height: 6px; border-radius: 0; background: var(--line-strong); }
-input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 26px; height: 26px; margin-top: -10px; border-radius: 50%; background: var(--accent); border: 3px solid var(--surface); box-shadow: 0 0 0 1.5px var(--accent); }
-input[type="range"]::-moz-range-thumb { width: 20px; height: 20px; border-radius: 50%; background: var(--accent); border: 3px solid var(--surface); box-shadow: 0 0 0 1.5px var(--accent); }
-input[type="range"]:focus-visible { outline: none; }
-input[type="range"]:focus-visible::-webkit-slider-thumb { box-shadow: 0 0 0 1.5px var(--accent), 0 0 0 5px var(--ink); }
-input[type="range"]:focus-visible::-moz-range-thumb { box-shadow: 0 0 0 1.5px var(--accent), 0 0 0 5px var(--ink); }
+/* Range inputs, checkboxes, fields and disclosures: styles/controls.css. */
 
 /* ------------------------------------------------------------- responsive */
 @media (max-width: 1000px) {

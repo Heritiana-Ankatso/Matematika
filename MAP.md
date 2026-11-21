@@ -27,9 +27,10 @@ really need them.
 | I want to change... | Open (and nothing else first) | Then |
 |---|---|---|
 | a colour, font, spacing, radius or theme | `site/styles/tokens.css` (tokens, both themes) | `docs/DESIGN_V7.md` only for a design decision; review any UI change with the skills `frontend-design` and `web-design-guidelines` (`.claude/skills/`) |
+| how a control looks or shows its state (buttons, choices, toggles, checkboxes, sliders, fields, folded sections, focus ring) | `site/styles/controls.css` (one rule per kind of control, loaded last) | the kinds and their rules: `docs/DESIGN_V7.md` section "Commands" |
 | the look of one page or component | `site/styles/pages.css` (search the page class, see section 3) | standalone mathematicians: `site/styles/timeline-standalone.css` and `site/resources/history/mathematicians-timeline.html` |
 | shared class memory or grouped optional classroom controls | `site/js/navigation-state.js`, `site/js/page-ergonomics.js`, `site/styles/ergonomics.css` | |
-| the top navigation (Apprendre, Explorer and Lire, with page tabs; Apprendre folds its classroom tools under « Pour enseigner »; one row on phones), the site-map footer, theme or language buttons | `site/js/app.js` `SECTIONS`, `TAB_OF`, `header()` / `footer()` | |
+| the top navigation (Apprendre, Explorer, Résoudre and Lire, with page tabs; Apprendre folds its classroom tools under « Pour enseigner »; one row on phones), the site-map footer, theme or language buttons | `site/js/app.js` `SECTIONS`, `TAB_OF`, `header()` / `footer()` | |
 | the curriculum and level choice of Lessons, Exercises and Slides (grouped rail, chooser when no level is in the address) | `site/js/curriculum-picker.js`; styles at the end of `site/styles/ergonomics.css` | curriculum names come from `site/js/content.js` `pathways` |
 | a foundations lesson (`#basics`) | `site/js/basics-page.js` (`BASICS_GROUPS`, `basicsPage`, `bindBasics`), `site/resources/basics/place-value.html, site/resources/basics/place-value.en.html`, `site/resources/basics/addition.html, site/resources/basics/addition.en.html`, `site/resources/basics/subtraction.html, site/resources/basics/subtraction.en.html`, `site/resources/basics/multiplication.html, site/resources/basics/multiplication.en.html`, `site/resources/basics/division.html, site/resources/basics/division.en.html`, `site/resources/basics/sets.html, site/resources/basics/sets.en.html` | place value, the four arithmetic operations, sets (shared code, one text table per edition); `site/resources/basics/fractions.html` and `site/resources/basics/fractions.en.html` are the bilingual fractions workbench |
 | a route (add or rename a page) | `site/js/app.js` `route()`, `render()` (validity list and dispatch) | section 3 |
@@ -121,12 +122,12 @@ All pages are rendered by `site/js/app.js` `render()`; the module named builds t
 | `#history[/<kind>[/<id>]]` (`people` or `advances`) | Lire > Chronologies | `history.js`, `history-layout.js`, `history-images.js`; sourced records in `history-data.js` |
 | `#biographies[/<id>]` | Lire > Biographies | `reading.js` `readingPage`; texts `reading-content.js` |
 | `#stories[/<id>]` | Lire > Histoires | `reading.js` `readingPage`; texts `reading-content.js` |
-| `#gallery[/<id>]` | Lire > Curiosités | `welcome.js` `galleryPage` (index), `app.js` `galleryDetail` / `bindGallery` (one exhibit); objects `lab-objects.js`, `js/gallery/gallery-objects.js`; data `labs` with `custom: true` (`#lab/<exhibit>` redirects here) |
-| `#olympiad[/<id>]` | Explorer > Olympiades | `olympiad.js` (`olympiadPage`, `bindOlympiad`); content `olympiad-content.js`, figures `olympiad-widgets.js` |
+| `#gallery[/<id>]` | Explorer > Curiosités | `welcome.js` `galleryPage` (index), `app.js` `galleryDetail` / `bindGallery` (one exhibit); objects `lab-objects.js`, `js/gallery/gallery-objects.js`; data `labs` with `custom: true` (`#lab/<exhibit>` redirects here) |
+| `#olympiad[/<id>]` | Résoudre > Olympiades | `olympiad.js` (`olympiadPage`, `bindOlympiad`); content `olympiad-content.js`, figures `olympiad-widgets.js` |
 | `#intuition` | Explorer > Contre l’intuition | `intuition-page.js` `intuitionPage`; the entries `intuition-data.js` (`ENTRIES`, `SOON`): each points at an exhibit, experiment or challenge that exists (issue #28); gallery entries `site/js/gallery/gallery-intuition.js` |
 | `#fractals` | Explorer > Fractales | `fractals-page.js` `fractalsPage`; the entries `fractals-data.js` (`GROUPS`, `FRACTALS`): each points at an existing exhibit with the status of its dimension (issue #36) |
-| `#errors[/<id>]` | Explorer > Erreurs | `errors.js` `errorsPage` / `bindErrors`; data and checks `errors-model.js` |
-| `#challenges[/<id>]` | Explorer > Défis | `app.js` `challengePage`, `challengeDetail`, `bindChallenges`; content from `site/js/challenges/registry.js` |
+| `#errors[/<id>]` | Résoudre > Erreurs | `errors.js` `errorsPage` / `bindErrors`; data and checks `errors-model.js` |
+| `#challenges[/<id>]` | Résoudre > Défis | `app.js` `challengePage`, `challengeDetail`, `bindChallenges`; content from `site/js/challenges/registry.js` |
 | `#pathways[/<family>]` | Apprendre > Programmes | `app.js` `pathwayPage`; data `content.js` `pathways`; `<family>` (`mg`, `fr`, `int`, `university`) opens that curriculum |
 | `#university[/<id>]` | (Programmes) | `university.js` |
 
@@ -159,6 +160,7 @@ Root files: `CLAUDE.md` (entry), `AGENTS.md` (other agents), `HANDOFF.md` (state
 | camera and drag behaviour | `site/js/canvas-navigation.js` (2D), `site/js/camera3d.js` (3D) | site canvases, laboratory (`site/js/lab/engine.js`) and slide player |
 | asset URLs and versions | `site/js/data-loader.js` `assetHref` | every link and download |
 | lab references `"<experiment>"` / `"<experiment>/<mission>"` | the experiment files; the one resolver `resolveRef` in `site/js/lab/registry.js` | lab page route, `manifest.json` `catalog.chapters[].labs`, slide `WIDGETS` (`lab('...')`), chapter pages, `tests/lab-links.test.mjs` |
+| the look and state of every control (on, off, picked, open, focused, disabled) | `site/styles/controls.css` | every page of `index.html`; the slide player and the standalone lessons keep their own |
 | how a number is written (≈ rounded, = exact; decimal comma) | `site/js/lab/format.js` `makeFormat` | every readout, formula and canvas label of the laboratory |
 
 Rule: when a change touches several files, the fact belongs in one place. Challenges follow it since 18 October 2026
