@@ -6,8 +6,7 @@ One file per lesson, in the order of `manifest.json` (`university.sections[id=al
 tree. Titles, summaries and outlines reach the site through `content/data/algebre1-build.json`; do not copy them into
 the manifest.
 
-Plan and numbering follow *Cours d'Algèbre 1*; the `réf.` tags give
-that text's numbers. Its errors are corrected here (annex A of the plan). The exercises follow the mastery guide: four
+The exercises follow the mastery guide: four
 rubrics (A techniques, B proofs, C decisions and counterexamples, D synthesis) and three levels (S, A, D).
 
 ## Dialect (a small subset of LaTeX)
@@ -18,7 +17,7 @@ rubrics (A techniques, B proofs, C decisions and counterexamples, D synthesis) a
 | `\resume{...}`, `\summary{...}` | one-paragraph summary, French and English (site cards) |
 | `\begin{objectifs} \item ... \end{objectifs}`, `\begin{prerequis} ... \end{prerequis}` | lesson head boxes |
 | `\section{...}`, `\subsection{...}` | numbered § in the chapter |
-| `\begin{definition}[titre][réf. number] ... \end{definition}` | also `theoreme`, `proposition`, `lemme`, `corollaire`, `exemple` (numbered), `methode`, `remarque`, `attention`, `intuition`, `essentiel`, `histoire` (unnumbered) |
+| `\begin{definition}[titre] ... \end{definition}` | also `theoreme`, `proposition`, `lemme`, `corollaire`, `exemple` (numbered), `methode`, `remarque`, `attention`, `intuition`, `essentiel`, `histoire` (unnumbered) |
 | `\label{key}` inside a box or an exercise, `\voir{key}` anywhere | cross-reference, rendered "Théorème 4.7" with a link |
 | `\begin{preuve}[titre] ... \end{preuve}` | proof (open by default on the web) |
 | `\widget{venn}`, `\widget[ring]{zn}` | interactive figure (`site/js/algebra1-widgets.js`): `venn`, `maps`, `zn`, `lu`, `cayley`, `perms`, `dihedral`; a note in the PDFs |

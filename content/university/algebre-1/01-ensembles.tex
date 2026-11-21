@@ -16,7 +16,7 @@ Logique élémentaire (implication, équivalence, quantificateurs, contraposée,
 \begin{intuition}
 Un ensemble est un \og sac \fg{} d'objets : la seule question qu'on peut lui poser est \og tel objet est-il dedans ? \fg. L'ordre d'écriture et les répétitions ne comptent pas : $\ens{1,2,2,3}=\ens{3,1,2}$. Ce point de vue \og naïf \fg{} suffit pour tout ce cours ; ses limites (le paradoxe de \nom{Russell}) relèvent d'un cours de logique.
 \end{intuition}
-\begin{definition}[Ensemble, élément][réf. 1.1]
+\begin{definition}[Ensemble, élément]
 Un \textbf{ensemble} $E$ est une collection d'objets, ses \textbf{éléments} ; on écrit $x\in E$ (\og $x$ appartient à $E$ \fg) ou $x\notin E$. On le décrit
 \begin{itemize}
 \item \textbf{en extension}, en listant ses éléments : $\ens{0,2,4}$ ;
@@ -35,13 +35,13 @@ $A=B \iff (A\subset B \text{ et } B\subset A)$. C'est la méthode standard pour 
 \begin{attention}[Appartenance et inclusion]
 $\in$ relie un élément à un ensemble, $\subset$ relie deux ensembles. Avec $E=\ens{1,\ens{1}}$ : $1\in E$, $\ens{1}\in E$ \emph{et} $\ens{1}\subset E$ ; mais $\ens{\ens{1}}\subset E$ alors que $\ens{\ens{1}}\notin E$. De même $\varnothing\subset E$ pour tout $E$, mais $\varnothing\in E$ est faux ici. Enfin $\varnothing\neq\ens{\varnothing}$ : le second a un élément.
 \end{attention}
-\begin{proposition}[Cardinal de l'ensemble des parties][réf. Rem. 1.1.2]\label{prop-parties}
+\begin{proposition}[Cardinal de l'ensemble des parties]\label{prop-parties}
 Pour tout ensemble $E$, $\varnothing\subset E$ et $E\subset E$. Si $E$ est fini à $n$ éléments, $\parties(E)$ a $2^n$ éléments.
 \end{proposition}
 \begin{preuve}
 $\varnothing\subset E$ car l'implication \og $x\in\varnothing\Rightarrow x\in E$ \fg{} est vraie pour tout $x$, sa prémisse étant toujours fausse. Pour le cardinal, écrivons $E=\ens{x_1,\dots,x_n}$. Choisir une partie $A$ revient à décider, pour chaque $x_i$, s'il est dans $A$ ou non : $n$ choix indépendants à deux issues, soit $2^n$ parties. (Formellement : $A\mapsto(\mathbf 1_A(x_1),\dots,\mathbf 1_A(x_n))$ est une bijection de $\parties(E)$ sur $\ens{0,1}^n$.)
 \end{preuve}
-\begin{definition}[Opérations][réf. 1.1]
+\begin{definition}[Opérations]
 Soient $A$, $B$ des parties d'un ensemble $E$.
 \begin{itemize}
 \item \textbf{Intersection} : $A\cap B=\ens{x\mid x\in A \text{ et } x\in B}$. $A$ et $B$ sont \textbf{disjoints} si $A\cap B=\varnothing$.
@@ -51,7 +51,7 @@ Soient $A$, $B$ des parties d'un ensemble $E$.
 \item \textbf{Produit cartésien} : $A\times B=\ens{(a,b)\mid a\in A,\ b\in B}$, ensemble des couples. En général $A\times B\neq B\times A$.
 \end{itemize}
 \end{definition}
-\begin{proposition}[Règles de calcul][réf. Prop. 1.1.3]\label{prop-calcul-ens}
+\begin{proposition}[Règles de calcul]\label{prop-calcul-ens}
 Pour des parties $A,B,C$ de $E$ :
 \begin{enumerate}
 \item idempotence et commutativité : $A\cap A=A$, $A\cup A=A$, $A\cap B=B\cap A$, $A\cup B=B\cup A$ ;
@@ -71,7 +71,7 @@ La figure ne remplace pas une démonstration écrite, mais elle en donne la stru
 \end{remarque}
 
 \section{Applications}
-\begin{definition}[Application][réf. Déf. 1.2.1]
+\begin{definition}[Application]
 Une \textbf{application} $f:E\to F$ associe à \emph{chaque} élément $x$ de l'ensemble de départ $E$ un \emph{unique} élément $f(x)$ de l'ensemble d'arrivée $F$, appelé \textbf{image} de $x$ ; on dit que $x$ est un \textbf{antécédent} de $y$ si $f(x)=y$. Deux applications sont égales si elles ont mêmes ensembles de départ et d'arrivée et prennent les mêmes valeurs. L'\textbf{identité} de $E$ est $\Id_E:x\mapsto x$. La \textbf{composée} de $f:E\to F$ et $g:F\to G$ est $g\circ f:E\to G$, $x\mapsto g(f(x))$.
 \end{definition}
 \begin{definition}[Image directe, image réciproque]
@@ -82,7 +82,7 @@ L'\textbf{image} de $f$ est $\Img f=f(E)$.
 \begin{attention}
 La notation $f^{-1}(B)$ a un sens pour \emph{toute} application, même non bijective : c'est un ensemble d'antécédents, pas l'image par une réciproque. Par exemple pour $f:\R\to\R$, $x\mapsto x^2$ : $f^{-1}(\ens{4})=\ens{-2,2}$ et $f^{-1}(\ens{-1})=\varnothing$.
 \end{attention}
-\begin{proposition}[Images et opérations][réf. Prop. 1.2.2]\label{prop-images}
+\begin{proposition}[Images et opérations]\label{prop-images}
 Soient $f:E\to F$, $A,A'\subset E$ et $B,B'\subset F$.
 \begin{enumerate}
 \item $A\subset A'\Rightarrow f(A)\subset f(A')$ ; $f(A\cup A')=f(A)\cup f(A')$ ; $f(A\cap A')\subset f(A)\cap f(A')$, \textbf{inclusion seulement}.
@@ -99,7 +99,7 @@ $f^{-1}(B\cap B')=f^{-1}(B)\cap f^{-1}(B')$ : $x\in f^{-1}(B\cap B')\iff f(x)\in
 
 $f(f^{-1}(B))=B\cap\Img f$ : un élément de gauche s'écrit $f(x)$ avec $f(x)\in B$, il est donc dans $B$ et dans $\Img f$ ; réciproquement si $y\in B\cap \Img f$, on écrit $y=f(x)$, alors $x\in f^{-1}(B)$ et $y\in f(f^{-1}(B))$.
 \end{preuve}
-\begin{definition}[Injection, surjection, bijection][réf. Déf. 1.2.3]
+\begin{definition}[Injection, surjection, bijection]
 Une application $f:E\to F$ est
 \begin{itemize}
 \item \textbf{injective} si deux éléments distincts ont des images distinctes : $\forall x,x'\in E,\ f(x)=f(x')\Rightarrow x=x'$ ;
@@ -116,7 +116,7 @@ Une application $f:E\to F$ est
 Ces propriétés dépendent des ensembles de départ et d'arrivée : $x\mapsto x^2$ n'est ni injective ni surjective de $\R$ dans $\R$, mais elle est bijective de $\R_+$ dans $\R_+$.
 \end{methode}
 \widget{maps}
-\begin{proposition}[Injectivité, surjectivité et composition][réf. Prop. 1.2.4]\label{prop-composition}
+\begin{proposition}[Injectivité, surjectivité et composition]\label{prop-composition}
 Soient $f:E\to F$ et $g:F\to G$.
 \begin{enumerate}
 \item $f$ est injective si et seulement si $f^{-1}(f(A))=A$ pour toute partie $A$ de $E$.
@@ -134,16 +134,16 @@ Soient $f:E\to F$ et $g:F\to G$.
 
 (4) Si $f(x)=f(x')$ alors $g(f(x))=g(f(x'))$, donc $x=x'$ par injectivité de $g\circ f$. Si $z\in G$, il existe $x$ avec $g(f(x))=z$, et $y=f(x)$ est un antécédent de $z$ par $g$.
 \end{preuve}
-\begin{theoreme}[Bijections et applications réciproques][réf. Prop. 1.2.5]\label{thm-bij}
+\begin{theoreme}[Bijections et applications réciproques]\label{thm-bij}
 $f:E\to F$ est bijective si et seulement s'il existe $g:F\to E$ telle que $g\circ f=\Id_E$ \textbf{et} $f\circ g=\Id_F$. Une telle $g$ est alors unique, bijective, et notée $f^{-1}$ : c'est l'application qui à $y$ associe son unique antécédent.
 \end{theoreme}
 \begin{preuve}
 Si $f$ est bijective, on pose $g(y)=$ l'unique antécédent de $y$ ; par construction $f(g(y))=y$ et $g(f(x))=x$ (car $x$ est un antécédent de $f(x)$, et c'est le seul). Réciproquement, $g\circ f=\Id_E$ est injective, donc $f$ est injective par la Proposition \voir{prop-composition} ; $f\circ g=\Id_F$ est surjective, donc $f$ est surjective. Unicité : si $g$ et $g'$ conviennent, $g'=g'\circ\Id_F=g'\circ(f\circ g)=(g'\circ f)\circ g=\Id_E\circ g=g$. Enfin $g$ est bijective car $f$ joue pour elle le rôle d'inverse des deux côtés.
 \end{preuve}
-\begin{attention}[Un seul côté ne suffit pas][réf. Question 1.2.6]
+\begin{attention}[Un seul côté ne suffit pas]
 L'existence de $g$ avec $g\circ f=\Id_E$ seulement ne rend pas $f$ bijective. L'inclusion $f:\ens{0}\to\ens{0,1}$ et $g:\ens{0,1}\to\ens{0}$ constante vérifient $g\circ f=\Id_{\ens{0}}$, mais $f$ n'est pas surjective. On montre (exercice \voir{exo-inverse-gauche}) que, pour $E$ non vide, \og inverse à gauche \fg{} équivaut à \og injective \fg.
 \end{attention}
-\begin{proposition}[Dénombrements][réf. Prop. 1.3.1]\label{prop-denombrement}
+\begin{proposition}[Dénombrements]\label{prop-denombrement}
 Soient $E$ et $F$ finis, $\Card E=p$, $\Card F=n$. On note $F^E$ l'ensemble des applications de $E$ dans $F$.
 \begin{enumerate}
 \item $\Card(F^E)=n^p$.
@@ -158,7 +158,7 @@ Numérotons $E=\ens{x_1,\dots,x_p}$. Une application est le choix de $f(x_1),\do
 
 \section{Relations binaires}
 \subsection{Relations d'équivalence et quotients}
-\begin{definition}[Relation binaire][réf. 1.4]
+\begin{definition}[Relation binaire]
 Une \textbf{relation binaire} $\mathcal R$ sur $E$ est une partie de $E\times E$ ; on écrit $x\mathcal R y$ pour $(x,y)\in\mathcal R$. Elle est
 \begin{itemize}
 \item \textbf{réflexive} si $\forall x,\ x\mathcal R x$ ;
@@ -167,13 +167,13 @@ Une \textbf{relation binaire} $\mathcal R$ sur $E$ est une partie de $E\times E$
 \item \textbf{transitive} si $\forall x,y,z,\ (x\mathcal R y \text{ et } y\mathcal R z)\Rightarrow x\mathcal R z$.
 \end{itemize}
 \end{definition}
-\begin{definition}[Relation d'équivalence, classes][réf. Déf. 1.4.5]\label{def-equiv}
+\begin{definition}[Relation d'équivalence, classes]\label{def-equiv}
 Une \textbf{relation d'équivalence} est une relation réflexive, symétrique et transitive. La \textbf{classe} de $x$ est $\cl x=\ens{y\in E\mid y\mathcal R x}$. L'ensemble des classes est l'\textbf{ensemble quotient} $E/\mathcal R$, et l'application $\pi:E\to E/\mathcal R$, $x\mapsto\cl x$ est la \textbf{projection canonique} ; elle est surjective. Tout élément d'une classe en est un \textbf{représentant}.
 \end{definition}
 \begin{intuition}
 Une relation d'équivalence dit \og ces objets sont interchangeables pour ce qui m'intéresse \fg. Le quotient est l'ensemble obtenu quand on \emph{oublie} la différence entre objets équivalents : chaque paquet d'objets équivalents devient un seul point. Les heures d'une horloge forment le quotient de $\Z$ par \og même reste modulo 12 \fg.
 \end{intuition}
-\begin{proposition}[Les classes][réf. Prop. 1.4.7]\label{prop-classes}
+\begin{proposition}[Les classes]\label{prop-classes}
 Soit $\mathcal R$ une relation d'équivalence sur $E$ et $x,y\in E$.
 \begin{enumerate}
 \item $x\in\cl x$ ; en particulier aucune classe n'est vide.
@@ -187,7 +187,7 @@ Soit $\mathcal R$ une relation d'équivalence sur $E$ et $x,y\in E$.
 \begin{definition}[Partition]
 Une \textbf{partition} d'un ensemble non vide $E$ est une famille de parties de $E$ non vides, deux à deux disjointes, dont la réunion est $E$.
 \end{definition}
-\begin{corollaire}[Équivalences et partitions][réf. Cor. 1.4.8]\label{cor-partition}
+\begin{corollaire}[Équivalences et partitions]\label{cor-partition}
 Les classes d'une relation d'équivalence sur $E$ forment une partition de $E$. Réciproquement, toute partition $(E_i)$ de $E$ définit une relation d'équivalence, \og être dans la même partie $E_i$ \fg, dont les classes sont les $E_i$.
 \end{corollaire}
 \begin{preuve}
@@ -201,7 +201,7 @@ Les classes sont non vides et recouvrent $E$ par (1) ; deux classes sont égales
 \item Vérifier que le paramétrage est \textbf{exhaustif} (toute classe a un représentant choisi) et \textbf{sans doublon} (deux représentants choisis distincts ne sont pas équivalents).
 \end{enumerate}
 \end{methode}
-\begin{theoreme}[Factorisation canonique][réf. TD 6.4, marqué « Important »]\label{thm-factorisation}
+\begin{theoreme}[Factorisation canonique]\label{thm-factorisation}
 Soit $f:E\to F$ une application et $\mathcal R$ la relation \og même image \fg{} : $x\mathcal R x'\iff f(x)=f(x')$. Alors :
 \begin{enumerate}
 \item $\mathcal R$ est une relation d'équivalence ;
@@ -219,10 +219,10 @@ Ce théorème est le \emph{prototype} des théorèmes d'isomorphisme : on le ret
 \end{essentiel}
 
 \subsection{Congruences et l'ensemble $\Z/n\Z$}
-\begin{definition}[Congruence modulo $n$][réf. 1.4]
+\begin{definition}[Congruence modulo $n$]
 Soit $n\ge1$. Deux entiers $a,b$ sont \textbf{congrus modulo $n$}, noté $a\equiv b \pmod n$, si $n$ divise $a-b$. La classe de $a$ est $\cl a=a+n\Z=\ens{a+kn\mid k\in\Z}$, et l'ensemble quotient est noté $\Z/n\Z$.
 \end{definition}
-\begin{proposition}[réf. Prop. 1.4.10]\label{prop-congruence}
+\begin{proposition}\label{prop-congruence}
 La congruence modulo $n$ est une relation d'équivalence sur $\Z$, et $\Z/n\Z=\ens{\cl0,\cl1,\dots,\cl{n-1}}$ a exactement $n$ éléments.
 \end{proposition}
 \begin{preuve}
@@ -244,7 +244,7 @@ Toutes les formules ne passent pas au quotient. $\cl a\mapsto\cl{2^a}$ n'est pas
 \begin{definition}[Classe inversible]
 $\cl a\in\Z/n\Z$ est \textbf{inversible} s'il existe $\cl u$ avec $\cl a\,\cl u=\cl 1$. L'ensemble des classes inversibles est noté $(\Z/n\Z)^\times$.
 \end{definition}
-\begin{theoreme}[Inversibles de $\Z/n\Z$][réf. Thm 1.4.12]\label{thm-inversibles}
+\begin{theoreme}[Inversibles de $\Z/n\Z$]\label{thm-inversibles}
 $\cl a$ est inversible dans $\Z/n\Z$ si et seulement si $\pgcd(a,n)=1$. Dans ce cas, si $au+nv=1$, l'inverse de $\cl a$ est $\cl u$.
 \end{theoreme}
 \begin{preuve}
@@ -259,13 +259,13 @@ $(\Z/6\Z)^\times=\ens{\cl1,\cl5}$, et $\cl2\cdot\cl3=\cl0$ dans $\Z/6\Z$ : un pr
 \widget{zn}
 
 \subsection{Relations d'ordre}
-\begin{definition}[Ordre][réf. Déf. 1.4.13]
+\begin{definition}[Ordre]
 Une \textbf{relation d'ordre} est une relation réflexive, antisymétrique et transitive, souvent notée $\le$. Deux éléments $x,y$ sont \textbf{comparables} si $x\le y$ ou $y\le x$. L'ordre est \textbf{total} si deux éléments quelconques sont comparables, \textbf{partiel} sinon.
 \end{definition}
 \begin{exemple}
 $\le$ sur $\R$ est total. L'inclusion sur $\parties(E)$ est partielle dès que $E$ a deux éléments : $\ens{a}$ et $\ens{b}$ ne sont pas comparables. La divisibilité sur $\N^*$ est un ordre partiel ($2$ et $3$ ne sont pas comparables) ; sur $\Z$ elle n'est pas antisymétrique, car $2\mid -2$ et $-2\mid 2$.
 \end{exemple}
-\begin{definition}[Majorants, bornes][réf. p. 14, corrigé]\label{def-sup}
+\begin{definition}[Majorants, bornes]\label{def-sup}
 Soit $(E,\le)$ ordonné et $A\subset E$.
 \begin{itemize}
 \item $M$ est un \textbf{majorant} de $A$ si $a\le M$ pour tout $a\in A$ ; $A$ est \textbf{majorée} si elle admet un majorant. Idem pour \textbf{minorant}, \textbf{minorée} ; \textbf{bornée} = majorée et minorée.
@@ -273,7 +273,7 @@ Soit $(E,\le)$ ordonné et $A\subset E$.
 \item La \textbf{borne supérieure} $\sup A$ est, s'il existe, le \textbf{plus petit des majorants} de $A$ ; la \textbf{borne inférieure} $\inf A$ est le \textbf{plus grand des minorants}.
 \end{itemize}
 \end{definition}
-\begin{proposition}[réf. Rem. 1.4.15]
+\begin{proposition}
 Si $\max A$ existe, alors $\sup A$ existe et $\sup A=\max A$. La réciproque est fausse : dans $\R$, $\sup\,[0,1[\,=1$ mais $[0,1[$ n'a pas de plus grand élément.
 \end{proposition}
 \begin{preuve}
@@ -287,10 +287,10 @@ Dans $(\N^*,\mid)$, un majorant commun de $a$ et $b$ est un multiple commun, et 
 \begin{intuition}
 Pour des ensembles finis, \og avoir autant d'éléments \fg{} signifie \og pouvoir les apparier un à un \fg. \nom{Cantor} a pris cette idée comme \emph{définition} pour les ensembles infinis, et découvert qu'il existe des infinis de tailles différentes.
 \end{intuition}
-\begin{definition}[Équipotence, dénombrabilité][réf. 1.3]
+\begin{definition}[Équipotence, dénombrabilité]
 Deux ensembles $E$ et $F$ sont \textbf{équipotents}, noté $E\sim F$, s'il existe une bijection de $E$ sur $F$. Un ensemble est \textbf{fini} s'il est vide ou équipotent à $\ens{1,\dots,n}$ pour un $n\ge1$, \textbf{infini} sinon. Un ensemble $E$ est \textbf{dénombrable} s'il existe une injection de $E$ dans $\N$ (avec cette convention, les ensembles finis sont dénombrables).
 \end{definition}
-\begin{proposition}[réf. Prop. 1.3.4]\label{prop-denombrable-infini}
+\begin{proposition}\label{prop-denombrable-infini}
 Un ensemble dénombrable infini est en bijection avec $\N$. Deux ensembles dénombrables infinis sont donc équipotents.
 \end{proposition}
 \begin{preuve}
@@ -299,22 +299,22 @@ Soit $j:E\to\N$ injective ; $E$ est en bijection avec la partie infinie $P=j(E)$
 \begin{exemple}[Dénombrables usuels]
 $\Z$ est dénombrable : $n\mapsto 2n$ pour $n\ge0$ et $n\mapsto -2n-1$ pour $n<0$ est une bijection sur $\N$. $\N\times\N$ est dénombrable : $(m,n)\mapsto 2^m3^n$ est injective par unicité de la décomposition en facteurs premiers. $\Q$ est dénombrable : on l'injecte dans $\Z\times\N^*$ par l'écriture irréductible $p/q$ avec $q>0$. Plus généralement, une réunion dénombrable d'ensembles dénombrables est dénombrable.
 \end{exemple}
-\begin{theoreme}[Cantor : $\R$ n'est pas dénombrable][réf. Thm 1.3.5]\label{thm-cantor-R}
+\begin{theoreme}[Cantor : $\R$ n'est pas dénombrable]\label{thm-cantor-R}
 Il n'existe pas d'injection de $\R$ dans $\N$. En conséquence, l'ensemble des irrationnels n'est pas dénombrable.
 \end{theoreme}
 \begin{preuve}[Démonstration : l'argument diagonal]
 Il suffit de montrer que $[0,1[$ n'est pas dénombrable. Sinon, comme il est infini, la Proposition \voir{prop-denombrable-infini} fournit une énumération $x_0,x_1,x_2,\dots$ de \emph{tous} ses éléments. Écrivons leurs développements décimaux propres (ne finissant pas par une infinité de $9$) : $x_k=0{,}d_{k0}d_{k1}d_{k2}\dots$. Construisons $y=0{,}e_0e_1e_2\dots$ avec $e_k=5$ si $d_{kk}\neq5$ et $e_k=4$ si $d_{kk}=5$. Ce développement est propre, et $y$ diffère de $x_k$ à la $k$-ième décimale, pour tout $k$ ; par unicité du développement propre, $y\neq x_k$ pour tout $k$. Pourtant $y\in[0,1[$ : contradiction. Enfin, si les irrationnels formaient un ensemble dénombrable, $\R=\Q\cup(\R\setminus\Q)$ serait une réunion de deux dénombrables, donc dénombrable.
 \end{preuve}
-\begin{corollaire}[réf. Cor. 1.3.6]
+\begin{corollaire}
 Un réel est \emph{algébrique} s'il est racine d'un polynôme non nul à coefficients entiers, \emph{transcendant} sinon. Les algébriques forment un ensemble dénombrable (réunion sur $(d,\text{coefficients})$ d'ensembles finis de racines), donc les transcendants ne forment pas un ensemble dénombrable : \og presque tous \fg{} les réels sont transcendants.
 \end{corollaire}
-\begin{proposition}[Intervalles][réf. Prop. 1.3.9]
+\begin{proposition}[Intervalles]
 Tout intervalle de $\R$ non réduit à un point est équipotent à $\R$.
 \end{proposition}
 \begin{preuve}
 $x\mapsto a+(b-a)x$ est une bijection de $]0,1[$ sur $]a,b[$, et $x\mapsto \tan(\pi(x-\tfrac12))$ une bijection de $]0,1[$ sur $\R$. Pour un intervalle $I$ avec ou sans extrémités, on a $]a,b[\,\subset I\subset\R$ : $I$ s'injecte dans $\R$ et $\R\sim\,]a,b[$ s'injecte dans $I$. Le théorème suivant conclut.
 \end{preuve}
-\begin{theoreme}[Cantor, Bernstein][réf. Thm 1.3.10]\label{thm-cb}
+\begin{theoreme}[Cantor, Bernstein]\label{thm-cb}
 S'il existe une injection de $E$ dans $F$ et une injection de $F$ dans $E$, alors $E$ et $F$ sont équipotents.
 \end{theoreme}
 \begin{preuve}
@@ -322,7 +322,7 @@ Soient $f:E\to F$ et $g:F\to E$ injectives. Posons $C_0=E\setminus g(F)$, $C_{k+
 \emph{Injectivité.} Deux points de $C$, ou deux points hors de $C$, ont des images distinctes par injectivité de $f$, resp. de $g^{-1}$. Si $x\in C_k$ et $x'\notin C$ avaient $f(x)=g^{-1}(x')$, alors $x'=g(f(x))\in C_{k+1}\subset C$ : impossible.
 \emph{Surjectivité.} Soit $y\in F$. Si $g(y)\notin C$, alors $h(g(y))=y$. Si $g(y)\in C$, comme $g(y)\notin C_0$, on a $g(y)\in C_{k+1}=g(f(C_k))$ pour un $k$, donc $g(y)=g(f(x))$ avec $x\in C_k$, d'où $y=f(x)=h(x)$.
 \end{preuve}
-\begin{theoreme}[Cantor : $E$ et $\parties(E)$][réf. Thm 1.3.11]\label{thm-cantor-parties}
+\begin{theoreme}[Cantor : $E$ et $\parties(E)$]\label{thm-cantor-parties}
 Pour tout ensemble $E$, il n'existe pas de surjection de $E$ sur $\parties(E)$ ; en particulier $E$ et $\parties(E)$ ne sont pas équipotents.
 \end{theoreme}
 \begin{preuve}

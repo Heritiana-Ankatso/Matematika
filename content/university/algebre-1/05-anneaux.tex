@@ -11,15 +11,12 @@
 \begin{prerequis}
 Chapitre 4 : groupes, sous-groupes normaux, groupes quotients, premier théorème d'isomorphisme. Chapitre 1 : $\Z/n\Z$ et ses inversibles. Polynômes à une indéterminée, division euclidienne des polynômes.
 \end{prerequis}
-\begin{remarque}[Ce chapitre et le polycopié]
-Le polycopié de référence rédige les sections 5.1 et 5.2 et la définition d'idéal premier ; les sections sur les idéaux maximaux, les homomorphismes d'anneaux et les exemples y sont annoncées mais vides. Elles sont complétées ici par les résultats standard d'un cours de première année, signalés \og complément \fg.
-\end{remarque}
 
 \section{Anneaux, inversibles, corps}
 \begin{intuition}
 $\Z$, $\Q$, $\R$, $\C$, $\Mat_n(\R)$, $\R[X]$ ont deux opérations : une addition qui en fait un groupe abélien, une multiplication associative avec un neutre $1$, et la distributivité qui les relie. C'est le cadre naturel de l'arithmétique : divisibilité, pgcd, nombres premiers ont un sens dans un anneau.
 \end{intuition}
-\begin{definition}[Anneau, corps][réf. Déf. 5.1.1]\label{def-anneau}
+\begin{definition}[Anneau, corps]\label{def-anneau}
 Un \textbf{anneau} est un ensemble $A$ muni de deux lois $+$ et $\cdot$ telles que :
 \begin{itemize}
 \item $(A,+)$ est un groupe abélien, de neutre $0$ ;
@@ -34,7 +31,7 @@ Dans un anneau : $0\cdot a=a\cdot0=0$ ; $(-a)b=a(-b)=-(ab)$ ; si $1=0$, alors $A
 \begin{preuve}
 $0a=(0+0)a=0a+0a$, et l'on simplifie dans le groupe $(A,+)$. Puis $ab+(-a)b=(a-a)b=0$. Si $1=0$, $a=1a=0a=0$. Enfin si $a,b$ sont inversibles, $b^{-1}a^{-1}$ est inverse de $ab$ ; $1\in A^\times$ ; et $a^{-1}$ est inversible d'inverse $a$.
 \end{preuve}
-\begin{exemple}[réf. Ex. 5.1.2]
+\begin{exemple}
 $\Z,\Q,\R,\C$, $\R[X]$, $\Z/n\Z$ sont des anneaux commutatifs ; $\Q,\R,\C$ et $\Z/p\Z$ ($p$ premier) sont des corps ; $\Z^\times=\ens{\pm1}$. $\Mat_n(\R)$ est un anneau non commutatif pour $n\ge2$, et $\Mat_n(\R)^\times=\GL_n(\R)$. L'anneau $\Z[i]=\ens{a+bi\mid a,b\in\Z}$ des \textbf{entiers de Gauss} est un sous-anneau de $\C$ ; les polynômes à plusieurs indéterminées $\R[X,Y]$ forment un anneau commutatif.
 \end{exemple}
 \begin{proposition}[Les inversibles de $\Z[i]$]\label{prop-gauss}
@@ -43,10 +40,10 @@ $\Z[i]^\times=\ens{1,-1,i,-i}$.
 \begin{preuve}
 La norme $N(z)=z\overline z=a^2+b^2$ est un entier positif et $N(zw)=N(z)N(w)$. Si $zw=1$, alors $N(z)N(w)=1$, donc $N(z)=1$, c'est-à-dire $a^2+b^2=1$ : $(a,b)\in\ens{(\pm1,0),(0,\pm1)}$. Ces quatre éléments sont bien inversibles.
 \end{preuve}
-\begin{remarque}[Non commutativité][réf. Rem. 5.1.3]
+\begin{remarque}[Non commutativité]
 Dans un anneau non commutatif, un élément peut avoir un inverse d'un seul côté. Dans $\Mat_n(\K)$ ce n'est pas le cas (un inverse d'un côté est un inverse des deux côtés, chapitre 2), mais dans l'anneau des endomorphismes de l'espace des suites, le décalage $(u_0,u_1,\dots)\mapsto(u_1,u_2,\dots)$ a un inverse à droite et pas d'inverse à gauche.
 \end{remarque}
-\begin{proposition}[Produit d'anneaux][réf. Prop. 5.1.4]
+\begin{proposition}[Produit d'anneaux]
 Si $A$ et $B$ sont des anneaux, $A\times B$ muni des lois composante par composante est un anneau, de neutres $(0,0)$ et $(1,1)$, et $(A\times B)^\times=A^\times\times B^\times$. Il n'est jamais intègre si $A,B\neq\ens0$ : $(1,0)(0,1)=(0,0)$.
 \end{proposition}
 
@@ -54,28 +51,28 @@ Si $A$ et $B$ sont des anneaux, $A\times B$ muni des lois composante par composa
 \begin{intuition}
 On veut fabriquer de nouveaux anneaux en \og quotientant \fg, comme $\Z/n\Z$ à partir de $\Z$. Pour l'addition, il suffit de quotienter par un sous-groupe (tout sous-groupe de $(A,+)$ est normal, $A$ étant abélien pour $+$). Mais la multiplication des classes $(x+I)(y+I)=xy+I$ doit aussi être bien définie : cela impose à $I$ d'\emph{absorber} la multiplication.
 \end{intuition}
-\begin{definition}[Idéal][réf. Déf. 5.2.1]
+\begin{definition}[Idéal]
 Un sous-groupe $I$ de $(A,+)$ est un \textbf{idéal à gauche} si $aI\subset I$ pour tout $a\in A$, un \textbf{idéal à droite} si $Ia\subset I$, un \textbf{idéal bilatère} s'il est les deux. Dans un anneau commutatif, on dit simplement \textbf{idéal}. Critère : $I$ est un idéal (bilatère) si $0\in I$, $x-y\in I$ et $ax,xa\in I$ pour tous $x,y\in I$ et $a\in A$.
 \end{definition}
-\begin{theoreme}[Anneau quotient][réf. Prop. 5.2.2, TD 15.4]\label{thm-anneau-quotient}
+\begin{theoreme}[Anneau quotient]\label{thm-anneau-quotient}
 Soit $I$ un sous-groupe de $(A,+)$. Les formules $(x+I)+(y+I)=(x+y)+I$ et $(x+I)(y+I)=xy+I$ définissent une structure d'anneau sur $A/I$ si et seulement si $I$ est un idéal bilatère. L'anneau $A/I$ a pour zéro $0+I=I$ et pour unité $1+I$, et la projection $A\to A/I$ respecte les deux lois.
 \end{theoreme}
 \begin{preuve}
 L'addition est bien définie et fait de $A/I$ un groupe abélien (chapitre 4). \emph{Si $I$ est un idéal}, soient $x'=x+i$, $y'=y+j$ avec $i,j\in I$ : $x'y'=xy+(xj+iy+ij)$, et $xj\in I$, $iy\in I$, $ij\in I$ par absorption ; donc $x'y'+I=xy+I$. Associativité, distributivité et neutre $1+I$ se déduisent de celles de $A$. \emph{Réciproquement}, si le produit est bien défini, comparons les représentants $0$ et $i\in I$ de la classe $I$ : $(a+I)(0+I)=a\cdot0+I=I$ et $(a+I)(i+I)=ai+I$ doivent être égaux, donc $ai\in I$ ; de même $ia\in I$.
 \end{preuve}
-\begin{exemple}[réf. Ex. 5.2.3]
+\begin{exemple}
 Les idéaux triviaux sont $\ens0$ et $A$. Les idéaux de $\Z$ sont les $n\Z$ : ce sont ses sous-groupes (\voir{thm-sg-Z}), et ils absorbent la multiplication. Ainsi $\Z/n\Z$ est un anneau quotient. Dans $\Mat_n(\R)$, si $M$ est non nulle et singulière, l'ensemble des $X$ telles que $Xv=\mathbf 0$ pour tout $v\in N(M)$ est un idéal à gauche, et l'ensemble des $X$ dont les colonnes sont dans $C(M)$ un idéal à droite ; aucun n'est bilatère. Cas concret : les matrices $2\times2$ de deuxième colonne nulle (exercice \voir{exo-ideal-gauche}).
 \end{exemple}
-\begin{proposition}[Opérations sur les idéaux][réf. Propriétés 5.2.4]\label{prop-op-ideaux}
+\begin{proposition}[Opérations sur les idéaux]\label{prop-op-ideaux}
 Soient $I,J$ des idéaux d'un anneau commutatif $A$. Alors $I\cap J$, $I+J=\ens{x+y}$ et $IJ$ (ensemble des sommes finies $\sum x_ky_k$, $x_k\in I$, $y_k\in J$) sont des idéaux, et $IJ\subset I\cap J\subset I\subset I+J$. La réunion $I\cup J$ n'est pas un idéal en général. Dans $\Z$ : $a\Z+b\Z=\pgcd(a,b)\Z$, $a\Z\cap b\Z=\ppcm(a,b)\Z$ et $(a\Z)(b\Z)=ab\Z$.
 \end{proposition}
 \begin{preuve}
 Le critère se vérifie directement ; par exemple $a(x+y)=ax+ay\in I+J$. Chaque $x_ky_k$ est dans $I$ (absorption par $I$) et dans $J$ : $IJ\subset I\cap J$. Pour $\Z$ : $a\Z+b\Z$ est un sous-groupe de $\Z$, égal à $\pgcd(a,b)\Z$ (Bézout, chapitre 4) ; $m\in a\Z\cap b\Z$ si et seulement si $m$ est un multiple commun de $a$ et $b$, donc un multiple de $\ppcm(a,b)$ ; les sommes de produits $ak\cdot bl$ sont les multiples de $ab$. Réunion : $2\Z\cup3\Z$ ne contient pas $5$.
 \end{preuve}
-\begin{definition}[Anneau intègre][réf. Déf. 5.2.5]
+\begin{definition}[Anneau intègre]
 Un anneau commutatif $A\neq\ens0$ est \textbf{intègre} si $ab=0\Rightarrow a=0$ ou $b=0$. Un $a\neq0$ tel que $ab=0$ pour un $b\neq0$ est un \textbf{diviseur de zéro}.
 \end{definition}
-\begin{proposition}[réf. Ex. 5.2.6]\label{prop-integre}
+\begin{proposition}\label{prop-integre}
 \begin{enumerate}
 \item $\Z$ est intègre ; tout corps est intègre ; dans un anneau intègre, on peut simplifier : $ab=ac$ et $a\neq0$ entraînent $b=c$.
 \item $\Z/n\Z$ est intègre si et seulement si $n$ est premier, si et seulement si c'est un corps.
@@ -86,19 +83,19 @@ Un anneau commutatif $A\neq\ens0$ est \textbf{intègre} si $ab=0\Rightarrow a=0$
 \begin{preuve}
 (1) Dans un corps, $ab=0$ et $a\neq0$ donnent $b=a^{-1}ab=0$. Simplification : $a(b-c)=0$. (2) Si $n=rs$ avec $1<r,s<n$, $\cl r\,\cl s=\cl0$ ; si $n$ est premier, $\Z/n\Z$ est un corps (\voir{thm-inversibles}), donc intègre. (Pour $n=1$, l'anneau est nul, exclu.) (3) $\begin{pmatrix}1&0\\0&0\end{pmatrix}\begin{pmatrix}0&0\\0&1\end{pmatrix}=0$. (4) Si $A$ est intègre et $P,Q\neq0$ de coefficients dominants $a_p,b_q$, le coefficient de degré $p+q$ de $PQ$ est $a_pb_q\neq0$. Ainsi $PQ=1$ impose $\deg P=\deg Q=0$. Si $A$ n'est pas intègre, $A\subset A[X]$ ne l'est pas non plus.
 \end{preuve}
-\begin{definition}[Idéal principal, anneau principal][réf. Déf. 5.2.7]
+\begin{definition}[Idéal principal, anneau principal]
 Dans un anneau commutatif, l'idéal engendré par $a$ est $(a)=aA=\ens{ab\mid b\in A}$, le plus petit idéal contenant $a$ ; un idéal de cette forme est \textbf{principal}. Un anneau \textbf{principal} est un anneau intègre dont tous les idéaux sont principaux.
 \end{definition}
-\begin{theoreme}[réf. Ex. 5.2.9]\label{thm-principaux}
+\begin{theoreme}\label{thm-principaux}
 $\Z$ et $\K[X]$ sont principaux. $\R[X,Y]$ ne l'est pas.
 \end{theoreme}
 \begin{preuve}
 Pour $\Z$, voir \voir{thm-sg-Z}. Pour $\K[X]$ : soit $I\neq\ens0$ un idéal et $P\in I$ non nul de degré minimal. Pour $Q\in I$, la division euclidienne $Q=PS+R$ avec $\deg R<\deg P$ donne $R=Q-PS\in I$, donc $R=0$ par minimalité : $I=(P)$. Pour $\R[X,Y]$, voir l'exercice \voir{exo-xy}.
 \end{preuve}
-\begin{definition}[Divisibilité][réf. Déf. 5.2.10, 5.2.13]
+\begin{definition}[Divisibilité]
 Dans un anneau intègre $A$ : $b$ \textbf{divise} $a$ si $a\in(b)$, c'est-à-dire $(a)\subset(b)$ ; $a$ et $b$ sont \textbf{associés} si $a\mid b$ et $b\mid a$, c'est-à-dire $(a)=(b)$. Un élément $a$ est \textbf{irréductible} s'il est non nul, non inversible, et si $a=bc$ entraîne que $b$ ou $c$ est inversible.
 \end{definition}
-\begin{proposition}[réf. Prop. 5.2.11, Rem. 5.2.12]\label{prop-associes}
+\begin{proposition}\label{prop-associes}
 $(a)=A$ si et seulement si $a$ est inversible. Dans un anneau intègre, $a$ et $b$ sont associés si et seulement s'il existe $u\in A^\times$ avec $a=ub$. Les irréductibles de $\Z$ sont les $\pm p$, $p$ premier ; ceux de $\K[X]$ de degré $2$ ou $3$ sont ceux qui n'ont pas de racine dans $\K$.
 \end{proposition}
 \begin{preuve}
@@ -110,16 +107,16 @@ Le critère \og pas de racine \fg{} ne vaut qu'en degré $2$ et $3$ : $(X^2+1)^2
 \widget[ring]{zn}
 
 \section{Idéaux premiers et maximaux}
-\begin{definition}[Idéal premier, idéal maximal][réf. Déf. 5.3.1, corrigée ; complément]
+\begin{definition}[Idéal premier, idéal maximal]
 Soit $A$ un anneau commutatif et $I\neq A$ un idéal. $I$ est \textbf{premier} si $A/I$ est intègre, c'est-à-dire si $ab\in I\Rightarrow a\in I$ ou $b\in I$. $I$ est \textbf{maximal} s'il n'existe aucun idéal $J$ avec $I\subsetneq J\subsetneq A$.
 \end{definition}
-\begin{theoreme}[Complément]\label{thm-maximal}
+\begin{theoreme}[Idéaux maximaux et corps]\label{thm-maximal}
 $I$ est maximal si et seulement si $A/I$ est un corps. En particulier tout idéal maximal est premier.
 \end{theoreme}
 \begin{preuve}
 Pour $a\notin I$, l'idéal $I+(a)$ contient strictement $I$. Si $I$ est maximal, $I+(a)=A$ : il existe $i\in I$, $b\in A$ avec $i+ab=1$, donc $(a+I)(b+I)=1+I$ : toute classe non nulle est inversible, et $A/I$ est un corps ($1\notin I$ car $I\neq A$). Réciproquement, si $A/I$ est un corps et $J\supsetneq I$ un idéal, prenons $a\in J\setminus I$ ; il existe $b$ avec $ab-1\in I\subset J$, donc $1=ab-(ab-1)\in J$ et $J=A$. Un corps est intègre, d'où la seconde phrase.
 \end{preuve}
-\begin{proposition}[Dans $\Z$ et dans $\K[X]$ ; complément]\label{prop-premiers-Z}
+\begin{proposition}[Dans $\Z$ et dans $\K[X]$]\label{prop-premiers-Z}
 Dans $\Z$ : $(n)$ est premier si et seulement si $n=0$ ou $\abs n$ est premier ; $(p)$ est maximal pour $p$ premier, $(0)$ est premier non maximal. Dans $\K[X]$ : $(P)$, $P\neq0$, est maximal si et seulement si $P$ est irréductible, et alors $\K[X]/(P)$ est un corps.
 \end{proposition}
 \begin{preuve}
@@ -127,10 +124,10 @@ $\Z/(0)\simeq\Z$ est intègre mais pas un corps. Pour $n\ge2$, $\Z/n\Z$ intègre
 \end{preuve}
 
 \section{Homomorphismes d'anneaux}
-\begin{definition}[Complément]
+\begin{definition}[Homomorphisme d'anneaux]
 Une application $f:A\to B$ entre anneaux est un \textbf{homomorphisme d'anneaux} si $f(x+y)=f(x)+f(y)$, $f(xy)=f(x)f(y)$ et $f(1_A)=1_B$. Son noyau est $\Ker f=f^{-1}(\ens0)$ et son image $\Img f=f(A)$.
 \end{definition}
-\begin{theoreme}[Premier théorème d'isomorphisme pour les anneaux ; complément]\label{thm-iso-anneaux}
+\begin{theoreme}[Premier théorème d'isomorphisme pour les anneaux]\label{thm-iso-anneaux}
 Si $f:A\to B$ est un homomorphisme d'anneaux, $\Ker f$ est un idéal bilatère de $A$, $\Img f$ est un sous-anneau de $B$, et $\overline f:A/\Ker f\to\Img f$, $x+\Ker f\mapsto f(x)$ est un isomorphisme d'anneaux. Pour tout idéal $I$, la projection $A\to A/I$ est un homomorphisme surjectif de noyau $I$ ; les idéaux de $A/I$ correspondent bijectivement aux idéaux de $A$ contenant $I$.
 \end{theoreme}
 \begin{preuve}
@@ -150,7 +147,7 @@ Où l'analogie s'arrête : un idéal n'est presque jamais un sous-anneau (s'il c
 
 \section{Exemples d'anneaux}
 \subsection{$\Z$ et ses quotients}
-\begin{theoreme}[Théorème chinois ; complément]\label{thm-chinois}
+\begin{theoreme}[Théorème chinois]\label{thm-chinois}
 Si $\pgcd(m,n)=1$, l'application $\Z/mn\Z\to\Z/m\Z\times\Z/n\Z$, $\cl k\mapsto(\cl k,\cl k)$ est un isomorphisme d'anneaux. En particulier $\varphi(mn)=\varphi(m)\varphi(n)$.
 \end{theoreme}
 \begin{preuve}
@@ -160,7 +157,7 @@ $k\mapsto(\cl k,\cl k)$ est un homomorphisme d'anneaux $\Z\to\Z/m\Z\times\Z/n\Z$
 $\Z/6\Z\simeq\Z/2\Z\times\Z/3\Z$ (avec $\cl1\mapsto(\cl1,\cl1)$, $\cl3\mapsto(\cl1,\cl0)$, $\cl4\mapsto(\cl0,\cl1)$). En revanche $\Z/4\Z\not\simeq\Z/2\Z\times\Z/2\Z$ : le premier a un élément d'ordre additif 4.
 \end{exemple}
 \subsection{Polynômes et corps finis}
-\begin{proposition}[Structure de $\K[X]/(P)$ ; complément]\label{prop-kxp}
+\begin{proposition}[Structure de $\K[X]/(P)$]\label{prop-kxp}
 Soit $P\in\K[X]$ de degré $d\ge1$. Tout élément de $\K[X]/(P)$ s'écrit de façon unique $\cl R$ avec $\deg R<d$ (le reste de la division par $P$) : $\K[X]/(P)$ est un $\K$-espace vectoriel de base $\cl1,\cl X,\dots,\cl X^{d-1}$. Si $\K=\Z/p\Z$, il a $p^d$ éléments. C'est un corps si et seulement si $P$ est irréductible.
 \end{proposition}
 \begin{preuve}
@@ -174,7 +171,7 @@ $\mathbb F_4$ n'est pas $\Z/4\Z$ : ce dernier n'est même pas intègre ($\cl2\cd
 \end{attention}
 \subsection{Algèbres d'Ore}
 \begin{remarque}[Pour aller plus loin]
-Le plan du polycopié annonce une introduction aux algèbres d'Ore. Il s'agit d'anneaux de polynômes \og tordus \fg{} $A[\partial;\sigma,\delta]$ où l'indéterminée ne commute plus avec les coefficients : $\partial a=\sigma(a)\partial+\delta(a)$. Avec $A=\R[x]$, $\sigma=\id$ et $\delta=\frac{d}{dx}$, on obtient l'anneau des opérateurs différentiels, où $\partial x=x\partial+1$ (règle du produit : $(xf)'=xf'+f$). Avec $\sigma(a)(x)=a(x+1)$ et $\delta=0$, on obtient les opérateurs aux différences. Ces anneaux non commutatifs servent au calcul formel sur les équations différentielles ; ils dépassent le cadre de ce cours.
+Les algèbres d'Ore sont des anneaux de polynômes \og tordus \fg{} $A[\partial;\sigma,\delta]$ où l'indéterminée ne commute plus avec les coefficients : $\partial a=\sigma(a)\partial+\delta(a)$. Avec $A=\R[x]$, $\sigma=\id$ et $\delta=\frac{d}{dx}$, on obtient l'anneau des opérateurs différentiels, où $\partial x=x\partial+1$ (règle du produit : $(xf)'=xf'+f$). Avec $\sigma(a)(x)=a(x+1)$ et $\delta=0$, on obtient les opérateurs aux différences. Ces anneaux non commutatifs servent au calcul formel sur les équations différentielles ; ils dépassent le cadre de ce cours.
 \end{remarque}
 
 \begin{erreurs}

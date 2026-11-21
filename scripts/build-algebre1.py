@@ -255,10 +255,8 @@ def text_of(nodes):
     return ' '.join(nd.get('text', '') for nd in nodes if nd['t'] == 'p')
 
 def box_opts(nd):
-    """[title][réf. X] -> (title, X); a lone [réf. X] is a reference, not a title."""
-    title, ref = (nd['opts'] + [None, None])[:2]
-    if title and title.startswith('réf.') and ref is None: title, ref = None, title
-    return title or None, (ref[4:].strip() if ref and ref.startswith('réf.') else ref)
+    """Optional box title."""
+    return (nd['opts'] + [None])[0] or None
 
 def html_blocks(nodes, ctx):
     out = []
@@ -285,8 +283,8 @@ def html_blocks(nodes, ctx):
                        ''.join('<tr>' + ''.join(f'<td>{inl(c)}</td>' for c in r) + '</tr>' for r in rows[1:]) + '</tbody></table></div>')
         elif t in KINDS:
             label, numbered, style = KINDS[t]
-            title, ref = box_opts(nd)
-            head = f'<span class="kind">{label}{(" " + nd["num"]) if numbered else ""}</span>' + (f'<span class="btitle">{inl(title)}</span>' if title else '') + (f'<span class="ref" title="Numérotation du cours de référence">réf. {html.escape(ref)}</span>' if ref else '')
+            title = box_opts(nd)
+            head = f'<span class="kind">{label}{(" " + nd["num"]) if numbered else ""}</span>' + (f'<span class="btitle">{inl(title)}</span>' if title else '') 
             idattr = f' id="{nd["anchor"]}"' if 'anchor' in nd else ''
             out.append(f'<div class="box box-{style}"{idattr}><p class="bhead">{head}</p>{html_blocks(nd["body"], ctx)}</div>')
         elif t == 'preuve':
@@ -356,9 +354,14 @@ def page_html(ch, chapters, labels, pdfs):
     toc = ''.join(f'<li class="toc{lvl}"><a href="#{a}">{inl(title)}</a></li>' for lvl, a, title in ctx['toc'])
     chapters_nav = ''.join(f'<li><a href="{c["slide"]}"{" aria-current=page" if c is ch else ""}>{(c["prefix"] + ". ") if c["prefix"] else ""}{html.escape(c["meta"]["title"][0])}</a></li>' for c in chapters)
     macros = json.dumps({k: [v[1], v[0]] if v[0] else v[1] for k, v in MACROS.items()}, ensure_ascii=False)
+    n_ex = counts['exo']
+    entry = ('<nav class="entry" aria-label="Cours et exercices">'
+             '<a class="entry-main" href="#cours"><strong>Cours</strong><span>définitions, résultats, démonstrations</span></a>'
+             + (f'<a class="entry-main" href="#exercices"><strong>Exercices</strong><span>{n_ex} exercices corrigés, par niveau</span></a>' if n_ex else '')
+             + '</nav>')
     hero = f'''<header class="hero"><p class="kicker">{kicker}</p><h1>{html.escape(meta["title"][0])}</h1><p class="lede">{inl(get("resume")["args"][0]) if get("resume") else ""}</p>
 <p class="facts">{" · ".join(f for f in facts if f)}</p>
-<div class="hero-grid">{f'<div><h2 class="mini">Objectifs</h2><ul>{"".join("<li>" + html_blocks(it, ctx) + "</li>" for it in obj["items"])}</ul></div>' if obj else ''}{f'<div><h2 class="mini">Prérequis</h2>{html_blocks(pre["body"], ctx)}</div>' if pre else ''}</div></header>'''
+{entry}<div class="hero-grid">{f'<div><h2 class="mini">Objectifs</h2><ul>{"".join("<li>" + html_blocks(it, ctx) + "</li>" for it in obj["items"])}</ul></div>' if obj else ''}{f'<div><h2 class="mini">Prérequis</h2>{html_blocks(pre["body"], ctx)}</div>' if pre else ''}</div></header>'''
     link = lambda c, rel, text: f'<a href="{c["slide"]}" rel="{rel}">{text}</a>'
     nav = ('<nav class="pager" aria-label="Chapitres voisins">' + (link(prev, 'prev', '← ' + html.escape(prev['meta']['title'][0])) if prev else '<span></span>')
            + (link(nxt, 'next', html.escape(nxt['meta']['title'][0]) + ' →') if nxt else '') + '</nav>')
@@ -379,8 +382,8 @@ def page_html(ch, chapters, labels, pdfs):
 <aside class="rail" aria-label="Sommaire"><details open class="railbox"><summary>Dans ce chapitre</summary><ol class="toc">{toc}</ol></details>
 <details class="railbox"><summary>Tous les chapitres</summary><ol class="chapters">{chapters_nav}</ol></details>
 <details class="railbox"><summary>Télécharger (PDF)</summary><ul class="dl">{downloads}</ul></details></aside>
-<main id="main">{hero}{body}{nav}</main></div>
-<footer class="foot"><p>Algèbre 1 · cours de première année de licence. Plan et numérotation « réf. » : le polycopié universitaire <em>Cours d’Algèbre 1</em>. Textes, démonstrations, figures et exercices originaux.</p></footer>
+<main id="main">{hero}<div id="cours" class="course">{body}</div>{nav}</main></div>
+<footer class="foot"><p>Algèbre 1 · cours de première année de licence · Matematika. Textes, démonstrations, figures et exercices originaux.</p></footer>
 <script>{PAGE_SCRIPT}</script>
 </body></html>
 '''
@@ -429,16 +432,16 @@ def tex_blocks(nodes, ctx, edition):
             out.append(r'\begin{center}\small\begin{tabular}{' + col * n + r'}\toprule ' + ' & '.join(inl(c) for c in rows[0]) + r'\\\midrule ' + ''.join(' & '.join(inl(c) for c in r) + r'\\' for r in rows[1:]) + r'\bottomrule\end{tabular}\end{center}' + '\n')
         elif t in KINDS:
             label, numbered, style = KINDS[t]
-            title, ref = box_opts(nd)
+            title = box_opts(nd)
             head = label + ((' ' + nd['num']) if numbered else '') + ((r' \textperiodcentered{} ' + inl(title)) if title else '')
             anchor = r'\hypertarget{' + nd['anchor'] + '}{}' if 'anchor' in nd else ''
-            out.append(r'\begin{a1box}{' + style + '}{' + head + '}{' + (ref or '') + '}' + anchor + '\n' + tex_blocks(nd['body'], ctx, edition) + r'\end{a1box}' + '\n')
+            out.append(r'\begin{a1box}{' + style + '}{' + head + '}' + anchor + '\n' + tex_blocks(nd['body'], ctx, edition) + r'\end{a1box}' + '\n')
         elif t == 'preuve':
             out.append(r'\begin{a1proof}{' + inl(nd['opts'][0] if nd['opts'] else 'Démonstration') + '}\n' + tex_blocks(nd['body'], ctx, edition) + r'\end{a1proof}' + '\n')
-        elif t == 'cadre': out.append(r'\begin{a1box}{key}{}{}' + tex_blocks(nd['body'], ctx, edition) + r'\end{a1box}' + '\n')
+        elif t == 'cadre': out.append(r'\begin{a1box}{key}{}' + tex_blocks(nd['body'], ctx, edition) + r'\end{a1box}' + '\n')
         elif t == 'widget':
             title = WIDGET_TITLES[nd['args'][0]].replace('ℤ/nℤ', r'$\Z/n\Z$').replace('Dₙ', r'$D_n$')
-            out.append(r'\begin{a1box}{web}{Figure interactive \textperiodcentered{} ' + title + r'}{}Cette figure se manipule dans la version web de la leçon (site Matematika, rubrique Université, Algèbre~1).' + r'\end{a1box}' + '\n')
+            out.append(r'\begin{a1box}{web}{Figure interactive \textperiodcentered{} ' + title + r'}Cette figure se manipule dans la version web de la leçon (site Matematika, rubrique Université, Algèbre~1).' + r'\end{a1box}' + '\n')
         elif t == 'rubrique':
             k = nd['args'][0]; out.append(r'\subsection*{' + k + '. ' + RUBRIQUES[k] + '}\n')
         elif t == 'exo':
@@ -450,7 +453,7 @@ def tex_blocks(nodes, ctx, edition):
                 if x['t'] == 'corrige' and edition == 'corriges': out.append(r'\begin{a1sol}{Corrigé}' + tex_blocks(x['body'], ctx, edition) + r'\end{a1sol}' + '\n')
             out.append(r'\end{a1exo}' + '\n')
         elif t == 'erreurs':
-            out.append(r'\begin{a1box}{warn}{Erreurs fréquentes}{}\begin{itemize}' + ''.join(r'\item ' + tex_blocks(it, ctx, edition) for it in nd['items']) + r'\end{itemize}\end{a1box}' + '\n')
+            out.append(r'\begin{a1box}{warn}{Erreurs fréquentes}\begin{itemize}' + ''.join(r'\item ' + tex_blocks(it, ctx, edition) for it in nd['items']) + r'\end{itemize}\end{a1box}' + '\n')
         elif t == 'bilan':
             out.append(r'\section*{Bilan : je sais faire, à froid et sans notes}\begin{itemize}[label=$\square$]' + ''.join(r'\item ' + tex_blocks(it, ctx, edition) for it in nd['items']) + r'\end{itemize}' + '\n')
         elif t in ('chapitre', 'resume', 'summary', 'objectifs', 'prerequis', 'indication', 'corrige'): pass
@@ -473,9 +476,9 @@ def tex_document(chapters, labels, edition):
             res = next((n for n in ch['nodes'] if n['t'] == 'resume'), None)
             if res: doc += r'{\large\itshape ' + tex_inline(res['args'][0], labels) + r'\par}\medskip' + '\n'
             obj = next((n for n in ch['nodes'] if n['t'] == 'objectifs'), None)
-            if obj: doc += r'\begin{a1box}{key}{Objectifs}{}\begin{itemize}' + ''.join(r'\item ' + tex_blocks(it, ctx, edition) for it in obj['items']) + r'\end{itemize}\end{a1box}' + '\n'
+            if obj: doc += r'\begin{a1box}{key}{Objectifs}\begin{itemize}' + ''.join(r'\item ' + tex_blocks(it, ctx, edition) for it in obj['items']) + r'\end{itemize}\end{a1box}' + '\n'
             pre = next((n for n in ch['nodes'] if n['t'] == 'prerequis'), None)
-            if pre: doc += r'\begin{a1box}{rem}{Prérequis}{}' + tex_blocks(pre['body'], ctx, edition) + r'\end{a1box}' + '\n'
+            if pre: doc += r'\begin{a1box}{rem}{Prérequis}' + tex_blocks(pre['body'], ctx, edition) + r'\end{a1box}' + '\n'
         doc += tex_blocks(ch['nodes'], ctx, edition)
     return doc + r'\end{document}' + '\n', sty
 
@@ -535,6 +538,9 @@ def plain(s):
     s = re.sub(r'\\[a-zA-Z]+\{([^}]*)\}', r'\1', s)
     return re.sub(r'\s+', ' ', s.replace('~', ' ')).strip()
 
+def count_exos(nodes):
+    return sum((nd['t'] == 'exo') + count_exos(nd.get('body', [])) for nd in nodes)
+
 def outline(ch):
     return [plain(n['args'][0]) for n in ch['nodes'] if n['t'] == 'section']
 
@@ -565,7 +571,7 @@ def build(check=False, web_only=False):
             z.writestr('LISEZMOI.txt', 'Algèbre 1 : trois éditions LaTeX autonomes (cours, exercices, corrigés) produites par scripts/build-algebre1.py\n'
                        'depuis les sources du dossier source/. Compiler chaque fichier .tex trois fois avec XeLaTeX ; les polices STIX Two sont dans fonts/.\n')
     outputs = {p.relative_to(ROOT).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(OUT.rglob('*')) if p.is_file()}
-    sequences = {ch['id']: dict(ch['meta'], outline=outline(ch)) for ch in chapters}
+    sequences = {ch['id']: dict(ch['meta'], outline=outline(ch), exercises=count_exos(ch['nodes'])) for ch in chapters}
     RECEIPT.write_text(json.dumps({'sourceDigest': digest(), 'sequences': sequences, 'outputs': outputs}, ensure_ascii=False, indent=2) + '\n')
     print(f'Algèbre 1: {len(chapters)} web lessons' + ('' if web_only else ', three PDF editions and LaTeX sources') + ' built.')
 
