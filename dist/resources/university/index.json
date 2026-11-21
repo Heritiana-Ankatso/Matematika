@@ -917,26 +917,26 @@
     },
     "algebre-1-cours": {
       "path": "resources/university/algebre-1/cours.pdf",
-      "bytes": 414414,
-      "sha256": "3b16e8992f3d26be47766a2ab97be170ccb0e56426684fe3caa552f0127e02fe",
+      "bytes": 414418,
+      "sha256": "4b144f11d889e1cf5994594d87ca524bb3258ed62b8a7fb146d1b4ce610c2c1f",
       "pages": 67
     },
     "algebre-1-exercices": {
       "path": "resources/university/algebre-1/exercices.pdf",
-      "bytes": 195671,
-      "sha256": "c756942a95f0c4facbf5abc1c6203adaa9579a804b2d3c70ba33a8e4e7516c3e",
+      "bytes": 195669,
+      "sha256": "94c8a40d9da265ed834bf9cf31417bc38746bceaf6648333edebe538879d64f2",
       "pages": 27
     },
     "algebre-1-corriges": {
       "path": "resources/university/algebre-1/corriges.pdf",
-      "bytes": 369926,
-      "sha256": "a7a34f687577f679571eba7ea50122d9afa71eeea236c2f77c349a7340090318",
+      "bytes": 369930,
+      "sha256": "d5185942625d3ea4de7d9352b0f12c94c1df49adcd5fc07c141ad8063a53e7d5",
       "pages": 50
     },
     "algebre-1-tex": {
       "path": "resources/university/algebre-1/sources-latex.zip",
       "bytes": 1778170,
-      "sha256": "7809f9c0302dc06ef73482d95dc3922ed1054525831bdbafe7125a689faac578"
+      "sha256": "726760160df58f633aeca7eac237d748ffed5df39705812ad51060a3004433bb"
     },
     "calculs-algebriques": {
       "path": "resources/university/foundations/slides/seq1-calculs-algebriques.html",
