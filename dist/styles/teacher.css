@@ -40,7 +40,7 @@ a.td-action .td-action-title{color:var(--accent)}
 .rs-filters{margin:8px 0}
 .rs-checks{display:flex;flex-wrap:wrap;gap:4px 24px}
 .rs-check{display:inline-flex;align-items:center;gap:8px;min-height:44px;font:600 .92rem var(--ui)}
-.rs-check input{width:44px;height:44px;margin:0;flex:none}
+.rs-check input{width:22px;height:22px;margin:0;flex:none;accent-color:var(--accent)}
 .rs-status{min-height:1.4em;margin:4px 0}
 .rs-group{margin:20px 0}
 .rs-group h3{font-size:1.05rem;margin:0 0 6px}

@@ -5,6 +5,10 @@ import {searchResources, relatedTo, actionsOf, primaryHref, typeLabel, TYPES, RE
 import {buildLiveResourceIndex} from './resource-sources.js';
 import {TOPICS} from './topic-registry.js';
 import {fetchJSON} from './data-loader.js';
+import {SHORT} from './curriculum-picker.js';
+import {liveCourses} from './live-curriculum.js';
+// Classes in curriculum order (Malagasy, then French), as the other lists.
+const ORDERED = new Set(['mg', 'fr'].flatMap(k => liveCourses.filter(c => c.curriculum === k).map(c => c.id)));
 
 const E = x => String(x).replace(/[&<>"']/g, c => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'}[c]));
 const PER_GROUP = 5;
@@ -18,13 +22,13 @@ export async function mountResourceSearch(root, {t, state, index, decks, query =
     if (isGone()) return () => {};
     index = buildLiveResourceIndex({decks});
   }
-  const classes = [...new Set(index.flatMap(i => i.classes))];
+  const seen = new Set(index.flatMap(i => i.classes)), classes = [...ORDERED].filter(c => seen.has(c)).concat([...seen].filter(c => !ORDERED.has(c)));
   let course = ''; try {course = state.getClassroom().course || '';} catch {}
   if (!classes.includes(course)) course = '';
   const f = {query, cls: course, topic: '', type: '', projectable: false, printable: false};
   const expanded = new Set();
   const uid = 'rs' + Math.random().toString(36).slice(2, 7);
-  const CLASS_NAMES = {seconde: 'Seconde', premiere: 'Première spécialité', terminale: 'Terminale spécialité', expertes: 'Maths expertes', stmg: 'Terminale STMG'};
+  const CLASS_NAMES = Object.fromEntries(Object.entries(SHORT).map(([id, n]) => [id, t(n)]));
   const suggestions = RELATIONS.slice(0, 5);
 
   root.innerHTML = `<section class="rs" aria-labelledby="${uid}-h"><h2 id="${uid}-h" class="rs-title">${L('Chercher une ressource', 'Find a resource')}</h2>

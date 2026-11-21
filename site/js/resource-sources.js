@@ -7,18 +7,21 @@ import {resourceCatalog} from './resource-library.js';
 import {liveDiscovery, isLiveHash, liveCourses, liveCompanionCatalog} from './live-curriculum.js';
 import {resourceCatalog as completeCatalog} from './resources-data.js';
 import {discoveryChapters} from './catalogue-data.js';
-import {CLASSES, chaptersOf, templatesFor, DOMAINS} from './exercises/bank.js';
+import {chaptersOf, templatesFor, DOMAINS} from './exercises/bank.js';
 import {shownExercises, LEVEL} from './exercises/bank-select.js';
 import {ANNALS} from './annals-bank.js';
 import {assetHref} from './data-loader.js';
 import {buildResourceIndex} from './resource-index.js';
+import {SHORT} from './curriculum-picker.js';
 
 export const deckHref = id => {const base = assetHref('./slides/player.html'); return base + (base.includes('?') ? '&' : '?') + 'deck=' + encodeURIComponent(id) + '&lang=fr';};
-const SHORT = {seconde: 'Seconde', premiere: 'Première spécialité', terminale: 'Terminale spécialité', expertes: 'Maths expertes', stmg: 'Terminale STMG'};
+
 
 export function collectSources({decks = null} = {}) {
   const liveIds = new Set(liveCourses.map(c => c.id));
-  const classes = CLASSES.filter(c => liveIds.has(c.id)).map(c => ({id: c.id, title: [SHORT[c.id] || c.label, SHORT[c.id] || c.label]}));
+  // Every live class of the Malagasy then the French curriculum (not only the classes with generators), so their chapters,
+  // slides and exercises are searchable and the class filter lists them all.
+  const classes = ['mg', 'fr'].flatMap(k => liveCourses.filter(c => c.curriculum === k)).map(c => ({id: c.id, title: SHORT[c.id] || c.title}));
   const chapters = discoveryChapters.map(c => ({id: c.id, course: c.course, title: c.title, topic: c.topic}));
   const live = new Set(chapters.filter(c => liveIds.has(c.course)).map(c => c.id));
   const exerciseChapters = {}, automatismes = {};
