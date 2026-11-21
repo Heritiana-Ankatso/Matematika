@@ -46,9 +46,9 @@
 \colorlet{a1f-def}{a1indigosoft}\colorlet{a1f-thm}{a1bone}\colorlet{a1f-key}{a1indigosoft}\colorlet{a1f-meth}{white}\colorlet{a1f-warn}{white}
 \colorlet{a1f-ex}{white}\colorlet{a1f-rem}{white}\colorlet{a1f-idea}{white}\colorlet{a1f-web}{white}
 \colorlet{a1l-S}{a1indigo}\colorlet{a1l-A}{a1ochre}\colorlet{a1l-D}{a1laterite}
-\newtcolorbox{a1box}[3]{enhanced,breakable,sharp corners,boxrule=0pt,frame hidden,borderline west={2.4pt}{0pt}{a1c-#1},
+\newtcolorbox{a1box}[2]{enhanced,breakable,sharp corners,boxrule=0pt,frame hidden,borderline west={2.4pt}{0pt}{a1c-#1},
   colback=a1f-#1,left=9pt,right=6pt,top=4pt,bottom=5pt,before skip=8pt,after skip=6pt,parbox=false,
-  before upper={\if\relax\detokenize{#2}\relax\else{\sffamily\color{a1c-#1}#2}\if\relax\detokenize{#3}\relax\else\hfill{\footnotesize\color{a1muted}réf.~#3}\fi\par\smallskip\fi}}
+  before upper={\if\relax\detokenize{#2}\relax\else{\sffamily\color{a1c-#1}#2}\par\smallskip\fi}}
 \newenvironment{a1proof}[1]{\par\needspace{3\baselineskip}{\sffamily\color{a1muted}#1.}\enspace}{\hfill$\square$\par\medskip}
 \newcommand{\alglevel}[1]{\colorbox{a1l-#1}{\textcolor{white}{\sffamily\footnotesize #1}}}
 \newtcolorbox{a1exo}[3]{enhanced,breakable,sharp corners,boxrule=0pt,frame hidden,borderline north={1pt}{0pt}{a1line},colback=white,
@@ -61,6 +61,5 @@
   {\fontsize{40}{44}\selectfont\bfseries Algèbre 1}\par\vspace{6mm}
   {\Large #1}\par\vspace{12mm}
   {\large\color{a1muted} Ensembles, matrices, espaces vectoriels, groupes, anneaux.\par Première année de licence.}\vfill
-  {\small\color{a1muted} Plan et numérotation « réf. » : le polycopié universitaire \emph{Cours d'Algèbre 1}.\par
-  Textes, démonstrations, figures et exercices originaux. Version web interactive : site Matematika, rubrique Université.}
+  {\small\color{a1muted} Textes, démonstrations, figures et exercices originaux. Version web interactive : site Matematika, rubrique Université.}
   \end{titlepage}\tableofcontents\clearpage}

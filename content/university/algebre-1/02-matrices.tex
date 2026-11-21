@@ -13,7 +13,7 @@ Chapitre 1 (applications, bijections). Résolution de petits systèmes linéaire
 \end{prerequis}
 
 \section{Vecteurs de $\R^n$}
-\begin{definition}[L'espace $\R^n$][réf. 2.1.1]
+\begin{definition}[L'espace $\R^n$]
 $\R^n$ est l'ensemble des $n$-uplets $u=(u_1,\dots,u_n)$ de réels, appelés \textbf{vecteurs} (ou points) ; les $u_i$ sont ses \textbf{composantes}, et $\mathbf 0=(0,\dots,0)$ est l'origine. On les additionne et on les multiplie par un réel $k$ (un \textbf{scalaire}) composante par composante :
 \[u+v=(u_1+v_1,\dots,u_n+v_n),\qquad ku=(ku_1,\dots,ku_n).\]
 Une \textbf{combinaison linéaire} de $u_1,\dots,u_r$ est un vecteur $k_1u_1+\dots+k_ru_r$. Dans les calculs matriciels, on écrit les vecteurs en \textbf{colonnes}.
@@ -21,7 +21,7 @@ Une \textbf{combinaison linéaire} de $u_1,\dots,u_r$ est un vecteur $k_1u_1+\do
 \begin{intuition}
 Dans $\R^2$, les multiples $ku$ d'un vecteur non nul décrivent une droite passant par l'origine. Les combinaisons $cu+dv$ de deux vecteurs non nuls décrivent cette même droite si $u$ et $v$ sont colinéaires, et \emph{tout le plan} sinon : n'importe quel point s'atteint en marchant $c$ fois le long de $u$ puis $d$ fois le long de $v$. Toute l'algèbre linéaire part de cette question : \emph{quels vecteurs peut-on atteindre ?}
 \end{intuition}
-\begin{theoreme}[Les huit règles][réf. Thm 2.1.4]\label{thm-huit}
+\begin{theoreme}[Les huit règles]\label{thm-huit}
 Pour $u,v,w\in\R^n$ et $k,l\in\R$ :
 \begin{itemize}
 \item pour l'addition : (1) $(u+v)+w=u+(v+w)$ ; (2) $u+v=v+u$ ; (3) $u+\mathbf 0=u$ ; (4) $u+(-u)=\mathbf 0$ ;
@@ -36,7 +36,7 @@ Ces huit règles sont exactement les axiomes qu'abstrait le chapitre 3 : tout en
 \end{essentiel}
 
 \section{Produit scalaire, norme et distance}
-\begin{definition}[Produit scalaire, norme, distance][réf. 2.1.2]
+\begin{definition}[Produit scalaire, norme, distance]
 Pour $u,v\in\R^n$ :
 \begin{itemize}
 \item le \textbf{produit scalaire} est $u\cdot v=u_1v_1+\dots+u_nv_n$ ; $u$ et $v$ sont \textbf{orthogonaux} si $u\cdot v=0$ ;
@@ -45,19 +45,19 @@ Pour $u,v\in\R^n$ :
 \item l'\textbf{angle} de deux vecteurs non nuls est le $\theta\in[0,\pi]$ tel que $\cos\theta=\dfrac{u\cdot v}{\norm u\norm v}$ (ce quotient est dans $[-1,1]$ grâce au Théorème \voir{thm-cs}).
 \end{itemize}
 \end{definition}
-\begin{proposition}[Propriétés du produit scalaire][réf. Thm 2.1.8]\label{prop-ps}
+\begin{proposition}[Propriétés du produit scalaire]\label{prop-ps}
 Pour $u,v,w\in\R^n$ et $k\in\R$ : $(u+v)\cdot w=u\cdot w+v\cdot w$ ; $(ku)\cdot v=k(u\cdot v)$ ; $u\cdot v=v\cdot u$ ; $u\cdot u\ge0$, avec égalité si et seulement si $u=\mathbf 0$.
 \end{proposition}
 \begin{preuve}
 Les trois premières se vérifient sur la formule. Enfin $u\cdot u=\sum u_i^2$ est une somme de carrés : elle est positive, et nulle seulement si chaque $u_i$ est nul.
 \end{preuve}
-\begin{proposition}[Pythagore][réf. Prop. 2.1.11]
+\begin{proposition}[Pythagore]
 Si $u\perp v$, alors $\norm{u-v}^2=\norm u^2+\norm v^2$ (et de même pour $u+v$).
 \end{proposition}
 \begin{preuve}
 $\norm{u-v}^2=(u-v)\cdot(u-v)=u\cdot u-2\,u\cdot v+v\cdot v=\norm u^2+\norm v^2$ puisque $u\cdot v=0$.
 \end{preuve}
-\begin{theoreme}[Inégalité de Cauchy, Schwarz][réf. Thm 2.1.12]\label{thm-cs}
+\begin{theoreme}[Inégalité de Cauchy, Schwarz]\label{thm-cs}
 Pour tous $u,v\in\R^n$ : $\abs{u\cdot v}\le\norm u\,\norm v$. L'égalité a lieu si et seulement si $u$ et $v$ sont colinéaires.
 \end{theoreme}
 \begin{preuve}[Démonstration par normalisation]
@@ -66,7 +66,7 @@ Si $u=\mathbf 0$ ou $v=\mathbf 0$, les deux membres sont nuls. Sinon posons $a=u
 Le même calcul avec $-a$ donne $-a\cdot b\le1$, d'où $\abs{a\cdot b}\le1$, c'est-à-dire $\abs{u\cdot v}\le\norm u\norm v$ après multiplication par $\norm u\norm v$.
 \emph{Cas d'égalité.} $a\cdot b=1$ impose $a_i=b_i$ pour tout $i$ (chaque inégalité $a_ib_i\le\frac12(a_i^2+b_i^2)$ doit être une égalité), donc $a=b$ ; de même $a\cdot b=-1$ impose $a=-b$. Dans les deux cas $v$ est un multiple de $u$. Réciproquement, si $v=ku$, alors $\abs{u\cdot v}=\abs k\norm u^2=\norm u\norm v$.
 \end{preuve}
-\begin{proposition}[Norme][réf. Prop. 2.1.14]\label{prop-norme}
+\begin{proposition}[Norme]\label{prop-norme}
 $\norm u\ge0$, avec $\norm u=0\iff u=\mathbf 0$ ; $\norm{ku}=\abs k\norm u$ ; et l'\textbf{inégalité triangulaire} $\norm{u+v}\le\norm u+\norm v$, avec égalité si et seulement si l'un des vecteurs est un multiple positif ou nul de l'autre.
 \end{proposition}
 \begin{preuve}
@@ -76,10 +76,10 @@ par Cauchy, Schwarz ; on prend la racine carrée. L'égalité exige $u\cdot v=\n
 \end{preuve}
 
 \section{Vecteurs de $\C^n$}
-\begin{remarque}[Rappels][réf. Prop. 2.2.1]
+\begin{remarque}[Rappels]
 Pour $z=a+ib$ : $\overline z=a-ib$, $\abs z=\sqrt{z\overline z}=\sqrt{a^2+b^2}$. On a $\overline{z+w}=\overline z+\overline w$, $\overline{zw}=\overline z\,\overline w$, $\overline{\overline z}=z$, $\abs{zw}=\abs z\abs w$ et $\abs{z+w}\le\abs z+\abs w$.
 \end{remarque}
-\begin{definition}[Produit scalaire complexe][réf. Déf. 2.2.2, 2.2.3]
+\begin{definition}[Produit scalaire complexe]
 Sur $\C^n$ (vecteurs à composantes complexes, additionnés et multipliés par des complexes composante par composante), on pose
 \[z\cdot w=\sum_{i=1}^n z_i\overline{w_i},\qquad\norm z=\sqrt{z\cdot z}=\sqrt{\textstyle\sum\abs{z_i}^2}.\]
 Orthogonalité et distance se définissent comme dans le cas réel.
@@ -92,7 +92,7 @@ On dit qu'il est \textbf{sesquilinéaire}. Enfin $\C^n$ est un espace vectoriel 
 
 \section{Matrices et produit matriciel}
 \subsection{Le point de vue des colonnes}
-\begin{exemple}[Différences et sommes][réf. 2.3]\label{ex-differences}
+\begin{exemple}[Différences et sommes]\label{ex-differences}
 Soient $u=\begin{pmatrix}1\\-1\\0\end{pmatrix}$, $v=\begin{pmatrix}0\\1\\-1\end{pmatrix}$, $w=\begin{pmatrix}0\\0\\1\end{pmatrix}$, et $A$ la matrice de colonnes $u,v,w$. Pour $x=(x_1,x_2,x_3)$,
 \[Ax=x_1u+x_2v+x_3w=\begin{pmatrix}x_1\\x_2-x_1\\x_3-x_2\end{pmatrix}.\]
 $A$ calcule des \emph{différences}. Résoudre $Ax=b$, c'est chercher la combinaison des colonnes égale à $b$ : on trouve $x_1=b_1$, $x_2=b_1+b_2$, $x_3=b_1+b_2+b_3$, des \emph{sommes}. Autrement dit $x=Sb$ avec $S=\begin{pmatrix}1&0&0\\1&1&0\\1&1&1\end{pmatrix}$, et l'on vérifie $AS=SA=I_3$ : $S$ est l'inverse de $A$.
@@ -105,14 +105,14 @@ $A$ calcule des \emph{différences}. Résoudre $Ax=b$, c'est chercher la combina
 \end{essentiel}
 
 \subsection{Règles de calcul}
-\begin{definition}[Matrices][réf. 2.3.1]
+\begin{definition}[Matrices]
 Une \textbf{matrice} $m\times n$ à coefficients dans $\K$ est un tableau $A=(a_{ij})$ de $m$ lignes et $n$ colonnes ; formellement, une application $\ens{1,\dots,m}\times\ens{1,\dots,n}\to\K$. On note $\Mat_{m\times n}(\K)$ leur ensemble et $\Mat_n(\K)$ celui des matrices \textbf{carrées} d'ordre $n$. La somme (même taille) et le produit par un scalaire se font coefficient par coefficient. La \textbf{matrice identité} $I_n$ a des $1$ sur la diagonale et des $0$ ailleurs.
 \end{definition}
 \begin{definition}[Produit matriciel]\label{def-produit}
 Si $A$ est $m\times n$ et $B$ est $n\times p$ (le nombre de colonnes de $A$ égale le nombre de lignes de $B$), $AB$ est la matrice $m\times p$ de coefficients
 \[(AB)_{ij}=\sum_{k=1}^n a_{ik}b_{kj}=(\text{ligne } i \text{ de } A)\cdot(\text{colonne } j \text{ de } B).\]
 \end{definition}
-\begin{proposition}[Quatre lectures du produit][réf. 2.3.1, Cor. 2.3.12]\label{prop-quatre}
+\begin{proposition}[Quatre lectures du produit]\label{prop-quatre}
 Notons $a_1,\dots,a_n$ les colonnes de $A$, $b_1,\dots,b_p$ les colonnes de $B$, $\alpha_i$ les lignes de $A$ et $\beta_k$ les lignes de $B$.
 \begin{enumerate}
 \item \textbf{Coefficient par coefficient} : $(AB)_{ij}=\alpha_i\cdot b_j$.
@@ -124,58 +124,58 @@ Notons $a_1,\dots,a_n$ les colonnes de $A$, $b_1,\dots,b_p$ les colonnes de $B$,
 \begin{preuve}
 Toutes expriment la même somme $\sum_k a_{ik}b_{kj}$. Pour (2), la $j$-ème colonne de $AB$ a pour $i$-ème coefficient $\sum_k a_{ik}b_{kj}$, qui est la $i$-ème composante de $\sum_k b_{kj}a_k=Ab_j$. Pour (4), la matrice $a_k\beta_k$ a pour coefficient $(i,j)$ le produit $a_{ik}b_{kj}$ ; en sommant sur $k$, on retrouve $(AB)_{ij}$.
 \end{preuve}
-\begin{proposition}[Règles][réf. Prop. 2.3.6, 2.3.7]\label{prop-regles}
+\begin{proposition}[Règles]\label{prop-regles}
 Lorsque les tailles le permettent : $A(B+C)=AB+AC$, $(A+B)C=AC+BC$, $k(AB)=(kA)B=A(kB)$, $(AB)C=A(BC)$, $I_mA=AI_n=A$, et $A(au+bv)=aAu+bAv$. En revanche, \textbf{en général $AB\neq BA$}.
 \end{proposition}
 \begin{preuve}[Associativité]
 $((AB)C)_{ij}=\sum_l\left(\sum_k a_{ik}b_{kl}\right)c_{lj}=\sum_{k,l}a_{ik}b_{kl}c_{lj}=\sum_k a_{ik}\left(\sum_l b_{kl}c_{lj}\right)=(A(BC))_{ij}$. Contre-exemple à la commutativité : avec $A=\begin{pmatrix}0&1\\0&0\end{pmatrix}$ et $B=\begin{pmatrix}0&0\\1&0\end{pmatrix}$, $AB=\begin{pmatrix}1&0\\0&0\end{pmatrix}\neq BA=\begin{pmatrix}0&0\\0&1\end{pmatrix}$.
 \end{preuve}
-\begin{remarque}[Produit par blocs][réf. Prop. 2.3.11]
+\begin{remarque}[Produit par blocs]
 Si l'on découpe $A$ et $B$ en blocs de façon compatible (les colonnes de $A$ découpées comme les lignes de $B$), on multiplie les blocs comme des nombres, en respectant l'ordre : $\begin{pmatrix}A_1&A_2\end{pmatrix}\begin{pmatrix}B_1\\B_2\end{pmatrix}=A_1B_1+A_2B_2$. La lecture (4) est le cas de blocs d'une colonne et d'une ligne.
 \end{remarque}
-\begin{proposition}[Matrices qui commutent avec tout][réf. Rem. 2.3.9, Question 2.3.10]
+\begin{proposition}[Matrices qui commutent avec tout]
 Les matrices $kI_n$ commutent avec toutes les matrices de $\Mat_n(\K)$, et ce sont les seules (exercice \voir{exo-centre}).
 \end{proposition}
 
 \section{Inverses}
-\begin{definition}[Inverses à gauche et à droite][réf. 2.3.2]
+\begin{definition}[Inverses à gauche et à droite]
 Soit $A\in\Mat_{m\times n}(\K)$. Une matrice $G$ ($n\times m$) est un \textbf{inverse à gauche} si $GA=I_n$, une matrice $D$ ($n\times m$) un \textbf{inverse à droite} si $AD=I_m$.
 \end{definition}
-\begin{proposition}[réf. Prop. 2.3.13]\label{prop-inverse-unique}
+\begin{proposition}\label{prop-inverse-unique}
 Si $A\in\Mat_n(\K)$ a un inverse à gauche $G$ et un inverse à droite $D$, alors $G=D$. Cet inverse est alors unique, noté $A^{-1}$, et $A$ est dite \textbf{inversible}. L'ensemble des matrices inversibles d'ordre $n$ est noté $\GL_n(\K)$.
 \end{proposition}
 \begin{preuve}
 $G=GI_n=G(AD)=(GA)D=I_nD=D$, grâce à l'associativité. Si $G'$ est un autre inverse, le même calcul avec $D$ montre $G'=D=G$.
 \end{preuve}
-\begin{proposition}[réf. Prop. 2.3.14]\label{prop-produit-inverse}
+\begin{proposition}\label{prop-produit-inverse}
 Si $A,B\in\GL_n(\K)$, alors $AB\in\GL_n(\K)$ et $(AB)^{-1}=B^{-1}A^{-1}$.
 \end{proposition}
 \begin{preuve}
 $(AB)(B^{-1}A^{-1})=A(BB^{-1})A^{-1}=AA^{-1}=I_n$, et de même $(B^{-1}A^{-1})(AB)=I_n$. L'ordre s'inverse, comme pour des chaussettes et des chaussures : on retire en dernier ce qu'on a mis en premier.
 \end{preuve}
-\begin{attention}[réf. Question 2.3.15]
+\begin{attention}
 La somme de deux matrices inversibles n'est pas inversible en général : $A=I_n$ et $B=-I_n$ donnent $A+B=0$.
 \end{attention}
-\begin{theoreme}[Inversibilité et systèmes][réf. Prop. 2.3.16]\label{thm-inv-systeme}
+\begin{theoreme}[Inversibilité et systèmes]\label{thm-inv-systeme}
 $A\in\Mat_n(\K)$ est inversible si et seulement si, pour tout $b\in\K^n$, le système $Ax=b$ a une solution \textbf{unique}.
 \end{theoreme}
 \begin{preuve}
 ($\Rightarrow$) $x=A^{-1}b$ est solution ; si $Ax=b$, alors $x=A^{-1}Ax=A^{-1}b$.
 ($\Leftarrow$) Soit $d_j$ l'unique solution de $Ax=e_j$, où $e_j$ est la $j$-ème colonne de $I_n$, et $D$ la matrice de colonnes $d_j$ : $AD=I_n$ par la lecture (2). Reste à voir $DA=I_n$. On a $A(DA-I_n)=(AD)A-A=0$ : chaque colonne $c$ de $DA-I_n$ vérifie $Ac=\mathbf 0$. Comme $\mathbf 0$ est une solution de $Ax=\mathbf 0$ et que la solution est unique, $c=\mathbf 0$. Donc $DA=I_n$.
 \end{preuve}
-\begin{methode}[Calculer $A^{-1}$][réf. Rem. 2.3.17]
+\begin{methode}[Calculer $A^{-1}$]
 On résout simultanément les $n$ systèmes $Ax=e_j$ : on écrit le tableau $(A\mid I_n)$, on fait l'élimination jusqu'à obtenir $(I_n\mid A^{-1})$ (méthode de Gauss, Jordan). Si l'élimination fait apparaître un pivot nul impossible à remplacer, $A$ n'est pas inversible. Pour $2\times2$ : si $ad-bc\neq0$,
 \[\begin{pmatrix}a&b\\c&d\end{pmatrix}^{-1}=\frac1{ad-bc}\begin{pmatrix}d&-b\\-c&a\end{pmatrix}.\]
 \end{methode}
 
 \section{Dépendance et indépendance linéaires}
-\begin{definition}[Famille liée, libre][réf. Déf. 2.3.18]\label{def-libre}
+\begin{definition}[Famille liée, libre]\label{def-libre}
 Des vecteurs $u_1,\dots,u_r\in\K^n$ sont \textbf{liés} (linéairement dépendants) s'il existe des scalaires $x_1,\dots,x_r$ \textbf{non tous nuls} avec $x_1u_1+\dots+x_ru_r=\mathbf 0$. Sinon ils sont \textbf{libres} (linéairement indépendants) : la seule combinaison nulle est celle dont tous les coefficients sont nuls.
 \end{definition}
 \begin{remarque}
 Les colonnes de $A$ sont libres si et seulement si $Ax=\mathbf 0$ n'a que la solution $x=\mathbf 0$. Deux vecteurs sont liés si et seulement si l'un est multiple de l'autre ; une famille contenant $\mathbf 0$ est liée.
 \end{remarque}
-\begin{proposition}[réf. Prop. 2.3.21]\label{prop-singuliere}
+\begin{proposition}\label{prop-singuliere}
 Pour $A\in\Mat_n(\K)$, si $Ax=\mathbf 0$ a une solution non nulle, alors $A$ n'est pas inversible (on dit \textbf{singulière}). Et si $Ax=b$ a deux solutions distinctes $x\neq y$, alors toutes les $x+t(y-x)$, $t\in\K$, sont solutions.
 \end{proposition}
 \begin{preuve}
@@ -184,19 +184,19 @@ Si $A$ était inversible, $Ax=\mathbf 0$ entraînerait $x=A^{-1}\mathbf 0=\mathb
 La réciproque (\og colonnes libres $\Rightarrow$ inversible \fg) demande un argument de comptage : on l'obtiendra au Théorème \voir{thm-caract-inv} grâce à l'élimination.
 
 \section{Transposition et permutations}
-\begin{definition}[Transposée, matrices remarquables][réf. 2.3.4]
+\begin{definition}[Transposée, matrices remarquables]
 La \textbf{transposée} de $A\in\Mat_{m\times n}$ est $A\tr\in\Mat_{n\times m}$, $(A\tr)_{ij}=a_{ji}$ : les lignes de $A$ deviennent les colonnes de $A\tr$. Une matrice carrée est \textbf{triangulaire supérieure} si $a_{ij}=0$ pour $i>j$, \textbf{inférieure} si $a_{ij}=0$ pour $i<j$, \textbf{symétrique} si $A\tr=A$, \textbf{antisymétrique} si $A\tr=-A$.
 \end{definition}
-\begin{proposition}[réf. Prop. 2.3.24, Rem. 2.3.26, Prop. 2.3.30]\label{prop-transposee}
+\begin{proposition}\label{prop-transposee}
 $(A+B)\tr=A\tr+B\tr$, $(kA)\tr=kA\tr$, $(A\tr)\tr=A$, $(AB)\tr=B\tr A\tr$, et si $A$ est inversible, $(A\tr)^{-1}=(A^{-1})\tr$. Dans $\R^n$, $x\cdot y=x\tr y$ et $(Ax)\cdot y=x\cdot(A\tr y)$ ; dans $\C^n$, $x\cdot y=x\tr\overline y$. Pour toute $A$, $A\tr A$ est symétrique.
 \end{proposition}
 \begin{preuve}
 $((AB)\tr)_{ij}=(AB)_{ji}=\sum_k a_{jk}b_{ki}=\sum_k(B\tr)_{ik}(A\tr)_{kj}=(B\tr A\tr)_{ij}$. Ensuite $A\tr(A^{-1})\tr=(A^{-1}A)\tr=I\tr=I$, et de même de l'autre côté. Enfin $(Ax)\tr y=x\tr A\tr y$ et $(A\tr A)\tr=A\tr(A\tr)\tr=A\tr A$.
 \end{preuve}
-\begin{definition}[Matrices de permutation][réf. 2.3.4]
+\begin{definition}[Matrices de permutation]
 $P_{ij}$ est la matrice obtenue en échangeant les lignes $i$ et $j$ de $I_n$. Un produit de telles matrices est une \textbf{matrice de permutation} ; c'est une matrice qui a exactement un $1$ dans chaque ligne et chaque colonne, et des $0$ ailleurs. On note $\mathcal P_n$ leur ensemble.
 \end{definition}
-\begin{proposition}[réf. Prop. 2.3.33, corrigée]\label{prop-permutation}
+\begin{proposition}\label{prop-permutation}
 \begin{enumerate}
 \item $PA$ permute les \emph{lignes} de $A$, $AP$ permute ses \emph{colonnes}. En particulier $P_{ij}A$ échange les lignes $i$ et $j$ de $A$.
 \item Toute $P\in\mathcal P_n$ est inversible et $P^{-1}=P\tr\in\mathcal P_n$.
@@ -212,16 +212,16 @@ $P_{ij}$ est la matrice obtenue en échangeant les lignes $i$ et $j$ de $I_n$. U
 \begin{intuition}
 La méthode du pivot de Gauss remplace une ligne par \og elle-même moins un multiple d'une ligne au-dessus \fg{} jusqu'à obtenir un système triangulaire. Chacune de ces opérations est une multiplication à gauche par une matrice très simple. En gardant la trace de ces matrices au lieu de les oublier, on obtient une factorisation de $A$ qui résume tout le calcul, et qu'on peut réutiliser pour chaque nouveau second membre.
 \end{intuition}
-\begin{definition}[Matrice d'élimination][réf. 2.4, Prop. 2.4.2]
+\begin{definition}[Matrice d'élimination]
 Soient $k<i$ et $\ell\in\K$. La matrice $E_{ik}(\ell)$ est $I_n$ dans laquelle le coefficient $(i,k)$ est remplacé par $-\ell$. Multiplier $A$ à gauche par $E_{ik}(\ell)$ ne change que la ligne $i$, remplacée par $L_i-\ell L_k$. Si $a_{kj}\neq0$ est le pivot de la colonne $j$, le choix $\ell=a_{ij}/a_{kj}$ (le \textbf{multiplicateur}) met un $0$ en position $(i,j)$.
 \end{definition}
-\begin{proposition}[réf. Prop. 2.4.3]\label{prop-elim-inverse}
+\begin{proposition}\label{prop-elim-inverse}
 $E_{ik}(\ell)$ est inversible et $E_{ik}(\ell)^{-1}=E_{ik}(-\ell)$ : on change le signe de l'unique coefficient hors diagonale.
 \end{proposition}
 \begin{preuve}
 $E_{ik}(-\ell)E_{ik}(\ell)A$ retranche $\ell L_k$ de la ligne $i$ puis l'ajoute ; la ligne $k$ n'a pas bougé entre-temps puisque $k\neq i$. Le produit est donc l'identité.
 \end{preuve}
-\begin{exemple}[Le fil rouge][réf. 2.4]\label{ex-fil-rouge}
+\begin{exemple}[Le fil rouge]\label{ex-fil-rouge}
 Soit $A=\begin{pmatrix}2&1&1\\4&-6&0\\-2&7&2\end{pmatrix}$.
 \begin{enumerate}
 \item Pivot $2$. $\ell_{21}=4/2=2$ : $E_{21}A$ a pour deuxième ligne $(0,-8,-2)$.
@@ -237,10 +237,10 @@ Si l'on élimine colonne par colonne, $L=E_{21}^{-1}E_{31}^{-1}\cdots E_{n,n-1}^
 \begin{preuve}
 Lisons le produit de droite à gauche comme une suite d'opérations sur les lignes de $I_n$ : $E_{ik}^{-1}=E_{ik}(-\ell_{ik})$ \emph{ajoute} $\ell_{ik}$ fois la ligne $k$ à la ligne $i$. En partant de $I_n$ et en appliquant d'abord la dernière, $E_{n,n-1}^{-1}$, puis les précédentes, chaque opération ajoute un multiple d'une ligne $k$ qui, à ce moment, est encore la ligne $e_k\tr$ de l'identité (elle n'est modifiée que par des opérations d'indice de colonne plus petit, effectuées plus tard). Chaque multiplicateur se dépose donc en position $(i,k)$ sans interagir avec les autres. Dans l'ordre inverse, le produit $E_{32}E_{31}E_{21}$ mélange les multiplicateurs : son coefficient $(3,1)$ vaut $-\ell_{31}+\ell_{32}\ell_{21}$.
 \end{preuve}
-\begin{remarque}[Pivot nul][réf. Rem. 2.4.4]
+\begin{remarque}[Pivot nul]
 Si le coefficient à éliminer est déjà nul, on passe au suivant. Si le \emph{pivot} est nul, on échange la ligne du pivot avec une ligne située en dessous qui a un coefficient non nul dans cette colonne (multiplication par une $P_{ij}$). On n'échange \textbf{jamais} de lignes quand le pivot est non nul. Si toute la colonne est nulle sous le pivot, il n'y a rien à éliminer : on passe à la colonne suivante, et $U$ aura un pivot nul.
 \end{remarque}
-\begin{theoreme}[Factorisation $PA=LU$][réf. Thm 2.4.5]\label{thm-lu}
+\begin{theoreme}[Factorisation $PA=LU$]\label{thm-lu}
 Pour toute $A\in\Mat_n(\K)$, il existe une matrice de permutation $P$, une matrice $L$ triangulaire inférieure à diagonale de $1$ et une matrice $U$ triangulaire supérieure telles que $PA=LU$. Si aucun échange n'est nécessaire, $P=I_n$ et $A=LU$.
 \end{theoreme}
 \begin{preuve}[Idée de la démonstration]
@@ -253,7 +253,7 @@ $Ax=b\iff PAx=Pb\iff L(Ux)=Pb$. On résout d'abord $Ly=Pb$ par \emph{descente} (
 \begin{exemple}
 Avec le fil rouge et $b=(5,-2,9)$ : $Ly=b$ donne $y_1=5$, $y_2=-2-2\cdot5=-12$, $y_3=9+5-12=2$. Puis $Ux=y$ : $x_3=2$, $-8x_2-4=-12$ donc $x_2=1$, $2x_1+1+2=5$ donc $x_1=1$. Contrôle : $A(1,1,2)\tr=(5,-2,9)\tr$.
 \end{exemple}
-\begin{theoreme}[Caractérisations de l'inversibilité][réf. Prop. 2.3.19, Thm 2.3.20]\label{thm-caract-inv}
+\begin{theoreme}[Caractérisations de l'inversibilité]\label{thm-caract-inv}
 Pour $A\in\Mat_n(\K)$, les propriétés suivantes sont équivalentes :
 \begin{enumerate}
 \item $A$ est inversible ;
@@ -266,7 +266,7 @@ Pour $A\in\Mat_n(\K)$, les propriétés suivantes sont équivalentes :
 \begin{preuve}
 (1)$\iff$(2) est le Théorème \voir{thm-inv-systeme}, et (2)$\Rightarrow$(3) est clair. (3)$\Rightarrow$(4) : écrivons $PA=LU$. Comme $P$ et $L$ sont inversibles, $Ax=\mathbf 0\iff Ux=\mathbf 0$. Si une colonne $j$ n'avait pas de pivot, on fixerait $x_j=1$, les autres variables sans pivot à $0$, et on calculerait les variables à pivot par remontée : on obtiendrait une solution non nulle de $Ux=\mathbf 0$. (4)$\Rightarrow$(2) : avec $n$ pivots non nuls, $Ly=Pb$ puis $Ux=y$ ont chacun une solution unique, obtenue par descente puis remontée. Enfin (1)$\iff$(5) : les lignes de $A$ sont les colonnes de $A\tr$, et $A$ est inversible si et seulement si $A\tr$ l'est (\voir{prop-transposee}).
 \end{preuve}
-\begin{remarque}[réf. Rem. 2.4.6]
+\begin{remarque}
 Si $A$ est inversible, $A^{-1}=U^{-1}L^{-1}P$ : les inverses de matrices triangulaires se calculent par substitution, et $L^{-1}=E_{32}E_{31}E_{21}$ (dans cet ordre) est un produit de matrices d'élimination.
 \end{remarque}
 
