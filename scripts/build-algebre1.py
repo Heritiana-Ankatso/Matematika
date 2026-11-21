@@ -370,6 +370,7 @@ def page_html(ch, chapters, labels, pdfs):
 <html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{html.escape(meta["title"][0])} · Algèbre 1 · Matematika</title>
 <meta name="description" content="{html.escape(meta["summary"][0])}">
+<script>try{{if(window.top!==window.self)document.documentElement.classList.add('embedded')}}catch(e){{}}</script>
 <script>try{{var t=localStorage.getItem('maths-explorer-theme');if(t==='jour'||t==='nuit')document.documentElement.dataset.theme=t}}catch(e){{}}</script>
 <link rel="stylesheet" href="../../../../styles/algebra1.css{version('css')}">
 <script>window.MathJax={{tex:{{inlineMath:[['\\\\(','\\\\)']],displayMath:[['\\\\[','\\\\]']],macros:{macros}}},svg:{{fontCache:'global'}},options:{{enableAssistiveMml:true}}}};</script>
@@ -380,8 +381,8 @@ def page_html(ch, chapters, labels, pdfs):
 <div class="topbar"><a class="brand" href="../../../../index.html#university">Matematika</a><span class="crumbs"><a href="../../../../index.html#university">Université</a> / <a href="index.html">Algèbre 1</a></span><button type="button" class="theme" data-theme-toggle aria-label="Changer de thème"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg></button></div>
 <div class="layout">
 <aside class="rail" aria-label="Sommaire"><details open class="railbox"><summary>Dans ce chapitre</summary><ol class="toc">{toc}</ol></details>
-<details class="railbox"><summary>Tous les chapitres</summary><ol class="chapters">{chapters_nav}</ol></details>
-<details class="railbox"><summary>Télécharger (PDF)</summary><ul class="dl">{downloads}</ul></details></aside>
+<details class="railbox host-only"><summary>Tous les chapitres</summary><ol class="chapters">{chapters_nav}</ol></details>
+<details class="railbox host-only"><summary>Télécharger (PDF)</summary><ul class="dl">{downloads}</ul></details></aside>
 <main id="main">{hero}<div id="cours" class="course">{body}</div>{nav}</main></div>
 <footer class="foot"><p>Algèbre 1 · cours de première année de licence · Matematika. Textes, démonstrations, figures et exercices originaux.</p></footer>
 <script>{PAGE_SCRIPT}</script>
