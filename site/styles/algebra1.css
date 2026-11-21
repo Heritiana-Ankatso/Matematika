@@ -278,3 +278,10 @@ input[type="checkbox"] { accent-color: var(--accent); }
   body { background: #fff; color: #000; font-size: 11pt; }
   .exo[hidden] { display: block !important; }
 }
+
+/* Embedded in the University page (iframe): the host provides navigation, documents and the theme. */
+.embedded .topbar, .embedded .foot, .embedded .pager, .embedded .entry, .embedded .railbox.host-only { display: none; }
+:root.embedded { scroll-padding-top: 16px; }
+.embedded .rail { top: 16px; max-height: calc(100dvh - 32px); }
+.embedded .filters { top: 0; }
+.embedded .layout { padding-top: 16px; }
