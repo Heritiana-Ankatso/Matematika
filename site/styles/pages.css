@@ -1744,3 +1744,26 @@ body:has(#object-stage:empty) :is(.learning, .workbench ~ *, #app ~ footer, main
 .university-aux li a{display:flex;align-items:center;min-height:44px;padding:0 .7rem;color:inherit;text-decoration:none}.university-aux li a:hover{background:var(--accent-soft)}
 .lesson-tabs{display:flex;gap:.5rem;margin:.6rem 0}.lesson-tabs button{min-height:44px;padding:0 1.2rem;border:2px solid var(--ink);background:var(--surface);color:var(--ink);font:inherit;font-weight:700;cursor:pointer}.lesson-tabs button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
 .lesson-frame{display:block;width:100%;height:max(640px,calc(100dvh - 190px));border:2px solid var(--ink);background:var(--bg)}
+
+/* Napkin ring (gallery/gallery-napkin-gl.js): canvas and controls side by side, the canvas stays in view; on a phone it sticks above the controls. */
+.nk { display:grid; grid-template-columns:minmax(0,1fr) minmax(260px,320px); gap:16px; align-items:start; margin-top:8px; }
+.nk-view { min-width:0; position:sticky; top:calc(var(--chrome, 80px) + 8px); z-index:2; background:var(--bg); }
+.nk-view .gl-stage { width:min(100%, calc((100svh - var(--chrome, 80px) - 120px) * var(--canvas-aspect, 1.6))); min-width:min(100%, 320px); }
+.nk-view .exhibit-readout { min-height:2.6em; margin:6px 0 0; font-weight:700; }
+.nk-side { min-width:0; display:grid; gap:10px; }
+.nk-controls { display:grid; grid-template-columns:1fr 1fr; gap:4px 14px; margin-top:0; align-items:end; padding-right:10px; }
+.nk-controls .act-field { flex:none; }
+.nk-controls .act-label { font-size:.9rem; }
+.nk-controls .nk-wide { grid-column:1 / -1; }
+.nk-controls .act-check { display:flex; align-items:center; gap:8px; min-height:36px; font-weight:600; }
+.nk-controls input[type=range] { width:100%; min-height:28px; }
+.nk-controls .btn { white-space:normal; min-height:44px; }
+.nk-side .exhibit-metrics, .nk-side .exhibit-plot { max-width:none; margin-inline:0; }
+.nk-side .exhibit-metrics { margin-top:0; }
+@media (max-width:900px) {
+  .nk { grid-template-columns:minmax(0,1fr); gap:8px; }
+  .nk-view { top:var(--chrome, 80px); padding-bottom:6px; border-bottom:1px solid var(--line); }
+  .nk-view .gl-stage { width:100%; }
+  .nk-view .exhibit-readout { font-size:.88rem; min-height:2.4em; }
+}
+.experiment:has(.nk) { overflow:visible; }
