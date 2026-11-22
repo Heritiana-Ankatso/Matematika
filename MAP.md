@@ -26,6 +26,7 @@ really need them.
 
 | I want to change... | Open (and nothing else first) | Then |
 |---|---|---|
+| the design v8 worlds (behind `?v8`): tokens, faces, shared frame, a world's look | `site/styles/tokens.css` (v8 section, `--w-*`), `site/styles/controls.css` (v8 section), `site/styles/world-<id>.css`, `site/js/v8.js`, `site/js/v8/kit.js`; pages drawn in a world: `site/js/routes.js` `V8_ROUTES`, `site/js/app.js` `V8_DRAW` | `docs/DESIGN_V8.md`, `docs/REBUILD_PLAN.md` |
 | a colour, font, spacing, radius or theme | `site/styles/tokens.css` (tokens, both themes) | `docs/DESIGN_V7.md` only for a design decision; review any UI change with the skills `frontend-design` and `web-design-guidelines` (`.claude/skills/`) |
 | how a control looks or shows its state (buttons, choices, toggles, checkboxes, sliders, fields, folded sections, focus ring) | `site/styles/controls.css` (one rule per kind of control, loaded last) | the kinds and their rules: `docs/DESIGN_V7.md` section "Commands" |
 | the look of one page or component | `site/styles/pages.css` (search the page class, see section 3) | standalone mathematicians: `site/styles/timeline-standalone.css` and `site/resources/history/mathematicians-timeline.html` |

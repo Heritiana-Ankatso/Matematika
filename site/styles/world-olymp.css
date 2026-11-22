@@ -1,0 +1,7 @@
+/* Design v8, Olympiades: black, signal red, condensed capitals, square corners, a thick red bar; no countdown or
+   stopwatch (owner). docs/DESIGN_V8.md section 3. Loaded by js/v8.js enterWorld('olymp'). */
+:root[data-world="olymp"] .v8 h1, :root[data-world="olymp"] .v8 h2 { font-weight: 900; font-stretch: 72%; text-transform: uppercase; letter-spacing: .01em; line-height: .98; }
+:root[data-world="olymp"] .v8-bar { border-bottom: 4px solid var(--w-accent); }
+:root[data-world="olymp"] .v8-btn, :root[data-world="olymp"] .v8-worlds > summary { border-radius: 0; }
+:root[data-world="olymp"] .v8-fold > details > summary { font: 800 1.05rem var(--w-ui); text-transform: uppercase; font-stretch: 85%; }
+.v8-figure-mono { font: 700 1rem var(--w-mono); font-variant-numeric: tabular-nums; }

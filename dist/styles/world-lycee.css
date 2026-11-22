@@ -1,0 +1,36 @@
+/* Design v8, Lycée: the page is a copybook (docs/DESIGN_V8.md section 5). Seyès ruling: heavy lines every 8 mm (32 px)
+   in both directions and three fine horizontal lines between (every 8 px), violet-blue; the margin line is the first
+   vertical line, in red, and left of it there are no vertical lines, only the horizontal ruling. Blue pen writes, red pen
+   titles, numbers and double underlining of key words; green frame for definitions, red frame for theorems; frames are
+   transparent (the ruling shows through); no highlighter. Text sits on the heavy lines: stage 5 adds the measuring
+   script (js/seyes-rhythm.js). Loaded by js/v8.js enterWorld('lycee'). */
+:root[data-world="lycee"] { --w-line: 8px; --w-heavy: 32px; }
+/* `.v8 .v8-copybook` outranks the shared gutter of `.v8 .v8-wrap`: writing starts right of the margin */
+.v8 .v8-copybook {
+  background-color: var(--w-bg);
+  background-image:
+    linear-gradient(90deg, transparent calc(var(--w-margin-x) - 1px), var(--w-margin) calc(var(--w-margin-x) - 1px), var(--w-margin) calc(var(--w-margin-x) + 1px), transparent calc(var(--w-margin-x) + 1px)),
+    repeating-linear-gradient(90deg, var(--w-seyes-heavy) 0 1px, transparent 1px var(--w-heavy)),
+    repeating-linear-gradient(180deg, transparent 0 calc(var(--w-heavy) - 1px), var(--w-seyes-heavy) calc(var(--w-heavy) - 1px) var(--w-heavy)),
+    repeating-linear-gradient(180deg, transparent 0 calc(var(--w-line) - 1px), var(--w-seyes-fine) calc(var(--w-line) - 1px) var(--w-line));
+  background-size: 100% 100%, calc(100% - var(--w-margin-x)) 100%, 100% 100%, 100% 100%;
+  background-position: 0 0, var(--w-margin-x) 0, 0 0, 0 0;
+  background-repeat: no-repeat, no-repeat, repeat, repeat;
+  padding-left: calc(var(--w-margin-x) + var(--w-s3));
+}
+@media (max-width: 640px) { :root[data-world="lycee"] { --w-margin-x: 48px; } }
+/* small letters one interline tall (about 22 px of Caveat), titles two lines, everything on the heavy lines */
+:root[data-world="lycee"] .v8 { font-size: 22px; line-height: var(--w-heavy); }
+:root[data-world="lycee"] .v8 h1 { font-size: 2.2rem; line-height: calc(2 * var(--w-heavy)); color: var(--w-accent); }
+:root[data-world="lycee"] .v8 h2 { font-size: 1.45rem; line-height: calc(2 * var(--w-heavy)); color: var(--w-accent); }
+:root[data-world="lycee"] .v8 p { margin: 0 0 var(--w-heavy); }
+:root[data-world="lycee"] .v8 section > h2 { margin: var(--w-heavy) 0 0; }
+:root[data-world="lycee"] .v8-outline { font-size: 20px; line-height: var(--w-heavy); }
+.v8-key { text-decoration: underline double var(--w-accent); text-decoration-thickness: 2px; text-underline-offset: .18em; text-decoration-skip-ink: none; }
+.v8-frame-def, .v8-frame-thm { margin: 0 0 var(--w-heavy); padding: 0 var(--w-s3); background: transparent; border: 2px solid; border-radius: var(--w-r); }
+.v8-frame-def { border-color: var(--w-accent2); }
+.v8-frame-thm { border-color: var(--w-accent); }
+/* mathematics stays typeset, in pen blue */
+:root[data-world="lycee"] mjx-container { color: var(--w-ink); }
+:root[data-world="lycee"] .v8-bar { background: rgba(255,255,255,.94); }
+:root[data-world="lycee"] .v8-btn { font-size: 1.15rem; border-color: var(--w-ink); }

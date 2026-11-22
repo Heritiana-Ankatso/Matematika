@@ -37,11 +37,11 @@ test('the shell imports no page code statically', () => {
 });
 
 test('every group a page needs has a loader, and every loader is used', async () => {
-  const { ROUTES } = await import('../site/js/routes.js');
+  const { ROUTES, V8_ROUTES } = await import('../site/js/routes.js');
   const app = readFileSync(site + 'app.js', 'utf8');
   const block = app.slice(app.indexOf('const LOADERS = {'), app.indexOf('const loaded = new Set()'));
   const loaders = [...block.matchAll(/^  (\w+): async/gm)].map((m) => m[1]);
-  const needed = new Set(Object.values(ROUTES).flatMap((r) => r.needs));
+  const needed = new Set([...Object.values(ROUTES), ...Object.values(V8_ROUTES)].flatMap((r) => r.needs));
   for (const g of needed) assert.ok(loaders.includes(g), `no loader for ${g}`);
   for (const g of loaders) assert.ok(needed.has(g) || app.includes(`ensure(["${g}"`) || app.includes(`"${g}"`), `loader ${g} is never used`);
   for (const [page, r] of Object.entries(ROUTES)) assert.ok(['home', 'musee', 'univ', 'lycee', 'olymp'].includes(r.world), page);

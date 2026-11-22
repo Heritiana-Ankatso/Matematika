@@ -1,0 +1,8 @@
+/* Design v8, Musée: solemn night and gold; placards ("Salle I" to "Salle VIII"), a cartel on each exhibit, soft 14 px
+   corners (docs/DESIGN_V8.md section 3). Loaded by js/v8.js enterWorld('musee'). */
+:root[data-world="musee"] body { background: radial-gradient(90% 60% at 70% 0%, rgba(217,178,95,.08), transparent 70%) no-repeat, var(--w-bg); }
+:root[data-world="musee"] .v8 h1, :root[data-world="musee"] .v8 h2 { letter-spacing: -.01em; }
+.v8-placard { display: inline-block; font: 600 .72rem var(--w-ui); letter-spacing: .14em; text-transform: uppercase; color: var(--w-accent); border: 1px solid color-mix(in srgb, var(--w-accent) 45%, transparent); padding: 3px 8px; border-radius: 2px; }
+.v8-cartel { margin: 1.6em 0 0; padding: 14px 18px; border-left: 2px solid var(--w-accent); background: var(--w-accent-soft); font: 400 .95rem/1.5 var(--w-text); }
+.v8-cartel b { display: block; margin-bottom: .3em; font: 600 .72rem var(--w-ui); letter-spacing: .12em; text-transform: uppercase; color: var(--w-accent); }
+:root[data-world="musee"] .v8-btn { border-radius: 22px; }

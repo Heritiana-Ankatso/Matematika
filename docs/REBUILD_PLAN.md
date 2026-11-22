@@ -105,6 +105,13 @@ a page mix two versions during an update, so it waits for an owner decision.
 
 ### Stage 2: design foundation (behind the switch)
 
+Done 22 November 2026: `site/js/v8.js` (switch), the `--w-*` tokens and the faces in `site/styles/tokens.css`
+(`site/fonts/v8/`, OFL licences, not precached), the shared frame at the end of `site/styles/controls.css` with its
+markup in `site/js/v8/kit.js`, `site/styles/world-<id>.css`, and the review page `#v8/<world>` (`site/js/v8/sampler.js`,
+only under `?v8`). Tests: `tests/v8-tokens.test.mjs` (contrast of every text colour of every world, faces and
+licences, v8 rules scoped), `tests/v8_foundation_browser.py` (switch off untouched, overflow at 360, 390 and 1280 px,
+reduced motion, components). The Lycée hover panel is `#f4f6fd` (not `#eef1fb`) so the red pen keeps 4.5:1 on it.
+
 - `site/styles/tokens.css`: shared scale plus one token block per world (`[data-world="musee" | "univ" | "lycee" |
   "olymp" | "home"]`), values from `DESIGN_V8.md` section 3.
 - Fonts self-hosted in `site/fonts/` with their licence files (all SIL OFL, licences to be confirmed when vendored):
