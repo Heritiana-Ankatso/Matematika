@@ -19,16 +19,11 @@
 .v8-hall-grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); gap: 40px; align-items: center; padding-block: clamp(32px, 7vh, 84px); }
 @media (max-width: 860px) { .v8-hall-grid { grid-template-columns: minmax(0, 1fr); gap: 28px; } }
 .v8-hall-grid h1 { margin-top: .4em; font-size: clamp(2rem, 5.2vw, 3.4rem); line-height: 1.08; max-width: 18ch; }
-.v8-lede { font-size: 1.1rem; color: var(--w-muted); max-width: 52ch; margin: .7em 0 1.4em; }
 .v8-today { margin: 0; padding: 18px; border: 1px solid var(--w-rule); border-radius: 20px; background: linear-gradient(170deg, var(--w-surface), var(--w-bg)); }
 .v8-today-link { display: block; aspect-ratio: 4 / 3; border-radius: 12px; overflow: hidden; background: var(--w-bg); }
 .v8-today canvas { display: block; width: 100%; height: 100%; }
 .v8-today figcaption { margin-top: 12px; font: 400 .95rem/1.5 var(--w-text); color: var(--w-muted); }
 .v8-today figcaption b { display: block; margin: .1em 0 .2em; font: 500 1.25rem var(--w-head); color: var(--w-ink); }
-.v8-eyebrow, .v8-where { font: 600 .72rem var(--w-ui); letter-spacing: .09em; text-transform: uppercase; color: var(--w-accent); }
-.v8-band { padding-block: clamp(40px, 8vh, 80px) 0; }
-.v8-band:last-child { padding-bottom: 80px; }
-.v8-band h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); }
 .v8-unexp { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-top: 1.4em; }
 @media (max-width: 1000px) { .v8-unexp { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 520px) { .v8-unexp { grid-template-columns: minmax(0, 1fr); } }
@@ -74,7 +69,4 @@
 .v8-cartel dt { font: 600 .85rem var(--w-ui); color: var(--w-muted); }
 .v8-cartel dd { margin: 0; }
 @media (max-width: 520px) { .v8-cartel dl { grid-template-columns: minmax(0, 1fr); } .v8-cartel dd { margin-bottom: 6px; } }
-.v8-chips { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
-.v8-chips a { display: inline-flex; align-items: center; min-height: var(--w-target); padding: 6px 14px; border: 1px solid var(--w-rule); border-radius: 20px; color: var(--w-ink); text-decoration: none; font: 500 .92rem var(--w-ui); }
-.v8-chips a:hover { border-color: var(--w-accent); }
 .v8-source { margin-top: 2.4em; font: 500 .9rem var(--w-ui); }

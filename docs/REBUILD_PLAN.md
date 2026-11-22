@@ -180,6 +180,10 @@ language buttons; `world-<id>.css` maps the current tokens onto the world), so n
   (deterministic, no server); the 50-squares figure is computed from the problem levels.
 - Warm-ups: a list of challenge ids from `site/js/challenges/registry.js`, shown in the arena and opening the
   challenge itself (decision 2).
+- Done (22 November 2026): `site/js/v8/olymp.js` (arena: problem of the day by date, folded hints and solution, the ten
+  strategies, the 50 squares with counts per level from the content, warm-ups from `site/js/olympiad-warmups.js`); the
+  strategy pages are the current ones, framed in the world. Tests `tests/v8-olymp.test.mjs`, arena checks in
+  `tests/v8_worlds_browser.py`.
 
 ### Stage 7: addresses
 
