@@ -38,7 +38,7 @@ let VARIANTS, hasVariants, variantDefaults, randomParams, normaliseVariant, moun
 let basicsPage, bindBasics, isBasicsRoute, assetHref, mountExperiment, resolveRef, labRef, labIndexPage, experimentPage, bindLabIndex;
 let discoveryIndex, discoveryPage, bindDiscovery, isTopicRoute, historyPage, bindHistory, isHistoryRoute, mathematiciansTimelineUrl;
 let companionCatalog = { chapters: [] };
-let olympPage, bindOlymp, univPage, bindUniv, samplerPage, bindSampler, thresholdPage, bindThreshold, museePage, bindMusee, exhibitPage, bindExhibit;
+let lyceePage, bindLycee, copybookPage, bindCopybook, olympPage, bindOlymp, univPage, bindUniv, samplerPage, bindSampler, thresholdPage, bindThreshold, museePage, bindMusee, exhibitPage, bindExhibit;
 const LOADERS = {
   content: async () => { ({ labs, challenges } = await import("./content.js")); pruneSaved(); },
   companion: async () => { const [{ resourceCatalog }, { liveCompanionCatalog }] = await Promise.all([import("./resources-data.js"), import("./live-curriculum.js")]); companionCatalog = liveCompanionCatalog(resourceCatalog); },
@@ -75,6 +75,8 @@ const LOADERS = {
   v8musee: async () => { ({ museePage, bindMusee } = await import("./v8/musee.js")); },
   v8olymp: async () => { ({ olympPage, bindOlymp } = await import("./v8/olymp.js")); },
   v8univ: async () => { ({ univPage, bindUniv } = await import("./v8/univ.js")); },
+  v8lycee: async () => { ({ lyceePage, bindLycee } = await import("./v8/lycee.js")); },
+  v8chapter: async () => { ({ copybookPage, bindCopybook } = await import("./v8/copybook.js")); },
   v8exhibit: async () => { ({ exhibitPage, bindExhibit } = await import("./v8/exhibit.js")); },
   history: async () => { ({ historyPage, bindHistory, isHistoryRoute, mathematiciansTimelineUrl } = await import("./history.js")); },
 };
@@ -269,6 +271,8 @@ const V8_DRAW = {
   v8: (r) => ({ world: WORLDS.includes(r.id) ? r.id : "home", html: samplerPage(r.id, { t, siteName: SITE_NAME }), bind: bindSampler }),
   home: () => ({ world: "home", html: thresholdPage({ t, lang, siteName: SITE_NAME }), bind: (root) => bindThreshold(root, { reduced: reducedMotion }) }),
   olympiad: () => ({ world: "olymp", html: olympPage({ t, lang, siteName: SITE_NAME }), bind: (root) => bindOlymp(root) }),
+  resources: (r) => ({ world: "lycee", html: lyceePage({ t, lang, siteName: SITE_NAME, course: r.id || "" }), bind: (root) => bindLycee(root) }),
+  chapter: (r) => ({ world: "lycee", html: copybookPage({ t, lang, siteName: SITE_NAME, id: r.id }), bind: (root) => bindCopybook(root, { lang }) }),
   university: () => ({ world: "univ", html: univPage({ t, lang, siteName: SITE_NAME }), bind: (root) => bindUniv(root, { lang, reduced: reducedMotion }) }),
   musee: () => ({ world: "musee", html: museePage({ t, lang, siteName: SITE_NAME }), bind: (root) => bindMusee(root, { lang, reduced: reducedMotion }) }),
   gallery: (r) => {

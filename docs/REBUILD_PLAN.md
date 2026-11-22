@@ -174,6 +174,15 @@ language buttons; `world-<id>.css` maps the current tokens onto the world), so n
 - The teacher launch pad and "Ma séance" (`teacher-dashboard.js`, `seance-model.js`) are kept and restyled; the
   chapter actions lead into them (decision 5).
 
+- Done (22 November 2026), first part: `site/js/v8/lycee.js` (the three notebooks, levels from the live courses,
+  chapters from the generated `LYCEE_CHAPTERS`), `site/js/v8/copybook.js` (the chapter page on the copybook, text from
+  the chapter deck as on the current chapter page, outline in the margin, sheets Exercices and Le chapitre, Projeter
+  through the existing player, which keeps its ground switch), `site/js/seyes-rhythm.js` (first baseline of every block
+  on a heavy line; `tests/v8_lycee_browser.py` measures it at 390 and 1280 px, and finds 49 of 56 blocks off the lines
+  without it). Exercises bank, slides index and the teacher pages stay the current pages, framed in the world.
+  Remaining: the TeX converter `build/mxbuild/texhtml.py`, course by course (definitions and theorems are then told
+  apart: until then every notion of a deck takes the green frame).
+
 ### Stage 6: Olympiades
 
 - Arena page and strategy pages from `site/js/olympiad-content.js`; the problem of the day is chosen from the date
