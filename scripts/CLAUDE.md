@@ -4,7 +4,7 @@ Builders called by `build/mxbuild` (see `pipeline.py` `COURSES`) or by `make`. E
 
 | Script | Builds or does | Called by |
 |---|---|---|
-| `catalogue-lines.mjs` | `site/js/catalogue-lines.js` and `site/js/discovery-context-data.js` from the experiment, gallery and challenge modules and the site index (`--print`: JSON of both) | `build/mxbuild/content_index.py` (`make site`) |
+| `catalogue-lines.mjs` | `site/js/catalogue-lines.js`, `site/js/discovery-context-data.js` and `site/js/world-lines.js` from the experiment, gallery and challenge modules and the site index (`--print`: JSON of both) | `build/mxbuild/content_index.py` (`make site`) |
 | `build-tex-resources.py` | Seconde, Première, Terminale PDFs | `make tex COURSE=...` |
 | `build-expertes.py`, `build-stmg.py`, `build-automatismes.py` | Maths expertes, STMG, automatismes PDFs | `make tex` |
 | `build-enrichment.py`, `enrichment_sections.py` | enrichment PDFs, HTML and site data | `make tex COURSE=enrichment` |

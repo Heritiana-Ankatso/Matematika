@@ -28,7 +28,8 @@
   --mark: #f0d9a8; --focus: #2c3d8f;   /* focus ring: indigo by day, ochre at night */
   --c1: #2563eb; --c2: #e8710a; --c3: #0f9d58; --c4: #c2185b; --c5: #7b1fa2; --c6: #00838f; --c7: #b8860b; --c8: #d84315;   /* data colours (graph colourings, series); not part of the interface palette */
 }
-:root[data-theme="nuit"] {
+:root[data-theme="nuit"], :root[data-world="musee"], :root[data-world="univ"], :root[data-world="olymp"] {
+  /* the night colours, also the base of the dark v8 worlds (their world-<id>.css maps ground, ink and accents) */
   color-scheme: dark;
   --bg: #121216; --surface: #1c1c22; --sunken: #23232b;
   --ink: #eeeae1; --ink-2: #b9bcc6; --muted: #a4a8b4;
@@ -90,30 +91,31 @@
   --w-s1: 4px; --w-s2: 8px; --w-s3: 12px; --w-s4: 16px; --w-s5: 24px; --w-s6: 32px; --w-s7: 48px; --w-s8: 72px;
   --w-t: 180ms ease;
 }
-/* Each world is night or day by design (no Jour/Nuit switch): ground, panels, rule, ink, muted ink, accent (and the text
+/* Each world is night or day by design (no Jour/Nuit switch). A block also applies to `.v8-world-<id>`, so a door of the
+   threshold wears its own world inside the black page: ground, panels, rule, ink, muted ink, accent (and the text
    on it), a second accent, the warning colour, the four type roles and the corner radius (DESIGN_V8.md section 3). */
-:root[data-world="home"] {
+:root[data-world="home"], .v8-world-home {
   color-scheme: dark;
   --w-bg: #08090c; --w-surface: #111318; --w-raise: #1a1d24; --w-rule: #272b35; --w-ink: #f1f0ec; --w-muted: #9a9fac;
   --w-accent: #e8e6df; --w-accent-ink: #08090c; --w-accent-soft: rgba(255,255,255,.08); --w-accent2: #e8e6df; --w-warn: #eb9a84;
   --w-head: "Newsreader", Georgia, serif; --w-text: "Literata", Georgia, serif; --w-ui: "Instrument Sans", system-ui, sans-serif; --w-mono: "IBM Plex Mono", ui-monospace, monospace;
   --w-r: 16px;
 }
-:root[data-world="musee"] {
+:root[data-world="musee"], .v8-world-musee {
   color-scheme: dark;
   --w-bg: #121826; --w-surface: #1b2336; --w-raise: #222c42; --w-rule: #2f3a55; --w-ink: #e8e6df; --w-muted: #a9b0c2;
   --w-accent: #d9b25f; --w-accent-ink: #121826; --w-accent-soft: rgba(217,178,95,.14); --w-accent2: #8fa8d8; --w-warn: #eb9a84;
   --w-head: "Newsreader", Georgia, serif; --w-text: "Literata", Georgia, serif; --w-ui: "Instrument Sans", system-ui, sans-serif; --w-mono: "IBM Plex Mono", ui-monospace, monospace;
   --w-r: 14px;
 }
-:root[data-world="univ"] {
+:root[data-world="univ"], .v8-world-univ {
   color-scheme: dark;
   --w-bg: #04050b; --w-surface: #0b0e1c; --w-raise: #12172b; --w-rule: #20283f; --w-ink: #eceeff; --w-muted: #98a1c4;
   --w-accent: #a594ff; --w-accent-ink: #04050b; --w-accent-soft: rgba(165,148,255,.13); --w-accent2: #62e3ea; --w-warn: #ff95a8;
   --w-head: "Instrument Serif", Georgia, serif; --w-text: "Literata", Georgia, serif; --w-ui: "IBM Plex Sans", system-ui, sans-serif; --w-mono: "IBM Plex Mono", ui-monospace, monospace;
   --w-r: 6px;
 }
-:root[data-world="lycee"] {
+:root[data-world="lycee"], .v8-world-lycee {
   color-scheme: light;
   --w-bg: #ffffff; --w-surface: #ffffff; --w-raise: #f4f6fd; --w-rule: #cfd4ee; --w-ink: #1b3796; --w-muted: #4c5ea6;
   --w-accent: #d22f45; --w-accent-ink: #ffffff; --w-accent-soft: rgba(210,47,69,.08); --w-accent2: #16804f; --w-warn: #d22f45;
@@ -122,7 +124,7 @@
   /* the Seyès copybook (section 5): heavy lines every 8 mm (32 px), three fine lines between (every 8 px), red margin */
   --w-seyes-fine: rgba(132,116,214,.24); --w-seyes-heavy: rgba(132,116,214,.55); --w-margin: #e2475c; --w-margin-x: 96px;
 }
-:root[data-world="olymp"] {
+:root[data-world="olymp"], .v8-world-olymp {
   color-scheme: dark;
   --w-bg: #0a0b0d; --w-surface: #131519; --w-raise: #1b1e24; --w-rule: #2a2e36; --w-ink: #f5f6f8; --w-muted: #8f96a5;
   --w-accent: #ff3b30; --w-accent-ink: #0a0b0d; --w-accent-soft: rgba(255,59,48,.12); --w-accent2: #f5f6f8; --w-warn: #ff8a80;

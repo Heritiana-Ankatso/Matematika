@@ -11,7 +11,7 @@ import { rememberScrolls, restoreScrolls } from "./scroll-memory.js";
 import { withEntryNav } from "./entry-nav.js";
 import { observeSvgNavigation } from "./canvas-navigation.js";
 import { discoveryChapters, companionChapters } from "./catalogue-data.js";
-import { needsOf, V8_ROUTES } from "./routes.js";
+import { needsOf, v8RouteOf } from "./routes.js";
 import { V8_ACTIVE, WORLDS, enterWorld, leaveWorld } from "./v8.js";
 // The name of this edition (Maths Explorer or Matematika), written into index.html by the build (build/mxbuild/site.py).
 const SITE_NAME = document.querySelector('meta[name="application-name"]')?.content || "Maths Explorer";
@@ -37,7 +37,7 @@ let VARIANTS, hasVariants, variantDefaults, randomParams, normaliseVariant, moun
 let basicsPage, bindBasics, isBasicsRoute, assetHref, mountExperiment, resolveRef, labRef, labIndexPage, experimentPage, bindLabIndex;
 let discoveryIndex, discoveryPage, bindDiscovery, isTopicRoute, historyPage, bindHistory, isHistoryRoute, mathematiciansTimelineUrl;
 let companionCatalog = { chapters: [] };
-let samplerPage, bindSampler;
+let samplerPage, bindSampler, thresholdPage, bindThreshold, museePage, bindMusee, exhibitPage, bindExhibit;
 const LOADERS = {
   content: async () => { ({ labs, challenges } = await import("./content.js")); pruneSaved(); },
   companion: async () => { const [{ resourceCatalog }, { liveCompanionCatalog }] = await Promise.all([import("./resources-data.js"), import("./live-curriculum.js")]); companionCatalog = liveCompanionCatalog(resourceCatalog); },
@@ -70,6 +70,9 @@ const LOADERS = {
   },
   discovery: async () => { ({ discoveryIndex, discoveryPage, bindDiscovery, isTopicRoute } = await import("./discovery.js")); },
   v8sampler: async () => { ({ samplerPage, bindSampler } = await import("./v8/sampler.js")); },
+  v8threshold: async () => { ({ thresholdPage, bindThreshold } = await import("./v8/threshold.js")); },
+  v8musee: async () => { ({ museePage, bindMusee } = await import("./v8/musee.js")); },
+  v8exhibit: async () => { ({ exhibitPage, bindExhibit } = await import("./v8/exhibit.js")); },
   history: async () => { ({ historyPage, bindHistory, isHistoryRoute, mathematiciansTimelineUrl } = await import("./history.js")); },
 };
 const loaded = new Set(), loading = new Map();
@@ -224,7 +227,7 @@ let lastPage = null, renderSerial = 0;
 // Applies the redirects of the address and returns the groups of code (routes.js) its page still needs.
 function missingFor() {
   let r = route();
-  if (V8_ACTIVE && V8_ROUTES[r.page]) return V8_ROUTES[r.page].needs.filter((g) => !loaded.has(g));
+  if (V8_ACTIVE && v8RouteOf(r)) return v8RouteOf(r).needs.filter((g) => !loaded.has(g));
   if (!isLiveRoute(r)) {
     history.replaceState(null, '', '#resources');
     r = route();
@@ -261,6 +264,12 @@ function unavailable() {
 // A page in its v8 world (docs/DESIGN_V8.md): its own frame (top bar, world menu), no current header or footer.
 const V8_DRAW = {
   v8: (r) => ({ world: WORLDS.includes(r.id) ? r.id : "home", html: samplerPage(r.id, { t, siteName: SITE_NAME }), bind: bindSampler }),
+  home: () => ({ world: "home", html: thresholdPage({ t, lang, siteName: SITE_NAME }), bind: (root) => bindThreshold(root, { reduced: reducedMotion }) }),
+  musee: () => ({ world: "musee", html: museePage({ t, lang, siteName: SITE_NAME }), bind: (root) => bindMusee(root, { lang, reduced: reducedMotion }) }),
+  gallery: (r) => {
+    const lab = labs.find((l) => l.custom && l.id === r.id);
+    return { world: "musee", html: exhibitPage(lab, { t, lang, siteName: SITE_NAME }), bind: (root) => bindExhibit(root, lab, { lang, reduced: reducedMotion, state: state(lab) }) };
+  },
 };
 function drawV8() {
   const r = route();
@@ -292,7 +301,7 @@ function draw(serial) {
   const keptScrolls = rememberScrolls($("#app")), cameFrom = lastPage;
   teardown();
   $("#app").removeAttribute("aria-busy");
-  if (V8_ACTIVE && V8_ROUTES[route().page]) { drawV8(); return; }
+  if (V8_ACTIVE && v8RouteOf(route()) && (route().page !== "gallery" || labs.some((l) => l.custom && l.id === route().id))) { drawV8(); return; }
   leaveWorld();
   let r = route();
   if (!isLiveRoute(r)) {
