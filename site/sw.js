@@ -1,6 +1,7 @@
 /* Maths Explorer service worker: the application shell always starts, and what was opened stays available offline.
    Contract and limits: docs/OFFLINE.md. The build (build/mxbuild/offline.py) replaces the next line by the manifest of
-   the shell: { version, bytes, files: [[path, sha1 of the content cut to 10 characters], ...] }. */
+   the shell: { version, bytes, files: [[path, sha1 of the content cut to 10 characters], ...], known: [[path, sha1], ...] }.
+   `files` is precached; `known` (every other module) is cached when a page first uses it, after its content is checked. */
 self.__MX_SHELL = null;
 
 const SHELL = self.__MX_SHELL;
@@ -14,6 +15,7 @@ const META = SCOPE + '__mx-offline-index__';                     // sizes and da
 const LIMITS = { entries: 400, bytes: 150 * 1024 * 1024, item: 40 * 1024 * 1024 };
 const NETWORK_WAIT = 4000;                                       // ms before a cached copy answers a slow network
 const FILES = new Map(SHELL ? SHELL.files : []);
+const KNOWN = new Map(SHELL && SHELL.known ? SHELL.known : []);
 const HASH10 = /^[0-9a-f]{10}$/;
 const FRESH = /\.(html?|json|js|mjs|css)$/i;                     // network first; anything else: stale-while-revalidate
 
@@ -223,7 +225,14 @@ async function respond(event, request, url) {
       const hit = await cached(url.href);
       if (hit) return hit;
       const response = await fetch(request);
-      if (response.status === 200) keep(event, url.href, response, version);
+      if (response.status !== 200) return response;
+      // A module of this version: the server may already hold the next version (a deployment happened since this
+      // worker installed). Such a copy is never kept, and the worker looks for the new version, whose notice follows.
+      if (KNOWN.get(path) === version && HASH10.test(version)) {
+        const actual = await sha10(await response.clone().arrayBuffer());
+        if (actual && actual !== version) { event.waitUntil(self.registration.update().catch(() => {})); return response; }
+      }
+      keep(event, url.href, response, version);
       return response;
     }
     const copy = await cached(url.href);

@@ -1,4 +1,5 @@
-// Offline support in a real browser (npm run test:offline; needs a built dist/ and Playwright's Chromium).
+// Offline support in a real browser (npm run test:offline; needs a built dist/ and Playwright's Chromium). Only the shell
+// is precached (owner, 22 November 2026); what a page uses is cached when it is opened.
 // Serves dist/ under a sub-path, as GitHub Pages does, then: the worker installs and controls the page, routes are
 // opened online, the network is cut (browser offline and server refusing), every route still renders, a formula is
 // typeset, the slide player and a foundation lesson opened before still work, a cached PDF answers Range requests, an
@@ -162,10 +163,16 @@ try {
     assert.match(await badge.textContent(), /Hors connexion|Offline/);
   });
 
-  await step('offline: a page never opened online renders and MathJax typesets its formulas', async () => {
-    await open(UNOPENED);
-    await page.waitForFunction(() => document.querySelectorAll('#main mjx-container svg').length > 0, null, { timeout: 20000 });
-    assert.equal(await page.locator('#main mjx-container [data-mjx-error]').count(), 0);
+  // owner, 22 November 2026: a smaller offline copy; only the shell is precached, so a page never opened online says it
+  // could not load (no page error), and the pages opened before still work
+  await step('offline: a page never opened online says it is unavailable, without a page error', async () => {
+    problems.length = 0;
+    await page.evaluate(h => { location.hash = h; }, UNOPENED);
+    await page.waitForFunction(() => /indisponible|unavailable/i.test(document.querySelector('#main h1')?.textContent || ''), null, { timeout: 15000 });
+    // its modules cannot be fetched (expected); nothing else may fail
+    assert.deepEqual(problems.filter(p => p.startsWith('pageerror')), []);
+    problems.length = 0;
+    for (const hash of ROUTES.slice(0, 2)) await open(hash);
     assert.deepEqual(problems, []);
   });
 
