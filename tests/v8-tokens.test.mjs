@@ -6,7 +6,7 @@ import assert from 'node:assert/strict';
 import { readFileSync, existsSync, readdirSync } from 'node:fs';
 
 const css = readFileSync(new URL('../site/styles/tokens.css', import.meta.url), 'utf8');
-const worlds = Object.fromEntries([...css.matchAll(/:root\[data-world="(\w+)"\]\s*\{([^}]*)\}/g)].map(([, id, body]) =>
+const worlds = Object.fromEntries([...css.matchAll(/:root\[data-world="(\w+)"\][^{]*\{([^}]*)\}/g)].map(([, id, body]) =>
   [id, Object.fromEntries([...body.matchAll(/--(w-[\w-]+):\s*([^;]+);/g)].map(([, k, v]) => [k, v.trim()]))]));
 
 const rgb = (hex) => { const h = hex.replace('#', ''); return [0, 2, 4].map((i) => parseInt(h.slice(i, i + 2), 16) / 255); };
