@@ -66,11 +66,19 @@ function storyIndex(t) {
   return `<main id="main" class="page read-page" tabindex="-1"><div class="page-heading"><div><h1>${t(["Histoires et lectures", "Stories and readings"])}</h1><p>${t(["Des anecdotes dont on examine les sources, et des lectures pour comprendre les expériences.", "Stories whose sources are examined, and readings that explain the experiments."])}</p></div></div>
   <div class="read-grid">${STORIES.map((s) => { const who = BIOGRAPHIES.find((b) => b.id === s.who), person = who ? who.name : s.figure || ""; return `<a class="read-card" href="#stories/${s.id}">${plate(person, s.id)}<span class="read-card-body"><strong>${esc(t(s.title))}</strong>${person ? `<span class="read-dates">${esc(person)}</span>` : ""}<span>${esc(t(s.dek))}</span></span></a>`; }).join("")}</div></main>`;
 }
+// A reading that explains a curiosity of the gallery shows that curiosity's live figure beside the text, kept in view
+// while the text scrolls (app.js mountReadFigure fills it); on a narrow screen the figure comes after the text.
+function withFigure(text, links, t) {
+  const exhibit = (links || []).map((h) => h.match(/^#gallery\/([\w-]+)$/)?.[1]).find((id) => id && labs.some((l) => l.custom && l.id === id));
+  if (!exhibit) return text;
+  const title = labs.find((l) => l.id === exhibit).title;
+  return `<div class="read-split"><div class="read-main">${text}<div class="read-mission" data-mission-slot hidden></div></div><aside class="read-figure" aria-label="${esc(t(["Le modèle, à manipuler", "The model, to handle"]))}"><div class="read-figure-frame"><p class="read-figure-kicker">${t(["À manipuler pendant la lecture", "Handle it while you read"])}</p><div class="object-stage" data-read-object="${exhibit}"></div><a class="read-figure-open" href="#gallery/${exhibit}">${t(["Ouvrir la pièce", "Open the exhibit"])} · ${esc(t(title))} →</a></div></aside></div>`;
+}
 function storyPage(s, t) {
   const hash = "#stories/" + s.id, who = BIOGRAPHIES.find((b) => b.id === s.who);
   return `<main id="main" class="page read-page" tabindex="-1"><a class="backlink" href="#stories">${t(["Toutes les histoires", "All stories"])}</a>
   <article class="read-article"><header class="read-header">${plate(who ? who.name : s.figure || "", s.id)}<div><span class="section-kicker">${t(s.kind==='lesson'?["Lecture mathématique", "Mathematical reading"]:["Histoire", "Story"])}${who ? ` · <a href="#biographies/${who.id}">${esc(who.name)}</a>` : s.figure ? ` · ${esc(s.figure)}` : ""}</span><h1>${esc(t(s.title))}</h1><p class="read-dek">${esc(t(s.dek))}</p></div></header>
-  <div class="read-text read-story">${body(s.sections, t)}</div>
+  ${withFigure(`<div class="read-text read-story">${body(s.sections, t)}</div>`, s.links, t)}
   ${readAlso(hash, s.links, t)}${sourcesList(s.sources, t)}</article></main>`;
 }
 

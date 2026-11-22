@@ -57,6 +57,16 @@
 
 /* the exhibit page: hook, live figure, the mathematics, where it is found, the courses, the same room */
 .v8 .v8-ex-w { max-width: 48rem; padding-block: 32px 100px; }
+/* on a computer the page uses its width: the reading column on the left, the live figure on the right, kept in view
+   while the explanation scrolls (a figure taller than the window shows the rest when the text ends) */
+@media (min-width: 1100px) {
+  .v8 .v8-ex-w { max-width: min(1480px, 100%); }
+  .v8-ex-grid { display: grid; grid-template-columns: minmax(24rem, 36rem) minmax(0, 1fr); grid-template-areas: "head stage" "text stage"; column-gap: clamp(28px, 3vw, 56px); align-items: start; }
+  .v8-ex-head { grid-area: head; }
+  .v8-ex-text { grid-area: text; }
+  .v8-ex-grid > .v8-stage { grid-area: stage; margin: 0; align-self: start; position: sticky; top: calc(var(--w-bar) + 16px); }
+  .v8-ex-text > h2:first-child { margin-top: 1.2em; }
+}
 .v8-crumbs { font: 500 .9rem var(--w-ui); color: var(--w-muted); }
 .v8-crumbs a { color: var(--w-muted); text-decoration: none; }
 .v8-crumbs a:hover { color: var(--w-ink); }
@@ -69,4 +79,5 @@
 .v8-cartel dt { font: 600 .85rem var(--w-ui); color: var(--w-muted); }
 .v8-cartel dd { margin: 0; }
 @media (max-width: 520px) { .v8-cartel dl { grid-template-columns: minmax(0, 1fr); } .v8-cartel dd { margin-bottom: 6px; } }
+.v8-ex-mission { margin: 1.6em 0; }
 .v8-source { margin-top: 2.4em; font: 500 .9rem var(--w-ui); }

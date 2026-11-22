@@ -36,16 +36,17 @@ function fit(cv) {
 
 // Each drawing: (canvas, colours) -> frame(seconds, still) returning false once nothing moves any more.
 const DRAW = {
-  // Musée: the chaos game, in gold, point after point
+  // Musée: the chaos game, in gold; a few points at first, then faster and faster, each one faint, so the triangle
+  // uncovers itself where they pile up instead of appearing at once
   musee(cv, col) {
-    const TOTAL = 16000; let n = 0, x = 0, y = 0, rnd = lcg(3), size = '';
+    const TOTAL = 30000; let n = 0, x = 0, y = 0, rnd = lcg(3), size = '', start = null;
     return (s, still) => {
       const [c, W, H] = fit(cv);
-      if (size !== W + 'x' + H) { size = W + 'x' + H; n = 0; rnd = lcg(3); x = W / 2; y = H / 2; c.clearRect(0, 0, W, H); }
+      if (size !== W + 'x' + H) { size = W + 'x' + H; n = 0; rnd = lcg(3); x = W / 2; y = H / 2; start = s; c.clearRect(0, 0, W, H); }
       const side = Math.min(W, H * 1.15) * 0.8, ox = (W - side) / 2, oy = Math.max(8, (H - side * 0.86) / 2), V = [[ox + side / 2, oy], [ox, oy + side * 0.86], [ox + side, oy + side * 0.86]];
-      c.fillStyle = col.accent; c.globalAlpha = 0.6;
-      const k = still ? TOTAL : n ? 160 : 800;
-      for (let i = 0; i < k && n < TOTAL; i++, n++) { const v = V[Math.floor(rnd() * 3)]; x = (x + v[0]) / 2; y = (y + v[1]) / 2; if (n > 20) c.fillRect(x, y, 1, 1); }
+      const want = still ? TOTAL : Math.min(TOTAL, Math.floor(Math.expm1((s - start) * 1.1) * 4));
+      c.fillStyle = col.accent;
+      for (; n < want; n++) { const v = V[Math.floor(rnd() * 3)]; x = (x + v[0]) / 2; y = (y + v[1]) / 2; if (n > 20) { c.globalAlpha = n < 600 ? 0.8 : 0.35; c.fillRect(x - 0.6, y - 0.6, n < 600 ? 1.8 : 1.2, n < 600 ? 1.8 : 1.2); } }
       c.globalAlpha = 1;
       return n < TOTAL;
     };
