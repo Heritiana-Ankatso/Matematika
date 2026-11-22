@@ -1,11 +1,11 @@
 {
-  "about": "Loading budget per page, checked by tests/budget_browser.mjs: requests, JavaScript requests and kilobytes transferred (gzip) excluding fonts. Stage 0 of docs/REBUILD_PLAN.md: today's values plus 2 % (non-regression); stage 1 tightens them.",
+  "about": "Loading budget per page, checked by tests/budget_browser.mjs: requests, JavaScript requests and kilobytes transferred (gzip) excluding fonts. Stage 1 of docs/REBUILD_PLAN.md: the values measured after stage 1 plus a small margin; a page that grows beyond them fails. Requests include the 13 stylesheets and 5 fonts every page loads today (stage 2 groups the stylesheets by world).",
   "pages": {
-    "home": { "requests": 546, "js": 527, "kbNoFonts": 2600 },
-    "chapter": { "requests": 548, "js": 528, "kbNoFonts": 3320 },
-    "university": { "requests": 551, "js": 530, "kbNoFonts": 3340 },
-    "lab": { "requests": 546, "js": 527, "kbNoFonts": 2600 },
-    "gallery": { "requests": 549, "js": 528, "kbNoFonts": 2600 },
-    "olympiad": { "requests": 546, "js": 528, "kbNoFonts": 3310 }
+    "home": { "requests": 50, "js": 30, "kbNoFonts": 190 },
+    "chapter": { "requests": 65, "js": 46, "kbNoFonts": 1080 },
+    "university": { "requests": 58, "js": 37, "kbNoFonts": 1010 },
+    "lab": { "requests": 130, "js": 111, "kbNoFonts": 530 },
+    "gallery": { "requests": 466, "js": 445, "kbNoFonts": 1820 },
+    "olympiad": { "requests": 56, "js": 38, "kbNoFonts": 940 }
   }
 }

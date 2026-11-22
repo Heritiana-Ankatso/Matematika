@@ -1,6 +1,6 @@
 // Publication scope only. The complete catalogues and archived resources stay intact.
 import { courses, discoveryChapters } from './catalogue-data.js';
-import { pathways } from './content.js';
+import { pathways } from './pathways-data.js';
 import { FULL_EDITION } from './edition-scope.js';
 // Two editions of the same code, chosen by the build from editions/<id>/scope.json (js/edition-scope.js). false: the
 // French lycée site. true: the complete edition with the Malagasy, international, university and Olympiad content

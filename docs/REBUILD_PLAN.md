@@ -44,6 +44,35 @@ from navigation start; "content" is the first heading drawn in `#app`, "settled"
 On a phone over slow mobile data nothing is drawn for about 19 s, on every page, because the whole import graph must
 arrive before `app.js` runs. Budgets (`tests/budgets.json`) start at these values plus 2 %.
 
+### Stage 1 result (22 November 2026)
+
+Same measurement after stage 1 (one shell, page code on demand, light generated data):
+
+| Page | Requests | JS | KB without fonts | First paint | Content | Before (content) |
+|---|---|---|---|---|---|---|
+| home | 47 | 28 | 174 | 4936 | 4930 | 20227 |
+| lycée chapter | 62 | 43 | 1037 | 6356 | 6348 | 25480 |
+| university lesson | 55 | 34 | 975 | 5696 | 5697 | 25586 |
+| laboratory | 126 | 107 | 505 | 7564 | 7557 | 20269 |
+| gallery exhibit | 453 | 432 | 1766 | n/a | 16456 | 20608 |
+| Olympiad | 53 | 35 | 901 | 6048 | 6040 | 24920 |
+
+What was done: `site/js/routes.js` (every page, its world, its code groups) and `app.js` `LOADERS` (`import()` on first
+opening; a page already loaded is drawn at once, as before); the generated catalogue split in three
+(`catalogue-data.js`, `asset-versions.js` for pages that link files, `annals-data.js`); `pathways-data.js` out of
+`content.js`; MathJax in `mathjax.js` (no longer behind the exercise generators); light generated lines
+(`catalogue-lines.js`, `lab/lines.js`) for pages that only name experiments or challenges; the box "Cette idée dans le
+site" filled from generated data (`discovery-context-data.js`) when the end of the page nears the viewport, like the
+related box. The chapter and Olympiad pages fetch the laboratory and the slide widgets only when they show one.
+
+Kilobytes of the chapter, university and Olympiad pages are mostly MathJax (about 700 KB gzip), which those pages need
+for their formulas. Targets of section 4: the home is at 28 JavaScript requests and 174 KB, but 47 requests in all
+because every page still loads 13 stylesheets and 5 fonts; stage 2 (one stylesheet per world) brings it near 30. Not
+done yet, left for stage 3 where the exhibit page is rebuilt: the gallery exhibit still loads every exhibit
+(`lab-objects.js` imports all of them) and the laboratory index every experiment (`lab/registry.js`). The service worker
+still precaches every module on the first visit (offline use of pages never opened); narrowing it to the shell would let
+a page mix two versions during an update, so it waits for an owner decision.
+
 ## 3. The switch
 
 - `site/js/v8.js` exports `V8_ACTIVE`: false by default; true when the address carries `?v8` (remembered on the device

@@ -1,5 +1,15 @@
 # Handoff
 
+## Design v8 rebuild: stages 0 and 1 (22 November 2026)
+
+Stage 0: `tests/budget_browser.mjs` (`npm run test:budget`, CI `browser`) measures six pages against `tests/budgets.json`.
+Stage 1: the shell (`site/js/app.js`) imports only itself; each page's code is loaded with `import()` from the groups
+named in `site/js/routes.js` (`LOADERS` in `app.js`). Light generated data for pages that only name entries:
+`catalogue-lines.js`, `discovery-context-data.js` (`scripts/catalogue-lines.mjs`), the catalogue split into
+`catalogue-data.js`, `asset-versions.js`, `annals-data.js`. MathJax is in `site/js/mathjax.js`. Measurements and what is
+left (gallery exhibits, laboratory index, service worker precache) in `docs/REBUILD_PLAN.md` section 2. No visible change.
+Next: stage 2 behind `?v8`.
+
 ## Organisation and commands (21 November 2026)
 
 Four menu sections named by what the visitor does: Apprendre, Explorer (Domaines, Laboratoire, Curiosités, Fractales,
