@@ -44,6 +44,7 @@ export const V8_ROUTES = {
   musee: { needs: ['v8musee'] },
   gallery: { needs: ['content', 'v8exhibit'], match: (r) => !!r.id },
   university: { needs: ['v8univ'], match: (r) => !r.id },
+  olympiad: { needs: ['v8olymp'], match: (r) => !r.id },
 };
 export const v8RouteOf = (r) => { const x = V8_ROUTES[r.page]; return x && (!x.match || x.match(r)) ? x : null; };
 

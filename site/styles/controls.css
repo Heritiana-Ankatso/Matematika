@@ -212,3 +212,12 @@ details > summary:hover::after { color: var(--ink); }
 @media (max-width: 420px) { .v8-bar .v8-brand span { display: none; } }
 /* a page of the current look framed in its world (app.js v8Frame): only the bar is v8 */
 .v8-frame { position: sticky; top: 0; z-index: 30; }
+/* shared by the worlds: section bands, eyebrow line, lead paragraph, chips of links */
+.v8-eyebrow, .v8-where { font: 600 .72rem var(--w-ui); letter-spacing: .09em; text-transform: uppercase; color: var(--w-accent); }
+.v8-band { padding-block: clamp(40px, 8vh, 80px) 0; }
+.v8-band:last-child { padding-bottom: 80px; }
+.v8-band h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); }
+.v8-chips { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.v8-chips a { display: inline-flex; align-items: center; min-height: var(--w-target); padding: 6px 14px; border: 1px solid var(--w-rule); border-radius: 20px; color: var(--w-ink); text-decoration: none; font: 500 .92rem var(--w-ui); }
+.v8-chips a:hover { border-color: var(--w-accent); }
+.v8-lede { font-size: 1.1rem; color: var(--w-muted); max-width: 52ch; margin: .7em 0 1.4em; }

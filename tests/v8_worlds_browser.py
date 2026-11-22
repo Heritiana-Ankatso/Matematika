@@ -1,7 +1,8 @@
 """Design v8, stages 4 to 8 (docs/REBUILD_PLAN.md): under ?v8 every page is in a world. The pages built for v8 (threshold,
 Musée, exhibits, Université, ...) and every page of the current look, framed by its world's top bar, ground and palette:
 the expected world on the root, the world's top bar, no horizontal overflow at 390 px, no page error. Université: folded
-courses one open at a time, the Syracuse sequence, the language buttons. Run by run_browser.py."""
+courses one open at a time, the Syracuse sequence, the language buttons. Olympiades: the arena (problem of the day, squares,
+warm-ups) and a strategy page in its world. Run by run_browser.py."""
 import os, shutil
 from playwright.sync_api import sync_playwright
 
@@ -44,5 +45,16 @@ with sync_playwright() as p:
     page.locator('.v8-lang [data-lang="fr"]').click()
     page.wait_for_function("document.documentElement.lang === 'fr'")
     assert not errors, errors
+
+    # Olympiades arena: the problem of the day with folded hints, the squares, the warm-ups
+    page.evaluate("h => { location.hash = h; }", '#olympiad'); page.locator('.v8-day').wait_for()
+    assert page.locator('.v8-day details[open]').count() == 0
+    page.locator('.v8-day details summary').first.click()
+    assert page.locator('.v8-day details[open]').count() == 1
+    assert page.locator('.v8-squares .v8-sq').count() >= 50
+    assert page.locator('.v8-chips a[href^="#challenges/"]').count() >= 1
+    page.locator('.v8-strategies a').first.click()
+    page.wait_for_function("/^#olympiad\\/./.test(location.hash) && document.documentElement.dataset.world === 'olymp'")
+    assert not errors, errors
     context.close(); browser.close()
-print(f'v8 worlds browser checks passed ({len(PAGES)} pages in their world at 390 px, Université)')
+print(f'v8 worlds browser checks passed ({len(PAGES)} pages in their world at 390 px, Université, arena)')
