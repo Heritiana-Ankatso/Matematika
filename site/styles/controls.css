@@ -5,7 +5,7 @@
 
    Kinds, and how each shows its state:
    - action button (.btn, .primary, .secondary, .btn-quiet, .text-button, .icon-btn): does something now; no state.
-   - choice of one (.seg, .filter, .pick, .language, .lab2-segment, .lab2-scene, .slide-type-toggle): a group where one
+   - choice of one (.seg, .filter, .pick, .language, .lab2-segment, .lab2-scene, .slide-type-toggle, [data-fig=choice]): a group where one
      is on; on = indigo fill.
    - toggle (.btn-secondary[aria-pressed], .gen-chip): independent on/off; on = indigo fill and a check mark.
    - answer option (.lab2-option, .lab2-variant, .error-step, .cl-tok): the student's pick in a question, not a
@@ -29,7 +29,10 @@
 .language button[aria-pressed="true"],
 .lab2-segment.is-on,
 .exh-pane .btn[aria-pressed="true"], .exhibit-controls .btn[aria-pressed="true"],
-.slide-type-toggle button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.slide-type-toggle button[aria-pressed="true"],
+.btn[data-fig="choice"][aria-pressed="true"], .btn[data-fig="choice"][aria-pressed="true"]:hover { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+/* a pick-one group of a figure console (figure-layout.js marks it data-fig="choice"): the fill alone, no check mark */
+.btn[data-fig="choice"][aria-pressed="true"]::before { content: none; }
 .seg[aria-pressed="true"] span, .slide-type-toggle button[aria-pressed="true"] span { color: var(--accent-ink); opacity: 0.85; }
 .filter, .pick, .lab2-segment { min-height: 44px; }
 .filter:hover:not([aria-pressed="true"]), .lab2-segment:hover:not(.is-on):not(:disabled) { border-color: var(--ink); background: var(--surface); }

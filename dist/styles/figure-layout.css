@@ -8,7 +8,6 @@
    and value on one line, the slider across), then the secondary actions as one joined toolbar of equal flat cells, then
    example lists as rows, then the live values as a table. The help line closes the panel on a phone and opens it on a
    wide screen. Spacing: 4 px steps; 6 inside a group, 14 between groups. */
-
 .fig-layout { container: fig / inline-size; --fig-room: calc(100svh - var(--chrome, var(--header, 64px)) - 130px); --fig-gap: 14px; }
 .fig-split { display: grid; gap: 18px; }
 .fig-main { min-width: 0; display: grid; gap: 12px; align-content: start; }
@@ -31,42 +30,26 @@
 .fig-console .act-field { flex: none; width: 100%; display: grid; gap: 4px; font-weight: 700; }
 .fig-console .act-label { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
 .fig-console .act-field output { font: 600 1.05rem var(--math); color: var(--accent); font-variant-numeric: tabular-nums; white-space: nowrap; }
-.fig-console input[type="range"] { width: 100%; min-height: 32px; margin: 0; accent-color: var(--accent); }
+.fig-console input[type="range"] { width: 100%; min-height: 32px; margin: 0; }
 .fig-console select { width: 100%; min-height: 44px; }
-.fig-console label:has(> input[type="checkbox"]), .fig-console label:has(> input[type="radio"]) { display: flex; align-items: center; gap: 10px; min-height: 40px; font-weight: 700; }
-.fig-console :is(input[type="checkbox"], input[type="radio"]) { width: 20px; height: 20px; accent-color: var(--accent); }
+.fig-console label:has(> input[type="checkbox"]), .fig-console label:has(> input[type="radio"]) { display: flex; align-items: center; gap: 10px; min-height: 40px; }
+.fig-console :is(input[type="checkbox"], input[type="radio"]) { width: 20px; height: 20px; }
 .fig-console [hidden] { display: none !important; }
 
 /* buttons: the secondary ones are flat cells of one joined toolbar, equal in size */
-.fig-console :is(.exhibit-actions, .act-buttons, .exhibit-subcontrols, .act-controls:not(:has(.act-field, select, input))) {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(min(120px, 100%), 1fr)); gap: 0; margin: 0; padding: 0; border: 0; flex: none; align-content: start; }
-.fig-console :is(.exhibit-actions, .act-buttons, .exhibit-subcontrols, .act-controls) > :is(.btn, button) {
-  width: 100%; min-width: 0; min-height: 44px; margin: 0; padding: 6px 10px; white-space: normal; text-align: center; justify-content: center;
-  font: 700 0.98rem/1.2 var(--ui); border: 1px solid var(--line-strong); box-shadow: none; transform: none;
-  margin: 0 -2px -2px 0; position: relative; }
-.fig-console :is(.exhibit-actions, .act-buttons, .exhibit-subcontrols, .act-controls) > :is(.btn, button):hover { transform: none; box-shadow: none; background: var(--sunken); z-index: 1; }
+.fig-console :is(.exhibit-actions, .act-buttons, .exhibit-subcontrols, .act-controls:not(:has(.act-field, select, input))) { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(120px, 100%), 1fr)); gap: 0; margin: 0; padding: 0; border: 0; flex: none; align-content: start; }
+.fig-console :is(.exhibit-actions, .act-buttons, .exhibit-subcontrols, .act-controls) > :is(.btn, button) { width: 100%; min-width: 0; min-height: 44px; margin: 0; padding: 6px 10px; white-space: normal; text-align: center; justify-content: center; margin: 0 -2px -2px 0; position: relative; }
 .fig-console :is(.exhibit-actions, .act-buttons, .exhibit-subcontrols, .act-controls) > :is(.btn, button):focus-visible { z-index: 2; }
-.fig-console :is(.exhibit-actions, .act-buttons, .exhibit-subcontrols, .act-controls) > :is(.btn, button)[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); }
-.fig-console :is(.exhibit-actions, .act-buttons, .act-controls) > .btn-secondary[data-fig="toggle"] { order: 2; }   /* toggles after the actions; their look is the toggle of controls.css */
-.fig-console :is(.exhibit-actions, .act-buttons, .act-controls) > .btn-secondary[aria-pressed="true"]::before { content: "\2713"; display: grid; place-items: center; background: var(--accent); color: var(--accent-ink); font-size: 14px; line-height: 1; }
-.fig-console :is(.exhibit-actions, .act-buttons, .exhibit-subcontrols, .act-controls) > :is(.btn, button):disabled { color: var(--muted); border-style: solid; background: var(--surface); }
+.fig-console :is(.exhibit-actions, .act-buttons, .act-controls) > .btn-secondary[data-fig="toggle"] { order: 2; }
 /* the main action: the one raised red button, on its own row, first */
-.fig-console :is(.exhibit-actions, .act-buttons, .exhibit-subcontrols, .act-controls) > .btn-primary {
-  order: -1; grid-column: 1 / -1; min-height: 52px; margin: 0 0 12px; font-size: 1.08rem;
-  border-width: 1px; }
-.fig-console :is(.exhibit-actions, .act-buttons, .exhibit-subcontrols, .act-controls) > .btn-primary:hover { background: var(--accent); transform: translate(-2px, -2px); }
+.fig-console :is(.exhibit-actions, .act-buttons, .exhibit-subcontrols, .act-controls) > .btn-primary { order: -1; grid-column: 1 / -1; min-height: 52px; margin: 0 0 12px; }
 .fig-console .exhibit-controls > .exhibit-actions { order: -1; }                 /* the actions open the panel */
 .fig-console .exhibit-controls > .exhibit-presets { order: 5; }                 /* examples close it */
 .fig-console .exhibit-controls > :is(.exhibit-subcontrols, .exhibit-actions) { padding: 0; border: 0; }
 
 /* example lists (five buttons or more, or a group marked as presets): rows of one list, left aligned, equal height */
-.fig-console :is(.exhibit-presets, .act-buttons:has(> button:nth-of-type(5)), .act-controls:not(:has(.act-field, select, input)):has(> button:nth-of-type(5))) {
-  display: flex; flex-direction: column; gap: 0; border: 1px solid var(--line-strong); }
-.fig-console :is(.exhibit-presets, .act-buttons:has(> button:nth-of-type(5)), .act-controls:not(:has(.act-field, select, input)):has(> button:nth-of-type(5))) > :is(.btn, button) {
-  display: flex; justify-content: flex-start; text-align: left; min-height: 40px; margin: 0; padding: 6px 12px; border: 0; border-radius: 0; box-shadow: none; transform: none; background: var(--surface); color: var(--ink); font: 700 0.95rem/1.25 var(--ui); }
-.fig-console :is(.exhibit-presets, .act-buttons:has(> button:nth-of-type(5)), .act-controls:not(:has(.act-field, select, input)):has(> button:nth-of-type(5))) > :is(.btn, button) + :is(.btn, button) { border-top: 1px solid var(--line); }
-.fig-console :is(.exhibit-presets, .act-buttons:has(> button:nth-of-type(5))) > :is(.btn, button):hover { background: var(--sunken); }
-.fig-console :is(.exhibit-presets, .act-buttons:has(> button:nth-of-type(5))) > :is(.btn, button)[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); }
+.fig-console :is(.exhibit-presets, .act-buttons:has(> button:nth-of-type(5)), .act-controls:not(:has(.act-field, select, input)):has(> button:nth-of-type(5))) { display: flex; flex-direction: column; gap: 0; }
+.fig-console :is(.exhibit-presets, .act-buttons:has(> button:nth-of-type(5)), .act-controls:not(:has(.act-field, select, input)):has(> button:nth-of-type(5))) > :is(.btn, button) { display: flex; justify-content: flex-start; text-align: left; min-height: 40px; margin: 0 0 -2px; padding: 6px 12px; position: relative; }
 .fig-console .exhibit-presets::before { content: attr(aria-label); display: block; padding: 6px 12px; font-weight: 700; font-size: 0.9rem; color: var(--ink-2); background: var(--sunken); border-bottom: 1px solid var(--line); }
 
 /* the caption under the figure: what it shows now, one fact per line */
@@ -107,18 +90,13 @@
 /* ---- groups built by gallery-kit.js ---------------------------------------------------------------------------------- */
 /* transport: back, play, forward joined; play is the main action, the timeline sits right under */
 .fig-console .fig-transport { display: grid; grid-template-columns: 56px minmax(0, 1fr) 56px; align-items: stretch; flex: none; }
-.fig-console .fig-transport > .btn { min-height: 52px; margin: 0; padding: 6px 8px; border: 1px solid var(--line-strong); box-shadow: none; transform: none; font: 700 1.05rem/1.2 var(--ui); }
+.fig-console .fig-transport > .btn { min-height: 52px; margin: 0; padding: 6px 8px; }
 .fig-console .fig-transport > .btn + .btn { border-left-width: 0; }
-.fig-console .fig-transport > .btn-secondary:hover { background: var(--sunken); transform: none; box-shadow: none; }
-.fig-console .fig-transport > .btn-primary:hover { background: var(--accent); transform: none; box-shadow: none; }
-.fig-console .fig-transport > .btn:active { transform: none; box-shadow: none; }
 .fig-console .fig-transport { }
 .fig-console .fig-transport + .act-field { margin-top: -4px; }
 /* a choice and its action on one line */
 .fig-console .fig-choice { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: end; gap: 8px; flex: none; }
-.fig-console .fig-choice > .btn { min-height: 44px; margin: 0; padding: 6px 14px; border: 1px solid var(--line-strong); box-shadow: none; transform: none; font: 700 0.98rem/1.2 var(--ui); }
-.fig-console .fig-choice > .btn:hover { background: var(--sunken); transform: none; box-shadow: none; }
-.fig-console .fig-choice > .btn[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); }
+.fig-console .fig-choice > .btn { min-height: 44px; margin: 0; padding: 6px 14px; }
 /* order of the figure column: what comes before the figure, the figure, its caption, then plots and notes */
 .fig-main > * { order: 3; }
 .fig-main > [data-fig-band] { order: 1; }
@@ -141,17 +119,12 @@
 
 /* the laboratory card (gallery and laboratory pages): the same vocabulary as the console */
 .lab2-card .lab2-segments { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(120px, 100%), 1fr)); gap: 0; }
-.lab2-card .lab2-segment { min-height: 44px; margin: 0 -2px -2px 0; padding: 6px 10px; border: 1px solid var(--line-strong); border-radius: 0; background: var(--surface); color: var(--ink); box-shadow: none; transform: none; font: 700 0.98rem/1.2 var(--ui); text-align: center; position: relative; }
-.lab2-card .lab2-segment:hover:not(:disabled) { background: var(--sunken); z-index: 1; }
-.lab2-card .lab2-segment.is-on { background: var(--accent); color: var(--accent-ink); border-color: var(--line-strong); }
+.lab2-card .lab2-segment { min-height: 44px; margin: 0 -2px -2px 0; padding: 6px 10px; text-align: center; position: relative; }
 .lab2-card .lab2-segment:focus-visible { z-index: 2; }
-.lab2-card .lab2-play, .lab2-card .lab2-stream-toggle { justify-self: stretch; width: 100%; min-height: 52px; background: var(--accent); color: var(--accent-ink); border: 1px solid var(--line-strong); }
+.lab2-card .lab2-play, .lab2-card .lab2-stream-toggle { justify-self: stretch; width: 100%; min-height: 52px; }
 .lab2-card .lab2-options { gap: 0; border: 1px solid var(--line-strong); }
-.lab2-card .lab2-option { min-height: 44px; margin: 0; border: 0; border-radius: 0; box-shadow: none; transform: none; }
-.lab2-card .lab2-option + .lab2-option { border-top: 1px solid var(--line); }
-.lab2-card .lab2-option[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); }
-.lab2-card .lab2-open { align-self: flex-start; min-height: 44px; padding: 0; border: 0; background: none; box-shadow: none; transform: none; color: var(--ink); text-decoration: underline; text-underline-offset: 3px; font-weight: 700; }
-.lab2-card .lab2-open:hover { background: none; color: var(--accent); transform: none; box-shadow: none; }
+.lab2-card .lab2-option { min-height: 44px; margin: 0 0 -2px; position: relative; }
+.lab2-card .lab2-open { align-self: flex-start; min-height: 44px; padding: 0; border: 0; background: none; color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
 .fig-console .exhibit-controls > .fig-transport { order: -2; }
 .fig-console .exhibit-controls > .fig-transport + .act-field { order: -2; }
 
@@ -161,21 +134,59 @@
 
 /* the Mandelbrot explorer: its own panel moved into the console, the image takes the figure column */
 .fig-layout .mb-explorer { grid-template-columns: minmax(0, 1fr); }
-.fig-console > .mb-controls { border: 0; border-radius: 0; background: none; box-shadow: none; display: grid; gap: 10px; }
+.fig-console > .mb-controls { border: 0; border-radius: 0; background: none; box-shadow: none; display: grid; gap: 8px; }
 .fig-console > .mb-controls :is(h2, h3, h4) { margin: 0; font-size: 1.05rem; }
-.fig-console > .mb-controls :is(.btn, button) { width: 100%; min-height: 44px; box-shadow: none; transform: none; border-width: 2px; }
-.fig-console > .mb-controls :is(.btn, button):hover { background: var(--sunken); transform: none; box-shadow: none; }
+.fig-console > .mb-controls :is(.btn, button) { width: 100%; min-height: 44px; }
 
 /* laboratory pages: scenes are examples, so one even list; the card stays on screen beside the figure */
-.lab2-card .lab2-scenes { display: flex; flex-direction: column; gap: 0; border: 1px solid var(--line-strong); }
-.lab2-card .lab2-dot.lab2-scene { width: 100%; min-height: 40px; margin: 0; padding: 6px 12px; border: 0; border-radius: 0; background: var(--surface); color: var(--ink); text-align: left; justify-content: flex-start; display: flex; align-items: center; font: 700 0.95rem/1.25 var(--ui); }
-.lab2-card .lab2-dot.lab2-scene + .lab2-dot.lab2-scene { border-top: 1px solid var(--line); }
-.lab2-card .lab2-dot.lab2-scene:hover { background: var(--sunken); }
-.lab2-card .lab2-dot.lab2-scene[aria-current] { background: var(--accent); color: var(--accent-ink); }
+.lab2-card .lab2-scenes { display: flex; flex-direction: column; gap: 0; }
+.lab2-card .lab2-dot.lab2-scene { width: 100%; min-height: 40px; margin: 0 0 -2px; padding: 6px 12px; position: relative; text-align: left; justify-content: flex-start; display: flex; align-items: center; }
 @media (min-width: 721px) {
   .lab2-full .lab2-card { position: sticky; top: calc(var(--chrome, var(--header, 64px)) + 14px); max-height: calc(100svh - var(--chrome, var(--header, 64px)) - 28px); overflow-y: auto; overscroll-behavior: contain; }
   .lab2-full .lab2-stage { max-height: calc(100svh - var(--chrome, var(--header, 64px)) - 200px); }
 }
 .lab2-card .lab2-scenes > li { margin: 0; }
-.lab2-card .lab2-scenes > li + li { border-top: 1px solid var(--line); }
 .lab2-card .lab2-segments { grid-template-columns: repeat(auto-fit, minmax(min(88px, 100%), 1fr)); }
+
+/* Mandelbrot settings: a choice on one line (label left, list right), a slider with its value on the label line, the two
+   actions side by side */
+.fig-console > .mb-controls .mb-field { display: grid; grid-template-columns: minmax(0, 8.5rem) minmax(0, 1fr); align-items: center; gap: 10px; }
+.fig-console > .mb-controls .mb-range { display: grid; gap: 4px; }
+.fig-console > .mb-controls .mb-range label { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+.fig-console > .mb-controls .mb-actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.fig-console > .mb-controls .mb-actions > .btn { margin: 0 -2px 0 0; white-space: normal; position: relative; }
+
+/* a choice of three: one row of three cells; a choice of five or more: two columns, the odd last cell across */
+.fig-console :is(.act-buttons, .exhibit-actions, .act-controls):has(> button[data-fig="choice"]:nth-of-type(3):last-of-type) { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.fig-console :is(.act-buttons, .exhibit-actions, .act-controls):has(> button[data-fig="choice"]:nth-of-type(3):last-of-type) > button { padding-inline: 6px; hyphens: auto; }
+.fig-console :is(.act-buttons, .exhibit-actions, .act-controls):has(> button[data-fig="choice"]:nth-of-type(5)) { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.fig-console :is(.act-buttons, .exhibit-actions, .act-controls):has(> button[data-fig="choice"]:nth-of-type(5)) > button { min-height: 40px; margin: 0 -2px -2px 0; justify-content: center; text-align: center; }
+.fig-console :is(.act-buttons, .exhibit-actions, .act-controls):has(> button[data-fig="choice"]:nth-of-type(5)) > button:last-of-type:nth-of-type(odd) { grid-column: 1 / -1; }
+
+/* on/off settings that go together: side by side, two to a row */
+.fig-console .act-checks { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(140px, 100%), 1fr)); gap: 4px 12px; }
+.act-checks { display: flex; flex-wrap: wrap; gap: 4px 16px; }
+
+/* an inset (data-fig-inset, placed by figure-layout.js): a small map that drives the figure, in its top left corner, on
+   a plate so it reads over the figure */
+.fig-main > :is(.obj-stage, .exhibit-stage):has(> [data-fig-inset]) { position: relative; }
+.fig-main [data-fig-inset] { position: absolute; top: 10px; left: 10px; z-index: 1; width: clamp(170px, 22%, 220px); margin: 0; padding: 6px;
+  background: var(--surface); border: 1px solid var(--line-strong); }
+.fig-main [data-fig-inset] svg { width: 100%; }
+.fig-main [data-fig-inset] .wy-label { font-size: 13px; }
+
+/* Wythoff: the seven points where every edge is equal, one list in two columns; the question under the figure */
+.fig-console #wy-explore, .fig-console #wy-challenge { display: grid; gap: var(--fig-gap); }
+.fig-console #wy-stops { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0; }
+.fig-console #wy-stops::before { content: attr(aria-label); grid-column: 1 / -1; padding: 0 0 6px; font-weight: 700; font-size: 0.9rem; color: var(--ink-2); }
+.fig-console #wy-stops > button { min-height: 36px; margin: 0 -2px -2px 0; padding: 4px 10px; justify-content: flex-start; text-align: left; position: relative; }
+.fig-console #wy-stops > button:last-of-type:nth-of-type(odd) { grid-column: 1 / -1; }
+.fig-layout .wy-quiz { display: grid; gap: 8px; margin-top: 12px; }
+.fig-layout .wy-quiz .act-choice { display: grid; gap: 2px; margin: 0; }
+.fig-layout .wy-quiz .act-choice legend { float: none; margin: 0 0 4px; }
+.fig-layout .wy-quiz .act-choice label { display: flex; align-items: center; gap: 10px; min-height: 36px; }
+/* a phone: three choices and the Wythoff points as one column, so no name is cut */
+@container fig (max-width: 520px) {
+  .fig-console :is(.act-buttons, .exhibit-actions, .act-controls):has(> button[data-fig="choice"]:nth-of-type(3):last-of-type) { grid-template-columns: minmax(0, 1fr); }
+  .fig-console #wy-stops { grid-template-columns: minmax(0, 1fr); }
+}
