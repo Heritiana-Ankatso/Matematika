@@ -25,6 +25,25 @@ generator are reached from the home page. The code already loads 11 modules on d
 teacher dashboard, explainers), so the technique is proven here. MathJax (`site/vendor/mathjax-tex-svg.js`, 2.2 MB raw)
 must load only on pages with formulas.
 
+### Stage 0 measurement (22 November 2026, `main` at `f506e18`)
+
+`npm run test:budget` (`tests/budget_browser.mjs`): `dist/` served over HTTP/2 with gzip, a fresh Chromium context per
+page (no cache, no service worker), 390 × 844. Kilobytes are gzip bytes transferred; "without fonts" is what the budget
+checks. Timings with `--timings`: Chrome DevTools "Slow 4G" (562.5 ms latency, 1.44 Mbit/s down) and CPU ×4, in ms
+from navigation start; "content" is the first heading drawn in `#app`, "settled" the end of the last request.
+
+| Page | Route | Requests | JS | KB | KB without fonts | First paint | Content | Settled |
+|---|---|---|---|---|---|---|---|---|
+| home | `#home` | 535 | 516 | 2695 | 2540 | 18916 | 20227 | 20162 |
+| lycée chapter | `#chapter/seconde-01` | 537 | 517 | 3396 | 3248 | 18996 | 25480 | 25413 |
+| university lesson | `#university/algebre-1-guide` | 540 | 519 | 3496 | 3269 | 19204 | 25586 | 25531 |
+| laboratory | `#lab` | 535 | 516 | 2687 | 2540 | 19012 | 20269 | 20205 |
+| gallery exhibit | `#gallery/galton` | 538 | 517 | 2726 | 2544 | 19096 | 20608 | 20514 |
+| Olympiad | `#olympiad` | 535 | 517 | 3377 | 3238 | 19148 | 24920 | 24872 |
+
+On a phone over slow mobile data nothing is drawn for about 19 s, on every page, because the whole import graph must
+arrive before `app.js` runs. Budgets (`tests/budgets.json`) start at these values plus 2 %.
+
 ## 3. The switch
 
 - `site/js/v8.js` exports `V8_ACTIVE`: false by default; true when the address carries `?v8` (remembered on the device

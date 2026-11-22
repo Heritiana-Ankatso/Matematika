@@ -1,0 +1,11 @@
+{
+  "about": "Loading budget per page, checked by tests/budget_browser.mjs: requests, JavaScript requests and kilobytes transferred (gzip) excluding fonts. Stage 0 of docs/REBUILD_PLAN.md: today's values plus 2 % (non-regression); stage 1 tightens them.",
+  "pages": {
+    "home": { "requests": 546, "js": 527, "kbNoFonts": 2600 },
+    "chapter": { "requests": 548, "js": 528, "kbNoFonts": 3320 },
+    "university": { "requests": 551, "js": 530, "kbNoFonts": 3340 },
+    "lab": { "requests": 546, "js": 527, "kbNoFonts": 2600 },
+    "gallery": { "requests": 549, "js": 528, "kbNoFonts": 2600 },
+    "olympiad": { "requests": 546, "js": 528, "kbNoFonts": 3310 }
+  }
+}
