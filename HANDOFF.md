@@ -10,15 +10,11 @@ named in `site/js/routes.js` (`LOADERS` in `app.js`). Light generated data for p
 left (gallery exhibits, laboratory index, service worker precache) in `docs/REBUILD_PLAN.md` section 2. No visible change.
 Stage 2 (behind `?v8`): `site/js/v8.js`, `--w-*` tokens and faces (`site/fonts/v8/`), the shared frame (`site/js/v8/kit.js`,
 end of `controls.css`), `world-<id>.css`, review page `#v8/<world>`.
-Stage 3 (behind `?v8`, branch `v8-stage3-musee`, work in progress, no PR yet): threshold `site/js/v8/threshold.js`
-(doors drawn through `visible-loop.js`), hall `#musee` `site/js/v8/musee.js`, exhibit template for `#gallery/<id>`
-`site/js/v8/exhibit.js`; curated ids `site/js/museum-data.js`; generated titles and counts `site/js/world-lines.js`
-(`scripts/catalogue-lines.mjs`). To finish: rebase on `main` once PR #66 (stage 2) is merged; fix
-`tests/v8_musee_browser.py` (the door click did not reach `#musee` in the test); add `museum-data.js`, `world-lines.js`,
-`v8/threshold.js`, `v8/musee.js`, `v8/exhibit.js` and the two tests to `site/CLAUDE.md`, `MAP.md`, `tests/CLAUDE.md`,
-`run_browser.py`; `make site`; record stage 3 in `docs/REBUILD_PLAN.md`; open the PR; then report to the owner and wait
-(stages 4 to 8 need the owner's feedback). Branches merged but not deletable from the session: `v8-stage0-budget`,
-`v8-stage1-lazy`.
+Stage 3 (behind `?v8`): threshold `site/js/v8/threshold.js`, hall `#musee` `site/js/v8/musee.js`, exhibit template
+`site/js/v8/exhibit.js`, curated ids `site/js/museum-data.js`, generated `site/js/world-lines.js`. Then report to the
+owner and wait: stages 4 to 8 need the owner's feedback. Owner decisions of 22 November 2026: smaller offline copy
+(service worker precaches the shell only; to do), Lycée hover panel `#f4f6fd` approved. Merged branches the session
+cannot delete: `v8-stage0-budget`, `v8-stage1-lazy`.
 
 ## Organisation and commands (21 November 2026)
 

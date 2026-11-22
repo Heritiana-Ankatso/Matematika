@@ -71,7 +71,7 @@ because every page still loads 13 stylesheets and 5 fonts; stage 2 (one styleshe
 done yet, left for stage 3 where the exhibit page is rebuilt: the gallery exhibit still loads every exhibit
 (`lab-objects.js` imports all of them) and the laboratory index every experiment (`lab/registry.js`). The service worker
 still precaches every module on the first visit (offline use of pages never opened); narrowing it to the shell would let
-a page mix two versions during an update, so it waits for an owner decision.
+a page mix two versions during an update, so it waited for an owner decision; owner, 22 November 2026: precache the shell only (smaller offline copy), done in a follow-up pull request.
 
 ## 3. The switch
 
@@ -125,6 +125,12 @@ reduced motion, components). The Lycée hover panel is `#f4f6fd` (not `#eef1fb`)
   1280 px per world (browser), nothing animates under reduced motion (browser: no `requestAnimationFrame` loop).
 
 ### Stage 3: threshold and Musée
+
+Done 22 November 2026 (behind `?v8`): threshold `site/js/v8/threshold.js` (`#home`), hall `site/js/v8/musee.js` (`#musee`),
+exhibit template `site/js/v8/exhibit.js` for every `#gallery/<id>`; curated ids `site/js/museum-data.js`, titles and
+counts generated in `site/js/world-lines.js`. Inside a dark world the current token names map onto the world, so the
+exhibits' figures take the Musée palette. Reading pages keep the current look for now. Tests `tests/v8-musee.test.mjs`,
+`tests/v8_musee_browser.py`.
 
 - Threshold page with the four doors (live drawings stop when off screen and under reduced motion).
 - Musée hall: exhibit of the day, "Là où on ne les attend pas", the eight rooms. Rooms and counts come from the

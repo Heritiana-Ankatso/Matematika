@@ -30,7 +30,7 @@ with sync_playwright() as p:
     before = page.evaluate('window.__frames'); page.wait_for_timeout(1200)
     assert page.evaluate('window.__frames') - before <= 2, 'the doors animate under reduced motion'
     # a click anywhere on a door enters
-    doors.nth(0).click(position={'x': 30, 'y': 30}); page.wait_for_url('**#musee'); page.locator('.v8-room').first.wait_for()
+    doors.nth(0).click(position={'x': 30, 'y': 30}); page.wait_for_function("location.hash === '#musee'"); page.locator('.v8-room').first.wait_for()
     assert page.evaluate('document.documentElement.dataset.world') == 'musee'
     context.close()
 
