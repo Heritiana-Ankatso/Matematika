@@ -1083,7 +1083,8 @@ details.source-course[open] { padding-bottom: 16px; }
 .lab2-prompt { margin: 0; font-size: 1.05rem; line-height: 1.5; }
 .lab2-prompt:focus { outline: none; }
 .lab2-controls { display: grid; gap: 10px; }
-.lab2-ctl { display: grid; gap: 4px; }
+.lab2-ctl { display: grid; gap: 4px; min-width: 0; }
+.lab2-ctl select { max-width: 100%; min-width: 0; }
 .lab2-ctl.is-locked { opacity: 0.45; }
 .lab2-ctl.is-suggested { padding-left: 10px; border-left: 3px solid var(--accent); }
 .lab2-show { justify-self: start; }
@@ -1120,6 +1121,10 @@ details.source-course[open] { padding-bottom: 16px; }
 .lab2-evidence { padding: 10px 12px; border-left: 4px solid var(--obj2); background: var(--sunken); border-radius: var(--r-sm); }
 .lab2-inline .lab2-grid { grid-template-columns: minmax(0, 1fr); }
 .lab2-inline .lab2-card, .lab2-slide .lab2-card { position: static; max-height: none; overflow: visible; }
+/* Owner review 22 Nov 2026: on a wide, tall screen the figure stays in view while the side panel scrolls. */
+@media (min-width: 1101px) and (min-height: 760px) {
+  .lab2-full .lab2-figure { position: sticky; top: calc(var(--w-bar, 64px) + 12px); }
+}
 @media (max-width: 1100px) {
   .lab2-grid { grid-template-columns: minmax(0, 1fr) 320px; }
   .lab2-readout { grid-template-columns: 1fr; }

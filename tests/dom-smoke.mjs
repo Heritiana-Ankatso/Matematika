@@ -39,7 +39,7 @@ const press=(el,type,x,y)=>el.dispatchEvent(new window.MouseEvent(type,{clientX:
 await go('#lab/quadratic/vertex');
 let lab=document.querySelector('.lab2');assert.ok(lab,'the experiment page mounts');
 assert.equal(lab.querySelectorAll('canvas').length,1);assert.equal(window.location.hash,'#lab/quadratic/vertex');
-assert.match(lab.querySelector('.lab2-step').textContent,/Scènes|Scenes/,'the lab page is free exploration: scenes, not missions');assert.ok(lab.querySelector('.lab2-formula').textContent.includes('f(x) ='));
+assert.match(lab.querySelector('.lab2-step').textContent,/Étapes à regarder|Steps to look at/,'the lab page is free exploration: scenes, not missions');assert.ok(lab.querySelector('.lab2-formula').textContent.includes('f(x) ='));
 const api=lab.__lab,canvas=lab.querySelector('canvas'),handle=api.stage.handles.find(h=>h.id==='vertex').button;assert.equal(lab.querySelectorAll('.lab2-handle').length,api.stage.handles.length);assert.ok(api.stage.handles.length>=3,'every handle of the experiment is free');
 const centre=()=>{const m=/translate\(([-\d.]+)px, ([-\d.]+)px\)/.exec(handle.style.transform);return [+m[1]+22,+m[2]+22];};
 const camera=api.stage.view,before=api.getState(),record=[];

@@ -13667,7 +13667,9 @@ function cardsView({ exp, stage, fmt, getState, setState }, { box, cv, info: dl,
   }
   function paintPick() { const cards = getState().cards.split(",").map(Number); buttons.forEach((b, c) => b.setAttribute("aria-pressed", String(cards.indexOf(c) === pick))); }
   function paint(g, W, H, now) {
-    const s = getState(), sigma = G.fromCycles(s.sigma, s.n), { s: size, x, y } = geom(W, H);
+    const s = getState();
+    if (W < 80 || n !== s.n) return false; // not laid out yet, or the cards of a new n are not built yet: draw() kicks again
+    const sigma = G.fromCycles(s.sigma, s.n), { s: size, x, y } = geom(W, H);
     g.clearRect(0, 0, W, H);
     const ink = css(stage.wrap, "--ink", "#ddd"), muted = css(stage.wrap, "--muted", "#999"), cols = palette();
     // the arrows of σ above the row: from position i to position σ(i), one colour per cycle
@@ -13680,8 +13682,12 @@ function cardsView({ exp, stage, fmt, getState, setState }, { box, cv, info: dl,
     }));
     g.globalAlpha = 1;
     g.fillStyle = muted; g.font = "600 13px system-ui"; g.textAlign = "center";
-    g.fillText(t(["σ envoie la carte de chaque position au bout de sa flèche", "σ sends the card at each position to the end of its arrow"]), W / 2, 18);
-    for (let i = 0; i < n; i++) { g.strokeStyle = muted; g.setLineDash([4, 4]); g.lineWidth = 1; g.strokeRect(x(i) - 3, y - size / 2 - 3, size + 6, size + 6); g.setLineDash([]); g.fillStyle = muted; g.fillText(`${t(["position", "position"])} ${i + 1}`, x(i) + size / 2, y + size / 2 + 22); }
+    // the caption fits the width (two lines on a phone); the position labels shorten to their number when the row is narrow
+    const caption = t(["σ envoie la carte de chaque position au bout de sa flèche", "σ sends the card at each position to the end of its arrow"]);
+    if (g.measureText(caption).width <= W - 16) g.fillText(caption, W / 2, 18);
+    else { const words = caption.split(" "), half = Math.ceil(words.length / 2); g.fillText(words.slice(0, half).join(" "), W / 2, 16); g.fillText(words.slice(half).join(" "), W / 2, 33); }
+    const pitch = n > 1 ? x(1) - x(0) : W, long = g.measureText(`${t(["position", "position"])} ${n}`).width <= pitch - 8, mid = g.measureText(`pos. ${n}`).width <= pitch - 8;
+    for (let i = 0; i < n; i++) { g.strokeStyle = muted; g.setLineDash([4, 4]); g.lineWidth = 1; g.strokeRect(x(i) - 3, y - size / 2 - 3, size + 6, size + 6); g.setLineDash([]); g.fillStyle = muted; g.fillText(long ? `${t(["position", "position"])} ${i + 1}` : mid ? `pos. ${i + 1}` : String(i + 1), x(i) + size / 2, y + size / 2 + 22); }
     // the cards, gliding from their old places along an arc
     const target = s.cards.split(",").map(Number), u = dur ? Math.min(1, (now - start) / dur) : 1, e = ease(u);
     target.forEach((card, pos) => {
@@ -13767,7 +13773,7 @@ function polygonView({ stage, fmt, getState }, { box, cv, info: dl, note }) {
       g.fillText(G.dName(el2), x + cell / 2, y + cell / 2 + 3);
     }
     g.textAlign = "left"; g.fillStyle = muted; g.font = "12px system-ui";
-    g.fillText(t(["rotations", "rotations"]), gx, top + cell * 2.6 + 6); g.fillText(t(["retournements", "reflections"]), gx + gw * 0.5, top + cell * 2.6 + 6);
+    g.fillText(t(["en haut : les rotations", "top row: the rotations"]), gx, top + cell * 2.6 + 6); g.fillText(t(["en bas : les retournements", "bottom row: the reflections"]), gx, top + cell * 2.6 + 22);
     if (u >= 1 && anim) { anim = null; return true; }
     return !!anim;
   }
