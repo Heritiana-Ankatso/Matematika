@@ -6,3 +6,47 @@
 .v8-coord { font: 500 .78rem var(--w-mono); letter-spacing: .08em; color: var(--w-accent2); }
 :root[data-world="univ"] .v8-btn { border-radius: var(--w-r); }
 :root[data-world="univ"] .v8-btn.is-accent { box-shadow: 0 0 18px rgba(165,148,255,.35); }
+/* pages of the current look in the Université world take its ground, ink and accents (object-kit.js palette reads these) */
+:root[data-world="univ"] {
+  --bg: var(--w-bg); --surface: var(--w-surface); --sunken: var(--w-raise); --ink: var(--w-ink); --ink-2: var(--w-muted); --muted: var(--w-muted);
+  --line: var(--w-rule); --accent: var(--w-accent); --accent-ink: var(--w-accent-ink); --accent-soft: var(--w-accent-soft); --focus: var(--w-accent2);
+  --object-ink: var(--w-accent2); --object: var(--w-accent2); --object-soft: rgba(98,227,234,.12); --object-on: var(--w-bg);
+}
+/* the sky map */
+.v8-sky { position: relative; height: min(78vh, 760px); min-height: 520px; border-bottom: 1px solid var(--w-rule); overflow: hidden; }
+.v8-sky canvas { position: absolute; inset: 0; width: 100%; height: 100%; cursor: crosshair; }
+.v8-sky-title { position: absolute; left: 0; right: 0; bottom: 0; padding-bottom: 28px; pointer-events: none; background: linear-gradient(transparent, rgba(4,5,11,.92) 55%); }
+.v8-sky-title h1 { font-size: clamp(2.6rem, 7vw, 5.2rem); line-height: .98; margin: .1em 0 .2em; }
+.v8-sky-title h1 em { font-style: italic; color: var(--w-accent); }
+.v8-sky-title p { max-width: 60ch; }
+.v8-sky-tip { position: absolute; z-index: 3; max-width: 260px; pointer-events: none; background: rgba(11,14,28,.94); border: 1px solid var(--w-rule); border-radius: var(--w-r); padding: 10px 12px; font: 500 .85rem/1.4 var(--w-ui); box-shadow: 0 0 0 1px rgba(98,227,234,.15), 0 10px 30px rgba(0,0,0,.5); }
+.v8-sky-tip b { display: block; font: 400 1.15rem var(--w-head); }
+@media (max-width: 700px) { .v8-sky { height: auto; min-height: 0; } .v8-sky canvas { position: relative; display: block; height: 420px; } .v8-sky-title { position: relative; background: none; padding-top: 8px; } }
+.v8-fields > summary { cursor: pointer; min-height: var(--w-target); display: flex; align-items: center; font: 500 1rem var(--w-ui); color: var(--w-accent2); }
+.v8-field-list { list-style: none; margin: 0; padding: 0; columns: 2 320px; column-gap: 28px; }
+.v8-field-list li { break-inside: avoid; padding: 8px 0; border-bottom: 1px solid var(--w-rule); }
+.v8-field-list li.is-lit b { color: var(--w-accent2); }
+.v8-field-list a { display: inline-flex; min-height: var(--w-target); align-items: center; }
+.v8-course-name { display: block; font: 400 1.6rem/1.1 var(--w-head); }
+.v8-sub-h { margin: 1.6em 0 .4em; font: 500 .8rem var(--w-mono) !important; letter-spacing: .12em; text-transform: uppercase; color: var(--w-accent2) !important; }
+/* the great assaults */
+.v8-sg-axis { position: relative; height: 20px; margin: 1.4em 0 4px; border-bottom: 1px solid var(--w-rule); font: 500 .72rem var(--w-mono); color: var(--w-muted); }
+.v8-sg-axis span { position: absolute; bottom: 4px; transform: translateX(-50%); }
+.v8-sg-axis span:first-child { transform: none; }
+.v8-sieges { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--w-rule); }
+.v8-siege { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 6px 18px; padding: 16px 0 14px; border-bottom: 1px solid var(--w-rule); }
+.v8-sg-t { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.v8-sg-n { font: 400 1.45rem/1.15 var(--w-head); }
+.v8-sg-q { color: var(--w-muted); font-size: .95rem; max-width: 70ch; }
+.v8-sg-a { font-size: .95rem; max-width: 70ch; }
+.v8-sg-by { font: 500 .8rem var(--w-mono); color: var(--w-accent); }
+.v8-sg-src { align-self: flex-start; font: 500 .8rem var(--w-ui); min-height: 32px; display: inline-flex; align-items: center; }
+.v8-sg-v { grid-column: 2; grid-row: 1; align-self: start; font: 500 .78rem var(--w-mono); color: var(--w-accent); white-space: nowrap; }
+.v8-siege.is-open .v8-sg-v { color: var(--w-accent2); }
+.v8-sg-bar { grid-column: 1 / -1; position: relative; height: 6px; background: var(--w-raise); border-radius: 3px; overflow: hidden; }
+.v8-sg-bar i { position: absolute; top: 0; bottom: 0; border-radius: 3px; background: linear-gradient(90deg, rgba(165,148,255,.35), var(--w-accent)); }
+.v8-siege.is-open .v8-sg-bar i { background: linear-gradient(90deg, rgba(98,227,234,.25), var(--w-accent2)); }
+@media (max-width: 640px) { .v8-siege { grid-template-columns: minmax(0, 1fr); } .v8-sg-v { grid-column: 1; grid-row: auto; } }
+.v8-collatz { margin-top: 22px; padding: 18px 20px; border: 1px solid var(--w-rule); border-radius: var(--w-r); background: var(--w-surface); font: 500 .95rem var(--w-ui); }
+.v8-collatz input { width: 11ch; min-height: var(--w-target); padding: 0 10px; background: var(--w-bg); border: 1px solid var(--w-rule); border-radius: 4px; font: 500 1rem var(--w-mono); color: var(--w-ink); }
+.v8-collatz output { display: block; margin-top: 8px; font: 500 .9rem var(--w-mono); color: var(--w-muted); }

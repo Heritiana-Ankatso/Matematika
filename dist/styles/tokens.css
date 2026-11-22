@@ -17,7 +17,8 @@
 @font-face { font-family: "STIX Two Text"; font-weight: 700; font-display: swap; src: url(../fonts/stix-two-text-latin-700-normal.woff2) format("woff2"); }
 
 /* ------------------------------------------------------------------ tokens */
-:root, :root[data-theme="jour"] {
+:root, :root[data-theme="jour"], :root[data-world="lycee"] {
+  /* also the base of the Lycée world, the one v8 world by day (world-lycee.css maps ground, ink and pens) */
   color-scheme: light;
   --bg: #eeeae1; --surface: #ffffff; --sunken: #e4dfd3;
   --ink: #18181b; --ink-2: #3a3d47; --muted: #444854;
@@ -28,7 +29,7 @@
   --mark: #f0d9a8; --focus: #2c3d8f;   /* focus ring: indigo by day, ochre at night */
   --c1: #2563eb; --c2: #e8710a; --c3: #0f9d58; --c4: #c2185b; --c5: #7b1fa2; --c6: #00838f; --c7: #b8860b; --c8: #d84315;   /* data colours (graph colourings, series); not part of the interface palette */
 }
-:root[data-theme="nuit"], :root[data-world="musee"], :root[data-world="univ"], :root[data-world="olymp"] {
+:root[data-theme="nuit"]:not([data-world="lycee"]), :root[data-world="musee"], :root[data-world="univ"], :root[data-world="olymp"] {
   /* the night colours, also the base of the dark v8 worlds (their world-<id>.css maps ground, ink and accents) */
   color-scheme: dark;
   --bg: #121216; --surface: #1c1c22; --sunken: #23232b;

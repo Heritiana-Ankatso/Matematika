@@ -27,7 +27,7 @@ export function exhibitPage(lab, { t, lang, siteName }) {
   const reading = [...new Set([...(lab.links || []), ...relatedTo(hash)])].map((h) => [h, describe(h)]).filter(([h, d]) => d && h !== hash);
   const sameRoom = room.picks.filter(([c, id]) => !(c === 'curiosities' && id === lab.id)).map(([c, id]) => { const x = COLLECTIONS[c].find((y) => y.id === id); return x && `<li><a href="${E(HREF[c](x))}">${say(x.title)}</a></li>`; }).filter(Boolean).join('');
   const source = lab.source ? `<p class="v8-source"><a href="${E(lab.source)}" target="_blank" rel="noopener noreferrer">${say(lab.sourceLabel || P('Source et explications', 'Source and explanation'))} <span class="sr-only">${say(P('(nouvel onglet)', '(new tab)'))}</span></a></p>` : '';
-  return `<div class="v8">${topBar({ t, world: 'musee', siteName })}<main id="main" tabindex="-1" class="v8-exhibit"><div class="v8-wrap v8-ex-w">`
+  return `<div class="v8">${topBar({ t, world: 'musee', siteName, lang })}<main id="main" tabindex="-1" class="v8-exhibit"><div class="v8-wrap v8-ex-w">`
     + `<nav class="v8-crumbs" aria-label="${say(P('Fil d’Ariane', 'Breadcrumb'))}"><a href="#musee">${say(P('Musée', 'Museum'))}</a> › <a href="${room.hash}">${say(P('Salle', 'Room'))} ${roomNumber} · ${say(room.name)}</a></nav>`
     + `${where ? `<p class="v8-where">${say(where)}</p>` : ''}<h1>${say(lab.title)}</h1><p class="v8-lede">${say(hook)}</p>`
     + `<figure class="v8-stage"><div id="object-stage" class="object-stage" data-object="${E(lab.id)}"></div></figure>`

@@ -22,12 +22,12 @@ export const WORLD_MENU = [
 const brandMark = '<svg viewBox="0 0 120 120" aria-hidden="true" focusable="false"><path class="bm-arc" d="M90 60A30 30 0 1 1 30 60A30 30 0 1 1 90 60ZM30 0A30 30 0 0 1 0 30M90 0A30 30 0 0 0 120 30M0 90A30 30 0 0 1 30 120M120 90A30 30 0 0 0 90 120"/></svg>';
 
 // Top bar: brand, one folded world menu, search. Nothing else is unfolded by default.
-export function topBar({ t, world, siteName, home = '#home' }) {
+export function topBar({ t, world, siteName, home = '#home', lang = '' }) {
   const here = WORLD_MENU.find((w) => w.id === world);
   return `<header class="v8-bar"><div class="v8-wrap"><a class="v8-brand" href="${home}" aria-label="${E(siteName)}">${brandMark}<span>${E(siteName)}</span></a>`
     + `<details class="v8-worlds" data-v8-menu><summary>${E(here ? t(here.name) : t(['Les mondes', 'The worlds']))}</summary><nav class="v8-worlds-list" aria-label="${E(t(['Les quatre mondes', 'The four worlds']))}">`
     + WORLD_MENU.map((w) => `<a href="${w.hash}"${w.id === world ? ' aria-current="page"' : ''}>${E(t(w.name))}<small>${E(t(w.line))}</small></a>`).join('')
-    + `</nav></details><span class="v8-spacer"></span><a class="v8-icon" href="#search" aria-label="${E(t(['Rechercher', 'Search']))}" title="${E(t(['Rechercher', 'Search']))}">${icon('magnifying-glass', 22)}</a></div></header>`;
+    + `</nav></details><span class="v8-spacer"></span>${lang ? `<div class="v8-lang" role="group" aria-label="${E(t(['Langue', 'Language']))}"><button type="button" data-lang="fr" lang="fr" aria-pressed="${lang === 'fr'}">FR</button><button type="button" data-lang="en" lang="en" aria-pressed="${lang === 'en'}">EN</button></div>` : ''}<a class="v8-icon" href="#search" aria-label="${E(t(['Rechercher', 'Search']))}" title="${E(t(['Rechercher', 'Search']))}">${icon('magnifying-glass', 22)}</a></div></header>`;
 }
 
 // A folded list: closed until clicked, one open at a time. `items`: [{ id, title, count, body }] (body is markup).
