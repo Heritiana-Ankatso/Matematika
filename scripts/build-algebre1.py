@@ -217,7 +217,7 @@ def html_inline(s, labels, page):
                 if nxt == '\\': text.pop(); flush(); res.append('<br>')
                 i += 2; continue
             name = m[1]; j = i + len(m[0]) if name in ('og', 'fg', 'ldots', 'dots', 'quad', 'newline') else i + 1 + len(name)
-            if name in ('textbf', 'emph', 'textit', 'voir', 'href', 'url', 'textsc', 'mbox', 'nom'):
+            if name in ('textbf', 'emph', 'textit', 'voir', 'href', 'url', 'textsc', 'mbox', 'nom', 'site'):
                 a, j = braced(s, j); flush()
                 if name == 'textbf': res.append('<strong>' + html_inline(a, labels, page) + '</strong>')
                 elif name in ('emph', 'textit'): res.append('<em>' + html_inline(a, labels, page) + '</em>')
@@ -226,6 +226,8 @@ def html_inline(s, labels, page):
                 elif name == 'url': res.append(f'<a href="{html.escape(a)}">{html.escape(a)}</a>')
                 elif name == 'href':
                     b, j = braced(s, j); res.append(f'<a href="{html.escape(a)}">{html_inline(b, labels, page)}</a>')
+                elif name == 'site':   # \site{lab/rubik}{text}: a page of the site, opened in the whole window (the lesson is in a frame)
+                    b, j = braced(s, j); res.append(f'<a class="site-link" href="../../../../index.html#{html.escape(a)}" target="_top">{html_inline(b, labels, page)}</a>')
                 else:
                     t, L = label_text(labels, a)
                     href = ('' if L['page'] == page else L['page']) + '#' + L['anchor']
@@ -247,6 +249,7 @@ def tex_inline(s, labels):
     def voir(m):
         text, _ = label_text(labels, m[1]); return r'\hyperlink{' + labels[m[1]]['anchor'] + '}{' + text.replace('\u00a0', '~') + '}'
     s = re.sub(r'\\voir\{([^}]*)\}', voir, s)
+    s = re.sub(r'\\site\{[^}]*\}\{([^}]*)\}', lambda m: r'\emph{' + m[1] + r'} (site Matematika)', s)
     s = s.replace(r'\nom{', r'\textsc{')
     return s
 

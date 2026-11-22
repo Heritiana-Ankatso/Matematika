@@ -6322,6 +6322,319 @@ __e.default = full;
 
 __e.drawingExperiment = drawingExperiment;
 });
+__d("lab/experiments/groups.js", function (__e, __r) {
+// Experiments of the group `groups` (template group): a group seen acting. `shuffles` (the symmetric group Sₙ: shuffles of
+// n cards, order of a shuffle, swaps and parity), `polygon` (the dihedral group Dₙ: the symmetries of a regular polygon, order
+// matters, τ r τ = r⁻¹) and `rubik` (the Rubik's cube as a group of moves: the order of a sequence, commutators, and the
+// picture hung on nails). Pure maths: models/groups.js. Linked from the Algèbre 1 sequence « Groupes ».
+const G = __r("lab/models/groups.js");
+
+const P = (fr, en) => [fr, en];
+const ident = (n) => G.identity(n).join(",");
+
+// ---------------------------------------------------------------- shuffles (Sₙ)
+const SHUFFLES = [
+  ["5|(1 2)", P("Échanger les deux premières (5 cartes)", "Swap the first two (5 cards)")],
+  ["5|(1 2 3)", P("Faire tourner les trois premières (5 cartes)", "Rotate the first three (5 cards)")],
+  ["5|(1 2 3)(4 5)", P("(1 2 3)(4 5) (5 cartes)", "(1 2 3)(4 5) (5 cards)")],
+  ["5|(1 2 3 4 5)", P("Couper le paquet : (1 2 3 4 5)", "Cut the deck: (1 2 3 4 5)")],
+  ["6|(1 6)(2 5)(3 4)", P("Retourner le paquet (6 cartes)", "Reverse the deck (6 cards)")],
+  ["8|(2 3 5)(4 7 6)", P("Mélange parfait de 8 cartes", "Perfect shuffle of 8 cards")],
+  ["7|(1 2 3)(4 5 6 7)", P("(1 2 3)(4 5 6 7) (7 cartes)", "(1 2 3)(4 5 6 7) (7 cards)")],
+  ["8|(1 2 3 4 5)(6 7 8)", P("(1 2 3 4 5)(6 7 8) (8 cartes)", "(1 2 3 4 5)(6 7 8) (8 cards)")],
+];
+const shuffleSet = (v) => { const [n, sigma] = v.split("|"); return { n: +n, sigma, cards: ident(+n), k: 0, swaps: 0 }; };
+const permModel = (s) => {
+  const sigma = G.fromCycles(s.sigma, s.n), cards = s.cards.split(",").map(Number), arr = G.inverse(cards);
+  return { sigma, order: G.order(sigma), swaps: G.minSwaps(arr), sign: G.sign(arr), back: cards.every((c, i) => c === i) };
+};
+const shuffles = {
+  id: "shuffles", template: "group", groupView: "cards", section: "groups", sub: P("Le groupe symétrique Sₙ", "The symmetric group Sₙ"),
+  symbol: "Sₙ", group: P("Algèbre", "Algebra"),
+  title: P("Mélanger des cartes", "Shuffling cards"),
+  short: P("Permutations et groupe Sₙ", "Permutations and the group Sₙ"),
+  intro: P(
+    "Un mélange de n cartes est une permutation. On peut l’appliquer, le répéter, le défaire : les mélanges forment un groupe, et des nombres simples (ordre, nombre d’échanges) décrivent ce qu’ils font.",
+    "A shuffle of n cards is a permutation. It can be applied, repeated and undone: the shuffles form a group, and simple numbers (order, number of swaps) describe what they do."),
+  duration: 15,
+  level: P("Lycée curieux · Université", "Curious students · University"),
+  prereq: P("Compter, le ppcm", "Counting, the lowest common multiple"),
+  model: { model: permModel },
+  state: { n: 5, sigma: "(1 2 3)(4 5)", cards: ident(5), k: 0, swaps: 0 },
+  keys: P("Cliquez deux cartes pour les échanger (ou Tab puis Entrée) ; les boutons appliquent le mélange σ.", "Click two cards to swap them (or Tab then Enter); the buttons apply the shuffle σ."),
+  controls: {
+    sigma: {
+      kind: "choice", presentation: "select", label: P("Mélange σ", "Shuffle σ"),
+      options: SHUFFLES.map(([value, label]) => ({ value, label })),
+      get: (s) => `${s.n}|${s.sigma}`, set: (s, v) => shuffleSet(v),
+    },
+    apply: {
+      kind: "action", label: P("Mélanger", "Shuffle"),
+      options: [{ value: "s", label: P("Appliquer σ", "Apply σ") }, { value: "reset", label: P("Remettre dans l’ordre", "Put back in order") }],
+      act: (s, v) => (v === "reset" ? { cards: ident(s.n), k: 0, swaps: 0 } : { cards: G.applyTo(s.cards.split(",").map(Number), G.fromCycles(s.sigma, s.n)).join(","), k: s.k + 1 }),
+    },
+  },
+  views: {
+    panels: [],
+    formula: (s) => `σ = ${s.sigma}`,
+    readout: (s) => { const m = permModel(s); return [[P("Ordre de σ", "Order of σ"), String(m.order)], [P("σ appliqué", "σ applied"), String(s.k)]]; },
+  },
+  missions: [
+    {
+      id: "order", kind: "predict", set: shuffleSet("5|(1 2 3)(4 5)"), correct: 3,
+      scene: { title: P("Combien de fois avant le retour ?", "How many times before coming back?"), caption: P(
+        "σ = (1 2 3)(4 5) : les cartes 1, 2, 3 tournent en rond, les cartes 4 et 5 s’échangent. Le petit cycle revient tous les 3 coups, l’échange tous les 2 : l’ordre de départ revient après un multiple de 3 et de 2, soit 6 applications.",
+        "σ = (1 2 3)(4 5): cards 1, 2, 3 go round, cards 4 and 5 swap. The 3-cycle comes back every 3 moves, the swap every 2: the starting order comes back after a multiple of 3 and 2, so 6 applications.") },
+      prompt: P("σ fait tourner les cartes 1, 2, 3 et échange 4 et 5. Combien de fois faut-il appliquer σ pour retrouver l’ordre de départ ?", "σ rotates cards 1, 2, 3 and swaps 4 and 5. How many times must σ be applied to get the starting order back?"),
+      choices: [P("2 fois", "2 times"), P("3 fois", "3 times"), P("5 fois", "5 times"), P("6 fois", "6 times")],
+    },
+    {
+      id: "perfect", kind: "explore", set: shuffleSet("8|(2 3 5)(4 7 6)"), unlock: ["apply"],
+      scene: { title: P("Le mélange parfait des magiciens", "The magicians’ perfect shuffle"), caption: P(
+        "On coupe 8 cartes en deux moitiés et on les intercale exactement : la carte du dessus reste dessus. Trois mélanges parfaits et le paquet est revenu dans l’ordre : les mélanges « au hasard » d’un magicien ne le sont pas.",
+        "Cut 8 cards into two halves and interleave them exactly: the top card stays on top. Three perfect shuffles and the deck is back in order: a magician’s “random” shuffles are not random at all.") },
+      prompt: P("Appliquez le mélange parfait jusqu’à retrouver l’ordre de départ.", "Apply the perfect shuffle until the starting order comes back."),
+      goal: (s, m) => s.k > 0 && m.back,
+      done: P("Trois mélanges parfaits suffisent pour 8 cartes : σ a deux cycles de longueur 3, son ordre est 3. Pour 52 cartes il en faut 8.", "Three perfect shuffles are enough for 8 cards: σ has two cycles of length 3, its order is 3. For 52 cards it takes 8."),
+    },
+    {
+      id: "lcm", kind: "explore", set: shuffleSet("5|(1 2 3 4 5)"), unlock: ["sigma"],
+      scene: { title: P("L’ordre est un ppcm", "The order is a lowest common multiple"), caption: P(
+        "L’ordre d’un mélange est le ppcm des longueurs de ses cycles. (1 2 3)(4 5 6 7) ne bouge que 7 cartes mais demande ppcm(3, 4) = 12 applications, plus que le cycle des 7 cartes d’un coup.",
+        "The order of a shuffle is the lowest common multiple of its cycle lengths. (1 2 3)(4 5 6 7) moves only 7 cards but needs lcm(3, 4) = 12 applications, more than one cycle of all 7 cards.") },
+      prompt: P("Parmi les mélanges proposés, trouvez-en un d’ordre au moins 12.", "Among the shuffles offered, find one of order at least 12."),
+      goal: (s, m) => m.order >= 12,
+      done: P("(1 2 3)(4 5 6 7) est d’ordre 12 et (1 2 3 4 5)(6 7 8) d’ordre 15 : des cycles de longueurs premières entre elles font de grands ordres.", "(1 2 3)(4 5 6 7) has order 12 and (1 2 3 4 5)(6 7 8) order 15: cycles of coprime lengths give large orders."),
+    },
+    {
+      id: "swaps", kind: "check", set: { ...shuffleSet("5|(1 2 3)(4 5)"), cards: "2,0,1,4,3" }, quantity: "swaps", answer: 3,
+      scene: { title: P("Défaire un mélange en échanges", "Undoing a shuffle with swaps"), caption: P(
+        "Les cartes sont dans l’ordre 3 1 2 5 4. En cliquant deux cartes à la fois, il faut au moins 3 échanges : un cycle de 3 cartes demande 2 échanges, un cycle de 2 cartes en demande 1. Quelle que soit la méthode, le nombre d’échanges reste impair : c’est la signature.",
+        "The cards read 3 1 2 5 4. Clicking two cards at a time, at least 3 swaps are needed: a cycle of 3 cards takes 2 swaps, a cycle of 2 takes 1. Whatever the method, the number of swaps stays odd: that is the sign.") },
+      prompt: P("Les cartes sont dans l’ordre 3 1 2 5 4. Combien d’échanges de deux cartes faut-il au minimum pour les remettre dans l’ordre ?", "The cards read 3 1 2 5 4. What is the least number of swaps of two cards that puts them back in order?"),
+      hint: P("Suivez où va chaque carte : on trouve un cycle de 3 cartes et un de 2.", "Follow where each card goes: there is a cycle of 3 cards and one of 2."),
+      because: P("Un cycle de longueur L se défait en L − 1 échanges : 2 + 1 = 3.", "A cycle of length L is undone in L − 1 swaps: 2 + 1 = 3."),
+    },
+    {
+      id: "why", kind: "explain", set: shuffleSet("5|(1 2 3)(4 5)"),
+      scene: { title: P("Pourquoi c’est un groupe", "Why it is a group"), caption: P(
+        "Enchaîner deux mélanges donne un mélange ; ne rien faire en est un ; tout mélange se défait. Les n! mélanges de n cartes forment le groupe symétrique Sₙ. L’ordre d’un mélange est le ppcm de ses cycles, et la parité du nombre d’échanges ne dépend que du mélange.",
+        "Doing two shuffles in a row gives a shuffle; doing nothing is one; every shuffle can be undone. The n! shuffles of n cards form the symmetric group Sₙ. The order of a shuffle is the lcm of its cycles, and the parity of the number of swaps depends only on the shuffle.") },
+      prompt: P("Pourquoi l’ordre de σ est-il le ppcm des longueurs de ses cycles ?", "Why is the order of σ the lowest common multiple of its cycle lengths?"),
+      argument: P(
+        "Les cycles disjoints de σ agissent sur des cartes différentes, donc indépendamment. Un cycle de longueur L remet ses cartes en place exactement après L, 2L, 3L… applications. Toutes les cartes sont en place après k applications si et seulement si k est un multiple de chaque longueur, et le plus petit tel k est leur ppcm.",
+        "The disjoint cycles of σ act on different cards, so independently. A cycle of length L puts its cards back exactly after L, 2L, 3L… applications. All cards are back after k applications if and only if k is a multiple of every length, and the least such k is their lcm."),
+    },
+  ],
+  conclusion: P(
+    "Les mélanges de n cartes forment un groupe à n! éléments. L’ordre d’un mélange est le ppcm des longueurs de ses cycles ; la parité du nombre d’échanges qui le réalisent ne dépend pas de la façon de faire (la signature).",
+    "The shuffles of n cards form a group with n! elements. The order of a shuffle is the lcm of its cycle lengths; the parity of the number of swaps that produce it does not depend on how it is done (the sign)."),
+  seeAlso: [["#university/algebre-1-groupes", P("Cours : Algèbre 1, les groupes", "Course: Algebra 1, groups")], ["#lab/polygon", P("Les symétries d’un polygone", "The symmetries of a polygon")], ["#lab/rubik", P("Le Rubik’s cube", "The Rubik’s cube")]],
+  history: {
+    title: P("Cauchy · 1815, Diaconis, Graham et Kantor · 1983", "Cauchy · 1815, Diaconis, Graham and Kantor · 1983"),
+    story: P(
+      "Augustin Louis Cauchy étudie les permutations dès 1815 ; Galois en fait l’outil de sa théorie des équations. En 1983, Persi Diaconis (mathématicien et ancien magicien), Ronald Graham et William Kantor publient l’étude complète des mélanges parfaits.",
+      "Augustin Louis Cauchy studied permutations from 1815; Galois made them the tool of his theory of equations. In 1983 Persi Diaconis (mathematician and former magician), Ronald Graham and William Kantor published the full study of perfect shuffles."),
+    source: "https://mathshistory.st-andrews.ac.uk/Biographies/Cauchy/",
+  },
+};
+
+// ---------------------------------------------------------------- polygon (Dₙ)
+const gText = (g) => `${g.k},${g.s}`;
+const polySet = (n, word = "") => ({ n, word, g: gText(G.dWord(n, word)) });
+const polyModel = (s) => { const [k, sg] = s.g.split(",").map(Number), g = { k, s: sg }; return { g, order: G.dOrder(s.n, g), home: k === 0 && sg === 0, size: 2 * s.n }; };
+const MOVE = { r: G.R, t: G.T };
+const polygon = {
+  id: "polygon", template: "group", groupView: "polygon", section: "groups", sub: P("Le groupe diédral Dₙ", "The dihedral group Dₙ"),
+  symbol: "Dₙ", group: P("Algèbre", "Algebra"),
+  title: P("Les symétries d’un polygone", "The symmetries of a polygon"),
+  short: P("Rotations, retournements, groupe Dₙ", "Rotations, flips, the group Dₙ"),
+  intro: P(
+    "Un carré découpé dans du carton se repose dans son trou de 8 façons : 4 en le tournant, 4 en le retournant. Ces mouvements se composent, et l’ordre dans lequel on les fait compte.",
+    "A square cut out of card fits back into its hole in 8 ways: 4 by turning it, 4 by flipping it. These moves compose, and the order in which they are done matters."),
+  duration: 12,
+  level: P("Lycée curieux · Université", "Curious students · University"),
+  prereq: P("Angles, rotations et symétries axiales", "Angles, rotations and reflections"),
+  model: { model: polyModel },
+  state: polySet(4),
+  keys: P("Les boutons tournent (r, r⁻¹) ou retournent (τ) la figure autour de l’axe fixe en pointillés.", "The buttons turn (r, r⁻¹) or flip (τ) the figure over the fixed dashed axis."),
+  controls: {
+    n: { kind: "choice", label: P("Polygone", "Polygon"), options: [3, 4, 5, 6, 8].map((n) => ({ value: n, label: P({ 3: "triangle", 4: "carré", 5: "pentagone", 6: "hexagone", 8: "octogone" }[n], { 3: "triangle", 4: "square", 5: "pentagon", 6: "hexagon", 8: "octagon" }[n]) })), get: (s) => s.n, set: (s, v) => polySet(v) },
+    move: {
+      kind: "action", label: P("Bouger la figure", "Move the figure"),
+      options: [{ value: "r", label: P("r : tourner", "r: turn") }, { value: "R", label: P("r⁻¹ : tourner en arrière", "r⁻¹: turn back") }, { value: "t", label: P("τ : retourner", "τ: flip") }, { value: "0", label: P("Position de départ", "Starting position") }],
+      act: (s, v) => {
+        if (v === "0") return { g: "0,0", word: "" };
+        const [k, sg] = s.g.split(",").map(Number), m = v === "R" ? { k: s.n - 1, s: 0 } : MOVE[v];
+        return { g: gText(G.dMul(s.n, m, { k, s: sg })), word: s.word + v };
+      },
+    },
+  },
+  views: { panels: [], formula: (s) => s.g, readout: (s) => [[P("Ordre", "Order"), String(polyModel(s).order)]] },
+  missions: [
+    {
+      id: "count", kind: "predict", set: polySet(4), correct: 2,
+      scene: { title: P("Combien de symétries ?", "How many symmetries?"), caption: P(
+        "Le carré a 4 rotations (dont « ne rien faire ») et 4 retournements : 8 symétries, rangées à droite, où la position atteinte s’allume. Un polygone régulier à n côtés en a 2n.",
+        "The square has 4 rotations (including “do nothing”) and 4 flips: 8 symmetries, listed on the right, where the position reached lights up. A regular polygon with n sides has 2n.") },
+      prompt: P("De combien de façons peut-on reposer un carré de carton dans son trou ?", "In how many ways can a cardboard square be put back into its hole?"),
+      choices: [P("4", "4"), P("6", "6"), P("8", "8"), P("16", "16")],
+    },
+    {
+      id: "order-matters", kind: "contrast", set: polySet(4, "rt"),
+      variants: [{ label: P("A : tourner puis retourner", "A: turn then flip"), set: polySet(4, "rt") }, { label: P("B : retourner puis tourner", "B: flip then turn"), set: polySet(4, "tr") }],
+      scene: { title: P("L’ordre compte", "Order matters"), caption: P(
+        "Tourner puis retourner ne met pas le carré dans la même position que retourner puis tourner : le coin 1 n’arrive pas au même endroit. Le groupe n’est pas commutatif : τ ∘ r = r⁻¹ ∘ τ.",
+        "Turning then flipping does not put the square in the same position as flipping then turning: corner 1 does not end up in the same place. The group is not commutative: τ ∘ r = r⁻¹ ∘ τ.") },
+      prompt: P("Comparez A et B : la position finale est-elle la même ?", "Compare A and B: is the final position the same?"),
+      done: P("Non : A donne r³τ et B donne rτ. En général, a ∘ b ≠ b ∘ a.", "No: A gives r³τ and B gives rτ. In general, a ∘ b ≠ b ∘ a."),
+    },
+    {
+      id: "relation", kind: "explore", set: polySet(5), unlock: ["move"],
+      scene: { title: P("Une relation qui dit tout", "One relation says it all"), caption: P(
+        "Retourner, tourner, retourner revient à tourner dans l’autre sens : τ r τ = r⁻¹. Ainsi τ, r, τ, r ramène le pentagone à sa place. Avec rⁿ = e et τ² = e, cette relation suffit à calculer dans tout le groupe.",
+        "Flip, turn, flip amounts to turning the other way: τ r τ = r⁻¹. So τ, r, τ, r brings the pentagon back into place. With rⁿ = e and τ² = e, this relation is enough to compute in the whole group.") },
+      prompt: P("Trouvez une suite de mouvements qui contient au moins un retournement et ramène le pentagone exactement à sa place.", "Find a sequence of moves containing at least one flip that brings the pentagon exactly back into place."),
+      goal: (s, m) => m.home && s.word.includes("t") && /[rR]/.test(s.word),
+      done: P("Par exemple τ r τ r = e, car τ r τ = r⁻¹.", "For example τ r τ r = e, because τ r τ = r⁻¹."),
+    },
+    {
+      id: "hexagon", kind: "check", set: polySet(6, "rr"), quantity: "order", answer: 3,
+      scene: { title: P("L’ordre d’une rotation", "The order of a rotation"), caption: P(
+        "Dans l’hexagone, r² tourne de 2 × 60° = 120° : trois fois r² font un tour complet, son ordre est 3. Chaque retournement est d’ordre 2.",
+        "In the hexagon, r² turns by 2 × 60° = 120°: three times r² is a full turn, its order is 3. Every flip has order 2.") },
+      prompt: P("Dans l’hexagone, quel est l’ordre de r² (combien de fois le faire pour revenir) ?", "In the hexagon, what is the order of r² (how many times to do it to come back)?"),
+      because: P("r² tourne de 120° et 3 × 120° = 360°.", "r² turns by 120° and 3 × 120° = 360°."),
+    },
+    {
+      id: "why", kind: "explain", set: polySet(4),
+      scene: { title: P("Le groupe diédral", "The dihedral group"), caption: P(
+        "Les 2n symétries du polygone forment le groupe diédral Dₙ. Les n rotations en forment un sous-groupe, de moitié moins d’éléments : un exemple du théorème de Lagrange (l’ordre d’un sous-groupe divise l’ordre du groupe).",
+        "The 2n symmetries of the polygon form the dihedral group Dₙ. The n rotations form a subgroup with half as many elements: an example of Lagrange’s theorem (the order of a subgroup divides the order of the group).") },
+      prompt: P("Pourquoi un polygone régulier à n côtés a-t-il exactement 2n symétries ?", "Why does a regular polygon with n sides have exactly 2n symmetries?"),
+      argument: P(
+        "Une symétrie est déterminée par l’endroit où elle envoie le coin 1 (n choix) et par le sens dans lequel les coins se suivent ensuite (2 choix : le même, ou retourné). Toutes ces 2n possibilités sont réalisées par les rotations rᵏ et les retournements rᵏτ.",
+        "A symmetry is determined by where it sends corner 1 (n choices) and by the direction in which the corners then follow (2 choices: the same, or flipped). All 2n possibilities are achieved by the rotations rᵏ and the flips rᵏτ."),
+    },
+  ],
+  conclusion: P(
+    "Le groupe diédral Dₙ a 2n éléments : n rotations et n retournements. Il n’est pas commutatif, et tout s’y calcule avec rⁿ = e, τ² = e et τ r τ = r⁻¹.",
+    "The dihedral group Dₙ has 2n elements: n rotations and n flips. It is not commutative, and everything in it follows from rⁿ = e, τ² = e and τ r τ = r⁻¹."),
+  seeAlso: [["#university/algebre-1-groupes", P("Cours : Algèbre 1, les groupes", "Course: Algebra 1, groups")], ["#lab/shuffles", P("Mélanger des cartes", "Shuffling cards")], ["#lab/rubik", P("Le Rubik’s cube", "The Rubik’s cube")]],
+  history: {
+    title: P("Cayley · 1854", "Cayley · 1854"),
+    story: P("Arthur Cayley donne en 1854 la première définition abstraite d’un groupe, avec sa table de multiplication ; les symétries des figures en sont les premiers exemples.", "In 1854 Arthur Cayley gave the first abstract definition of a group, with its multiplication table; the symmetries of figures are its first examples."),
+    source: "https://mathshistory.st-andrews.ac.uk/Biographies/Cayley/",
+  },
+};
+
+// ---------------------------------------------------------------- Rubik's cube
+const SEQUENCES = ["R", "RU", "RUR'U'", "R2U2", "RUF", "RUR'URU2R'"];
+const seqLabel = (q) => `${G.parseMoves(q).join(" ")} · ${G.sequenceOrder(G.parseMoves(q))}`;
+const cubeModel = (s) => {
+  const moves = G.parseMoves(s.moves), st = G.applyMoves(G.solvedStickers(), moves);
+  return { order: G.sequenceOrder(G.parseMoves(s.seq)), solved: G.isSolved(st), moved: G.movedCubies(st), played: moves.length };
+};
+const cubeSet = (seq) => ({ seq, moves: "", reps: 0 });
+const rubik = {
+  id: "rubik", template: "group", groupView: "cube", section: "groups", sub: P("Le groupe du Rubik’s cube", "The Rubik’s cube group"),
+  symbol: "⧈", group: P("Algèbre", "Algebra"),
+  title: P("Le Rubik’s cube, un groupe dans la main", "The Rubik’s cube, a group in your hand"),
+  short: P("Ordre d’une séquence, commutateurs", "Order of a sequence, commutators"),
+  intro: P(
+    "Chaque mouvement du Rubik’s cube se défait, et deux mouvements enchaînés en font un troisième : les positions du cube forment un groupe. Répétez une séquence assez longtemps et le cube revient toujours à son état de départ.",
+    "Every move of the Rubik’s cube can be undone, and two moves in a row make a third: the positions of the cube form a group. Repeat a sequence long enough and the cube always comes back to its starting state."),
+  duration: 15,
+  level: P("Tout public · Université", "Everyone · University"),
+  prereq: P("Le ppcm ; pour aller plus loin, les permutations", "The lowest common multiple; to go further, permutations"),
+  model: { model: cubeModel },
+  state: cubeSet("RU"),
+  keys: P("Faites glisser le fond pour tourner la vue (ou les flèches du clavier) ; les boutons tournent les faces. R = droite, U = haut, F = devant ; ' = dans l’autre sens.", "Drag the background to turn the view (or the arrow keys); the buttons turn the faces. R = right, U = up, F = front; ' = the other way."),
+  controls: {
+    seq: { kind: "choice", presentation: "select", label: P("Séquence étudiée (et son ordre)", "Sequence studied (and its order)"), options: SEQUENCES.map((q) => ({ value: q, label: [seqLabel(q), seqLabel(q)] })), get: (s) => s.seq, set: (s, v) => cubeSet(v) },
+    play: {
+      kind: "action", label: P("Jouer la séquence", "Play the sequence"),
+      options: [{ value: "once", label: P("Une fois", "Once") }, { value: "all", label: P("Jusqu’au retour", "Until it comes back") }, { value: "reset", label: P("Cube neuf", "New cube") }],
+      act: (s, v) => {
+        if (v === "reset") return { moves: "", reps: 0 };
+        const order = G.sequenceOrder(G.parseMoves(s.seq)), times = v === "once" ? 1 : order - (s.reps % order);
+        return { moves: s.moves + s.seq.repeat(times), reps: s.reps + times };
+      },
+    },
+    turn: {
+      kind: "action", label: P("Tourner une face", "Turn a face"),
+      options: ["U", "R", "F", "U'", "R'", "F'"].map((m) => ({ value: m, label: [m, m] })),
+      act: (s, v) => ({ moves: s.moves + v }),
+    },
+  },
+  views: { panels: [], formula: (s) => s.seq, readout: (s) => [[P("Ordre", "Order"), String(cubeModel(s).order)]] },
+  missions: [
+    {
+      id: "guess", kind: "predict", set: cubeSet("RU"), correct: 3,
+      scene: { title: P("R puis U, combien de fois ?", "R then U, how many times?"), caption: P(
+        "Tourner la face droite puis la face du haut, et recommencer : le cube ne revient qu’après 105 fois. Le désordre grandit, puis tout se remet en place d’un coup.",
+        "Turn the right face then the top face, and again: the cube only comes back after 105 times. The mess grows, then everything falls back into place at once.") },
+      prompt: P("On répète « R puis U ». Combien de répétitions avant que le cube revienne à son état de départ ?", "Repeat “R then U”. How many repetitions before the cube is back to its starting state?"),
+      choices: [P("4", "4"), P("12", "12"), P("36", "36"), P("105", "105")],
+    },
+    {
+      id: "back", kind: "explore", set: cubeSet("RU"), unlock: ["play"],
+      scene: { title: P("Le retour, et pourquoi 105", "The return, and why 105"), caption: P(
+        "105 = 3 × 5 × 7. La séquence R U déplace les coins et les arêtes en cycles de longueurs différentes, en les faisant aussi pivoter sur eux-mêmes ; le cube revient quand tous les cycles sont revenus en même temps : au ppcm, comme pour les cartes.",
+        "105 = 3 × 5 × 7. The sequence R U moves the corners and edges in cycles of different lengths, twisting them as well; the cube comes back when every cycle is back at the same time: at the lcm, as with the cards.") },
+      prompt: P("Jouez R U jusqu’au retour du cube.", "Play R U until the cube comes back."),
+      goal: (s, m) => s.reps > 0 && m.solved,
+      done: P("Retour après 105 répétitions, soit 210 quarts de tour.", "Back after 105 repetitions, that is 210 quarter turns."),
+    },
+    {
+      id: "commutator", kind: "explore", set: cubeSet("RUR'U'"), unlock: ["play"],
+      scene: { title: P("Le commutateur, l’outil des solveurs", "The commutator, the solvers’ tool"), caption: P(
+        "R U R⁻¹ U⁻¹ ne déplace que 7 des 20 petits cubes : si R et U commutaient, il ne ferait rien du tout. Un commutateur a b a⁻¹ b⁻¹ mesure à quel point a et b ne commutent pas ; ceux qui résolvent le cube les utilisent pour bouger peu de pièces à la fois.",
+        "R U R⁻¹ U⁻¹ moves only 7 of the 20 small cubes: if R and U commuted, it would do nothing at all. A commutator a b a⁻¹ b⁻¹ measures how far a and b fail to commute; people who solve the cube use them to move few pieces at a time.") },
+      prompt: P("Jouez R U R′ U′ une fois : combien de petits cubes ont bougé ? Puis jusqu’au retour.", "Play R U R′ U′ once: how many small cubes moved? Then until it comes back."),
+      goal: (s, m) => s.reps >= 1,
+      done: P("7 cubes seulement ont bougé, et le retour arrive après 6 répétitions.", "Only 7 cubes moved, and it comes back after 6 repetitions."),
+    },
+    {
+      id: "half", kind: "check", set: cubeSet("R2U2"), quantity: "order", answer: 6,
+      scene: { title: P("Des demi-tours", "Half turns"), caption: P(
+        "R2 U2 (deux demi-tours) a pour ordre 6 : six répétitions ramènent le cube neuf.",
+        "R2 U2 (two half turns) has order 6: six repetitions bring the cube back to new.") },
+      prompt: P("Combien de fois faut-il répéter R2 U2 pour retrouver le cube de départ ?", "How many times must R2 U2 be repeated to get the starting cube back?"),
+      because: P("R2 U2 échange des pièces par paires et en fait tourner d’autres par trois : ppcm(2, 3) = 6.", "R2 U2 swaps pieces in pairs and moves others in threes: lcm(2, 3) = 6."),
+    },
+    {
+      id: "nails", kind: "explain", set: cubeSet("RUR'U'"),
+      scene: { title: P("Le même calcul que le tableau sur des clous", "The same algebra as the picture on nails"), caption: P(
+        "Un tableau suspendu à deux clous a et b par la ficelle enroulée a b a⁻¹ b⁻¹ tombe dès qu’on retire un seul clou : retirer a efface les lettres a, il reste b b⁻¹, qui se défait. C’est un commutateur, comme R U R⁻¹ U⁻¹. Le défi « Un tableau sur des clous » est de la théorie des groupes.",
+        "A picture hung on two nails a and b by the string wound a b a⁻¹ b⁻¹ falls as soon as one nail is removed: removing a erases the letters a, leaving b b⁻¹, which comes undone. It is a commutator, like R U R⁻¹ U⁻¹. The challenge “A picture on nails” is group theory.") },
+      prompt: P("Pourquoi toute séquence répétée finit-elle par ramener le cube ?", "Why does every repeated sequence end up bringing the cube back?"),
+      argument: P(
+        "Le cube n’a qu’un nombre fini d’états (43 252 003 274 489 856 000). En répétant une séquence s, deux états finissent par se répéter : sᵃ = sᵇ avec a < b. Comme chaque mouvement se défait, on simplifie par sᵃ : s^(b − a) = identité. Le plus petit tel exposant est l’ordre de s.",
+        "The cube has only finitely many states (43,252,003,274,489,856,000). Repeating a sequence s, two states must eventually repeat: sᵃ = sᵇ with a < b. Since every move can be undone, cancel sᵃ: s^(b − a) = identity. The least such exponent is the order of s."),
+    },
+  ],
+  conclusion: P(
+    "Les positions du Rubik’s cube forment un groupe de 43 252 003 274 489 856 000 éléments. Toute séquence a un ordre fini, le ppcm des cycles qu’elle produit ; les commutateurs a b a⁻¹ b⁻¹ ne bougent que peu de pièces. Depuis 2010 on sait que 20 mouvements suffisent toujours pour résoudre le cube.",
+    "The positions of the Rubik’s cube form a group of 43,252,003,274,489,856,000 elements. Every sequence has a finite order, the lcm of the cycles it produces; commutators a b a⁻¹ b⁻¹ move only a few pieces. Since 2010 it has been known that 20 moves always suffice to solve the cube."),
+  seeAlso: [["#challenges/nails", P("Défi : un tableau sur des clous", "Challenge: a picture on nails")], ["#university/algebre-1-groupes", P("Cours : Algèbre 1, les groupes", "Course: Algebra 1, groups")], ["#lab/shuffles", P("Mélanger des cartes", "Shuffling cards")]],
+  history: {
+    title: P("Rubik · 1974, le nombre de Dieu · 2010", "Rubik · 1974, God’s number · 2010"),
+    story: P(
+      "Ernő Rubik invente le cube en 1974 pour enseigner la géométrie dans l’espace. En 2010, Tomas Rokicki, Herbert Kociemba, Morley Davidson et John Dethridge montrent par calcul que 20 mouvements suffisent pour résoudre n’importe quelle position.",
+      "Ernő Rubik invented the cube in 1974 to teach spatial geometry. In 2010 Tomas Rokicki, Herbert Kociemba, Morley Davidson and John Dethridge showed by computation that 20 moves suffice to solve any position."),
+    source: "https://www.cube20.org/",
+    sourceLabel: P("Le nombre de Dieu est 20 (cube20.org)", "God’s number is 20 (cube20.org)"),
+  },
+};
+
+const groupExperiments = [shuffles, polygon, rubik];
+
+__e.shuffles = shuffles;
+__e.polygon = polygon;
+__e.rubik = rubik;
+__e.groupExperiments = groupExperiments;
+});
 __d("lab/experiments/illumination.js", function (__e, __r) {
 // Guided mirrored-room exploration. Gallery and lab use the same editor, source and exact reflection model.
 const M = __r("illumination-model.js");
@@ -10105,6 +10418,171 @@ __e.model = model;
 __e.quantities = quantities;
 __e.quantity = quantity;
 });
+__d("lab/models/groups.js", function (__e, __r) {
+// Pure maths of the group laboratories (no DOM, no Math.random): permutations of n cards (the symmetric group Sₙ), the
+// symmetries of a regular polygon (the dihedral group Dₙ) and the Rubik's cube as a group of moves acting on its 54
+// stickers. Positions and cards are numbered from 0 here; the pages show them from 1.
+
+// ---------------------------------------------------------------- permutations
+// A permutation of {0, …, n−1} is an array p with p[i] = image of i. "Apply σ to the cards" sends the card at position i
+// to position σ(i).
+const identity = (n) => Array.from({ length: n }, (_, i) => i);
+// (p ∘ q)(i) = p(q(i)): first q, then p
+const compose = (p, q) => q.map((x) => p[x]);
+const inverse = (p) => { const r = Array(p.length); p.forEach((y, x) => { r[y] = x; }); return r; };
+const isIdentity = (p) => p.every((y, i) => y === i);
+function power(p, k) {
+  let r = identity(p.length), b = k >= 0 ? p : inverse(p);
+  for (let i = 0; i < Math.abs(k); i++) r = compose(b, r);
+  return r;
+}
+// disjoint cycles (fixed points left out unless `all`)
+function cycles(p, all = false) {
+  const seen = new Array(p.length).fill(false), out = [];
+  for (let i = 0; i < p.length; i++) {
+    if (seen[i]) continue;
+    const c = []; let x = i;
+    while (!seen[x]) { seen[x] = true; c.push(x); x = p[x]; }
+    if (c.length > 1 || all) out.push(c);
+  }
+  return out;
+}
+const gcd = (a, b) => (b ? gcd(b, a % b) : Math.abs(a));
+const lcm = (a, b) => (a / gcd(a, b)) * b;
+const order = (p) => cycles(p).reduce((m, c) => lcm(m, c.length), 1);
+// least number of swaps (transpositions) that give p: n − (number of cycles, fixed points included)
+const minSwaps = (p) => p.length - cycles(p, true).length;
+const sign = (p) => (minSwaps(p) % 2 ? -1 : 1);
+const cycleText = (p) => { const c = cycles(p); return c.length ? c.map((x) => `(${x.map((i) => i + 1).join(" ")})`).join("") : "id"; };
+// "(1 2 3)(4 5)" in Sₙ → array; positions written from 1
+function fromCycles(text, n) {
+  const p = identity(n);
+  for (const m of String(text).matchAll(/\(([^)]*)\)/g)) {
+    const c = m[1].trim().split(/[\s,]+/).filter(Boolean).map((x) => Number(x) - 1);
+    if (c.some((x) => !Number.isInteger(x) || x < 0 || x >= n) || new Set(c).size !== c.length) throw new Error("bad cycle");
+    c.forEach((x, i) => { p[x] = c[(i + 1) % c.length]; });
+  }
+  return p;
+}
+// The cards after applying a word of permutations, rightmost first: arrangement[pos] = card at that position.
+// Applying σ moves the card at position i to position σ(i): new[σ(i)] = old[i].
+const applyTo = (cards, p) => { const r = Array(cards.length); cards.forEach((c, i) => { r[p[i]] = c; }); return r; };
+
+// ---------------------------------------------------------------- dihedral group Dₙ
+// An element is {k, s}: first the reflection τ if s = 1 (axis through vertex 0), then the rotation rᵏ (angle 2πk/n).
+// As a map of the vertex positions: i ↦ (s ? −i : i) + k (mod n).
+const mod = (a, n) => ((a % n) + n) % n;
+const dIdentity = { k: 0, s: 0 };
+const dPerm = (n, g) => Array.from({ length: n }, (_, i) => mod((g.s ? -i : i) + g.k, n));
+// (a ∘ b): first b, then a. rᵃτ^α ∘ rᵇτ^β = r^(a + (−1)^α b) τ^(α+β)
+const dMul = (n, a, b) => ({ k: mod(a.k + (a.s ? -b.k : b.k), n), s: (a.s + b.s) % 2 });
+const dInverse = (n, g) => (g.s ? { ...g } : { k: mod(-g.k, n), s: 0 });
+const dOrder = (n, g) => (g.s ? 2 : n / gcd(g.k || n, n));
+const dName = (g, fr = true) => (g.s ? (g.k ? `r${sup(g.k)}τ` : "τ") : g.k ? `r${sup(g.k)}` : "e");
+const R = { k: 1, s: 0 }, T = { k: 0, s: 1 };
+// apply a word written as a string of 'r', 'R' (r⁻¹) and 't' to the identity, the leftmost letter acting first
+function dWord(n, word) {
+  let g = dIdentity;
+  for (const c of word) g = dMul(n, c === "r" ? R : c === "R" ? { k: n - 1, s: 0 } : T, g);
+  return g;
+}
+const SUP = { 0: "⁰", 1: "¹", 2: "²", 3: "³", 4: "⁴", 5: "⁵", 6: "⁶", 7: "⁷", 8: "⁸", 9: "⁹", "-": "⁻" };
+const sup = (k) => (k === 1 ? "" : String(k).split("").map((c) => SUP[c]).join(""));
+
+// ---------------------------------------------------------------- Rubik's cube
+// 54 stickers. Each sticker has a cubie position p ∈ {−1, 0, 1}³ and an outward normal n (a unit axis vector). A face turn
+// rotates by a quarter turn every sticker whose cubie lies in the layer, clockwise when looking at that face. The colour of a
+// sticker is the face it started on. x to the right (R), y up (U), z towards the viewer (F).
+const FACES = ["U", "D", "R", "L", "F", "B"];
+const NORMAL = { U: [0, 1, 0], D: [0, -1, 0], R: [1, 0, 0], L: [-1, 0, 0], F: [0, 0, 1], B: [0, 0, -1] };
+function solvedStickers() {
+  const out = [];
+  for (const f of FACES) {
+    const nv = NORMAL[f], axis = nv.findIndex((v) => v !== 0);
+    for (let a = -1; a <= 1; a++) for (let b = -1; b <= 1; b++) {
+      const p = [0, 0, 0], others = [0, 1, 2].filter((i) => i !== axis);
+      p[axis] = nv[axis]; p[others[0]] = a; p[others[1]] = b;
+      out.push({ face: f, p, n: nv.slice() });
+    }
+  }
+  return out;
+}
+// quarter turn about the axis (0 x, 1 y, 2 z), positive = counter-clockwise seen from the + side
+const rot = (v, axis, q) => {
+  const [i, j] = axis === 0 ? [1, 2] : axis === 1 ? [2, 0] : [0, 1];
+  let r = v.slice();
+  for (let t = 0; t < mod(q, 4); t++) { const a = r[i], b = r[j]; r[i] = -b; r[j] = a; }
+  return r;
+};
+// a move: face letter, then ' for the inverse or 2 for a half turn
+function moveSpec(m) {
+  const f = m[0], nv = NORMAL[f], axis = nv.findIndex((v) => v !== 0), side = nv[axis];
+  const turns = m.endsWith("2") ? 2 : m.endsWith("'") ? -1 : 1;
+  // clockwise seen from the face = negative rotation about the outward normal
+  return { face: f, axis, side, q: -side * turns, turns };
+}
+function applyMove(stickers, m) {
+  const { axis, side, q } = moveSpec(m);
+  return stickers.map((s) => (s.p[axis] === side ? { ...s, p: rot(s.p, axis, q), n: rot(s.n, axis, q) } : s));
+}
+const parseMoves = (text) => (String(text).match(/[UDRLFB](?:2|')?/g) || []);
+const applyMoves = (stickers, moves) => moves.reduce(applyMove, stickers);
+const invertMoves = (moves) => moves.slice().reverse().map((m) => (m.endsWith("2") ? m : m.endsWith("'") ? m[0] : m + "'"));
+const key = (s) => s.p.join(",") + "|" + s.n.join(",");
+// the permutation of the 54 sticker places produced by a sequence of moves
+function stickerPerm(moves) {
+  const start = solvedStickers(), end = applyMoves(start, moves), index = new Map(start.map((s, i) => [key(s), i]));
+  return end.map((s) => index.get(key(s)));
+}
+// how many times the sequence must be repeated before the cube is solved again (its order in the cube group)
+const sequenceOrder = (moves) => order(stickerPerm(moves));
+// the cube looks solved when each face shows one colour
+function isSolved(stickers) {
+  const seen = {};
+  for (const s of stickers) { const k = s.n.join(","); if (seen[k] && seen[k] !== s.face) return false; seen[k] = s.face; }
+  return true;
+}
+// stickers not in their starting place (cubies moved), counted by cubie
+function movedCubies(stickers) {
+  const start = solvedStickers(), moved = new Set();
+  stickers.forEach((s, i) => { if (key(s) !== key(start[i])) moved.add(start[i].p.join(",")); });
+  return moved.size;
+}
+
+__e.identity = identity;
+__e.compose = compose;
+__e.inverse = inverse;
+__e.isIdentity = isIdentity;
+__e.power = power;
+__e.cycles = cycles;
+__e.lcm = lcm;
+__e.order = order;
+__e.minSwaps = minSwaps;
+__e.sign = sign;
+__e.cycleText = cycleText;
+__e.fromCycles = fromCycles;
+__e.applyTo = applyTo;
+__e.dIdentity = dIdentity;
+__e.dPerm = dPerm;
+__e.dMul = dMul;
+__e.dInverse = dInverse;
+__e.dOrder = dOrder;
+__e.dName = dName;
+__e.R = R;
+__e.dWord = dWord;
+__e.sup = sup;
+__e.FACES = FACES;
+__e.solvedStickers = solvedStickers;
+__e.moveSpec = moveSpec;
+__e.applyMove = applyMove;
+__e.parseMoves = parseMoves;
+__e.applyMoves = applyMoves;
+__e.invertMoves = invertMoves;
+__e.stickerPerm = stickerPerm;
+__e.sequenceOrder = sequenceOrder;
+__e.isSolved = isSolved;
+__e.movedCubies = movedCubies;
+});
 __d("lab/models/inference.js", function (__e, __r) {
 // Seeded probability and inference models. Exact benchmarks are separate from simulation.
 const { rng } = __r("lab/models/probability.js");
@@ -11914,14 +12392,16 @@ const { monteCarloExperiments } = __r("lab/experiments/monte-carlo.js");
 const illumination = __r("lab/experiments/illumination.js").default;
 const ferrisWheel = __r("lab/experiments/ferris-wheel.js").default;
 const eratosthenes = __r("lab/experiments/eratosthenes.js").default;
+const { groupExperiments } = __r("lab/experiments/groups.js");
 
 // Order of the catalogue. The experiments are plain data and small; the heavy part (templates) is imported on demand.
 const EXPERIMENTS = [quadratic, trig, sequences, derivative, integral, probability, vectors, statistics, complex, line, exponential, cobweb, matrix, spaceLines, fourier, drawingExperiment, tiles, eulerPrimes, fermat, circleRegions, buffon, bertrand, fairDivision, fairGoods, ...inferenceExperiments, ...monteCarloExperiments, doublePendulum, threeBody, logistic, illumination];
 
-EXPERIMENTS.push(hairyExperiment, surfacesExperiment, banachExperiment, banachTreeExperiment, ferrisWheel, eratosthenes);
+EXPERIMENTS.push(hairyExperiment, surfacesExperiment, banachExperiment, banachTreeExperiment, ferrisWheel, eratosthenes, ...groupExperiments);
 
 const TEMPLATES = {
   illumination: () => Promise.resolve(__r("lab/templates/illumination.js")),
+  group: () => Promise.resolve(__r("lab/templates/group.js")),
   dynamics: () => Promise.resolve(__r("lab/templates/dynamics.js")),
   logistic: () => Promise.resolve(__r("lab/templates/logistic.js")),
   inference: () => Promise.resolve(__r("lab/templates/inference.js")),
@@ -11961,9 +12441,10 @@ const SECTION_INFO = {
   inference: { title: ["Inférer et décider", "Infer and decide"], blurb: ["Du tirage au hasard à une décision : hypothèses, incertitude et preuves.", "From random sampling to decisions: assumptions, uncertainty and proof."] },
   tiles: { title: ["Une figure n’est pas une preuve", "A figure is not a proof"], blurb: ["Des pièces qui semblent changer d’aire : la démonstration dit où est l’erreur.", "Pieces that seem to change their area: the proof says where the error is."] },
   patterns: { title: ["Une régularité n’est pas une preuve", "A pattern is not a proof"], blurb: ["Des observations vraies pendant 5 ou 40 cas, puis fausses.", "Observations true for 5 or 40 cases, then false."] },
+  groups: { title: ["Des groupes en action", "Groups in action"], blurb: ["Mélanger des cartes, retourner un polygone, tourner un Rubik’s cube : des mouvements qui se composent et se défont.", "Shuffle cards, flip a polygon, turn a Rubik’s cube: moves that compose and can be undone."] },
   geochance: { title: ["Probabilités géométriques", "Geometric probability"], blurb: ["Le hasard dans le plan : une aiguille, une corde.", "Chance in the plane: a needle, a chord."] },
 };
-const INDEX_ORDER = ["family", "process", "modelling", "dynamics", "logistic", "chance", "inference", "geochance", "illumination", "figure", "tiles", "patterns", "data", "transform", "space", "fourier"];
+const INDEX_ORDER = ["family", "process", "modelling", "dynamics", "logistic", "chance", "inference", "geochance", "illumination", "figure", "tiles", "patterns", "groups", "data", "transform", "space", "fourier"];
 const groupOf = (e) => e.section || e.template;
 
 const experimentById = (id) => EXPERIMENTS.find((e) => e.id === id) || null;
@@ -13076,6 +13557,323 @@ function mount(env){
   return {draw,handles,player,destroy(){help.remove();penStatus.remove();cv.removeEventListener('keydown',key);cv.removeEventListener('view-gesture',gesture);cv.removeEventListener('pointercancel',gesture,true);cv.removeEventListener('lostpointercapture',gesture);cv.removeEventListener('pointerdown',down,true);cv.removeEventListener('pointermove',move,true);cv.removeEventListener('pointerup',end,true);cv.removeEventListener('pointercancel',end,true);}};
 }
 
+__e.mount = mount;
+});
+__d("lab/templates/group.js", function (__e, __r) {
+// Template `group`: three ways to see a group acting, chosen by the experiment's `groupView`:
+//   cards     n numbered cards in a row (Sₙ). Applying a shuffle σ sends the card at position i to position σ(i): the cards glide
+//             along arcs, the arrows of σ are drawn above them, coloured cycle by cycle. Two cards clicked in turn are swapped.
+//   polygon   a regular polygon with numbered, coloured corners and a flag that shows its side (Dₙ). The rotation r turns it,
+//             the reflection τ flips it over the fixed vertical axis, in 3D; the 2n elements of the group are listed under it.
+//   cube      a Rubik's cube in 3D. Each move turns one layer by a quarter turn, animated; a long sequence plays quickly. Drag
+//             the background (or use the arrow keys) to turn the view; the view is never part of the state.
+// Every change goes through setState; the shell's buttons and the cards share the same state. Under reduced motion nothing
+// glides: the figure jumps to the new state. Readouts are written under the figure (a custom stage hides the shell's own).
+const G = __r("lab/models/groups.js");
+
+const STYLE_ID = "lab-group-style";
+const CSS = `
+.grp { position: relative; padding: 10px; min-width: 0; touch-action: manipulation; }
+.grp-canvas { position: relative; width: 100%; }
+.grp-canvas canvas { display: block; width: 100%; height: 100%; }
+.grp-cards { position: absolute; inset: 0; pointer-events: none; }
+.grp-card { position: absolute; left: 0; top: 0; display: grid; place-items: center; border: 2px solid var(--ink, #222); border-radius: 10px; font: 700 1.35rem/1 var(--math, serif); color: #fff; cursor: pointer; pointer-events: auto; box-shadow: 0 3px 0 rgba(0,0,0,.35); will-change: transform; padding: 0; }
+.grp-card:focus-visible { outline: 3px solid var(--focus, #5b8def); outline-offset: 3px; }
+.grp-card[aria-pressed="true"] { box-shadow: 0 0 0 4px var(--object-ink, #d9b25f); }
+.grp-info { display: grid; grid-template-columns: repeat(auto-fit, minmax(10.5rem, 1fr)); gap: 8px 18px; margin: 10px 0 0; padding: 10px 12px; border-top: 1px solid var(--line, #444); font: .95rem/1.35 var(--ui, system-ui); }
+.grp-info div { min-width: 0; }
+.grp-info dt { font-size: .76rem; letter-spacing: .04em; text-transform: uppercase; color: var(--muted, #999); }
+.grp-info dd { margin: 2px 0 0; font: 600 1.05rem/1.3 var(--math, serif); overflow-wrap: anywhere; }
+.grp-note { margin: 8px 12px 0; font: .9rem/1.4 var(--ui, system-ui); color: var(--muted, #999); }
+.grp-note[data-tone="win"] { color: var(--object-ink, #d9b25f); font-weight: 700; }
+`;
+
+const el = (tag, cls, text) => { const n = document.createElement(tag); if (cls) n.className = cls; if (text !== undefined) n.textContent = text; return n; };
+const css = (node, name, fallback) => getComputedStyle(node).getPropertyValue(name).trim() || fallback;
+const ease = (u) => (u < 0.5 ? 4 * u * u * u : 1 - Math.pow(-2 * u + 2, 3) / 2);
+
+function createStage(host, { onFrame, label }) {
+  const wrap = el("div", "grp lab2-group");
+  wrap.tabIndex = 0; wrap.setAttribute("role", "group"); wrap.setAttribute("aria-label", label);
+  host.append(wrap);
+  let frame = 0, alive = true;
+  return {
+    wrap, canvas: null, setHandles() {},
+    reduced: () => globalThis.matchMedia?.("(prefers-reduced-motion: reduce)").matches ?? false,
+    invalidate() { if (alive && !frame) frame = requestAnimationFrame(() => { frame = 0; if (alive) onFrame(); }); },
+    destroy() { alive = false; cancelAnimationFrame(frame); wrap.remove(); },
+  };
+}
+
+function mount(env) {
+  const { exp, stage } = env, doc = stage.wrap.ownerDocument;
+  if (!doc.getElementById(STYLE_ID)) { const st = doc.createElement("style"); st.id = STYLE_ID; st.textContent = CSS; doc.head.append(st); }
+  const box = el("div", "grp-canvas"), cv = el("canvas"), info = el("dl", "grp-info"), note = el("p", "grp-note");
+  note.setAttribute("role", "status"); note.setAttribute("aria-live", "polite");
+  box.append(cv); stage.wrap.append(box, info, note);
+  const view = { cards: cardsView, polygon: polygonView, cube: cubeView }[exp.groupView](env, { box, cv, info, note });
+  const ro = new ResizeObserver(() => view.resize?.()); ro.observe(box);
+  return { handles: [], draw: () => view.draw(), destroy() { ro.disconnect(); view.destroy?.(); } };
+}
+
+// A canvas sized to its box, with a loop that runs only while something moves.
+function surface(box, cv, height, paint) {
+  let W = 1, H = 1, raf = 0, alive = true;
+  const g = cv.getContext("2d");
+  const size = () => {
+    const d = Math.min(2, devicePixelRatio || 1); W = Math.max(1, box.clientWidth); H = height(W);
+    box.style.height = H + "px"; cv.width = Math.round(W * d); cv.height = Math.round(H * d); g.setTransform(d, 0, 0, d, 0, 0);
+  };
+  const tick = (now) => { raf = 0; if (!alive) return; if (paint(g, W, H, now)) raf = requestAnimationFrame(tick); };
+  size();
+  return {
+    get W() { return W; }, get H() { return H; },
+    resize() { size(); this.kick(); },
+    kick() { if (!raf && alive) raf = requestAnimationFrame(tick); },
+    stop() { alive = false; cancelAnimationFrame(raf); },
+  };
+}
+function info(dl, rows) {
+  const html = rows.map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join("");
+  if (dl._html !== html) { dl._html = html; dl.innerHTML = html; }
+}
+const say = (node, text, tone = "") => { if (node.textContent !== text) node.textContent = text; node.dataset.tone = tone; };
+
+// ---------------------------------------------------------------- cards (Sₙ)
+function cardsView({ exp, stage, fmt, getState, setState }, { box, cv, info: dl, note }) {
+  const t = fmt.t, layer = el("div", "grp-cards"); box.append(layer);
+  let buttons = [], shown = null, from = null, start = 0, dur = 0, pick = -1, n = 0;
+  const palette = () => [1, 2, 3, 4, 5, 6, 7, 8].map((i) => css(stage.wrap, `--c${i}`, "#888"));
+  const geom = (W, H) => { const s = Math.min(78, (W - 24) / n - 12), gap = (W - n * s) / (n + 1); return { s, x: (i) => gap + i * (s + gap), y: H * 0.56 }; };
+  const surf = surface(box, cv, (W) => Math.max(220, Math.min(320, W * 0.42)), paint);
+  function build(count) {
+    n = count; layer.replaceChildren(); pick = -1;
+    const cols = palette();
+    buttons = Array.from({ length: n }, (_, c) => {
+      const b = el("button", "grp-card", String(c + 1));
+      b.type = "button"; b.style.background = cols[c % 8]; b.setAttribute("aria-pressed", "false");
+      b.addEventListener("click", () => choose(c));
+      layer.append(b); return b;
+    });
+  }
+  function choose(card) {
+    const s = getState(), cards = s.cards.split(",").map(Number), at = cards.indexOf(card);
+    if (pick < 0) { pick = at; paintPick(); return; }
+    if (pick === at) { pick = -1; paintPick(); return; }
+    const next = cards.slice(); [next[pick], next[at]] = [next[at], next[pick]];
+    pick = -1; paintPick();
+    setState({ cards: next.join(","), swaps: s.swaps + 1 });
+  }
+  function paintPick() { const cards = getState().cards.split(",").map(Number); buttons.forEach((b, c) => b.setAttribute("aria-pressed", String(cards.indexOf(c) === pick))); }
+  function paint(g, W, H, now) {
+    const s = getState(), sigma = G.fromCycles(s.sigma, s.n), { s: size, x, y } = geom(W, H);
+    g.clearRect(0, 0, W, H);
+    const ink = css(stage.wrap, "--ink", "#ddd"), muted = css(stage.wrap, "--muted", "#999"), cols = palette();
+    // the arrows of σ above the row: from position i to position σ(i), one colour per cycle
+    G.cycles(sigma).forEach((cyc, ci) => cyc.forEach((i) => {
+      const j = sigma[i], a = x(i) + size / 2, b = x(j) + size / 2, top = y - size / 2 - 10, lift = 22 + Math.abs(j - i) * 10;
+      g.strokeStyle = cols[(ci * 3 + 2) % 8]; g.fillStyle = g.strokeStyle; g.lineWidth = 2.2; g.globalAlpha = 0.9;
+      g.beginPath(); g.moveTo(a, top); g.quadraticCurveTo((a + b) / 2, top - lift * 1.4, b, top); g.stroke();
+      const ang = Math.atan2(top - (top - lift * 1.4), b - (a + b) / 2);
+      g.beginPath(); g.moveTo(b, top); g.lineTo(b - 10 * Math.cos(ang - 0.4), top - 10 * Math.sin(ang - 0.4)); g.lineTo(b - 10 * Math.cos(ang + 0.4), top - 10 * Math.sin(ang + 0.4)); g.closePath(); g.fill();
+    }));
+    g.globalAlpha = 1;
+    g.fillStyle = muted; g.font = "600 13px system-ui"; g.textAlign = "center";
+    g.fillText(t(["σ envoie la carte de chaque position au bout de sa flèche", "σ sends the card at each position to the end of its arrow"]), W / 2, 18);
+    for (let i = 0; i < n; i++) { g.strokeStyle = muted; g.setLineDash([4, 4]); g.lineWidth = 1; g.strokeRect(x(i) - 3, y - size / 2 - 3, size + 6, size + 6); g.setLineDash([]); g.fillStyle = muted; g.fillText(`${t(["position", "position"])} ${i + 1}`, x(i) + size / 2, y + size / 2 + 22); }
+    // the cards, gliding from their old places along an arc
+    const target = s.cards.split(",").map(Number), u = dur ? Math.min(1, (now - start) / dur) : 1, e = ease(u);
+    target.forEach((card, pos) => {
+      const b = buttons[card]; if (!b) return;
+      const p0 = from ? from.indexOf(card) : pos, x0 = x(p0), x1 = x(pos), lift = p0 === pos ? 0 : Math.sin(Math.PI * e) * (28 + 6 * Math.abs(pos - p0));
+      const px = x0 + (x1 - x0) * e, py = y - size / 2 - lift;
+      b.style.width = b.style.height = size + "px";
+      b.style.transform = `translate(${px.toFixed(1)}px, ${py.toFixed(1)}px)`;
+    });
+    void ink;
+    if (u >= 1) { from = null; dur = 0; return false; }
+    return true;
+  }
+  return {
+    resize: () => surf.resize(),
+    draw() {
+      const s = getState();
+      if (s.n !== n) { build(s.n); shown = null; }
+      if (shown !== s.cards) {
+        if (shown && !stage.reduced() && shown.split(",").length === s.n) { from = shown.split(",").map(Number); start = performance.now(); dur = 650; }
+        shown = s.cards; pick = -1; paintPick();
+      }
+      surf.kick();
+      const sigma = G.fromCycles(s.sigma, s.n), cards = s.cards.split(",").map(Number);
+      // the arrangement as a permutation: the card at position i is cards[i]; the map "position of card c" is its inverse
+      const arr = G.inverse(cards), back = cards.every((c, i) => c === i);
+      info(dl, [
+        [t(["Mélange σ", "Shuffle σ"]), G.cycleText(sigma)],
+        [t(["Ordre de σ", "Order of σ"]), `${G.order(sigma)}${G.cycles(sigma).length > 1 ? ` = ppcm(${G.cycles(sigma).map((c) => c.length).join(", ")})`.replace("ppcm", t(["ppcm", "lcm"])) : ""}`],
+        [t(["σ appliqué", "σ applied"]), `${s.k} ${t(s.k > 1 ? ["fois", "times"] : ["fois", "time"])}`],
+        [t(["Ordre des cartes", "Order of the cards"]), cards.map((c) => c + 1).join(" ")],
+        [t(["Comme permutation", "As a permutation"]), G.cycleText(arr)],
+        [t(["Échanges pour tout remettre", "Swaps to put it back"]), `${G.minSwaps(arr)} · ${G.sign(arr) > 0 ? t(["paire", "even"]) : t(["impaire", "odd"])}`],
+      ]);
+      say(note, back && s.k > 0 ? t([`Retour à l’ordre de départ après ${s.k} application${s.k > 1 ? "s" : ""} de σ.`, `Back to the starting order after applying σ ${s.k} time${s.k > 1 ? "s" : ""}.`]) : t(["Cliquez deux cartes l’une après l’autre pour les échanger.", "Click two cards one after the other to swap them."]), back && s.k > 0 ? "win" : "");
+    },
+    destroy: () => surf.stop(),
+  };
+}
+
+// ---------------------------------------------------------------- polygon (Dₙ)
+function polygonView({ stage, fmt, getState }, { box, cv, info: dl, note }) {
+  const t = fmt.t;
+  let shown = null, anim = null;
+  const parse = (s) => { const [k, sg] = s.g.split(",").map(Number); return { k, s: sg }; };
+  const surf = surface(box, cv, (W) => Math.max(260, Math.min(400, W * 0.62)), paint);
+  // the figure for the element g, partway through a move: rotation by `turn` (radians), flip with horizontal scale `sx`
+  function paint(g, W, H, now) {
+    const s = getState(), n = s.n, cur = parse(s), cx = W * 0.36, cy = H / 2, R = Math.min(W * 0.28, H * 0.38);
+    const ink = css(stage.wrap, "--ink", "#ddd"), muted = css(stage.wrap, "--muted", "#999"), line = css(stage.wrap, "--line", "#555"), obj = css(stage.wrap, "--object-ink", "#d9b25f");
+    const cols = [1, 2, 3, 4, 5, 6, 7, 8].map((i) => css(stage.wrap, `--c${i}`, "#888"));
+    let base = cur, turn = 0, sx = 1, u = 1;
+    if (anim) {
+      u = Math.min(1, (now - anim.start) / anim.dur); const e = ease(u);
+      base = anim.from;
+      if (anim.move === "t") sx = Math.cos(Math.PI * e); else turn = (anim.move === "r" ? 1 : -1) * e * 2 * Math.PI / n;
+    }
+    g.clearRect(0, 0, W, H);
+    // the fixed axis of τ and the outline of the starting position
+    g.strokeStyle = line; g.setLineDash([6, 6]); g.lineWidth = 1.2; g.beginPath(); g.moveTo(cx, cy - R * 1.32); g.lineTo(cx, cy + R * 1.32); g.stroke(); g.setLineDash([]);
+    g.fillStyle = muted; g.font = "600 12px system-ui"; g.textAlign = "center"; g.fillText(t(["axe de τ", "axis of τ"]), cx, cy - R * 1.36);
+    const corner = (i) => { const a = -Math.PI / 2 + (2 * Math.PI * i) / n; return [Math.cos(a), Math.sin(a)]; };
+    g.strokeStyle = line; g.beginPath(); for (let i = 0; i <= n; i++) { const [a, b] = corner(i % n); i ? g.lineTo(cx + R * a, cy + R * b) : g.moveTo(cx + R * a, cy + R * b); } g.stroke();
+    // where vertex i of the shape is: its place under `base`, then the partial move (turn about the centre, or flip)
+    const perm = G.dPerm(n, base);
+    const place = (i) => { const [a, b] = corner(perm[i]), c = Math.cos(turn), sn = Math.sin(turn); const x = a * c - b * sn, y = a * sn + b * c; return [cx + R * x * sx, cy + R * y]; };
+    const flipped = (base.s ? -1 : 1) * Math.sign(sx || 1) < 0;
+    g.fillStyle = flipped ? css(stage.wrap, "--sunken", "#2a2f3d") : css(stage.wrap, "--surface", "#1b2336"); g.strokeStyle = ink; g.lineWidth = 2.5;
+    g.beginPath(); for (let i = 0; i <= n; i++) { const [x, y] = place(i % n); i ? g.lineTo(x, y) : g.moveTo(x, y); } g.closePath(); g.fill(); g.stroke();
+    // the flag: a small asymmetric mark inside, from the centre towards corner 1 then bent towards corner 2, so a flip shows
+    const [ax, ay] = place(0), [bx, by] = place(1), mx = cx + (ax - cx) * 0.55, my = cy + (ay - cy) * 0.55, fx = mx + (bx - ax) * 0.22, fy = my + (by - ay) * 0.22;
+    g.strokeStyle = obj; g.fillStyle = obj; g.lineWidth = 3; g.beginPath(); g.moveTo(cx + (mx - cx) * 0.1, cy + (my - cy) * 0.1); g.lineTo(mx, my); g.stroke();
+    g.beginPath(); g.moveTo(mx, my); g.lineTo(fx, fy); g.lineTo(mx + (fx - mx) * 0.2 + (cx - mx) * 0.25, my + (fy - my) * 0.2 + (cy - my) * 0.25); g.closePath(); g.fill();
+    for (let i = 0; i < n; i++) { const [x, y] = place(i); g.fillStyle = cols[i % 8]; g.beginPath(); g.arc(x, y, 15, 0, 7); g.fill(); g.strokeStyle = ink; g.lineWidth = 2; g.stroke(); g.fillStyle = "#fff"; g.font = "700 15px system-ui"; g.fillText(String(i + 1), x, y + 5); }
+    // the 2n elements: rotations above, reflections below; the current one ringed
+    const gx = W * 0.7, gw = W * 0.27, cell = Math.min(46, gw / n), top = cy - cell * 1.3;
+    g.font = "600 12px system-ui"; g.fillStyle = muted; g.textAlign = "left";
+    g.fillText(t([`les ${2 * n} symétries`, `the ${2 * n} symmetries`]), gx, top - 12);
+    for (let row = 0; row < 2; row++) for (let k = 0; k < n; k++) {
+      const x = gx + k * cell, y = top + row * cell * 1.3, el2 = { k, s: row }, here = el2.k === cur.k && el2.s === cur.s && !anim;
+      g.strokeStyle = here ? obj : line; g.lineWidth = here ? 3 : 1; g.strokeRect(x + 2, y, cell - 4, cell - 4);
+      g.fillStyle = here ? obj : ink; g.font = `${here ? 700 : 500} ${Math.min(15, cell * 0.36)}px serif`; g.textAlign = "center";
+      g.fillText(G.dName(el2), x + cell / 2, y + cell / 2 + 3);
+    }
+    g.textAlign = "left"; g.fillStyle = muted; g.font = "12px system-ui";
+    g.fillText(t(["rotations", "rotations"]), gx, top + cell * 2.6 + 6); g.fillText(t(["retournements", "reflections"]), gx + gw * 0.5, top + cell * 2.6 + 6);
+    if (u >= 1 && anim) { anim = null; return true; }
+    return !!anim;
+  }
+  return {
+    resize: () => surf.resize(),
+    draw() {
+      const s = getState();
+      if (shown && shown.n === s.n && shown.word !== s.word && s.word.startsWith(shown.word) && s.word.length === shown.word.length + 1 && !stage.reduced()) {
+        anim = { from: parse(shown), move: s.word.at(-1), start: performance.now(), dur: 700 };
+      } else anim = null;
+      shown = { n: s.n, word: s.word, g: s.g };
+      surf.kick();
+      const g = parse(s), perm = G.dPerm(s.n, g);
+      const word = s.word ? s.word.split("").map((c) => (c === "t" ? "τ" : c === "R" ? "r⁻¹" : "r")).reverse().join(" ∘ ") : "e";
+      info(dl, [
+        [t(["Mouvements faits (le dernier à gauche)", "Moves made (last on the left)"]), word],
+        [t(["Résultat", "Result"]), `${G.dName(g)}${g.s ? t([" : un retournement", ": a reflection"]) : g.k ? t([" : une rotation", ": a rotation"]) : t([" : rien n’a bougé", ": nothing moved"])}`],
+        [t(["Ordre de cet élément", "Order of this element"]), String(G.dOrder(s.n, g))],
+        [t(["Sommets déplacés", "Corners moved"]), G.cycleText(perm)],
+      ]);
+      say(note, g.k === 0 && g.s === 0 && s.word ? t(["Retour à la position de départ.", "Back to the starting position."]) : t(["r tourne d’un cran ; τ retourne la figure autour de l’axe fixe.", "r turns by one step; τ flips the figure over the fixed axis."]), g.k === 0 && g.s === 0 && s.word ? "win" : "");
+    },
+    destroy: () => surf.stop(),
+  };
+}
+
+// ---------------------------------------------------------------- Rubik's cube
+const FACE_COLOUR = { U: "#f4f4f0", D: "#f2cf1d", F: "#1f9e4a", B: "#2a5fd0", R: "#d6332b", L: "#f08a1c" };
+function cubeView({ stage, fmt, getState }, { box, cv, info: dl, note }) {
+  const t = fmt.t;
+  let yaw = -0.62, pitch = 0.5, shown = null, stickers = G.solvedStickers(), queue = [], current = null, drag = null;
+  const surf = surface(box, cv, (W) => Math.max(280, Math.min(420, W * 0.66)), paint);
+  const rotAxis = (v, axis, a) => { const [i, j] = axis === 0 ? [1, 2] : axis === 1 ? [2, 0] : [0, 1], r = v.slice(), c = Math.cos(a), s = Math.sin(a); r[i] = v[i] * c - v[j] * s; r[j] = v[i] * s + v[j] * c; return r; };
+  const toView = (v) => { let r = rotAxis(v, 1, yaw); r = rotAxis(r, 0, pitch); return r; };
+  function paint(g, W, H, now) {
+    // the queue of moves plays one move at a time; a long queue plays faster
+    if (!current && queue.length) { const m = queue.shift(); current = { m, start: now, dur: stage.reduced() ? 0 : Math.max(60, 300 / Math.sqrt(1 + queue.length / 3)) }; }
+    let angle = 0, spec = null;
+    if (current) {
+      const u = current.dur ? Math.min(1, (now - current.start) / current.dur) : 1;
+      spec = G.moveSpec(current.m); angle = ease(u) * spec.q * Math.PI / 2;
+      if (u >= 1) { stickers = G.applyMove(stickers, current.m); current = null; spec = null; angle = 0; }
+    }
+    const S = Math.min(W, H) * 0.19, cx = W / 2, cy = H / 2 + S * 0.15, line = css(stage.wrap, "--bg", "#111");
+    const proj = (v) => [cx + v[0] * S, cy - v[1] * S, v[2]];
+    // one quad per sticker and one dark quad per cubie face, all sorted back to front
+    const quads = [];
+    const inLayer = (p) => spec && p[spec.axis] === spec.side;
+    const cubies = new Set();
+    for (const s of stickers) cubies.add(s.p.join(","));
+    for (const c of cubies) {
+      const p = c.split(",").map(Number), moving = inLayer(p);
+      for (const nv of [[1, 0, 0], [-1, 0, 0], [0, 1, 0], [0, -1, 0], [0, 0, 1], [0, 0, -1]]) quads.push(face(p, nv, 0.5, "#0d0d10", moving));
+    }
+    for (const s of stickers) quads.push(face(s.p, s.n, 0.42, FACE_COLOUR[s.face], inLayer(s.p), 0.505));
+    function face(p, nv, half, colour, moving, out = 0.5) {
+      const axis = nv.findIndex((v) => v !== 0), others = [0, 1, 2].filter((i) => i !== axis), pts = [];
+      for (const [a, b] of [[-1, -1], [1, -1], [1, 1], [-1, 1]]) { const v = p.slice(); v[axis] += nv[axis] * out; v[others[0]] += a * half; v[others[1]] += b * half; pts.push(v); }
+      let P = pts, N = nv, C = p;
+      if (moving) { P = pts.map((v) => rotAxis(v, spec.axis, angle)); N = rotAxis(nv, spec.axis, angle); C = rotAxis(p, spec.axis, angle); }
+      const V = P.map(toView), n2 = toView(N), c2 = toView(C.map((x, i) => x + N[i] * out));
+      return { pts: V.map(proj), depth: c2[2], facing: n2[2] > 0.001, colour };
+    }
+    g.clearRect(0, 0, W, H);
+    quads.filter((q) => q.facing).sort((a, b) => a.depth - b.depth).forEach((q) => {
+      g.beginPath(); q.pts.forEach(([x, y], i) => (i ? g.lineTo(x, y) : g.moveTo(x, y))); g.closePath();
+      g.fillStyle = q.colour; g.fill(); g.strokeStyle = line; g.lineWidth = 1; g.stroke();
+    });
+    if (!current && !queue.length) { update(); return false; }
+    return true;
+  }
+  function update() {
+    const s = getState(), seq = G.parseMoves(s.seq), solved = G.isSolved(stickers), busy = !!current || queue.length > 0;
+    info(dl, [
+      [t(["Séquence étudiée", "Sequence studied"]), seq.join(" ") || "–"],
+      [t(["Son ordre", "Its order"]), `${G.sequenceOrder(seq)} ${t(["répétitions", "repetitions"])}`],
+      [t(["Séquence répétée", "Sequence repeated"]), `${s.reps} ${t(["fois", "times"])}`],
+      [t(["Coups joués", "Moves played"]), String(G.parseMoves(s.moves).length)],
+      [t(["Cubes déplacés", "Cubies moved"]), `${G.movedCubies(G.applyMoves(G.solvedStickers(), G.parseMoves(s.moves)))} / 20`],
+    ]);
+    say(note, busy ? t(["Le cube tourne…", "The cube is turning…"]) : solved && s.moves ? t(["Le cube est revenu à son état de départ.", "The cube is back to its starting state."]) : t(["Faites glisser le fond pour tourner la vue.", "Drag the background to turn the view."]), solved && s.moves && !busy ? "win" : "");
+  }
+  // turning the view: a drag on the canvas, or the arrow keys when the figure has the focus
+  const down = (e) => { drag = { x: e.clientX, y: e.clientY, yaw, pitch }; cv.setPointerCapture?.(e.pointerId); };
+  const move = (e) => { if (!drag) return; yaw = drag.yaw + (e.clientX - drag.x) * 0.01; pitch = Math.max(-1.2, Math.min(1.2, drag.pitch + (e.clientY - drag.y) * 0.01)); surf.kick(); };
+  const up = () => { drag = null; };
+  const key = (e) => { const d = { ArrowLeft: [-0.15, 0], ArrowRight: [0.15, 0], ArrowUp: [0, -0.15], ArrowDown: [0, 0.15] }[e.key]; if (!d || e.target !== stage.wrap) return; e.preventDefault(); yaw += d[0]; pitch = Math.max(-1.2, Math.min(1.2, pitch + d[1])); surf.kick(); };
+  cv.style.touchAction = "none"; cv.style.cursor = "grab";
+  cv.addEventListener("pointerdown", down); cv.addEventListener("pointermove", move); cv.addEventListener("pointerup", up); cv.addEventListener("pointercancel", up);
+  stage.wrap.addEventListener("keydown", key);
+  return {
+    resize: () => surf.resize(),
+    draw() {
+      const s = getState();
+      if (s.moves !== shown) {
+        // more moves at the end: play them; anything else (a reset, a new mission): jump there
+        if (shown !== null && s.moves.startsWith(shown) && !stage.reduced()) queue.push(...G.parseMoves(s.moves.slice(shown.length)));
+        else { queue = []; current = null; stickers = G.applyMoves(G.solvedStickers(), G.parseMoves(s.moves)); }
+        shown = s.moves;
+      }
+      update(); surf.kick();
+    },
+    destroy() { surf.stop(); stage.wrap.removeEventListener("keydown", key); },
+  };
+}
+
+__e.createStage = createStage;
 __e.mount = mount;
 });
 __d("lab/templates/illumination.js", function (__e, __r) {

@@ -6,7 +6,20 @@ const choose=(n,k)=>{let c=1;for(let j=1;j<=k;j++)c=c*(n-k+j)/j;return c;};
 const midpoint=(f,a,b,n=400000)=>{let t=0;const h=(b-a)/n;for(let i=0;i<n;i++)t+=f(a+(i+.5)*h)*h;return t;};
 const discFraction=()=>midpoint(x=>Math.sqrt(1-x*x),0,1)/1;   // area of a quarter disc = pi/4, fraction of the square [0,1]^2
 const ruin=(U,L)=>{const h=new Map();for(let i=-L;i<=U;i++)h.set(i,i===U?1:0);for(let k=0;k<20000;k++)for(let i=-L+1;i<U;i++)h.set(i,(h.get(i-1)+h.get(i+1))/2);return h.get(0);};
+// Group laboratories: a shuffle as "the card at position i goes to sigma(i)" applied by hand, and a Rubik's cube rebuilt from
+// the centres of its 54 stickers turned by rotation matrices (another description than the production model).
+const applyShuffle=(cards,sig)=>{const r=[];cards.forEach((c,i)=>{r[sig[i]]=c;});return r;};
+const cycleArray=(txt,n)=>{const p=[...Array(n).keys()];for(const m of txt.matchAll(/\(([^)]*)\)/g)){const c=m[1].trim().split(/\s+/).map(x=>x-1);c.forEach((x,i)=>{p[x]=c[(i+1)%c.length];});}return p;};
+const repeatsToStart=(sig)=>{const n=sig.length,start=[...Array(n).keys()];let c=applyShuffle(start,sig),k=1;while(c.some((x,i)=>x!==i)){c=applyShuffle(c,sig);k++;}return k;};
+const stickerCentres=()=>{const out=[];for(const ax of [0,1,2])for(const sg of [1,-1])for(const a of [-1,0,1])for(const b of [-1,0,1]){const v=[0,0,0],o=[0,1,2].filter(i=>i!==ax);v[ax]=1.5*sg;v[o[0]]=a;v[o[1]]=b;out.push(v);}return out;};
+// a quarter turn of a face, clockwise seen from outside: rotation by -90 degrees about the outward axis of that face
+const FACE={R:[0,1],L:[0,-1],U:[1,1],D:[1,-1],F:[2,1],B:[2,-1]};
+const turn=(v,m)=>{const [ax,sg]=FACE[m[0]],q=m.endsWith('2')?2:m.endsWith("'")?-1:1;if(Math.sign(v[ax])!==sg||Math.abs(v[ax])<0.5)return v;let r=v.slice();const [i,j]=ax===0?[1,2]:ax===1?[2,0]:[0,1];for(let t=0;t<((-sg*q)%4+4)%4;t++){const a=r[i],b=r[j];r[i]=-b;r[j]=a;}return r;};
+const cubeOrder=(moves)=>{const pts=stickerCentres(),key=v=>v.join(','),idx=new Map(pts.map((v,i)=>[key(v),i]));const img=pts.map(v=>idx.get(key(moves.reduce(turn,v))));let p=img.slice(),k=1;while(p.some((x,i)=>x!==i)){p=p.map(x=>img[x]);k++;}return k;};
 export const BACKLOG_CHECKS={
+ 'shuffles/swaps':({cards})=>{const c=cards.split(',').map(Number),seen=new Set();let cyc=0;for(let i=0;i<c.length;i++){if(seen.has(i))continue;cyc++;let x=i;while(!seen.has(x)){seen.add(x);x=c[x];}}return c.length-cyc;},
+ 'polygon/hexagon':({n})=>{let k=1;while((2*k)%n)k++;return k;},
+ 'rubik/half':()=>cubeOrder(['R2','U2']),
  'fair-division/read':s=>s.values[0][0]/s.values[0].reduce((a,b)=>a+b,0),
  'fair-goods/read':s=>s.values[0].reduce((sum,v,i)=>sum+(s.owners[i]===0?v:0),0),
  'secretary/read':({n,skip})=>{const ps=permutations(Array.from({length:n},(_,i)=>i+1));let hits=0;for(const p of ps){let found=n-1;for(let i=skip;i<n;i++)if(p.slice(0,i).every(v=>v<p[i])){found=i;break;}hits+=p[found]===n;}return hits/ps.length;},
@@ -36,6 +49,9 @@ export const BACKLOG_CHECKS={
  'monte-carlo-walk/read':({upper,lower})=>ruin(upper,lower),
 };
 export const BACKLOG_WITNESSES={
+ 'shuffles/perfect':{cards:'0,1,2,3,4,5,6,7',k:3},'shuffles/lcm':{n:7,sigma:'(1 2 3)(4 5 6 7)',cards:'0,1,2,3,4,5,6'},
+ 'polygon/relation':{word:'trtr',g:'0,0'},
+ 'rubik/back':{moves:'RU'.repeat(105),reps:105},'rubik/commutator':{moves:"RUR'U'",reps:1},
  'monte-carlo-pi/run':{runs:1000},'monte-carlo-lake/run':{runs:1000},'monte-carlo-lake/shape':{shape:'ell',runs:200},
  'monte-carlo-integral/run':{runs:1000},'monte-carlo-integral/spike':{runs:100},'monte-carlo-walk/run':{runs:1000},'monte-carlo-walk/rare':{upper:8},
  'fair-division/cuts':{cut1:1/3,cut2:2/3},
@@ -54,6 +70,9 @@ export const BACKLOG_WITNESSES={
  'banach-tarski-model/move':{owners:[1,1,0,0,0,0,0,0,0,0,0,0]},
 };
 export const BACKLOG_PREDICTIONS={
+ 'shuffles':{truth:()=>repeatsToStart(cycleArray('(1 2 3)(4 5)',5)),expected:6,words:/^6 fois$/},
+ 'polygon':{truth:()=>{const n=4,ok=[];const perms=permutations([0,1,2,3]);for(const p of perms)if([0,1,2,3].every(i=>{const d=(p[(i+1)%n]-p[i]+n)%n;return d===1||d===n-1;}))ok.push(p);return ok.length;},expected:8,words:/^8$/},
+ 'rubik':{truth:()=>cubeOrder(['R','U']),expected:105,words:/^105$/},
  'monte-carlo-pi':{truth:()=>Math.abs(discFraction()-.785)<.005,expected:true,words:/π\/4/},
  'monte-carlo-lake':{truth:()=>100*36/100===36,expected:true,words:/36 km²/},
  'monte-carlo-integral':{truth:()=>Math.abs(midpoint(x=>Math.sin(Math.PI*x)**2,0,1)-.5)<1e-6,expected:true,words:/^0,5$/},

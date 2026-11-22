@@ -883,60 +883,60 @@
     "algebre-1-guide": {
       "path": "resources/university/algebre-1/lecons/index.html",
       "bytes": 15412,
-      "sha256": "1e383d241537422eefca2b8ebf1900416db5d3f160e86d97e0ce89498829403b"
+      "sha256": "d5d5ac37d33541aab38cce8687f3b44e0ae32cf536a546f84e7f839da0a8e493"
     },
     "algebre-1-ensembles": {
       "path": "resources/university/algebre-1/lecons/ch1-ensembles.html",
       "bytes": 91299,
-      "sha256": "9102e4a723484aa20a89df93341975736e2b6cf2c4997cd1970bdd82870a4cc0"
+      "sha256": "442409aba5e86d8224bf3bf933b5218e0c98b8499b47522d141a3326a7c071ed"
     },
     "algebre-1-matrices": {
       "path": "resources/university/algebre-1/lecons/ch2-matrices.html",
       "bytes": 85922,
-      "sha256": "0686bfa29aca568d5c042b7ec70111525438ed4c3bb05a0e24236cd3f6472de7"
+      "sha256": "ebb89ff0c91da3fcf82445de78f06b5029d73297036df92ec318c39d1c90e797"
     },
     "algebre-1-espaces": {
       "path": "resources/university/algebre-1/lecons/ch3-espaces-vectoriels.html",
       "bytes": 96879,
-      "sha256": "a4533544e19563e5769c7a8e6a1ddbc8915cee335d328389d7c5c5db5b625ed8"
+      "sha256": "7cb1aa358ced7bc59ec5165ce41ee6dde6df1ffe39cf97427bbe975980861bc3"
     },
     "algebre-1-groupes": {
       "path": "resources/university/algebre-1/lecons/ch4-groupes.html",
       "bytes": 102398,
-      "sha256": "ce708731aabc252a03df6da704de91c041c0f679e3ed14c53b789fd771c42a33"
+      "sha256": "ed738e4ec3cecccc76ed2e3775a3e21445a08afefd99e3ceebeb2007f56e6db7"
     },
     "algebre-1-anneaux": {
       "path": "resources/university/algebre-1/lecons/ch5-anneaux.html",
       "bytes": 58544,
-      "sha256": "0dd161c6d7a6b661524355e65c8054f92ee4af0e8e0d678ca97d27bab3374121"
+      "sha256": "7dd00260e612386e0f15626b8672f150cda8983b3480b62b5ada9cdfadfed4c7"
     },
     "algebre-1-synthese": {
       "path": "resources/university/algebre-1/lecons/synthese.html",
       "bytes": 28124,
-      "sha256": "529bc7d6e654e84dec6f8d1c1142468965c40b5ca14803b0aee02f7553737223"
+      "sha256": "55132dcac1bf53b483e08312010a702fa0071cd60470a30ebff7e835ac7c46a2"
     },
     "algebre-1-cours": {
       "path": "resources/university/algebre-1/cours.pdf",
-      "bytes": 414418,
-      "sha256": "4b144f11d889e1cf5994594d87ca524bb3258ed62b8a7fb146d1b4ce610c2c1f",
+      "bytes": 419401,
+      "sha256": "685647e8bf5c46f2d372f22e2bdab4996f030e83c32390fbd2d400c395c05902",
       "pages": 67
     },
     "algebre-1-exercices": {
       "path": "resources/university/algebre-1/exercices.pdf",
-      "bytes": 195669,
-      "sha256": "94c8a40d9da265ed834bf9cf31417bc38746bceaf6648333edebe538879d64f2",
+      "bytes": 197349,
+      "sha256": "9db3eb83477d14ec95b773c0be38f8ad76e8f2f3446d009cf8ad73e169c1dde2",
       "pages": 27
     },
     "algebre-1-corriges": {
       "path": "resources/university/algebre-1/corriges.pdf",
-      "bytes": 369930,
-      "sha256": "d5185942625d3ea4de7d9352b0f12c94c1df49adcd5fc07c141ad8063a53e7d5",
+      "bytes": 372801,
+      "sha256": "782db11da62b2d148aa821a9c29880b32ca7a0f53dcb37c14a7862452fab42c4",
       "pages": 50
     },
     "algebre-1-tex": {
       "path": "resources/university/algebre-1/sources-latex.zip",
-      "bytes": 1778170,
-      "sha256": "726760160df58f633aeca7eac237d748ffed5df39705812ad51060a3004433bb"
+      "bytes": 1805225,
+      "sha256": "495d4a87f1cb3dee083b3d0cd8d0bdf64a7e5397f3ef1c532cf3a0bb9d7623f2"
     },
     "calculs-algebriques": {
       "path": "resources/university/foundations/slides/seq1-calculs-algebriques.html",

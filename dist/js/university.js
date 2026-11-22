@@ -46,6 +46,7 @@ export async function bindUniversity(id = '', lang = 'fr') {
     root.querySelectorAll('[data-lesson-tab]').forEach(b => b.addEventListener('click', () => {
       root.querySelectorAll('[data-lesson-tab]').forEach(o => o.setAttribute('aria-pressed', String(o === b)));
       try { frame.contentWindow.location.hash = '#' + b.dataset.lessonTab; } catch { frame.src = frame.src.split('#')[0] + '#' + b.dataset.lessonTab; }
+      frame.scrollIntoView({ block: 'start', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
     }));
   } catch {
     if (!root?.isConnected) return;

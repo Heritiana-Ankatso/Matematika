@@ -225,6 +225,21 @@ export const GUIDES = {
     see: [P("Une coupe de la Terre, deux villes, deux bâtons verticaux et les rayons parallèles du Soleil.", "A section of the Earth, two towns, two vertical sticks and the parallel rays of the Sun."), P("L’écart des angles des ombres, égal à l’angle au centre.", "The difference of the shadow angles, equal to the angle at the centre.")],
     start: P("Éloignez Alexandrie : l’angle grandit dans la même proportion que la distance.", "Move Alexandria away: the angle grows in proportion to the distance."),
   },
+  shuffles: {
+    question: P("Si l’on répète toujours le même mélange d’un paquet de cartes, les cartes reviennent-elles un jour dans l’ordre ? Quand ?", "If the same shuffle of a deck is repeated over and over, do the cards ever come back in order? When?"),
+    see: [P("Les cartes numérotées, chacune à sa position.", "The numbered cards, each at its position."), P("Au-dessus, les flèches du mélange σ : la carte d’une position part au bout de sa flèche ; une couleur par cycle.", "Above, the arrows of the shuffle σ: the card at a position goes to the end of its arrow; one colour per cycle.")],
+    start: P("Cliquez « Appliquer σ » plusieurs fois et comptez jusqu’au retour de l’ordre.", "Click “Apply σ” several times and count until the order comes back."),
+  },
+  polygon: {
+    question: P("De combien de façons peut-on reposer un polygone dans son trou, et l’ordre des mouvements compte-t-il ?", "In how many ways can a polygon be put back into its hole, and does the order of the moves matter?"),
+    see: [P("Le polygone, ses coins numérotés et un drapeau qui montre s’il est retourné.", "The polygon, its numbered corners and a flag that shows whether it is flipped."), P("À droite, toutes ses symétries ; celle où l’on se trouve est entourée.", "On the right, all its symmetries; the current one is ringed.")],
+    start: P("Faites r puis τ, revenez au départ, puis τ puis r : comparez.", "Do r then τ, go back to the start, then τ then r: compare."),
+  },
+  rubik: {
+    question: P("Si l’on répète une suite de mouvements du Rubik’s cube, combien de fois avant qu’il redevienne neuf ?", "Repeating a sequence of Rubik’s cube moves, how many times before it is back to new?"),
+    see: [P("Le cube en 3D ; chaque mouvement tourne une face d’un quart de tour.", "The cube in 3D; each move turns one face by a quarter turn."), P("Sous le cube : la séquence, son ordre, et combien de petits cubes ont bougé.", "Under the cube: the sequence, its order, and how many small cubes moved.")],
+    start: P("Choisissez R U et cliquez « Jusqu’au retour » : 105 répétitions.", "Choose R U and click “Until it comes back”: 105 repetitions."),
+  },
 };
 
 // What can be moved or pressed, read from the experiment's controls (labels only, duplicates removed).
