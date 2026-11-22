@@ -47,3 +47,85 @@
   --r: 0; --r-sm: 0; --header: 66px; --chrome: var(--header); --t: 120ms ease;
   font-size: 100%;
 }
+
+/* ================================================================== design v8: four worlds (behind ?v8)
+   docs/DESIGN_V8.md section 3, docs/REBUILD_PLAN.md stage 2. Everything below applies only under `data-world` on the
+   root element (set by js/v8.js), and the faces are in fonts/v8/ (a browser fetches a face only when text uses it, so a
+   world downloads only its own). Names are --w-*, so the current look (tokens above) is untouched. */
+@font-face { font-family: "Newsreader"; font-weight: 200 800; font-display: swap; src: url(../fonts/v8/newsreader-latin-wght-normal.woff2) format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Newsreader"; font-weight: 200 800; font-display: swap; src: url(../fonts/v8/newsreader-latin-ext-wght-normal.woff2) format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: "Newsreader"; font-style: italic; font-weight: 200 800; font-display: swap; src: url(../fonts/v8/newsreader-latin-wght-italic.woff2) format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Newsreader"; font-style: italic; font-weight: 200 800; font-display: swap; src: url(../fonts/v8/newsreader-latin-ext-wght-italic.woff2) format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: "Literata"; font-weight: 200 900; font-display: swap; src: url(../fonts/v8/literata-latin-wght-normal.woff2) format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Literata"; font-weight: 200 900; font-display: swap; src: url(../fonts/v8/literata-latin-ext-wght-normal.woff2) format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: "Literata"; font-style: italic; font-weight: 200 900; font-display: swap; src: url(../fonts/v8/literata-latin-wght-italic.woff2) format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Literata"; font-style: italic; font-weight: 200 900; font-display: swap; src: url(../fonts/v8/literata-latin-ext-wght-italic.woff2) format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: "Instrument Sans"; font-weight: 400 700; font-display: swap; src: url(../fonts/v8/instrument-sans-latin-wght-normal.woff2) format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Instrument Sans"; font-weight: 400 700; font-display: swap; src: url(../fonts/v8/instrument-sans-latin-ext-wght-normal.woff2) format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: "Instrument Serif"; font-weight: 400; font-display: swap; src: url(../fonts/v8/instrument-serif-latin-400-normal.woff2) format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Instrument Serif"; font-weight: 400; font-display: swap; src: url(../fonts/v8/instrument-serif-latin-ext-400-normal.woff2) format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: "Instrument Serif"; font-style: italic; font-weight: 400; font-display: swap; src: url(../fonts/v8/instrument-serif-latin-400-italic.woff2) format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Instrument Serif"; font-style: italic; font-weight: 400; font-display: swap; src: url(../fonts/v8/instrument-serif-latin-ext-400-italic.woff2) format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: "IBM Plex Sans"; font-weight: 400; font-display: swap; src: url(../fonts/v8/ibm-plex-sans-latin-400-normal.woff2) format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "IBM Plex Sans"; font-weight: 400; font-display: swap; src: url(../fonts/v8/ibm-plex-sans-latin-ext-400-normal.woff2) format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: "IBM Plex Sans"; font-weight: 500; font-display: swap; src: url(../fonts/v8/ibm-plex-sans-latin-500-normal.woff2) format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "IBM Plex Sans"; font-weight: 500; font-display: swap; src: url(../fonts/v8/ibm-plex-sans-latin-ext-500-normal.woff2) format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: "IBM Plex Sans"; font-weight: 600; font-display: swap; src: url(../fonts/v8/ibm-plex-sans-latin-600-normal.woff2) format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "IBM Plex Sans"; font-weight: 600; font-display: swap; src: url(../fonts/v8/ibm-plex-sans-latin-ext-600-normal.woff2) format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: "IBM Plex Mono"; font-weight: 400; font-display: swap; src: url(../fonts/v8/ibm-plex-mono-latin-400-normal.woff2) format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "IBM Plex Mono"; font-weight: 400; font-display: swap; src: url(../fonts/v8/ibm-plex-mono-latin-ext-400-normal.woff2) format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: swap; src: url(../fonts/v8/ibm-plex-mono-latin-500-normal.woff2) format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: swap; src: url(../fonts/v8/ibm-plex-mono-latin-ext-500-normal.woff2) format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+/* Lycée: Caveat for all text, Playwrite FR Moderne (French school cursive) for titles (owner decision 6). The cursive has
+   only its Latin subset; letters outside it fall back to Caveat. */
+@font-face { font-family: "Caveat"; font-weight: 400 700; font-display: swap; src: url(../fonts/v8/caveat-latin-wght-normal.woff2) format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Caveat"; font-weight: 400 700; font-display: swap; src: url(../fonts/v8/caveat-latin-ext-wght-normal.woff2) format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: "Playwrite FR Moderne"; font-weight: 400; font-display: swap; src: url(../fonts/v8/playwrite-fr-moderne-latin-400-normal.woff2) format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "JetBrains Mono"; font-weight: 100 800; font-display: swap; src: url(../fonts/v8/jetbrains-mono-latin-wght-normal.woff2) format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "JetBrains Mono"; font-weight: 100 800; font-display: swap; src: url(../fonts/v8/jetbrains-mono-latin-ext-wght-normal.woff2) format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
+/* the shared scale of every world */
+:root[data-world] {
+  --w-gutter: 16px; --w-max: 1240px; --w-read: 42rem; --w-target: 44px; --w-bar: 56px;
+  --w-s1: 4px; --w-s2: 8px; --w-s3: 12px; --w-s4: 16px; --w-s5: 24px; --w-s6: 32px; --w-s7: 48px; --w-s8: 72px;
+  --w-t: 180ms ease;
+}
+/* Each world is night or day by design (no Jour/Nuit switch): ground, panels, rule, ink, muted ink, accent (and the text
+   on it), a second accent, the warning colour, the four type roles and the corner radius (DESIGN_V8.md section 3). */
+:root[data-world="home"] {
+  color-scheme: dark;
+  --w-bg: #08090c; --w-surface: #111318; --w-raise: #1a1d24; --w-rule: #272b35; --w-ink: #f1f0ec; --w-muted: #9a9fac;
+  --w-accent: #e8e6df; --w-accent-ink: #08090c; --w-accent-soft: rgba(255,255,255,.08); --w-accent2: #e8e6df; --w-warn: #eb9a84;
+  --w-head: "Newsreader", Georgia, serif; --w-text: "Literata", Georgia, serif; --w-ui: "Instrument Sans", system-ui, sans-serif; --w-mono: "IBM Plex Mono", ui-monospace, monospace;
+  --w-r: 16px;
+}
+:root[data-world="musee"] {
+  color-scheme: dark;
+  --w-bg: #121826; --w-surface: #1b2336; --w-raise: #222c42; --w-rule: #2f3a55; --w-ink: #e8e6df; --w-muted: #a9b0c2;
+  --w-accent: #d9b25f; --w-accent-ink: #121826; --w-accent-soft: rgba(217,178,95,.14); --w-accent2: #8fa8d8; --w-warn: #eb9a84;
+  --w-head: "Newsreader", Georgia, serif; --w-text: "Literata", Georgia, serif; --w-ui: "Instrument Sans", system-ui, sans-serif; --w-mono: "IBM Plex Mono", ui-monospace, monospace;
+  --w-r: 14px;
+}
+:root[data-world="univ"] {
+  color-scheme: dark;
+  --w-bg: #04050b; --w-surface: #0b0e1c; --w-raise: #12172b; --w-rule: #20283f; --w-ink: #eceeff; --w-muted: #98a1c4;
+  --w-accent: #a594ff; --w-accent-ink: #04050b; --w-accent-soft: rgba(165,148,255,.13); --w-accent2: #62e3ea; --w-warn: #ff95a8;
+  --w-head: "Instrument Serif", Georgia, serif; --w-text: "Literata", Georgia, serif; --w-ui: "IBM Plex Sans", system-ui, sans-serif; --w-mono: "IBM Plex Mono", ui-monospace, monospace;
+  --w-r: 6px;
+}
+:root[data-world="lycee"] {
+  color-scheme: light;
+  --w-bg: #ffffff; --w-surface: #ffffff; --w-raise: #f4f6fd; --w-rule: #cfd4ee; --w-ink: #1b3796; --w-muted: #4c5ea6;
+  --w-accent: #d22f45; --w-accent-ink: #ffffff; --w-accent-soft: rgba(210,47,69,.08); --w-accent2: #16804f; --w-warn: #d22f45;
+  --w-head: "Playwrite FR Moderne", "Caveat", cursive; --w-text: "Caveat", cursive; --w-ui: "Caveat", cursive; --w-mono: "Caveat", cursive;
+  --w-r: 6px;
+  /* the Seyès copybook (section 5): heavy lines every 8 mm (32 px), three fine lines between (every 8 px), red margin */
+  --w-seyes-fine: rgba(132,116,214,.24); --w-seyes-heavy: rgba(132,116,214,.55); --w-margin: #e2475c; --w-margin-x: 96px;
+}
+:root[data-world="olymp"] {
+  color-scheme: dark;
+  --w-bg: #0a0b0d; --w-surface: #131519; --w-raise: #1b1e24; --w-rule: #2a2e36; --w-ink: #f5f6f8; --w-muted: #8f96a5;
+  --w-accent: #ff3b30; --w-accent-ink: #0a0b0d; --w-accent-soft: rgba(255,59,48,.12); --w-accent2: #f5f6f8; --w-warn: #ff8a80;
+  --w-head: "Archivo", system-ui, sans-serif; --w-text: "Literata", Georgia, serif; --w-ui: "Archivo", system-ui, sans-serif; --w-mono: "JetBrains Mono", ui-monospace, monospace;
+  --w-r: 0px;
+}

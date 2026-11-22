@@ -1,0 +1,3 @@
+/* Design v8, the threshold (home): black page, the four doors (docs/DESIGN_V8.md section 4). Loaded by js/v8.js
+   enterWorld('home'); applies under :root[data-world="home"]. The doors are drawn in stage 3. */
+:root[data-world="home"] .v8-bar { background: color-mix(in srgb, var(--w-bg) 92%, transparent); }

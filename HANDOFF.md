@@ -8,7 +8,8 @@ named in `site/js/routes.js` (`LOADERS` in `app.js`). Light generated data for p
 `catalogue-lines.js`, `discovery-context-data.js` (`scripts/catalogue-lines.mjs`), the catalogue split into
 `catalogue-data.js`, `asset-versions.js`, `annals-data.js`. MathJax is in `site/js/mathjax.js`. Measurements and what is
 left (gallery exhibits, laboratory index, service worker precache) in `docs/REBUILD_PLAN.md` section 2. No visible change.
-Next: stage 2 behind `?v8`.
+Stage 2 (behind `?v8`): `site/js/v8.js`, `--w-*` tokens and faces (`site/fonts/v8/`), the shared frame (`site/js/v8/kit.js`,
+end of `controls.css`), `world-<id>.css`, review page `#v8/<world>`.
 
 ## Organisation and commands (21 November 2026)
 
