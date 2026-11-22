@@ -1,20 +1,21 @@
-// The design v8 switch (docs/REBUILD_PLAN.md section 3). Off by default: the site renders exactly as before. `?v8` in the
-// address turns it on for this device (remembered, for the owner's review), `?v8=off` turns it off again. Stage 8 makes it
-// the default. While it is on, a page that has its v8 version is drawn in its world (routes.js `world`): the root element
-// carries `data-world`, and the world's stylesheet is loaded the first time the world is entered.
+// The design v8 switch (docs/REBUILD_PLAN.md section 3, stage 8). On by default: every page is drawn in its world.
+// `?v8=off` in the address brings back the previous look on this device (remembered), `?v8` turns v8 on again. While it
+// is on, a page that has its v8 version is drawn in its world (routes.js `world`): the root element carries `data-world`,
+// and the world's stylesheet is loaded the first time the world is entered; the other pages are framed by the world.
 const KEY = 'mx-v8';
 
-function decide() {
+const isOff = (value) => value === 'off' || value === '0';
+export function decide(search = globalThis.location?.search || '', storage = globalThis.localStorage) {
   let query = null;
-  try { query = new URLSearchParams(globalThis.location?.search || '').get('v8'); } catch { /* no address */ }
+  try { query = new URLSearchParams(search).get('v8'); } catch { /* no address */ }
   try {
     if (query !== null) {
-      if (query === 'off' || query === '0') globalThis.localStorage?.removeItem(KEY);
-      else globalThis.localStorage?.setItem(KEY, '1');
+      if (isOff(query)) storage?.setItem(KEY, '0');
+      else storage?.removeItem(KEY);
     }
-    if (globalThis.localStorage?.getItem(KEY) === '1') return true;
+    if (query === null && storage?.getItem(KEY) === '0') return false;
   } catch { /* storage blocked: the address alone decides */ }
-  return query !== null && query !== 'off' && query !== '0';
+  return !(query !== null && isOff(query));
 }
 
 export const V8_ACTIVE = decide();

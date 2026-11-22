@@ -116,9 +116,9 @@ Derived from the owner's two attached slides (trinôme, déterminant et colinéa
 
 ## 6. Design
 
-The owner discarded every earlier design instruction on 13 October 2026 and delegated design to the assistant, working from the site's goal and functions. The current design is v7 "Pavage" (chosen by the owner on 15 November 2026): its rules and tokens are in `docs/DESIGN_V7.md`; read it before any visual work. `docs/DESIGN_V3.md` keeps the reasoning that still binds it (the purpose rules below). Rules that still bind any design, because they come from the site's purpose rather than from taste:
+The owner discarded every earlier design instruction on 13 October 2026 and delegated design to the assistant, working from the site's goal and functions. The current design is v8 "four worlds" (direction chosen by the owner on 22 November 2026, on by default since the switch of `docs/REBUILD_PLAN.md` stage 8): its rules and tokens are in `docs/DESIGN_V8.md`; read it before any visual work. The previous look, v7 "Pavage" (`docs/DESIGN_V7.md`), stays reachable with `?v8=off` and still draws the pages that are framed in a world until their v8 version is built. `docs/DESIGN_V3.md` keeps the reasoning that still binds it (the purpose rules below). Rules that still bind any design, because they come from the site's purpose rather than from taste:
 
-- Experiment first: the manipulable figure is the main content of a chapter, and the first screen offers a way into one.
+- Course text first (owner decision 1 of `docs/DESIGN_V8.md`, 22 November 2026; replaces "experiment first"): the course text is the main content of a chapter, and each figure sits inside the paragraph it illustrates.
 - Honest labelling: experiments give evidence, not proof; show the numbers behind a picture; simplify coefficients.
 - Phone first, low data: usable at 320 px width, no horizontal scroll, 44 px touch targets, readable at 200% text, no heavy assets.
 - Accessible: visible focus, full keyboard use (draggable points move with arrow keys, sliders as alternative), contrast checked in every theme, reduced motion respected.

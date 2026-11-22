@@ -59,10 +59,10 @@ with sync_playwright() as p:
         assert not errors, errors
         context.close()
 
-    # without ?v8: the current home and exhibit
+    # with ?v8=off: the previous home and exhibit
     context = browser.new_context(viewport={'width': 1280, 'height': 820}, service_workers='block')
     page = context.new_page()
-    page.goto(BASE + '/#gallery/galton'); page.locator('main').wait_for(); page.wait_for_load_state('networkidle')
+    page.goto(BASE + '/?v8=off#gallery/galton'); page.locator('main').wait_for(); page.wait_for_load_state('networkidle')
     assert page.locator('.v8').count() == 0 and page.evaluate('document.documentElement.dataset.world') is None
     page.goto(BASE + '/#musee'); page.wait_for_url('**/#resources')
     context.close()

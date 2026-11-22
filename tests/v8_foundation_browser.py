@@ -1,6 +1,7 @@
 """Design v8, stage 2 (docs/REBUILD_PLAN.md): the switch and the foundation, in Chromium.
-Without ?v8 nothing changes: no data-world, no v8 font or world stylesheet requested, #v8 is an unknown address.
-With ?v8 (remembered; ?v8=off forgets it) each world of the sampler #v8/<world> has its ground and faces, no horizontal
+Design v8 is on by default (stage 8): a first visit opens the threshold in its world. With ?v8=off (remembered) the
+previous look comes back unchanged: no data-world, no v8 font or world stylesheet requested, #v8 is an unknown address;
+?v8 turns it on again. With v8 on each world of the sampler #v8/<world> has its ground and faces, no horizontal
 overflow at 360, 390 and 1280 px, nothing animated under reduced motion (no requestAnimationFrame loop), the world menu
 folded, folded lists one open at a time, the side sheet opening and closing with Escape, the projection ground remembered.
 Run by run_browser.py."""
@@ -16,11 +17,14 @@ COUNT_FRAMES = "window.__frames=0;const raf=window.requestAnimationFrame.bind(wi
 with sync_playwright() as p:
     browser = p.chromium.launch(headless=True, executable_path=os.environ.get('PLAYWRIGHT_CHROMIUM_PATH') or shutil.which('chromium'))
 
-    # 1. switch off: the site as before
+    # 1. on by default; switched off, the previous look as before
     context = browser.new_context(viewport={'width': 390, 'height': 844}, service_workers='block')
     page = context.new_page(); asked = []
+    page.goto(BASE + '/#home'); page.locator('.v8-door').first.wait_for()
+    assert page.evaluate('document.documentElement.dataset.world') == 'home', 'v8 is on by default'
     page.on('request', lambda r: asked.append(r.url))
-    page.goto(BASE + '/#home'); page.locator('main').wait_for(); page.wait_for_load_state('networkidle')
+    page.goto(BASE + '/?v8=off#home'); page.locator('main').wait_for(); page.wait_for_load_state('networkidle')
+    asked.clear(); page.goto(BASE + '/#home'); page.reload(); page.locator('main').wait_for(); page.wait_for_load_state('networkidle')
     assert page.evaluate('document.documentElement.dataset.world') is None
     assert not [u for u in asked if '/fonts/v8/' in u or '/styles/world-' in u], 'the current site fetched v8 files'
     page.goto(BASE + '/#v8'); page.wait_for_url('**/#resources')
@@ -58,9 +62,10 @@ with sync_playwright() as p:
         assert not errors, errors
         context.close()
 
-    # 3. remembered on the device, forgotten with ?v8=off; the projection ground is remembered
+    # 3. turned on again with ?v8 and remembered, off again with ?v8=off; the projection ground is remembered
     context = browser.new_context(viewport={'width': 1280, 'height': 800}, service_workers='block')
     page = context.new_page()
+    page.goto(BASE + '/?v8=off#home'); page.locator('main').wait_for()
     page.goto(BASE + '/?v8#v8/musee'); page.locator('.v8 main h1').wait_for()
     page.locator('[data-ground="clair"]').click()
     page.goto(BASE + '/#v8/univ'); page.reload(); page.locator('.v8 main h1').wait_for()
@@ -70,4 +75,4 @@ with sync_playwright() as p:
     assert page.evaluate('document.documentElement.dataset.world') is None
     context.close()
     browser.close()
-print('v8 foundation browser checks passed (switch off untouched; 5 worlds at 360, 390, 1280 px)')
+print('v8 foundation browser checks passed (on by default, switch off untouched; 5 worlds at 360, 390, 1280 px)')
