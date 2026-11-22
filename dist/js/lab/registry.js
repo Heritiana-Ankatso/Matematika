@@ -57,6 +57,7 @@ export const TEMPLATES = {
 
 // Type of activity, shown as the group titles of the #lab index.
 export const TEMPLATE_INFO = {
+  group: { title: ["Des groupes en action", "Groups in action"], blurb: ["Des mouvements qui se composent et se défont.", "Moves that compose and can be undone."] },
   illumination: { title: ["Réfléchir des rayons", "Reflect rays"], blurb: ["Explorer et construire des pièces de miroirs.", "Explore and construct mirrored rooms."] },
   dynamics: {title:["Simuler un mouvement","Simulate motion"],blurb:["Conditions initiales, lois physiques et erreurs numériques.","Initial conditions, physical laws and numerical errors."]},
   logistic: {title:["Itérer une population","Iterate a population"],blurb:["Points fixes, cycles et fenêtres périodiques.","Fixed points, cycles and periodic windows."]},

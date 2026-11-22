@@ -142,6 +142,11 @@
         },
         {
           "id": "algebre-1-groupes",
+          "labRefs": [
+            "shuffles",
+            "polygon",
+            "rubik"
+          ],
           "slide": "ch4-groupes.html",
           "folder": "lecons",
           "source": "04-groupes.tex",
@@ -902,8 +907,8 @@
     },
     "algebre-1-groupes": {
       "path": "resources/university/algebre-1/lecons/ch4-groupes.html",
-      "bytes": 102398,
-      "sha256": "ed738e4ec3cecccc76ed2e3775a3e21445a08afefd99e3ceebeb2007f56e6db7"
+      "bytes": 104009,
+      "sha256": "90c27e29404157ab3171b9b39167f8af3873b339dbdcd70f5cc8c29ccea3fde2"
     },
     "algebre-1-anneaux": {
       "path": "resources/university/algebre-1/lecons/ch5-anneaux.html",
@@ -917,26 +922,26 @@
     },
     "algebre-1-cours": {
       "path": "resources/university/algebre-1/cours.pdf",
-      "bytes": 419401,
-      "sha256": "685647e8bf5c46f2d372f22e2bdab4996f030e83c32390fbd2d400c395c05902",
-      "pages": 67
+      "bytes": 422194,
+      "sha256": "fab688bb049e4ca04ba9662b9301a61e1666b24e7cb45e1c182c916bfe746e84",
+      "pages": 68
     },
     "algebre-1-exercices": {
       "path": "resources/university/algebre-1/exercices.pdf",
       "bytes": 197349,
-      "sha256": "9db3eb83477d14ec95b773c0be38f8ad76e8f2f3446d009cf8ad73e169c1dde2",
+      "sha256": "3de9f2d5c6f7bdd764839964873816d9674c203d123b3e6078df89a0fbc8e5e3",
       "pages": 27
     },
     "algebre-1-corriges": {
       "path": "resources/university/algebre-1/corriges.pdf",
       "bytes": 372801,
-      "sha256": "782db11da62b2d148aa821a9c29880b32ca7a0f53dcb37c14a7862452fab42c4",
+      "sha256": "5def4ae505dc7455c630ccd93632c8d29b12573db0e999495e7fc860891cbe6f",
       "pages": 50
     },
     "algebre-1-tex": {
       "path": "resources/university/algebre-1/sources-latex.zip",
-      "bytes": 1805225,
-      "sha256": "495d4a87f1cb3dee083b3d0cd8d0bdf64a7e5397f3ef1c532cf3a0bb9d7623f2"
+      "bytes": 1806334,
+      "sha256": "8d839d8e9a1cc4712cf7c9a040b35a8c17fe448bba8374f507166e0a77ac9d5c"
     },
     "calculs-algebriques": {
       "path": "resources/university/foundations/slides/seq1-calculs-algebriques.html",

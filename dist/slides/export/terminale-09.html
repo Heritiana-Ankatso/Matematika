@@ -6359,7 +6359,7 @@ const shuffles = {
   duration: 15,
   level: P("Lycée curieux · Université", "Curious students · University"),
   prereq: P("Compter, le ppcm", "Counting, the lowest common multiple"),
-  model: { model: permModel },
+  model: { model: permModel, quantities: { swaps: P("Échanges pour tout remettre", "Swaps to put it back"), order: P("Ordre de σ", "Order of σ") }, quantity: (q, st) => permModel(st)[q] },
   state: { n: 5, sigma: "(1 2 3)(4 5)", cards: ident(5), k: 0, swaps: 0 },
   keys: P("Cliquez deux cartes pour les échanger (ou Tab puis Entrée) ; les boutons appliquent le mélange σ.", "Click two cards to swap them (or Tab then Enter); the buttons apply the shuffle σ."),
   controls: {
@@ -6382,7 +6382,7 @@ const shuffles = {
   missions: [
     {
       id: "order", kind: "predict", set: shuffleSet("5|(1 2 3)(4 5)"), correct: 3,
-      scene: { title: P("Combien de fois avant le retour ?", "How many times before coming back?"), caption: P(
+      scene: { title: P("Six fois avant le retour", "Six times before coming back"), caption: P(
         "σ = (1 2 3)(4 5) : les cartes 1, 2, 3 tournent en rond, les cartes 4 et 5 s’échangent. Le petit cycle revient tous les 3 coups, l’échange tous les 2 : l’ordre de départ revient après un multiple de 3 et de 2, soit 6 applications.",
         "σ = (1 2 3)(4 5): cards 1, 2, 3 go round, cards 4 and 5 swap. The 3-cycle comes back every 3 moves, the swap every 2: the starting order comes back after a multiple of 3 and 2, so 6 applications.") },
       prompt: P("σ fait tourner les cartes 1, 2, 3 et échange 4 et 5. Combien de fois faut-il appliquer σ pour retrouver l’ordre de départ ?", "σ rotates cards 1, 2, 3 and swaps 4 and 5. How many times must σ be applied to get the starting order back?"),
@@ -6455,7 +6455,7 @@ const polygon = {
   duration: 12,
   level: P("Lycée curieux · Université", "Curious students · University"),
   prereq: P("Angles, rotations et symétries axiales", "Angles, rotations and reflections"),
-  model: { model: polyModel },
+  model: { model: polyModel, quantities: { order: P("Ordre de l’élément", "Order of the element") }, quantity: (q, st) => polyModel(st)[q] },
   state: polySet(4),
   keys: P("Les boutons tournent (r, r⁻¹) ou retournent (τ) la figure autour de l’axe fixe en pointillés.", "The buttons turn (r, r⁻¹) or flip (τ) the figure over the fixed dashed axis."),
   controls: {
@@ -6474,7 +6474,7 @@ const polygon = {
   missions: [
     {
       id: "count", kind: "predict", set: polySet(4), correct: 2,
-      scene: { title: P("Combien de symétries ?", "How many symmetries?"), caption: P(
+      scene: { title: P("Huit symétries pour un carré", "Eight symmetries for a square"), caption: P(
         "Le carré a 4 rotations (dont « ne rien faire ») et 4 retournements : 8 symétries, rangées à droite, où la position atteinte s’allume. Un polygone régulier à n côtés en a 2n.",
         "The square has 4 rotations (including “do nothing”) and 4 flips: 8 symmetries, listed on the right, where the position reached lights up. A regular polygon with n sides has 2n.") },
       prompt: P("De combien de façons peut-on reposer un carré de carton dans son trou ?", "In how many ways can a cardboard square be put back into its hole?"),
@@ -6547,7 +6547,7 @@ const rubik = {
   duration: 15,
   level: P("Tout public · Université", "Everyone · University"),
   prereq: P("Le ppcm ; pour aller plus loin, les permutations", "The lowest common multiple; to go further, permutations"),
-  model: { model: cubeModel },
+  model: { model: cubeModel, quantities: { order: P("Ordre de la séquence", "Order of the sequence") }, quantity: (q, st) => cubeModel(st)[q] },
   state: cubeSet("RU"),
   keys: P("Faites glisser le fond pour tourner la vue (ou les flèches du clavier) ; les boutons tournent les faces. R = droite, U = haut, F = devant ; ' = dans l’autre sens.", "Drag the background to turn the view (or the arrow keys); the buttons turn the faces. R = right, U = up, F = front; ' = the other way."),
   controls: {
@@ -6571,7 +6571,7 @@ const rubik = {
   missions: [
     {
       id: "guess", kind: "predict", set: cubeSet("RU"), correct: 3,
-      scene: { title: P("R puis U, combien de fois ?", "R then U, how many times?"), caption: P(
+      scene: { title: P("R puis U, cent cinq fois", "R then U, a hundred and five times"), caption: P(
         "Tourner la face droite puis la face du haut, et recommencer : le cube ne revient qu’après 105 fois. Le désordre grandit, puis tout se remet en place d’un coup.",
         "Turn the right face then the top face, and again: the cube only comes back after 105 times. The mess grows, then everything falls back into place at once.") },
       prompt: P("On répète « R puis U ». Combien de répétitions avant que le cube revienne à son état de départ ?", "Repeat “R then U”. How many repetitions before the cube is back to its starting state?"),
@@ -12418,6 +12418,7 @@ const TEMPLATES = {
 
 // Type of activity, shown as the group titles of the #lab index.
 const TEMPLATE_INFO = {
+  group: { title: ["Des groupes en action", "Groups in action"], blurb: ["Des mouvements qui se composent et se défont.", "Moves that compose and can be undone."] },
   illumination: { title: ["Réfléchir des rayons", "Reflect rays"], blurb: ["Explorer et construire des pièces de miroirs.", "Explore and construct mirrored rooms."] },
   dynamics: {title:["Simuler un mouvement","Simulate motion"],blurb:["Conditions initiales, lois physiques et erreurs numériques.","Initial conditions, physical laws and numerical errors."]},
   logistic: {title:["Itérer une population","Iterate a population"],blurb:["Points fixes, cycles et fenêtres périodiques.","Fixed points, cycles and periodic windows."]},

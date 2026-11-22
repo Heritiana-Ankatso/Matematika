@@ -1,5 +1,5 @@
 {
-  "sourceDigest": "dad80d0d4901e99362599c9946be095a8c9397dcf2528ebc753f2ff8945cb5ba",
+  "sourceDigest": "39a5e3c9846e8a69e105fca16566211c498d9b3f10b2b8b6ea2ce3433071bbe5",
   "sequences": {
     "algebre-1-guide": {
       "title": [
@@ -164,9 +164,9 @@
     }
   },
   "outputs": {
-    "dist/resources/university/algebre-1/corriges.pdf": "b2efd0c36220446c1190b5a3c4e058befcc22ca954ed7f41d887ba0fe0ce7596",
-    "dist/resources/university/algebre-1/cours.pdf": "0a5c01af91695b6cb354a3cb2f5f85e574b7ba005bf421ecfc5ff6e75a78ae3c",
-    "dist/resources/university/algebre-1/exercices.pdf": "764429b33b3268c02948404b250b36182477dc4ffa23767130824aee622affdf",
+    "dist/resources/university/algebre-1/corriges.pdf": "5def4ae505dc7455c630ccd93632c8d29b12573db0e999495e7fc860891cbe6f",
+    "dist/resources/university/algebre-1/cours.pdf": "fab688bb049e4ca04ba9662b9301a61e1666b24e7cb45e1c182c916bfe746e84",
+    "dist/resources/university/algebre-1/exercices.pdf": "3de9f2d5c6f7bdd764839964873816d9674c203d123b3e6078df89a0fbc8e5e3",
     "dist/resources/university/algebre-1/lecons/ch1-ensembles.html": "442409aba5e86d8224bf3bf933b5218e0c98b8499b47522d141a3326a7c071ed",
     "dist/resources/university/algebre-1/lecons/ch2-matrices.html": "ebb89ff0c91da3fcf82445de78f06b5029d73297036df92ec318c39d1c90e797",
     "dist/resources/university/algebre-1/lecons/ch3-espaces-vectoriels.html": "7cb1aa358ced7bc59ec5165ce41ee6dde6df1ffe39cf97427bbe975980861bc3",
@@ -174,6 +174,6 @@
     "dist/resources/university/algebre-1/lecons/ch5-anneaux.html": "7dd00260e612386e0f15626b8672f150cda8983b3480b62b5ada9cdfadfed4c7",
     "dist/resources/university/algebre-1/lecons/index.html": "d5d5ac37d33541aab38cce8687f3b44e0ae32cf536a546f84e7f839da0a8e493",
     "dist/resources/university/algebre-1/lecons/synthese.html": "55132dcac1bf53b483e08312010a702fa0071cd60470a30ebff7e835ac7c46a2",
-    "dist/resources/university/algebre-1/sources-latex.zip": "25189c42861e55baa1a62e48cf1fdc11245b89aa58001f3afd992b56e65c027f"
+    "dist/resources/university/algebre-1/sources-latex.zip": "8d839d8e9a1cc4712cf7c9a040b35a8c17fe448bba8374f507166e0a77ac9d5c"
   }
 }
