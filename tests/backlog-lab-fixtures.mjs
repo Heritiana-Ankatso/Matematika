@@ -16,7 +16,13 @@ const stickerCentres=()=>{const out=[];for(const ax of [0,1,2])for(const sg of [
 const FACE={R:[0,1],L:[0,-1],U:[1,1],D:[1,-1],F:[2,1],B:[2,-1]};
 const turn=(v,m)=>{const [ax,sg]=FACE[m[0]],q=m.endsWith('2')?2:m.endsWith("'")?-1:1;if(Math.sign(v[ax])!==sg||Math.abs(v[ax])<0.5)return v;let r=v.slice();const [i,j]=ax===0?[1,2]:ax===1?[2,0]:[0,1];for(let t=0;t<((-sg*q)%4+4)%4;t++){const a=r[i],b=r[j];r[i]=-b;r[j]=a;}return r;};
 const cubeOrder=(moves)=>{const pts=stickerCentres(),key=v=>v.join(','),idx=new Map(pts.map((v,i)=>[key(v),i]));const img=pts.map(v=>idx.get(key(moves.reduce(turn,v))));let p=img.slice(),k=1;while(p.some((x,i)=>x!==i)){p=p.map(x=>img[x]);k++;}return k;};
+// Similitudes: the map built geometrically (reflection in the axis through the centre, then enlargement about it, or a
+// rotation then an enlargement), its fixed point solved as a 2 x 2 linear system from the images of three points.
+const simPoint=({kind,k,angle,ox,oy})=>(p)=>{const t=angle*Math.PI/180;let x=p[0]-ox,y=p[1]-oy;if(kind==='indirect'){const c=Math.cos(2*t),s=Math.sin(2*t);[x,y]=[c*x+s*y,s*x-c*y];}else{const c=Math.cos(t),s=Math.sin(t);[x,y]=[c*x-s*y,s*x+c*y];}return [ox+k*x,oy+k*y];};
+const fixedOf=(f)=>{const o=f([0,0]),e1=f([1,0]),e2=f([0,1]);const a=e1[0]-o[0]-1,b=e2[0]-o[0],c=e1[1]-o[1],d=e2[1]-o[1]-1,det=a*d-b*c;return [(-o[0]*d+o[1]*b)/det,(-a*o[1]+c*o[0])/det];};
+const shoelace=(pts)=>Math.abs(pts.reduce((t,p,i)=>{const q=pts[(i+1)%pts.length];return t+p[0]*q[1]-q[0]*p[1];},0))/2;
 export const BACKLOG_CHECKS={
+ 'similitude/book':(s)=>fixedOf(simPoint(s))[1],
  'shuffles/swaps':({cards})=>{const c=cards.split(',').map(Number),seen=new Set();let cyc=0;for(let i=0;i<c.length;i++){if(seen.has(i))continue;cyc++;let x=i;while(!seen.has(x)){seen.add(x);x=c[x];}}return c.length-cyc;},
  'polygon/hexagon':({n})=>{let k=1;while((2*k)%n)k++;return k;},
  'rubik/half':()=>cubeOrder(['R2','U2']),
@@ -49,6 +55,7 @@ export const BACKLOG_CHECKS={
  'monte-carlo-walk/read':({upper,lower})=>ruin(upper,lower),
 };
 export const BACKLOG_WITNESSES={
+ 'similitude/fixed':{mx:1,my:0},'similitude/compose':{angle:-90},
  'shuffles/perfect':{cards:'0,1,2,3,4,5,6,7',k:3},'shuffles/lcm':{n:7,sigma:'(1 2 3)(4 5 6 7)',cards:'0,1,2,3,4,5,6'},
  'polygon/relation':{word:'trtr',g:'0,0'},
  'rubik/back':{moves:'RU'.repeat(105),reps:105},'rubik/commutator':{moves:"RUR'U'",reps:1},
@@ -70,6 +77,8 @@ export const BACKLOG_WITNESSES={
  'banach-tarski-model/move':{owners:[1,1,0,0,0,0,0,0,0,0,0,0]},
 };
 export const BACKLOG_PREDICTIONS={
+ // a house of any shape enlarged by 2 about any centre: the shoelace areas are in the ratio 4
+ 'similitude':{truth:()=>{const house=[[0,0],[3,0],[3,2],[1.5,3.5],[0,2]],f=simPoint({kind:'direct',k:2,angle:45,ox:-1,oy:2});return Math.round(shoelace(house.map(f))/shoelace(house));},expected:4,words:/^Par 4$/},
  'shuffles':{truth:()=>repeatsToStart(cycleArray('(1 2 3)(4 5)',5)),expected:6,words:/^6 fois$/},
  'polygon':{truth:()=>{const n=4,ok=[];const perms=permutations([0,1,2,3]);for(const p of perms)if([0,1,2,3].every(i=>{const d=(p[(i+1)%n]-p[i]+n)%n;return d===1||d===n-1;}))ok.push(p);return ok.length;},expected:8,words:/^8$/},
  'rubik':{truth:()=>cubeOrder(['R','U']),expected:105,words:/^105$/},

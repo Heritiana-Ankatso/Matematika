@@ -6,7 +6,7 @@
    2 px frame in its accent, so the four are distinct from each other and from the black page */
 /* the threshold fits the first screen on a computer: the head is short and the doors share the rest of the height
    (two by two, or four in a row on a wide, low screen); below 560 px of height the page scrolls instead */
-.v8-threshold { height: calc(100svh - var(--w-bar)); min-height: 560px; display: flex; flex-direction: column; }
+.v8-threshold { height: calc(100svh - var(--w-bar) - 1px); min-height: 560px;   /* 1px: the bottom rule of the top bar */ display: flex; flex-direction: column; }
 .v8-th-head { width: 100%; padding-block: clamp(18px, 4vh, 48px) clamp(12px, 2.4vh, 22px); }
 .v8-th-head h1 { font: 400 clamp(2.2rem, min(6vw, 7vh), 4.2rem)/1 var(--w-head); letter-spacing: -.015em; }
 .v8-th-head p { margin: .6em 0 0; max-width: 60ch; font: 500 1.02rem var(--w-ui); color: var(--w-muted); }
@@ -41,7 +41,7 @@
 .v8-door.v8-world-olymp .v8-door-line { text-transform: uppercase; letter-spacing: .06em; }
 @media (max-width: 760px) {
   /* phones: the four doors share the first screen as four bands, name left, live drawing right */
-  .v8-threshold { height: calc(100svh - var(--w-bar)); min-height: 0; }
+  .v8-threshold { height: calc(100svh - var(--w-bar) - 1px); min-height: 0; }
   .v8-th-head { padding-block: 14px 12px; }
   .v8-th-head h1 { font-size: clamp(1.55rem, 7vw, 2rem); line-height: 1.1; }
   .v8-th-head p { display: none; }

@@ -79,7 +79,27 @@ export function courseText(model, c, L, s) {
     + n.examples.map((x) => `<h3>${s(P('Exemple', 'Example'))}</h3>${body(x, c.id, L)}${x.a ? `<details class="v8-proof"><summary>${s(P('Solution', 'Solution'))}</summary><div class="v8-text" data-math>${pick(x.a, L)}</div></details>` : ''}`).join('')
     + n.warnings.map((x) => `<h3 class="v8-watch">${s(P('Attention', 'Watch out'))}</h3>${body(x, c.id, L)}`).join('')
     + `</section>`).join('');
-  return { html, sections };
+  // the chapter's laboratory, drawn live at the end of the lesson (owner review, 22 November 2026: a chapter of drawings
+  // must show them); the first reference is mounted when it nears the viewport, the others are links
+  const refs = (c.labs || []).map((ref) => resolveLine(ref)).filter(Boolean);
+  if (!refs.length) return { html, sections };
+  const n = sections.length + 1, title = s(P('Voir et manipuler', 'See and handle'));
+  sections.push({ id: `v8-n-${n}`, num: String(n), title });
+  return {
+    sections,
+    html: html + `<section id="v8-n-${n}" class="v8-handle" aria-labelledby="v8-n-${n}-h"><h2 id="v8-n-${n}-h"><span class="v8-num">${n}.</span> ${title}</h2>`
+      + `<p>${s(P('La figure suit le cours : on déplace les points, on change les réglages, et ce qui reste vrai apparaît.', 'The figure follows the lesson: move the points, change the settings, and what stays true shows.'))}</p>`
+      + `<div class="v8-lab-host" data-rhythm-off data-lab-ref="${E(refs[0].ref)}"></div>`
+      + `<ul>${refs.map((x) => `<li><a href="#lab/${E(x.ref)}">${E(pick(x.line.title, L))}</a></li>`).join('')}</ul></section>`,
+  };
+}
+
+// the laboratory of the chapter: its code is fetched only when the host comes into view, destroyed with the page
+function lazyLab(host, lang) {
+  let api = null, observer = null, gone = false;
+  const start = () => { if (gone || api) return; import('../lab/mount.js').then((m) => { if (!gone && !api) api = m.mountExperiment(host, host.dataset.labRef, { mode: 'inline', lang }); }).catch(() => {}); };
+  if (typeof IntersectionObserver === 'function') { observer = new IntersectionObserver((es) => { if (es.some((e) => e.isIntersecting)) { observer.disconnect(); start(); } }, { rootMargin: '200px 0px' }); observer.observe(host); } else start();
+  return () => { gone = true; observer?.disconnect(); api?.destroy(); api = null; };
 }
 
 export function exercisesText(model, c, L, s) {
@@ -107,6 +127,7 @@ export function bindCopybook(root, { lang }) {
       const { html, sections } = courseText(model, c, L, s);
       courseBox.innerHTML = html;
       courseBox.setAttribute('aria-busy', 'false');
+      courseBox.querySelectorAll('.v8-lab-host').forEach((h) => stops.push(lazyLab(h, lang === 'fr' ? 'fr' : 'en')));
       page.querySelector('[data-v8-margin]').innerHTML = `<ol>${sections.map((x) => `<li><a href="#${x.id}" data-outline="${x.id}"><span class="v8-num">${x.num}</span><span>${x.title}</span></a></li>`).join('')}</ol>`;
       root.querySelector('#v8-exercises .v8-sheet-body').innerHTML = exercisesText(model, c, L, s);
       root.querySelector('#v8-about .v8-sheet-body').innerHTML = aboutBody(c, L, s, goalFields(model.goals, L));

@@ -12,22 +12,22 @@ export const GUIDES = {
   },
   trig: {
     question: P("Pourquoi le cosinus et le sinus sont-ils les coordonnées d’un point qui tourne ?", "Why are cosine and sine the coordinates of a turning point?"),
-    see: [P("À gauche, le cercle de rayon 1 et le point P repéré par l’angle t.", "On the left, the circle of radius 1 and the point P at angle t."), P("À droite, la courbe obtenue en reportant une coordonnée de P en fonction de t.", "On the right, the curve obtained by plotting one coordinate of P against t.")],
+    see: [P("À gauche, le cercle de rayon 1 et le point P repéré par l’angle x.", "On the left, the circle of radius 1 and the point P at angle x."), P("À droite, la courbe obtenue en reportant une coordonnée de P en fonction de x.", "On the right, the curve obtained by plotting one coordinate of P against x.")],
     start: P("Faites tourner P sur le cercle et regardez le point de la courbe suivre.", "Turn P around the circle and watch the point of the curve follow."),
   },
   sequences: {
     question: P("Ajouter toujours le même nombre, ou multiplier toujours par le même : où cela mène-t-il ?", "Always add the same number, or always multiply by the same: where does it lead?"),
     see: [P("Les points (n ; uₙ) : chaque point est un terme de la suite.", "The points (n, uₙ): each point is a term of the sequence."), P("En bas, les valeurs des premiers termes.", "Below, the values of the first terms.")],
-    start: P("Choisissez « arithmétique », tirez u₁ au-dessus de u₀, puis passez à « géométrique » sans bouger.", "Choose “arithmetic”, drag u₁ above u₀, then switch to “geometric” without moving."),
+    start: P("Choisissez « Arithmétique », tirez u₁ au-dessus de u₀, puis passez à « Géométrique » : les points quittent la droite pour une courbe.", "Choose “Arithmetic”, drag u₁ above u₀, then switch to “Geometric”: the points leave the line for a curve."),
   },
   derivative: {
     question: P("Que devient la droite qui passe par deux points d’une courbe quand ces points se rapprochent ?", "What happens to the line through two points of a curve when the points come together?"),
-    see: [P("Une courbe, un point fixe A et un point mobile B.", "A curve, a fixed point A and a moving point B."), P("La sécante (AB) et sa pente ; à la fin, la tangente en A.", "The secant (AB) and its slope; at the end, the tangent at A.")],
+    see: [P("Une courbe, un point A et un point B qui s’en rapproche.", "A curve, a point A and a point B that comes closer to it."), P("La sécante (AB) et sa pente ; en tirets, la tangente en A, sa limite.", "The secant (AB) and its slope; dashed, the tangent at A, its limit.")],
     start: P("Diminuez |h| : B se rapproche de A et la pente se stabilise.", "Decrease |h|: B moves towards A and the slope settles."),
   },
   integral: {
     question: P("Comment mesurer l’aire sous une courbe avec des rectangles ?", "How can the area under a curve be measured with rectangles?"),
-    see: [P("La courbe, les bornes a et b, et n rectangles posés dessous.", "The curve, the bounds a and b, and n rectangles placed under it."), P("La somme des aires des rectangles, comparée à l’aire exacte.", "The total area of the rectangles, compared with the exact area.")],
+    see: [P("La courbe, les bornes a et b, et n rectangles dont la hauteur est prise sur la courbe.", "The curve, the bounds a and b, and n rectangles whose height is taken on the curve."), P("La somme des aires des rectangles, comparée à l’aire exacte.", "The total area of the rectangles, compared with the exact area.")],
     start: P("Augmentez n : l’écart entre les rectangles et la courbe fond.", "Increase n: the gap between the rectangles and the curve melts away."),
   },
   probability: {
@@ -50,6 +50,11 @@ export const GUIDES = {
     see: [P("À gauche le plan avant, à droite le plan après multiplication par z.", "On the left the plane before, on the right after multiplying by z."), P("Le point t et son image z × t, reliés en pointillés.", "The point t and its image z × t, joined by a dashed line.")],
     start: P("Tournez z autour de l’origine : toute l’image tourne du même angle.", "Turn z around the origin: the whole image turns by the same angle."),
   },
+  similitude: {
+    question: P("Que fait au plan une transformation qui multiplie toutes les distances par le même nombre ?", "What does a map that multiplies every distance by the same number do to the plane?"),
+    see: [P("Une petite maison grise et son image colorée, avec les coins A, B, C et leurs images A′, B′, C′.", "A little grey house and its coloured image, with the corners A, B, C and their images A′, B′, C′."), P("Le centre Ω, un point M et son image M′ ; sous la figure, l’écriture z′ = az + b ou z′ = a z̄ + b.", "The centre Ω, a point M and its image M′; under the figure, the formula z′ = az + b or z′ = a z̄ + b.")],
+    start: P("Tirez M′ autour de Ω : le rapport et l’angle changent ensemble. Passez ensuite à « indirecte » : la maison se retourne.", "Drag M′ around Ω: the ratio and the angle change together. Then switch to “indirect”: the house flips over."),
+  },
   line: {
     question: P("Deux points suffisent-ils pour connaître une droite et son équation ?", "Are two points enough to know a line and its equation?"),
     see: [P("Les points A et B, la droite qui les joint.", "The points A and B, the line through them."), P("Sa pente et son ordonnée à l’origine, en fractions exactes.", "Its slope and intercept, as exact fractions.")],
@@ -58,7 +63,7 @@ export const GUIDES = {
   exponential: {
     question: P("Multiplier à chaque pas par le même facteur : pourquoi la courbe finit-elle par exploser ?", "Multiplying by the same factor at each step: why does the curve end up exploding?"),
     see: [P("Les points (n ; k × aⁿ) et la courbe qui les relie.", "The points (n, k × aⁿ) and the curve through them."), P("Le facteur a lu entre les points d’abscisses 0 et 1.", "The factor a read between the points at 0 and 1.")],
-    start: P("Passez a de 1,1 à 0,9 : la croissance devient décroissance.", "Move a from 1.1 to 0.9: growth turns into decay."),
+    start: P("Passez a de 1,25 à 0,75 : la croissance devient décroissance.", "Move a from 1.25 to 0.75: growth turns into decay."),
   },
   cobweb: {
     question: P("Une suite définie par uₙ₊₁ = f(uₙ) : où va-t-elle ?", "A sequence defined by uₙ₊₁ = f(uₙ): where does it go?"),
@@ -67,27 +72,27 @@ export const GUIDES = {
   },
   matrix: {
     question: P("Une matrice 2 × 2 : que fait-elle au plan tout entier ?", "A 2 × 2 matrix: what does it do to the whole plane?"),
-    see: [P("À gauche le quadrillage de départ, à droite son image.", "On the left the starting grid, on the right its image."), P("Les images des vecteurs i et j : ce sont les colonnes de la matrice.", "The images of the vectors i and j: they are the columns of the matrix.")],
+    see: [P("À gauche le carré unité et les vecteurs i et j, à droite leur image et le quadrillage transformé.", "On the left the unit square and the vectors i and j, on the right their image and the transformed grid."), P("Les images des vecteurs i et j : ce sont les colonnes de la matrice.", "The images of the vectors i and j: they are the columns of the matrix.")],
     start: P("Tirez l’image de i : tout le quadrillage se déforme avec.", "Drag the image of i: the whole grid deforms with it."),
   },
   "space-lines": {
     question: P("Une droite de l’espace traverse-t-elle un plan, et où ?", "Does a line in space cross a plane, and where?"),
     see: [P("Un plan, une droite passant par A et B, en vraie 3D.", "A plane, a line through A and B, in true 3D."), P("Le point d’intersection quand il existe ; en pointillés, ce qui est caché.", "The intersection point when it exists; dashed, what is hidden.")],
-    start: P("Faites tourner la vue en tirant le fond, puis levez B jusqu’à rendre la droite parallèle au plan.", "Turn the view by dragging the background, then raise B until the line is parallel to the plane."),
+    start: P("Faites tourner la vue en tirant le fond, puis déplacez l’ombre de B et la hauteur de B jusqu’à n · u = 0 : la droite devient parallèle au plan.", "Turn the view by dragging the background, then move the shadow of B and the height of B until n · u = 0: the line becomes parallel to the plane."),
   },
   "fourier-series": {
     question: P("Peut-on construire n’importe quelle onde en additionnant des sinusoïdes ?", "Can any wave be built by adding sine waves?"),
-    see: [P("Le signal cherché et la somme des N premières sinusoïdes.", "The target signal and the sum of the first N sine waves."), P("Les amplitudes de chaque fréquence.", "The amplitude of each frequency.")],
-    start: P("Augmentez l’ordre N : la somme épouse le signal, sauf près des sauts.", "Increase the order N: the sum hugs the signal, except near the jumps."),
+    see: [P("Le signal cherché et la somme des N premières sinusoïdes.", "The target signal and the sum of the first N sine waves."), P("Pour une fréquence n, le produit f(t) sin(2πnt), dont l’aire donne le coefficient bₙ.", "For a frequency n, the product f(t) sin(2πnt), whose area gives the coefficient bₙ.")],
+    start: P("Dans la mission « Somme partielle », augmentez le rang N : la somme épouse le signal, sauf près des sauts.", "In the partial-sum mission, increase the order N: the sum hugs the signal, except near the jumps."),
   },
   "fourier-drawing": {
     question: P("Comment des cercles qui tournent peuvent-ils dessiner un contour ?", "How can turning circles draw an outline?"),
     see: [P("Une chaîne de cercles, chacun tournant à sa vitesse.", "A chain of circles, each turning at its own speed."), P("La trace laissée par le bout de la chaîne.", "The trace left by the tip of the chain.")],
-    start: P("Réduisez le nombre de vecteurs : le dessin devient flou, puis grossier.", "Reduce the number of vectors: the drawing blurs, then coarsens."),
+    start: P("Dans la mission « Vecteurs conservés », réduisez leur nombre : le contour s’arrondit et perd ses détails.", "In the retained-vectors mission, reduce their number: the outline rounds off and loses its details."),
   },
   tiles: {
     question: P("Les mêmes pièces, réarrangées, peuvent-elles changer d’aire ?", "Can the same pieces, rearranged, change their area?"),
-    see: [P("Deux assemblages des mêmes pièces.", "Two arrangements of the same pieces."), P("L’aire de chaque assemblage et le mince écart qui trompe l’œil.", "The area of each arrangement and the thin gap that fools the eye.")],
+    see: [P("Deux assemblages des mêmes pièces.", "Two arrangements of the same pieces."), P("L’aire de chaque assemblage ; avec « Vraies pièces », le mince écart qui trompe l’œil.", "The area of each arrangement; with “True pieces”, the thin gap that fools the eye.")],
     start: P("Changez la taille des pièces et comparez les aires des deux assemblages.", "Change the size of the pieces and compare the areas of the two arrangements."),
   },
   "euler-primes": {
@@ -111,14 +116,14 @@ export const GUIDES = {
     start: P("Lâchez des aiguilles par centaines et regardez l’estimation se resserrer.", "Drop needles by the hundred and watch the estimate tighten."),
   },
   bertrand: {
-    question: P("Une corde « au hasard » dans un cercle : quelle chance qu’elle soit plus longue que le côté du triangle inscrit ?", "A chord “at random” in a circle: what chance that it is longer than the side of the inscribed triangle?"),
+    question: P("Une corde « au hasard » dans un cercle : quelle chance qu’elle soit plus longue que le côté du triangle équilatéral inscrit ?", "A chord “at random” in a circle: what chance that it is longer than the side of the inscribed equilateral triangle?"),
     see: [P("Les cordes tirées selon la méthode choisie.", "The chords drawn by the chosen method."), P("La fréquence observée, qui dépend de la méthode.", "The observed frequency, which depends on the method.")],
     start: P("Tirez des cordes avec une méthode, puis changez de méthode.", "Draw chords with one method, then switch methods."),
   },
   "fair-division": {
     question: P("Couper un gâteau en parts que chacun juge justes, quand les goûts diffèrent ?", "Cut a cake into shares everyone finds fair, when tastes differ?"),
     see: [P("Le gâteau en bande, les coupes et la valeur que chaque personne donne à chaque part.", "The cake as a strip, the cuts and the value each person gives each piece."), P("Le verdict : partage proportionnel, sans envie, ou non.", "The verdict: proportional, envy-free, or not.")],
-    start: P("Déplacez une coupe jusqu’à ce que plus personne n’envie l’autre.", "Move a cut until nobody envies anybody."),
+    start: P("Choisissez la personne A, montez sa densité au milieu jusqu’à faire naître l’envie, puis déplacez les coupes pour la faire disparaître.", "Choose person A, raise their density in the middle until envy appears, then move the cuts to make it disappear."),
   },
   "fair-goods": {
     question: P("Partager des objets qu’on ne peut pas couper, sans jaloux ?", "Share objects that cannot be cut, with nobody jealous?"),
@@ -132,18 +137,18 @@ export const GUIDES = {
   },
   tank: {
     question: P("Avec quelques numéros de série relevés, peut-on deviner combien d’engins existent ?", "From a few serial numbers, can you guess how many machines exist?"),
-    see: [P("Les numéros observés sur la droite des entiers.", "The observed numbers on the number line."), P("Votre estimation, celle qui est sans biais, et leur dispersion sur de nombreux essais.", "Your guess, the unbiased one, and how they spread over many trials.")],
-    start: P("Proposez une valeur de N, puis lancez des expériences pour comparer.", "Propose a value of N, then run experiments to compare."),
+    see: [P("Les numéros observés sur la droite des entiers.", "The observed numbers on the number line."), P("Votre estimation, l’estimateur sans biais N̂, et la dispersion de N̂ sur de nombreux essais.", "Your guess, the unbiased estimator N̂, and how N̂ spreads over many trials.")],
+    start: P("Proposez une valeur de N, cliquez « Révéler la population », puis lancez « + 100 essais » pour comparer.", "Propose a value of N, click “Reveal population”, then run “+ 100 trials” to compare."),
   },
   benford: {
     question: P("Pourquoi, dans tant de données réelles, le premier chiffre est-il un 1 environ trois fois sur dix ?", "Why, in so much real data, is the first digit a 1 about three times in ten?"),
-    see: [P("Les barres : la part de nombres qui commencent par 1, 2, …, 9.", "The bars: the share of numbers starting with 1, 2, …, 9."), P("La courbe de Benford, log₁₀(1 + 1/d), pour comparer.", "Benford’s curve, log₁₀(1 + 1/d), to compare.")],
+    see: [P("Les barres : la part de nombres qui commencent par 1, 2, …, 9.", "The bars: the share of numbers starting with 1, 2, …, 9."), P("Les repères de Benford, log₁₀(1 + 1/d), sur chaque barre pour comparer.", "Benford’s marks, log₁₀(1 + 1/d), on each bar to compare.")],
     start: P("Changez de jeu de données : certains suivent la loi, d’autres pas du tout.", "Change the dataset: some follow the law, others not at all."),
   },
   baker: {
     question: P("Les pains sont-ils trop légers, ou est-ce le hasard des pesées ?", "Is the bread underweight, or is it chance in the weighing?"),
     see: [P("Les masses des pains pesés et leur moyenne.", "The weights of the loaves and their mean."), P("Le test : à quel point cette moyenne serait surprenante si le boulanger était honnête.", "The test: how surprising that mean would be if the baker were honest.")],
-    start: P("Pesez plus de pains : la même petite triche devient détectable.", "Weigh more loaves: the same small cheat becomes detectable."),
+    start: P("Réglez la moyenne vraie à 995 g, puis pesez plus de pains : cette petite triche devient détectable.", "Set the true mean to 995 g, then weigh more loaves: this small cheat becomes detectable."),
   },
   birthdays: {
     question: P("Combien de personnes faut-il pour que deux aient probablement le même anniversaire ?", "How many people are needed for two to probably share a birthday?"),
@@ -157,7 +162,7 @@ export const GUIDES = {
   },
   "monte-carlo-pi": {
     question: P("Des points jetés au hasard dans un carré peuvent-ils révéler π ?", "Can random points thrown into a square reveal π?"),
-    see: [P("Le carré, le quart de disque, les points dedans et dehors.", "The square, the quarter disc, the points inside and outside."), P("4 × (part des points dans le disque), avec son intervalle de confiance.", "4 × (share of points in the disc), with its confidence interval.")],
+    see: [P("Le carré de côté 2, le disque de rayon 1, les points dedans et dehors.", "The square of side 2, the disc of radius 1, the points inside and outside."), P("4 × (part des points dans le disque), avec son intervalle de confiance.", "4 × (share of points in the disc), with its confidence interval.")],
     start: P("Lancez des essais et regardez l’intervalle se resserrer autour de π.", "Run trials and watch the interval close in on π."),
   },
   "monte-carlo-lake": {
@@ -167,7 +172,7 @@ export const GUIDES = {
   },
   "monte-carlo-integral": {
     question: P("Une intégrale est-elle la moyenne d’une fonction ?", "Is an integral the average of a function?"),
-    see: [P("La fonction, et les valeurs prises en des points tirés au hasard.", "The function, and its values at randomly drawn points."), P("La moyenne de ces valeurs, comparée à l’intégrale exacte.", "The mean of those values, compared with the exact integral.")],
+    see: [P("La fonction, et les valeurs prises en des points tirés au hasard.", "The function, and its values at randomly drawn points."), P("La moyenne de ces valeurs multipliée par la largeur de l’intervalle, à comparer à l’intégrale exacte.", "The mean of those values times the width of the interval, to compare with the exact integral.")],
     start: P("Lancez des essais et suivez l’erreur qui diminue.", "Run trials and follow the shrinking error."),
   },
   "monte-carlo-walk": {
@@ -182,23 +187,23 @@ export const GUIDES = {
   },
   "three-body": {
     question: P("Trois corps qui s’attirent : peut-on prévoir leur danse ?", "Three bodies attracting each other: can their dance be predicted?"),
-    see: [P("Les trajectoires des trois corps sous la gravitation.", "The paths of the three bodies under gravity."), P("Les contrôles : énergie et moment conservés par le calcul.", "The checks: energy and momentum kept by the computation.")],
+    see: [P("Les trajectoires des trois corps sous la gravitation.", "The paths of the three bodies under gravity."), P("Les contrôles : énergie et moment cinétique conservés par le calcul.", "The checks: energy and angular momentum kept by the computation.")],
     start: P("Choisissez une configuration, puis touchez à peine une vitesse.", "Choose a configuration, then barely touch one velocity."),
   },
   logistic: {
     question: P("Une population qui grandit puis sature : stable, en cycles ou chaotique ?", "A population that grows then saturates: steady, in cycles or chaotic?"),
     see: [P("L’escalier de xₙ₊₁ = r xₙ (1 − xₙ) sur la parabole.", "The staircase of xₙ₊₁ = r xₙ (1 − xₙ) on the parabola."), P("La population génération après génération, et le diagramme de bifurcation selon r.", "The population generation after generation, and the bifurcation diagram against r.")],
-    start: P("Montez r de 2,8 à 3,6 et regardez l’équilibre se dédoubler.", "Raise r from 2.8 to 3.6 and watch the equilibrium split."),
+    start: P("Montez r de 2,8 à 3,2 : l’équilibre se dédouble ; continuez jusqu’à 3,6 : les cycles laissent place au chaos.", "Raise r from 2.8 to 3.2: the equilibrium splits; go on to 3.6: the cycles give way to chaos."),
   },
   illumination: {
     question: P("Une lampe dans une pièce aux murs miroirs éclaire-t-elle toujours tout ?", "Does a lamp in a room with mirror walls always light everything?"),
-    see: [P("La pièce, la lampe et les rayons qui rebondissent.", "The room, the lamp and the bouncing rays."), P("Les zones restées sombres, hachurées.", "The areas left dark, hatched.")],
-    start: P("Choisissez la pièce de Penrose et augmentez le nombre de reflets.", "Choose Penrose’s room and increase the number of reflections."),
+    see: [P("La pièce, la lampe et les rayons qui rebondissent.", "The room, the lamp and the bouncing rays."), P("Les zones que les rayons tracés n’atteignent pas, hachurées (ce n’est pas une preuve d’obscurité).", "The areas the traced rays do not reach, hatched (this is not a proof of darkness).")],
+    start: P("Dans la pièce de Penrose, augmentez les réflexions maximales et regardez les zones hachurées.", "In Penrose’s room, increase the maximum reflections and watch the hatched areas."),
   },
   "hairy-ball": {
     question: P("Peut-on peigner une sphère chevelue sans faire d’épi ?", "Can a hairy sphere be combed without a cowlick?"),
-    see: [P("Une sphère en 3D couverte de petites flèches tangentes.", "A sphere in 3D covered with small tangent arrows."), P("Les points où la flèche s’annule : les épis.", "The points where the arrow vanishes: the cowlicks.")],
-    start: P("Changez de champ : il reste toujours au moins un épi.", "Change the field: at least one cowlick always remains."),
+    see: [P("Une sphère en 3D (ou le cercle S¹) couverte de petites flèches tangentes.", "A sphere in 3D (or the circle S¹) covered with small tangent arrows."), P("Les points où la flèche s’annule : les épis.", "The points where the arrow vanishes: the cowlicks.")],
+    start: P("Passez de « Projection sur la sphère » à « Rotation sur la sphère » : il reste toujours au moins un épi ; sur le cercle S¹, aucun.", "Switch from “Projection on the sphere” to “Rotation on the sphere”: at least one cowlick always remains; on the circle S¹, none."),
   },
   "nonorientable-surfaces": {
     question: P("Une surface peut-elle n’avoir qu’une seule face ?", "Can a surface have only one side?"),
@@ -213,7 +218,7 @@ export const GUIDES = {
   "banach-tarski-tree": {
     question: P("Comment un arbre infini peut-il contenir deux copies de lui-même ?", "How can an infinite tree contain two copies of itself?"),
     see: [P("L’arbre des mots en a, A, b, B, dessiné jusqu’à une profondeur.", "The tree of words in a, A, b, B, drawn to some depth."), P("Une copie obtenue en déplaçant une branche, et les trous qui ne se voient qu’à profondeur finie.", "A copy obtained by moving one branch, and the holes visible only at finite depth.")],
-    start: P("Choisissez la copie a·W(A) et augmentez la profondeur.", "Choose the copy a·W(A) and increase the depth."),
+    start: P("Avec « Copie 1 : W(a) et a·W(A) », passez la profondeur de 1 à 3 et comptez les trous (cercles creux).", "With “Copy 1: W(a) and a·W(A)”, take the depth from 1 to 3 and count the holes (hollow circles)."),
   },
   "ferris-wheel": {
     question: P("Sur une grande roue, comment la hauteur d’une nacelle varie-t-elle avec le temps ?", "On an observation wheel, how does a seat’s height change with time?"),
@@ -223,7 +228,7 @@ export const GUIDES = {
   eratosthenes: {
     question: P("Comment mesurer la Terre avec deux bâtons et leurs ombres ?", "How can the Earth be measured with two sticks and their shadows?"),
     see: [P("Une coupe de la Terre, deux villes, deux bâtons verticaux et les rayons parallèles du Soleil.", "A section of the Earth, two towns, two vertical sticks and the parallel rays of the Sun."), P("L’écart des angles des ombres, égal à l’angle au centre.", "The difference of the shadow angles, equal to the angle at the centre.")],
-    start: P("Éloignez Alexandrie : l’angle grandit dans la même proportion que la distance.", "Move Alexandria away: the angle grows in proportion to the distance."),
+    start: P("Éloignez Alexandrie de Syène : l’ombre d’Alexandrie et l’angle au centre grandissent ensemble.", "Move Alexandria away from Syene: Alexandria’s shadow and the angle at the centre grow together."),
   },
   shuffles: {
     question: P("Si l’on répète toujours le même mélange d’un paquet de cartes, les cartes reviennent-elles un jour dans l’ordre ? Quand ?", "If the same shuffle of a deck is repeated over and over, do the cards ever come back in order? When?"),

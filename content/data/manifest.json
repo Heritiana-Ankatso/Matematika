@@ -2473,6 +2473,7 @@
         ],
         "topic": "complex-plane",
         "labs": [
+          "similitude/fixed",
           "complex/angles"
         ]
       },
@@ -2586,6 +2587,7 @@
         ],
         "topic": "complex-plane",
         "labs": [
+          "similitude/fixed",
           "complex/angles"
         ]
       },
