@@ -5,6 +5,7 @@ import { EXPERIMENTS, TEMPLATE_INFO, SECTION_INFO, INDEX_ORDER, groupOf, labRef 
 import { relatedChapters } from "../related-chapters.js";
 import { fourierLinks } from "../fourier-links.js";
 import { TOPICS, membershipsFor } from "../topic-registry.js";
+import { GUIDES, touchList } from "./guides.js";
 
 const esc = (x) => String(x).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
 const infoOf = (id) => SECTION_INFO[id] || TEMPLATE_INFO[id];
@@ -54,6 +55,20 @@ export function bindLabIndex(root, pair) {
   return ()=>select.removeEventListener("change",change);
 }
 
+// "How to read this experiment": the question, what the figure shows, what can be moved, a first thing to try. A
+// visitor who arrives here without a lesson knows what they are looking at before touching anything (guides.js).
+export function readingGuide(exp, { t, pair }) {
+  const g = GUIDES[exp.id];
+  if (!g) return "";
+  const touch = touchList(exp, t);
+  return `<section class="lab2-guide" aria-label="${pair("Comment lire cette expérience", "How to read this experiment")}">
+<div class="lab2-guide-q"><span class="lab2-guide-k">${pair("La question", "The question")}</span><p>${esc(t(g.question))}</p></div>
+<div><span class="lab2-guide-k">${pair("Ce que montre la figure", "What the figure shows")}</span><ul>${g.see.map((x) => `<li>${esc(t(x))}</li>`).join("")}</ul></div>
+${touch.length ? `<div><span class="lab2-guide-k">${pair("Ce qu’on peut manipuler", "What you can handle")}</span><ul class="lab2-guide-touch">${touch.map(([l, k]) => `<li><span>${esc(l)}</span> <em>${esc(k)}</em></li>`).join("")}</ul></div>` : ""}
+<div class="lab2-guide-start"><span class="lab2-guide-k">${pair("Pour commencer", "To begin")}</span><p>${esc(t(g.start))}</p></div>
+</section>`;
+}
+
 export function experimentPage(exp, { t, pair, link, completed, mission = "" }) {
   const list = ordered(), i = list.indexOf(exp), prev = list[(i - 1 + list.length) % list.length], next = list[(i + 1) % list.length];
   const step = (e, dir) => `<a class="lab2-step-link" href="${link("lab", e.id)}" rel="${dir}"><span class="lab2-step-dir">${dir === "prev" ? pair("← Précédente", "← Previous") : pair("Suivante →", "Next →")}</span><span>${esc(t(e.title))}</span></a>`;
@@ -64,6 +79,7 @@ export function experimentPage(exp, { t, pair, link, completed, mission = "" }) 
 <div class="breadcrumb"><a href="${link("lab")}">${pair("Le laboratoire", "The laboratory")}</a><span>/</span>${esc(t(info?.title || exp.group))}</div>
 <div class="lab-heading"><div><h1>${esc(t(exp.title))}</h1><p>${esc(t(exp.intro))}</p></div><span class="level">${esc(t(exp.level))}</span></div>
 <p class="lab2-meta"><span aria-hidden="true">◷</span> ${exp.duration} min</p>
+${readingGuide(exp, { t, pair })}
 <div id="lab2-host" class="lab2-host" data-ref="${esc(labRef(exp.id, mission))}"></div>
 ${exp.template === 'fourier' ? fourierLinks(exp.id === 'fourier-drawing' ? 'drawing' : 'lab', pair('fr','en')) : ''}
 <nav class="lab2-steps" aria-label="${pair("Autres expériences", "Other experiments")}">${step(prev, "prev")}${step(next, "next")}<details class="lab2-all"><summary>${pair(`Toutes les expériences (${list.length})`, `All experiments (${list.length})`)}</summary><div class="lab2-chips">${others}</div></details></nav>

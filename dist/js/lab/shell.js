@@ -329,7 +329,7 @@ export function createShell(host, exp, tpl, opts = {}) {
     head.append(prevBtn, label, nextBtn);
   } else head.append(stepEl, kindEl, fold);
   const dots = el("ol", "lab2-progress");
-  dots.setAttribute("aria-label", free ? t(["Scènes", "Scenes"]) : t(["Missions", "Missions"]));
+  dots.setAttribute("aria-label", free ? t(["Étapes à regarder", "Steps to look at"]) : t(["Missions", "Missions"]));
   if (free) dots.classList.add("lab2-scenes");
   const promptEl = slide && opts.hint ? opts.hint : el("p", "lab2-prompt");
   if (slide && opts.hint) promptEl.classList.add("lab2-hint");
@@ -600,7 +600,7 @@ export function createShell(host, exp, tpl, opts = {}) {
     ghostSet = null; variantSeen = new Set(); currentVariant = null; attempts = 0;
     lockControls(m);
     setClass(card, "is-done", !!done[m.id]);
-    setText(stepEl, free ? t(["Scènes", "Scenes"]) : (slide ? `${i + 1}/${missions.length}` : `${t(T("mission"))} ${full ? `${i + 1}/${missions.length}` : ""}`).trim());
+    setText(stepEl, free ? t(["Étapes à regarder", "Steps to look at"]) : (slide ? `${i + 1}/${missions.length}` : `${t(T("mission"))} ${full ? `${i + 1}/${missions.length}` : ""}`).trim());
     setText(kindEl, free ? "" : t(KINDS[m.kind]));
     kindEl.hidden = free;
     card.dataset.kind = free ? "scene" : m.kind;

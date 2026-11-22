@@ -1029,6 +1029,18 @@ details.source-course[open] { padding-bottom: 16px; }
 .lab2-links a { display: inline-flex; align-items: center; min-height: 44px; color: var(--accent); font-weight: 700; text-decoration: underline; text-underline-offset: 4px; }
 @media (max-width: 720px) { .lab2-after { grid-template-columns: minmax(0, 1fr); } }
 .lab2-meta { margin: 0 0 14px; color: var(--ink-2); font-size: 0.95rem; }
+/* how to read an experiment: four short blocks in a row on a computer, stacked on a phone */
+.lab2-guide { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.5fr) minmax(0, 1.1fr) minmax(0, 1fr); gap: 14px 26px; margin: 0 0 16px; padding: 14px 18px; border: 1px solid var(--line); border-left: 3px solid var(--object-ink, var(--accent)); background: var(--surface); }
+.lab2-guide > div { min-width: 0; }
+.lab2-guide-k { display: block; margin-bottom: 4px; font-size: .78rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--object-ink, var(--accent)); }
+.lab2-guide p, .lab2-guide ul { margin: 0; font-size: .95rem; line-height: 1.45; }
+.lab2-guide ul { padding-left: 1.1em; }
+.lab2-guide li + li { margin-top: 4px; }
+.lab2-guide-q p { font-size: 1.05rem; font-weight: 600; color: var(--ink); }
+.lab2-guide-touch { list-style: none; padding-left: 0 !important; }
+.lab2-guide-touch em { font-style: normal; font-size: .8rem; color: var(--muted); }
+@media (max-width: 1100px) { .lab2-guide { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } }
+@media (max-width: 640px) { .lab2-guide { grid-template-columns: minmax(0, 1fr); } }
 .lab2-host { margin-bottom: 20px; min-height: 320px; }
 .chapter-lab { margin: 0 0 28px; }
 .chapter-lab h3 { margin: 0 0 10px; }
