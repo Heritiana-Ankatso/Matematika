@@ -34,3 +34,10 @@
 :root[data-world="lycee"] mjx-container { color: var(--w-ink); }
 :root[data-world="lycee"] .v8-bar { background: rgba(255,255,255,.94); }
 :root[data-world="lycee"] .v8-btn { font-size: 1.15rem; border-color: var(--w-ink); }
+/* pages of the current look in the Lycée world: white page, pen-blue ink, red and green pens (the copybook ruling is
+   only on the pages built for it) */
+:root[data-world="lycee"] {
+  --bg: var(--w-bg); --surface: var(--w-surface); --sunken: var(--w-raise); --ink: var(--w-ink); --ink-2: var(--w-muted); --muted: var(--w-muted);
+  --line: var(--w-rule); --accent: var(--w-ink); --accent-ink: #ffffff; --accent-soft: var(--w-raise); --focus: var(--w-accent);
+  --pos: var(--w-accent2); --neg: var(--w-accent);
+}

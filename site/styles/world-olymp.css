@@ -5,3 +5,9 @@
 :root[data-world="olymp"] .v8-btn, :root[data-world="olymp"] .v8-worlds > summary { border-radius: 0; }
 :root[data-world="olymp"] .v8-fold > details > summary { font: 800 1.05rem var(--w-ui); text-transform: uppercase; font-stretch: 85%; }
 .v8-figure-mono { font: 700 1rem var(--w-mono); font-variant-numeric: tabular-nums; }
+/* pages of the current look in the Olympiades world */
+:root[data-world="olymp"] {
+  --bg: var(--w-bg); --surface: var(--w-surface); --sunken: var(--w-raise); --ink: var(--w-ink); --ink-2: var(--w-muted); --muted: var(--w-muted);
+  --line: var(--w-rule); --accent: var(--w-accent); --accent-ink: var(--w-accent-ink); --accent-soft: var(--w-accent-soft); --focus: var(--w-accent);
+  --object-ink: var(--w-accent); --object: var(--w-accent); --object-soft: var(--w-accent-soft); --object-on: var(--w-accent-ink);
+}

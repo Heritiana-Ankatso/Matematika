@@ -11,8 +11,9 @@ import { rememberScrolls, restoreScrolls } from "./scroll-memory.js";
 import { withEntryNav } from "./entry-nav.js";
 import { observeSvgNavigation } from "./canvas-navigation.js";
 import { discoveryChapters, companionChapters } from "./catalogue-data.js";
-import { needsOf, v8RouteOf } from "./routes.js";
+import { needsOf, v8RouteOf, worldOf } from "./routes.js";
 import { V8_ACTIVE, WORLDS, enterWorld, leaveWorld } from "./v8.js";
+import { topBar as v8TopBar, bindMenu as v8BindMenu } from "./v8/kit.js";
 // The name of this edition (Maths Explorer or Matematika), written into index.html by the build (build/mxbuild/site.py).
 const SITE_NAME = document.querySelector('meta[name="application-name"]')?.content || "Maths Explorer";
 import { icon } from "./icons.js";
@@ -37,7 +38,7 @@ let VARIANTS, hasVariants, variantDefaults, randomParams, normaliseVariant, moun
 let basicsPage, bindBasics, isBasicsRoute, assetHref, mountExperiment, resolveRef, labRef, labIndexPage, experimentPage, bindLabIndex;
 let discoveryIndex, discoveryPage, bindDiscovery, isTopicRoute, historyPage, bindHistory, isHistoryRoute, mathematiciansTimelineUrl;
 let companionCatalog = { chapters: [] };
-let samplerPage, bindSampler, thresholdPage, bindThreshold, museePage, bindMusee, exhibitPage, bindExhibit;
+let univPage, bindUniv, samplerPage, bindSampler, thresholdPage, bindThreshold, museePage, bindMusee, exhibitPage, bindExhibit;
 const LOADERS = {
   content: async () => { ({ labs, challenges } = await import("./content.js")); pruneSaved(); },
   companion: async () => { const [{ resourceCatalog }, { liveCompanionCatalog }] = await Promise.all([import("./resources-data.js"), import("./live-curriculum.js")]); companionCatalog = liveCompanionCatalog(resourceCatalog); },
@@ -72,6 +73,7 @@ const LOADERS = {
   v8sampler: async () => { ({ samplerPage, bindSampler } = await import("./v8/sampler.js")); },
   v8threshold: async () => { ({ thresholdPage, bindThreshold } = await import("./v8/threshold.js")); },
   v8musee: async () => { ({ museePage, bindMusee } = await import("./v8/musee.js")); },
+  v8univ: async () => { ({ univPage, bindUniv } = await import("./v8/univ.js")); },
   v8exhibit: async () => { ({ exhibitPage, bindExhibit } = await import("./v8/exhibit.js")); },
   history: async () => { ({ historyPage, bindHistory, isHistoryRoute, mathematiciansTimelineUrl } = await import("./history.js")); },
 };
@@ -265,6 +267,7 @@ function unavailable() {
 const V8_DRAW = {
   v8: (r) => ({ world: WORLDS.includes(r.id) ? r.id : "home", html: samplerPage(r.id, { t, siteName: SITE_NAME }), bind: bindSampler }),
   home: () => ({ world: "home", html: thresholdPage({ t, lang, siteName: SITE_NAME }), bind: (root) => bindThreshold(root, { reduced: reducedMotion }) }),
+  university: () => ({ world: "univ", html: univPage({ t, lang, siteName: SITE_NAME }), bind: (root) => bindUniv(root, { lang, reduced: reducedMotion }) }),
   musee: () => ({ world: "musee", html: museePage({ t, lang, siteName: SITE_NAME }), bind: (root) => bindMusee(root, { lang, reduced: reducedMotion }) }),
   gallery: (r) => {
     const lab = labs.find((l) => l.custom && l.id === r.id);
@@ -281,9 +284,15 @@ function drawV8() {
   $("#app").innerHTML = page.html;
   $(".skip").textContent = pair("Aller au contenu", "Skip to content");
   stopChapter = page.bind($("#app")) || (() => {});
+  $("#app").querySelectorAll("[data-lang]").forEach((b) => b.addEventListener("click", () => {
+    preferredLang = b.dataset.lang; lang = preferredLang; save();
+    render().then(() => $(`[data-lang="${lang}"]`)?.focus());
+  }));
   syncDock(r.page);
   lastPage = r.page;
 }
+// The top bar of a world for a page drawn in the current look under ?v8 (with the language buttons of the site).
+const v8Frame = (world) => inChosenLanguage(() => `<div class="v8 v8-frame">${v8TopBar({ t, world: world === "home" ? "" : world, siteName: SITE_NAME, lang })}</div>`);
 // Stops everything the page on screen runs (figures, observers, experiments).
 function teardown() {
   stopViews.forEach(stop=>stop()); stopViews=[];
@@ -302,7 +311,9 @@ function draw(serial) {
   teardown();
   $("#app").removeAttribute("aria-busy");
   if (V8_ACTIVE && v8RouteOf(route()) && (route().page !== "gallery" || labs.some((l) => l.custom && l.id === route().id))) { drawV8(); return; }
-  leaveWorld();
+  // Under ?v8 a page without its own v8 version is drawn in its world: the world's top bar, ground and palette, the
+  // page itself unchanged (world-<id>.css maps the current tokens onto the world). Otherwise, the current look.
+  if (V8_ACTIVE) enterWorld(worldOf(route().page)); else leaveWorld();
   let r = route();
   if (!isLiveRoute(r)) {
     history.replaceState(null, '', '#resources');
@@ -339,7 +350,7 @@ function draw(serial) {
   if(page==='chapter')rememberCourse(shellChapters.find(c=>c.id===r.id)?.course);
   document.body.dataset.page=page;
   $("#app").innerHTML =
-    inChosenLanguage(() => header(page)) +
+    (V8_ACTIVE ? v8Frame(worldOf(page)) : inChosenLanguage(() => header(page))) +
     (page === "search" ? searchLoading() : page === "teacher" ? teacherLoading() : page === "prepare" ? modeLoading(pair("Préparer", "Prepare")) : page === "relax" ? modeLoading(pair("Détente", "Relax")) : page === "review" ? modeLoading(pair("Réviser", "Review")) : page === "basics" ? basicsPage(r.id, { t, pair, lang, assetHref }) : page === "home" ? homePage({ pair, t, link, index:homeIndex, last, audience: effectiveEntry(teacherState.getEntry()) }) : page === "workshop" ? workshopMarkup(t) : page === "pack" ? packPage(t, r.id) : page === "bank" ? bankPage(t, r.id, r.tab) : page === "sources" ? sourcesPage(t) : page === "slides" ? slidesPage(t) : page === "automatismes" ? automatismesPage(t, pair) : page === "sheets" ? sheetsPage(t) : page === "resources" ? libraryPage(t, { challenges, completed, seen, last, labs })
       : page === "university" ? universityPage(lang)
       : page === "topics" ? discoveryPage(discovery,r.id,r.tab,t)
@@ -362,7 +373,7 @@ function draw(serial) {
         : page === "pathways"
           ? pathwayPage()
           : `<main id="main" tabindex="-1" class="page"><h1>${pair("Page introuvable", "Page not found")}</h1><a href="#lab">${pair("Ouvrir le laboratoire", "Open the laboratory")}</a></main>`) +
-    inChosenLanguage(footer);
+    (V8_ACTIVE ? "" : inChosenLanguage(footer));
   if(r.id && page!=='topics') stopViews.push(mountContext($('#main'),`#${page}/${r.id}${page==='history'&&r.tab?'/'+r.tab:''}`));
   if (experiment) {
     // The mission is part of the address (#lab/<experiment>/<mission>); replaceState keeps the history clean.
@@ -541,8 +552,9 @@ function bindCommon() {
  const navButton=$(".nav-toggle"), nav=$("#primary-nav");
  stopViews.push(installNavFlyout(), installHoverDetails());
  const closeMenu=()=>{navButton.setAttribute("aria-expanded","false");nav.classList.remove("is-open");};
- navButton.addEventListener("click",()=>{const open=navButton.getAttribute("aria-expanded")!=="true";navButton.setAttribute("aria-expanded",String(open));nav.classList.toggle("is-open",open);});
- $(".topbar").addEventListener("keydown",e=>{if(e.key==="Escape"&&navButton.getAttribute("aria-expanded")==="true"){closeMenu();navButton.focus();}});
+ if(V8_ACTIVE)stopViews.push(v8BindMenu($("#app")));
+ if(navButton&&nav){navButton.addEventListener("click",()=>{const open=navButton.getAttribute("aria-expanded")!=="true";navButton.setAttribute("aria-expanded",String(open));nav.classList.toggle("is-open",open);});
+ $(".topbar").addEventListener("keydown",e=>{if(e.key==="Escape"&&navButton.getAttribute("aria-expanded")==="true"){closeMenu();navButton.focus();}});}
 
   $("[data-theme-toggle]")?.addEventListener("click", () => {
     toggleTheme();

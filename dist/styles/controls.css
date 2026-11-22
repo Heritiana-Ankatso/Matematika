@@ -206,3 +206,9 @@ details > summary:hover::after { color: var(--ink); }
 .v8 details > summary::after { content: none; }
 .v8 .v8-fold > details > summary::after, .v8 .v8-worlds > summary::after { content: ""; }
 .v8 h1, .v8 h2, .v8 h3, .v8 summary { hyphens: manual; overflow-wrap: break-word; }
+.v8-lang { display: inline-flex; border: 1px solid var(--w-rule); border-radius: 22px; overflow: hidden; }
+.v8-lang button { min-width: var(--w-target); min-height: var(--w-target); padding: 0 .6em; border: 0; background: transparent; color: var(--w-muted); font: 600 .85rem var(--w-ui); cursor: pointer; }
+.v8-lang button[aria-pressed="true"] { background: var(--w-accent); color: var(--w-accent-ink); }
+@media (max-width: 420px) { .v8-bar .v8-brand span { display: none; } }
+/* a page of the current look framed in its world (app.js v8Frame): only the bar is v8 */
+.v8-frame { position: sticky; top: 0; z-index: 30; }
