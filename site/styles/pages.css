@@ -1772,8 +1772,10 @@ body:has(#object-stage:empty) :is(.learning, .workbench ~ *, #app ~ footer, main
 .lesson-tabs{display:flex;gap:.5rem;margin:.6rem 0}.lesson-tabs button{min-height:44px;padding:0 1.2rem;border:2px solid var(--ink);background:var(--surface);color:var(--ink);font:inherit;font-weight:700;cursor:pointer}.lesson-tabs button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
 /* a university lesson reads in its own window: exactly the screen under the top bar, and the page settles on it when it
    comes near (scroll snapping), so the reading window never needs to be lined up by hand */
-.lesson-frame{display:block;width:100%;height:max(480px,calc(100dvh - var(--w-bar,56px)));border:0;border-block:2px solid var(--ink);background:var(--bg);scroll-snap-align:start;scroll-margin-top:var(--w-bar,56px)}
-html:has(.lesson-frame){scroll-snap-type:y proximity}
+/* the lesson frame is exactly the window under the top bar (its height plus its 1 px rule); the page's general scroll
+   padding is replaced by the frame's own margin so a snap or a tab click lines it up exactly */
+.lesson-frame{display:block;width:100%;height:max(480px,calc(100dvh - var(--w-bar,56px) - 1px));border:0;border-block:2px solid var(--ink);background:var(--bg);scroll-snap-align:start;scroll-margin-top:calc(var(--w-bar,56px) + 1px)}
+html:has(.lesson-frame){scroll-snap-type:y proximity;scroll-padding-top:0}
 html:has(.lesson-frame) #main{scroll-snap-align:start}
 
 /* Napkin ring (gallery/gallery-napkin-gl.js): canvas and controls side by side, the canvas stays in view; on a phone it sticks above the controls. */
