@@ -305,7 +305,7 @@ footer a { color: var(--ink); text-decoration: underline; text-underline-offset:
  .topbar:has(.mainnav.is-open) .tools > * { order:2; }
  .topbar:has(.mainnav.is-open) .tools .language:not([hidden]) { order:5; margin:4px 0 4px auto; }
  .nav-toggle { display:inline-flex; align-items:center; min-height:44px; padding:0 14px; font-weight:700; border:2px solid var(--ink); border-radius: 0; }
- .mainnav { display:none; position:static; width:100%; padding:0; border:0; margin:0; }
+ .mainnav { display:none; position:static; width:100%; padding:0; border:0; margin:0; background:transparent; } /* the folded menu sits on the page ground, not on a white panel */
  .mainnav.is-open { display:flex; flex-wrap:wrap; }
  .mainnav a { min-height:48px; flex-direction:row; font-size:1rem; gap:6px; }
  .mainnav.is-open a { flex:1 1 auto; min-width:0; max-width:100%; }
