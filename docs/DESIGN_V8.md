@@ -74,3 +74,19 @@ numériques" (`content/tex/courses/mada-t11s/c01.fr.tex`, unpublished; the proto
 
 Next, once a direction is chosen: the technical plan (loading per page, page structure, style system), then a rebuild
 in stages, one pull request each.
+
+## Figure and console (22 November 2026)
+
+Owner: "controls beside the figure on large horizontal screens, always on the same screen as the canvas". Same pass as
+Maths-explorer, made with the Impeccable design skill (Paul Bakaus, Apache 2.0; installed for the user, not in this
+repository): its Operate, Layout and Craft-floor playbooks. The rules live in `site/js/figure-layout.js` and
+`site/styles/figure-layout.css`:
+- An exhibit is a strip of two panels: the figure, and the console of its controls. Wide figure area (860 px and more):
+  the console beside the figure, top-aligned and sticky, the figure never taller than the viewport under the header.
+  Narrow: figure, its caption, the console, then plots and notes, in the page and in the keyboard order.
+- Weight follows priority inside the console: the main action is the only raised red button, on its own row, first (a
+  transport joins back, play and forward, with the timeline under it); parameters next; secondary actions are flat cells
+  of equal size in one joined toolbar; exactly one pressed button in a group is a choice, other pressed buttons are on/off
+  toggles drawn as check boxes; example lists are rows of one list; live values are a table; the help line closes it.
+- The sentence that says what the figure shows is its caption, under it, one fact per line.
+- The laboratory card (`.lab2-card`) speaks the same language: scenes as one list, segments as joined cells.
