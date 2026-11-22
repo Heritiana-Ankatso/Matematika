@@ -23,10 +23,11 @@ class Manifest(unittest.TestCase):
             first = offline.manifest(root)
             names = [f for f, _ in first['files']]
             self.assertEqual(names, sorted(names))
-            self.assertEqual(names, ['fonts/x.woff2', 'index.html', 'js/app.js', 'js/lab/engine.js', 'slides/data/index.json',
-                                     'styles/explorer.css', 'vendor/mathjax-tex-svg.js'])
+            # the shell only (owner, 22 November 2026): no module app.js does not import, no MathJax
+            self.assertEqual(names, ['fonts/x.woff2', 'index.html', 'js/app.js', 'slides/data/index.json', 'styles/explorer.css'])
+            self.assertEqual(first['known'], [['js/lab/engine.js', offline._hash(root / 'js/lab/engine.js')]])
             self.assertEqual(first, offline.manifest(root))
-            self.assertEqual(first['bytes'], 6 + 1 + 1 + 1 + 2 + 1 + 1)
+            self.assertEqual(first['bytes'], 6 + 1 + 1 + 2 + 1)
             # one changed shell file changes its hash and the version; a changed PDF changes nothing
             (root / 'resources/course.pdf').write_text('other')
             self.assertEqual(first, offline.manifest(root))
@@ -34,6 +35,12 @@ class Manifest(unittest.TestCase):
             second = offline.manifest(root)
             self.assertNotEqual(first['version'], second['version'])
             self.assertEqual([f for f, h in second['files'] if dict(first['files'])[f] != h], ['js/app.js'])
+            # a module app.js imports joins the shell; a changed module outside it changes the version too
+            (root / 'js/app.js').write_text('import { x } from "./lab/engine.js";')
+            self.assertIn('js/lab/engine.js', [f for f, _ in offline.manifest(root)['files']])
+            (root / 'js/app.js').write_text('changed')
+            (root / 'js/lab/engine.js').write_text('other')
+            self.assertNotEqual(second['version'], offline.manifest(root)['version'])
 
     def test_large_start_data_is_left_out(self):
         with tempfile.TemporaryDirectory() as tmp:
@@ -57,13 +64,15 @@ class Manifest(unittest.TestCase):
         self.assertIn('index.html', files)
         self.assertIn('js/app.js', files)
         self.assertIn('js/offline.js', files)
-        self.assertIn('vendor/mathjax-tex-svg.js', files)
+        self.assertNotIn('vendor/mathjax-tex-svg.js', files)
+        self.assertIn('js/routes.js', files)
+        self.assertNotIn('js/content.js', files)
         self.assertFalse([f for f in files if f.endswith(('.pdf', '.zip', '.webp')) or f.startswith(('resources/', 'slides/export/', 'sources/'))])
         self.assertEqual(offline.write(check=True), [], 'dist/sw.js is stale: run make site')
-        # every module of the import map is in the shell with the same hash: an offline page never misses a module
+        # every module of the import map is in the shell or known, with the same hash: the worker checks what it fetches
         index = (DIST / 'index.html').read_text(encoding='utf-8')
         block = index.split('<script type="importmap">')[1].split('</script>')[0]
-        hashes = dict(offline.manifest()['files'])
+        hashes = {**dict(offline.manifest()['files']), **dict(offline.manifest()['known'])}
         for name, url in json.loads(block)['imports'].items():
             self.assertEqual(url.split('?v=')[1], hashes[name[2:]], name)
 
