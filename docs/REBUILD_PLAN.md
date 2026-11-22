@@ -199,6 +199,11 @@ language buttons; `world-<id>.css` maps the current tokens onto the world), so n
 - `site/js/route-aliases.js`: every current route of `MAP.md` section 3 maps to its v8 address; old links (shared with
   students, in PDFs, in slide decks) keep working. Test: every alias resolves to a page that renders.
 
+- Done (22 November 2026): the v8 pages kept every current address (none was renamed), so no alias table was needed;
+  `tests/v8_addresses_browser.py` opens one address per route of `MAP.md` section 3 (it fails when a route head of that
+  table is not covered) and checks that each renders in its world with no « Page introuvable ». `#history/people` still
+  opens the standalone portrait timeline. A renamed address must add `site/js/route-aliases.js` and its case here.
+
 ### Stage 8: switch and clean-up
 
 - Flip `V8_ACTIVE` on by default; remove the v7 page paths, the unused parts of `pages.css` and the v7-only modules;
