@@ -210,6 +210,14 @@ language buttons; `world-<id>.css` maps the current tokens onto the world), so n
   move `DESIGN_V7.md` to `docs/history/`; update `MAP.md`, `site/CLAUDE.md`, `docs/CLAUDE.md`, `PROJECT_BRIEF.md`
   section 6 (owner decision 1 of `DESIGN_V8.md`).
 
+- Done in part (22 November 2026): `site/js/v8.js` is on by default (`decide`: `?v8=off` remembered brings back the
+  previous look, `?v8` turns v8 on again; `tests/v8-switch.test.mjs`); `PROJECT_BRIEF.md` section 6 names v8 and
+  "course text first". The browser checks of the previous look run with `?v8=off` remembered
+  (`tests/current-look/sitecustomize.py`, put on PYTHONPATH by `tests/run_browser.py`). Kept for now, on purpose: the
+  previous look and its modules (they still draw the pages framed in a world: exercises bank, slides index, teacher
+  pages, laboratory, reading, timelines), and `docs/DESIGN_V7.md` in `docs/` (it still governs those pages). They go
+  when those pages have their v8 version.
+
 ## 5. Order and dependencies
 
 Stages 0 and 1 can start now and need no design decision. Stage 2 is needed by 3 to 6. Stages 3, 4 and 6 are
