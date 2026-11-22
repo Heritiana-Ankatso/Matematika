@@ -1,6 +1,6 @@
 # Rebuild plan for design v8 (22 November 2026)
 
-Technical plan for `docs/DESIGN_V8.md` (four worlds). Status: **proposed, awaiting the owner's go-ahead.** Each stage is
+Technical plan for `docs/DESIGN_V8.md` (four worlds). Status: **approved with the owner's decisions of 22 November 2026; stages 0 and 1 may start.** Each stage is
 one pull request (or a short series), merged only with "Website checks" green, under the Git rule of `CLAUDE.md`.
 
 ## 1. Principles
@@ -60,7 +60,7 @@ must load only on pages with formulas.
 - `site/styles/tokens.css`: shared scale plus one token block per world (`[data-world="musee" | "univ" | "lycee" |
   "olymp" | "home"]`), values from `DESIGN_V8.md` section 3.
 - Fonts self-hosted in `site/fonts/` with their licence files (all SIL OFL, licences to be confirmed when vendored):
-  Newsreader, Literata, Instrument Sans, Instrument Serif, IBM Plex Sans and Mono, Playwrite FR Moderne, Kalam,
+  Newsreader, Literata, Instrument Sans, Instrument Serif, IBM Plex Sans and Mono, Playwrite FR Moderne, Caveat,
   JetBrains Mono (Archivo is already there). Latin and Latin Extended subsets only; each world loads only its own faces.
   No Google Fonts at run time (privacy, offline, speed).
 - One stylesheet per world (`site/styles/world-<id>.css`) loaded when the world is entered; shared components in
@@ -86,6 +86,9 @@ must load only on pages with formulas.
   entry; the Riemann status is re-checked before publication.
 - Courses from `manifest.json` key `university`; the chapter page in the university look renders the existing web
   lessons (Algèbre 1 from `scripts/build-algebre1.py`, Fourier, foundations, module), whose HTML gets v8 classes.
+- The foundation lessons (`#basics`, `site/resources/basics/`) move into this world beside "Fondements
+  mathématiques"; the topic map (`#topics`, `discovery.js`, `topic-registry.js`) merges with the map of fields, so
+  `university-map.js` and the topic registry share one list of fields (decision 4).
 
 ### Stage 5: Lycée, the copybook
 
@@ -100,11 +103,15 @@ must load only on pages with formulas.
   notes, the PDF and the exercises in the new look. This is the largest stage.
 - Exercises sheet from the existing bank (`site/js/exercises/`), projection with the existing slide player restyled
   per world, "Fond clair / Fond sombre" remembered.
+- The teacher launch pad and "Ma séance" (`teacher-dashboard.js`, `seance-model.js`) are kept and restyled; the
+  chapter actions lead into them (decision 5).
 
 ### Stage 6: Olympiades
 
 - Arena page and strategy pages from `site/js/olympiad-content.js`; the problem of the day is chosen from the date
   (deterministic, no server); the 50-squares figure is computed from the problem levels.
+- Warm-ups: a list of challenge ids from `site/js/challenges/registry.js`, shown in the arena and opening the
+  challenge itself (decision 2).
 
 ### Stage 7: addresses
 
@@ -120,16 +127,15 @@ must load only on pages with formulas.
 ## 5. Order and dependencies
 
 Stages 0 and 1 can start now and need no design decision. Stage 2 is needed by 3 to 6. Stages 3, 4 and 6 are
-independent of each other; stage 5 is the longest because of the converter. Stage 7 before stage 8. The open owner
-decisions of `DESIGN_V8.md` section 8 block: decision 4 for stages 3 and 5, decision 5 for stage 5, decision 6 for
-stage 5, decision 1 for stage 8.
+independent of each other; stage 5 is the longest because of the converter. Stage 7 before stage 8. The owner
+decisions of `DESIGN_V8.md` section 8 were taken on 22 November 2026; nothing is blocked.
 
 ## 6. Risks
 
 | Risk | Mitigation |
 |---|---|
 | Font weight (nine families) | Subsets, per-world loading, `font-display: swap`, budget test includes fonts per world |
-| Handwriting legibility | Owner decision 6; 200 % text check; print handwriting for long text |
+| Handwriting legibility | Caveat for text, cursive only for titles (decision 6); 200 % text check |
 | TeX to HTML fidelity, TikZ | Course by course; PDF stays the reference and is always one click away |
 | Baseline script and zoom | Re-run on resize, font load, formulas and folding; browser test |
 | Live-site regressions | Switch, budgets and route tests; each stage small |

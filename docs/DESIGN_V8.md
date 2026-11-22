@@ -45,10 +45,10 @@ in projection (below).
 | Ground | Night blue `#121826`, panels `#1b2336` | Deep space `#04050b`, panels `#0b0e1c` | White page, Seyès ruling (section 5) | Black `#0a0b0d`, panels `#131519` |
 | Ink | Warm white `#e8e6df` | `#eceeff` | Pen blue `#1b3796` | `#f5f6f8` |
 | Accent | Gold `#d9b25f` | Violet `#a594ff`, cyan `#62e3ea` | Red pen `#d22f45`, green pen `#16804f` | Signal red `#ff3b30` |
-| Type | Newsreader (titles), Literata (reading), Instrument Sans (interface) | Instrument Serif (titles), Literata (reading), IBM Plex Sans and Mono (interface, coordinates) | Playwrite FR Moderne (titles, French school cursive), Kalam (everything else) | Archivo condensed capitals (titles), Literata (problems), JetBrains Mono (figures) |
+| Type | Newsreader (titles), Literata (reading), Instrument Sans (interface) | Instrument Serif (titles), Literata (reading), IBM Plex Sans and Mono (interface, coordinates) | Playwrite FR Moderne (titles, French school cursive), Caveat (everything else) | Archivo condensed capitals (titles), Literata (problems), JetBrains Mono (figures) |
 | Shapes | Soft 14 px corners, placards ("Salle I" to "Salle VIII"), a cartel on each exhibit | Thin 6 px corners, thin glowing rules | Frames drawn around writing on the lines | Square corners, thick red bar, no rounding |
 | Signature | Exhibit of the day drawing itself (chaos game); rooms that open in place | Live map of 24 fields joined by 34 links; lit stars are our courses; "Les grands assauts" | The page is a copybook; "Attrape le sommet !"; a quick challenge | Problem of the day with hint and solution; the 50 problems as squares by level |
-| Holds | Curiosities (49), against intuition (11), fractals (14), laboratory (44), challenges (43), timelines (69 people, 82 advances), stories (23), biographies (61), famous errors (46) | Algèbre 1, Fondements, Mathématiques appliquées L1, Séries de Fourier | Lycée malgache (T10, T11 S, T12 C, T12 D), Lycée français (Seconde, Première, Terminale, Maths expertes), International (IB, SAT) | 10 strategies, 50 problems: national selection 20, pan-African 19, international 11 |
+| Holds | Curiosities (49), against intuition (11), fractals (14), laboratory (44), challenges (43), timelines (69 people, 82 advances), stories (23), biographies (61), famous errors (46) | Algèbre 1, Fondements, Mathématiques appliquées L1, Séries de Fourier; the foundation lessons (`#basics`); the topic map, merged with the map of fields | Lycée malgache (T10, T11 S, T12 C, T12 D), Lycée français (Seconde, Première, Terminale, Maths expertes), International (IB, SAT) | 10 strategies, 50 problems: national selection 20, pan-African 19, international 11; warm-ups chosen from the Défis |
 
 Counts are read from the source files on 22 November 2026; the build must compute them, never type them.
 
@@ -98,24 +98,29 @@ Counts are read from the source files on 22 November 2026; the build must comput
 
 Kept from `PROJECT_BRIEF.md` section 6: phone first, no horizontal scroll at 320 px, 44 px targets, readable at 200 %
 text, visible focus, keyboard for every interactive figure, contrast checked per world, nothing moves under reduced
-motion (every live drawing renders its final state instead). Handwriting is a deliberate choice for the Lycée world;
-the reading size and the cursive/print split are owner decisions (section 8).
+motion (every live drawing renders its final state instead). Handwriting is a deliberate choice for the Lycée world
+(section 8, decision 6); its legibility is checked at 200 % text like every other world.
 
-## 8. Owner decisions still open
+## 8. Owner decisions (22 November 2026)
 
-1. `PROJECT_BRIEF.md` section 6, "Experiment first: the manipulable figure is the main content of a chapter", conflicts
-   with "course text first". Amend it in the switch pull request?
-2. Défis (43 puzzles) live in the Musée; should some appear in the Olympiades as warm-ups?
-3. International (IB, SAT) is a notebook of the Lycée world, distinct from the others. Confirm.
-4. Foundations (`#basics`: place value, operations, fractions, sets, logic) and the topic map (`#topics`): which world?
-   Proposal: foundations in the Lycée world ("Les bases"), topics folded into search.
-5. Teacher modes of `docs/TEACHER_STRUCTURE.md` (Préparer, En classe, Détente): the chapter page actions and projection
-   replace Préparer and En classe; Détente becomes the Musée. Keep the launch pad and "Ma séance"?
-6. Lycée reading: body text in print handwriting (Kalam, about 15 px so small letters fill one interline) or in
-   cursive, or letters two interlines tall (larger, like younger pupils write).
+1. **"Course text first."** `PROJECT_BRIEF.md` section 6 ("Experiment first: the manipulable figure is the main content
+   of a chapter") is amended in the switch pull request (`docs/REBUILD_PLAN.md`, stage 8): the course text comes first
+   and each figure sits inside the paragraph it illustrates.
+2. **Défis as warm-ups.** The 43 challenges stay in the Musée; a selection also appears in the Olympiades as warm-ups,
+   referenced by id (one source, never copied).
+3. **International** (IB, SAT) is a notebook of the Lycée world, distinct from the Malagasy and French ones.
+4. **Foundations and the topic map go to the Université world.** The foundation lessons (`#basics`: place value,
+   operations, fractions, sets, logic) sit beside the course "Fondements mathématiques"; the topic map (`#topics`)
+   merges with the map of the fields of mathematics.
+5. **Teacher modes kept.** The in-class launch pad and "Ma séance" of `docs/TEACHER_STRUCTURE.md` stay, restyled per
+   world; the chapter page actions (Exercices, Projeter) lead into them.
+6. **Lycée handwriting: Caveat** for all text (a clear ballpoint hand, chosen after comparing Kalam, Caveat, Playwrite
+   FR Moderne, Shantell Sans, Patrick Hand and Playpen Sans on the ruling), **Playwrite FR Moderne** (French school
+   cursive) for titles. Owner rule: closest to handwriting while readable and clear. Small letters stay one interline
+   tall (about 22 px Caveat), every baseline on a heavy line (prototype: 36 of 36 text blocks of the chapter).
 
 ## 9. What this supersedes when built
 
 The palette, type, shapes and home of `docs/DESIGN_V7.md`. The purpose rules of `docs/DESIGN_V3.md` and
-`PROJECT_BRIEF.md` section 6 stay, except decision 1 above. Maths-explorer keeps its own design (owner, 20 November
+`PROJECT_BRIEF.md` section 6 stay, amended by decision 1 above. Maths-explorer keeps its own design (owner, 20 November
 2026); content changes still flow both ways under the independence rule of `CLAUDE.md`.
