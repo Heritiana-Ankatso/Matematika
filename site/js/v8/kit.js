@@ -5,6 +5,12 @@ import { icon } from '../icons.js';
 
 export const E = (x) => String(x).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
 
+// French typography (docs/DESIGN_V8.md section 6): a narrow no-break space before ? ! ; : and inside « », applied to
+// French text when a v8 page writes it (the sources keep plain spaces). Text only, never markup.
+export const typo = (text, lang) => (lang === 'fr' ? String(text).replace(/ ([?!;:»])/g, '\u202f$1').replace(/« /g, '«\u202f') : String(text));
+// A pair read in the page language, typeset and escaped: the one way v8 pages write text.
+export const sayer = (lang) => (pair) => E(typo(pair[lang === 'fr' ? 0 : 1], lang));
+
 // The worlds of the folded menu, in the order of the threshold, with the address that enters each one.
 export const WORLD_MENU = [
   { id: 'musee', hash: '#musee', name: ['Musée', 'Museum'], line: ['Curiosités, collections, chronologies', 'Curiosities, collections, timelines'] },
@@ -18,10 +24,10 @@ const brandMark = '<svg viewBox="0 0 120 120" aria-hidden="true" focusable="fals
 // Top bar: brand, one folded world menu, search. Nothing else is unfolded by default.
 export function topBar({ t, world, siteName, home = '#home' }) {
   const here = WORLD_MENU.find((w) => w.id === world);
-  return `<header class="v8-bar"><div class="v8-wrap"><a class="v8-brand" href="${home}" aria-label="${E(siteName)}">${brandMark}<span>${E(siteName)}</span></a><span class="v8-spacer"></span>`
+  return `<header class="v8-bar"><div class="v8-wrap"><a class="v8-brand" href="${home}" aria-label="${E(siteName)}">${brandMark}<span>${E(siteName)}</span></a>`
     + `<details class="v8-worlds" data-v8-menu><summary>${E(here ? t(here.name) : t(['Les mondes', 'The worlds']))}</summary><nav class="v8-worlds-list" aria-label="${E(t(['Les quatre mondes', 'The four worlds']))}">`
     + WORLD_MENU.map((w) => `<a href="${w.hash}"${w.id === world ? ' aria-current="page"' : ''}>${E(t(w.name))}<small>${E(t(w.line))}</small></a>`).join('')
-    + `</nav></details><a class="v8-icon" href="#search" aria-label="${E(t(['Rechercher', 'Search']))}" title="${E(t(['Rechercher', 'Search']))}">${icon('magnifying-glass', 22)}</a></div></header>`;
+    + `</nav></details><span class="v8-spacer"></span><a class="v8-icon" href="#search" aria-label="${E(t(['Rechercher', 'Search']))}" title="${E(t(['Rechercher', 'Search']))}">${icon('magnifying-glass', 22)}</a></div></header>`;
 }
 
 // A folded list: closed until clicked, one open at a time. `items`: [{ id, title, count, body }] (body is markup).

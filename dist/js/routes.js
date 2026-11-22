@@ -37,9 +37,14 @@ export const ROUTES = {
 
 // Pages drawn in their v8 world while the switch is on (js/v8.js, docs/REBUILD_PLAN.md stages 2 to 8): the groups they
 // need instead of the current page's. `#v8[/<world>]` is the foundation sampler (stage 2) and exists only under `?v8`.
+// `match` (optional) narrows a page to some of its addresses; the others keep the current look.
 export const V8_ROUTES = {
   v8: { needs: ['v8sampler'] },
+  home: { needs: ['v8threshold'] },
+  musee: { needs: ['v8musee'] },
+  gallery: { needs: ['content', 'v8exhibit'], match: (r) => !!r.id },
 };
+export const v8RouteOf = (r) => { const x = V8_ROUTES[r.page]; return x && (!x.match || x.match(r)) ? x : null; };
 
 // The groups a page needs; an unknown page needs none (it renders "Page introuvable").
 export const needsOf = (page) => ROUTES[page]?.needs || [];

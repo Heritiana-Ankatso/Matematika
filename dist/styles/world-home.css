@@ -1,3 +1,58 @@
 /* Design v8, the threshold (home): black page, the four doors (docs/DESIGN_V8.md section 4). Loaded by js/v8.js
    enterWorld('home'); applies under :root[data-world="home"]. The doors are drawn in stage 3. */
 :root[data-world="home"] .v8-bar { background: color-mix(in srgb, var(--w-bg) 92%, transparent); }
+
+/* the threshold: a short head, then four doors; each door wears its own world (tokens.css .v8-world-<id>) with a solid
+   2 px frame in its accent, so the four are distinct from each other and from the black page */
+.v8-threshold { min-height: calc(100vh - var(--w-bar)); display: flex; flex-direction: column; }
+.v8-th-head { width: 100%; padding-block: clamp(26px, 5vh, 54px) 22px; }
+.v8-th-head h1 { font: 400 clamp(2.4rem, 6vw, 4.2rem)/1 var(--w-head); letter-spacing: -.015em; }
+.v8-th-head p { margin: .6em 0 0; max-width: 60ch; font: 500 1.02rem var(--w-ui); color: var(--w-muted); }
+.v8-doors { flex: 1; width: 100%; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; padding-bottom: 40px; }
+.v8-door { position: relative; display: grid; grid-template-rows: 1fr auto; min-height: 300px; overflow: hidden; text-decoration: none; color: var(--w-ink) !important; background: var(--w-bg); border: 2px solid var(--w-accent); border-radius: var(--w-r); transition: transform var(--w-t), box-shadow var(--w-t); }
+.v8-door:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(0,0,0,.45); }
+.v8-door:focus-visible { outline: 3px solid #f1f0ec; outline-offset: 3px; }
+.v8-door-vis { position: relative; min-height: 170px; }
+.v8-door-vis canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.v8-door-txt { position: relative; display: block; padding: 18px 22px 22px; }
+.v8-door-name { display: block; font-family: var(--w-head); font-size: 2.3rem; line-height: 1.1; color: var(--w-ink); }
+.v8-door-line { display: block; margin-top: .35em; font: 500 .95rem var(--w-ui); color: var(--w-muted); }
+.v8-door-short { display: none; }
+.v8-door.v8-world-musee { background: radial-gradient(120% 100% at 50% 0%, #33467a, #1a2442 70%); }
+.v8-door.v8-world-univ { background: radial-gradient(120% 110% at 80% 10%, #2b1f63, #120c2e 70%); }
+.v8-door.v8-world-univ .v8-door-name { font-size: 2.6rem; }
+.v8-door.v8-world-univ .v8-door-line, .v8-door.v8-world-olymp .v8-door-line { font-family: var(--w-mono); font-size: .82rem; letter-spacing: .02em; }
+.v8-door.v8-world-lycee { border-color: var(--w-ink);
+  background-color: var(--w-bg);
+  background-image: linear-gradient(90deg, transparent 46px, var(--w-margin) 46px, var(--w-margin) 48px, transparent 48px),
+    repeating-linear-gradient(90deg, transparent 0 31px, var(--w-seyes-heavy) 31px 32px),
+    repeating-linear-gradient(180deg, transparent 0 31px, var(--w-seyes-heavy) 31px 32px),
+    repeating-linear-gradient(180deg, transparent 0 7px, var(--w-seyes-fine) 7px 8px);
+  background-size: 100% 100%, calc(100% - 48px) 100%, 100% 100%, 100% 100%; background-position: 0 0, 48px 0, 0 0, 0 0; background-repeat: no-repeat, no-repeat, repeat, repeat; }
+.v8-door.v8-world-lycee .v8-door-txt { padding-left: 64px; }
+.v8-door.v8-world-lycee .v8-door-name { font-size: 2rem; line-height: 1.5; color: var(--w-accent); }
+.v8-door.v8-world-lycee .v8-door-line { font: 400 1.15rem var(--w-text); color: var(--w-ink); }
+.v8-door.v8-world-lycee:hover { transform: translateY(-3px) rotate(-.4deg); }
+.v8-door.v8-world-olymp { background: #1d1e23; box-shadow: inset 6px 0 0 var(--w-accent); }
+.v8-door.v8-world-olymp .v8-door-name { font-size: 2.6rem; font-weight: 900; font-stretch: 72%; text-transform: uppercase; line-height: .95; }
+.v8-door.v8-world-olymp .v8-door-line { text-transform: uppercase; letter-spacing: .06em; }
+@media (max-width: 760px) {
+  /* phones: the four doors share the first screen as four bands, name left, live drawing right */
+  .v8-threshold { height: calc(100svh - var(--w-bar)); min-height: 0; }
+  .v8-th-head { padding-block: 14px 12px; }
+  .v8-th-head h1 { font-size: clamp(1.55rem, 7vw, 2rem); line-height: 1.1; }
+  .v8-th-head p { display: none; }
+  .v8-doors { flex: 1 1 0; min-height: 0; grid-template-columns: minmax(0, 1fr); grid-template-rows: repeat(4, minmax(96px, 1fr)); gap: 8px; padding-bottom: 12px; }
+  .v8-door { min-height: 0; grid-template-rows: none; grid-template-columns: minmax(0, 1fr) 36%; }
+  .v8-door-vis { order: 2; min-height: 0; }
+  .v8-door-txt { order: 1; display: flex; flex-direction: column; justify-content: center; padding: 10px 6px 10px 16px; }
+  .v8-door-line { display: none; }
+  .v8-door-short { display: block; margin-top: .3em; font: 500 .82rem/1.3 var(--w-ui); color: var(--w-muted); }
+  .v8-door-name { font-size: 1.75rem !important; line-height: 1.05; }
+  .v8-door.v8-world-lycee .v8-door-txt { padding-left: 58px; }
+  .v8-door.v8-world-lycee .v8-door-name { font-size: 1.3rem !important; line-height: 1.5; white-space: nowrap; }
+  .v8-door.v8-world-lycee .v8-door-short { font: 400 1.05rem/1.3 var(--w-text); color: var(--w-ink); }
+  .v8-door.v8-world-univ .v8-door-short, .v8-door.v8-world-olymp .v8-door-short { font-family: var(--w-mono); font-size: .76rem; letter-spacing: .02em; }
+  .v8-door.v8-world-olymp .v8-door-short { text-transform: uppercase; }
+}
+@media (prefers-reduced-motion: reduce) { .v8-door:hover { transform: none; } }
