@@ -1,55 +1,79 @@
+// The shell: router, header, footer, theme, language, search trigger. Everything a page draws is loaded with import()
+// the first time that page is opened (routes.js lists what each page needs; LOADERS below), so a page downloads only its
+// own code (docs/REBUILD_PLAN.md stage 1).
 import {currentCourse,rememberCourse} from './navigation-state.js';
 import {organizePage} from './page-ergonomics.js';
-import {isLiveRoute, isLiveHash, liveDiscovery, livePathways, FULL_EDITION} from './live-curriculum.js';
+import {isLiveRoute, isLiveHash, liveDiscovery, livePathways, liveChapterCourse, FULL_EDITION} from './live-curriculum.js';
 import { installNavFlyout, installHoverDetails } from "./nav-flyout.js";
-import { articleOf, articleHtml } from "./gallery/article.js";
-import {galleryContext} from './gallery/gallery-context.js';
 import {installControlPolicy} from "./control-policy.js";
 import {preferredLanguage,routeLanguage} from "./content-language.js";
-import {workshopMarkup,bindWorkshop} from './quadratic-workshop.js';
-import { errorsPage, bindErrors } from "./errors.js";
-import { intuitionPage } from "./intuition-page.js";
-import { fractalsPage } from "./fractals-page.js";
-import { olympiadPage, bindOlympiad, isOlympiadRoute } from "./olympiad.js";
 import { rememberScrolls, restoreScrolls } from "./scroll-memory.js";
 import { withEntryNav } from "./entry-nav.js";
-import { isErrorRoute } from "./errors-model.js";
-import { libraryPage, bindLibrary, chapterPage, bindChapter, relatedChapters, resourceCatalog } from "./resource-library.js";
-import { packPage, bindPack, sourcesPage, bindSources } from "./pack-builder.js";
-import { automatismesPage, bindAutomatismes } from "./automatismes.js";
-import { sheetsPage, bindSheets } from "./worksheets.js";
-import { bankPage, bindBank, isBankRoute } from "./bank-page.js";
-import { slidesPage, bindSlides } from "./slides-page.js";
-import { universityPage, bindUniversity } from "./university.js";
 import { observeSvgNavigation } from "./canvas-navigation.js";
-import { labs, challenges, pathways } from "./content.js";
-import { pathwayPage as pathwayPageView, bindPathways } from "./pathways-view.js";
-import { mountObject } from "./lab-objects.js";
-import { homePage, bindHome, mountHomeFigure, galleryPage as galleryIndex } from "./welcome.js";
+import { discoveryChapters, companionChapters } from "./catalogue-data.js";
+import { needsOf } from "./routes.js";
 // The name of this edition (Maths Explorer or Matematika), written into index.html by the build (build/mxbuild/site.py).
 const SITE_NAME = document.querySelector('meta[name="application-name"]')?.content || "Maths Explorer";
-import { isReading, readingPage, readAlso } from "./reading.js";
-import { mountArt } from "./home-art.js";
-import { mountLibrary } from "./library.js";
 import { icon } from "./icons.js";
-import { VARIANTS, hasVariants, defaults as variantDefaults, randomParams, normalise as normaliseVariant, mountActivity, hasActivity, challengeIcon, originalOf, mountSolution, hasSolution } from "./challenges/registry.js";
-import { fullscreenButton } from "./visual-lessons.js";
-import { basicsPage, bindBasics, isBasicsRoute } from "./basics-page.js";
 import { currentTheme, toggleTheme, installPresenting } from "./ui.js";
-import { assetHref } from "./data-loader.js";
 import { illuminateFeedback } from "./motion.js";
-import { mountExperiment } from "./lab/mount.js";
-import { resolveRef, labRef } from "./lab/registry.js";
-import { indexPage as labIndexPage, experimentPage, bindLabIndex } from "./lab/page.js";
 import { isAnswer, formatNumber } from "./math.js";
-import { cartoonPress } from "./challenges/common/cartoon.js";
-import {discoveryIndex,discoveryPage,bindDiscovery,discoveryContext,isTopicRoute} from './discovery.js';
-import {historyPage,bindHistory,isHistoryRoute,mathematiciansTimelineUrl} from './history.js';
 import * as teacherState from './teacher-state.js';
 import {noteOpen,recentFor,contextStripHtml,mountContextStrip} from './classroom-context.js';
 import {landingHash,homeHash,effectiveEntry,installEntrySwitch,AUDIENCES} from './teacher-entry.js';
 import {MODES,modeOfRoute,showModeBar} from './modes.js';
 import {installOffline} from './offline.js';
+
+// Page code, set by LOADERS the first time a page needs it.
+let labs = [], challenges = [];
+let articleOf, articleHtml, galleryContext, mountObject, galleryIndex, mountArt, fullscreenButton, relatedChapters;
+let workshopMarkup, bindWorkshop, errorsPage, bindErrors, isErrorRoute, intuitionPage, fractalsPage;
+let olympiadPage, bindOlympiad, isOlympiadRoute, libraryPage, bindLibrary, chapterPage, bindChapter;
+let packPage, bindPack, sourcesPage, bindSources, automatismesPage, bindAutomatismes, sheetsPage, bindSheets;
+let bankPage, bindBank, isBankRoute, slidesPage, bindSlides, universityPage, bindUniversity;
+let pathwayPageView, bindPathways, homePage, bindHome, mountHomeFigure, isReading, readingPage, readAlso, mountLibrary;
+let VARIANTS, hasVariants, variantDefaults, randomParams, normaliseVariant, mountActivity, hasActivity, challengeIcon, originalOf, mountSolution, hasSolution, cartoonPress;
+let basicsPage, bindBasics, isBasicsRoute, assetHref, mountExperiment, resolveRef, labRef, labIndexPage, experimentPage, bindLabIndex;
+let discoveryIndex, discoveryPage, bindDiscovery, isTopicRoute, historyPage, bindHistory, isHistoryRoute, mathematiciansTimelineUrl;
+let companionCatalog = { chapters: [] };
+const LOADERS = {
+  content: async () => { ({ labs, challenges } = await import("./content.js")); pruneSaved(); },
+  companion: async () => { const [{ resourceCatalog }, { liveCompanionCatalog }] = await Promise.all([import("./resources-data.js"), import("./live-curriculum.js")]); companionCatalog = liveCompanionCatalog(resourceCatalog); },
+  welcome: async () => { ({ homePage, bindHome, mountHomeFigure } = await import("./welcome.js")); },
+  library: async () => { ({ libraryPage, bindLibrary, chapterPage, bindChapter, relatedChapters, resourceCatalog: companionCatalog } = await import("./resource-library.js")); },
+  libraryPage: async () => { ({ mountLibrary } = await import("./library.js")); },
+  workshop: async () => { ({ workshopMarkup, bindWorkshop } = await import("./quadratic-workshop.js")); },
+  pack: async () => { ({ packPage, bindPack, sourcesPage, bindSources } = await import("./pack-builder.js")); },
+  automatismes: async () => { ({ automatismesPage, bindAutomatismes } = await import("./automatismes.js")); },
+  sheets: async () => { ({ sheetsPage, bindSheets } = await import("./worksheets.js")); },
+  bank: async () => { ({ bankPage, bindBank, isBankRoute } = await import("./bank-page.js")); },
+  slides: async () => { ({ slidesPage, bindSlides } = await import("./slides-page.js")); },
+  university: async () => { ({ universityPage, bindUniversity } = await import("./university.js")); },
+  pathways: async () => { ({ pathwayPage: pathwayPageView, bindPathways } = await import("./pathways-view.js")); },
+  basics: async () => { const [b, d] = await Promise.all([import("./basics-page.js"), import("./data-loader.js")]); ({ basicsPage, bindBasics, isBasicsRoute } = b); ({ assetHref } = d); },
+  lab: async () => { const [m, reg, p] = await Promise.all([import("./lab/mount.js"), import("./lab/registry.js"), import("./lab/page.js")]); ({ mountExperiment } = m); ({ resolveRef, labRef } = reg); ({ indexPage: labIndexPage, experimentPage, bindLabIndex } = p); },
+  gallery: async () => {
+    const [a, c, o, w, h, v, r, l] = await Promise.all([import("./gallery/article.js"), import("./gallery/gallery-context.js"), import("./lab-objects.js"), import("./welcome.js"), import("./home-art.js"), import("./visual-lessons.js"), import("./reading.js"), import("./related-chapters.js")]);
+    ({ articleOf, articleHtml } = a); ({ galleryContext } = c); ({ mountObject } = o); ({ galleryPage: galleryIndex } = w); ({ mountArt } = h); ({ fullscreenButton } = v); ({ readAlso } = r); ({ relatedChapters } = l);
+  },
+  intuition: async () => { ({ intuitionPage } = await import("./intuition-page.js")); },
+  fractals: async () => { ({ fractalsPage } = await import("./fractals-page.js")); },
+  errors: async () => { const [e, m] = await Promise.all([import("./errors.js"), import("./errors-model.js")]); ({ errorsPage, bindErrors } = e); ({ isErrorRoute } = m); },
+  olympiad: async () => { ({ olympiadPage, bindOlympiad, isOlympiadRoute } = await import("./olympiad.js")); },
+  reading: async () => { ({ isReading, readingPage, readAlso } = await import("./reading.js")); },
+  challenges: async () => {
+    const [reg, c, r] = await Promise.all([import("./challenges/registry.js"), import("./challenges/common/cartoon.js"), import("./reading.js")]);
+    ({ VARIANTS, hasVariants, defaults: variantDefaults, randomParams, normalise: normaliseVariant, mountActivity, hasActivity, challengeIcon, originalOf, mountSolution, hasSolution } = reg);
+    ({ cartoonPress } = c); ({ readAlso } = r);
+  },
+  discovery: async () => { ({ discoveryIndex, discoveryPage, bindDiscovery, isTopicRoute } = await import("./discovery.js")); },
+  history: async () => { ({ historyPage, bindHistory, isHistoryRoute, mathematiciansTimelineUrl } = await import("./history.js")); },
+};
+const loaded = new Set(), loading = new Map();
+const ensure = (groups) => Promise.all(groups.filter((g) => !loaded.has(g)).map((g) => {
+  if (!loading.has(g)) loading.set(g, LOADERS[g]().then(() => { loaded.add(g); }, (e) => { loading.delete(g); throw e; }));
+  return loading.get(g);
+}));
 
 const $ = (s, root = document) => root.querySelector(s);
 const esc = (x) =>
@@ -69,14 +93,15 @@ if (!saved || typeof saved !== "object" || Array.isArray(saved)) saved = {};
 let preferredLang = preferredLanguage(saved.lang);
 let lang = preferredLang;
 installControlPolicy(document.getElementById("app"));
-const completed = new Set(
-  Array.isArray(saved.completed)
-    ? saved.completed.filter((id) =>
-        [...labs, ...challenges].some((x) => x.id === id),
-      )
-    : [],
-);
-const chapterIds = new Set(resourceCatalog.chapters.map((c) => c.id));
+// Finished experiments and challenges: kept as stored until the catalogue of labs and challenges is loaded, then only
+// the ids that still exist (pruneSaved).
+const completed = new Set(Array.isArray(saved.completed) ? saved.completed : []);
+function pruneSaved() {
+  for (const id of completed) if (![...labs, ...challenges].some((x) => x.id === id)) completed.delete(id);
+}
+// The chapters with a companion page (#chapter/<id>) that are live in this edition, as resource-library.js lists them.
+const chapterIds = new Set(companionChapters.filter((id) => liveChapterCourse(id)));
+const shellChapters = discoveryChapters.filter((c) => chapterIds.has(c.id));
 const seen = new Set(Array.isArray(saved.seen) ? saved.seen.filter((id) => chapterIds.has(id)) : []);
 let last = chapterIds.has(saved.last) ? saved.last : "";
 const states = {};
@@ -191,10 +216,46 @@ function footer() {
   return `<footer><div class="foot-grid"><div class="foot-about"><a class="foot-brand" href="#home">${brandMark}<span>${SITE_NAME}</span></a><p>${pair("Des mathématiques à voir, à manipuler et à raconter.", "Maths you can see, handle and tell.")}</p><p class="foot-storage">${storageWorks ? pair("Progression enregistrée sur cet appareil.", "Progress saved on this device.") : pair("Stockage indisponible : progression conservée pour cette session.", "Storage unavailable: progress kept for this session.")}</p></div>${columns}<nav class="foot-links foot-col" aria-label="${pair("Autres pages", "More pages")}"><p class="foot-title">${pair("Plus", "More")}</p>${effectiveEntry(teacherState.getEntry()) !== "teacher" ? `<a class="foot-switch" href="#teacher" data-set-entry="teacher">${pair("Espace professeur", "Teacher area")}</a>` : ""}<a href="#sources">${pair("Sources LaTeX", "LaTeX sources")}</a><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.${lang}" rel="license noopener" target="_blank">${pair("Licence CC BY-NC-SA 4.0", "CC BY-NC-SA 4.0 licence")}</a></nav></div></footer>`;
 }
 // French title of a chapter, for the generators (their content is French)
-const chapterTitleFr = (id) => resourceCatalog.chapters.find((c) => c.id === id)?.title?.[0] || id;
-let lastPage = null;
+const chapterTitleFr = (id) => companionCatalog.chapters.find((c) => c.id === id)?.title?.[0] || id;
+let lastPage = null, renderSerial = 0;
+// Applies the redirects of the address and returns the groups of code (routes.js) its page still needs.
+function missingFor() {
+  let r = route();
+  if (!isLiveRoute(r)) {
+    history.replaceState(null, '', '#resources');
+    r = route();
+  }
+  const groups = [...needsOf(r.page)];
+  // the curiosities live in the gallery, whatever link points at them: an address that is no experiment is checked
+  // against the catalogue of curiosities
+  if (r.page === "lab" && r.id && loaded.has("lab") && !(resolveRef(labRef(r.id, r.tab)) || resolveRef(r.id))) {
+    if (!loaded.has("content")) groups.push("content");
+    else if (labs.some((l) => l.id === r.id && l.custom)) { history.replaceState(null, "", link("gallery", r.id)); return missingFor(); }
+  }
+  return groups.filter((g) => !loaded.has(g));
+}
+// Draws the page of the address. When its code is already loaded the page is drawn at once, as before; otherwise the
+// code is loaded first, under a short loading line. The returned promise settles once the page is
+// drawn, for callers that move the focus afterwards; a newer navigation wins over an older one still loading.
 function render() {
-  const keptScrolls = rememberScrolls($("#app")), cameFrom = lastPage;
+  const serial = ++renderSerial, missing = missingFor();
+  if (!missing.length) { draw(serial); return Promise.resolve(); }
+  // Nothing of the previous page stays usable while the next one loads (no click lands on a page that is leaving).
+  if (lastPage !== null || $("#app").childElementCount) {
+    teardown();
+    $("#app").setAttribute("aria-busy", "true");
+    $("#app").innerHTML = `<p class="page-loading" role="status">${pair("Chargement…", "Loading…")}</p>`;
+  }
+  return ensure(missing).then(() => { if (serial === renderSerial) return render(); }, () => { if (serial === renderSerial) unavailable(); });
+}
+function unavailable() {
+  document.body.dataset.page = "missing";
+  $("#app").removeAttribute("aria-busy");
+  $("#app").innerHTML = inChosenLanguage(() => header(route().page)) + `<main id="main" tabindex="-1" class="page"><h1>${pair("Page indisponible", "Page unavailable")}</h1><p role="alert">${pair("La page n’a pas pu se charger. Vérifie la connexion, puis recharge la page.", "The page could not load. Check the connection, then reload the page.")}</p></main>` + inChosenLanguage(footer);
+  bindCommon();
+}
+// Stops everything the page on screen runs (figures, observers, experiments).
+function teardown() {
   stopViews.forEach(stop=>stop()); stopViews=[];
   stopLab();
   stopLab = () => {};
@@ -205,12 +266,17 @@ function render() {
   stopArt = [];
   homeFigure?.destroy(); homeFigure = null;
   stopObject = () => {};
+}
+function draw(serial) {
+  const keptScrolls = rememberScrolls($("#app")), cameFrom = lastPage;
+  teardown();
+  $("#app").removeAttribute("aria-busy");
   let r = route();
   if (!isLiveRoute(r)) {
     history.replaceState(null, '', '#resources');
     r = route();
   }
-  lang=routeLanguage(r,resourceCatalog.chapters,preferredLang);
+  lang=routeLanguage(r,shellChapters,preferredLang);
   // The mathematicians' chronology owns its viewport and its own navigation.
   if (r.page === 'history' && (!r.id || r.id === 'people') && !r.tab) {
     window.location.replace(mathematiciansTimelineUrl(lang));
@@ -224,23 +290,25 @@ function render() {
     `${SITE_NAME} · Mathematics laboratory`,
   );
   const experiment = r.page === "lab" && r.id ? (resolveRef(labRef(r.id, r.tab)) || resolveRef(r.id))?.experiment || null : null;
-  const discovery=liveDiscovery(discoveryIndex({labs,challenges,chapters:resourceCatalog.chapters}));
+  // The full index of the site is built only by the pages that list it; the home needs only its live chapter pages.
+  const discovery = r.page === "topics" || r.page === "history" ? liveDiscovery(discoveryIndex({labs,challenges,chapters:companionCatalog.chapters})) : null;
+  const homeIndex = [...chapterIds].map((id) => ({ route: "#chapter/" + id })).filter((x) => isLiveHash(x.route));
   const valid = (r.page === "lab" && (!r.id || !!experiment)) || (r.page === "gallery" && (!r.id || labs.some(l => l.id === r.id && l.custom))) ||
     (r.page === 'history' && isHistoryRoute(r.id,r.tab)) ||
     (r.page === 'topics' && isTopicRoute(r.id,r.tab)) ||
     (r.page === "errors" && isErrorRoute(r.id)) || (r.page === "intuition" && !r.id) || (r.page === "fractals" && !r.id) ||
     (r.page === "olympiad" && isOlympiadRoute(r.id)) ||
     (r.page === "challenges" && (!r.id || challenges.some(c => c.id === r.id))) ||
-    (r.page === "home" && !r.id) || (r.page === "teacher" && !r.id) || (r.page === "prepare" && !r.id) || (r.page === "relax" && !r.id) || (r.page === "review" && !r.id) || r.page === "search" || (r.page === "basics" && isBasicsRoute(r.id)) || isReading(r.page, r.id) || (r.page === "pathways" && (!r.id || livePathways.some(p => p.id === r.id))) || r.page === "library" || r.page === "pack" || r.page === "sources" || r.page === "slides" || r.page === "automatismes" || r.page === "sheets" || (r.page === "bank" && isBankRoute(r.id, r.tab, r.sub)) ||
+    (r.page === "home" && !r.id) || (r.page === "teacher" && !r.id) || (r.page === "prepare" && !r.id) || (r.page === "relax" && !r.id) || (r.page === "review" && !r.id) || r.page === "search" || (r.page === "basics" && isBasicsRoute(r.id)) || ((r.page === "biographies" || r.page === "stories") && isReading(r.page, r.id)) || (r.page === "pathways" && (!r.id || livePathways.some(p => p.id === r.id))) || r.page === "library" || r.page === "pack" || r.page === "sources" || r.page === "slides" || r.page === "automatismes" || r.page === "sheets" || (r.page === "bank" && isBankRoute(r.id, r.tab, r.sub)) ||
     r.page === "university" || (r.page === "resources" && isLiveRoute(r)) || (r.page === "workshop" && r.id === "quadratic") ||
-    (r.page === "chapter" && resourceCatalog.chapters.some(c => c.id === r.id));
+    (r.page === "chapter" && chapterIds.has(r.id));
   const page = valid ? r.page : "missing";
   if(['resources','slides','bank'].includes(page))rememberCourse(r.id);
-  if(page==='chapter')rememberCourse(resourceCatalog.chapters.find(c=>c.id===r.id)?.course);
+  if(page==='chapter')rememberCourse(shellChapters.find(c=>c.id===r.id)?.course);
   document.body.dataset.page=page;
   $("#app").innerHTML =
     inChosenLanguage(() => header(page)) +
-    (page === "search" ? searchLoading() : page === "teacher" ? teacherLoading() : page === "prepare" ? modeLoading(pair("Préparer", "Prepare")) : page === "relax" ? modeLoading(pair("Détente", "Relax")) : page === "review" ? modeLoading(pair("Réviser", "Review")) : page === "basics" ? basicsPage(r.id, { t, pair, lang, assetHref }) : page === "home" ? homePage({ pair, t, link, index:discovery, last, audience: effectiveEntry(teacherState.getEntry()) }) : page === "workshop" ? workshopMarkup(t) : page === "pack" ? packPage(t, r.id) : page === "bank" ? bankPage(t, r.id, r.tab) : page === "sources" ? sourcesPage(t) : page === "slides" ? slidesPage(t) : page === "automatismes" ? automatismesPage(t, pair) : page === "sheets" ? sheetsPage(t) : page === "resources" ? libraryPage(t, { challenges, completed, seen, last, labs })
+    (page === "search" ? searchLoading() : page === "teacher" ? teacherLoading() : page === "prepare" ? modeLoading(pair("Préparer", "Prepare")) : page === "relax" ? modeLoading(pair("Détente", "Relax")) : page === "review" ? modeLoading(pair("Réviser", "Review")) : page === "basics" ? basicsPage(r.id, { t, pair, lang, assetHref }) : page === "home" ? homePage({ pair, t, link, index:homeIndex, last, audience: effectiveEntry(teacherState.getEntry()) }) : page === "workshop" ? workshopMarkup(t) : page === "pack" ? packPage(t, r.id) : page === "bank" ? bankPage(t, r.id, r.tab) : page === "sources" ? sourcesPage(t) : page === "slides" ? slidesPage(t) : page === "automatismes" ? automatismesPage(t, pair) : page === "sheets" ? sheetsPage(t) : page === "resources" ? libraryPage(t, { challenges, completed, seen, last, labs })
       : page === "university" ? universityPage(lang)
       : page === "topics" ? discoveryPage(discovery,r.id,r.tab,t)
       : page === "history" ? historyPage(r.id,r.tab,t,discovery)
@@ -263,10 +331,7 @@ function render() {
           ? pathwayPage()
           : `<main id="main" tabindex="-1" class="page"><h1>${pair("Page introuvable", "Page not found")}</h1><a href="#lab">${pair("Ouvrir le laboratoire", "Open the laboratory")}</a></main>`) +
     inChosenLanguage(footer);
-  if(r.id && page!=='topics') {
-    const context=discoveryContext(discovery,`#${page}/${r.id}${page==='history'&&r.tab?'/'+r.tab:''}`,t);
-    if(context) $('#main')?.insertAdjacentHTML('beforeend',context);
-  }
+  if(r.id && page!=='topics') stopViews.push(mountContext($('#main'),`#${page}/${r.id}${page==='history'&&r.tab?'/'+r.tab:''}`));
   if (experiment) {
     // The mission is part of the address (#lab/<experiment>/<mission>); replaceState keeps the history clean.
     stopLab = mountExperiment($("#lab2-host"), labRef(experiment.id, r.tab), {
@@ -276,7 +341,11 @@ function render() {
     }).destroy;
   }
   if (page === "home") homeFigure = mountHomeFigure($("#main"), { lang, reduced: reducedMotion() });
-  if (page === "home" || (page === "gallery" && !r.id)) stopArt = [...document.querySelectorAll("canvas[data-art]")].map((cv) => mountArt(cv, cv.dataset.art, { reduced: reducedMotion }));
+  if (page === "home" || (page === "gallery" && !r.id)) {
+    const canvases = [...document.querySelectorAll("canvas[data-art]")];
+    if (canvases.length && mountArt) stopArt = canvases.map((cv) => mountArt(cv, cv.dataset.art, { reduced: reducedMotion }));
+    else if (canvases.length) import("./home-art.js").then((m) => { mountArt = m.mountArt; if (serial === renderSerial) stopArt = canvases.filter((cv) => cv.isConnected).map((cv) => mountArt(cv, cv.dataset.art, { reduced: reducedMotion })); });
+  }
   if (page === "gallery" && $("#object-stage")) stopObject = mountObject($("#object-stage").dataset.object, $("#object-stage"), { lang, reduced: reducedMotion, initialValues: state(labs.find(x=>x.id===currentLab)).values, onChange: values => { state(labs.find(x=>x.id===currentLab)).values = values; } });
   $(".skip").textContent = pair("Aller au contenu", "Skip to content");
   document.querySelectorAll('#app a[href^="#"]').forEach(a => {
@@ -295,7 +364,7 @@ function render() {
   if (page === "challenges") stopChapter = bindChallenges();
   if (page === "errors") stopChapter = bindErrors($("#main"), t, r.id);
   if (page === "olympiad") stopChapter = bindOlympiad($("#main"), lang);
-  if (page === "home") stopChapter = bindHome($("#main"),discovery,t);
+  if (page === "home") stopChapter = bindHome($("#main"),homeIndex,t);
   if (page === "teacher") stopChapter = mountTeacher($("#main"));
   if (page === "prepare") stopChapter = mountMode($("#main"), "prepare");
   if (page === "relax") stopChapter = mountMode($("#main"), "relax");
@@ -353,21 +422,15 @@ function mountMode(main, kind) {
   return () => { gone = true; stop(); };
 }
 const searchLoading = () => `<main id="main" class="page teacher-page rs-page" tabindex="-1"><h1>${pair("Rechercher", "Search")}</h1><p role="status">${pair("Chargement…", "Loading…")}</p></main>`;
-// The "related resources" box: a placeholder at the end of the page, filled by related-box.js (which carries the whole index)
-// only when it comes near the viewport. A chapter waits for its content first, so the page is not short when the box decides.
-function mountRelated(main, hash) {
-  if (!main) return () => {};
-  main.insertAdjacentHTML("beforeend", '<div class="related-slot" data-related-slot></div>');
-  const slot = main.querySelector("[data-related-slot]");
+// Runs `load` once the end of the page comes near the viewport. A chapter waits for its content first, so the page is
+// not short when the decision is taken. Returns the function that stops watching.
+function whenNearEnd(main, slot, load) {
   let gone = false, observer = null, mutations = null, timer = 0;
-  const load = () => {
-    observer?.disconnect(); observer = null;
-    import("./related-box.js").then((m) => { if (!gone && slot.isConnected) m.fillRelatedBox(slot, { main, hash, t }); }).catch(() => { slot.remove(); });
-  };
+  const fire = () => { observer?.disconnect(); observer = null; if (!gone) load(); };
   const watch = () => {
     if (gone) return;
-    if (typeof IntersectionObserver !== "function") { timer = setTimeout(load, 1500); return; }
-    observer = new IntersectionObserver((es) => { if (es.some((e) => e.isIntersecting)) load(); }, { rootMargin: "400px 0px" });
+    if (typeof IntersectionObserver !== "function") { timer = setTimeout(fire, 1500); return; }
+    observer = new IntersectionObserver((es) => { if (es.some((e) => e.isIntersecting)) fire(); }, { rootMargin: "400px 0px" });
     observer.observe(slot);
     // the site-map footer is tall: reaching it also means the end of the page is near
     const foot = document.querySelector("footer"); if (foot) observer.observe(foot);
@@ -379,6 +442,39 @@ function mountRelated(main, hash) {
     timer = setTimeout(() => { mutations?.disconnect(); mutations = null; watch(); }, 8000);
   } else watch();
   return () => { gone = true; observer?.disconnect(); mutations?.disconnect(); clearTimeout(timer); };
+}
+// The "related resources" box: a placeholder at the end of the page, filled by related-box.js (which carries the whole index)
+// only when it comes near the viewport.
+function mountRelated(main, hash) {
+  if (!main) return () => {};
+  main.insertAdjacentHTML("beforeend", '<div class="related-slot" data-related-slot></div>');
+  const slot = main.querySelector("[data-related-slot]");
+  let gone = false;
+  const stop = whenNearEnd(main, slot, () => {
+    import("./related-box.js").then((m) => { if (!gone && slot.isConnected) m.fillRelatedBox(slot, { main, hash, t }); }).catch(() => { slot.remove(); });
+  });
+  return () => { gone = true; stop(); };
+}
+// "Cette idée dans le site": the first field of the resource and its neighbours in the index of the whole site, drawn at
+// the end of the page when the end nears the viewport, from the context generated by the build
+// (discovery-context-data.js, scripts/catalogue-lines.mjs).
+function mountContext(main, hash) {
+  if (!main) return () => {};
+  main.insertAdjacentHTML("beforeend", '<div class="context-slot" data-context-slot></div>');
+  const slot = main.querySelector("[data-context-slot]");
+  let gone = false;
+  const stop = whenNearEnd(main, slot, () => {
+    Promise.all([import("./discovery-context-data.js"), import("./discovery-context.js")]).then(([{ DISCOVERY_CONTEXT }, { contextBox }]) => {
+      if (gone || !slot.isConnected) return;
+      const entry = Object.hasOwn(DISCOVERY_CONTEXT, hash) ? DISCOVERY_CONTEXT[hash] : null;
+      if (!entry) { slot.remove(); return; }
+      slot.insertAdjacentHTML("afterend", contextBox(entry, t));
+      const box = slot.nextElementSibling;
+      slot.remove();
+      box?.querySelectorAll('a[href^="#"]').forEach((a) => { if (!isLiveHash(a.getAttribute("href"))) a.remove(); });
+    }).catch(() => { slot.remove(); });
+  });
+  return () => { gone = true; stop(); };
 }
 function mountSearch(main, query) {
   let stop = () => {}, gone = false;
@@ -431,9 +527,10 @@ function bindCommon() {
       preferredLang = b.dataset.lang;
       lang = preferredLang;
       save();
-      render();
-      const selected = $(`[data-lang="${lang}"]`);
-      (selected?.offsetParent ? selected : $(".nav-toggle"))?.focus();
+      render().then(() => {
+        const selected = $(`[data-lang="${lang}"]`);
+        (selected?.offsetParent ? selected : $(".nav-toggle"))?.focus();
+      });
     }),
   );
 }
@@ -683,9 +780,10 @@ $(".skip").addEventListener("click", e => {
   $("#main")?.scrollIntoView({ block: "start" });
 });
 window.addEventListener("hashchange", () => {
-  render();
-  $("#main")?.focus({ preventScroll: true });
-  window.scrollTo(0, 0);
+  render().then(() => {
+    $("#main")?.focus({ preventScroll: true });
+    window.scrollTo(0, 0);
+  });
 });
 installEntrySwitch($("#app"), teacherState);
 // A change of audience redraws the home at once (the link may point to the page already open); elsewhere the header
@@ -712,8 +810,8 @@ $("#app").addEventListener("click", e => { const a = e.target.closest?.("[data-t
 render();
 installOffline();
 
-// Optional browser-standard agent access; ordinary browsers need no polyfill or service.
-if (document.modelContext?.registerTool) {
+// Optional browser-standard agent access; ordinary browsers need no polyfill or service (nor the catalogue it lists).
+if (document.modelContext?.registerTool) ensure(["content"]).then(() => {
   const lifecycle = new AbortController();
   const register = (tool) => {
     try {
@@ -747,7 +845,7 @@ if (document.modelContext?.registerTool) {
       additionalProperties: false,
     },
     annotations: { readOnlyHint: false },
-    execute: (input) => {
+    execute: async (input) => {
       const l = labs.find((x) => x.id === input?.id);
       if (!l) throw new Error("Unknown experiment");
       if (input.values !== undefined) {
@@ -771,10 +869,10 @@ if (document.modelContext?.registerTool) {
         state(l).trials = 0;
       }
       history.replaceState(null, "", link("lab", l.id));
-      render();
+      await render();
       $("#main")?.focus({ preventScroll: true });
       return { id: l.id, values: state(l).values };
     },
   });
   window.addEventListener("pagehide", () => lifecycle.abort(), { once: true });
-}
+}).catch(() => {});

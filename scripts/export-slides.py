@@ -41,7 +41,7 @@ def lab_module(key, text):
     on `__e`, dynamic imports (the lab templates) become resolved promises. Line-based, for the plain forms the lab code uses."""
     # Portable decks embed their content. Including the site's generated asset
     # versions would embed each export's own hash and make builds circular.
-    if key == 'catalogue-data.js':
+    if key == 'asset-versions.js':
         text, count = re.subn(r'^export const assetVersions = .*;$', 'export const assetVersions = {};', text, flags=re.M)
         if count != 1:
             raise ValueError('Expected one generated asset version map')

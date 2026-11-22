@@ -4,10 +4,9 @@
 // Bilingual: the page follows the interface language. Solutions stay folded until the reader opens them.
 import { STRATEGIES, LEVELS } from './olympiad-content.js';
 import { mountWidget } from './olympiad-widgets.js';
-import { mountExperiment } from './lab/mount.js';
-import { resolveRef } from './lab/registry.js';
-import { CHALLENGES } from './challenges/registry.js';
-import { typeset } from './exercises/ui-kit.js';
+import { resolveLine } from './lab/lines.js';
+import { CHALLENGE_LINES } from './catalogue-lines.js';
+import { typeset } from './mathjax.js';
 import { icon } from './icons.js';
 
 const E = (x) => String(x).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -16,12 +15,12 @@ const M = (s) => E(s);
 const code = (s) => `<pre class="olymp-code"><code>${E(s)}</code></pre>`;
 export const isOlympiadRoute = (id) => !id || STRATEGIES.some((s) => s.id === id);
 
-function challengeTitle(id, t) { const c = CHALLENGES.find((x) => (x.card || x).id === id); const card = c?.card || c; return card ? t(card.title) : id; }
+function challengeTitle(id, t) { const card = CHALLENGE_LINES.find((x) => x.id === id); return card ? t(card.title) : id; }
 function linkList(s, t) {
   return s.links.map(([kind, ref]) => {
     if (kind === 'challenge') return `<li><a href="#challenges/${E(ref)}">${icon('puzzle-piece', 18)}<span>${E(challengeTitle(ref, t))}</span></a></li>`;
-    const r = resolveRef(ref); if (!r) return '';
-    return `<li><a href="#lab/${E(ref)}">${icon('flask', 18)}<span>${E(t(r.experiment.title))}</span></a></li>`;
+    const r = resolveLine(ref); if (!r) return '';
+    return `<li><a href="#lab/${E(ref)}">${icon('flask', 18)}<span>${E(t(r.line.title))}</span></a></li>`;
   }).join('');
 }
 
@@ -55,7 +54,10 @@ ${s.links.length ? `<section class="olymp-links"><h2>${t(['Manipuler sur le site
 export function bindOlympiad(root, lang) {
   const live = [];
   root.querySelectorAll('[data-olymp-widget]').forEach((el) => live.push(mountWidget(el.dataset.olympWidget, el, lang)));
-  root.querySelectorAll('.olymp-lab').forEach((el) => live.push(mountExperiment(el, el.dataset.labRef, { mode: 'inline', lang })));
+  // the laboratory's code is fetched only by a strategy that shows an experiment
+  const labs = [...root.querySelectorAll('.olymp-lab')];
+  let gone = false;
+  if (labs.length) import('./lab/mount.js').then(({ mountExperiment }) => { if (!gone) labs.forEach((el) => live.push(mountExperiment(el, el.dataset.labRef, { mode: 'inline', lang }))); });
   typeset(root).catch(() => {});
-  return () => live.forEach((x) => x?.destroy?.());
+  return () => { gone = true; live.forEach((x) => x?.destroy?.()); };
 }

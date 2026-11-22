@@ -6,6 +6,7 @@ import {university,courses,discoveryChapters} from './catalogue-data.js';
 import {challengeIcon} from './challenges/registry.js';
 import {PEOPLE,ADVANCES} from './history-data.js';
 import {previewKind,modelPreview} from './discovery-previews.js';
+import {contextBox} from './discovery-context.js';
 import {all as ERROR_RECORDS} from './errors-model.js';
 import {discoveryLessons} from './basics-page.js';
 const E=x=>String(x).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -64,6 +65,6 @@ export function bindDiscovery(root,index,id,subtopic,t) {
 }
 export function discoveryContext(index,route,t) {
   const item=index.find(x=>x.route===route);if(!item)return '';
-  const related=recommendations(index,route);
-  return `<aside class="discovery-context" aria-label="${t(['Cette idée dans le site','This idea across the site'])}"><nav aria-label="${t(['Domaines de cette ressource','Fields of this resource'])}"><a href="#topics">${t(['Explorer par domaine','Browse by field'])}</a>${item.memberships.slice(0,1).map(m=>{const k=membershipByKey(m);return ` / <a href="#topics/${m}">${E(t(k.topic.title))} : ${E(t(k.subtopic.title))}</a>`;}).join('')}</nav>${related.length?`<details><summary>${t(['Poursuivre cette idée','Follow this idea'])}</summary><ul>${related.map(x=>`<li><a href="${E(x.route)}">${E(t(x.title))}</a> <span class="muted">${E(t(FORMAT_LABELS[x.format]))}</span></li>`).join('')}</ul></details>`:''}</aside>`;
+  const k=item.memberships[0]&&membershipByKey(item.memberships[0]);
+  return contextBox({field:k?{key:item.memberships[0],topic:k.topic.title,subtopic:k.subtopic.title}:null,next:recommendations(index,route).map(x=>({route:x.route,title:x.title,format:FORMAT_LABELS[x.format]}))},t);
 }

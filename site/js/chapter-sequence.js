@@ -2,12 +2,10 @@ import {editionFor} from './resource-editions.js';
 import {assetHref} from "./data-loader.js";
 import {courses} from "./catalogue-data.js";
 import { sequenceModel, goalFields } from './sequence-model.js';
-import { mount } from '../slides/widgets.js';
-import { mountExperiment } from './lab/mount.js';
-import { resolveRef } from './lab/registry.js';
-import { labs } from './content.js';
+import { resolveLine } from './lab/lines.js';
+import { LAB_LINES as labs } from './catalogue-lines.js';
 import { errorsFor } from './errors-model.js';
-import { typeset } from './exercises/ui-kit.js';
+import { typeset } from './mathjax.js';
 const P=(fr,en)=>[fr,en], E=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 // Four destinations, none compulsory. The six stage names of the first design stay valid as aliases (old links, tests).
 const tabs=[['cours',P('Cours','Lesson')],['manipuler',P('Manipuler','Explore')],['exercices',P('Exercices','Exercises')],['documents',P('Documents','Documents')]];
@@ -25,7 +23,7 @@ function errorBlock(c,L){
  const list=errorsFor('#chapter/'+c.id);if(!list.length)return '';
  return `<aside class="chapter-errors" aria-labelledby="chapter-errors-title"><h3 id="chapter-errors-title">${P('Erreurs fréquentes sur ce chapitre','Common errors in this chapter')[L]}</h3><p class="muted">${P('Teste chaque affirmation fausse, trouve un contre-exemple, puis répare-la.','Test each false statement, find a counterexample, then repair it.')[L]}</p><ul>${list.map(e=>`<li><a href="#errors/${e.id}">${E(e.title[L])}</a>${e.claim?` <span class="chapter-errors-claim">${E(Array.isArray(e.claim)?e.claim[L]:e.claim)}</span>`:''}</li>`).join('')}</ul></aside>`;
 }
-// One MathJax loader for the whole site (exercises/ui-kit.js): two loaders loaded it twice on back-to-back pages.
+// One MathJax loader for the whole site (mathjax.js): two loaders loaded it twice on back-to-back pages.
 const math=(root)=>typeset(root);
 // The edition of the interface language. A missing edition is reported, never replaced (owner rule), except in a curriculum
 // that is French only by the language rule (Malagasy): its French edition is the only one, named as such.
@@ -40,14 +38,15 @@ function questionCards(items,c,L){return items.map(s=>`<article class="sequence-
 function chapterDocuments(c,L){return `<h2>${P('Les supports du chapitre','Chapter resources')[L]}</h2><p>${P('Le cours web, le livret complet et le diaporama ont des usages complémentaires. Choisis le support selon la tâche.','The web lesson, complete booklet and slide deck serve complementary purposes. Choose the resource for your task.')[L]}</p><div class="sequence-documents">${c.files.map(f=>{const label=(kinds[f.kind]||P('Document','Document'))[L]+(f.title?' · '+f.title[L]:'');const link=fileLink(f,L,label);return ['teacher','fluency-solutions'].includes(f.kind)?`<details class="sequence-card"><summary>${E(label)}</summary>${link}</details>`:`<article class="sequence-card">${link}</article>`;}).join('')}<article class="sequence-card"><h3>${P('Présenter et manipuler','Present and explore')[L]}</h3><a href="${E(assetHref("./slides/player.html"))}&amp;deck=${c.id}">${P('Ouvrir le diaporama interactif','Open the interactive slide deck')[L]} ↗</a> <a href="${E(assetHref(`./slides/export/${c.id}.html`))}" download>${P("Télécharger HTML","Download HTML")[L]}</a></article></div>`;}
 // The laboratory references of a chapter (manifest `labs`): the first one is mounted inline, lazily; each has its link.
 function labBlock(c,L){
- const refs=(c.labs||[]).map(ref=>({ref,r:resolveRef(ref)})).filter(x=>x.r);if(!refs.length)return '';
- const title=({ref,r})=>{const l=labs.find(x=>x.id===r.experiment.id);return (l?.short||r.experiment.short)[L]+(r.explicit?' · '+(r.index+1)+'/'+r.experiment.missions.length:'');};
+ const refs=(c.labs||[]).map(ref=>({ref,r:resolveLine(ref)})).filter(x=>x.r);if(!refs.length)return '';
+ const title=({ref,r})=>{const l=labs.find(x=>x.id===r.line.id);return (l?.short||r.line.short)[L]+(r.explicit?' · '+(r.index+1)+'/'+r.line.missions.length:'');};
  return `<section class="chapter-lab" aria-labelledby="chapter-lab-title"><h3 id="chapter-lab-title">${P('Dans le laboratoire','In the laboratory')[L]}</h3><div class="chapter-lab-host lab2-host" data-lab-ref="${E(refs[0].ref)}"></div><ul class="chapter-lab-links">${refs.map(x=>`<li><a class="secondary" href="#lab/${E(x.ref)}">${P('Ouvrir dans le laboratoire','Open in the laboratory')[L]} · ${E(title(x))}</a></li>`).join('')}</ul></section>`;
 }
 // Mounts the host when it scrolls into view (at once without IntersectionObserver); returns what destroys it.
 function lazyLab(host,L){
  let api=null,observer=null,gone=false;
- const start=()=>{if(gone||api)return;api=mountExperiment(host,host.dataset.labRef,{mode:'inline',lang:L?'en':'fr'});};
+ // the laboratory's code is fetched only when the experiment comes into view
+ const start=()=>{if(gone||api)return;import('./lab/mount.js').then(m=>{if(gone||api)return;api=m.mountExperiment(host,host.dataset.labRef,{mode:'inline',lang:L?'en':'fr'});});};
  if(typeof IntersectionObserver==='function'){observer=new IntersectionObserver(es=>{if(es.some(e=>e.isIntersecting)){observer.disconnect();start();}});observer.observe(host);}else start();
  return{destroy(){gone=true;observer?.disconnect();api?.destroy();api=null;}};
 }
@@ -87,7 +86,9 @@ export function mountChapterSequence(c,t){
    root.querySelectorAll('[data-scroll]').forEach(a=>a.onclick=e=>{e.preventDefault();root.querySelector('#'+a.dataset.scroll)?.scrollIntoView({behavior:'instant',block:'start'});});
    if(step==='cours'&&'IntersectionObserver' in window){const toc=root.querySelectorAll('[data-toc]'),seen=new Set(),io=new IntersectionObserver(es=>{es.forEach(e=>e.isIntersecting?seen.add(e.target.id):seen.delete(e.target.id));const first=[...toc].find(a=>seen.has(a.dataset.toc));if(first)toc.forEach(a=>a===first?a.setAttribute('aria-current','location'):a.removeAttribute('aria-current'));},{rootMargin:'-20% 0px -60% 0px'});root.querySelectorAll('.sequence-card[id^="notion-"]').forEach(el=>io.observe(el));live.push({destroy:()=>io.disconnect()});}
    root.querySelectorAll('.chapter-lab-host').forEach(el=>live.push(lazyLab(el,L)));
-   root.querySelectorAll('[data-widget]').forEach(el=>{const s=model.activities[+el.dataset.widget];live.push(mount({...s.w,showDelta:false},{host:el.querySelector('.canvas-wrap'),controls:el.querySelector('.wctl'),readout:el.querySelector('.readout'),hint:el.querySelector('.hint-line'),lang:L}));});
+   // the slide widgets' code is fetched only by a chapter that shows one
+   const widgets=root.querySelectorAll('[data-widget]');const {mount}=widgets.length?await import('../slides/widgets.js'):{};if(cancelled)return;
+   widgets.forEach(el=>{const s=model.activities[+el.dataset.widget];live.push(mount({...s.w,showDelta:false},{host:el.querySelector('.canvas-wrap'),controls:el.querySelector('.wctl'),readout:el.querySelector('.readout'),hint:el.querySelector('.hint-line'),lang:L}));});
    await math(root);
    // #chapter/<id>/cours/<n> opens the lesson at idea n, #chapter/<id>/exercices/<n> at exercise n (old stage names work too).
    const [,,raw,sub]=location.hash.split('/'),target=sub==='errors'&&document.getElementById('chapter-errors-title')?'chapter-errors-title':step==='cours'&&/^\d+$/.test(sub||'')?'notion-'+sub:step==='exercices'&&/^\d+$/.test(sub||'')?'exo-'+sub:step==='exercices'&&raw==='review'?'bilan':'';

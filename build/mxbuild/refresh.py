@@ -132,9 +132,8 @@ def run_job(key):
 
 
 def catalogue_core():
-    """The catalogue as the slide exports embed it: without the generated asset versions."""
-    text = content_index.MODEL.read_text() if content_index.MODEL.exists() else ''
-    return re.sub(r'^export const assetVersions = .*;$', '', text, flags=re.M)
+    """The catalogue as the slide exports embed it (the asset versions live in their own module, left out)."""
+    return content_index.MODEL.read_text() if content_index.MODEL.exists() else ''
 
 
 def cleanup(previous):
