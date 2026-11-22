@@ -14,13 +14,15 @@ const NOW = new Date().getFullYear();
 const T0 = -500;
 const pct = (v) => (((v - T0) / (NOW - T0)) * 100).toFixed(2);
 
+// a day written in full, without a time zone shift: 2026-11-22 -> « 22 novembre 2026 », "22 November 2026"
+export const longDate = (iso, lang) => new Date(iso + 'T12:00:00Z').toLocaleDateString(lang === 'fr' ? 'fr-FR' : 'en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
 function siegeRow(x, say, lang) {
   const fy = (v) => (v < 0 ? `${x.approx ? '≈ ' : ''}${-v} ${lang === 'fr' ? 'av. J.-C.' : 'BC'}` : `${x.approx ? '≈ ' : ''}${v}`);
   const years = resisted(x, NOW).toLocaleString(lang === 'fr' ? 'fr-FR' : 'en-GB');
   const span = x.st === 'open' ? `${fy(x.from)} → ?` : `${fy(x.from)} → ${x.to}`;
   const verdict = x.st === 'done' ? say(P(`A résisté ${x.approx ? 'environ ' : ''}${years} ans`, `Resisted ${x.approx ? 'about ' : ''}${years} years`)) : say(P(`Résiste depuis ${years} ans`, `Resisting for ${years} years`));
   const end = x.st === 'done' ? x.to : NOW;
-  return `<li class="v8-siege is-${x.st}" data-siege="${x.id}"><div class="v8-sg-t"><span class="v8-coord">${E(span)}</span><span class="v8-sg-n">${say(x.name)}</span><span class="v8-sg-q">${say(x.q)}</span>${x.a ? `<span class="v8-sg-a">${say(x.a)} <span class="v8-sg-by">${E(x.by)}</span></span>` : ''}${x.note ? `<span class="v8-sg-a">${say(x.note)}</span>` : ''}<a class="v8-sg-src" href="${E(x.source)}" target="_blank" rel="noopener noreferrer">${say(P('Source', 'Source'))}<span class="sr-only"> ${say(P('(nouvel onglet)', '(new tab)'))}</span></a></div><div class="v8-sg-bar" aria-hidden="true"><i style="left:${pct(x.from)}%;width:${(pct(end) - pct(x.from)).toFixed(2)}%"></i></div><span class="v8-sg-v">${verdict}</span></li>`;
+  return `<li class="v8-siege is-${x.st}" data-siege="${x.id}"><div class="v8-sg-t"><span class="v8-coord">${E(span)}</span><span class="v8-sg-n">${say(x.name)}</span><span class="v8-sg-q">${say(x.q)}</span>${x.a ? `<span class="v8-sg-a">${say(x.a)} <span class="v8-sg-by">${E(x.by)}</span></span>` : ''}${x.checked ? `<span class="v8-sg-a">${say(P(`Ouvert au ${longDate(x.checked, 'fr')}`, `Open as of ${longDate(x.checked, 'en')}`))}</span>` : ''}<a class="v8-sg-src" href="${E(x.source)}" target="_blank" rel="noopener noreferrer">${say(P('Source', 'Source'))}<span class="sr-only"> ${say(P('(nouvel onglet)', '(new tab)'))}</span></a></div><div class="v8-sg-bar" aria-hidden="true"><i style="left:${pct(x.from)}%;width:${(pct(end) - pct(x.from)).toFixed(2)}%"></i></div><span class="v8-sg-v">${verdict}</span></li>`;
 }
 
 export function univPage({ t, lang, siteName }) {

@@ -1,9 +1,8 @@
 // "Les grands assauts" (design v8, Université world; docs/DESIGN_V8.md section 6): problems that fell, with dates, solvers
 // and how long they resisted (ancient dates rounded to the century and marked "environ"), and problems still open with
 // how long they have resisted. Each entry has a source. Re-check the status of every open problem before publishing.
-// Riemann hypothesis (22 November 2026): a proof announced on 20 November 2026 as a Lean formalisation is contested (a
-// preprint argues the formalisation is vacuous; Lean experts are examining it) and is not accepted: it stays open, with a
-// note (owner, 22 November 2026: "seems to be flawed").
+// An open problem may carry `checked`, the date its status was last verified, shown as « Ouvert au <date> »; announced
+// attempts are not listed (owner, 22 November 2026). Update the date when the status is re-checked.
 const P = (fr, en) => [fr, en];
 
 // st: 'done' (fell) or 'open'. approx: the start is known only to the century.
@@ -34,7 +33,7 @@ export const SIEGES = [
     a: P('Oui.', 'Yes.'), source: 'https://www.claymath.org/millennium/poincare-conjecture/' },
   { id: 'riemann', name: P('Hypothèse de Riemann', 'Riemann hypothesis'), from: 1859, st: 'open',
     q: P('Les zéros non triviaux de la fonction zêta ont-ils tous une partie réelle égale à 1/2 ?', 'Do all non-trivial zeros of the zeta function have real part 1/2?'),
-    note: P('Une démonstration annoncée le 20 novembre 2026, sous forme de preuve formelle en Lean, est contestée ; elle n’est pas acceptée.', 'A proof announced on 20 November 2026 as a formal proof in Lean is contested; it is not accepted.'),
+    checked: '2026-11-22',
     source: 'https://mathshistory.st-andrews.ac.uk/Biographies/Riemann/' },
   { id: 'goldbach', name: P('Conjecture de Goldbach', 'Goldbach conjecture'), from: 1742, st: 'open',
     q: P('Tout entier pair supérieur à 2 est-il la somme de deux nombres premiers ?', 'Is every even integer greater than 2 the sum of two primes?'), source: 'https://mathshistory.st-andrews.ac.uk/Biographies/Goldbach/' },

@@ -26,7 +26,7 @@ test('the lit courses are the university courses, and the topic map is the field
   assert.deepEqual([...topics].filter((id) => id !== 'history' && !covered.has(id)), [], 'every topic belongs to a field');
 });
 
-test('the great assaults: sources, dates, statuses; Riemann open with its note', () => {
+test('the great assaults: sources, dates, statuses; Riemann open as of its check date, no attempts listed', () => {
   for (const x of SIEGES) {
     assert.match(x.source, /^https:\/\//, x.id);
     assert.ok(['done', 'open'].includes(x.st), x.id);
@@ -35,7 +35,7 @@ test('the great assaults: sources, dates, statuses; Riemann open with its note',
     for (const pair of [x.name, x.q]) assert.ok(pair[0] && pair[1], x.id);
   }
   const r = SIEGES.find((x) => x.id === 'riemann');
-  assert.equal(r.st, 'open'); assert.match(r.note[0], /20 novembre 2026/); assert.match(r.note[0], /contestée/);
+  assert.equal(r.st, 'open'); assert.match(r.checked, /^\d{4}-\d{2}-\d{2}$/); assert.equal(r.note, undefined);
 });
 
 test('the page renders in both languages; Syracuse', async () => {

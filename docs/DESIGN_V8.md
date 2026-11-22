@@ -88,10 +88,10 @@ Counts are read from the source files on 22 November 2026; the build must comput
 
 - Exhibits are real site content; counts and titles are generated from the sources.
 - "Les grands assauts" (Université): problems that fell, with dates, solvers and how long they resisted (ancient
-  durations rounded to the century, marked "environ"); problems announced and under review; problems still open, with
-  how long they have resisted. The Riemann hypothesis: a proof announced on 20 November 2026 (formal proof in Lean) is contested and not accepted
-  (owner, 22 November 2026: it seems flawed); it is listed as **open**, with a note, until the mathematical community
-  accepts a proof; re-check before each publication.
+  durations rounded to the century, marked "environ"); problems still open, with
+  how long they have resisted. Announced attempts are not listed (owner, 22 November 2026): an open problem such as
+  the Riemann hypothesis shows « Ouvert au <date> », the date its status was last checked; re-check before each
+  publication and update the date.
 - French typography: narrow non-breaking space before ? ! ; : in French text.
 - No countdown or stopwatch in the Olympiad world (owner).
 

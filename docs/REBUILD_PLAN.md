@@ -143,14 +143,14 @@ exhibits' figures take the Musée palette. Reading pages keep the current look f
 
 Done 22 November 2026 (behind `?v8`): `site/js/v8/univ.js` (`#university`), `site/js/university-map.js` (24 fields, 34
 links; each field lists the topics of `topic-registry.js` it gathers, so the topic map and the field map are one list),
-`site/js/sieges-data.js`. Riemann: a proof announced on 20 November 2026 as a Lean formalisation is contested (a preprint
-argues the formalisation is vacuous; owner, 22 November 2026: it seems flawed); it is listed as open, with a note.
+`site/js/sieges-data.js`. Riemann: listed as open as of the date its status was last checked; announced attempts are not
+listed (owner, 22 November 2026).
 Under `?v8` every page without its own v8 version is drawn in its world (`app.js` `v8Frame`: the world's top bar with the
 language buttons; `world-<id>.css` maps the current tokens onto the world), so no page mixes two looks.
 
 - `site/js/university-map.js`: the fields, their links and which course lights which field (one source); the sky map
   with a keyboard and list alternative.
-- "Les grands assauts": `site/js/sieges-data.js` with dates, solvers, status (fell, announced, open) and a source per
+- "Les grands assauts": `site/js/sieges-data.js` with dates, solvers, status (fell, open, with the date an open status was checked) and a source per
   entry; the Riemann status is re-checked before publication.
 - Courses from `manifest.json` key `university`; the chapter page in the university look renders the existing web
   lessons (Algèbre 1 from `scripts/build-algebre1.py`, Fourier, foundations, module), whose HTML gets v8 classes.
