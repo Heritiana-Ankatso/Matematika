@@ -41,3 +41,59 @@
   --line: var(--w-rule); --accent: var(--w-ink); --accent-ink: #ffffff; --accent-soft: var(--w-raise); --focus: var(--w-accent);
   --pos: var(--w-accent2); --neg: var(--w-accent);
 }
+/* the three notebooks (section 5): Lycée malgache, the flag of Madagascar (white band at the hoist, then red over green);
+   Lycée français, blue, white, red; International, deep navy with fine meridians. One open at a time. */
+.v8-notebooks { display: grid; gap: var(--w-heavy); margin: var(--w-heavy) 0; }
+.v8-notebook > summary { list-style: none; display: flex; align-items: center; gap: var(--w-s3); min-height: calc(2 * var(--w-heavy)); cursor: pointer; }
+.v8-notebook > summary::-webkit-details-marker { display: none; }
+.v8-cover { flex: none; width: 72px; height: 96px; border-radius: 3px 8px 8px 3px; box-shadow: 2px 3px 0 rgba(27,55,150,.18), inset 6px 0 0 rgba(0,0,0,.12); }
+.v8-cover.is-mg { background: linear-gradient(90deg, #ffffff 0 33.3%, transparent 33.3%), linear-gradient(180deg, #fc3d32 0 50%, #007e3a 50%); outline: 1px solid var(--w-rule); }
+.v8-cover.is-fr { background: linear-gradient(90deg, #002395 0 33.3%, #ffffff 33.3% 66.6%, #ed2939 66.6%); outline: 1px solid var(--w-rule); }
+.v8-cover.is-int { background: repeating-linear-gradient(90deg, transparent 0 11px, rgba(160,190,255,.35) 11px 12px), radial-gradient(circle at 50% 50%, #1d2b5c, #0c1433); }
+.v8-notebook-name { display: grid; }
+.v8-notebook-name b { font: 400 1.6rem/var(--w-heavy) var(--w-head); color: var(--w-accent); }
+.v8-notebook-name small { font-size: 1.05rem; color: var(--w-muted); line-height: var(--w-heavy); }
+.v8-notebook[open] > summary .v8-cover { transform: rotate(-4deg); }
+.v8-notebook-body { padding-left: calc(72px + var(--w-s3)); }
+@media (max-width: 640px) { .v8-notebook-body { padding-left: 0; } .v8-cover { width: 54px; height: 72px; } }
+:root[data-world="lycee"] .v8-lycee .v8-fold > details > summary { min-height: var(--w-target); font-size: 1.3rem; color: var(--w-ink); }
+.v8-chapters { list-style: none; margin: 0 0 var(--w-heavy); padding: 0; }
+.v8-chapters a { display: flex; gap: 12px; align-items: baseline; min-height: var(--w-heavy); color: var(--w-ink); text-decoration: none; }
+.v8-chapters a:hover span:last-child { text-decoration: underline var(--w-accent); }
+.v8-chapters .v8-num, .v8-chapter .v8-num { color: var(--w-accent); font-variant-numeric: tabular-nums; }
+.v8-level-more a { color: var(--w-accent2); }
+/* the chapter page: the outline written in the margin on a wide screen, above the text on a phone */
+.v8-chapter { position: relative; }
+.v8-chapter .v8-where a { color: inherit; }
+.v8-actions { display: flex; flex-wrap: wrap; gap: var(--w-s2); }
+.v8-actions .v8-btn { text-decoration: none; color: var(--w-ink); }
+.v8-margin { font-size: 17px; line-height: var(--w-heavy); }
+.v8-margin ol { list-style: none; margin: 0; padding: 0; }
+.v8-margin a { display: flex; gap: 6px; color: var(--w-muted); text-decoration: none; }
+.v8-margin a[aria-current="location"] { color: var(--w-accent); }
+@media (min-width: 1100px) {
+  :root[data-world="lycee"] .v8-chapter { --w-margin-x: 220px; }
+  .v8-margin { position: absolute; left: var(--w-s2); top: calc(4 * var(--w-heavy)); bottom: 0; width: calc(var(--w-margin-x) - 2 * var(--w-s2)); }
+  .v8-margin ol { position: sticky; top: calc(var(--w-heavy) * 3); }
+  .v8-margin a { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+}
+@media (max-width: 1099.98px) { .v8-margin:empty { display: none; } .v8-margin { margin-bottom: var(--w-heavy); } }
+.v8-course section { scroll-margin-top: calc(3 * var(--w-heavy)); }
+:root[data-world="lycee"] .v8 h3 { font: 400 1.25rem/var(--w-heavy) var(--w-text); color: var(--w-accent); margin: 0; font-weight: 700; }
+.v8-watch { color: var(--w-accent); }
+.v8-text { margin: 0 0 var(--w-heavy); }
+.v8-text p { margin: 0 0 var(--w-heavy); }
+.v8-text p:last-child { margin-bottom: 0; }
+.v8-text ul, .v8-text ol { margin: 0 0 var(--w-heavy); padding-left: 1.2em; }
+.v8-frame-def .v8-text, .v8-frame-thm .v8-text { margin: 0; }
+.v8-frame-def, .v8-frame-thm { padding-block: calc(var(--w-heavy) / 2 - 2px); }
+.v8-proof { margin: 0 0 var(--w-heavy); }
+.v8-proof > summary, .v8-exercises details > summary { cursor: pointer; color: var(--w-accent2); min-height: var(--w-heavy); }
+.v8-figure { margin: 0 0 var(--w-heavy); }
+.v8-figure img { max-width: 100%; height: auto; background: #fff; }
+.v8-code { font: 15px/1.6 ui-monospace, monospace; background: transparent; border-left: 2px solid var(--w-ink); padding: 0 var(--w-s3); overflow-x: auto; margin: 0 0 var(--w-heavy); }
+.v8-chapter .v8-next { display: flex; justify-content: space-between; gap: var(--w-s3); flex-wrap: wrap; padding-block: var(--w-heavy); }
+.v8-chapter .v8-next a { color: var(--w-ink); }
+.v8-exercises { padding-left: 1.4em; }
+.v8-exercises > li { margin-bottom: var(--w-heavy); }
+.v8-text mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; max-width: 100%; }

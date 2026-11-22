@@ -221,3 +221,4 @@ details > summary:hover::after { color: var(--ink); }
 .v8-chips a { display: inline-flex; align-items: center; min-height: var(--w-target); padding: 6px 14px; border: 1px solid var(--w-rule); border-radius: 20px; color: var(--w-ink); text-decoration: none; font: 500 .92rem var(--w-ui); }
 .v8-chips a:hover { border-color: var(--w-accent); }
 .v8-lede { font-size: 1.1rem; color: var(--w-muted); max-width: 52ch; margin: .7em 0 1.4em; }
+.v8 main:focus:not(:focus-visible), .v8 main:focus { outline: none; }

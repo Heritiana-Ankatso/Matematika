@@ -10,7 +10,7 @@ BASE = os.environ.get('MATHS_EXPLORER_URL', 'http://localhost:4173').rstrip('/')
 # route -> world (routes.js ROUTES)
 PAGES = {
     'university': 'univ', 'university/algebre-1-guide': 'univ', 'basics': 'univ', 'basics/sets': 'univ', 'topics': 'univ',
-    'resources/seconde': 'lycee', 'chapter/seconde-01': 'lycee', 'bank/seconde': 'lycee', 'slides/premiere': 'lycee',
+    'resources': 'lycee', 'resources/seconde': 'lycee', 'chapter/seconde-01': 'lycee', 'chapter/t10-01': 'lycee', 'bank/seconde': 'lycee', 'slides/premiere': 'lycee',
     'automatismes': 'lycee', 'sheets': 'lycee', 'pack': 'lycee', 'library': 'lycee', 'review': 'lycee',
     'lab': 'musee', 'lab/quadratic': 'musee', 'gallery': 'musee', 'intuition': 'musee', 'fractals': 'musee', 'errors': 'musee',
     'history/advances': 'musee', 'biographies': 'musee', 'stories': 'musee', 'challenges': 'musee', 'challenges/gauss-sum': 'musee',

@@ -64,11 +64,13 @@ const worlds = {
   },
   // the level of each Olympiad problem, strategy by strategy (the squares of the Olympiades door)
   OLYMPIAD_LEVELS: STRATEGIES.flatMap((x) => x.problems.map((p) => p.level)),
+  // the chapters of the Lycée notebooks, level by level (the live companion catalogue, as the chapter pages)
+  LYCEE_CHAPTERS: liveCompanionCatalog(resourceCatalog).chapters.map((c) => ({ id: c.id, course: c.course, number: c.number, title: c.title })),
 };
 const files = {
   'site/js/catalogue-lines.js': module('lab/registry.js, content.js and challenges/registry.js', lines),
   'site/js/discovery-context-data.js': module('the site index of discovery.js', { DISCOVERY_CONTEXT: context }),
-  'site/js/world-lines.js': module('content.js, the challenges, intuition, fractals, errors, history, reading and Olympiad data', worlds),
+  'site/js/world-lines.js': module('content.js, the challenges, intuition, fractals, errors, history, reading, Olympiad data and the companion catalogue', worlds),
 };
 if (process.argv.includes('--print')) process.stdout.write(JSON.stringify(files));
 else for (const [path, text] of Object.entries(files)) writeFileSync(fileURLToPath(new URL('../' + path, import.meta.url)), text);
