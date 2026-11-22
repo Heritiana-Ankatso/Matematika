@@ -1,76 +1,121 @@
-# Design v8: brief for the rebuild (21 November 2026, draft)
+# Design v8: four worlds (direction chosen 22 November 2026)
 
-Status: **brief agreed with the owner, direction not chosen yet.** Three clickable prototypes of the same screens
-(home, chapter page, projection) are presented to the owner; the chosen one becomes the look and structure of v8, and
-this file then records it. Until then `docs/DESIGN_V7.md` stays the current look and nothing in `site/` changes.
+Status: **direction approved by the owner on 22 November 2026, not built yet.** `docs/DESIGN_V7.md` stays the live look
+until the switch described in `docs/REBUILD_PLAN.md` (stage 8). The clickable prototype was reviewed with the owner and
+is kept privately (it contains the unpublished native T11 S chapter 1); it is not in this repository.
 
-## Why a rebuild, not a patch
+How it was reached: a first brief (21 November), three rejected directions (Livre, Documentation, Dossier), then
+"Nuit et or", then the four worlds below, refined in nine rounds of owner review.
 
-Measured on `main` (`2cc61f8`, local server, Chromium, no network throttling), 21 November 2026:
+## 1. Why a rebuild, not a patch
 
-- Opening `#home` downloads 532 resources, 513 of them JavaScript modules, about 7.5 MB uncompressed. The largest are
-  the course catalogue data (893 KB), the resource data (324 KB), the knot catalogue (164 KB), the major biographies
-  (137 KB) and the Première and Terminale exercise generators (88 to 106 KB each): none is needed on the home page.
-  First contentful paint 0.9 s on localhost; not yet measured on a throttled mobile network.
-- About 3,700 lines of CSS (`site/styles/`, `pages.css` alone 1,746 lines) built up over five looks (v3 to v7).
-- Every page uses the same visual pattern (hairline-ruled text lists), so nothing has priority; on phones some lists
-  break (class rows of `#resources` shrink to their text).
+Measured on `main` (`9d88599`, local server, Chromium, no throttling), 22 November 2026:
 
-The causes are structural (what loads, what each page is for), so a new skin would not fix them.
+| Page | Requests | of which JavaScript | Transferred, gzip estimate |
+|---|---|---|---|
+| `#home` | 535 | 516 | about 2.7 MB |
+| `#chapter/t11s-01` | 537 | 517 | about 3.4 MB |
+| `#lab` | 535 | 516 | about 2.7 MB |
 
-## Brief (owner answers, 21 November 2026)
+Every page loads almost the whole site: `site/js/app.js` statically imports 50 modules, which pull in the rest (course
+catalogue 893 KB raw, exercise generators of every class, gallery data, biographies). CSS has grown to about 3,700
+lines over five looks (v3 to v7). Every page uses the same hairline-list pattern, so nothing has priority. These causes
+are structural; a new skin would not remove them.
+
+## 2. Brief (owner, 21 and 22 November 2026)
 
 | Question | Answer |
 |---|---|
-| Who first | **Teachers** (the owner and colleagues). |
-| Where | **Phone over mobile data** and **laptop at home**. |
-| Feeling | **Calm and serious.** |
-| Depth | **Rebuild the foundations**: page structure, loading and style system may change; content is kept. |
-| Main tasks | **Prepare a lesson** and **project in class**. |
-| Curricula leading | **University and lycée equally** (Malagasy and French). International and Olympiad are secondary entrances. Curricula stay distinct (`CLAUDE.md`). |
-| Chapter page gives, in order | 1. **the full course text** (definitions, theorems, proofs, examples), 2. **exercises with solutions**. Downloads and figures remain, after these. |
-| Projection | **Slide decks** (prepared, step-by-step, live figures inside), opened from the chapter. |
-| Collections (curiosities, labs, fractals, stories, biographies, challenges) | **Resources for class**: each is attached to the chapters it serves. |
-| Hard technical limit | **Static site on GitHub Pages.** A framework, new addresses and a new style system are allowed. |
-| Reference | None: judged on prototypes. |
+| Audiences | Teachers first for the courses; **and** casual visitors, enthusiasts, students and laypeople, drawn in by the museum. The site must show how beautiful and how vast mathematics is, and that ideas nobody suspected are studied seriously. |
+| Devices | Phone over mobile data, and laptop at home. |
+| Depth | Rebuild the foundations; content is kept. Only hard limit: a static site on GitHub Pages. |
+| Teacher tasks | Prepare a lesson (full course text first, then exercises with solutions) and project in class (slide decks). |
+| Menus | **Folded by default.** The visitor sees only the top-level choices and opens what they want. |
+| Curricula | Stay distinct (`CLAUDE.md`): Malagasy, French, international, university and Olympiad are never merged. |
 
-## Consequences
+## 3. The four worlds
 
-1. **The chapter page is the centre of the site.** Home leads to a chapter in at most three choices (curriculum, level,
-   chapter), and remembers the last one.
-2. **Each page loads only its own code and data.** The home page must not load exercise generators, catalogues of
-   other pages or gallery data. Target to be set after the throttled measurement.
-3. **Typography carries the look.** Course text set like a book (measure about 70 characters, numbered statements,
-   proofs, mathematics at text quality). Colour stays for meaning.
-4. **Collections move into chapters.** A curiosity or experiment appears in the chapter it serves; the collection
-   pages remain as indexes, quieter, out of the main path.
-5. **Kept regardless of the rebuild:** every feature Maths-explorer has (`CLAUDE.md` edition rule); old addresses
-   redirect to the new ones, so links already shared keep working.
+One site, one structure, four committed atmospheres. A world is chosen by `data-world` on the root element; every
+component reads the world's tokens. Each world is either night or day by design: there is no Jour/Nuit switch, except
+in projection (below).
 
-## Owner decision needed: the "experiment first" rule
+| | Musée | Université | Lycée | Olympiades |
+|---|---|---|---|---|
+| Feeling (owner) | Solemn: galleries of curiosities, timelines of great minds; the visitor contemplates the marvels of mathematics. | Mesmerising: living at the edge of human knowledge, the vastness of mathematics. | Building the ground of the knowledge to come: teenage, playful, dynamic, curious. | A competitive place: challenging, fast, sharp. |
+| Ground | Night blue `#121826`, panels `#1b2336` | Deep space `#04050b`, panels `#0b0e1c` | White page, Seyès ruling (section 5) | Black `#0a0b0d`, panels `#131519` |
+| Ink | Warm white `#e8e6df` | `#eceeff` | Pen blue `#1b3796` | `#f5f6f8` |
+| Accent | Gold `#d9b25f` | Violet `#a594ff`, cyan `#62e3ea` | Red pen `#d22f45`, green pen `#16804f` | Signal red `#ff3b30` |
+| Type | Newsreader (titles), Literata (reading), Instrument Sans (interface) | Instrument Serif (titles), Literata (reading), IBM Plex Sans and Mono (interface, coordinates) | Playwrite FR Moderne (titles, French school cursive), Kalam (everything else) | Archivo condensed capitals (titles), Literata (problems), JetBrains Mono (figures) |
+| Shapes | Soft 14 px corners, placards ("Salle I" to "Salle VIII"), a cartel on each exhibit | Thin 6 px corners, thin glowing rules | Frames drawn around writing on the lines | Square corners, thick red bar, no rounding |
+| Signature | Exhibit of the day drawing itself (chaos game); rooms that open in place | Live map of 24 fields joined by 34 links; lit stars are our courses; "Les grands assauts" | The page is a copybook; "Attrape le sommet !"; a quick challenge | Problem of the day with hint and solution; the 50 problems as squares by level |
+| Holds | Curiosities (49), against intuition (11), fractals (14), laboratory (44), challenges (43), timelines (69 people, 82 advances), stories (23), biographies (61), famous errors (46) | Algèbre 1, Fondements, Mathématiques appliquées L1, Séries de Fourier | Lycée malgache (T10, T11 S, T12 C, T12 D), Lycée français (Seconde, Première, Terminale, Maths expertes), International (IB, SAT) | 10 strategies, 50 problems: national selection 20, pan-African 19, international 11 |
 
-`PROJECT_BRIEF.md` section 6 says: "Experiment first: the manipulable figure is the main content of a chapter, and the
-first screen offers a way into one." This brief puts the course text first and figures after the text and exercises.
-The two conflict on the chapter page. The prototypes follow this brief (text first, each figure inside the paragraph
-it illustrates). If the owner confirms, section 6 of `PROJECT_BRIEF.md` is amended in the same change as the chosen
-design.
+Counts are read from the source files on 22 November 2026; the build must compute them, never type them.
 
-## Relation to `docs/TEACHER_STRUCTURE.md`
+## 4. Shared frame
 
-Its modes map onto the brief: Préparer = prepare a lesson (chapter page), En classe = project (decks, launch pad).
-Détente becomes the collection indexes. Which parts of the launch pad survive is decided with the chosen prototype.
+- **Threshold (home).** "Quatre mondes, une seule passion." Four doors, each already in its world's look, ground and
+  colour, with a solid 2 px frame in the world's accent so the four are distinct from each other and from the page. A
+  click anywhere on a door enters (no "Entrer" label). On phones the four doors share the first screen as four bands
+  (name and short line left, live drawing right); verified down to 360 × 640.
+- **Top bar.** Brand, one folded world menu, search. Nothing else is unfolded by default.
+- **Folding.** Rooms, notebooks, levels, chapter lists, courses: closed until clicked, one open at a time.
+- **Chapter page** (Lycée and Université). The course text and a slim outline that follows the reading. Everything
+  else on demand: Exercices (side sheet, solutions one by one or all), chapter information (objectives, prerequisites,
+  files), Projeter. Proofs are folded under "Démonstration".
+- **Projection.** Slide decks with step-by-step reveal and live figures; a "Fond clair / Fond sombre" switch that is
+  remembered, because classroom projectors wash out dark slides.
+- **Exhibit page** (Musée). Hook, live figure, "Ce qui se passe" with the mathematics, "Où on la rencontre", links back
+  to the chapters it serves ("Dans les cours"), and the same room.
 
-## Prototypes
+## 5. The Lycée copybook (exact rules)
 
-Same three screens in each, built from real sources: Algèbre 1, chapter 1 "Théorie naïve des ensembles"
-(`content/university/algebre-1/01-ensembles.tex`) and Malagasy T11 S, chapter 1 "Généralités sur les fonctions
-numériques" (`content/tex/courses/mada-t11s/c01.fr.tex`, unpublished; the prototypes are private and not in `dist/`).
+- Seyès ruling: heavy lines every 8 mm (32 px) in both directions, three fine horizontal lines between (every 2 mm,
+  8 px), violet-blue. **The margin line is the first vertical line, drawn in red; left of it there are no vertical
+  lines**, only the horizontal ruling. The chapter outline is written in the margin.
+- Writing sits on the ruling: every line of text has its baseline on a heavy line; small letters are one interline
+  tall; titles take two lines. Sizes come from the fonts' measured x-height, and a small script moves each text block to
+  the next heavy line after fonts, formulas, resizing and proof folding (prototype: every text block of the chapter
+  measured on a heavy line at 390 and 1280 px).
+- Blue pen for writing; red pen for titles, numbers and double underlining of key words; green frame for definitions,
+  red frame for theorems. **No yellow highlighter** (owner: it reads as generated). Frames are transparent: the ruling
+  shows through.
+- Notebook covers: Lycée malgache uses the flag of Madagascar (white band at the hoist, then red over green); Lycée
+  français uses blue, white, red; International is deep navy with fine meridians.
+- Mathematics stays typeset (handwriting fonts cannot set fractions and roots), in pen blue.
 
-| | Direction | Idea |
-|---|---|---|
-| A | Livre (book) | The chapter is a well-set book page: one column, running heads, margin notes, statements in the text flow. |
-| B | Documentation | A permanent chapter sidebar and outline, fast search and jumps; built for looking up and preparing. |
-| C | Dossier | A chapter is a teacher's folder: tabs Cours, Exercices, Projeter, with the session's material at hand. |
+## 6. Content rules from the review
 
-Next, once a direction is chosen: the technical plan (loading per page, page structure, style system), then a rebuild
-in stages, one pull request each.
+- Exhibits are real site content; counts and titles are generated from the sources.
+- "Les grands assauts" (Université): problems that fell, with dates, solvers and how long they resisted (ancient
+  durations rounded to the century, marked "environ"); problems announced and under review; problems still open, with
+  how long they have resisted. The Riemann hypothesis is listed as **announced** (20 November 2026, formal proof in Lean,
+  community review in progress) until the mathematical community accepts it; re-check before each publication.
+- French typography: narrow non-breaking space before ? ! ; : in French text.
+- No countdown or stopwatch in the Olympiad world (owner).
+
+## 7. Accessibility and motion
+
+Kept from `PROJECT_BRIEF.md` section 6: phone first, no horizontal scroll at 320 px, 44 px targets, readable at 200 %
+text, visible focus, keyboard for every interactive figure, contrast checked per world, nothing moves under reduced
+motion (every live drawing renders its final state instead). Handwriting is a deliberate choice for the Lycée world;
+the reading size and the cursive/print split are owner decisions (section 8).
+
+## 8. Owner decisions still open
+
+1. `PROJECT_BRIEF.md` section 6, "Experiment first: the manipulable figure is the main content of a chapter", conflicts
+   with "course text first". Amend it in the switch pull request?
+2. Défis (43 puzzles) live in the Musée; should some appear in the Olympiades as warm-ups?
+3. International (IB, SAT) is a notebook of the Lycée world, distinct from the others. Confirm.
+4. Foundations (`#basics`: place value, operations, fractions, sets, logic) and the topic map (`#topics`): which world?
+   Proposal: foundations in the Lycée world ("Les bases"), topics folded into search.
+5. Teacher modes of `docs/TEACHER_STRUCTURE.md` (Préparer, En classe, Détente): the chapter page actions and projection
+   replace Préparer and En classe; Détente becomes the Musée. Keep the launch pad and "Ma séance"?
+6. Lycée reading: body text in print handwriting (Kalam, about 15 px so small letters fill one interline) or in
+   cursive, or letters two interlines tall (larger, like younger pupils write).
+
+## 9. What this supersedes when built
+
+The palette, type, shapes and home of `docs/DESIGN_V7.md`. The purpose rules of `docs/DESIGN_V3.md` and
+`PROJECT_BRIEF.md` section 6 stay, except decision 1 above. Maths-explorer keeps its own design (owner, 20 November
+2026); content changes still flow both ways under the independence rule of `CLAUDE.md`.
