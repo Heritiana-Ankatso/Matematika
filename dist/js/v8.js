@@ -5,7 +5,9 @@
 const KEY = 'mx-v8';
 
 const isOff = (value) => value === 'off' || value === '0';
-export function decide(search = globalThis.location?.search || '', storage = globalThis.localStorage) {
+// reading localStorage itself throws where storage is blocked: read it inside a try, never as a default parameter
+const deviceStorage = () => { try { return globalThis.localStorage; } catch { return null; } };
+export function decide(search = globalThis.location?.search || '', storage = deviceStorage()) {
   let query = null;
   try { query = new URLSearchParams(search).get('v8'); } catch { /* no address */ }
   try {

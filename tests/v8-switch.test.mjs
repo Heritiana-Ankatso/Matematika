@@ -21,3 +21,10 @@ test('storage blocked: the address alone decides', () => {
   assert.equal(decide('', blocked), true);
   assert.equal(decide('?v8=off', blocked), false);
 });
+
+test('reading localStorage itself throws: the module still decides (on)', () => {
+  const had = Object.getOwnPropertyDescriptor(globalThis, 'localStorage');
+  Object.defineProperty(globalThis, 'localStorage', { configurable: true, get() { throw Error('blocked'); } });
+  try { assert.equal(decide(''), true); assert.equal(decide('?v8=off'), false); }
+  finally { if (had) Object.defineProperty(globalThis, 'localStorage', had); else delete globalThis.localStorage; }
+});
