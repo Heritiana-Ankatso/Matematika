@@ -1767,3 +1767,75 @@ body:has(#object-stage:empty) :is(.learning, .workbench ~ *, #app ~ footer, main
   .nk-view .exhibit-readout { font-size:.88rem; min-height:2.4em; }
 }
 .experiment:has(.nk) { overflow:visible; }
+
+/* Competition archive (#contests, site/js/contests/): papers, solution pages and their figures. Tokens only. */
+.contest-crumbs{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.contest-card.is-planned{opacity:.78}
+.contest-papers{list-style:none;padding:0;margin:18px 0;display:grid;gap:10px}
+.contest-papers a{display:grid;gap:4px;padding:14px 16px;border:1px solid var(--line);border-radius:var(--r);background:var(--surface);color:var(--ink);text-decoration:none;min-height:44px}
+.contest-papers a:hover,.contest-papers a:focus-visible{border-color:var(--accent)}
+.contest-papers span,.contest-papers small{color:var(--ink-2)}
+.contest-problem h2{margin:0;font-size:1.08rem}
+.contest-go{margin-top:12px}
+.contest-solution-link{display:inline-flex;align-items:center;min-height:44px;font-weight:700}
+.contest-recall{padding:10px 14px;border:1px solid var(--line);border-radius:var(--r);background:var(--surface)}
+.contest-recall summary{cursor:pointer;font-weight:600;min-height:32px}
+.contest-solution p{max-width:72ch}
+.contest-choices{margin-top:14px;border:1px solid var(--line);border-radius:var(--r);padding:10px 14px}
+.contest-choices label{display:flex;gap:8px;align-items:flex-start;min-height:44px;padding:6px 0;overflow-wrap:anywhere}
+.contest-verdict.is-ok,.contest-readout.is-ok{color:var(--pos);font-weight:600}
+.contest-verdict.is-no,.contest-readout.is-no{color:var(--neg);font-weight:600}
+.contest-fig{margin-top:14px;max-width:640px}
+.contest-command{font-size:.9rem}
+.contest-bar,.contest-keys{display:flex;flex-wrap:wrap;gap:8px;align-items:end;margin:10px 0}
+.contest-bar button,.contest-keys button,.contest-pad button{min-height:44px;min-width:44px}
+.contest-field{display:inline-flex;flex-direction:column;gap:4px;font-size:.9rem;max-width:100%;min-width:0}
+.contest-field input{min-height:44px;max-width:100%;width:auto;box-sizing:border-box}
+.contest-bar>*{max-width:100%}
+.contest-readout{color:var(--ink-2);margin-top:8px}
+.contest-svg{display:block;width:100%;max-width:420px;height:auto;touch-action:manipulation}
+.contest-svg.contest-wide{max-width:520px}
+.contest-svg:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.contest-pad{display:grid;grid-template-columns:repeat(4,48px);gap:6px;margin-top:8px}
+.contest-small{min-height:36px;padding:2px 10px;font-size:.85rem}
+.contest-lines{list-style:none;padding:0;margin:8px 0;display:grid;gap:6px}
+.contest-lines li{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.contest-table{border-collapse:collapse;margin-top:10px;font-variant-numeric:tabular-nums}
+.contest-table th,.contest-table td{border-bottom:1px solid var(--line);padding:4px 12px;text-align:right}
+.contest-seq{font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+.contest-chips{display:flex;flex-wrap:wrap;gap:6px;list-style:none;padding:0;margin:10px 0}
+.contest-chips li{padding:2px 8px;border:1px solid var(--line);border-radius:var(--r);font-variant-numeric:tabular-nums}
+.contest-chips li.is-bad{border-color:var(--neg);color:var(--neg);font-weight:700}
+.contest-chips li.is-pair{border-color:var(--obj2);color:var(--obj2)}
+.contest-gates{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.contest-gate{display:grid;gap:4px;padding:8px;border:1px solid var(--line);border-radius:var(--r);background:var(--surface)}
+.contest-key{font-weight:700}
+.contest-lockers{display:grid;gap:6px}
+.contest-locker-row{display:flex;flex-wrap:wrap;gap:4px}
+.contest-locker{min-width:36px;padding:6px 4px;text-align:center;border:1px solid var(--line-strong);border-radius:var(--r);font-variant-numeric:tabular-nums}
+.contest-locker.is-taken{background:var(--ink-2);color:var(--surface)}
+.contest-locker.is-new{outline:3px solid var(--object-ink);outline-offset:1px}
+.contest-yard{display:grid;gap:6px}
+.contest-track{display:grid;grid-template-columns:minmax(90px,auto) 1fr;gap:10px;align-items:center}
+.contest-slots{display:flex;gap:4px}
+.contest-slot{width:40px;height:32px;display:grid;place-items:center;border:1px dashed var(--line-strong);border-radius:var(--r)}
+.contest-slot.is-train{border-style:solid;background:var(--object);color:var(--ink);font-weight:700}
+.cg-grid{stroke:var(--line);stroke-width:1}
+.cg-plain{stroke:var(--ink-2);stroke-width:2.5;stroke-dasharray:7 5}
+.cg-sunny{stroke:var(--object-ink);stroke-width:3.5}
+.cg-dot{fill:var(--surface);stroke:var(--ink);stroke-width:2;cursor:pointer}
+.cg-dot.is-on{fill:var(--pos)}
+.cg-dot.is-pick{stroke:var(--object-ink);stroke-width:4}
+.cg-dot:focus-visible{stroke:var(--accent);stroke-width:4;outline:none}
+.cg-cell{fill:var(--surface);stroke:var(--line-strong);stroke-width:1}
+.cg-cell.is-edge{fill:var(--sunken)}
+.cg-cell.is-grey{fill:var(--line-strong)}
+.cg-cell.is-visited{fill:color-mix(in srgb,var(--obj2) 45%,var(--surface))}
+.cg-cell.is-monster{fill:var(--neg)}
+.cg-mark{fill:var(--surface);font:700 18px system-ui,sans-serif}
+.cg-turbo{fill:var(--object-ink);stroke:var(--surface);stroke-width:2}
+.cg-path{fill:none;stroke:var(--object-ink);stroke-width:3;stroke-linejoin:round}
+.cg-soil{fill:var(--sunken);stroke:var(--line-strong)}
+.cg-carrot{fill:var(--object-ink)}
+.cg-label{fill:var(--ink-2);font:12px system-ui,sans-serif}
+@media(max-width:700px){.contest-gates{grid-template-columns:1fr}.contest-track{grid-template-columns:1fr}}

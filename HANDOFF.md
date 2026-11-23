@@ -1,5 +1,34 @@
 # Handoff
 
+## Competition archive (23 November 2026, owner request)
+
+New page `#contests` (Résoudre > Concours; linked from the Olympiad arena and index), files in `site/js/contests/`
+(index in `site/CLAUDE.md`), tests `tests/contests.test.mjs`. Owner rules of 23 November 2026: an Olympiad's solutions
+live on their own page (`#contests/<c>/<paper>/<n>`), never on the paper; other contests fold the solution under the
+problem; a task whose answer is a sequence of commands is played and checked on the page; interactive figures where
+they help.
+
+- On the site: IMO 2023, 2024, 2025 (18 problems restated FR/EN, official papers fetched from imo-official.org;
+  "© International Mathematical Olympiad", no open licence, so our wording and a link). Written solutions: 2023 P1,
+  2024 P1, P2, P5, 2025 P1, each recomputed in the tests. Figures: sunny lines, sums of floors, gcd, divisor chain,
+  Turbo's board (played, and replayed by the strategy on the solution page). Beaver Computing Challenge 2023, grades 9
+  and 10 (CEMC, CC BY-NC 4.0, read on cemc.uwaterloo.ca/copyright): five tasks translated and adapted, official
+  answers, folded solutions; video game and trains accept and check the visitor's own sequence; buttons, carrots and
+  lockers are played step by step.
+- Listed with "papers to come": PAMO (no official archive found), EGMO, OFM, Olympiades de Première, Concours général,
+  Euclid, Castor, Algoréa, Prologin, CCC, USACO, IOI. Terms not found on their sites on 23 November 2026 [VERIFY with
+  each organiser before importing verbatim]; CEMC (Euclid, CCC) is CC BY-NC 4.0. Whether the BCC tasks that come from
+  the international Bebras pool are covered by the CEMC licence [VERIFY].
+- Queue: (1) solutions for the 13 IMO problems marked "in preparation" (2023 P2 to P6, 2024 P3, P4, P6, 2025 P2 to
+  P6), each with a computed check; (2) earlier IMO years (2019 to 2022 already fetched, not yet restated); (3) PAMO and
+  the Malagasy olympiad once the owner supplies or locates papers; (4) Euclid and CCC (open licence); (5) the others
+  after the organisers' answers. Owner question: should the existing Olympiad strategy pages also move their folded
+  solutions to separate pages, as the new rule says for the Olympiad section?
+- Not tested: the CI browser job (Python Playwright missing in the session container; the pages were driven instead
+  with Node Playwright: every figure, the validators, phone width 320 px without horizontal scroll, no console error),
+  a light-theme visual pass, a screen reader, real phones. `make check` failures in the container are environmental
+  (no xelatex, no Python Playwright, git-ignored lecture build, an untouched Terminale PDF).
+
 ## Design v8 rebuild: stages 0 and 1 (22 November 2026)
 
 Stage 0: `tests/budget_browser.mjs` (`npm run test:budget`, CI `browser`) measures six pages against `tests/budgets.json`.

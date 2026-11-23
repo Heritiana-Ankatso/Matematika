@@ -51,6 +51,7 @@ export function isLiveRoute({ page, id, tab }) {
   if (page === 'bank') return (!id || isLiveCourse(id)) && (!tab || chapters.some(c => c.id === tab && c.course === id));
   if (['lab', 'gallery', 'topics', 'basics', 'history', 'biographies', 'stories', 'challenges'].includes(page)) return true;
   if (page === 'olympiad') return FULL_EDITION;
+  if (page === 'contests') return FULL_EDITION;
   if (page === 'workshop') return FULL_EDITION || id === 'quadratic';
   if (page === 'errors') return true;
   if (page === 'intuition') return !id;
