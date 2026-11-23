@@ -31,6 +31,18 @@ test('every published section holds at least 24 papers (owner rule, 24 November 
   }
 });
 
+test('official solution links: https, pair label, only where the PDF exists (IMO 2006 to 2024, Euclid 2002 to 2025 except 2020)', () => {
+  const imo = competition('imo').papers, eu = competition('euclid').papers;
+  const has = (papers, y) => !!papers.find((p) => p.year === y).official;
+  for (const y of [2006, 2015, 2024]) assert.ok(has(imo, y), `imo ${y}`);
+  for (const y of [2002, 2005, 2025, 2026]) assert.ok(!has(imo, y), `imo ${y}`);
+  for (const y of [2002, 2015, 2025]) assert.ok(has(eu, y), `euclid ${y}`);
+  assert.ok(!has(eu, 2020));
+  for (const p of [...imo, ...eu]) if (p.official) { assert.match(p.official.url, /^https:\/\//); assert.ok(pair(p.official.label)); }
+  const html = contestsPage({ id: 'euclid', tab: '2015' }, T('en'), 'en');
+  assert.ok(html.includes('2015EuclidSolution.pdf') && !contestsPage({ id: 'euclid', tab: '2020' }, T('en'), 'en').includes('EuclidSolution.pdf'));
+});
+
 test('papers: bilingual statements and solutions, balanced maths, no dashes, numbered problems', () => {
   for (const c of COMPETITIONS) for (const p of c.papers) {
     assert.ok(p.problems.length > 0, `${c.id} ${p.id}`);

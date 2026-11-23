@@ -70,6 +70,7 @@ function problemBlock(c, paper, prob, t, lang) {
 function paperPage(c, paper, t, lang) {
   return `<main id="main" tabindex="-1" class="page olymp-page olymp-detail contest-page">${crumbs([['#contests', t(P('Concours', 'Competitions'))], [`#contests/${c.id}`, nameOf(c, t)], [null, String(paper.year)]])}
 <h1>${E(paperTitle(c, paper, t))}</h1><p class="muted">${E(t(paper.place))}</p>
+${paper.official ? `<p class="olymp-source contest-official">${E(t(paper.official.label))} : ${ext(paper.official.url, new URL(paper.official.url).hostname)}</p>` : ''}
 ${c.kind === 'olympiad' ? `<p class="olymp-question contest-advice">${t(P('Cherchez chaque problème avant d’ouvrir sa solution : elle est sur une page à part.', 'Work on each problem before opening its solution: it is on a separate page.'))}</p>` : ''}
 ${paper.problems.map((p) => problemBlock(c, paper, p, t, lang)).join('')}
 <p class="olymp-source">${E(t(c.rights))}${c.site ? ` ${t(P('Sujet officiel :', 'Official paper:'))} ${ext(c.site, new URL(c.site).hostname)}` : ''}</p></main>`;

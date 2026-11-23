@@ -25,17 +25,25 @@ export const KINDS = {
 export const TOPICS = { A: P('Algèbre', 'Algebra'), C: P('Combinatoire', 'Combinatorics'), G: P('Géométrie', 'Geometry'), N: P('Arithmétique', 'Number theory') };
 
 
+// Official solutions, linked where the PDF exists (checked 24 November 2026): the IMO shortlist of 2006 to 2024 holds the
+// solutions of the competition problems; the CEMC publishes the Euclid solutions of 2002 to 2025 except 2020 (not found).
+const OFFICIAL = {
+  imo: (y) => (y >= 2006 && y <= 2024 ? { url: `https://www.imo-official.org/problems/IMO${y}SL.pdf`, label: P('Liste restreinte officielle, avec solutions', 'Official shortlist, with solutions') } : null),
+  euclid: (y) => (y >= 2002 && y <= 2025 && y !== 2020 ? { url: `https://cemc.uwaterloo.ca/sites/default/files/documents/${y}/${y}EuclidSolution.pdf`, label: P('Solutions officielles (CEMC)', 'Official solutions (CEMC)') } : null),
+};
+const withOfficial = (id, papers) => papers.map((p) => ({ ...p, official: OFFICIAL[id](p.year) }));
+
 export const COMPETITIONS = [
   { id: 'imo', field: 'math', kind: 'olympiad', short: 'IMO',
     name: P('Olympiade internationale de mathématiques', 'International Mathematical Olympiad'),
     level: P('International, élèves de lycée', 'International, secondary school students'),
     about: P('Deux épreuves de quatre heures et demie, trois problèmes chacune, notés sur sept points.', 'Two papers of four and a half hours, three problems each, marked out of seven.'),
-    site: 'https://www.imo-official.org/problems.aspx', rights: P('Énoncés reformulés par nos soins ; le sujet officiel fait foi. Les sujets de 2002 à 2022 sont donnés sans solution.', 'Problems restated in our own words; the official paper is the reference. The papers of 2002 to 2022 are given without solutions.'), papers: [...IMO_RECENT, ...IMO_EARLIER] },
+    site: 'https://www.imo-official.org/problems.aspx', rights: P('Énoncés reformulés par nos soins ; le sujet officiel fait foi. Les sujets de 2002 à 2022 sont donnés sans solution.', 'Problems restated in our own words; the official paper is the reference. The papers of 2002 to 2022 are given without solutions.'), papers: withOfficial('imo', [...IMO_RECENT, ...IMO_EARLIER]) },
   { id: 'euclid', field: 'math', kind: 'contest', short: 'Euclid',
     name: P('Concours Euclide (CEMC, Waterloo)', 'Euclid Contest (CEMC, Waterloo)'),
     level: P('Dernière année du secondaire', 'Final year of secondary school'), site: 'https://cemc.uwaterloo.ca/resources/past-contests',
     about: P('Dix questions en deux heures et demie, avec des parties à réponse courte et des parties à rédiger.', 'Ten questions in two and a half hours, with short-answer parts and full-solution parts.'),
-    rights: P('© CEMC, Université de Waterloo, licence CC BY-NC 4.0. Traduit en français, solutions abrégées et adaptées, réponses vérifiées sur la page pour 2025 ; de 2002 à 2024, une sélection de questions sans figure, sans solution (les solutions officielles sont sur le site du CEMC).', '© CEMC, University of Waterloo, licence CC BY-NC 4.0. Translated into French, solutions shortened and adapted, answers checked on the page for 2025; for 2002 to 2024, a selection of questions that need no figure, without solutions (the official solutions are on the CEMC site).'), papers: [...EUCLID_2025, ...EUCLID_EARLIER] },
+    rights: P('© CEMC, Université de Waterloo, licence CC BY-NC 4.0. Traduit en français, solutions abrégées et adaptées, réponses vérifiées sur la page pour 2025 ; de 2002 à 2024, une sélection de questions sans figure, sans solution (les solutions officielles sont sur le site du CEMC).', '© CEMC, University of Waterloo, licence CC BY-NC 4.0. Translated into French, solutions shortened and adapted, answers checked on the page for 2025; for 2002 to 2024, a selection of questions that need no figure, without solutions (the official solutions are on the CEMC site).'), papers: withOfficial('euclid', [...EUCLID_2025, ...EUCLID_EARLIER]) },
 ];
 
 export const competition = (id) => COMPETITIONS.find((c) => c.id === id) || null;
