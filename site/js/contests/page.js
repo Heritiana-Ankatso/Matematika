@@ -2,7 +2,7 @@
 // (the statements) and, for an Olympiad only, #contests/<c>/<paper>/<n> (the solution on its own page, owner rule of
 // 23 November 2026). Other competitions show the solution folded under the problem; a task whose answer is a sequence
 // of commands is also played and checked on the page (widgets.js). Data: registry.js, imo.js, bcc.js; maths: models.js.
-import { COMPETITIONS, FIELDS, KINDS, TOPICS, competition, paperOf, problemOf, solvedCount, problemCount } from './registry.js';
+import { COMPETITIONS, FIELDS, KINDS, TOPICS, competition, paperOf, problemOf, problemCount } from './registry.js';
 import { typeset } from '../mathjax.js';
 import { icon } from '../icons.js';
 
@@ -15,8 +15,8 @@ const crumbs = (items) => `<nav class="breadcrumb contest-crumbs">${items.map(([
 const statement = (q, t) => (Array.isArray(q[0]) ? q : [q]).map((x) => `<p>${E(t(x))}</p>`).join('');
 
 function card(c, t) {
-  const n = problemCount(c), s = solvedCount(c);
-  const status = n ? `${c.papers.length} ${t(c.papers.length > 1 ? P('sujets', 'papers') : P('sujet', 'paper'))} · ${n} ${t(P('problèmes', 'problems'))} · ${s} ${t(P('solutions', 'solutions'))}` : t(P('Sujets à venir', 'Papers to come'));
+  const n = problemCount(c);
+  const status = n ? `${c.papers.length} ${t(c.papers.length > 1 ? P('sujets', 'papers') : P('sujet', 'paper'))}` : t(P('Sujets à venir', 'Papers to come'));   // no count of problems (owner rule, 23 November 2026)
   return `<li><a class="olymp-card contest-card${n ? '' : ' is-planned'}" href="#contests/${c.id}">${icon(c.field === 'cs' ? 'code' : 'trophy', 24)}<strong>${E(t(c.name))}</strong><span>${E(t(c.level))}</span><small>${E(t(KINDS[c.kind]))} · ${E(status)}</small></a></li>`;
 }
 
@@ -33,7 +33,7 @@ ${group('math', 'olympiad', P('Olympiades de mathématiques', 'Mathematics olymp
 
 function competitionPage(c, t) {
   const papers = c.papers.length
-    ? `<ul class="contest-papers">${c.papers.map((p) => `<li><a href="#contests/${c.id}/${p.id}"><strong>${E(paperTitle(c, p, t))}</strong><span>${E(t(p.place))}</span><small>${p.problems.length} ${t(P('problèmes', 'problems'))} · ${p.problems.filter((x) => x.s).length} ${t(P('solutions rédigées', 'written solutions'))}</small></a></li>`).join('')}</ul>`
+    ? `<ul class="contest-papers">${c.papers.map((p) => `<li><a href="#contests/${c.id}/${p.id}"><strong>${E(paperTitle(c, p, t))}</strong><span>${E(t(p.place))}</span>${p.problems.some((x) => x.s) ? `<small>${t(P('avec solutions', 'with solutions'))}</small>` : ''}</a></li>`).join('')}</ul>`
     : `<p class="contest-planned">${t(P('Aucun sujet sur le site pour l’instant.', 'No paper on the site yet.'))}</p>`;
   return `<main id="main" tabindex="-1" class="page olymp-page contest-page">${crumbs([['#contests', t(P('Concours', 'Competitions'))], [null, nameOf(c, t)]])}
 <p class="muted">${E(t(FIELDS[c.field]))} · ${E(t(KINDS[c.kind]))}</p><h1>${E(t(c.name))}</h1><p>${E(t(c.level))}</p>${c.about ? `<p>${E(t(c.about))}</p>` : ''}
@@ -62,7 +62,7 @@ function problemBlock(c, paper, prob, t, lang) {
   const topic = prob.topic ? `<span class="olymp-level">${E(t(TOPICS[prob.topic]))}</span>` : '';
   const widget = prob.widget ? `<div class="contest-widget" data-contest-widget="${prob.widget}" data-mode="explore"></div>${prob.command ? `<p class="muted contest-command">${E(t(prob.command))}</p>` : ''}` : '';
   const after = olympiad
-    ? (prob.s ? `<p class="contest-go"><a class="contest-solution-link" href="#contests/${c.id}/${paper.id}/${prob.n}">${t(P('Voir la solution', 'See the solution'))} →</a></p>` : `<p class="muted contest-go">${t(P('Solution en préparation.', 'Solution in preparation.'))}</p>`)
+    ? (prob.s ? `<p class="contest-go"><a class="contest-solution-link" href="#contests/${c.id}/${paper.id}/${prob.n}">${t(P('Voir la solution', 'See the solution'))} →</a></p>` : `<p class="muted contest-go">${t(P('Pas de solution rédigée sur le site pour l’instant.', 'No written solution on the site for now.'))}</p>`)
     : `${choices(c, prob, t, lang)}${typed(c, prob, t)}${prob.s ? `<details class="olymp-solution"><summary>${t(P('Solution', 'Solution'))}</summary>${prob.s.map((x) => `<p>${E(t(x))}</p>`).join('')}</details>` : ''}`;
   return `<article class="olymp-problem contest-problem" id="p${prob.n}"><header><h2>${heading(prob, t)} · ${E(t(prob.title))}</h2>${topic}</header>${statement(prob.q, t)}${widget}${after}</article>`;
 }
@@ -82,7 +82,7 @@ function solutionPage(c, paper, prob, t) {
 <section class="contest-solution"><h2>${t(P('Solution', 'Solution'))}</h2>${prob.s.map((x) => `<p>${E(t(x))}</p>`).join('')}</section>
 ${prob.widget === 'turbo' ? `<section><h2>${t(P('La stratégie en action', 'The strategy at work'))}</h2><div class="contest-widget" data-contest-widget="turbo" data-mode="strategy"></div></section>` : ''}
 ${prob.check ? `<p class="olymp-source">${t(P('Vérifié par le calcul : ', 'Checked by computation: '))}${E(t(prob.check))}</p>` : ''}`
-    : `<p class="muted">${t(P('Solution en préparation.', 'Solution in preparation.'))}</p>`;
+    : `<p class="muted">${t(P('Pas de solution rédigée sur le site pour l’instant.', 'No written solution on the site for now.'))}</p>`;
   return `<main id="main" tabindex="-1" class="page olymp-page olymp-detail contest-page">${crumbs([['#contests', t(P('Concours', 'Competitions'))], [`#contests/${c.id}`, nameOf(c, t)], [`#contests/${c.id}/${paper.id}`, String(paper.year)], [null, `${t(P('Solution du problème', 'Solution to problem'))} ${prob.n}`]])}
 <h1>${E(paperTitle(c, paper, t))} · ${t(P('Problème', 'Problem'))} ${prob.n} · ${E(t(prob.title))}</h1>
 <details class="contest-recall" open><summary>${t(P('L’énoncé', 'The problem'))}</summary>${statement(prob.q, t)}</details>${body}
