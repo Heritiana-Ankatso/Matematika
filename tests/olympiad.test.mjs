@@ -76,6 +76,18 @@ test('the Olympiad pages render every strategy in both languages', async () => {
       const html = olympiadPage(s.id, t);
       assert.ok(!/undefined|NaN/.test(html), s.id);
       assert.equal((html.match(/class="olymp-problem /g) || []).length, s.problems.length);
+      // owner rule of 23 November 2026: no solution on the strategy page, one solution page per problem
+      const esc = (x) => x.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+      assert.ok(!html.includes('olymp-solution"'), `${s.id}: folded solution on the strategy page`);
+      s.problems.forEach((p, k) => {
+        assert.ok(!html.includes(esc(t(p.s)).slice(0, 80)), `${s.id} ${k + 1}: solution text on the strategy page`);
+        assert.ok(html.includes(`#olympiad/${s.id}/${k + 1}`), `${s.id} ${k + 1}: link to the solution page`);
+        assert.ok(isOlympiadRoute(s.id, String(k + 1)));
+        const page = olympiadPage(s.id, t, String(k + 1));
+        assert.ok(page.includes(esc(t(p.s)).slice(0, 80)) && page.includes(esc(t(p.q)).slice(0, 80)), `${s.id} ${k + 1}: solution page`);
+        assert.ok(!/undefined|NaN/.test(page));
+      });
+      assert.ok(!isOlympiadRoute(s.id, '0') && !isOlympiadRoute(s.id, String(s.problems.length + 1)) && !isOlympiadRoute(s.id, 'x'));
     }
   }
 });

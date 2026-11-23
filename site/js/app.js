@@ -347,7 +347,7 @@ function draw(serial) {
     (r.page === 'history' && isHistoryRoute(r.id,r.tab)) ||
     (r.page === 'topics' && isTopicRoute(r.id,r.tab)) ||
     (r.page === "errors" && isErrorRoute(r.id)) || (r.page === "intuition" && !r.id) || (r.page === "fractals" && !r.id) ||
-    (r.page === "olympiad" && isOlympiadRoute(r.id)) ||
+    (r.page === "olympiad" && isOlympiadRoute(r.id, r.tab)) ||
     (r.page === "contests" && isContestRoute(r.id, r.tab, r.sub)) ||
     (r.page === "challenges" && (!r.id || challenges.some(c => c.id === r.id))) ||
     (r.page === "home" && !r.id) || (r.page === "teacher" && !r.id) || (r.page === "prepare" && !r.id) || (r.page === "relax" && !r.id) || (r.page === "review" && !r.id) || r.page === "search" || (r.page === "basics" && isBasicsRoute(r.id)) || ((r.page === "biographies" || r.page === "stories") && isReading(r.page, r.id)) || (r.page === "pathways" && (!r.id || livePathways.some(p => p.id === r.id))) || r.page === "library" || r.page === "pack" || r.page === "sources" || r.page === "slides" || r.page === "automatismes" || r.page === "sheets" || (r.page === "bank" && isBankRoute(r.id, r.tab, r.sub)) ||
@@ -367,7 +367,7 @@ function draw(serial) {
       : page === "errors" ? errorsPage(r.id, t)
       : page === "intuition" ? intuitionPage(t)
       : page === "fractals" ? fractalsPage(t, lang)
-      : page === "olympiad" ? olympiadPage(r.id, t)
+      : page === "olympiad" ? olympiadPage(r.id, t, r.tab)
       : page === "contests" ? contestsPage(r, t, lang)
       : page === "lab"
       ? (experiment ? experimentPage(experiment, { t, pair, link, completed, mission: r.tab || "" }) : labIndexPage({ t, pair, link, completed }))
