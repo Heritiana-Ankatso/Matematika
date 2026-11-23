@@ -130,7 +130,7 @@ All pages are rendered by `site/js/app.js` `render()`; the module named builds t
 | `#biographies[/<id>]` | Lire > Biographies | `reading.js` `readingPage`; texts `reading-content.js` |
 | `#stories[/<id>]` | Lire > Histoires | `reading.js` `readingPage`; texts `reading-content.js` |
 | `#gallery[/<id>]` | Explorer > Curiosités | `welcome.js` `galleryPage` (index), `app.js` `galleryDetail` / `bindGallery` (one exhibit); objects `lab-objects.js`, `js/gallery/gallery-objects.js`; data `labs` with `custom: true` (`#lab/<exhibit>` redirects here) |
-| `#olympiad[/<id>]` | Résoudre > Olympiades | `olympiad.js` (`olympiadPage`, `bindOlympiad`); content `olympiad-content.js`, figures `olympiad-widgets.js` |
+| `#olympiad[/<id>[/<n>]]` | Résoudre > Olympiades | `olympiad.js` (`olympiadPage`, `bindOlympiad`; `/<n>` is the solution page of problem n); content `olympiad-content.js`, figures `olympiad-widgets.js` |
 | `#intuition` | Explorer > Contre l’intuition | `intuition-page.js` `intuitionPage`; the entries `intuition-data.js` (`ENTRIES`, `SOON`): each points at an exhibit, experiment or challenge that exists (issue #28); gallery entries `site/js/gallery/gallery-intuition.js` |
 | `#fractals` | Explorer > Fractales | `fractals-page.js` `fractalsPage`; the entries `fractals-data.js` (`GROUPS`, `FRACTALS`): each points at an existing exhibit with the status of its dimension (issue #36) |
 | `#contests[/<competition>[/<paper>[/<n>]]]` | Résoudre > Concours | `site/js/contests/page.js` (`contestsPage`, `bindContests`); data `site/js/contests/registry.js`, `site/js/contests/imo.js`, `site/js/contests/bcc.js`; figures `site/js/contests/widgets.js`; `/<n>` is the solution page of an Olympiad problem |
