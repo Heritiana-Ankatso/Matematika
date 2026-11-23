@@ -16,7 +16,9 @@ test('every problem of the content is a square, with its level', () => {
   for (const p of PROBLEMS) assert.ok(['mg', 'pan', 'intl'].includes(p.level), p.title);
   const html = olympPage({ t, lang: 'fr', siteName: 'Matematika' });
   assert.equal((html.match(/class="v8-sq is-/g) || []).length, total + 3); // + the three legend marks
-  for (const lv of ['mg', 'pan', 'intl']) assert.ok(html.includes(`(${PROBLEMS.filter((p) => p.level === lv).length})`), lv);
+  // owner rule (23 November 2026): no problem count anywhere on the arena
+  assert.ok(!html.includes(String(total)), 'the arena must not state how many problems there are');
+  for (const lv of ['mg', 'pan', 'intl']) assert.ok(!html.includes(`(${PROBLEMS.filter((p) => p.level === lv).length})`), lv);
 });
 
 test('the problem of the day is fixed by the date and reaches every problem', () => {
