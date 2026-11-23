@@ -239,3 +239,68 @@ test('pages render in both languages; an Olympiad paper never prints a solution,
     for (const html of [index, imo, sol, bcc]) assert.ok(!/undefined|NaN|\[object/.test(html));
   }
 });
+
+// ---- IMO 2025 P2, P3, P4, P6 and IMO 2026 (the solutions and figures added from the official 2025 shortlist and papers)
+test('IMO 2025 P4: the values of a1 below 20000 that give an infinite sequence are exactly 12^M * 6 * N with N coprime to 10', async () => {
+  const { divisorOrbit } = await import('../site/js/contests/models.js');
+  const formula = new Set();
+  for (let M = 0; 12 ** M * 6 <= 20000; M++) for (let N = 1; 12 ** M * 6 * N <= 20000; N++) if (N % 2 && N % 5) formula.add(12 ** M * 6 * N);
+  const found = new Set();
+  for (let a = 1; a <= 20000; a++) { const { status } = divisorOrbit(a, 200); if (status === 'constant' || status === 'running') found.add(a); }
+  assert.deepEqual([...found].sort((x, y) => x - y), [...formula].sort((x, y) => x - y));
+});
+test('IMO 2025 P3: the function of the solution is bonza and has f(4) = 16 = 4 * 4 (a, b up to 400, exact arithmetic)', () => {
+  const f = (n) => (n % 2 ? 1n : n === 4 ? 16n : 2n);
+  for (let a = 1n; a <= 400n; a++) for (let b = 1n; b <= 400n; b++) {
+    const m = f(Number(a)); assert.equal(((b ** a - f(Number(b)) ** m) % m + m) % m, 0n, `a=${a} b=${b}`);
+  }
+  assert.equal(Number(f(4)) / 4, 4);
+});
+test('IMO 2025 P6: the exact minimum for n = 2..5 matches ceil(n + 2 sqrt(n) - 3), and k^2 + 2k - 3 for n = 4', async () => {
+  const { minTiles, tilesReport, canAddTile } = await import('../site/js/contests/models.js');
+  for (const n of [2, 3, 4, 5]) assert.equal(minTiles(n), Math.ceil(n + 2 * Math.sqrt(n) - 3), `n=${n}`);
+  assert.equal(minTiles(4), 4 + 2 * 2 - 3);
+  // the checker: a valid layout on 4 x 4 with free squares on the diagonal, and an invalid one
+  const t = [{ r0: 0, c0: 1, r1: 0, c1: 3 }, { r0: 1, c0: 2, r1: 1, c1: 3 }, { r0: 2, c0: 3, r1: 2, c1: 3 }, { r0: 1, c0: 0, r1: 3, c1: 0 }, { r0: 2, c0: 1, r1: 3, c1: 1 }, { r0: 3, c0: 2, r1: 3, c1: 2 }];
+  assert.ok(tilesReport(4, t).ok); assert.ok(!tilesReport(4, t.slice(1)).ok);
+  assert.ok(!canAddTile(4, t, { r0: 0, c0: 0, r1: 0, c1: 2 }) && canAddTile(4, [], { r0: 0, c0: 0, r1: 3, c1: 3 }));
+});
+test('IMO 2025 P2: tangency checked numerically on random circle pairs', () => {
+  let seed = 11; const rnd = () => (seed = (seed * 1103515245 + 12345) % 2147483648) / 2147483648;
+  const sub = (a, b) => [a[0] - b[0], a[1] - b[1]], dot = (a, b) => a[0] * b[0] + a[1] * b[1], cross = (a, b) => a[0] * b[1] - a[1] * b[0];
+  const circ = (A, B, C) => {   // circumcentre
+    const D = 2 * (A[0] * (B[1] - C[1]) + B[0] * (C[1] - A[1]) + C[0] * (A[1] - B[1])), a2 = dot(A, A), b2 = dot(B, B), c2 = dot(C, C);
+    return [(a2 * (B[1] - C[1]) + b2 * (C[1] - A[1]) + c2 * (A[1] - B[1])) / D, (a2 * (C[0] - B[0]) + b2 * (A[0] - C[0]) + c2 * (B[0] - A[0])) / D];
+  };
+  const second = (A, P, Cc) => { const d = sub(P, A), t = -2 * dot(sub(A, Cc), d) / dot(d, d); return [A[0] + t * d[0], A[1] + t * d[1]]; };   // second intersection of line AP with the circle of centre Cc through A
+  let checked = 0;
+  for (let k = 0; k < 60; k++) {
+    const r = 1 + rnd(), R = r + 0.3 + rnd() * 2, dd = R - r + 0.2 + rnd() * (r - 0.05) ; // centres M = (0,0), N = (dd, 0); circles meet when R - r < dd < R + r
+    const M = [0, 0], N = [dd, 0], x = (dd * dd + r * r - R * R) / (2 * dd), y = Math.sqrt(Math.max(r * r - x * x, 0)); if (y < 0.05) continue;
+    const A = [x, y], B = [x, -y], C = [-r, 0], D = [dd + R, 0], P = circ(A, C, D), E = second(A, P, M), F = second(A, P, N);
+    // orthocentre H of PMN: H = P + M + N - 2 * circumcentre
+    const O = circ(P, M, N), H = [P[0] + M[0] + N[0] - 2 * O[0], P[1] + M[1] + N[1] - 2 * O[1]];
+    const Q = circ(B, E, F), rad = Math.hypot(...sub(B, Q)), u = sub(P, A), dist = Math.abs(cross(sub(Q, H), u)) / Math.hypot(...u);
+    assert.ok(Math.abs(dist - rad) < 1e-7 * (1 + rad), `case ${k}: ${dist} vs ${rad}`); checked++;
+  }
+  assert.ok(checked >= 30, `only ${checked} configurations were checked`);
+});
+test('IMO 2026 P1: random play always ends with one entry above 1, and its value does not depend on the moves', async () => {
+  const { boardMove, boardFinished, boardRandomPlay } = await import('../site/js/contests/models.js');
+  assert.deepEqual(boardMove([4, 6, 5], 0, 1), [2, 6, 5]);
+  assert.deepEqual(boardMove([2, 3], 0, 1), [1, 6]);
+  assert.equal(boardMove([1, 6], 0, 1), null); assert.equal(boardMove([4, 6], 0, 0), null);
+  assert.ok(boardFinished([1, 6, 1]) && !boardFinished([2, 3]));
+  let seed = 7; const rnd = () => (seed = (seed * 1103515245 + 12345) % 2147483648) / 2147483648;
+  for (let k = 0; k < 60; k++) {
+    const board = Array.from({ length: 2 + (k % 6) }, () => 2 + Math.floor(rnd() * 40)), finals = new Set();
+    for (let r = 0; r < 5; r++) { const p = boardRandomPlay(board, rnd); assert.ok(p.finished && p.board.filter((x) => x > 1).length === 1, board.join()); finals.add(p.board.find((x) => x > 1)); }
+    assert.equal(finals.size, 1, `M depends on the play for ${board.join()}`);
+  }
+});
+test('IMO 2026 P6: the sequence follows the rule', async () => {
+  const { sharedSequence } = await import('../site/js/contests/models.js');
+  assert.deepEqual(sharedSequence(2, 5), [2, 4, 6, 8, 10]);
+  assert.deepEqual(sharedSequence(6, 4), [6, 8, 10, 12]);
+  assert.deepEqual(sharedSequence(1, 3), []);
+});
