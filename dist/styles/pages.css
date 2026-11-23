@@ -1848,3 +1848,18 @@ body:has(#object-stage:empty) :is(.learning, .workbench ~ *, #app ~ footer, main
 .cg-coin text{fill:var(--ink);font:700 13px system-ui,sans-serif;pointer-events:none}
 .cg-coin.is-tails circle{fill:var(--pos)}
 .cg-coin.is-tails text{fill:var(--surface)}
+
+/* IMO figures added to the archive: chips of the blackboard, table of the sequence, tiles */
+.contest-chip{min-width:56px;min-height:44px;padding:6px 12px;border:1px solid var(--line-strong);border-radius:var(--r);background:var(--surface);font:600 1.05rem var(--math);color:var(--ink)}
+.contest-chip[aria-pressed=true]{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent)}
+.contest-chip:disabled{opacity:.45}
+.contest-scroll{overflow-x:auto}
+.contest-table{border-collapse:collapse;font-variant-numeric:tabular-nums}
+.contest-table th,.contest-table td{padding:4px 8px;border:1px solid var(--line);text-align:right;white-space:nowrap}
+.contest-table th[scope=row]{text-align:left;position:sticky;left:0;background:var(--surface)}
+.cg-tile{stroke:var(--ink);stroke-width:2;opacity:.6}
+.cg-cell.is-free{fill:var(--sunken)}
+.cg-cell.is-covered{fill:transparent}
+.cg-cell.is-bad{fill:var(--neg)}
+.cg-cell.is-pick{stroke:var(--object-ink);stroke-width:4}
+.cg-cell:focus-visible{stroke:var(--accent);stroke-width:4;outline:none}

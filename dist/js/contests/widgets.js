@@ -113,6 +113,108 @@ const BUILD = {
     a.addEventListener('input', run); b.addEventListener('input', run); run();
   },
 
+  // ---- IMO 2026 problem 1: a small blackboard, moves chosen one by one or played at random (the problem has 2026 numbers)
+  blackboard({ host, out, T }) {
+    let start = [12, 18, 20, 35, 9], hist = [start.slice()], moves = [], picked = -1;
+    const [lab, inp] = field(T('Entiers supérieurs à 1, séparés par des espaces', 'Integers above 1, separated by spaces'), { type: 'text', value: start.join(' '), size: 24 });
+    const row = el('div', { class: 'contest-bar', role: 'group', 'aria-label': T('Tableau', 'Blackboard') }), log = el('ol', { class: 'contest-lines' });
+    const board = () => hist[hist.length - 1], show = (x) => String(x).replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+    const draw = (msg) => {
+      const b = board();
+      row.replaceChildren(...b.map((x, i) => { const c = el('button', { type: 'button', class: 'contest-chip', 'aria-pressed': String(picked === i), text: show(x), onclick: () => choose(i) }); if (!(x > 1)) c.disabled = true; return c; }));
+      log.replaceChildren(...moves.map(([i, j], k) => el('li', { text: `${show(hist[k][i])} + ${show(hist[k][j])} → ${show(hist[k + 1][i])}, ${show(hist[k + 1][j])}` })));
+      const big = b.filter((x) => x > 1);
+      out.textContent = msg || (M.boardFinished(b)
+        ? T(`Plus aucun coup n’est possible : ${big.length} entier${big.length > 1 ? 's' : ''} supérieur${big.length > 1 ? 's' : ''} à 1${big.length === 1 ? ` (M = ${show(big[0])})` : ''}, après ${moves.length} mouvements.`, `No move is possible any more: ${big.length} integer${big.length > 1 ? 's' : ''} above 1${big.length === 1 ? ` (M = ${show(big[0])})` : ''}, after ${moves.length} moves.`)
+        : T('Choisissez deux entiers supérieurs à 1 : ils sont remplacés par leur pgcd et par ppcm ÷ pgcd.', 'Choose two integers above 1: they are replaced by their gcd and by lcm ÷ gcd.'));
+    };
+    const choose = (i) => {
+      if (picked < 0) { picked = i; draw(T('Choisissez un second entier, à un autre endroit du tableau.', 'Now choose a second integer, in another place.')); return; }
+      if (picked === i) { picked = -1; draw(); return; }
+      const nxt = M.boardMove(board(), picked, i); if (nxt) { moves.push([picked, i]); hist.push(nxt); } picked = -1; draw();
+    };
+    const load = () => { const v = (inp.value.match(/\d+/g) || []).map(Number).filter((x) => x > 1 && x < 1000).slice(0, 12); if (v.length < 2) { draw(T('Écrivez au moins deux entiers entre 2 et 999.', 'Write at least two integers between 2 and 999.')); return; } start = v; hist = [start.slice()]; moves = []; picked = -1; draw(); };
+    host.append(el('div', { class: 'contest-bar' }, [lab, button(T('Écrire au tableau', 'Write on the board'), load)]), row,
+      el('div', { class: 'contest-bar' }, [
+        button(T('Jouer au hasard jusqu’au bout', 'Play at random to the end'), () => { let cur = board(); M.boardRandomPlay(cur).moves.forEach(([i, j]) => { cur = M.boardMove(cur, i, j); moves.push([i, j]); hist.push(cur); }); picked = -1; draw(); }),
+        button(T('Annuler', 'Undo'), () => { if (moves.length) { moves.pop(); hist.pop(); } picked = -1; draw(); }),
+        button(T('Recommencer', 'Start again'), () => { hist = [start.slice()]; moves = []; picked = -1; draw(); })]), log);
+    inp.addEventListener('keydown', (e) => { if (e.key === 'Enter') load(); });
+    draw();
+  },
+
+  // ---- IMO 2026 problem 6: the first terms for an a_1 typed by the visitor, and their differences
+  sequence({ host, out, T }) {
+    const [lab, inp] = field(T('Premier terme a₁ (entier ≥ 2)', 'First term a₁ (integer ≥ 2)'), { type: 'number', min: 2, max: 100000, value: 6 });
+    const wrap = el('div', { class: 'contest-scroll' });
+    host.append(el('div', { class: 'contest-bar' }, [lab]), wrap);
+    const run = () => {
+      const a1 = Math.floor(Number(inp.value));
+      if (!(a1 >= 2 && a1 <= 100000)) { wrap.replaceChildren(); out.textContent = T('Choisissez un entier entre 2 et 100 000.', 'Choose an integer between 2 and 100,000.'); return; }
+      const t = M.sharedSequence(a1, 40);
+      const rowOf = (name, cells) => el('tr', {}, [el('th', { scope: 'row', text: name }), ...cells.map((x) => el('td', { text: x }))]);
+      wrap.replaceChildren(el('table', { class: 'contest-table' }, [el('tbody', {}, [rowOf('n', t.map((_, i) => i + 1)), rowOf('aₙ', t), rowOf('aₙ₊₁ − aₙ', t.map((x, i) => (i + 1 < t.length ? t[i + 1] - x : '')))])]));
+      out.textContent = T('Les 40 premiers termes et leurs différences. Essayez un nombre premier, une puissance de 2, un produit de deux nombres premiers. Une régularité observée n’est pas une preuve.', 'The first 40 terms and their differences. Try a prime, a power of 2, a product of two primes. An observed pattern is not a proof.');
+    };
+    inp.addEventListener('input', run); run();
+  },
+
+  // ---- IMO 2025 problem 4: the orbit of a_1 under "sum of the three largest proper divisors"
+  orbit({ host, out, T }) {
+    const [lab, inp] = field(T('Premier terme a₁', 'First term a₁'), { type: 'number', min: 1, max: 1000000000, value: 72 });
+    const list = el('ol', { class: 'contest-lines' });
+    host.append(el('div', { class: 'contest-bar' }, [lab]), list);
+    const run = () => {
+      const a1 = Math.floor(Number(inp.value));
+      if (!(a1 >= 1 && a1 <= 1e9)) { list.replaceChildren(); out.textContent = T('Choisissez un entier entre 1 et 1 000 000 000.', 'Choose an integer between 1 and 1,000,000,000.'); return; }
+      const { terms, status } = M.divisorOrbit(a1, 40);
+      list.replaceChildren(...terms.map((x) => { const d = M.divisors(x).filter((y) => y !== x), top = d.slice(-3).reverse();
+        return el('li', { text: top.length >= 3 ? `${x} : ${top.join(' + ')} = ${top[0] + top[1] + top[2]}` : `${x} : ${T('moins de trois diviseurs propres', 'fewer than three proper divisors')}` }); }));
+      out.textContent = { stops: T('La suite s’arrête : le dernier terme a moins de trois diviseurs propres, donc cette valeur de a₁ est impossible.', 'The sequence stops: the last term has fewer than three proper divisors, so this value of a₁ is impossible.'),
+        constant: T('Le dernier terme est sa propre image : la suite est constante à partir de là.', 'The last term is its own image: the sequence is constant from there on.'),
+        running: T('La suite continue après 40 termes sans s’arrêter ni se stabiliser (pour l’instant).', 'The sequence goes on past 40 terms without stopping or settling (so far).'),
+        large: T('Les termes dépassent 10¹² : le calcul s’arrête.', 'The terms pass 10¹²: the computation stops.') }[status];
+    };
+    inp.addEventListener('input', run); run();
+  },
+
+  // ---- IMO 2025 problem 6: tiles on a small grid; the page checks one free square per row and column, never the minimum
+  tiles({ host, out, T }) {
+    let n = 4, tiles = [], pick = null, note = '';
+    const bar = el('div', { class: 'contest-bar' }), svg = sv('svg', { class: 'contest-svg', role: 'group' }), gTiles = sv('g'), gCells = sv('g');
+    const sel = el('select', { 'aria-label': 'n' }, [3, 4, 5, 6, 7, 8, 9].map((k) => el('option', { value: k, text: `n = ${k}` })));
+    let cells = [], S = 40, pad = 10;
+    const build = () => {
+      const W = pad * 2 + S * n; svg.setAttribute('viewBox', `0 0 ${W} ${W}`); svg.replaceChildren(gTiles, gCells); gCells.replaceChildren();
+      svg.setAttribute('aria-label', T(`Grille ${n} sur ${n}`, `${n} by ${n} grid`));
+      cells = []; for (let r = 0; r < n; r++) for (let c = 0; c < n; c++) {
+        const g = sv('rect', { x: pad + c * S, y: pad + r * S, width: S, height: S, class: 'cg-cell', tabindex: 0, role: 'button', 'aria-label': T(`ligne ${r + 1}, colonne ${c + 1}`, `row ${r + 1}, column ${c + 1}`) });
+        const act = () => click(r, c); g.addEventListener('click', act); g.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); act(); } });
+        gCells.append(g); cells.push(g);
+      }
+    };
+    const tileAt = (r, c) => tiles.findIndex((t) => r >= t.r0 && r <= t.r1 && c >= t.c0 && c <= t.c1);
+    const click = (r, c) => {
+      const at = tileAt(r, c);
+      if (!pick && at >= 0) { tiles.splice(at, 1); note = ''; }
+      else if (!pick) { pick = [r, c]; note = ''; }
+      else { const t = { r0: Math.min(pick[0], r), c0: Math.min(pick[1], c), r1: Math.max(pick[0], r), c1: Math.max(pick[1], c) }; pick = null; if (M.canAddTile(n, tiles, t)) { tiles.push(t); note = ''; } else note = T('Cette tuile en recouvre une autre.', 'That tile overlaps another.'); }
+      draw();
+    };
+    const draw = () => {
+      gTiles.replaceChildren(...tiles.map((t, i) => sv('rect', { x: pad + t.c0 * S + 2, y: pad + t.r0 * S + 2, width: (t.c1 - t.c0 + 1) * S - 4, height: (t.r1 - t.r0 + 1) * S - 4, class: 'cg-tile', style: `fill:var(--c${(i % 8) + 1})`, 'pointer-events': 'none' })));
+      const rep = M.tilesReport(n, tiles);
+      cells.forEach((g, k) => { const r = Math.floor(k / n), c = k % n; g.setAttribute('class', `cg-cell${pick && pick[0] === r && pick[1] === c ? ' is-pick' : ''}${tileAt(r, c) >= 0 ? ' is-covered' : ' is-free'}${rep.free.some(([a, b]) => a === r && b === c) && (rep.rowFree[r] !== 1 || rep.colFree[c] !== 1) ? ' is-bad' : ''}`); });
+      const rowsOk = rep.rowFree.filter((x) => x === 1).length, colsOk = rep.colFree.filter((x) => x === 1).length, k = rep.count;
+      out.textContent = (note ? note + ' ' : '') + T(`${k} tuile${k > 1 ? 's' : ''} · lignes avec exactement une case libre : ${rowsOk} sur ${n} · colonnes : ${colsOk} sur ${n}.${rep.ok ? ` Valide : chaque ligne et chaque colonne a exactement une case libre, avec ${k} tuile${k > 1 ? 's' : ''}.` : ''}`,
+        `${k} tile${k > 1 ? 's' : ''} · rows with exactly one free square: ${rowsOk} of ${n} · columns: ${colsOk} of ${n}.${rep.ok ? ` Valid: every row and column has exactly one free square, with ${k} tile${k > 1 ? 's' : ''}.` : ''}`);
+    };
+    sel.value = String(n); sel.addEventListener('change', () => { n = Number(sel.value); tiles = []; pick = null; note = ''; build(); draw(); });
+    bar.append(sel, button(T('Annuler la dernière tuile', 'Undo last tile'), () => { tiles.pop(); pick = null; note = ''; draw(); }), button(T('Effacer', 'Clear'), () => { tiles = []; pick = null; note = ''; draw(); }));
+    host.append(el('p', { class: 'muted', text: T('Touchez deux cases : elles sont les coins opposés d’une tuile (deux fois la même case : une tuile d’une case). Touchez une tuile pour la retirer. Les cases sans tuile sont les cases libres.', 'Tap two squares: they are opposite corners of a tile (the same square twice: a one-square tile). Tap a tile to remove it. Squares without a tile are the free squares.') }), bar, svg);
+    build(); draw();
+  },
+
   // ---- IMO 2023 problem 1: the divisors of n and the first link that breaks
   divisors({ host, out, T }) {
     const [lab, inp] = field('n', { type: 'number', min: 2, max: 10000000, value: 12 });

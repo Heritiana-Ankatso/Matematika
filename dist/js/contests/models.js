@@ -293,3 +293,95 @@ export function coinsWinnable(n) {
   }
   return reduce(target) === 0n;
 }
+
+// ---- IMO 2026, problem 1: the blackboard. A move takes two entries m, n > 1 at different places and writes
+// gcd(m, n) and lcm(m, n) / gcd(m, n) in their places. These functions apply the rules only.
+const gcd2 = (a, b) => (b ? gcd2(b, a % b) : a);
+export function boardMove(board, i, j) {
+  if (i === j || !(board[i] > 1) || !(board[j] > 1)) return null;
+  const m = board[i], n = board[j], g = gcd2(m, n), next = board.slice();
+  next[i] = g; next[j] = (m / g) * (n / g);
+  return next;
+}
+export const boardLegalPairs = (board) => {
+  const idx = board.map((x, i) => (x > 1 ? i : -1)).filter((i) => i >= 0), out = [];
+  idx.forEach((i, a) => idx.slice(a + 1).forEach((j) => out.push([i, j])));
+  return out;
+};
+export const boardFinished = (board) => boardLegalPairs(board).length === 0;
+// plays random moves (rnd() in [0, 1)) until none is possible, or until `cap` moves
+export function boardRandomPlay(board, rnd = Math.random, cap = 100000) {
+  const moves = []; let cur = board.slice();
+  while (moves.length < cap) {
+    const pairs = boardLegalPairs(cur); if (!pairs.length) break;
+    const [i, j] = pairs[Math.floor(rnd() * pairs.length)];
+    cur = boardMove(cur, i, j); moves.push([i, j]);
+  }
+  return { moves, board: cur, finished: boardFinished(cur) };
+}
+
+// ---- IMO 2026, problem 6: a(n+1) is the smallest integer > a(n) sharing a factor with every earlier term
+export function sharedSequence(a1, length) {
+  if (!Number.isInteger(a1) || a1 < 2) return [];
+  const t = [a1];
+  while (t.length < length) { let c = t[t.length - 1] + 1; while (!t.every((x) => gcd2(c, x) > 1)) c++; t.push(c); }
+  return t;
+}
+
+// ---- IMO 2025, problem 4: a(n+1) is the sum of the three largest proper divisors of a(n)
+// null when a(n) has fewer than three proper divisors (the sequence cannot continue)
+export function threeLargestSum(n) {
+  const proper = divisors(n).filter((d) => d !== n); if (proper.length < 3) return null;
+  return proper[proper.length - 1] + proper[proper.length - 2] + proper[proper.length - 3];
+}
+export function divisorOrbit(a1, steps = 30, limit = 1e12) {
+  const terms = [a1]; let status = 'running';
+  while (terms.length <= steps) {
+    const cur = terms[terms.length - 1];
+    if (cur > limit) { status = 'large'; break; }
+    const nxt = threeLargestSum(cur);
+    if (nxt === null) { status = 'stops'; break; }
+    if (nxt === cur) { status = 'constant'; break; }
+    terms.push(nxt);
+  }
+  return { terms, status };
+}
+
+// ---- IMO 2025, problem 6: rectangular tiles on an n x n grid; cells (row, column) from 0, tile {r0, c0, r1, c1} inclusive
+export const tilesOverlap = (s, t) => s.r0 <= t.r1 && t.r0 <= s.r1 && s.c0 <= t.c1 && t.c0 <= s.c1;
+export const canAddTile = (n, tiles, t) => t.r0 >= 0 && t.c0 >= 0 && t.r1 < n && t.c1 < n && t.r0 <= t.r1 && t.c0 <= t.c1 && !tiles.some((s) => tilesOverlap(s, t));
+export function tilesReport(n, tiles) {
+  const covered = Array.from({ length: n }, () => Array(n).fill(false));
+  tiles.forEach((t) => { for (let r = t.r0; r <= t.r1; r++) for (let c = t.c0; c <= t.c1; c++) covered[r][c] = true; });
+  const rowFree = Array(n).fill(0), colFree = Array(n).fill(0), free = [];
+  for (let r = 0; r < n; r++) for (let c = 0; c < n; c++) if (!covered[r][c]) { rowFree[r]++; colFree[c]++; free.push([r, c]); }
+  return { count: tiles.length, free, rowFree, colFree, ok: rowFree.every((x) => x === 1) && colFree.every((x) => x === 1) };
+}
+// the exact minimum, by exhaustive search: every placement of the free squares (one per row and column), and for each the
+// fewest rectangles partitioning the other squares. Meant for small n (the test uses n up to 5).
+export function minTiles(n) {
+  const perms = [], p = [];
+  const gen = (used) => { if (p.length === n) { perms.push(p.slice()); return; } for (let c = 0; c < n; c++) if (!(used >> c & 1)) { p.push(c); gen(used | 1 << c); p.pop(); } };
+  gen(0);
+  let best = Infinity;
+  for (const perm of perms) {
+    const grid = Array.from({ length: n }, (_, r) => Array.from({ length: n }, (_, c) => (perm[r] === c ? 1 : 0))); // 1: hole or covered
+    const solve = (count) => {
+      if (count >= best) return;
+      let r0 = -1, c0 = -1;
+      outer: for (let r = 0; r < n; r++) for (let c = 0; c < n; c++) if (!grid[r][c]) { r0 = r; c0 = c; break outer; }
+      if (r0 < 0) { best = count; return; }
+      let maxW = 0; while (c0 + maxW < n && !grid[r0][c0 + maxW]) maxW++;
+      for (let w = maxW; w >= 1; w--) {
+        let h = 1; while (r0 + h < n && [...Array(w).keys()].every((k) => !grid[r0 + h][c0 + k])) h++;
+        for (let hh = h; hh >= 1; hh--) {
+          for (let r = r0; r < r0 + hh; r++) for (let c = c0; c < c0 + w; c++) grid[r][c] = 1;
+          solve(count + 1);
+          for (let r = r0; r < r0 + hh; r++) for (let c = c0; c < c0 + w; c++) grid[r][c] = 0;
+        }
+      }
+    };
+    solve(0);
+  }
+  return best;
+}
