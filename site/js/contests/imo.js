@@ -1,7 +1,7 @@
 // International Mathematical Olympiad: the papers of 2023 to 2026, restated in our own words (French and
 // English) from the official papers (https://www.imo-official.org/problems.aspx, © International Mathematical Olympiad;
 // no open licence, so the wording is ours and the official paper is linked). Olympiad rule (owner, 23 November 2026):
-// solutions live on their own page, #contests/imo/<year>/<n>. A problem without `s` shows "solution in preparation".
+// solutions live on their own page, #contests/imo/<year>/<n>. A problem without `s` shows "no written solution on the site for now".
 // 2025 solutions are condensed from the official 2025 shortlist (the French is the assistant's translation, to be reviewed);
 // 2026 has no solution yet (no official source). Maths between \( \) or \[ \]. Every published answer is checked by tests/contests.test.mjs with models.js.
 const P = (fr, en) => [fr, en];
