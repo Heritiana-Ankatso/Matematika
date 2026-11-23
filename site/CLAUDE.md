@@ -175,6 +175,17 @@ To add a generator: write `make` in the class file, give it a manifest chapter, 
 | `js/olympiad.js` | `#olympiad` (index) and `#olympiad/<id>` (one strategy): page markup, inline figure or laboratory experiment, MathJax typesetting |
 | `js/olympiad-widgets.js` | three figures with pure models: nearest neighbours (extremal principle), the inscribed angle, rectangle and square of the same perimeter |
 
+## Competition archive ("Résoudre > Concours", `#contests`)
+
+| File | Holds |
+|---|---|
+| `js/contests/registry.js` | every competition (field, kind, level, official source, terms of reuse, papers); `kind: 'olympiad'` sends each solution to its own page `#contests/<c>/<paper>/<n>` (owner rule, 23 November 2026); routes `isContestRoute` |
+| `js/contests/imo.js` | IMO 2023, 2024, 2025: the eighteen problems restated in French and English (no open licence), solutions written for 2023 P1, 2024 P1, P2, P5, 2025 P1, each with its answer and computed check |
+| `js/contests/bcc.js` | Beaver Computing Challenge 2023, grades 9 and 10 (CEMC, CC BY-NC 4.0): five tasks translated and adapted, official choices and answers, folded solutions |
+| `js/contests/models.js` | pure maths and machines: divisor chain, sums of floors, gcd sequence, sunny lines (exhaustive), Turbo's board and strategy, video game, buttons, carrots, lockers, trains |
+| `js/contests/page.js` | `#contests`, `#contests/<c>`, `#contests/<c>/<paper>`, `#contests/<c>/<paper>/<n>`: markup, answer checking, folded solutions of contests, MathJax |
+| `js/contests/widgets.js` | the figures: sunny lines, sums of floors, gcd, divisors, Turbo (played or replayed by the strategy), and the command checkers of the contest tasks |
+
 ## Reading ("Lire": biographies, stories, timelines; the curiosities are the gallery, under "Explorer")
 
 | File | Holds |
