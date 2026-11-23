@@ -12,12 +12,11 @@ const LEVEL_ORDER = ['mg', 'pan', 'intl'];
 
 export function thresholdPage({ t, lang, siteName }) {
   const say = sayer(lang);
-  const n = OLYMPIAD_LEVELS.length;
   const doors = [
     { id: 'musee', hash: '#musee', name: say(P('Le musée', 'The museum')), line: say(P('Curiosités, chronologies des grands esprits, histoires vraies.', 'Curiosities, timelines of great minds, true stories.')), short: say(P('Curiosités, grands esprits, histoires', 'Curiosities, great minds, stories')) },
     { id: 'univ', hash: '#university', name: say(P('Université', 'University')), line: say(P('Aux confins du savoir · la carte des mathématiques', 'At the edge of knowledge · the map of mathematics')), short: say(P('La carte des mathématiques', 'The map of mathematics')) },
     { id: 'lycee', hash: '#resources', name: say(P('Le lycée', 'The lycée')), line: say(P('Bâtir les bases : lycée malgache, lycée français, international.', 'Building the ground: Malagasy, French and international lycée.')), short: say(P('Malgache, français, international', 'Malagasy, French, international')) },
-    { id: 'olymp', hash: '#olympiad', name: say(P('Olympiades', 'Olympiads')), line: say(P(`${n} problèmes · national · panafricain · international`, `${n} problems · national · pan-African · international`)), short: say(P(`${n} problèmes, 3 niveaux`, `${n} problems, 3 levels`)) },
+    { id: 'olymp', hash: '#olympiad', name: say(P('Olympiades', 'Olympiads')), line: say(P('Des problèmes du niveau national à l’international, et leurs solutions.', 'Problems from national to international level, with their solutions.')), short: say(P('Trois niveaux de problèmes', 'Three levels of problems')) },
   ];
   return `<div class="v8">${topBar({ t, world: '', siteName, lang })}<main id="main" tabindex="-1" class="v8-threshold"><div class="v8-wrap v8-th-head"><h1>${say(P('Quatre mondes, une seule passion.', 'Four worlds, one passion.'))}</h1><p>${say(P('Contempler les merveilles des mathématiques, approcher les confins du savoir, bâtir les bases, ou se mesurer aux meilleurs.', 'Contemplate the marvels of mathematics, approach the edge of knowledge, build the ground, or measure yourself against the best.'))}</p></div>`
     + `<nav class="v8-wrap v8-doors" aria-label="${say(P('Les quatre mondes', 'The four worlds'))}">${doors.map((d) => `<a class="v8-door v8-world-${d.id}" href="${d.hash}" data-door="${d.id}"><span class="v8-door-vis"><canvas data-door-art="${d.id}" aria-hidden="true"></canvas></span><span class="v8-door-txt"><span class="v8-door-name">${d.name}</span><span class="v8-door-line">${d.line}</span><span class="v8-door-short">${d.short}</span></span></a>`).join('')}</nav></main></div>`;

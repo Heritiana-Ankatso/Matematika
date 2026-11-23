@@ -619,6 +619,12 @@ details.source-course[open] { padding-bottom: 16px; }
 .sol-cap { min-height: 3.6em; margin: 10px 0; font-size: 1rem; line-height: 1.5; }
 .sol-controls { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
 .sol-count { margin-left: auto; color: var(--muted); font-variant-numeric: tabular-nums; }
+/* Phone: one tidy row (restart, Previous, Play, Next at equal width, 44px touch height), the step counter under it. */
+@media (max-width: 640px) {
+  .sol-controls { display: grid; grid-template-columns: 44px repeat(3, minmax(0, 1fr)); gap: 8px; }
+  .sol-controls > button { min-height: 44px; padding-inline: 8px; white-space: nowrap; }
+  .sol-controls .sol-count { grid-column: 1 / -1; margin: 2px 0 0; text-align: center; }
+}
 .sol-svg text { font-family: var(--body); }
 .sol-label { font: 700 14px var(--body); fill: var(--ink); }
 .sol-big { font: 700 46px var(--math); fill: var(--ink); } .sol-big.small { font-size: 26px; }

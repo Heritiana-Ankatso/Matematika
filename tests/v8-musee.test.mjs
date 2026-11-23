@@ -64,7 +64,7 @@ test('the hall and the threshold render in both languages, with counts from the 
     assert.equal(document.querySelector('[data-room="chronologies"] .v8-room-count').textContent, roomCount(ROOMS[5], lang));
     document.body.innerHTML = thresholdPage({ t, lang, siteName: 'Matematika' });
     assert.equal(document.querySelectorAll('a.v8-door').length, 4);
-    assert.match(document.querySelector('[data-door="olymp"]').textContent, new RegExp(String(OLYMPIAD_LEVELS.length)));
+    assert.doesNotMatch(document.querySelector('[data-door="olymp"]').textContent, new RegExp(`\\b${OLYMPIAD_LEVELS.length}\\b`)); // owner rule: no problem count
   }
   // French typography: a narrow no-break space before ? in French, none added in English
   document.body.innerHTML = museePage({ t: (p) => p[0], lang: 'fr', siteName: 'M' });
