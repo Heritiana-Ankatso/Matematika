@@ -48,14 +48,23 @@ function choices(c, prob, t, lang) {
 <button type="button" class="contest-check">${t(P('Vérifier', 'Check'))}</button><p class="contest-verdict" aria-live="polite"></p></fieldset>`;
 }
 
+// a short answer typed by the visitor, compared with the official ones (spaces ignored, decimal comma accepted)
+function typed(c, prob, t) {
+  if (!prob.expect) return '';
+  return `<form class="contest-choices contest-typed" data-expect="${E(JSON.stringify(prob.expect))}"><label class="contest-field"><span>${t(P('Votre réponse', 'Your answer'))}</span><input type="text" inputmode="decimal" autocomplete="off" size="10"></label>
+<button type="submit">${t(P('Vérifier', 'Check'))}</button><p class="contest-verdict" aria-live="polite"></p></form>`;
+}
+export const sameAnswer = (typedText, expected) => { const norm = (x) => String(x).replace(/\s+/g, '').replace(',', '.').replace('\u2212', '-').toLowerCase(); return expected.some((e) => norm(e) === norm(typedText)); };
+const heading = (prob, t) => (prob.label ? `${t(P('Question', 'Question'))} ${E(prob.label)}` : `${t(P('Problème', 'Problem'))} ${prob.n}`);
+
 function problemBlock(c, paper, prob, t, lang) {
   const olympiad = c.kind === 'olympiad';
   const topic = prob.topic ? `<span class="olymp-level">${E(t(TOPICS[prob.topic]))}</span>` : '';
   const widget = prob.widget ? `<div class="contest-widget" data-contest-widget="${prob.widget}" data-mode="explore"></div>${prob.command ? `<p class="muted contest-command">${E(t(prob.command))}</p>` : ''}` : '';
   const after = olympiad
     ? (prob.s ? `<p class="contest-go"><a class="contest-solution-link" href="#contests/${c.id}/${paper.id}/${prob.n}">${t(P('Voir la solution', 'See the solution'))} →</a></p>` : `<p class="muted contest-go">${t(P('Solution en préparation.', 'Solution in preparation.'))}</p>`)
-    : `${choices(c, prob, t, lang)}${prob.s ? `<details class="olymp-solution"><summary>${t(P('Solution', 'Solution'))}</summary>${prob.s.map((x) => `<p>${E(t(x))}</p>`).join('')}</details>` : ''}`;
-  return `<article class="olymp-problem contest-problem" id="p${prob.n}"><header><h2>${t(P('Problème', 'Problem'))} ${prob.n} · ${E(t(prob.title))}</h2>${topic}</header>${statement(prob.q, t)}${widget}${after}</article>`;
+    : `${choices(c, prob, t, lang)}${typed(c, prob, t)}${prob.s ? `<details class="olymp-solution"><summary>${t(P('Solution', 'Solution'))}</summary>${prob.s.map((x) => `<p>${E(t(x))}</p>`).join('')}</details>` : ''}`;
+  return `<article class="olymp-problem contest-problem" id="p${prob.n}"><header><h2>${heading(prob, t)} · ${E(t(prob.title))}</h2>${topic}</header>${statement(prob.q, t)}${widget}${after}</article>`;
 }
 
 function paperPage(c, paper, t, lang) {
@@ -92,7 +101,7 @@ export function contestsPage(r, t, lang) {
 export function bindContests(root, lang) {
   const live = [];
   let gone = false;
-  root.querySelectorAll('.contest-choices').forEach((f) => {
+  root.querySelectorAll('.contest-choices:not(.contest-typed)').forEach((f) => {
     const out = f.querySelector('.contest-verdict');
     f.querySelector('.contest-check').addEventListener('click', () => {
       const v = f.querySelector('input:checked');
@@ -102,6 +111,14 @@ export function bindContests(root, lang) {
       out.textContent = ok ? (lang === 'en' ? 'Right.' : 'C’est juste.') : (lang === 'en' ? 'Not this one. Try again, or play it on the figure.' : 'Pas celle-ci. Réessayez, ou jouez-la sur la figure.');
     });
   });
+  root.querySelectorAll('.contest-typed').forEach((f) => f.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const v = f.querySelector('input').value.trim(), out = f.querySelector('.contest-verdict');
+    if (!v) { out.textContent = lang === 'en' ? 'Type an answer first.' : 'Tapez d’abord une réponse.'; return; }
+    const ok = sameAnswer(v, JSON.parse(f.dataset.expect));
+    out.className = `contest-verdict ${ok ? 'is-ok' : 'is-no'}`;
+    out.textContent = ok ? (lang === 'en' ? 'Right.' : 'C’est juste.') : (lang === 'en' ? 'Not yet.' : 'Pas encore.');
+  }));
   const hosts = [...root.querySelectorAll('[data-contest-widget]')];
   if (hosts.length) import('./widgets.js').then(({ mountContestWidget }) => {
     if (!gone) hosts.forEach((el) => live.push(mountContestWidget(el.dataset.contestWidget, el, { lang, mode: el.dataset.mode })));

@@ -1518,6 +1518,8 @@ footer { border-top: 1px solid var(--ink); }
 .olymp-hint summary,.olymp-solution summary{cursor:pointer;font-weight:600;min-height:32px}
 .olymp-solution{padding:10px 14px;border-radius:var(--r);background:var(--sunken)}
 .olymp-source{color:var(--muted);font-size:.85rem;margin-top:10px}
+.olymp-go{margin-top:10px}.olymp-solution-link{display:inline-flex;align-items:center;min-height:44px;font-weight:700}
+.olymp-recall{padding:10px 14px;border:1px solid var(--line);border-radius:var(--r);background:var(--surface)}.olymp-recall summary{cursor:pointer;font-weight:600;min-height:32px}
 .olymp-code{overflow-x:auto;padding:12px;border-radius:var(--r);background:var(--sunken);font-size:.9rem}
 .olymp-links ul{display:flex;flex-wrap:wrap;gap:10px;list-style:none;padding:0}
 .olymp-links a{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid var(--line);border-radius:var(--r);text-decoration:none;color:var(--ink)}
@@ -1800,7 +1802,8 @@ body:has(#object-stage:empty) :is(.learning, .workbench ~ *, #app ~ footer, main
 .contest-small{min-height:36px;padding:2px 10px;font-size:.85rem}
 .contest-lines{list-style:none;padding:0;margin:8px 0;display:grid;gap:6px}
 .contest-lines li{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
-.contest-table{border-collapse:collapse;margin-top:10px;font-variant-numeric:tabular-nums}
+.contest-table{display:block;max-width:100%;overflow-x:auto;border-collapse:collapse;margin-top:10px;font-variant-numeric:tabular-nums}
+.contest-page mjx-container{max-width:100%;overflow-x:auto;overflow-y:hidden}
 .contest-table th,.contest-table td{border-bottom:1px solid var(--line);padding:4px 12px;text-align:right}
 .contest-seq{font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
 .contest-chips{display:flex;flex-wrap:wrap;gap:6px;list-style:none;padding:0;margin:10px 0}
@@ -1839,3 +1842,9 @@ body:has(#object-stage:empty) :is(.learning, .workbench ~ *, #app ~ footer, main
 .cg-carrot{fill:var(--object-ink)}
 .cg-label{fill:var(--ink-2);font:12px system-ui,sans-serif}
 @media(max-width:700px){.contest-gates{grid-template-columns:1fr}.contest-track{grid-template-columns:1fr}}
+.cg-move{fill:color-mix(in srgb,var(--obj2) 22%,transparent);stroke:var(--obj2);stroke-width:1.5;cursor:pointer}
+.cg-move:hover,.cg-move:focus-visible{fill:color-mix(in srgb,var(--obj2) 45%,transparent);outline:none;stroke-width:3}
+.cg-coin circle{fill:var(--surface);stroke:var(--ink);stroke-width:2;pointer-events:none}
+.cg-coin text{fill:var(--ink);font:700 13px system-ui,sans-serif;pointer-events:none}
+.cg-coin.is-tails circle{fill:var(--pos)}
+.cg-coin.is-tails text{fill:var(--surface)}

@@ -39,4 +39,8 @@ test('the arena renders in both languages, with no countdown', () => {
   assert.match(fr, /Problème du jour/); assert.match(en, /Problem of the day/);
   for (const s of STRATEGIES) assert.ok(fr.includes(`#olympiad/${s.id}`), s.id);
   assert.doesNotMatch(fr + en, /chronomètre|countdown|stopwatch|minuteur/i);
+  // the solution of the problem of the day is on its own page, never in the arena
+  const day = problemOfTheDay();
+  assert.ok(fr.includes(`#olympiad/${day.strategy.id}/${day.index + 1}`));
+  assert.doesNotMatch(fr + en, /<summary>Solution<\/summary>/);
 });

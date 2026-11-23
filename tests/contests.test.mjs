@@ -5,7 +5,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { COMPETITIONS, isContestRoute, competition } from '../site/js/contests/registry.js';
 import * as M from '../site/js/contests/models.js';
-import { contestsPage } from '../site/js/contests/page.js';
+import { contestsPage, sameAnswer } from '../site/js/contests/page.js';
 
 const pair = (x) => Array.isArray(x) && x.length === 2 && x.every((s) => typeof s === 'string' && s.trim().length > 0);
 const balanced = (s) => (s.match(/\\\(/g) || []).length === (s.match(/\\\)/g) || []).length && (s.match(/\\\[/g) || []).length === (s.match(/\\\]/g) || []).length;
@@ -103,6 +103,34 @@ test('IMO 2025 P1: exhaustive search gives k in {0, 1, 3} for n = 3 and n = 4; a
   for (const [ls, k] of [[k0, 0], [k1, 1], [k3, 3]]) { const c = M.coverage(3, ls); assert.equal(c.covered, c.total); assert.equal(c.sunny, k); }
 });
 
+test('IMO 2023 P4: on random sequences of distinct reals, a_{n+2} > a_n + 2 at every step', () => {
+  let seed = 11; const rnd = () => ((seed = (seed * 16807) % 2147483647) / 2147483647);
+  for (let k = 0; k < 2000; k++) {
+    const xs = Array.from({ length: 12 }, () => 0.01 + rnd() * 10), a = M.aSequence(xs);
+    for (let i = 0; i + 2 < a.length; i++) assert.ok(a[i + 2] > a[i] + 2, `step ${i}`);
+  }
+  // equality case: two equal numbers at sqrt(S/T) give exactly + 2
+  const a = M.aSequence([1, 4, 2, 2]); assert.ok(Math.abs(a[3] - a[1] - 2) < 1e-12);
+});
+
+test('IMO 2025 P5: the strategies of the solution win, or never lose, against random opponents', () => {
+  let seed = 5; const rnd = () => ((seed = (seed * 16807) % 2147483647) / 2147483647);
+  const randomAlice = ({ n, S, lambda }) => rnd() * Math.max(lambda * n - S, 0) * (rnd() < 0.3 ? 1 : rnd());
+  const randomBazza = ({ n, Q }) => rnd() * Math.sqrt(Math.max(n - Q, 0));
+  for (let g = 0; g < 500; g++) {
+    assert.equal(M.playGame(0.6, randomAlice, M.bazzaFills).winner, 'Bazza');
+    assert.equal(M.playGame(0.8, M.aliceWaits(70), randomBazza).winner, 'Alice');
+  }
+  // the k of the solution: ((2 lambda - sqrt 2) k)^2 > 2k + 2, here k = 70 for lambda = 0.8; it beats Bazza filling up too
+  assert.ok(((1.6 - Math.SQRT2) * 70) ** 2 > 142);
+  assert.equal(M.playGame(0.8, M.aliceWaits(70), M.bazzaFills).winner, 'Alice');
+  assert.equal(M.playGame(0.6, M.aliceWaits(70), M.bazzaFills).winner, 'Bazza');
+  const r = Math.SQRT1_2;
+  assert.equal(M.playGame(r, M.aliceWaits(Infinity), M.bazzaFills, 400).winner, null);
+  assert.notEqual(M.playGame(r, randomAlice, M.bazzaFills, 400).winner, 'Alice');
+  assert.notEqual(M.playGame(r, M.aliceWaits(Infinity), randomBazza, 400).winner, 'Bazza');
+});
+
 test('BCC 2023: the official answers, and the command checkers refuse the wrong options', () => {
   assert.ok(M.runVideo([1, 1, 0, 7, 7, 5, 5, 4, 3, 3]).ok);
   for (const s of [[1, 1, 7, 7, 5, 5, 3, 3], [1, 1, 4, 7, 7, 5, 5, 0, 3, 3], [7, 7, 0, 1, 1, 5, 5, 4, 3, 3]]) assert.ok(!M.runVideo(s).ok);
@@ -122,6 +150,59 @@ test('BCC 2023: the official answers, and the command checkers refuse the wrong 
   // the published choices agree with the machines
   const bcc = competition('bcc').papers[0].problems;
   assert.deepEqual(bcc.map((p) => p.correct), [2, 2, 3, 0, 1]);
+});
+
+test('Euclid 2025: every published answer recomputed by brute force or substitution', () => {
+  // 5 (a) the lock
+  let lock = 0;
+  for (let a = 1; a <= 40; a++) for (let b = 1; b <= 40; b++) for (let c = 1; c <= 40; c++) {
+    const v = [a, b, c]; if (new Set(v).size === 3 && b < a && b < c && v.includes(20) && v.includes(30)) lock++;
+  }
+  assert.equal(lock, 76);
+  // 5 (b) the three values of cos theta give a geometric sequence (sin from the solution), and no others on a fine grid
+  for (const [co, si] of [[2 * Math.SQRT2 / 3, -1 / 3], [-2 * Math.SQRT2 / 3, -1 / 3], [0, 1]]) assert.ok(Math.abs((1 + si) ** 2 - (2 - 2 * co) * (2 + 2 * co)) < 1e-12);
+  for (let k = 0; k < 100000; k++) {
+    const th = (2 * Math.PI * k) / 100000, f = (1 + Math.sin(th)) ** 2 - 4 + 4 * Math.cos(th) ** 2;
+    if (Math.abs(f) < 1e-9) assert.ok([2 * Math.SQRT2 / 3, -2 * Math.SQRT2 / 3, 0].some((v) => Math.abs(Math.cos(th) - v) < 1e-4), `theta ${th}`);
+  }
+  // 6 (a) triangles with two equal sides among twelve points
+  const gap = (x, y) => Math.min((x - y + 12) % 12, (y - x + 12) % 12); let iso = 0;
+  for (let i = 0; i < 12; i++) for (let j = i + 1; j < 12; j++) for (let k = j + 1; k < 12; k++) { const d = [gap(i, j), gap(j, k), gap(i, k)]; if (d[0] === d[1] || d[1] === d[2] || d[0] === d[2]) iso++; }
+  assert.equal(iso, 52);
+  // 7 (b) both pairs satisfy the system
+  for (const [x, y] of [[20, 5], [1 / 5, 1 / 20]]) { assert.ok(Math.abs(x * x - 8 * x * y + 16 * y * y) < 1e-12); assert.ok(Math.abs((Math.log10(x) + Math.log10(y)) ** 2 - 4) < 1e-12); }
+  // 8 (a) exact fractions
+  const [a, b, c] = [3 / 5, 3 / 4, 2 / 3];
+  assert.ok(Math.abs(a * (1 - b) - 3 / 20) < 1e-15 && Math.abs(b * (1 - c) - 1 / 4) < 1e-15 && Math.abs(a * c - 2 / 5) < 1e-15 && Math.abs(1 - a * b * c - 7 / 10) < 1e-15);
+  // 8 (b) palindromes
+  const pal = []; for (let d1 = 1; d1 <= 9; d1++) for (let d2 = 0; d2 <= 9; d2++) pal.push(Number(`${d1}${d2}${d2}${d1}`));
+  let pairs = 0; for (const m of pal) for (const n of pal) if (m > n && (m - n) % 35 === 0) pairs++;
+  assert.equal(pairs, 91);
+  // 9: every (q, d) with average 19, three rational roots only for (10, 6), roots 1, 2, -7/5
+  const good = [];
+  for (let q = 1; q < 38; q++) for (let d = 1; d < 38; d++) {
+    if (4 * q + 6 * d !== 76) continue;
+    const disc = d * d + 4 * q * (q + 3 * d), r = Math.round(Math.sqrt(disc));
+    if (r * r === disc) good.push([q, d]);
+  }
+  assert.deepEqual(good, [[10, 6]]);
+  const p = (x) => 10 * x ** 3 - 16 * x ** 2 - 22 * x + 28;
+  for (const x of [1, 2, -7 / 5]) assert.ok(Math.abs(p(x)) < 1e-12);
+  // 10: the official sequence wins; winnable exactly when n is not 1 modulo 3 (elimination over Z/2, n up to 16)
+  assert.ok(M.coinsWon(3, M.parseCoinMoves('T(1,1) T(2,1) T(2,3) T(2,2)')));
+  assert.ok(M.coinsWon(2, [[1, 1]]) && !M.coinsWon(3, [[1, 1]]));
+  for (let n = 1; n <= 16; n++) assert.equal(M.coinsWinnable(n), n % 3 !== 1, `n = ${n}`);
+  // the labelling of the proof: three neighbouring coins carry 1, 2 and 3; counts 3t + 1, 3t, 3t for n = 3k + 1
+  const label = (r, i) => ((((r - 1) % 3) + (i - 1)) % 3) + 1;
+  for (let n = 2; n <= 13; n++) for (const [r, j] of M.coinMoves(n)) assert.deepEqual(M.coinMove(r, j).map(([x, y]) => label(x, y)).sort(), [1, 2, 3]);
+  for (const k of [1, 2, 3, 4]) {
+    const n = 3 * k + 1, t = (k * (k + 1)) / 2, cnt = [0, 0, 0, 0];
+    for (let r = 1; r <= n; r++) for (let i = 1; i <= r; i++) cnt[label(r, i)]++;
+    assert.deepEqual(cnt.slice(1), [3 * t + 1, 3 * t, 3 * t]);
+  }
+  for (const x of [1, -1]) for (const y of [2, -2]) for (const z of [3, -3]) assert.equal(Math.abs(x + y + z) % 2, 0);
+  // typed answers
+  assert.ok(sameAnswer(' 76 ', ['76']) && sameAnswer('0,7', ['7/10', '0.7']) && !sameAnswer('0.75', ['7/10', '0.7']));
 });
 
 test('routes: Olympiad problems have a solution page, contest problems do not', () => {
@@ -151,6 +232,9 @@ test('pages render in both languages; an Olympiad paper never prints a solution,
     const pending = contestsPage({ id: 'imo', tab: '2024', sub: '6' }, t, lang);
     assert.ok(!pending.includes('class="contest-solution"'));
     const bcc = contestsPage({ id: 'bcc', tab: '2023-9-10' }, t, lang);
+    const euc = contestsPage({ id: 'euclid', tab: '2025' }, t, lang);
+    assert.ok(euc.includes('contest-typed') && euc.includes('data-contest-widget="coins"') && euc.includes('olymp-solution') && euc.includes('Question 10'));
+    assert.ok(isContestRoute('euclid', '2025') && !isContestRoute('euclid', '2025', '1'));
     assert.ok(bcc.includes('olymp-solution') && bcc.includes('contest-choices') && bcc.includes('data-contest-widget="trains"'));
     for (const html of [index, imo, sol, bcc]) assert.ok(!/undefined|NaN|\[object/.test(html));
   }

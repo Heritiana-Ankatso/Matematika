@@ -230,3 +230,66 @@ export function runTrains(cmds, task = TRAINS) {
   const goal = depots[0].length === 3 && [1, 2, 3].every((t) => depots[0].includes(t));
   return { ok: goal, error: null, depots, main, states };
 }
+
+// ---- IMO 2023, problem 4: a_n = sqrt((x_1 + ... + x_n)(1/x_1 + ... + 1/x_n))
+export function aSequence(xs) {
+  let s = 0, t = 0; return xs.map((x) => { s += x; t += 1 / x; return Math.sqrt(s * t); });
+}
+
+// ---- IMO 2025, problem 5: the game of Alice (odd turns, sum <= lambda n) and Bazza (even turns, sum of squares <= n).
+// play(lambda, alice, bazza, turns): each strategy maps the state to a wish; a wish above the largest legal number is
+// cut down to it; a player with no legal number loses.
+export function playGame(lambda, alice, bazza, turns = 400) {
+  let S = 0, Q = 0;
+  for (let n = 1; n <= turns; n++) {
+    if (n % 2) {
+      const room = lambda * n - S; if (room < -1e-12) return { winner: 'Bazza', turn: n };
+      const x = Math.min(Math.max(alice({ n, S, Q, lambda }), 0), Math.max(room, 0)); S += x; Q += x * x;
+    } else {
+      const room = n - Q; if (room < -1e-12) return { winner: 'Alice', turn: n };
+      const x = Math.min(Math.max(bazza({ n, S, Q }), 0), Math.sqrt(Math.max(room, 0))); S += x; Q += x * x;
+    }
+  }
+  return { winner: null, turn: turns };
+}
+// the strategies of the solution
+export const aliceWaits = (k) => ({ n, S, lambda }) => (n === 2 * k + 1 ? lambda * n - S : 0);
+export const bazzaFills = ({ n, Q }) => Math.sqrt(Math.max(n - Q, 0));
+
+// ---- Euclid 2025, question 10: coins in a triangle of n rows, a move flips three mutually adjacent coins.
+// Coins (r, i), 1 <= i <= r <= n. Move T(r, j), 1 <= r < n, 1 <= j <= 2r - 1 (the contest's names): odd j is the
+// triangle pointing up with top coin (r, (j + 1) / 2); even j points down with top coins (r, j / 2) and (r, j / 2 + 1).
+export function coinMove(r, j) {
+  if (j % 2) { const i = (j + 1) / 2; return [[r, i], [r + 1, i], [r + 1, i + 1]]; }
+  const i = j / 2; return [[r, i], [r, i + 1], [r + 1, i + 1]];
+}
+export const coinMoves = (n) => { const out = []; for (let r = 1; r < n; r++) for (let j = 1; j <= 2 * r - 1; j++) out.push([r, j]); return out; };
+// tails after the moves (true = tails), every coin starting heads
+export function flipCoins(n, moves) {
+  const tails = new Map();
+  for (let r = 1; r <= n; r++) for (let i = 1; i <= r; i++) tails.set(`${r},${i}`, false);
+  for (const [r, j] of moves) {
+    if (!(r >= 1 && r < n && j >= 1 && j <= 2 * r - 1)) return null;
+    for (const [a, b] of coinMove(r, j)) tails.set(`${a},${b}`, !tails.get(`${a},${b}`));
+  }
+  return tails;
+}
+export const coinsWon = (n, moves) => { const t = flipCoins(n, moves); return !!t && [...t.values()].every(Boolean); };
+export function parseCoinMoves(text) {
+  const out = [], re = /T\s*\(\s*(\d+)\s*[,;]\s*(\d+)\s*\)/gi; let m;
+  while ((m = re.exec(text))) out.push([Number(m[1]), Number(m[2])]);
+  return out;
+}
+// is the all-tails position reachable? Gaussian elimination over Z/2 (each move used 0 or 1 time)
+export function coinsWinnable(n) {
+  const index = new Map(); let k = 0;
+  for (let r = 1; r <= n; r++) for (let i = 1; i <= r; i++) index.set(`${r},${i}`, k++);
+  const target = (1n << BigInt(k)) - 1n;
+  const basis = [];
+  const reduce = (v) => { for (const b of basis) if ((v ^ b) < v) v ^= b; return v; };
+  for (const [r, j] of coinMoves(n)) {
+    let v = 0n; for (const [a, b] of coinMove(r, j)) v ^= 1n << BigInt(index.get(`${a},${b}`));
+    v = reduce(v); if (v) { basis.push(v); basis.sort((x, y) => (x > y ? -1 : 1)); }
+  }
+  return reduce(target) === 0n;
+}
