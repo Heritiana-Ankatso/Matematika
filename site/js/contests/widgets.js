@@ -129,6 +129,46 @@ const BUILD = {
     inp.addEventListener('input', run); run();
   },
 
+  // ---- IMO 2023 problem 4: a_n for numbers typed by the visitor, and the gaps a_{n+2} - a_n
+  cauchy({ host, out, T, en }) {
+    const [lab, inp] = field(T('x₁, x₂, … (réels positifs distincts)', 'x₁, x₂, … (distinct positive reals)'), { type: 'text', value: '1; 2; 0,5; 3; 0,25', size: 30 });
+    const table = el('table', { class: 'contest-table' });
+    host.append(lab, table);
+    const fmt = (v) => { const x = v.toFixed(4); return en ? x : x.replace('.', ','); };
+    const run = () => {
+      const xs = inp.value.split(en ? /[;,\s]+/ : /[;\s]+/).map((w) => Number(w.replace(',', '.'))).filter((v) => Number.isFinite(v) && v > 0);
+      if (xs.length < 1) { out.textContent = T('Écrivez des réels strictement positifs, séparés par des points-virgules.', 'Type positive reals separated by commas.'); table.replaceChildren(); return; }
+      const a = M.aSequence(xs.slice(0, 40)), dup = new Set(xs).size !== xs.length;
+      table.replaceChildren(el('tr', {}, [el('th', { text: 'n' }), el('th', { text: 'xₙ' }), el('th', { text: 'aₙ' }), el('th', { text: 'aₙ − aₙ₋₂' })]),
+        ...a.map((v, i) => el('tr', {}, [el('td', { text: i + 1 }), el('td', { text: fmt(xs[i]) }), el('td', { text: fmt(v) }), el('td', { text: i >= 2 ? fmt(v - a[i - 2]) : '' })])));
+      out.textContent = (dup ? T('Attention : deux nombres sont égaux. ', 'Careful: two numbers are equal. ') : '') + T('Ici les aₙ ne sont pas forcément entiers ; regardez les écarts de deux en deux.', 'Here the aₙ need not be integers; look at the gaps two steps apart.');
+    };
+    inp.addEventListener('input', run); run();
+  },
+
+  // ---- IMO 2025 problem 5: the visitor plays both sides, the page shows the room left
+  game({ host, out, T, en }) {
+    let lambda = 0.7, xs = [], over = null;
+    const [ll, li] = field('λ', { type: 'number', min: 0.05, max: 3, step: 0.01, value: lambda });
+    const [lx, xi] = field(T('Votre nombre', 'Your number'), { type: 'number', min: 0, step: 0.01, value: 0 });
+    const log = el('p', { class: 'contest-seq' });
+    host.append(el('div', { class: 'contest-bar' }, [ll, button(T('Nouvelle partie', 'New game'), () => { lambda = Math.max(0.05, Number(li.value) || 0.7); xs = []; over = null; draw(); })]),
+      el('div', { class: 'contest-bar' }, [lx, button(T('Jouer', 'Play'), () => { const x = Number(xi.value); if (!(x >= 0) || over) return; xs.push(x); draw(); }), button(T('Annuler', 'Undo'), () => { xs.pop(); over = null; draw(); })]), log);
+    const f = (v) => { const x = (Math.round(v * 1000) / 1000).toString(); return en ? x : x.replace('.', ','); };
+    function draw() {
+      let S = 0, Q = 0; over = null;
+      xs.forEach((x, i) => { S += x; Q += x * x; const n = i + 1; if (n % 2 ? S > lambda * n + 1e-9 : Q > n + 1e-9) over = over || n; });
+      if (over) { xs = xs.slice(0, over - 1); S = xs.reduce((a, b) => a + b, 0); Q = xs.reduce((a, b) => a + b * b, 0); }
+      const n = xs.length + 1, alice = n % 2 === 1, room = alice ? lambda * n - S : n - Q;
+      log.textContent = xs.length ? xs.map((x, i) => `x${i + 1} = ${f(x)}`).join(' · ') : '';
+      out.textContent = (over ? T('Ce nombre dépasse la limite : coup refusé. ', 'This number breaks the limit: move refused. ') : '')
+        + (room < -1e-9 ? T(`Tour ${n} : ${alice ? 'Alice' : 'Bazza'} ne peut plus jouer et perd.`, `Turn ${n}: ${alice ? 'Alice' : 'Bazza'} cannot move and loses.`)
+          : alice ? T(`Tour ${n}, Alice : somme actuelle ${f(S)}, elle peut jouer de 0 à ${f(room)}.`, `Turn ${n}, Alice: current sum ${f(S)}, she may play from 0 to ${f(room)}.`)
+            : T(`Tour ${n}, Bazza : somme des carrés ${f(Q)}, il peut jouer de 0 à ${f(Math.sqrt(room))}.`, `Turn ${n}, Bazza: sum of squares ${f(Q)}, he may play from 0 to ${f(Math.sqrt(room))}.`));
+    }
+    draw();
+  },
+
   // ---- IMO 2024 problem 5: Turbo's board, played by the visitor or by the strategy
   turbo({ host, out, T, mode, later, stop }) {
     let C = 5, monsters, seen, pos, attempt, trail, done;
@@ -214,6 +254,47 @@ const BUILD = {
       else out.textContent = T('Tour complet, mais dans le sens inverse des aiguilles d’une montre.', 'Full tour, but anticlockwise.');
     }
     draw([]);
+  },
+
+  // ---- Euclid 2025 question 10: the triangle of coins; tap a small triangle or type T(r, j) moves
+  coins({ host, out, T }) {
+    let n = 3, moves = [];
+    const svg = sv('svg', { class: 'contest-svg', role: 'group' });
+    const sel = el('select', { 'aria-label': T('Rangées', 'Rows') }, [2, 3, 4, 5, 6, 7].map((k) => el('option', { value: k, text: T(`${k} rangées`, `${k} rows`) })));
+    sel.value = '3'; sel.addEventListener('change', () => { n = Number(sel.value); moves = []; build(); draw(); });
+    const [lab, inp] = field(T('Ou tapez les coups', 'Or type the moves'), { type: 'text', size: 30, placeholder: 'T(1,1) T(2,1) ...' });
+    host.append(el('div', { class: 'contest-bar' }, [sel, button(T('Annuler', 'Undo'), () => { moves.pop(); draw(); }), button(T('Recommencer', 'Start again'), () => { moves = []; inp.value = ''; draw(); })]), svg,
+      el('div', { class: 'contest-bar' }, [lab, button(T('Jouer', 'Play'), () => { moves = M.parseCoinMoves(inp.value); draw(); })]));
+    const s0 = 56, h0 = 48, pos = (r, i) => [s0 * (i - (r + 1) / 2) + s0 * (n + 1) / 2, h0 * r - h0 / 2 + 8];
+    let coinEls = new Map();
+    function build() {
+      const W = s0 * (n + 1), H = h0 * n + 16; svg.setAttribute('viewBox', `0 0 ${W} ${H}`); svg.replaceChildren(); coinEls = new Map();
+      svg.setAttribute('aria-label', T(`Triangle de ${n} rangées de pièces`, `Triangle of ${n} rows of coins`));
+      for (const [r, j] of M.coinMoves(n)) {
+        const pts = M.coinMove(r, j).map(([a, b]) => pos(a, b)), cx = pts.reduce((x, p) => x + p[0], 0) / 3, cy = pts.reduce((x, p) => x + p[1], 0) / 3;
+        const shrink = pts.map(([x, y]) => `${cx + (x - cx) * 0.8},${cy + (y - cy) * 0.8}`).join(' ');
+        const tri = sv('polygon', { points: shrink, class: 'cg-move', tabindex: 0, role: 'button', 'aria-label': `T(${r},${j})` });
+        const act = () => { moves.push([r, j]); draw(); };
+        tri.addEventListener('click', act); tri.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); act(); } });
+        svg.append(tri);
+      }
+      for (let r = 1; r <= n; r++) for (let i = 1; i <= r; i++) {
+        const [x, y] = pos(r, i), g = sv('g', { class: 'cg-coin' });
+        const c = sv('circle', { cx: x, cy: y, r: 14 }), t = sv('text', { x, y: y + 5, 'text-anchor': 'middle' });
+        g.append(c, t); svg.append(g); coinEls.set(`${r},${i}`, [g, t]);
+      }
+    }
+    function draw() {
+      const tails = M.flipCoins(n, moves);
+      if (!tails) { moves = moves.filter(([r, j]) => r >= 1 && r < n && j >= 1 && j <= 2 * r - 1); out.textContent = T('Un coup n’existe pas pour ce nombre de rangées ; il est ignoré.', 'A move does not exist for this number of rows; it is ignored.'); return draw(); }
+      for (const [k, [g, t]] of coinEls) { const tl = tails.get(k); g.setAttribute('class', `cg-coin${tl ? ' is-tails' : ''}`); t.textContent = tl ? T('P', 'T') : T('F', 'H'); }
+      const won = [...tails.values()].every(Boolean);
+      out.className = `contest-readout ${won ? 'is-ok' : ''}`;
+      const list = moves.map(([r, j]) => `T(${r},${j})`).join(' ');
+      out.textContent = won ? T(`Toutes les pièces sont sur pile en ${moves.length} coup(s) : partie gagnée. ${list}`, `Every coin shows tails after ${moves.length} move(s): the game is won. ${list}`)
+        : moves.length ? `${moves.length} ${T('coup(s)', 'move(s)')} : ${list}` : T('Toutes les pièces sont sur face.', 'Every coin shows heads.');
+    }
+    build(); draw();
   },
 
   // ---- BCC: push the buttons

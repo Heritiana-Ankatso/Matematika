@@ -24,7 +24,7 @@ Pick the row of your feature and open only its files. One-line descriptions are 
 | `js/v8/lycee.js` | design v8 Lycée (`#resources[/<course>]` under `?v8`): three notebooks on the copybook (covers: Madagascar flag, French tricolour, navy with meridians), levels from the live courses, chapters from `world-lines.js` `LYCEE_CHAPTERS`, one open at a time; a level in the address opens its notebook |
 | `js/v8/copybook.js` | design v8 Lycée chapter page (`#chapter/<id>` under `?v8`): the chapter deck written on the copybook (notions in a green frame, proofs folded under « Démonstration », examples with folded solution, points to watch), outline in the margin, sheets Exercices (solutions one by one or all) and Le chapitre (objectives, booklets, experiments, frequent errors), Projeter |
 | `js/seyes-rhythm.js` | keeps the copybook on the ruling: measures each block's first baseline and pads it down to the next heavy Seyès line (`align`, `keepOnRuling`: after fonts, formulas, resizing and folds; `shiftFor` pure) |
-| `js/v8/olymp.js` | design v8 Olympiades arena (`#olympiad` under `?v8`): the problem of the day (`problemOfTheDay`, from the date, the same for everyone) with hints and solution folded, the ten strategies, every problem as a square by level (counts from `olympiad-content.js`), warm-ups; no countdown; strategy pages keep their page, framed in the world |
+| `js/v8/olymp.js` | design v8 Olympiades arena (`#olympiad` under `?v8`): the problem of the day (`problemOfTheDay`, from the date, the same for everyone) with hints folded and a link to its solution page, the ten strategies, every problem as a square by level (counts from `olympiad-content.js`), warm-ups; no countdown; strategy pages keep their page, framed in the world |
 | `js/olympiad-warmups.js` | the challenge ids offered as warm-ups by the arena (titles from `catalogue-lines.js`) |
 | `js/sieges-data.js` | « Les grands assauts »: fallen and open problems with dates, solvers and a source each (`SIEGES`, `resisted`); re-check every open status before publishing (an open problem shows « Ouvert au <date> » from its `checked` date; announced attempts are not listed) |
 | `js/v8/sampler.js` | `#v8[/<world>]` (only under `?v8`): the foundation of each world (type roles, colours, every shared component), for review and the stage 2 browser test |
@@ -180,11 +180,12 @@ To add a generator: write `make` in the class file, give it a manifest chapter, 
 | File | Holds |
 |---|---|
 | `js/contests/registry.js` | every competition (field, kind, level, official source, terms of reuse, papers); `kind: 'olympiad'` sends each solution to its own page `#contests/<c>/<paper>/<n>` (owner rule, 23 November 2026); routes `isContestRoute` |
-| `js/contests/imo.js` | IMO 2023, 2024, 2025: the eighteen problems restated in French and English (no open licence), solutions written for 2023 P1, 2024 P1, P2, P5, 2025 P1, each with its answer and computed check |
+| `js/contests/imo.js` | IMO 2023, 2024, 2025: the eighteen problems restated in French and English (no open licence), solutions written for 2023 P1, P4, 2024 P1, P2, P5, 2025 P1, P5, each with its answer and computed check |
+| `js/contests/euclid.js` | Euclid Contest 2025 (CEMC, CC BY-NC 4.0): questions 5 to 10 (parts chosen), translated, official solutions shortened, typed answers (`expect`) checked, the coin game of question 10 on a board; `label` keeps the contest's numbering |
 | `js/contests/bcc.js` | Beaver Computing Challenge 2023, grades 9 and 10 (CEMC, CC BY-NC 4.0): five tasks translated and adapted, official choices and answers, folded solutions |
-| `js/contests/models.js` | pure maths and machines: divisor chain, sums of floors, gcd sequence, sunny lines (exhaustive), Turbo's board and strategy, video game, buttons, carrots, lockers, trains |
+| `js/contests/models.js` | pure maths and machines: divisor chain, sums of floors, gcd sequence, sunny lines (exhaustive), Turbo's board and strategy, the sequence a_n, the game of Alice and Bazza with the solution's strategies, the coin triangle (moves, winnability over Z/2), video game, buttons, carrots, lockers, trains |
 | `js/contests/page.js` | `#contests`, `#contests/<c>`, `#contests/<c>/<paper>`, `#contests/<c>/<paper>/<n>`: markup, answer checking, folded solutions of contests, MathJax |
-| `js/contests/widgets.js` | the figures: sunny lines, sums of floors, gcd, divisors, Turbo (played or replayed by the strategy), and the command checkers of the contest tasks |
+| `js/contests/widgets.js` | the figures: sunny lines, sums of floors, gcd, divisors, a_n, the game of Alice and Bazza (both sides played by the visitor), Turbo (played or replayed by the strategy), the coin triangle, and the command checkers of the contest tasks |
 
 ## Reading ("Lire": biographies, stories, timelines; the curiosities are the gallery, under "Explorer")
 

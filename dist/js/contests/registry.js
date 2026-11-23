@@ -6,6 +6,7 @@
 // official paper is linked (the rule of the Olympiad strategies, olympiad-content.js).
 import { PAPERS as IMO } from './imo.js';
 import { PAPERS as BCC } from './bcc.js';
+import { PAPERS as EUCLID } from './euclid.js';
 
 const P = (fr, en) => [fr, en];
 export const FIELDS = {
@@ -46,7 +47,8 @@ export const COMPETITIONS = [
   { id: 'euclid', field: 'math', kind: 'contest', short: 'Euclid',
     name: P('Concours Euclide (CEMC, Waterloo)', 'Euclid Contest (CEMC, Waterloo)'),
     level: P('Dernière année du secondaire', 'Final year of secondary school'), site: 'https://cemc.uwaterloo.ca/resources/past-contests',
-    rights: P('CC BY-NC 4.0, CEMC, Université de Waterloo. Sujets à venir.', 'CC BY-NC 4.0, CEMC, University of Waterloo. Papers to come.'), papers: [] },
+    about: P('Dix questions en deux heures et demie, avec des parties à réponse courte et des parties à rédiger.', 'Ten questions in two and a half hours, with short-answer parts and full-solution parts.'),
+    rights: P('© CEMC, Université de Waterloo, licence CC BY-NC 4.0. Traduit en français, solutions abrégées et adaptées, réponses vérifiées sur la page.', '© CEMC, University of Waterloo, licence CC BY-NC 4.0. Translated into French, solutions shortened and adapted, answers checked on the page.'), papers: EUCLID },
   { id: 'bcc', field: 'cs', kind: 'contest', short: 'BCC',
     name: P('Beaver Computing Challenge (CEMC, Waterloo)', 'Beaver Computing Challenge (CEMC, Waterloo)'),
     level: P('De la 5e à la 10e année (environ 10 à 16 ans)', 'Grades 5 to 10 (about ages 10 to 16)'),
