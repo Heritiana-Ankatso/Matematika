@@ -82,7 +82,7 @@ test('the Olympiad pages render every strategy in both languages', async () => {
 
 test('IMO papers: each year has six problems in two days, complete in both languages, maths balanced, no dashes', async () => {
   const { PAPERS } = await import('../site/js/imo-papers.js');
-  const { olympiadPage, isOlympiadRoute } = await import('../site/js/olympiad.js');
+  const { isOlympiadRoute } = await import('../site/js/olympiad.js');
   assert.ok(isOlympiadRoute('imo'));
   assert.deepEqual(PAPERS.map((p) => p.year), [...PAPERS.map((p) => p.year)].sort((a, b) => b - a), 'newest first');
   for (const p of PAPERS) {
@@ -93,9 +93,33 @@ test('IMO papers: each year has six problems in two days, complete in both langu
       for (const t of x.q) { assert.ok(balanced(t), `${p.year} P${x.n}: unbalanced maths`); assert.ok(!/[–—]/.test(t), `${p.year} P${x.n}: dash`); }
     }
   }
+});
+
+test('IMO pages: index, problem and solution pages in both languages; the solution is never on the problem page', async () => {
+  const { PAPERS } = await import('../site/js/imo-papers.js');
+  const { SOLUTIONS } = await import('../site/js/imo-solutions.js');
+  const { imoPage, TITLES, FIGURES } = await import('../site/js/imo-page.js');
+  const keys = PAPERS.flatMap((p) => p.days.flatMap((d) => d.problems.map((x) => `${p.year}-${x.n}`)));
+  for (const k of keys) assert.ok(pair(TITLES[k]), `title ${k}`);
+  for (const k of Object.keys(FIGURES)) assert.ok(keys.includes(k), `figure for an unknown problem ${k}`);
+  for (const k of Object.keys(SOLUTIONS)) {
+    assert.ok(keys.includes(k), `solution for an unknown problem ${k}`);
+    const s = SOLUTIONS[k]; assert.ok(pair(s.answer) && /^[ACGN]\d$/.test(s.from), k);
+    for (const b of s.body) { assert.ok(pair(b), k); for (const x of b) { assert.ok(balanced(x), `${k}: unbalanced maths in ${x.slice(0, 50)}`); assert.ok(!/[–—]/.test(x), `${k}: dash`); } }
+  }
+  assert.deepEqual(Object.keys(SOLUTIONS).sort(), keys.filter((k) => k.startsWith('2025')).sort(), 'the six 2025 solutions, none invented for 2026');
   for (const i of [0, 1]) {
-    const html = olympiadPage('imo', (x) => x[i]);
-    assert.equal((html.match(/class="olymp-problem/g) || []).length, 6 * PAPERS.length);
-    assert.ok(!/undefined|NaN/.test(html));
+    const t = (x) => x[i];
+    const index = imoPage(undefined, undefined, t);
+    assert.equal((index.match(/class="olymp-card"/g) || []).length, keys.length);
+    for (const k of keys) {
+      const problem = imoPage(k, undefined, t), sol = imoPage(k, 'solution', t);
+      assert.ok(problem.includes('olymp-problem') && problem.includes(`#olympiad/imo/${k}/solution`), k);
+      assert.ok(!problem.includes('olymp-idea'), `${k}: solution text on the problem page`);
+      assert.equal(problem.includes('data-imo-figure'), k in FIGURES, k);
+      assert.ok(sol.includes('olymp-idea'), k);
+      assert.equal(sol.includes('Answer') || sol.includes('Réponse'), k in SOLUTIONS, k);
+      assert.ok(!/undefined|NaN/.test(problem + sol), k);
+    }
   }
 });

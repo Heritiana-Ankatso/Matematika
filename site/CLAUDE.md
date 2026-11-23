@@ -173,8 +173,11 @@ To add a generator: write `make` in the class file, give it a manifest chapter, 
 |---|---|
 | `js/olympiad-content.js` | the ten strategies (bilingual): the question, the idea, a solved example, five problems per strategy (national, Pan-African, international level) with hints and solutions, links to experiments and challenges; seeded from the owner's COMIMa courses, rewritten, problems restated |
 | `js/olympiad.js` | `#olympiad` (index) and `#olympiad/<id>` (one strategy): page markup, inline figure or laboratory experiment, MathJax typesetting |
-| `js/imo-models.js` | pure models of the interactive figures of the IMO papers (blackboard moves 2026 P1, shared-factor sequence 2026 P6, three largest proper divisors 2025 P4, lines and sunny lines 2025 P1, tiles 2025 P6); rules only, never the answer. The figures and the dedicated solution pages are not built yet |
-| `js/imo-papers.js` | the IMO papers (`#olympiad/imo`): `PAPERS`, newest first, six problems per year in two days, official French and English statements (statements only, no solutions); add a year at the top |
+| `js/imo-models.js` | pure models of the interactive figures of the IMO papers (blackboard moves 2026 P1, shared-factor sequence 2026 P6, three largest proper divisors 2025 P4, lines and sunny lines 2025 P1, tiles 2025 P6); rules only, never the answer |
+| `js/imo-page.js` | the IMO pages, loaded on demand (group `imo` of `app.js`): `#olympiad/imo` (papers), `#olympiad/imo/<year>-<n>` (problem and figure), `#olympiad/imo/<year>-<n>/solution` (solution, a page of its own); `TITLES`, `FIGURES` (which problems have a figure) |
+| `js/imo-widgets.js` | the five IMO figures (blackboard, shared-factor sequence, proper divisors, sunny lines, tiles): command sequences are checked against the rules, the answer is never shown; canvas actions have a keyboard form |
+| `js/imo-solutions.js` | the solutions of the IMO 2025 problems, condensed from the official shortlist (labels C1, G4, N7, N3, A3, C8), French text translated by the assistant; 2026 has none (no official source supplied) |
+| `js/imo-papers.js` | the IMO papers (`#olympiad/imo`): `PAPERS`, newest first, six problems per year in two days, official French and English statements; add a year at the top, then its titles in `imo-page.js` |
 | `js/olympiad-widgets.js` | three figures with pure models: nearest neighbours (extremal principle), the inscribed angle, rectangle and square of the same perimeter |
 
 ## Reading ("Lire": biographies, stories, timelines; the curiosities are the gallery, under "Explorer")

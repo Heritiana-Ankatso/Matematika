@@ -1767,3 +1767,18 @@ body:has(#object-stage:empty) :is(.learning, .workbench ~ *, #app ~ footer, main
   .nk-view .exhibit-readout { font-size:.88rem; min-height:2.4em; }
 }
 .experiment:has(.nk) { overflow:visible; }
+
+/* IMO figures (#olympiad/imo/<year>-<n>): controls row, chips of the blackboard, tables, canvases */
+.imo-figure{display:grid;gap:12px;margin-top:10px}
+.imo-controls{display:flex;flex-wrap:wrap;gap:10px 14px;align-items:flex-end}
+.imo-controls label{display:grid;gap:4px;font-weight:600}
+.imo-chips{display:flex;flex-wrap:wrap;gap:8px}
+.imo-chip{min-width:56px;min-height:44px;padding:6px 12px;border:1px solid var(--line-strong);border-radius:var(--r);background:var(--surface);font:600 1.05rem var(--math);color:var(--ink)}
+.imo-chip.is-picked{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent)}
+.imo-chip:disabled{opacity:.45}
+.imo-log{margin:0;padding-left:1.4em;max-height:14em;overflow:auto;color:var(--ink-2)}
+.imo-scroll{overflow-x:auto}
+.imo-table{border-collapse:collapse;font-variant-numeric:tabular-nums}
+.imo-table th,.imo-table td{padding:4px 8px;border:1px solid var(--line);text-align:right;white-space:nowrap}
+.imo-table th[scope=row]{text-align:left;position:sticky;left:0;background:var(--surface)}
+.imo-canvas{max-width:640px}

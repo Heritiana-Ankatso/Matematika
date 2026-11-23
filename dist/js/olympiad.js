@@ -4,7 +4,6 @@
 // Bilingual: the page follows the interface language. Solutions stay folded until the reader opens them.
 import { STRATEGIES, LEVELS } from './olympiad-content.js';
 import { mountWidget } from './olympiad-widgets.js';
-import { PAPERS, IMO_SOURCE } from './imo-papers.js';
 import { resolveLine } from './lab/lines.js';
 import { CHALLENGE_LINES } from './catalogue-lines.js';
 import { typeset } from './mathjax.js';
@@ -25,29 +24,14 @@ function linkList(s, t) {
   }).join('');
 }
 
-// The IMO papers (#olympiad/imo): statements only, in the interface language; one block per year, newest first.
-const paragraphs = (q) => q.split('\n').map((x) => `<p>${M(x)}</p>`).join('');
-function imoPage(t) {
-  const year = (p) => `<section class="olymp-theme imo-paper" id="imo-${p.year}"><h2>${t(['OIMI', 'IMO'])} ${p.year} · ${E(p.city)}, ${E(t(p.country))}</h2>
-<p class="muted">${p.edition}${t(['e', 'th'])} ${t(['Olympiade internationale de mathématiques', 'International Mathematical Olympiad'])} · ${t(['deux jours de trois problèmes, 4 h 30 par jour, 7 points par problème', 'two days of three problems, 4 h 30 per day, 7 points per problem'])}</p>
-${p.days.map((d, k) => `<h3>${t(['Jour', 'Day'])} ${k + 1} · ${E(d.date)}</h3>${d.problems.map((x) => `<article class="olymp-problem olymp-intl" id="imo-${p.year}-p${x.n}"><header><span class="olymp-level olymp-intl">${E(t(LEVELS.intl))}</span><h4>${t(['Problème', 'Problem'])} ${x.n}</h4></header>${paragraphs(t(x.q))}</article>`).join('')}`).join('')}</section>`;
-  return `<main id="main" tabindex="-1" class="page olymp-page olymp-detail"><nav class="breadcrumb"><a href="#olympiad">${t(['Olympiades', 'Olympiads'])}</a></nav>
-<h1>${t(['Olympiades internationales de mathématiques', 'International Mathematical Olympiads'])}</h1>
-<p class="page-intro">${t(['Les épreuves officielles, année par année, pour s’entraîner dans les conditions du concours : cherchez d’abord seul, avec des petits cas et une figure. Ces pages donnent les énoncés ; les solutions ne sont pas reproduites ici.', 'The official papers, year by year, to practise in competition conditions: try alone first, with small cases and a figure. These pages give the statements; solutions are not reproduced here.'])}</p>
-<p class="muted">${PAPERS.map((p) => `<span>${p.year}</span>`).join(' · ')}</p>
-${PAPERS.map(year).join('')}
-<p class="muted olymp-note">${t(['Source : ', 'Source: '])}${E(t(IMO_SOURCE))}</p></main>`;
-}
-
 export function olympiadPage(id, t) {
-  if (id === 'imo') return imoPage(t);
   if (!id) {
     const byTheme = [...new Set(STRATEGIES.map((s) => t(s.theme)))];
     return `<main id="main" tabindex="-1" class="page olymp-page"><h1>${t(['Olympiades', 'Olympiads'])}</h1>
 <p class="page-intro">${t(['Dix façons de penser qui reviennent dans tous les concours. Chacune commence par une question à manipuler, explique l’idée sur un exemple, puis propose une échelle de problèmes, de la sélection nationale au niveau international, avec des indices progressifs et des solutions complètes.', 'Ten ways of thinking that come back in every competition. Each one starts with a question to handle, explains the idea on an example, then offers a ladder of problems, from national selection to international level, with progressive hints and full solutions.'])}</p>
 <ul class="olymp-levels">${Object.entries(LEVELS).map(([k, v]) => `<li class="olymp-level olymp-${k}">${E(t(v))}</li>`).join('')}</ul>
 ${byTheme.map((theme) => `<section class="olymp-theme"><h2>${E(theme)}</h2><ul class="olymp-grid">${STRATEGIES.filter((s) => t(s.theme) === theme).map((s) => `<li><a class="olymp-card" href="#olympiad/${s.id}">${icon(s.icon, 26)}<strong>${M(t(s.title))}</strong><span>${M(t(s.hook))}</span><small>${s.problems.length} ${t(['problèmes', 'problems'])}</small></a></li>`).join('')}</ul></section>`).join('')}
-<section class="olymp-theme"><h2>${t(['Les épreuves de l’OIMI', 'The IMO papers'])}</h2><ul class="olymp-grid"><li><a class="olymp-card" href="#olympiad/imo">${icon('trophy', 26)}<strong>${t(['Olympiades internationales de mathématiques', 'International Mathematical Olympiads'])}</strong><span>${t(['Les épreuves officielles, en français et en anglais.', 'The official papers, in French and English.'])}</span><small>${PAPERS.map((p) => p.year).join(', ')}</small></a></li></ul></section>
+<section class="olymp-theme"><h2>${t(['Les épreuves de l’OIMI', 'The IMO papers'])}</h2><ul class="olymp-grid"><li><a class="olymp-card" href="#olympiad/imo">${icon('trophy', 26)}<strong>${t(['Olympiades internationales de mathématiques', 'International Mathematical Olympiads'])}</strong><span>${t(['Les épreuves officielles, en français et en anglais.', 'The official papers, in French and English.'])}</span><small>2025, 2026</small></a></li></ul></section>
 <p class="muted olymp-note">${t(['Les problèmes classiques sont reformulés ; la source est indiquée quand un problème vient d’un concours.', 'Classical problems are restated in our own words; the source is given when a problem comes from a competition.'])}</p></main>`;
   }
   const s = STRATEGIES.find((x) => x.id === id), i = STRATEGIES.indexOf(s);

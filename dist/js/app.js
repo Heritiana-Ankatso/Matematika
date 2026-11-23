@@ -30,7 +30,7 @@ import {installOffline} from './offline.js';
 let labs = [], challenges = [];
 let articleOf, articleHtml, galleryContext, mountObject, galleryIndex, mountArt, fullscreenButton, relatedChapters;
 let workshopMarkup, bindWorkshop, errorsPage, bindErrors, isErrorRoute, intuitionPage, fractalsPage;
-let olympiadPage, bindOlympiad, isOlympiadRoute, libraryPage, bindLibrary, chapterPage, bindChapter;
+let imoPage, bindImo, olympiadPage, bindOlympiad, isOlympiadRoute, libraryPage, bindLibrary, chapterPage, bindChapter;
 let packPage, bindPack, sourcesPage, bindSources, automatismesPage, bindAutomatismes, sheetsPage, bindSheets;
 let bankPage, bindBank, isBankRoute, slidesPage, bindSlides, universityPage, bindUniversity;
 let pathwayPageView, bindPathways, homePage, bindHome, mountHomeFigure, isReading, readingPage, readAlso, mountLibrary;
@@ -62,6 +62,7 @@ const LOADERS = {
   intuition: async () => { ({ intuitionPage } = await import("./intuition-page.js")); },
   fractals: async () => { ({ fractalsPage } = await import("./fractals-page.js")); },
   errors: async () => { const [e, m] = await Promise.all([import("./errors.js"), import("./errors-model.js")]); ({ errorsPage, bindErrors } = e); ({ isErrorRoute } = m); },
+  imo: async () => { ({ imoPage, bindImo } = await import("./imo-page.js")); },
   olympiad: async () => { ({ olympiadPage, bindOlympiad, isOlympiadRoute } = await import("./olympiad.js")); },
   reading: async () => { ({ isReading, readingPage, readAlso } = await import("./reading.js")); },
   challenges: async () => {
@@ -238,6 +239,7 @@ function missingFor() {
     r = route();
   }
   const groups = [...needsOf(r.page)];
+  if (r.page === "olympiad" && r.id === "imo") groups.push("imo");
   // the curiosities live in the gallery, whatever link points at them: an address that is no experiment is checked
   // against the catalogue of curiosities
   if (r.page === "lab" && r.id && loaded.has("lab") && !(resolveRef(labRef(r.id, r.tab)) || resolveRef(r.id))) {
@@ -365,7 +367,7 @@ function draw(serial) {
       : page === "errors" ? errorsPage(r.id, t)
       : page === "intuition" ? intuitionPage(t)
       : page === "fractals" ? fractalsPage(t, lang)
-      : page === "olympiad" ? olympiadPage(r.id, t)
+      : page === "olympiad" ? (r.id === "imo" ? imoPage(r.tab, r.sub, t) : olympiadPage(r.id, t))
       : page === "lab"
       ? (experiment ? experimentPage(experiment, { t, pair, link, completed, mission: r.tab || "" }) : labIndexPage({ t, pair, link, completed }))
       : page === "gallery"
@@ -412,7 +414,7 @@ function draw(serial) {
   if (page === "lab" && !experiment) bindLabIndex($("#main"), pair);
   if (page === "challenges") stopChapter = bindChallenges();
   if (page === "errors") stopChapter = bindErrors($("#main"), t, r.id);
-  if (page === "olympiad") stopChapter = bindOlympiad($("#main"), lang);
+  if (page === "olympiad") stopChapter = r.id === "imo" ? bindImo($("#main"), lang) : bindOlympiad($("#main"), lang);
   if (page === "home") stopChapter = bindHome($("#main"),homeIndex,t);
   if (page === "teacher") stopChapter = mountTeacher($("#main"));
   if (page === "prepare") stopChapter = mountMode($("#main"), "prepare");
