@@ -19,8 +19,11 @@ they help.
   Euclid, Castor, Algoréa, Prologin, CCC, USACO, IOI. Terms not found on their sites on 23 November 2026 [VERIFY with
   each organiser before importing verbatim]; CEMC (Euclid, CCC) is CC BY-NC 4.0. Whether the BCC tasks that come from
   the international Bebras pool are covered by the CEMC licence [VERIFY].
-- Queue: (1) solutions for the 13 IMO problems marked "in preparation" (2023 P2 to P6, 2024 P3, P4, P6, 2025 P2 to
-  P6), each with a computed check; (2) earlier IMO years (2019 to 2022 already fetched, not yet restated); (3) PAMO and
+- Added 23 November 2026 (second round): IMO 2023 P4 and 2025 P5 solutions; Euclid 2025 (CEMC, CC BY-NC 4.0),
+  questions 5 to 10 (parts chosen), typed answers checked, coin game of question 10 played and checked on a board.
+  Olympiad strategy pages: each solution moved to `#olympiad/<id>/<n>` (owner decision), the arena links to it.
+- Queue: (1) solutions for the 11 IMO problems marked "in preparation" (2023 P2, P3, P5, P6, 2024 P3, P4, P6, 2025 P2,
+  P3, P4, P6), each with a computed check; Euclid questions 1 to 4 (figures to redraw) and 9 (c); (2) earlier IMO years (2019 to 2022 already fetched, not yet restated); (3) PAMO and
   the Malagasy olympiad once the owner supplies or locates papers; (4) Euclid and CCC (open licence); (5) the others
   after the organisers' answers. Owner question: should the existing Olympiad strategy pages also move their folded
   solutions to separate pages, as the new rule says for the Olympiad section?
