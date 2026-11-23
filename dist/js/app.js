@@ -30,7 +30,7 @@ import {installOffline} from './offline.js';
 let labs = [], challenges = [];
 let articleOf, articleHtml, galleryContext, mountObject, galleryIndex, mountArt, fullscreenButton, relatedChapters;
 let workshopMarkup, bindWorkshop, errorsPage, bindErrors, isErrorRoute, intuitionPage, fractalsPage;
-let imoPage, bindImo, olympiadPage, bindOlympiad, isOlympiadRoute, libraryPage, bindLibrary, chapterPage, bindChapter;
+let olympiadPage, bindOlympiad, isOlympiadRoute, contestsPage, bindContests, isContestRoute, libraryPage, bindLibrary, chapterPage, bindChapter;
 let packPage, bindPack, sourcesPage, bindSources, automatismesPage, bindAutomatismes, sheetsPage, bindSheets;
 let bankPage, bindBank, isBankRoute, slidesPage, bindSlides, universityPage, bindUniversity;
 let pathwayPageView, bindPathways, homePage, bindHome, mountHomeFigure, isReading, readingPage, readAlso, mountLibrary;
@@ -62,8 +62,8 @@ const LOADERS = {
   intuition: async () => { ({ intuitionPage } = await import("./intuition-page.js")); },
   fractals: async () => { ({ fractalsPage } = await import("./fractals-page.js")); },
   errors: async () => { const [e, m] = await Promise.all([import("./errors.js"), import("./errors-model.js")]); ({ errorsPage, bindErrors } = e); ({ isErrorRoute } = m); },
-  imo: async () => { ({ imoPage, bindImo } = await import("./imo-page.js")); },
   olympiad: async () => { ({ olympiadPage, bindOlympiad, isOlympiadRoute } = await import("./olympiad.js")); },
+  contests: async () => { const [p, r] = await Promise.all([import("./contests/page.js"), import("./contests/registry.js")]); ({ contestsPage, bindContests } = p); ({ isContestRoute } = r); },
   reading: async () => { ({ isReading, readingPage, readAlso } = await import("./reading.js")); },
   challenges: async () => {
     const [reg, c, r] = await Promise.all([import("./challenges/registry.js"), import("./challenges/common/cartoon.js"), import("./reading.js")]);
@@ -188,7 +188,7 @@ const SECTIONS = [
   // Résoudre: everything you solve (problems, competition strategies, errors to correct).
   ["solve", "Résoudre", "Solve", "puzzle-piece", [
     ["challenges", "Défis", "Challenges", "puzzle-piece"],
-    ...(FULL_EDITION ? [["olympiad", "Olympiades", "Olympiads", "trophy"]] : []),
+    ...(FULL_EDITION ? [["olympiad", "Olympiades", "Olympiads", "trophy"], ["contests", "Concours", "Competitions", "seal-check"]] : []),
     ["errors", "Erreurs", "Errors", "warning"],
   ]],
   // Lire: everything you read (texts and timelines).
@@ -239,7 +239,6 @@ function missingFor() {
     r = route();
   }
   const groups = [...needsOf(r.page)];
-  if (r.page === "olympiad" && r.id === "imo") groups.push("imo");
   // the curiosities live in the gallery, whatever link points at them: an address that is no experiment is checked
   // against the catalogue of curiosities
   if (r.page === "lab" && r.id && loaded.has("lab") && !(resolveRef(labRef(r.id, r.tab)) || resolveRef(r.id))) {
@@ -348,7 +347,8 @@ function draw(serial) {
     (r.page === 'history' && isHistoryRoute(r.id,r.tab)) ||
     (r.page === 'topics' && isTopicRoute(r.id,r.tab)) ||
     (r.page === "errors" && isErrorRoute(r.id)) || (r.page === "intuition" && !r.id) || (r.page === "fractals" && !r.id) ||
-    (r.page === "olympiad" && isOlympiadRoute(r.id)) ||
+    (r.page === "olympiad" && isOlympiadRoute(r.id, r.tab)) ||
+    (r.page === "contests" && isContestRoute(r.id, r.tab, r.sub)) ||
     (r.page === "challenges" && (!r.id || challenges.some(c => c.id === r.id))) ||
     (r.page === "home" && !r.id) || (r.page === "teacher" && !r.id) || (r.page === "prepare" && !r.id) || (r.page === "relax" && !r.id) || (r.page === "review" && !r.id) || r.page === "search" || (r.page === "basics" && isBasicsRoute(r.id)) || ((r.page === "biographies" || r.page === "stories") && isReading(r.page, r.id)) || (r.page === "pathways" && (!r.id || livePathways.some(p => p.id === r.id))) || r.page === "library" || r.page === "pack" || r.page === "sources" || r.page === "slides" || r.page === "automatismes" || r.page === "sheets" || (r.page === "bank" && isBankRoute(r.id, r.tab, r.sub)) ||
     r.page === "university" || (r.page === "resources" && isLiveRoute(r)) || (r.page === "workshop" && r.id === "quadratic") ||
@@ -367,7 +367,8 @@ function draw(serial) {
       : page === "errors" ? errorsPage(r.id, t)
       : page === "intuition" ? intuitionPage(t)
       : page === "fractals" ? fractalsPage(t, lang)
-      : page === "olympiad" ? (r.id === "imo" ? imoPage(r.tab, r.sub, t) : olympiadPage(r.id, t))
+      : page === "olympiad" ? olympiadPage(r.id, t, r.tab)
+      : page === "contests" ? contestsPage(r, t, lang)
       : page === "lab"
       ? (experiment ? experimentPage(experiment, { t, pair, link, completed, mission: r.tab || "" }) : labIndexPage({ t, pair, link, completed }))
       : page === "gallery"
@@ -414,7 +415,8 @@ function draw(serial) {
   if (page === "lab" && !experiment) bindLabIndex($("#main"), pair);
   if (page === "challenges") stopChapter = bindChallenges();
   if (page === "errors") stopChapter = bindErrors($("#main"), t, r.id);
-  if (page === "olympiad") stopChapter = r.id === "imo" ? bindImo($("#main"), lang) : bindOlympiad($("#main"), lang);
+  if (page === "olympiad") stopChapter = bindOlympiad($("#main"), lang);
+  if (page === "contests") stopChapter = bindContests($("#main"), lang);
   if (page === "home") stopChapter = bindHome($("#main"),homeIndex,t);
   if (page === "teacher") stopChapter = mountTeacher($("#main"));
   if (page === "prepare") stopChapter = mountMode($("#main"), "prepare");

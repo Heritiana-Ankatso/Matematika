@@ -33,6 +33,7 @@ export const ROUTES = {
   stories: { world: 'musee', needs: ['reading'] },
   challenges: { world: 'musee', needs: ['content', 'challenges'] },
   olympiad: { world: 'olymp', needs: ['olympiad'] },
+  contests: { world: 'olymp', needs: ['contests'] },
 };
 
 // Pages drawn in their v8 world while the switch is on (js/v8.js, docs/REBUILD_PLAN.md stages 2 to 8): the groups they

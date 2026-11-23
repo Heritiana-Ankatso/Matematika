@@ -76,50 +76,18 @@ test('the Olympiad pages render every strategy in both languages', async () => {
       const html = olympiadPage(s.id, t);
       assert.ok(!/undefined|NaN/.test(html), s.id);
       assert.equal((html.match(/class="olymp-problem /g) || []).length, s.problems.length);
-    }
-  }
-});
-
-test('IMO papers: each year has six problems in two days, complete in both languages, maths balanced, no dashes', async () => {
-  const { PAPERS } = await import('../site/js/imo-papers.js');
-  const { isOlympiadRoute } = await import('../site/js/olympiad.js');
-  assert.ok(isOlympiadRoute('imo'));
-  assert.deepEqual(PAPERS.map((p) => p.year), [...PAPERS.map((p) => p.year)].sort((a, b) => b - a), 'newest first');
-  for (const p of PAPERS) {
-    assert.equal(p.days.length, 2, p.year);
-    assert.deepEqual(p.days.flatMap((d) => d.problems.map((x) => x.n)), [1, 2, 3, 4, 5, 6], p.year);
-    for (const x of p.days.flatMap((d) => d.problems)) {
-      assert.ok(pair(x.q), `${p.year} P${x.n}`);
-      for (const t of x.q) { assert.ok(balanced(t), `${p.year} P${x.n}: unbalanced maths`); assert.ok(!/[–—]/.test(t), `${p.year} P${x.n}: dash`); }
-    }
-  }
-});
-
-test('IMO pages: index, problem and solution pages in both languages; the solution is never on the problem page', async () => {
-  const { PAPERS } = await import('../site/js/imo-papers.js');
-  const { SOLUTIONS } = await import('../site/js/imo-solutions.js');
-  const { imoPage, TITLES, FIGURES } = await import('../site/js/imo-page.js');
-  const keys = PAPERS.flatMap((p) => p.days.flatMap((d) => d.problems.map((x) => `${p.year}-${x.n}`)));
-  for (const k of keys) assert.ok(pair(TITLES[k]), `title ${k}`);
-  for (const k of Object.keys(FIGURES)) assert.ok(keys.includes(k), `figure for an unknown problem ${k}`);
-  for (const k of Object.keys(SOLUTIONS)) {
-    assert.ok(keys.includes(k), `solution for an unknown problem ${k}`);
-    const s = SOLUTIONS[k]; assert.ok(pair(s.answer) && /^[ACGN]\d$/.test(s.from), k);
-    for (const b of s.body) { assert.ok(pair(b), k); for (const x of b) { assert.ok(balanced(x), `${k}: unbalanced maths in ${x.slice(0, 50)}`); assert.ok(!/[–—]/.test(x), `${k}: dash`); } }
-  }
-  assert.deepEqual(Object.keys(SOLUTIONS).sort(), keys.filter((k) => k.startsWith('2025')).sort(), 'the six 2025 solutions, none invented for 2026');
-  for (const i of [0, 1]) {
-    const t = (x) => x[i];
-    const index = imoPage(undefined, undefined, t);
-    assert.equal((index.match(/class="olymp-card"/g) || []).length, keys.length);
-    for (const k of keys) {
-      const problem = imoPage(k, undefined, t), sol = imoPage(k, 'solution', t);
-      assert.ok(problem.includes('olymp-problem') && problem.includes(`#olympiad/imo/${k}/solution`), k);
-      assert.ok(!problem.includes('olymp-idea'), `${k}: solution text on the problem page`);
-      assert.equal(problem.includes('data-imo-figure'), k in FIGURES, k);
-      assert.ok(sol.includes('olymp-idea'), k);
-      assert.equal(sol.includes('Answer') || sol.includes('Réponse'), k in SOLUTIONS, k);
-      assert.ok(!/undefined|NaN/.test(problem + sol), k);
+      // owner rule of 23 November 2026: no solution on the strategy page, one solution page per problem
+      const esc = (x) => x.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+      assert.ok(!html.includes('olymp-solution"'), `${s.id}: folded solution on the strategy page`);
+      s.problems.forEach((p, k) => {
+        assert.ok(!html.includes(esc(t(p.s)).slice(0, 80)), `${s.id} ${k + 1}: solution text on the strategy page`);
+        assert.ok(html.includes(`#olympiad/${s.id}/${k + 1}`), `${s.id} ${k + 1}: link to the solution page`);
+        assert.ok(isOlympiadRoute(s.id, String(k + 1)));
+        const page = olympiadPage(s.id, t, String(k + 1));
+        assert.ok(page.includes(esc(t(p.s)).slice(0, 80)) && page.includes(esc(t(p.q)).slice(0, 80)), `${s.id} ${k + 1}: solution page`);
+        assert.ok(!/undefined|NaN/.test(page));
+      });
+      assert.ok(!isOlympiadRoute(s.id, '0') && !isOlympiadRoute(s.id, String(s.problems.length + 1)) && !isOlympiadRoute(s.id, 'x'));
     }
   }
 });

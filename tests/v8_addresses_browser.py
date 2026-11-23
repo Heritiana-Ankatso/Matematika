@@ -13,8 +13,8 @@ ADDRESSES = [
     'basics', 'basics/fractions', 'resources', 'resources/t10', 'chapter/seconde-01', 'chapter/seconde-01/exercices',
     'library', 'workshop/quadratic', 'pack', 'sources', 'automatismes', 'sheets', 'bank', 'bank/seconde/seconde-01',
     'slides', 'slides/premiere', 'lab', 'lab/quadratic/vertex', 'history/advances', 'history/advances/babylonian-calculation',
-    'biographies', 'biographies/gauss', 'stories/gauss-sum', 'gallery', 'gallery/galton', 'olympiad', 'olympiad/pigeonhole',
-    'intuition', 'fractals', 'errors', 'errors/square-of-sum', 'challenges', 'challenges/gauss-sum', 'pathways', 'pathways/mg',
+    'biographies', 'biographies/gauss', 'stories/gauss-sum', 'gallery', 'gallery/galton', 'olympiad', 'olympiad/pigeonhole', 'olympiad/pigeonhole/1',
+    'intuition', 'fractals', 'contests', 'contests/imo/2024', 'contests/imo/2024/5', 'contests/bcc/2023-9-10', 'errors', 'errors/square-of-sum', 'challenges', 'challenges/gauss-sum', 'pathways', 'pathways/mg',
     'university', 'university/algebre-1-guide',
 ]
 MISSING = re.compile(r'Page introuvable|Page not found')
