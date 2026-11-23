@@ -4,6 +4,7 @@
 // olympiad-content.js; warm-ups: olympiad-warmups.js; strategy pages keep their page, framed in this world.
 import { STRATEGIES, LEVELS } from '../olympiad-content.js';
 import { WARMUPS } from '../olympiad-warmups.js';
+import { PAPERS } from '../imo-papers.js';
 import { CHALLENGE_LINES } from '../catalogue-lines.js';
 import { dayNumber } from '../museum-data.js';
 import { typeset } from '../mathjax.js';
@@ -30,6 +31,7 @@ export function olympPage({ t, lang, siteName, date = new Date() }) {
     + `<details class="v8-reveal"><summary>${s(P('Solution', 'Solution'))}</summary><div data-math>${s(day.s)}</div></details></div></section>`
     + `<section class="v8-wrap v8-band" aria-labelledby="v8-strat-h"><h2 id="v8-strat-h">${s(P('Les stratégies', 'The strategies'))}</h2><ol class="v8-strategies">${STRATEGIES.map((x, i) => `<li><a href="#olympiad/${E(x.id)}"><span class="v8-figure-mono">${String(i + 1).padStart(2, '0')}</span><span><span class="v8-eyebrow">${s(x.theme)}</span><b>${s(x.title)}</b></span></a></li>`).join('')}</ol></section>`
     + `<section class="v8-wrap v8-band" aria-labelledby="v8-grid-h"><h2 id="v8-grid-h">${s(P(`Les ${PROBLEMS.length} problèmes`, `The ${PROBLEMS.length} problems`))}</h2><p class="v8-legend">${ORDER.map((lv) => `<span class="v8-sq is-${lv}" aria-hidden="true"></span> ${s(LEVELS[lv])} (${count(lv)})`).join(' · ')}</p><ul class="v8-squares">${squares.map((p) => `<li><a class="v8-sq is-${p.level}" href="#olympiad/${E(p.strategy.id)}" aria-label="${s(p.title)} · ${s(LEVELS[p.level])} · ${s(p.strategy.title)}" title="${s(p.title)}"></a></li>`).join('')}</ul></section>`
+    + `<section class="v8-wrap v8-band" aria-labelledby="v8-imo-h"><h2 id="v8-imo-h">${s(P('Les épreuves de l’OIMI', 'The IMO papers'))}</h2><p class="v8-muted">${s(P('Les épreuves officielles, en français et en anglais.', 'The official papers, in French and English.'))}</p><ul class="v8-chips">${PAPERS.map((x) => `<li><a href="#olympiad/imo">${x.year}</a></li>`).join('')}</ul></section>`
     + `<section class="v8-wrap v8-band" aria-labelledby="v8-warm-h"><h2 id="v8-warm-h">${s(P('Échauffements', 'Warm-ups'))}</h2><p class="v8-muted">${s(P('Des défis du musée pour s’échauffer, sans limite de temps.', 'Challenges from the museum to warm up, with no time limit.'))}</p><ul class="v8-chips">${WARMUPS.map((id) => CHALLENGE_LINES.find((c) => c.id === id)).filter(Boolean).map((c) => `<li><a href="#challenges/${E(c.id)}">${s(c.title)}</a></li>`).join('')}</ul></section>`
     + `</main></div>`;
 }

@@ -173,6 +173,7 @@ To add a generator: write `make` in the class file, give it a manifest chapter, 
 |---|---|
 | `js/olympiad-content.js` | the ten strategies (bilingual): the question, the idea, a solved example, five problems per strategy (national, Pan-African, international level) with hints and solutions, links to experiments and challenges; seeded from the owner's COMIMa courses, rewritten, problems restated |
 | `js/olympiad.js` | `#olympiad` (index) and `#olympiad/<id>` (one strategy): page markup, inline figure or laboratory experiment, MathJax typesetting |
+| `js/imo-papers.js` | the IMO papers (`#olympiad/imo`): `PAPERS`, newest first, six problems per year in two days, official French and English statements (statements only, no solutions); add a year at the top |
 | `js/olympiad-widgets.js` | three figures with pure models: nearest neighbours (extremal principle), the inscribed angle, rectangle and square of the same perimeter |
 
 ## Reading ("Lire": biographies, stories, timelines; the curiosities are the gallery, under "Explorer")

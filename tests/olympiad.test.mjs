@@ -79,3 +79,23 @@ test('the Olympiad pages render every strategy in both languages', async () => {
     }
   }
 });
+
+test('IMO papers: each year has six problems in two days, complete in both languages, maths balanced, no dashes', async () => {
+  const { PAPERS } = await import('../site/js/imo-papers.js');
+  const { olympiadPage, isOlympiadRoute } = await import('../site/js/olympiad.js');
+  assert.ok(isOlympiadRoute('imo'));
+  assert.deepEqual(PAPERS.map((p) => p.year), [...PAPERS.map((p) => p.year)].sort((a, b) => b - a), 'newest first');
+  for (const p of PAPERS) {
+    assert.equal(p.days.length, 2, p.year);
+    assert.deepEqual(p.days.flatMap((d) => d.problems.map((x) => x.n)), [1, 2, 3, 4, 5, 6], p.year);
+    for (const x of p.days.flatMap((d) => d.problems)) {
+      assert.ok(pair(x.q), `${p.year} P${x.n}`);
+      for (const t of x.q) { assert.ok(balanced(t), `${p.year} P${x.n}: unbalanced maths`); assert.ok(!/[–—]/.test(t), `${p.year} P${x.n}: dash`); }
+    }
+  }
+  for (const i of [0, 1]) {
+    const html = olympiadPage('imo', (x) => x[i]);
+    assert.equal((html.match(/class="olymp-problem/g) || []).length, 6 * PAPERS.length);
+    assert.ok(!/undefined|NaN/.test(html));
+  }
+});
