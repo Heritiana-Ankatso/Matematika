@@ -12,6 +12,7 @@ import { PAPERS as IMO_RECENT } from './imo.js';
 import { PAPERS as IMO_EARLIER } from './imo-earlier.js';
 import { PAPERS as EUCLID_2025 } from './euclid.js';
 import { PAPERS as EUCLID_EARLIER } from './euclid-earlier.js';
+import { SOLUTIONS as EUCLID_SOLUTIONS } from './euclid-solutions.js';
 
 const P = (fr, en) => [fr, en];
 export const FIELDS = {
@@ -32,6 +33,8 @@ const OFFICIAL = {
   euclid: (y) => (y >= 2002 && y <= 2025 && y !== 2020 ? { url: `https://cemc.uwaterloo.ca/sites/default/files/documents/${y}/${y}EuclidSolution.pdf`, label: P('Solutions officielles (CEMC)', 'Official solutions (CEMC)') } : null),
 };
 const withOfficial = (id, papers) => papers.map((p) => ({ ...p, official: OFFICIAL[id](p.year) }));
+// Written solutions kept apart from the statements: `solutions[paperId][n]` becomes `s` of problem `n`.
+const withSolutions = (papers, solutions) => papers.map((p) => ({ ...p, problems: p.problems.map((x) => (solutions[p.id] && solutions[p.id][x.n] ? { ...x, s: solutions[p.id][x.n] } : x)) }));
 
 export const COMPETITIONS = [
   { id: 'imo', field: 'math', kind: 'olympiad', short: 'IMO',
@@ -43,7 +46,7 @@ export const COMPETITIONS = [
     name: P('Concours Euclide (CEMC, Waterloo)', 'Euclid Contest (CEMC, Waterloo)'),
     level: P('Dernière année du secondaire', 'Final year of secondary school'), site: 'https://cemc.uwaterloo.ca/resources/past-contests',
     about: P('Dix questions en deux heures et demie, avec des parties à réponse courte et des parties à rédiger.', 'Ten questions in two and a half hours, with short-answer parts and full-solution parts.'),
-    rights: P('© CEMC, Université de Waterloo, licence CC BY-NC 4.0. Traduit en français, solutions abrégées et adaptées, réponses vérifiées sur la page pour 2025 ; de 2002 à 2024, une sélection de questions sans figure, sans solution (les solutions officielles sont sur le site du CEMC).', '© CEMC, University of Waterloo, licence CC BY-NC 4.0. Translated into French, solutions shortened and adapted, answers checked on the page for 2025; for 2002 to 2024, a selection of questions that need no figure, without solutions (the official solutions are on the CEMC site).'), papers: withOfficial('euclid', [...EUCLID_2025, ...EUCLID_EARLIER]) },
+    rights: P('© CEMC, Université de Waterloo, licence CC BY-NC 4.0. Traduit en français, solutions abrégées et adaptées, réponses vérifiées sur la page pour 2025 ; de 2002 à 2024, une sélection de questions sans figure, avec des solutions abrégées d’après les solutions officielles du CEMC (aucune pour 2020, le CEMC n’en ayant pas publié).', '© CEMC, University of Waterloo, licence CC BY-NC 4.0. Translated into French, solutions shortened and adapted, answers checked on the page for 2025; for 2002 to 2024, a selection of questions that need no figure, with solutions condensed from the official CEMC solutions (none for 2020, which the CEMC did not publish).'), papers: withOfficial('euclid', withSolutions([...EUCLID_2025, ...EUCLID_EARLIER], EUCLID_SOLUTIONS)) },
 ];
 
 export const competition = (id) => COMPETITIONS.find((c) => c.id === id) || null;

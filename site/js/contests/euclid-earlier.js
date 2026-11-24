@@ -1,8 +1,8 @@
 // Euclid Contest (CEMC, University of Waterloo), papers 2002 to 2024: statements only, a selection of questions 8 to 10
 // (the parts that are self-contained without a figure), translated into French. Source:
 // https://cemc.uwaterloo.ca/resources/past-contests, licence CC BY-NC 4.0 (https://cemc.uwaterloo.ca/copyright).
-// Changes: translated, shortened, and wording adapted where a figure was needed. No solutions on the site: the
-// official solutions are on the CEMC page. `label` keeps the contest's own numbering. Maths between \( \) or \[ \];
+// Changes: translated, shortened, and wording adapted where a figure was needed. The solutions are in
+// euclid-solutions.js (attached by registry.js). `label` keeps the contest's own numbering. Maths between \( \) or \[ \];
 // the strings are String.raw, so the backslashes are written once.
 const R = String.raw;
 const P = (fr, en) => [fr, en];
