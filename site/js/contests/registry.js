@@ -5,11 +5,9 @@
 // from the organiser. Where the papers are not openly licensed, problems are restated in our own words and the
 // official paper is linked (the rule of the Olympiad strategies, olympiad-content.js).
 // Rule (owner, 24 November 2026): a competition has its own section only when the site holds at least 24 of its papers.
-// Today that is the IMO (2002 to 2026), the Euclid Contest (2002 to 2025) and the IOI (2002 to 2025). The sections that could not reach 24 were
+// Today that is the Euclid Contest (2002 to 2025) and the IOI (2002 to 2025). The IMO is held back (owner, 24 November 2026): no open licence found, so its papers left `site/` (see `content/held-back/imo/README.md`). The sections that could not reach 24 were
 // removed (PAMO, EGMO, OFM, Olympiades nationales, Concours général, BCC, Castor, Algoréa, Prologin, CCC, USACO);
 // `bcc.js` and its models stay in the repository, unpublished, with their tests.
-import { PAPERS as IMO_RECENT } from './imo.js';
-import { PAPERS as IMO_EARLIER } from './imo-earlier.js';
 import { PAPERS as EUCLID_2025 } from './euclid.js';
 import { PAPERS as EUCLID_EARLIER } from './euclid-earlier.js';
 import { SOLUTIONS as EUCLID_SOLUTIONS } from './euclid-solutions.js';
@@ -32,10 +30,8 @@ export const TOPICS = {
 };
 
 
-// Official solutions, linked where the PDF exists (checked 24 November 2026): the IMO shortlist of 2006 to 2024 holds the
-// solutions of the competition problems; the CEMC publishes the Euclid solutions of 2002 to 2025 except 2020 (not found).
+// Official solutions, linked where the PDF exists (checked 24 November 2026): the CEMC publishes the Euclid solutions of 2002 to 2025 except 2020 (not found).
 const OFFICIAL = {
-  imo: (y) => (y >= 2006 && y <= 2024 ? { url: `https://www.imo-official.org/problems/IMO${y}SL.pdf`, label: P('Liste restreinte officielle, avec solutions', 'Official shortlist, with solutions') } : null),
   euclid: (y) => (y >= 2002 && y <= 2025 && y !== 2020 ? { url: `https://cemc.uwaterloo.ca/sites/default/files/documents/${y}/${y}EuclidSolution.pdf`, label: P('Solutions officielles (CEMC)', 'Official solutions (CEMC)') } : null),
 };
 OFFICIAL.ioi = (y) => (IOI_PAGE[y] ? { url: `https://ioinformatics.org/page/ioi-${y}/${IOI_PAGE[y]}`, label: P('Page officielle de l’édition (sujets, solutions)', 'Official page of the edition (tasks, solutions)') } : null);
@@ -44,11 +40,6 @@ const withOfficial = (id, papers) => papers.map((p) => ({ ...p, official: OFFICI
 const withSolutions = (papers, solutions) => papers.map((p) => ({ ...p, problems: p.problems.map((x) => (solutions[p.id] && solutions[p.id][x.n] ? { ...x, s: solutions[p.id][x.n] } : x)) }));
 
 export const COMPETITIONS = [
-  { id: 'imo', field: 'math', kind: 'olympiad', short: 'IMO',
-    name: P('Olympiade internationale de mathématiques', 'International Mathematical Olympiad'),
-    level: P('International, élèves de lycée', 'International, secondary school students'),
-    about: P('Deux épreuves de quatre heures et demie, trois problèmes chacune, notés sur sept points.', 'Two papers of four and a half hours, three problems each, marked out of seven.'),
-    site: 'https://www.imo-official.org/problems.aspx', rights: P('Énoncés reformulés par nos soins ; le sujet officiel fait foi. Les sujets de 2002 à 2022 sont donnés sans solution.', 'Problems restated in our own words; the official paper is the reference. The papers of 2002 to 2022 are given without solutions.'), papers: withOfficial('imo', [...IMO_RECENT, ...IMO_EARLIER]) },
   { id: 'euclid', field: 'math', kind: 'contest', short: 'Euclid',
     name: P('Concours Euclide (CEMC, Waterloo)', 'Euclid Contest (CEMC, Waterloo)'),
     level: P('Dernière année du secondaire', 'Final year of secondary school'), site: 'https://cemc.uwaterloo.ca/resources/past-contests',

@@ -23,7 +23,7 @@ test('every competition names its field, kind, level and terms; ids are unique',
 });
 
 test('every published section holds at least 24 papers (owner rule, 24 November 2026), with distinct years and statements in both languages', () => {
-  assert.deepEqual(COMPETITIONS.map((c) => c.id), ['imo', 'euclid', 'ioi']);
+  assert.deepEqual(COMPETITIONS.map((c) => c.id), ['euclid', 'ioi']);   // the IMO is held back: no open licence found (owner, 24 November 2026)
   for (const c of COMPETITIONS) {
     assert.ok(c.papers.length >= 24, `${c.id}: ${c.papers.length} papers`);
     assert.equal(new Set(c.papers.map((p) => p.id)).size, c.papers.length, `${c.id}: duplicate paper`);
@@ -36,14 +36,12 @@ test('every problem has a topic that the page can print', async () => {
   for (const c of COMPETITIONS) for (const p of c.papers) for (const x of p.problems) assert.ok(TOPICS[x.topic], `${c.id} ${p.id} ${x.n}: topic ${x.topic}`);
 });
 
-test('official solution links: https, pair label, only where the PDF exists (IMO 2006 to 2024, Euclid 2002 to 2025 except 2020)', () => {
-  const imo = competition('imo').papers, eu = competition('euclid').papers;
+test('official solution links: https, pair label, only where the PDF exists (Euclid 2002 to 2025 except 2020)', () => {
+  const eu = competition('euclid').papers;
   const has = (papers, y) => !!papers.find((p) => p.year === y).official;
-  for (const y of [2006, 2015, 2024]) assert.ok(has(imo, y), `imo ${y}`);
-  for (const y of [2002, 2005, 2025, 2026]) assert.ok(!has(imo, y), `imo ${y}`);
   for (const y of [2002, 2015, 2025]) assert.ok(has(eu, y), `euclid ${y}`);
   assert.ok(!has(eu, 2020));
-  for (const p of [...imo, ...eu]) if (p.official) { assert.match(p.official.url, /^https:\/\//); assert.ok(pair(p.official.label)); }
+  for (const p of eu) if (p.official) { assert.match(p.official.url, /^https:\/\//); assert.ok(pair(p.official.label)); }
   const html = contestsPage({ id: 'euclid', tab: '2015' }, T('en'), 'en');
   assert.ok(html.includes('2015EuclidSolution.pdf') && !contestsPage({ id: 'euclid', tab: '2020' }, T('en'), 'en').includes('EuclidSolution.pdf'));
 });
@@ -243,33 +241,27 @@ test('Euclid 2025: every published answer recomputed by brute force or substitut
 
 test('routes: Olympiad problems have a solution page, contest problems do not', () => {
   assert.ok(isContestRoute(undefined));
-  assert.ok(isContestRoute('imo') && isContestRoute('imo', '2024') && isContestRoute('imo', '2024', '5'));
-  assert.ok(!isContestRoute('imo', '1999') && !isContestRoute('imo', '2024', '7') && !isContestRoute('nope'));
+  assert.ok(isContestRoute('euclid') && isContestRoute('euclid', '2025') && isContestRoute('ioi', '2024'));
+  assert.ok(!isContestRoute('euclid', '1999') && !isContestRoute('nope'));
+  assert.ok(!isContestRoute('imo') && !isContestRoute('imo', '2024') && !isContestRoute('imo', '2024', '5') && !competition('imo'));   // held back
   assert.ok(!isContestRoute('bcc') && !isContestRoute('pamo') && !isContestRoute('nope', '2024'));   // sections under 24 papers are removed
 });
 
-test('pages render in both languages; an Olympiad paper never prints a solution, its solution page does', () => {
+test('pages render in both languages; an Olympiad paper never prints a solution; the held-back IMO is not offered', () => {
   for (const lang of ['fr', 'en']) {
     const t = T(lang);
     const index = contestsPage({}, t, lang);
     for (const c of COMPETITIONS) assert.ok(index.includes(`#contests/${c.id}`), c.id);
-    const imo = contestsPage({ id: 'imo', tab: '2024' }, t, lang);
-    const esc = (x) => x.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
-    for (const p of competition('imo').papers) {
-      const html = contestsPage({ id: 'imo', tab: p.id }, t, lang);
+    assert.ok(!index.includes('#contests/imo'), 'the IMO is held back');
+    const ioi = contestsPage({ id: 'ioi', tab: '2024' }, t, lang);
+    for (const p of competition('ioi').papers) {
+      const html = contestsPage({ id: 'ioi', tab: p.id }, t, lang);
       assert.ok(!html.includes('class="contest-solution"') && !html.includes('olymp-solution'), `${p.id}: solution block on an Olympiad paper`);
-      for (const x of p.problems) for (const para of x.s || []) assert.ok(!html.includes(esc(t(para)).slice(0, 80)), `${p.id} ${x.n}: solution text on the paper`);
     }
-    for (const n of [1, 2, 5]) assert.ok(imo.includes(`#contests/imo/2024/${n}`));
-    assert.ok(imo.includes('data-contest-widget="turbo"'));
-    const sol = contestsPage({ id: 'imo', tab: '2024', sub: '5' }, t, lang);
-    assert.ok(sol.includes('class="contest-solution"') && sol.includes('data-mode="strategy"'));
-    const pending = contestsPage({ id: 'imo', tab: '2024', sub: '6' }, t, lang);
-    assert.ok(!pending.includes('class="contest-solution"'));
     const euc = contestsPage({ id: 'euclid', tab: '2025' }, t, lang);
     assert.ok(euc.includes('contest-typed') && euc.includes('data-contest-widget="coins"') && euc.includes('olymp-solution') && euc.includes('Question 10'));
     assert.ok(isContestRoute('euclid', '2025') && !isContestRoute('euclid', '2025', '1'));
-    for (const html of [index, imo, sol]) assert.ok(!/undefined|NaN|\[object/.test(html));
+    for (const html of [index, ioi]) assert.ok(!/undefined|NaN|\[object/.test(html));
   }
 });
 

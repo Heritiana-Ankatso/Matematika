@@ -1,7 +1,7 @@
 // The competition archive: #contests (every competition, by field), #contests/<c> (its papers), #contests/<c>/<paper>
 // (the statements) and, for an Olympiad only, #contests/<c>/<paper>/<n> (the solution on its own page, owner rule of
 // 23 November 2026). Other competitions show the solution folded under the problem; a task whose answer is a sequence
-// of commands is also played and checked on the page (widgets.js). Data: registry.js, imo.js, bcc.js; maths: models.js.
+// of commands is also played and checked on the page (widgets.js). Data: registry.js, euclid.js, ioi.js (bcc.js unpublished, IMO held back); maths: models.js.
 import { COMPETITIONS, FIELDS, KINDS, TOPICS, competition, paperOf, problemOf, problemCount } from './registry.js';
 import { typeset } from '../mathjax.js';
 import { icon } from '../icons.js';

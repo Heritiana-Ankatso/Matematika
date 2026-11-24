@@ -8,7 +8,8 @@ live on their own page (`#contests/<c>/<paper>/<n>`), never on the paper; other 
 problem; a task whose answer is a sequence of commands is played and checked on the page; interactive figures where
 they help.
 
-- On the site: IMO 2023, 2024, 2025 (18 problems restated FR/EN, official papers fetched from imo-official.org;
+- 24 November 2026 (owner): the IMO section is NOT published. No open licence found (imo-official.org footer "© International Mathematical Olympiad", the regulations and the official PDFs carry no reuse terms); owner rule: verbatim or not at all. Files in `content/held-back/imo/` (README: how to restore after written permission from the IMO Board). The notes below on the IMO are history. Open question: the IOI (`ioi.js`) and the Olympiad strategy problems (`olympiad-content.js`) are also restated, not verbatim.
+- On the site (before that decision): IMO 2023, 2024, 2025 (18 problems restated FR/EN, official papers fetched from imo-official.org;
   "© International Mathematical Olympiad", no open licence, so our wording and a link). Written solutions: 2023 P1,
   2024 P1, P2, P5, 2025 P1, each recomputed in the tests. Figures: sunny lines, sums of floors, gcd, divisor chain,
   Turbo's board (played, and replayed by the strategy on the solution page). Beaver Computing Challenge 2023, grades 9
