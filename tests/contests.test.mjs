@@ -23,12 +23,17 @@ test('every competition names its field, kind, level and terms; ids are unique',
 });
 
 test('every published section holds at least 24 papers (owner rule, 24 November 2026), with distinct years and statements in both languages', () => {
-  assert.deepEqual(COMPETITIONS.map((c) => c.id), ['imo', 'euclid']);
+  assert.deepEqual(COMPETITIONS.map((c) => c.id), ['imo', 'euclid', 'ioi']);
   for (const c of COMPETITIONS) {
     assert.ok(c.papers.length >= 24, `${c.id}: ${c.papers.length} papers`);
     assert.equal(new Set(c.papers.map((p) => p.id)).size, c.papers.length, `${c.id}: duplicate paper`);
     for (const p of c.papers) assert.ok(p.problems.length >= 2, `${c.id} ${p.id}: too few problems`);
   }
+});
+
+test('every problem has a topic that the page can print', async () => {
+  const { TOPICS } = await import('../site/js/contests/registry.js');
+  for (const c of COMPETITIONS) for (const p of c.papers) for (const x of p.problems) assert.ok(TOPICS[x.topic], `${c.id} ${p.id} ${x.n}: topic ${x.topic}`);
 });
 
 test('official solution links: https, pair label, only where the PDF exists (IMO 2006 to 2024, Euclid 2002 to 2025 except 2020)', () => {
