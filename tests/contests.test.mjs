@@ -43,6 +43,16 @@ test('official solution links: https, pair label, only where the PDF exists (IMO
   assert.ok(html.includes('2015EuclidSolution.pdf') && !contestsPage({ id: 'euclid', tab: '2020' }, T('en'), 'en').includes('EuclidSolution.pdf'));
 });
 
+test('Euclid: every problem of 2002 to 2025 has a written solution, except 2020 (the CEMC published none)', () => {
+  const eu = competition('euclid').papers;
+  for (const p of eu) for (const x of p.problems) {
+    if (p.year === 2020) assert.ok(!x.s, `2020 ${x.n}`);
+    else assert.ok(Array.isArray(x.s) && x.s.length >= 1, `${p.year} ${x.n}: no solution`);
+  }
+  const html = contestsPage({ id: 'euclid', tab: '2015' }, T('fr'), 'fr');
+  assert.ok(html.includes('olymp-solution') && html.includes('contest-official'), 'a solved Euclid paper shows its solution blocks and its official link');
+});
+
 test('papers: bilingual statements and solutions, balanced maths, no dashes, numbered problems', () => {
   for (const c of COMPETITIONS) for (const p of c.papers) {
     assert.ok(p.problems.length > 0, `${c.id} ${p.id}`);
