@@ -71,7 +71,7 @@ def strip_comments(s):
     return '\n'.join(re.sub(r'(?<!\\)%.*$', '', line) for line in s.split('\n'))
 
 BLOCK_ENVS = set(KINDS) | {'preuve', 'itemize', 'enumerate', 'objectifs', 'prerequis', 'exo', 'indication', 'corrige', 'erreurs', 'bilan', 'tabular', 'cadre', 'qcm', 'question', 'explication'} | set(MATH_ENVS)
-BLOCK_CMDS = ('chapitre', 'resume', 'summary', 'section', 'subsection', 'rubrique', 'exercices', 'widget', 'item', 'label', 'bonchoix', 'choix')
+BLOCK_CMDS = ('chapitre', 'resume', 'summary', 'section', 'subsection', 'rubrique', 'exercices', 'widget', 'item', 'label', 'bonchoix', 'choix', 'banque')
 
 def find_end(s, i, env):
     """Index of the matching \\end{env} for a body that starts at i."""
@@ -132,7 +132,7 @@ def parse(s):
             if cmd == 'exercices': nodes.append({'t': 'exercices'}); i = j; continue
             opt, j = bracketed(s, j)
             args = []
-            n = {'chapitre': 3, 'resume': 1, 'summary': 1, 'section': 1, 'subsection': 1, 'rubrique': 1, 'widget': 1, 'item': 0, 'choix': 2, 'bonchoix': 2}[cmd]
+            n = {'chapitre': 3, 'resume': 1, 'summary': 1, 'section': 1, 'subsection': 1, 'rubrique': 1, 'widget': 1, 'item': 0, 'choix': 2, 'bonchoix': 2, 'banque': 1}[cmd]
             for _ in range(n):
                 while s[j] in ' \n': j += 1
                 a, j = braced(s, j); args.append(a)
@@ -382,6 +382,10 @@ def html_blocks(nodes, ctx):
             extra = ''.join(f'<details class="{k}"><summary>{"Indication" if k == "indication" else "Corrigé détaillé"}</summary>{html_blocks(v[0]["body"], ctx)}</details>' for k, v in parts.items() if v)
             out.append(f'<article class="exo" id="{nd["anchor"]}" data-level="{level}" data-rub="{ctx["rub"]}"><header><span class="lvl lvl-{level}" title="{LEVELS[level]}">{level}</span><h4>Exercice {nd["num"]}{(" · " + inl(title)) if title else ""}</h4>'
                        f'<label class="done"><input type="checkbox" data-done="{nd["anchor"]}"> je sais le refaire seul</label></header>{html_blocks(body, ctx)}{extra}</article>')
+        elif t == 'banque':
+            ctx['toc'].append((3, 'banque', 'Banque de QCM et de quiz'))
+            out.append(f'<section class="qcm qbank" id="banque" data-a1-bank="{html.escape(nd["args"][0])}" aria-labelledby="banque-h"><h3 id="banque-h" class="qbank-title">Banque de questions</h3>'
+                       '<noscript><p class="qcm-small">La banque de questions tirées au hasard demande JavaScript ; les séries de QCM ci-dessous restent lisibles sans lui.</p></noscript></section>')
         elif t == 'qcm':
             title = box_opts(nd); ctx['qcms'] += 1
             ctx['toc'].append((3, nd['anchor'], f'QCM {nd["num"]}' + (f' · {title}' if title else '')))
@@ -408,7 +412,8 @@ def html_blocks(nodes, ctx):
         else: raise ValueError('Unhandled node ' + t)
     return ''.join(out)
 
-ASSETS = {'css': ROOT / 'site/styles/algebra1.css', 'js': ROOT / 'site/js/algebra1-widgets.js', 'model': ROOT / 'site/js/algebra1-model.js'}
+ASSETS = {'css': ROOT / 'site/styles/algebra1.css', 'js': ROOT / 'site/js/algebra1-widgets.js', 'model': ROOT / 'site/js/algebra1-model.js',
+          **{p.stem: p for p in sorted((ROOT / 'site/js').glob('algebra1-*.js')) if p.stem not in ('algebra1-widgets', 'algebra1-model')}}
 
 def version(*keys):
     """Cache-busting suffix: the lesson pages are static files outside the site's versioned import map."""
@@ -460,7 +465,7 @@ def page_html(ch, chapters, labels, pdfs):
 <link rel="stylesheet" href="../../../../styles/algebra1.css{version('css')}">
 <script>window.MathJax={{tex:{{inlineMath:[['\\\\(','\\\\)']],displayMath:[['\\\\[','\\\\]']],macros:{macros}}},svg:{{fontCache:'global'}},options:{{enableAssistiveMml:true}}}};</script>
 <script defer src="../../../../vendor/mathjax-tex-svg.js"></script>
-<script type="module" src="../../../../js/algebra1-widgets.js{version('js', 'model')}"></script>
+<script type="module" src="../../../../js/algebra1-widgets.js{version(*[k for k in ASSETS if k != 'css'])}"></script>
 </head><body>
 <a class="skip" href="#main">Aller au contenu</a>
 <div class="topbar"><a class="brand" href="../../../../index.html#university">Matematika</a><span class="crumbs"><a href="../../../../index.html#university">Université</a> / <a href="index.html">Algèbre 1</a></span><button type="button" class="theme" data-theme-toggle aria-label="Changer de thème"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg></button></div>
@@ -538,6 +543,8 @@ def tex_blocks(nodes, ctx, edition):
                 if x['t'] == 'indication' and edition == 'exercices': out.append(r'\begin{a1sol}{Indication}' + tex_blocks(x['body'], ctx, edition) + r'\end{a1sol}' + '\n')
                 if x['t'] == 'corrige' and edition == 'corriges': out.append(r'\begin{a1sol}{Corrigé}' + tex_blocks(x['body'], ctx, edition) + r'\end{a1sol}' + '\n')
             out.append(r'\end{a1exo}' + '\n')
+        elif t == 'banque':
+            if edition == 'exercices': out.append(r'\begin{a1box}{web}{Banque de questions en ligne}La version web de ce chapitre propose une banque de plus de soixante questions de QCM et de quiz à réponse courte, tirées au hasard, aux nombres renouvelés à chaque série et corrigées immédiatement (site Matematika, rubrique Université, Algèbre~1).\end{a1box}' + '\n')
         elif t == 'qcm':
             title = box_opts(nd)
             out.append(r'\subsection*{QCM ' + nd['num'] + ((r' \textperiodcentered{} ' + inl(title)) if title else '') + r'}\hypertarget{' + nd['anchor'] + '}{}\n')

@@ -302,6 +302,30 @@ input[type="checkbox"] { accent-color: var(--accent); }
 .qcm.is-live .qcm-c.is-shown .qcm-fb, .qcm.is-live .is-graded .qcm-expl { display: block; }
 .qcm.is-live .qcm-c:not(.is-shown) .qcm-fb { display: none; }
 .qcm.is-serie [data-qcm-check] { display: none; }
+.qcm.is-serie [data-quiz-check] { display: none; }
+/* Question bank: controls above a drawn series; quiz items reuse the QCM states. */
+.qbank { border-top-color: var(--accent); }
+.qbank-title { margin: .1em 0 .2em; }
+.qbank > .qcm-head h3 { margin-top: 0; }
+.qbank-lede { color: var(--ink-2); }
+.qbank-controls { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; margin: .4em 0 .8em; font-family: var(--display); font-size: .9rem; }
+.qbank-controls > label { display: flex; align-items: center; gap: 6px; }
+.qbank-controls select, .qbank-replay input { min-height: 40px; padding: 4px 8px; border: 2px solid var(--line-strong); background: var(--bg); color: var(--ink); font: inherit; }
+.qbank-replay input { width: 8em; }
+.qbank-code { margin: 0; color: var(--ink-2); }
+.qbank-code output { font-weight: 700; color: var(--ink); letter-spacing: .04em; }
+.qbank-replay summary { cursor: pointer; min-height: 40px; display: flex; align-items: center; }
+.qbank-replay[open] { flex-basis: 100%; }
+.qbank-serie { margin: .6em 0 0; padding: 10px 0 0; border-top: 1px solid var(--line); background: transparent; }
+.qbank-topic { font-weight: 500; font-size: .78rem; color: var(--muted); margin-left: 6px; }
+.quiz-box { padding: 10px 14px 8px; border: 1px solid var(--line); border-left: 3px solid var(--line-strong); }
+.quiz-head { margin: 0; font-family: var(--display); font-weight: 700; font-size: .92rem; }
+.quiz-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: .3em 0; }
+.quiz-in { flex: 1 1 14em; min-width: 0; min-height: 40px; padding: 4px 10px; font: 1rem var(--math); border: 2px solid var(--line-strong); background: var(--bg); color: var(--ink); }
+.quiz-in:read-only { border-color: var(--line); }
+.quiz-format { margin: 0; font-size: .85rem; color: var(--muted); }
+.quiz-q.is-right .quiz-box { border-left-color: var(--pos); } .quiz-q.is-wrong .quiz-box, .quiz-q.is-empty .quiz-box { border-left-color: var(--neg); }
+.quiz-q.is-right .qcm-verdict { color: var(--pos); } .quiz-q.is-wrong .qcm-verdict, .quiz-q.is-empty .qcm-verdict { color: var(--neg); }
 .qcm-q.is-right fieldset { border-left-color: var(--pos); } .qcm-q.is-wrong fieldset, .qcm-q.is-empty fieldset { border-left-color: var(--neg); } .qcm-q.is-partial fieldset { border-left-color: var(--object); }
 .qcm-q.is-right .qcm-verdict { color: var(--pos); } .qcm-q.is-wrong .qcm-verdict, .qcm-q.is-empty .qcm-verdict { color: var(--neg); } .qcm-q.is-partial .qcm-verdict { color: var(--object-ink); }
 .qcm-c.is-ok { border-left-color: var(--pos); background: var(--pos-soft); }
@@ -323,7 +347,7 @@ input[type="checkbox"] { accent-color: var(--accent); }
   body { font-size: 1.04rem; }
   .box { padding: 10px 12px 4px; }
   .exo { padding: 10px 12px 6px; }
-  .qcm { padding: 12px 12px 10px; } .qcm-q fieldset { padding: 8px 10px 6px; } .qcm-fb { margin-left: 0; }
+  .qcm { padding: 12px 12px 10px; } .qcm-q fieldset { padding: 8px 10px 6px; } .qcm-fb { margin-left: 0; } .quiz-box { padding: 8px 10px 6px; }
   .a1w { padding: 12px; }
   details.proof { padding: 2px 10px 4px; }
   }
@@ -333,7 +357,7 @@ input[type="checkbox"] { accent-color: var(--accent); }
   .layout { display: block; padding: 0; }
   body { background: #fff; color: #000; font-size: 11pt; }
   .exo[hidden] { display: block !important; }
-  .qcm-mode, .qcm-foot, .qcm-actions { display: none !important; }
+  .qcm-mode, .qcm-foot, .qcm-actions, .qbank { display: none !important; }
 }
 
 /* Embedded in the University page (iframe): the host provides navigation, documents and the theme. */
