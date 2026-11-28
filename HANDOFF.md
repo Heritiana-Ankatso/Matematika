@@ -25,8 +25,23 @@ care), and a QCM feature with feedback, instant or after a series, at university
   word was doubled before, about seventy places).
 - Every count quoted by the new material is recomputed by brute force in `tests/algebra1.test.mjs`.
 - Owner to review before class use: the whole complement, in particular the D exercises (groups of order 8, p²q, cube).
-- Next candidates: QCM series for chapters 1 to 3 and the synthesis; Sylow applications to order 12 classification;
-  group actions widget (orbits of colourings).
+- 28 November 2026, second round (owner: « go ahead »): QCM series for chapters 1 (10 questions), 2 (8), 3 (10) and the
+  synthesis (6), 74 questions in all; figure `burnside` in the complement (necklaces, bracelets, cube faces; Burnside
+  table by type of symmetry, cycles shown on the figure, the visitor's colouring with its orbit and stabiliser,
+  brute-force check and one representative per orbit).
+- 28 November 2026, third round (owner: banks of more than 60 QCM per chapter, randomised whenever possible, and quizzes
+  with simple, reliably checkable inputs): `site/js/algebra1-qbank.js` (engine) and one bank per chapter
+  `site/js/algebra1-bank-c1|c2|c3|c4|c4c|c5.js`, mounted by `\banque{<key>}` after `\exercices`. QCM per chapter (generators +
+  fixed): 55+10, 57+8, 53+10, 52+12, 42+20, 55+8; quiz generators: 15, 16, 14, 15, 15, 15. Series of 10, 20 or 30, theme
+  filter, instant or end-of-series correction, replayable code (seed). Quiz answers: integer, residue, fraction, set,
+  tuple, permutation in cycles, matrix. Every generator checked over 150 seeds (`tests/algebra1-bank.test.mjs`), and
+  about 2,200 drawn questions rendered by MathJax in Chromium without an error. Review by hand found and fixed: two
+  « right conclusion, bad reason » distractors patterns (now always the opposite conclusion), a question with two right
+  answers, a « wrong » class equation that was a reordering of the right one, the order-30 3-Sylow (always normal), and
+  (a+b)^3 = a^3 + b^3 in Z/6Z (true, removed as a « false » statement).
+- Owner to review: the generators of each bank (each file reads as a list of questions), above all the pools of
+  statements (`fromPool`), whose truth values are written by hand; the numerical ones are computed.
+- Next candidates: Sylow applications to the classification of groups of order 12; a bank for the synthesis.
 
 ## Competition archive (23 November 2026, owner request)
 

@@ -134,6 +134,10 @@ Cette formule est souvent appelée \og lemme de Burnside \fg{}, d'après le livr
 \begin{exemple}[Colliers]
 Combien de colliers différents de 6 perles, chacune noire ou blanche, si deux colliers qui se déduisent l'un de l'autre par rotation sont identiques ? Le groupe $\Z/6\Z$ des rotations agit sur les $2^6$ coloriages. La rotation de $j$ crans découpe les 6 positions en $\pgcd(j,6)$ cycles, et un coloriage fixe est constant sur chaque cycle : $\abs{\Fix}=2^{\pgcd(j,6)}$. Nombre de colliers : $\frac16(2^6+2^1+2^2+2^3+2^2+2^1)=\frac{84}6=14$.
 \end{exemple}
+\widget{burnside}
+\begin{remarque}
+La figure énumère aussi, quand c'est possible, tous les coloriages pour vérifier la formule. Une énumération confirme un nombre ; elle ne remplace pas la démonstration, qui vaut pour tout groupe fini et tout ensemble fini.
+\end{remarque}
 \begin{proposition}[Action sur les classes]\label{prop-action-classes}
 Soit $H$ un sous-groupe d'indice fini $n$ de $G$. L'action de $G$ sur $G/H$ donne un homomorphisme $\rho:G\to S(G/H)\simeq S_n$ de noyau $N=\bigcap_{g\in G}gHg^{-1}$. Ainsi $N$ est un sous-groupe normal de $G$ contenu dans $H$, et $[G:N]$ divise $n!$.
 \end{proposition}
@@ -281,6 +285,8 @@ On démontre plus généralement que $A_n$ est simple pour tout $n\ge5$, et que 
 \end{erreurs}
 
 \exercices
+
+\banque{c4c}
 
 \begin{qcm}[Conjugaison, produits, actions]
 Questions de compréhension sur les sections 1 à 3. Le mode de correction se choisit en tête de série.

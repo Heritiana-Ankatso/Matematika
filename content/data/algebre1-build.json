@@ -1,5 +1,5 @@
 {
-  "sourceDigest": "1c9655d0109d7b35e48d93e5a108460496339d78e436c913f93a1cf3eee8680d",
+  "sourceDigest": "71065353286d928d1187b8a2830a79d5df701769ae6a8fe2102c9e76a056f313",
   "sequences": {
     "algebre-1-guide": {
       "title": [
@@ -42,7 +42,8 @@
         "Relations binaires",
         "Ensembles infinis et dénombrabilité"
       ],
-      "exercises": 27
+      "exercises": 27,
+      "mcq": 10
     },
     "algebre-1-matrices": {
       "title": [
@@ -67,7 +68,8 @@
         "Transposition et permutations",
         "Élimination et factorisation LU"
       ],
-      "exercises": 29
+      "exercises": 29,
+      "mcq": 8
     },
     "algebre-1-espaces": {
       "title": [
@@ -93,7 +95,8 @@
         "Déterminants",
         "Applications linéaires"
       ],
-      "exercises": 33
+      "exercises": 33,
+      "mcq": 10
     },
     "algebre-1-groupes": {
       "title": [
@@ -186,21 +189,22 @@
         "Le schéma des quotients",
         "Les autres fils"
       ],
-      "exercises": 8
+      "exercises": 8,
+      "mcq": 6
     }
   },
   "outputs": {
-    "dist/resources/university/algebre-1/corriges.pdf": "9c2ec7dee0eec4491f5fcd8815b21b9126175d2cd05f01469782d2efd3eb660f",
-    "dist/resources/university/algebre-1/cours.pdf": "3657c90f9ff343653e5ea4a6dcce0105ab906f4a8340f30076161aa767dd8127",
-    "dist/resources/university/algebre-1/exercices.pdf": "603936cd9451eb78d4e33cf965590a38a307c4dbec62f6b2a9c989869e06bb5f",
-    "dist/resources/university/algebre-1/lecons/ch1-ensembles.html": "948e2030b7ea1a5d5403f50005bbc9e0d26898d813e322ba671cd8589be8123c",
-    "dist/resources/university/algebre-1/lecons/ch2-matrices.html": "9bd15bac5724c78fa5463a07bf0a6075f566a3dc11247788e0c319255f8c30b3",
-    "dist/resources/university/algebre-1/lecons/ch3-espaces-vectoriels.html": "57c6ee23265e41720bc6863b9ea7c6f616149710a8337040f5dcc33ed67bbfdf",
-    "dist/resources/university/algebre-1/lecons/ch4-actions.html": "07b6cb729a60c10941cc8ceb950219b2091eb2f1ada491d05de78b5f9ce9f9fc",
-    "dist/resources/university/algebre-1/lecons/ch4-groupes.html": "566fdae5a8c83daec59e2b2389f641ef895a91bae77bcbce71b7a11fc7a9f1d0",
-    "dist/resources/university/algebre-1/lecons/ch5-anneaux.html": "89abc1bf5da7f7b900dfb0d4498105fc84dd9a21418d5e8784c99c2f64298a61",
-    "dist/resources/university/algebre-1/lecons/index.html": "a424164caa443e00a053a9a93a50f47e66edb7b1d99ce8c87112470d2eb7720e",
-    "dist/resources/university/algebre-1/lecons/synthese.html": "5d6a70769946868fc9a7bfdbf1fc580e68dc0a7478663c3bbdc9dd8a091a7911",
-    "dist/resources/university/algebre-1/sources-latex.zip": "51aeabd3f053ac314af4242cab1d0918882c19e5fcf9a76fd35b2bf0b1014dca"
+    "dist/resources/university/algebre-1/corriges.pdf": "6e1b46380931a845ea771b4f7b1ccdbc652ab17915a10eb6bc5b8f7c8de9995c",
+    "dist/resources/university/algebre-1/cours.pdf": "0a276e9dba9476e4df09311a8b51182ca8fad0e405ccf6e4020046b94f1752a7",
+    "dist/resources/university/algebre-1/exercices.pdf": "e3641cb5a1497f60f840a9b453d3d00bdc42ec15f514f3b732c38dc0a712c026",
+    "dist/resources/university/algebre-1/lecons/ch1-ensembles.html": "1eded83f7330ac572328811cfe45069d0c8deaf60e99491ee02c0407fc58598c",
+    "dist/resources/university/algebre-1/lecons/ch2-matrices.html": "f2c0807a028c1a5b266949b8f91e14e91b0d6dcd6e3661e8b94031af2f9949e1",
+    "dist/resources/university/algebre-1/lecons/ch3-espaces-vectoriels.html": "83c0ff03bad9bd9f53c90d21ce81abef52d21d8c551c87e3b728ef4e08dce407",
+    "dist/resources/university/algebre-1/lecons/ch4-actions.html": "26613daaa9dced0d197694724af814f1ae101066c35714d15c211d84f9177571",
+    "dist/resources/university/algebre-1/lecons/ch4-groupes.html": "8d76f5ae52900e781fd9e01ba0147e3b8358806f6a823a4fa23225782d7827c1",
+    "dist/resources/university/algebre-1/lecons/ch5-anneaux.html": "96f668c2a0838bbbd34f357150979408fb5c7328f762bf799829a7a0c5217a80",
+    "dist/resources/university/algebre-1/lecons/index.html": "6fe4c1eec158673c781752174a1aff00450f097501a855eca680ce8ea94a1da7",
+    "dist/resources/university/algebre-1/lecons/synthese.html": "efbfd53026f7fdfcae2157a151ff3c2758e3b6057421a0372b9177de03d9f630",
+    "dist/resources/university/algebre-1/sources-latex.zip": "601845762ab803ecc5580f353ab0c8b62ac98369dd2e40920fa75dcc7e4871ae"
   }
 }

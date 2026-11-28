@@ -1,5 +1,6 @@
 // Algèbre 1: interactive figures mounted in the university lesson pages (elements [data-a1-widget="<name>"]).
 import * as M from './algebra1-model.js';
+import * as QB from './algebra1-qbank.js';
 
 const SVG = 'http://www.w3.org/2000/svg';
 const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -410,6 +411,67 @@ function dihedral(root) {
   draw();
 }
 
+// ------------------------------------------------------------------ 8. colourings up to symmetry (Burnside)
+function burnside(root) {
+  const body = frame(root, 'Compter les coloriages à symétrie près',
+    'Choisis un objet, ses symétries et un nombre de couleurs. Chaque ligne du tableau est une sorte de symétrie : un coloriage qu’elle fixe est constant sur chacun de ses cycles, d’où k<sup>c(g)</sup> coloriages fixes. Clique une ligne pour voir les cycles sur la figure, et clique les positions pour colorier : la figure donne l’orbite et le stabilisateur de ton coloriage.');
+  const id = 'b' + (++uid), COLOURS = ['#f4f1ea', '#18181b', '#c98b1e', '#2c3d8f'] /* fixed: the names below must stay true in both themes */, NAMES = ['blanc', 'noir', 'ocre', 'indigo'];
+  const LETTERS = 'ABCDEFGH';
+  let kind = 'rotations', n = 6, k = 2, G, col, pick = null;
+  body.innerHTML = `<div class="a1w-row a1w-burnrow">
+      <label>Objet <select id="${id}-o"><option value="rotations">Collier (rotations)</option><option value="dihedral">Bracelet (rotations et retournements)</option><option value="cube">Faces d’un cube (rotations)</option></select></label>
+      <label class="${id}-nl">Perles <input type="number" id="${id}-n" min="3" max="8" value="6"></label>
+      <label>Couleurs <input type="number" id="${id}-k" min="2" max="4" value="2"></label></div>
+    <div class="a1w-grid"><div><svg class="a1w-burn" viewBox="-120 -120 240 240" role="group" aria-label="Figure à colorier"></svg><div class="a1w-out a1w-mine" aria-live="polite"></div></div>
+    <div class="a1w-controls"><div class="a1w-out a1w-btab"></div></div></div>
+    <div class="a1w-out a1w-reps"></div>`;
+  const svg = body.querySelector('svg'), tab = body.querySelector('.a1w-btab'), mine = body.querySelector('.a1w-mine'), reps = body.querySelector('.a1w-reps');
+  const pos = () => kind === 'cube'
+    ? [[2, 1], [0, 1], [1, 1], [3, 1], [1, 0], [1, 2]].map(([c, r]) => [-110 + c * 55 + 27.5, -82.5 + r * 55 + 27.5]) // +x, −x, +y (front), −y, +z, −z: an unfolded cube
+    : [...Array(n).keys()].map(i => [85 * Math.sin(2 * Math.PI * i / n), -85 * Math.cos(2 * Math.PI * i / n)]);
+  const cycleOf = () => { if (!pick) return null; const lab = Array(G.n); M.cycles(pick.perm, true).forEach((c, j) => c.forEach(x => { lab[x] = j; })); return lab; };
+  function mini(c) {
+    const P = kind === 'cube' ? [[2, 1], [0, 1], [1, 1], [3, 1], [1, 0], [1, 2]].map(([x, y]) => [x * 9 + 4.5, y * 9 + 4.5]) : [...Array(n).keys()].map(i => [18 + 13 * Math.sin(2 * Math.PI * i / n), 18 - 13 * Math.cos(2 * Math.PI * i / n)]);
+    const shapes = c.map((v, i) => kind === 'cube' ? `<rect x="${P[i][0] - 4.5}" y="${P[i][1] - 4.5}" width="9" height="9" style="fill:${COLOURS[v]}"/>` : `<circle cx="${P[i][0]}" cy="${P[i][1]}" r="4" style="fill:${COLOURS[v]}"/>`).join('');
+    return `<svg class="a1w-mini" viewBox="0 0 36 ${kind === 'cube' ? 27 : 36}" aria-hidden="true">${kind === 'cube' ? '' : '<circle cx="18" cy="18" r="13" class="a1w-ghost"/>'}${shapes}</svg>`;
+  }
+  function draw() {
+    const P = pos(), lab = cycleOf(), cyc = pick ? M.cycles(pick.perm, true) : [];
+    svg.innerHTML = (kind === 'cube' ? '' : '<circle cx="0" cy="0" r="85" class="a1w-ghost"/>') + P.map(([x, y], i) => {
+      const shape = kind === 'cube' ? `<rect x="${x - 25}" y="${y - 25}" width="50" height="50" style="fill:${COLOURS[col[i]]}"/>` : `<circle cx="${x}" cy="${y}" r="17" style="fill:${COLOURS[col[i]]}"/>`;
+      const tag = lab ? `<text x="${x}" y="${y + 5}" text-anchor="middle" class="a1w-tag${col[i] === 1 || col[i] === 3 ? ' is-dark' : ''}">${LETTERS[lab[i]]}</text>` : '';
+      const name = kind === 'cube' ? ['+x', '−x', 'avant', 'arrière', 'haut', 'bas'][i] : `perle ${i + 1}`;
+      return `<g class="a1w-cell" tabindex="0" role="button" data-i="${i}" aria-label="${name} : ${NAMES[col[i]]}${lab ? `, cycle ${LETTERS[lab[i]]}` : ''}">${shape}${tag}</g>`;
+    }).join('');
+    const T = M.burnsideTable(G, k);
+    tab.innerHTML = `<table class="a1w-table"><thead><tr><th scope="col">Symétrie</th><th scope="col">Nombre</th><th scope="col">c(g)</th><th scope="col">k<sup>c(g)</sup></th></tr></thead><tbody>${T.rows.map((r, j) =>
+      `<tr><td><button type="button" class="a1w-rowbtn" data-r="${j}" aria-pressed="${pick === r.sample}">${esc(r.type)}</button></td><td>${r.count}</td><td>${r.cycles}</td><td>${k}${sup(r.cycles)} = ${r.fixed}</td></tr>`).join('')}</tbody></table>
+      <p>Somme des coloriages fixes : ${T.rows.map(r => `${r.count}·${r.fixed}`).join(' + ')} = <strong>${T.total}</strong>.</p>
+      <p>Nombre d’orbites = ${T.total} / |G| = ${T.total} / ${T.order} = <strong>${T.orbits}</strong>.</p>
+      ${pick ? `<p class="a1w-small">Cycles de l’élément choisi sur les positions : ${cyc.map((c, j) => LETTERS[j] + ' = {' + c.map(x => kind === 'cube' ? ['+x', '−x', 'avant', 'arrière', 'haut', 'bas'][x] : x + 1).join(', ') + '}').join(' ; ')}. Un coloriage fixé par cet élément a une seule couleur par lettre.</p>` : ''}`;
+    tab._rows = T.rows;
+    const orb = M.orbitOf(G, col), stab = M.stabiliser(G, col);
+    mine.innerHTML = `<p>Ton coloriage : orbite de <strong>${orb.length}</strong> coloriage${orb.length > 1 ? 's' : ''}, stabilisateur de <strong>${stab.length}</strong> élément${stab.length > 1 ? 's' : ''} ; ${orb.length} × ${stab.length} = ${orb.length * stab.length} = |G| ${status(orb.length * stab.length === T.order, 'orbite-stabilisateur')}</p>${pick ? `<p class="a1w-small">L’élément choisi ${String(M.actOn(pick.perm, col)) === String(col) ? 'fixe' : 'ne fixe pas'} ton coloriage.</p>` : ''}`;
+    const R = M.orbitRepresentatives(G, k);
+    reps.innerHTML = R === null ? `<p class="a1w-small">${k}${sup(G.n)} coloriages : trop pour les énumérer ici, la formule suffit.</p>`
+      : `<p>Vérification par énumération des ${k ** G.n} coloriages : <strong>${R.length}</strong> orbites ${status(R.length === T.orbits, 'accord avec la formule')}</p>`
+        + (R.length <= 60 ? `<p class="a1w-small">Un représentant par orbite :</p><div class="a1w-minis">${R.map(mini).join('')}</div>` : '');
+  }
+  function reset() {
+    kind = body.querySelector(`#${id}-o`).value;
+    n = Math.max(3, Math.min(8, Number(body.querySelector(`#${id}-n`).value) || 6));
+    k = Math.max(2, Math.min(4, Number(body.querySelector(`#${id}-k`).value) || 2));
+    body.querySelector(`.${id}-nl`).style.display = kind === 'cube' ? 'none' : '';
+    G = M.symmetryGroup(kind, n); col = Array(G.n).fill(0); pick = null; draw();
+  }
+  const paint = el => { const i = Number(el.dataset.i); col[i] = (col[i] + 1) % k; draw(); svg.querySelector(`[data-i="${i}"]`)?.focus(); };
+  svg.addEventListener('click', e => { const g = e.target.closest('[data-i]'); if (g) paint(g); });
+  svg.addEventListener('keydown', e => { const g = e.target.closest('[data-i]'); if (g && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); paint(g); } });
+  tab.addEventListener('click', e => { const b = e.target.closest('[data-r]'); if (!b) return; const r = tab._rows[Number(b.dataset.r)]; pick = pick === r.sample ? null : r.sample; draw(); });
+  body.querySelectorAll('select, input').forEach(x => x.addEventListener('change', reset));
+  reset();
+}
+
 // ------------------------------------------------------------------ QCM series ([data-a1-qcm], built by scripts/build-algebre1.py)
 // Two modes, remembered for the visitor: instant correction (one "Valider" per question) or correction at the end of the
 // series. A series can be restarted with its choices in a new order; the best score is kept in the browser only.
@@ -418,7 +480,7 @@ const readStore = (k, d) => { try { return JSON.parse(localStorage.getItem(k)) ?
 const writeStore = (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); } catch { /* private mode */ } };
 const VERDICT = { right: 'Juste.', wrong: 'Inexact.', partial: 'Incomplet : il manque au moins une bonne réponse.', empty: 'Sans réponse.' };
 
-function qcm(root) {
+function qcm(root, { best: keepBest = true } = {}) {
   const id = root.id, questions = [...root.querySelectorAll('.qcm-q')];
   root.classList.add('is-live');
   const head = root.querySelector('.qcm-head');
@@ -450,11 +512,12 @@ function qcm(root) {
     const s = M.seriesScore(questions.map(q => grades.get(q) || { status: 'empty', right: false }));
     if (!final && mode === 'instant') { score.textContent = `${s.right} juste${s.right > 1 ? 's' : ''} sur ${grades.size} question${grades.size > 1 ? 's' : ''} corrigée${grades.size > 1 ? 's' : ''} (série de ${s.total}).`; }
     if (final || grades.size === questions.length) {
-      const best = readStore(QCM_BEST, {}), prev = best[id] ?? -1;
-      if (s.right > prev) { best[id] = s.right; writeStore(QCM_BEST, best); }
+      const best = readStore(QCM_BEST, {}), prev = keepBest ? best[id] ?? -1 : -1;
+      if (keepBest && s.right > prev) { best[id] = s.right; writeStore(QCM_BEST, best); }
       const misses = questions.filter(q => !grades.get(q)?.right).map(q => `<a href="#${q.id}">${q.querySelector('.qcm-n').textContent}</a>`);
       score.innerHTML = `<strong>Score : ${s.right} / ${s.total}</strong>${s.answered < s.total ? ` (${s.total - s.answered} sans réponse)` : ''}. Meilleur score sur cet appareil : ${Math.max(prev, s.right)} / ${s.total}.`
         + (misses.length ? ` À reprendre : ${misses.join(', ')}.` : ' Série parfaite.');
+      if (!keepBest) score.innerHTML = score.innerHTML.replace(/ Meilleur score sur cet appareil : [^.]*\./, '');
       finish.hidden = true;
     }
   }
@@ -468,7 +531,7 @@ function qcm(root) {
     }
     finish.hidden = false;
     root.classList.toggle('is-serie', mode === 'serie');
-    const best = readStore(QCM_BEST, {})[id];
+    const best = keepBest ? readStore(QCM_BEST, {})[id] : undefined;
     score.textContent = best !== undefined ? `Meilleur score sur cet appareil : ${best} / ${questions.length}.` : '';
   }
   root.querySelectorAll(`[name="${id}-mode"]`).forEach(r => { r.checked = r.value === mode; });
@@ -489,7 +552,140 @@ function qcm(root) {
   reset();
 }
 
-const WIDGETS = { venn, maps, zn, lu, cayley, perms, dihedral };
+// ------------------------------------------------------------------ question bank ([data-a1-bank="<key>"])
+// Series drawn at random from the chapter's bank (algebra1-bank-<key>.js) and, for the QCM, from the lesson's own fixed
+// questions. A series has a code (its seed): the same code gives the same questions, so a teacher can hand one out.
+const mathText = QB.richText;
+async function typesetIn(el) {
+  const MJ = window.MathJax; if (!MJ) return;
+  try { if (MJ.startup && MJ.startup.promise) await MJ.startup.promise; if (MJ.typesetPromise) await MJ.typesetPromise([el]); } catch (e) { console.error(e); }
+}
+function qcmItemHtml(q, k, sid) {
+  const name = `${sid}-q${k}`, kind = q.multi ? 'checkbox' : 'radio';
+  return `<li class="qcm-q" id="${name}" data-multi="${q.multi ? 1 : 0}"><fieldset><legend><span class="qcm-n">Question ${k}</span> <span class="qcm-hint">${q.multi ? 'Une ou plusieurs réponses' : 'Une seule réponse'}</span> <span class="qbank-topic">${esc(q.topic || '')}</span></legend>
+    <div class="qcm-stem"><p>${mathText(q.stem)}</p></div><ul class="qcm-choices">${q.choices.map(([okk, t, fb], i) => `<li class="qcm-c" data-ok="${okk ? 1 : 0}"><label><input type="${kind}" name="${name}" value="${i}"> <span class="qcm-t">${mathText(t)}</span></label><div class="qcm-fb"><span class="qcm-mark">${okk ? 'Bonne réponse' : 'Mauvaise réponse'}.</span> ${mathText(fb)}</div></li>`).join('')}</ul>
+    <div class="qcm-expl"><p class="qcm-expl-h">Explication</p><p>${mathText(q.expl)}</p></div><p class="qcm-verdict" aria-live="polite"></p></fieldset></li>`;
+}
+function quizItemHtml(q, k, sid) {
+  const qid = `${sid}-q${k}`;
+  return `<li class="qcm-q quiz-q" id="${qid}"><div class="quiz-box"><p class="quiz-head"><span class="qcm-n">Question ${k}</span> <span class="qbank-topic">${esc(q.topic || '')}</span></p>
+    <div class="qcm-stem" id="${qid}-s"><p>${mathText(q.stem)}</p></div>
+    <div class="quiz-row"><input type="text" class="quiz-in" aria-labelledby="${qid}-s" aria-describedby="${qid}-f" autocomplete="off" autocapitalize="off" spellcheck="false"${['int', 'mod'].includes(q.type) ? ' inputmode="text"' : ''}><button type="button" class="qcm-btn" data-quiz-check>Vérifier</button></div>
+    <p class="quiz-format" id="${qid}-f">Format : ${esc(QB.FORMATS[q.type])}.</p><p class="qcm-verdict" aria-live="polite"></p>
+    <div class="qcm-expl quiz-sol"><p class="qcm-expl-h">Correction</p><p><strong>Réponse :</strong> ${esc(QB.answerText(q))}</p><p>${mathText(q.expl)}</p></div></div></li>`;
+}
+function quizSeries(root, list) {
+  const id = root.id, items = [...root.querySelectorAll('.quiz-q')];
+  root.classList.add('is-live');
+  root.querySelector('.qcm-head').insertAdjacentHTML('beforeend', `<div class="qcm-mode" role="radiogroup" aria-label="Mode de correction">
+    <label><input type="radio" name="${id}-mode" value="instant"> Correction immédiate</label>
+    <label><input type="radio" name="${id}-mode" value="serie"> Correction à la fin de la série</label></div>`);
+  root.insertAdjacentHTML('beforeend', `<footer class="qcm-foot"><button type="button" class="qcm-btn qcm-primary" data-quiz-finish>Corriger la série</button><output class="qcm-score" aria-live="polite"></output></footer>`);
+  const score = root.querySelector('.qcm-score'), finish = root.querySelector('[data-quiz-finish]'), grades = new Map();
+  let mode = readStore(QCM_MODE, 'instant') === 'serie' ? 'serie' : 'instant';
+  const apply = () => { root.classList.toggle('is-serie', mode === 'serie'); root.querySelectorAll(`[name="${id}-mode"]`).forEach(r => { r.checked = r.value === mode; }); };
+  function grade(li, final) {
+    const q = list[items.indexOf(li)], input = li.querySelector('.quiz-in'), val = input.value.trim(), verdict = li.querySelector('.qcm-verdict');
+    let status;
+    if (!val) { if (!final) { verdict.textContent = 'Écris une réponse avant de vérifier.'; return false; } status = 'empty'; }
+    else {
+      const r = QB.checkAnswer(q, val);
+      if (r.error && !final) { verdict.textContent = `${r.error}. Format : ${QB.FORMATS[q.type]}.`; return false; }
+      status = r.ok ? 'right' : 'wrong';
+      if (r.note && !r.ok) verdict.dataset.note = r.note;
+    }
+    grades.set(li, { status, right: status === 'right' });
+    li.classList.add('is-graded', 'is-' + status); input.readOnly = true;
+    verdict.textContent = { right: 'Juste.', wrong: 'Inexact' + (verdict.dataset.note ? ` : ${verdict.dataset.note}.` : '.'), empty: 'Sans réponse.' }[status];
+    li.querySelector('[data-quiz-check]').hidden = true;
+    return true;
+  }
+  function tally(final) {
+    const s = M.seriesScore(items.map(li => grades.get(li) || { status: 'empty', right: false }));
+    if (final || grades.size === items.length) {
+      const misses = items.filter(li => !grades.get(li)?.right).map(li => `<a href="#${li.id}">${li.querySelector('.qcm-n').textContent}</a>`);
+      score.innerHTML = `<strong>Score : ${s.right} / ${s.total}</strong>${s.answered < s.total ? ` (${s.total - s.answered} sans réponse)` : ''}.` + (misses.length ? ` À reprendre : ${misses.join(', ')}.` : ' Série parfaite.');
+      finish.hidden = true;
+    } else if (mode === 'instant') score.textContent = `${s.right} juste${s.right > 1 ? 's' : ''} sur ${grades.size} question${grades.size > 1 ? 's' : ''} corrigée${grades.size > 1 ? 's' : ''} (série de ${s.total}).`;
+  }
+  root.addEventListener('change', e => { if (e.target.name === `${id}-mode`) { mode = e.target.value; writeStore(QCM_MODE, mode); apply(); } });
+  root.addEventListener('click', e => {
+    const b = e.target.closest('button'); if (!b) return;
+    if (b.matches('[data-quiz-check]')) { if (grade(b.closest('.quiz-q'), false)) tally(false); }
+    if (b.matches('[data-quiz-finish]')) {
+      const unread = items.filter(li => !grades.has(li) && li.querySelector('.quiz-in').value.trim() && QB.checkAnswer(list[items.indexOf(li)], li.querySelector('.quiz-in').value).error);
+      if (unread.length) { unread.forEach(li => grade(li, false)); score.textContent = `Réponse illisible à la ${unread.map(li => li.querySelector('.qcm-n').textContent.toLowerCase()).join(', ')} : corrige le format, puis corrige la série.`; return; }
+      items.filter(li => !grades.has(li)).forEach(li => grade(li, true)); tally(true); score.scrollIntoView({ block: 'nearest' });
+    }
+  });
+  root.addEventListener('keydown', e => {
+    if (e.key !== 'Enter' || !e.target.matches('.quiz-in')) return;
+    e.preventDefault(); const li = e.target.closest('.quiz-q');
+    if (mode === 'instant') { if (grade(li, false)) tally(false); } else { const next = items[items.indexOf(li) + 1]; if (next) next.querySelector('.quiz-in').focus(); }
+  });
+  apply();
+}
+function bank(root) {
+  const key = root.dataset.a1Bank, id = root.id || 'banque';
+  const fixed = [...document.querySelectorAll('section.qcm[data-a1-qcm] .qcm-q')].map(li => li.cloneNode(true));
+  fixed.forEach(li => li.querySelectorAll('.qcm-actions').forEach(x => x.remove()));
+  const self = new URL(import.meta.url);
+  root.innerHTML = `<header class="qcm-head"><p class="qcm-kicker">Banque de questions</p><h3 id="${id}-h">Séries tirées au hasard</h3><p class="qbank-lede">Chargement de la banque…</p></header>
+    <div class="qbank-controls">
+      <div class="qcm-mode qbank-kind" role="radiogroup" aria-label="Type de questions"><label><input type="radio" name="${id}-kind" value="qcm" checked> QCM</label><label><input type="radio" name="${id}-kind" value="quiz"> Quiz à réponse courte</label></div>
+      <label>Questions <select data-count><option>10</option><option>20</option><option>30</option></select></label>
+      <label>Thème <select data-topic><option value="">tous</option></select></label>
+      <button type="button" class="qcm-btn qcm-primary" data-new>Nouvelle série</button>
+      <p class="qbank-code">Code de la série : <output data-code></output></p>
+      <details class="qbank-replay"><summary>Rejouer une série à partir de son code</summary><label>Code <input data-code-in inputmode="numeric" autocomplete="off"></label> <button type="button" class="qcm-btn" data-load>Charger</button></details>
+    </div><div class="qbank-stage" aria-live="polite"></div>`;
+  const stage = root.querySelector('.qbank-stage'), codeOut = root.querySelector('[data-code]'), topicSel = root.querySelector('[data-topic]');
+  let items = [];
+  const kind = () => root.querySelector(`[name="${id}-kind"]:checked`).value;
+  function topics() {
+    const ts = [...new Set(items.filter(i => i.kind === kind()).map(i => i.topic))].sort((a, b) => a.localeCompare(b, 'fr'));
+    const cur = topicSel.value;
+    topicSel.innerHTML = '<option value="">tous</option>' + ts.map(t => `<option${t === cur ? ' selected' : ''}>${esc(t)}</option>`).join('');
+  }
+  async function draw(seed) {
+    const k = kind(), count = Number(root.querySelector('[data-count]').value), topic = topicSel.value;
+    const pool = items.filter(i => i.kind === k && (!topic || i.topic === topic));
+    const R = QB.rng(seed), sid = `${id}-s${seed}`;
+    const extra = k === 'qcm' && !topic ? fixed : [];
+    const order = R.shuffle([...pool.map(i => ({ gen: i })), ...extra.map(li => ({ dom: li }))]).slice(0, count);
+    const list = order.map((o, j) => (o.gen ? QB.instance(o.gen, seed + 1000003 * (j + 1)) : o));
+    codeOut.textContent = String(seed);
+    stage.innerHTML = `<section class="qcm qbank-serie" id="${sid}" aria-label="Série ${seed}"><header class="qcm-head"><p class="qcm-kicker">${k === 'qcm' ? 'QCM' : 'Quiz'} · ${list.length} questions${topic ? ' · ' + esc(topic) : ''} · série ${seed}</p></header><ol class="qcm-list"></ol></section>`;
+    const sec = stage.firstElementChild, ol = sec.querySelector('ol');
+    list.forEach((q, j) => {
+      if (q.dom) {
+        const li = q.dom.cloneNode(true); li.id = `${sid}-q${j + 1}`; li.className = 'qcm-q';
+        li.querySelectorAll('input').forEach(inp => { inp.name = `${sid}-q${j + 1}`; inp.checked = false; inp.disabled = false; });
+        li.querySelector('.qcm-n').textContent = `Question ${j + 1}`; li.querySelector('.qcm-verdict').textContent = '';
+        ol.append(li);
+      } else ol.insertAdjacentHTML('beforeend', k === 'qcm' ? qcmItemHtml(q, j + 1, sid) : quizItemHtml(q, j + 1, sid));
+    });
+    await typesetIn(sec);
+    if (k === 'qcm') qcm(sec, { best: false }); else quizSeries(sec, list.map(q => q));
+  }
+  const fresh = () => (crypto.getRandomValues(new Uint32Array(1))[0] % 900000) + 100000;
+  import(new URL(`./algebra1-bank-${key}.js${self.search}`, self).href).then(mod => {
+    items = mod.ITEMS;
+    const nq = items.filter(i => i.kind === 'qcm').length, nz = items.filter(i => i.kind === 'quiz').length;
+    root.querySelector('.qbank-lede').innerHTML = `${nq + fixed.length} questions de QCM, dont ${nq} renouvelées à chaque tirage (nombres, cas et ordre des réponses), et ${nz} questions de quiz à réponse courte, vérifiée exactement. Chaque série a un code qui permet de la rejouer à l’identique.`;
+    topics(); draw(fresh());
+  }).catch(e => { console.error(e); stage.textContent = 'La banque de questions n’a pas pu se charger.'; });
+  root.addEventListener('change', e => {
+    if (e.target.name === `${id}-kind`) { topicSel.value = ''; topics(); draw(fresh()); }
+    if (e.target.matches('[data-count], [data-topic]')) draw(fresh());
+  });
+  root.addEventListener('click', e => {
+    if (e.target.closest('[data-new]')) draw(fresh());
+    if (e.target.closest('[data-load]')) { const v = Number(root.querySelector('[data-code-in]').value.replace(/\D/g, '')); if (v) draw(v); }
+  });
+}
+
+const WIDGETS = { venn, maps, zn, lu, cayley, perms, dihedral, burnside };
 export function mountAll(scope = document) {
   for (const el of scope.querySelectorAll('[data-a1-qcm]')) {
     if (el.dataset.mounted) continue;
@@ -501,6 +697,11 @@ export function mountAll(scope = document) {
     if (!make || el.dataset.mounted) continue;
     el.dataset.mounted = '1';
     try { make(el); } catch (e) { el.textContent = 'Cette figure n’a pas pu se charger.'; console.error(e); }
+  }
+  for (const el of scope.querySelectorAll('[data-a1-bank]')) {
+    if (el.dataset.mounted) continue;
+    el.dataset.mounted = '1';
+    try { bank(el); } catch (e) { console.error(e); }
   }
 }
 if (typeof document !== 'undefined') {
