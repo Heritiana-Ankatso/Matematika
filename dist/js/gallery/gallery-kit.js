@@ -47,7 +47,7 @@ export function drawFaces(g,C,polys,view,scale,{dy=8,ghost=false}={}){
     g.globalAlpha=1;
     if(edges)g.stroke();else{g.strokeStyle=C.c[q.shade];g.lineWidth=.6;g.stroke();g.strokeStyle=C.ink;}}
 }
-// Groups of the console (styles/figure-layout.css): a transport (back, play, forward joined in one row, the timeline under
+// Groups of the console (styles/pages.css, section « figure and console »): a transport (back, play, forward joined in one row, the timeline under
 // it) and a choice with the action that goes with it (a select and its button on one line).
 export const transport=(prev,play,next,timeline='')=>`<div class="fig-transport">${prev}${play}${next}</div>${timeline}`;
 export const choice=(fieldHtml,actionHtml)=>`<div class="fig-choice">${fieldHtml}${actionHtml}</div>`;

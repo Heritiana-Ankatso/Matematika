@@ -131,7 +131,7 @@ The palette, type, shapes and home of `docs/DESIGN_V7.md`. The purpose rules of 
 Owner: "controls beside the figure on large horizontal screens, always on the same screen as the canvas". Same pass as
 Maths-explorer, made with the Impeccable design skill (Paul Bakaus, Apache 2.0; installed for the user, not in this
 repository): its Operate, Layout and Craft-floor playbooks. The rules live in `site/js/figure-layout.js` and
-`site/styles/figure-layout.css`:
+the section « figure and console » at the end of `site/styles/pages.css`:
 - An exhibit is a strip of two panels: the figure, and the console of its controls. Wide figure area (860 px and more):
   the console beside the figure, top-aligned and sticky, the figure never taller than the viewport under the header.
   Narrow: figure, its caption, the console, then plots and notes, in the page and in the keyboard order.
@@ -140,7 +140,7 @@ repository): its Operate, Layout and Craft-floor playbooks. The rules live in `s
   toolbar; exactly one pressed button in a group is a choice (`data-fig="choice"`), other pressed buttons are on/off
   toggles; example lists are rows of one list; live values are a table; the help line closes it. A choice of three is
   one row of three cells; a choice of five or more is two columns, the odd last cell across.
-- `figure-layout.css` sets layout only (places, sizes, order, joined cells, the panel frame). How a control looks and
+- That section sets layout only (places, sizes, order, joined cells, the panel frame). How a control looks and
   shows its state (indigo fill for a choice, fill and check mark for a toggle, square corners, no shadow, hover) comes
   from `styles/controls.css` alone, which lists the console choice among the choices of one (22 November 2026, after
   the console's own hover backgrounds left picked choices and the Life buttons unreadable on hover).

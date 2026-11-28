@@ -1,6 +1,6 @@
 // Figure and console: one layout for every interactive figure of the gallery (owner, 22 November 2026).
 // The figure and the controls that act on it are always on one screen. When the figure area is wide (container query in
-// styles/figure-layout.css), the controls sit in a column beside the figure, which is sized to the height of the viewport;
+// styles/pages.css, section « figure and console »), the controls sit in a column beside the figure, which is sized to the height of the viewport;
 // when it is narrow, the controls follow the figure directly and the figure is short enough to leave room for them.
 // The exhibits keep writing their markup as before (help, stage, metrics, plot, controls, readout, notes); `arrangeFigure`
 // sorts those top-level blocks into two columns. It moves nodes (listeners and canvases survive) and sorts again when an
@@ -19,11 +19,11 @@ export function columnOf({ classes = [], hasCanvas = false }) {
 }
 
 // Pure: a set of buttons with aria-pressed is one choice among several when exactly one of them is pressed (a radio group
-// in all but name); otherwise each one is an on/off toggle. The console draws the two differently (figure-layout.css).
+// in all but name); otherwise each one is an on/off toggle. The console draws the two differently (styles/pages.css).
 export function pressedKind(states) {
   return states.length >= 2 && states.filter((s) => s === "true").length === 1 ? "choice" : "toggle";
 }
-const WIDE = 860;   // the container width of styles/figure-layout.css where the console moves beside the figure
+const WIDE = 860;   // the container width of the figure and console rules (styles/pages.css) where the console moves beside the figure
 
 export function arrangeFigure(root) {
   if (!root || root.querySelector(":scope > .fig-split")) return () => {};
