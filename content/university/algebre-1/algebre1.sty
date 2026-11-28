@@ -55,6 +55,8 @@
   left=0pt,right=0pt,top=6pt,bottom=2pt,before skip=8pt,parbox=false,before upper={\alglevel{#2}\enspace{\sffamily\color{a1ink}Exercice #1}\if\relax\detokenize{#3}\relax\else\ \textperiodcentered\ {\bfseries #3}\fi\par\smallskip}}
 \newtcolorbox{a1sol}[1]{enhanced,breakable,sharp corners,boxrule=0pt,frame hidden,borderline west={1.6pt}{0pt}{a1indigo},colback=a1bone,
   left=8pt,right=6pt,top=3pt,bottom=4pt,before skip=5pt,parbox=false,before upper={{\sffamily\color{a1indigo}#1.}\enspace}}
+\newtcolorbox{a1qcm}[2]{enhanced,breakable,sharp corners,boxrule=0pt,frame hidden,borderline west={1.6pt}{0pt}{a1ochre},colback=white,
+  left=8pt,right=0pt,top=4pt,bottom=2pt,before skip=7pt,parbox=false,before upper={{\sffamily\color{a1ink}Question #1}\enspace{\sffamily\footnotesize\color{a1muted}(#2)}\par\smallskip}}
 \newcommand{\algtitle}[1]{\begin{titlepage}\color{a1ink}\vspace*{40mm}
   {\sffamily\color{a1indigo}\large MATEMATIKA \textperiodcentered{} UNIVERSITÉ}\par\vspace{6mm}
   {\color{a1indigo}\rule{\linewidth}{2pt}}\par\vspace{8mm}

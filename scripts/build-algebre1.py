@@ -22,6 +22,7 @@ MACROS = {
     'Img': (0, r'\operatorname{Im}'), 'Id': (0, r'\mathrm{Id}'), 'id': (0, r'\mathrm{id}'), 'GL': (0, r'\mathrm{GL}'),
     'SL': (0, r'\mathrm{SL}'), 'rg': (0, r'\operatorname{rang}'), 'Mat': (0, r'\mathcal{M}'), 'cl': (1, r'\overline{#1}'),
     'ens': (1, r'\{#1\}'), 'abs': (1, r'\left\lvert #1\right\rvert'), 'norm': (1, r'\left\lVert #1\right\rVert'),
+    'Aut': (0, r'\operatorname{Aut}'), 'Inn': (0, r'\operatorname{Inn}'), 'Fix': (0, r'\operatorname{Fix}'), 'Syl': (0, r'\operatorname{Syl}'),
     'sgn': (0, r'\varepsilon'), 'tr': (0, r'^{T}'), 'Vect': (0, r'\operatorname{L}'), 'Hom': (0, r'\operatorname{Hom}'),
 }
 KINDS = {  # name: (label, numbered, css/latex style)
@@ -30,12 +31,13 @@ KINDS = {  # name: (label, numbered, css/latex style)
     'methode': ('Méthode', False, 'meth'), 'remarque': ('Remarque', False, 'rem'), 'attention': ('Attention', False, 'warn'),
     'intuition': ('Intuition', False, 'idea'), 'essentiel': ('À retenir', False, 'key'), 'histoire': ('Repère historique', False, 'rem'),
 }
+QCM_HINT = {False: 'Une seule réponse', True: 'Une ou plusieurs réponses'}
 SHORT = {'definition': 'Déf.', 'theoreme': 'Thm', 'proposition': 'Prop.', 'lemme': 'Lemme', 'corollaire': 'Cor.', 'exemple': 'Ex.', 'exo': 'Exercice'}
 RUBRIQUES = {'A': 'Techniques', 'B': 'Preuves types', 'C': 'Décisions et contre-exemples', 'D': 'Problèmes de synthèse'}
 LEVELS = {'S': 'Socle', 'A': 'Approfondissement', 'D': 'Défi'}
 WIDGET_TITLES = {'venn': 'Opérations ensemblistes et diagrammes de Venn', 'maps': 'Injective, surjective, bijective ?',
                  'zn': 'Calculer dans ℤ/nℤ', 'lu': 'Élimination pas à pas : PA = LU', 'cayley': 'Tables de Cayley',
-                 'perms': 'Atelier des permutations', 'dihedral': 'Le groupe diédral Dₙ'}
+                 'perms': 'Atelier des permutations', 'dihedral': 'Le groupe diédral Dₙ', 'burnside': 'Compter les coloriages à symétrie près'}
 MATH_ENVS = ('align*', 'gather*', 'equation*')
 
 # ------------------------------------------------------------------ parsing
@@ -68,8 +70,8 @@ def bracketed(s, i):
 def strip_comments(s):
     return '\n'.join(re.sub(r'(?<!\\)%.*$', '', line) for line in s.split('\n'))
 
-BLOCK_ENVS = set(KINDS) | {'preuve', 'itemize', 'enumerate', 'objectifs', 'prerequis', 'exo', 'indication', 'corrige', 'erreurs', 'bilan', 'tabular', 'cadre'} | set(MATH_ENVS)
-BLOCK_CMDS = ('chapitre', 'resume', 'summary', 'section', 'subsection', 'rubrique', 'exercices', 'widget', 'item', 'label')
+BLOCK_ENVS = set(KINDS) | {'preuve', 'itemize', 'enumerate', 'objectifs', 'prerequis', 'exo', 'indication', 'corrige', 'erreurs', 'bilan', 'tabular', 'cadre', 'qcm', 'question', 'explication'} | set(MATH_ENVS)
+BLOCK_CMDS = ('chapitre', 'resume', 'summary', 'section', 'subsection', 'rubrique', 'exercices', 'widget', 'item', 'label', 'bonchoix', 'choix', 'banque')
 
 def find_end(s, i, env):
     """Index of the matching \\end{env} for a body that starts at i."""
@@ -130,7 +132,7 @@ def parse(s):
             if cmd == 'exercices': nodes.append({'t': 'exercices'}); i = j; continue
             opt, j = bracketed(s, j)
             args = []
-            n = {'chapitre': 3, 'resume': 1, 'summary': 1, 'section': 1, 'subsection': 1, 'rubrique': 1, 'widget': 1, 'item': 0}[cmd]
+            n = {'chapitre': 3, 'resume': 1, 'summary': 1, 'section': 1, 'subsection': 1, 'rubrique': 1, 'widget': 1, 'item': 0, 'choix': 2, 'bonchoix': 2, 'banque': 1}[cmd]
             for _ in range(n):
                 while s[j] in ' \n': j += 1
                 a, j = braced(s, j); args.append(a)
@@ -139,11 +141,41 @@ def parse(s):
     flush()
     return nodes
 
+# ------------------------------------------------------------------ QCM
+def qcm_parts(q):
+    """A question node: (stem nodes, [(correct, choice text, feedback)], explanation nodes or None, several answers?)."""
+    stem, choices, expl = [], [], None
+    for x in q['body']:
+        if x['t'] in ('choix', 'bonchoix'): choices.append((x['t'] == 'bonchoix', x['args'][0].strip(), x['args'][1].strip()))
+        elif x['t'] == 'explication': expl = x['body']
+        else: stem.append(x)
+    return stem, choices, expl, bool(q['opts'] and q['opts'][0] == 'plusieurs')
+
+def check_qcm(nd, where):
+    """A series holds questions only; every choice carries its feedback; a one-answer question has exactly one right choice."""
+    qs = [x for x in nd['body'] if x['t'] == 'question']
+    if not qs: raise ValueError(f'{where}: empty QCM')
+    for k, q in enumerate(qs, 1):
+        stem, choices, expl, multi = qcm_parts(q)
+        tag = f'{where}, QCM {nd["num"]}, question {k}'
+        if q['opts'] and q['opts'][0] not in ('plusieurs',): raise ValueError(tag + ': option must be [plusieurs]')
+        if not stem: raise ValueError(tag + ': no statement')
+        if len(choices) < 3: raise ValueError(tag + ': at least three choices')
+        right = sum(c[0] for c in choices)
+        if not multi and right != 1: raise ValueError(tag + f': {right} right choices in a one-answer question')
+        if multi and right < 1: raise ValueError(tag + ': no right choice')
+        if any(not c[1] or not c[2] for c in choices): raise ValueError(tag + ': a choice without text or feedback')
+        if expl is None: raise ValueError(tag + ': no \\begin{explication}')
+        if len({c[1] for c in choices}) != len(choices): raise ValueError(tag + ': two identical choices')
+
+def count_qcm(nodes):
+    return sum((nd['t'] == 'question') + count_qcm(nd.get('body', [])) for nd in nodes)
+
 # ------------------------------------------------------------------ numbering and labels
 def number(chapters):
     labels = {}
     for ch in chapters:
-        count = {'box': 0, 'exo': 0}
+        count = {'box': 0, 'exo': 0, 'qcm': 0}
         prefix = ch['prefix']
         def walk(nodes, owner=None):
             for nd in nodes:
@@ -154,6 +186,9 @@ def number(chapters):
                 if t == 'exo':
                     count['exo'] += 1; nd['num'] = f'{prefix}.{count["exo"]}' if prefix else str(count['exo'])
                     nd['anchor'] = f'{ch["id"]}-exo-{count["exo"]}'
+                if t == 'qcm':
+                    count['qcm'] += 1; nd['num'] = f'{prefix}.{count["qcm"]}' if prefix else str(count['qcm'])
+                    nd['anchor'] = f'{ch["id"]}-qcm-{count["qcm"]}'; check_qcm(nd, ch['id'])
                 if t == 'label' and owner is not None:
                     labels[nd['key']] = {'num': owner['num'], 'anchor': owner['anchor'], 'kind': owner['t'], 'page': ch['slide']}
                 if 'body' in nd: walk(nd['body'], nd if ('num' in nd) else owner)
@@ -170,28 +205,47 @@ def french_spaces(t):
 def label_text(labels, key):
     if key not in labels: raise ValueError('Unknown reference: ' + key)
     L = labels[key]
-    name = 'Exercice' if L['kind'] == 'exo' else KINDS[L['kind']][0]
+    name = {'exo': 'Exercice', 'qcm': 'QCM'}.get(L['kind']) or KINDS[L['kind']][0]
     return name + '\u00a0' + L['num'], L
 
 BREAK_AFTER = re.compile(r'\\(?:iff|Rightarrow|Longleftrightarrow|Leftrightarrow)(?![a-zA-Z])|(?<![<>!\\])=|\\subset(?![a-zA-Z])|\\le(?![a-zA-Z])')
+SOFT_BREAK = re.compile(r',|\\mid(?![a-zA-Z])')
+
+def expand_ens(m):
+    r"""\ens{X} becomes \{X\}: the braces are then plain delimiters, so a long set may be cut after a comma or \mid."""
+    out, i = [], 0
+    while True:
+        j = m.find(r'\ens{', i)
+        if j < 0: return ''.join(out) + m[i:]
+        body, k = braced(m, j + 4)
+        out.append(m[i:j] + r'\{' + expand_ens(body) + r'\}'); i = k
 
 def inline_math(m):
-    """MathJax does not wrap inline formulas: a long one is cut after its top-level relations into several formulas
-    joined by a zero-width space, with empty groups {} so that TeX keeps the spacing around each relation."""
-    if len(m) < 48: return r'\(' + html.escape(m, quote=False) + r'\)'
-    pieces, depth, last, i = [], 0, 0, 0
+    r"""MathJax does not wrap inline formulas: a formula is cut after its top-level relations (and, inside a set written
+    with \ens, after its commas and \mid) into several formulas joined by a zero-width space, with empty groups {} so
+    that TeX keeps the spacing around each relation. Nothing is cut inside a group, \left...\right or an environment, and no
+    comma inside parentheses."""
+    if len(m) < 24: return r'\(' + html.escape(m, quote=False) + r'\)'
+    m = expand_ens(m)
+    pieces, depth, paren, last, i = [], 0, 0, 0, 0
     while i < len(m):
         c = m[i]
-        if c == '\\' and m.startswith(('\\left', '\\right'), i): depth += 1 if m.startswith('\\left', i) else -1
+        if c == '\\':
+            if m.startswith(('\\left', '\\begin'), i): depth += 1
+            elif m.startswith(('\\right', '\\end'), i): depth -= 1
+            if i + 1 < len(m) and not m[i + 1].isalpha():
+                i += 2; continue
         if c == '{': depth += 1
         elif c == '}': depth -= 1
+        elif c in '([': paren += 1
+        elif c in ')]': paren -= 1
         elif depth == 0:
-            mm = BREAK_AFTER.match(m, i)
-            if mm and i - last > 12 and len(m) - mm.end() > 8:
+            mm = BREAK_AFTER.match(m, i) or (SOFT_BREAK.match(m, i) if paren == 0 else None)
+            if mm and i - last > 8 and len(m) - mm.end() > 6:
                 pieces.append(m[last:mm.end()] + '{}'); last = mm.end(); i = mm.end(); continue
         i += 1
     pieces.append(m[last:])
-    return '\u200b'.join(r'\(' + ('{}' if k else '') + html.escape(x, quote=False) + r'\)' for k, x in enumerate(pieces))
+    return '​'.join(r'\(' + ('{}' if k else '') + html.escape(x, quote=False) + r'\)' for k, x in enumerate(pieces))
 
 def html_inline(s, labels, page):
     """One scanner for text, maths and inline commands (maths may sit inside \\textbf{...})."""
@@ -218,7 +272,9 @@ def html_inline(s, labels, page):
                 i += 2; continue
             name = m[1]; j = i + len(m[0]) if name in ('og', 'fg', 'ldots', 'dots', 'quad', 'newline') else i + 1 + len(name)
             if name in ('textbf', 'emph', 'textit', 'voir', 'href', 'url', 'textsc', 'mbox', 'nom', 'site'):
-                a, j = braced(s, j); flush()
+                a, j = braced(s, j)
+                named = name == 'voir' and named_before(''.join(text), labels, a)
+                flush()
                 if name == 'textbf': res.append('<strong>' + html_inline(a, labels, page) + '</strong>')
                 elif name in ('emph', 'textit'): res.append('<em>' + html_inline(a, labels, page) + '</em>')
                 elif name in ('textsc', 'nom'): res.append('<span class="sc">' + html_inline(a, labels, page) + '</span>')
@@ -230,6 +286,7 @@ def html_inline(s, labels, page):
                     b, j = braced(s, j); res.append(f'<a class="site-link" href="../../../../index.html#{html.escape(a)}" target="_top">{html_inline(b, labels, page)}</a>')
                 else:
                     t, L = label_text(labels, a)
+                    if named: t = L['num']
                     href = ('' if L['page'] == page else L['page']) + '#' + L['anchor']
                     res.append(f'<a class="xref" href="{href}">{html.escape(t)}</a>')
                 i = j; continue
@@ -245,9 +302,19 @@ def html_inline(s, labels, page):
     flush()
     return ''.join(res)
 
+KIND_WORD = re.compile(r"([A-Za-zÀ-ÿ]+)[\s~\u00a0]*$")
+
+def named_before(before, labels, key):
+    """True when the text before \\voir{key} already names the kind (« le théorème \\voir{…} »): then only the number is
+    printed, so the reader sees « le théorème 4.7 » and not « le théorème Théorème 4.7 »."""
+    m = KIND_WORD.search(before)
+    return bool(m) and m[1].lower() == label_text(labels, key)[0].split('\u00a0')[0].lower()
+
 def tex_inline(s, labels):
     def voir(m):
-        text, _ = label_text(labels, m[1]); return r'\hyperlink{' + labels[m[1]]['anchor'] + '}{' + text.replace('\u00a0', '~') + '}'
+        text, L = label_text(labels, m[1])
+        if named_before(s[:m.start()], labels, m[1]): text = L['num']
+        return r'\hyperlink{' + labels[m[1]]['anchor'] + '}{' + text.replace('\u00a0', '~') + '}'
     s = re.sub(r'\\voir\{([^}]*)\}', voir, s)
     s = re.sub(r'\\site\{[^}]*\}\{([^}]*)\}', lambda m: r'\emph{' + m[1] + r'} (site Matematika)', s)
     s = s.replace(r'\nom{', r'\textsc{')
@@ -318,6 +385,26 @@ def html_blocks(nodes, ctx):
             extra = ''.join(f'<details class="{k}"><summary>{"Indication" if k == "indication" else "Corrigé détaillé"}</summary>{html_blocks(v[0]["body"], ctx)}</details>' for k, v in parts.items() if v)
             out.append(f'<article class="exo" id="{nd["anchor"]}" data-level="{level}" data-rub="{ctx["rub"]}"><header><span class="lvl lvl-{level}" title="{LEVELS[level]}">{level}</span><h4>Exercice {nd["num"]}{(" · " + inl(title)) if title else ""}</h4>'
                        f'<label class="done"><input type="checkbox" data-done="{nd["anchor"]}"> je sais le refaire seul</label></header>{html_blocks(body, ctx)}{extra}</article>')
+        elif t == 'banque':
+            ctx['toc'].append((3, 'banque', 'Banque de QCM et de quiz'))
+            out.append(f'<section class="qcm qbank" id="banque" data-a1-bank="{html.escape(nd["args"][0])}" aria-labelledby="banque-h"><h3 id="banque-h" class="qbank-title">Banque de questions</h3>'
+                       '<noscript><p class="qcm-small">La banque de questions tirées au hasard demande JavaScript ; les séries de QCM ci-dessous restent lisibles sans lui.</p></noscript></section>')
+        elif t == 'qcm':
+            title = box_opts(nd); ctx['qcms'] += 1
+            ctx['toc'].append((3, nd['anchor'], f'QCM {nd["num"]}' + (f' · {title}' if title else '')))
+            intro = [x for x in nd['body'] if x['t'] != 'question']; qs = [x for x in nd['body'] if x['t'] == 'question']
+            items = []
+            for k, q in enumerate(qs, 1):
+                stem, choices, expl, multi = qcm_parts(q); kind = 'checkbox' if multi else 'radio'
+                ch_html = ''.join(f'<li class="qcm-c" data-ok="{int(ok)}"><label><input type="{kind}" name="{nd["anchor"]}-q{k}" value="{i}"> <span class="qcm-t">{inl(text)}</span></label>'
+                                  f'<div class="qcm-fb"><span class="qcm-mark">{"Bonne réponse" if ok else "Mauvaise réponse"}.</span> {inl(fb)}</div></li>' for i, (ok, text, fb) in enumerate(choices))
+                items.append(f'<li class="qcm-q" id="{nd["anchor"]}-q{k}" data-multi="{int(multi)}"><fieldset><legend><span class="qcm-n">Question {k}</span> <span class="qcm-hint">{QCM_HINT[multi]}</span></legend>'
+                             f'<div class="qcm-stem">{html_blocks(stem, ctx)}</div><ul class="qcm-choices">{ch_html}</ul>'
+                             f'<div class="qcm-expl"><p class="qcm-expl-h">Explication</p>{html_blocks(expl, ctx)}</div><p class="qcm-verdict" aria-live="polite"></p></fieldset></li>')
+            out.append(f'<section class="qcm" id="{nd["anchor"]}" data-a1-qcm aria-labelledby="{nd["anchor"]}-h"><header class="qcm-head"><p class="qcm-kicker">QCM {nd["num"]} · {len(qs)} questions</p>'
+                       f'<h3 id="{nd["anchor"]}-h">{inl(title) if title else "Questions à choix multiples"}</h3>{html_blocks(intro, ctx)}'
+                       '<noscript><p class="qcm-small">Sans JavaScript, les réponses et les explications sont affichées sous chaque question.</p></noscript></header>'
+                       f'<ol class="qcm-list">{"".join(items)}</ol></section>')
         elif t == 'erreurs':
             out.append('<div class="box box-warn errors"><p class="bhead"><span class="kind">Erreurs fréquentes</span></p><ul>' + ''.join('<li>' + html_blocks(it, ctx) + '</li>' for it in nd['items']) + '</ul></div>')
         elif t == 'bilan':
@@ -328,7 +415,8 @@ def html_blocks(nodes, ctx):
         else: raise ValueError('Unhandled node ' + t)
     return ''.join(out)
 
-ASSETS = {'css': ROOT / 'site/styles/algebra1.css', 'js': ROOT / 'site/js/algebra1-widgets.js', 'model': ROOT / 'site/js/algebra1-model.js'}
+ASSETS = {'css': ROOT / 'site/styles/algebra1.css', 'js': ROOT / 'site/js/algebra1-widgets.js', 'model': ROOT / 'site/js/algebra1-model.js',
+          **{p.stem: p for p in sorted((ROOT / 'site/js').glob('algebra1-*.js')) if p.stem not in ('algebra1-widgets', 'algebra1-model')}}
 
 def version(*keys):
     """Cache-busting suffix: the lesson pages are static files outside the site's versioned import map."""
@@ -337,14 +425,14 @@ def version(*keys):
     return '?v=' + h.hexdigest()[:12]
 
 def page_html(ch, chapters, labels, pdfs):
-    ctx = {'labels': labels, 'page': ch['slide'], 'toc': [], 'sec': 0, 'sub': 0, 'rub': 'A', 'exos': 0, 'widgets': 0, 'prefix': ch['prefix'], 'in_ex': False}
+    ctx = {'labels': labels, 'page': ch['slide'], 'toc': [], 'sec': 0, 'sub': 0, 'rub': 'A', 'exos': 0, 'qcms': 0, 'widgets': 0, 'prefix': ch['prefix'], 'in_ex': False}
     body = html_blocks(ch['nodes'], ctx)
     meta = ch['meta']; inl = lambda s: html_inline(s, labels, ch['slide'])
     get = lambda t: next((n for n in ch['nodes'] if n['t'] == t), None)
     obj, pre = get('objectifs'), get('prerequis')
     i = chapters.index(ch)
     prev, nxt = (chapters[i - 1] if i else None), (chapters[i + 1] if i + 1 < len(chapters) else None)
-    kicker = f'Chapitre {ch["prefix"]}' if ch['prefix'] else ch['kicker']
+    kicker = ch['kicker'] or f'Chapitre {ch["prefix"]}'
     counts = {k: 0 for k in ('def', 'thm', 'exo')}
     def count(nodes):
         for nd in nodes:
@@ -353,7 +441,8 @@ def page_html(ch, chapters, labels, pdfs):
             if nd['t'] == 'exo': counts['exo'] += 1
             count(nd.get('body', []))
     count(ch['nodes'])
-    facts = [f'{counts["def"]} définitions' if counts['def'] else '', f'{counts["thm"]} résultats' if counts['thm'] else '', f'{counts["exo"]} exercices corrigés' if counts['exo'] else '', f'{ctx["widgets"]} figure{"s" if ctx["widgets"] > 1 else ""} à manipuler' if ctx['widgets'] else '']
+    n_q = count_qcm(ch['nodes'])
+    facts = [f'{counts["def"]} définitions' if counts['def'] else '', f'{counts["thm"]} résultats' if counts['thm'] else '', f'{counts["exo"]} exercices corrigés' if counts['exo'] else '', f'{n_q} questions de QCM' if n_q else '', f'{ctx["widgets"]} figure{"s" if ctx["widgets"] > 1 else ""} à manipuler' if ctx['widgets'] else '']
     toc = ''.join(f'<li class="toc{lvl}"><a href="#{a}">{inl(title)}</a></li>' for lvl, a, title in ctx['toc'])
     chapters_nav = ''.join(f'<li><a href="{c["slide"]}"{" aria-current=page" if c is ch else ""}>{(c["prefix"] + ". ") if c["prefix"] else ""}{html.escape(c["meta"]["title"][0])}</a></li>' for c in chapters)
     macros = json.dumps({k: [v[1], v[0]] if v[0] else v[1] for k, v in MACROS.items()}, ensure_ascii=False)
@@ -361,6 +450,7 @@ def page_html(ch, chapters, labels, pdfs):
     entry = ('<nav class="entry" aria-label="Cours et exercices">'
              '<a class="entry-main" href="#cours"><strong>Cours</strong><span>définitions, résultats, démonstrations</span></a>'
              + (f'<a class="entry-main" href="#exercices"><strong>Exercices</strong><span>{n_ex} exercices corrigés, par niveau</span></a>' if n_ex else '')
+             + (f'<a class="entry-main" href="#{ch["id"]}-qcm-1"><strong>QCM</strong><span>{n_q} questions, correction expliquée</span></a>' if n_q else '')
              + '</nav>')
     hero = f'''<header class="hero"><p class="kicker">{kicker}</p><h1>{html.escape(meta["title"][0])}</h1><p class="lede">{inl(get("resume")["args"][0]) if get("resume") else ""}</p>
 <p class="facts">{" · ".join(f for f in facts if f)}</p>
@@ -378,7 +468,7 @@ def page_html(ch, chapters, labels, pdfs):
 <link rel="stylesheet" href="../../../../styles/algebra1.css{version('css')}">
 <script>window.MathJax={{tex:{{inlineMath:[['\\\\(','\\\\)']],displayMath:[['\\\\[','\\\\]']],macros:{macros}}},svg:{{fontCache:'global'}},options:{{enableAssistiveMml:true}}}};</script>
 <script defer src="../../../../vendor/mathjax-tex-svg.js"></script>
-<script type="module" src="../../../../js/algebra1-widgets.js{version('js', 'model')}"></script>
+<script type="module" src="../../../../js/algebra1-widgets.js{version(*[k for k in ASSETS if k != 'css'])}"></script>
 </head><body>
 <a class="skip" href="#main">Aller au contenu</a>
 <div class="topbar"><a class="brand" href="../../../../index.html#university">Matematika</a><span class="crumbs"><a href="../../../../index.html#university">Université</a> / <a href="index.html">Algèbre 1</a></span><button type="button" class="theme" data-theme-toggle aria-label="Changer de thème"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg></button></div>
@@ -456,11 +546,28 @@ def tex_blocks(nodes, ctx, edition):
                 if x['t'] == 'indication' and edition == 'exercices': out.append(r'\begin{a1sol}{Indication}' + tex_blocks(x['body'], ctx, edition) + r'\end{a1sol}' + '\n')
                 if x['t'] == 'corrige' and edition == 'corriges': out.append(r'\begin{a1sol}{Corrigé}' + tex_blocks(x['body'], ctx, edition) + r'\end{a1sol}' + '\n')
             out.append(r'\end{a1exo}' + '\n')
+        elif t == 'banque':
+            if edition == 'exercices': out.append(r'\begin{a1box}{web}{Banque de questions en ligne}La version web de ce chapitre propose une banque de plus de soixante questions de QCM et de quiz à réponse courte, tirées au hasard, aux nombres renouvelés à chaque série et corrigées immédiatement (site Matematika, rubrique Université, Algèbre~1).\end{a1box}' + '\n')
+        elif t == 'qcm':
+            title = box_opts(nd)
+            out.append(r'\subsection*{QCM ' + nd['num'] + ((r' \textperiodcentered{} ' + inl(title)) if title else '') + r'}\hypertarget{' + nd['anchor'] + '}{}\n')
+            out.append(tex_blocks([x for x in nd['body'] if x['t'] != 'question'], ctx, edition))
+            if edition == 'exercices': out.append(r'Pour chaque question, cocher la ou les bonnes réponses ; la mention \og plusieurs \fg{} signale qu\'il peut y en avoir plus d\'une. Les réponses expliquées sont dans l\'édition des corrigés.' + '\n\n')
+            for k, q in enumerate([x for x in nd['body'] if x['t'] == 'question'], 1):
+                stem, choices, expl, multi = qcm_parts(q)
+                letters = 'abcdefgh'
+                out.append(r'\begin{a1qcm}{' + str(k) + '}{' + ('plusieurs réponses possibles' if multi else 'une seule réponse') + '}\n' + tex_blocks(stem, ctx, edition)
+                           + r'\begin{enumerate}[label=(\alph*),itemsep=1pt]' + ''.join(r'\item ' + inl(text) + '\n' for ok, text, fb in choices) + r'\end{enumerate}' + '\n')
+                if edition == 'corriges':
+                    good = ', '.join(f'({letters[i]})' for i, c in enumerate(choices) if c[0])
+                    out.append(r'\begin{a1sol}{Réponse : ' + good + '}' + r'\begin{itemize}[itemsep=1pt]' + ''.join(r'\item[(' + letters[i] + ')] ' + (r'\textbf{Juste.} ' if ok else r'\textbf{Faux.} ') + inl(fb) + '\n' for i, (ok, text, fb) in enumerate(choices))
+                               + r'\end{itemize}' + '\n' + tex_blocks(expl, ctx, edition) + r'\end{a1sol}' + '\n')
+                out.append(r'\end{a1qcm}' + '\n')
         elif t == 'erreurs':
             out.append(r'\begin{a1box}{warn}{Erreurs fréquentes}\begin{itemize}' + ''.join(r'\item ' + tex_blocks(it, ctx, edition) for it in nd['items']) + r'\end{itemize}\end{a1box}' + '\n')
         elif t == 'bilan':
             out.append(r'\section*{Bilan : je sais faire, à froid et sans notes}\begin{itemize}[label=$\square$]' + ''.join(r'\item ' + tex_blocks(it, ctx, edition) for it in nd['items']) + r'\end{itemize}' + '\n')
-        elif t in ('chapitre', 'resume', 'summary', 'objectifs', 'prerequis', 'indication', 'corrige'): pass
+        elif t in ('chapitre', 'resume', 'summary', 'objectifs', 'prerequis', 'indication', 'corrige', 'question', 'explication', 'choix', 'bonchoix'): pass
         else: raise ValueError('Unhandled node ' + t)
     return ''.join(out)
 
@@ -473,7 +580,7 @@ def tex_document(chapters, labels, edition):
     doc += r'\begin{document}\algtitle{' + EDITIONS[edition] + '}\n'
     for ch in chapters:
         if edition != 'cours' and not any(n['t'] == 'exercices' for n in ch['nodes']): continue
-        num = ch['prefix']
+        num = ch['prefix'].isdigit()
         ctx = {'labels': labels, 'in_ex': False, 'star': '' if num else '*'}
         doc += (r'\chapter{' if num else r'\chapter*{') + ch['meta']['title'][0] + '}' + ('' if num else r'\addcontentsline{toc}{chapter}{' + ch['meta']['title'][0] + '}') + r'\markboth{' + ch['meta']['title'][0] + '}{}\n'
         if edition == 'cours':
@@ -515,7 +622,8 @@ def load():
         pre = next((n for n in nodes if n['t'] == 'prerequis'), None)
         meta = {'title': [title, title_en], 'summary': [plain(summary), plain(summary_en)],
                 'prerequisites': [plain(text_of(pre['body'])) if pre else 'Aucun.', head['opt'] or 'See the French text.']}
-        chapters.append({'id': seq['id'], 'slide': seq['slide'], 'nodes': nodes, 'prefix': number_ if number_.isdigit() else '', 'kicker': number_ if not number_.isdigit() else '', 'meta': meta})
+        kicker_, _, own = number_.partition('|')  # « Complément au chapitre 4|4C »: unnumbered chapter, its own prefix
+        chapters.append({'id': seq['id'], 'slide': seq['slide'], 'nodes': nodes, 'prefix': number_ if number_.isdigit() else own, 'kicker': '' if number_.isdigit() else kicker_, 'meta': meta})
     return section, chapters
 
 def digest():
@@ -575,7 +683,7 @@ def build(check=False, web_only=False):
             z.writestr('LISEZMOI.txt', 'Algèbre 1 : trois éditions LaTeX autonomes (cours, exercices, corrigés) produites par scripts/build-algebre1.py\n'
                        'depuis les sources du dossier source/. Compiler chaque fichier .tex trois fois avec XeLaTeX ; les polices STIX Two sont dans fonts/.\n')
     outputs = {p.relative_to(ROOT).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(OUT.rglob('*')) if p.is_file()}
-    sequences = {ch['id']: dict(ch['meta'], outline=outline(ch), exercises=count_exos(ch['nodes'])) for ch in chapters}
+    sequences = {ch['id']: dict(ch['meta'], outline=outline(ch), exercises=count_exos(ch['nodes']), **({'mcq': count_qcm(ch['nodes'])} if count_qcm(ch['nodes']) else {})) for ch in chapters}
     RECEIPT.write_text(json.dumps({'sourceDigest': digest(), 'sequences': sequences, 'outputs': outputs}, ensure_ascii=False, indent=2) + '\n')
     print(f'Algèbre 1: {len(chapters)} web lessons' + ('' if web_only else ', three PDF editions and LaTeX sources') + ' built.')
 

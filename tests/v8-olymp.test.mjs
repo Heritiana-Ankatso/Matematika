@@ -16,7 +16,9 @@ test('every problem of the content is a square, with its level', () => {
   for (const p of PROBLEMS) assert.ok(['mg', 'pan', 'intl'].includes(p.level), p.title);
   const html = olympPage({ t, lang: 'fr', siteName: 'Matematika' });
   assert.equal((html.match(/class="v8-sq is-/g) || []).length, total + 3); // + the three legend marks
-  for (const lv of ['mg', 'pan', 'intl']) assert.ok(html.includes(`(${PROBLEMS.filter((p) => p.level === lv).length})`), lv);
+  // owner rule (23 November 2026): no problem count anywhere on the arena
+  assert.ok(!html.includes(String(total)), 'the arena must not state how many problems there are');
+  for (const lv of ['mg', 'pan', 'intl']) assert.ok(!html.includes(`(${PROBLEMS.filter((p) => p.level === lv).length})`), lv);
 });
 
 test('the problem of the day is fixed by the date and reaches every problem', () => {
@@ -39,4 +41,8 @@ test('the arena renders in both languages, with no countdown', () => {
   assert.match(fr, /Problème du jour/); assert.match(en, /Problem of the day/);
   for (const s of STRATEGIES) assert.ok(fr.includes(`#olympiad/${s.id}`), s.id);
   assert.doesNotMatch(fr + en, /chronomètre|countdown|stopwatch|minuteur/i);
+  // the solution of the problem of the day is on its own page, never in the arena
+  const day = problemOfTheDay();
+  assert.ok(fr.includes(`#olympiad/${day.strategy.id}/${day.index + 1}`));
+  assert.doesNotMatch(fr + en, /<summary>Solution<\/summary>/);
 });

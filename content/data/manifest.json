@@ -29856,6 +29856,13 @@
             "edition": "lesson"
           },
           {
+            "id": "algebre-1-actions",
+            "slide": "ch4-actions.html",
+            "folder": "lecons",
+            "source": "04b-groupes-actions.tex",
+            "edition": "lesson"
+          },
+          {
             "id": "algebre-1-anneaux",
             "slide": "ch5-anneaux.html",
             "folder": "lecons",

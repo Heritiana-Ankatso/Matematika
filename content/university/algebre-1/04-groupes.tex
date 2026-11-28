@@ -330,6 +330,137 @@ $\SL_2(\Z)$ est engendré par $S=\begin{pmatrix}0&-1\\1&0\end{pmatrix}$ et $T=\b
 \end{erreurs}
 
 \exercices
+
+\banque{c4}
+
+\begin{qcm}[Groupes, sous-groupes, homomorphismes, quotients]
+Douze questions sur l'ensemble du chapitre. Chaque réponse est accompagnée d'une explication : lis-la même quand tu as juste.
+\begin{question}
+Une table de Cayley sur un ensemble fini est un carré latin (chaque élément une fois par ligne et par colonne) et possède un élément neutre. La loi est-elle une loi de groupe ?
+\choix{Oui, toujours : le neutre et les inverses se lisent sur la table.}{Neutre et inverses se lisent bien sur la table, mais il manque l'associativité, qui ne se lit pas.}
+\bonchoix{Pas nécessairement : l'associativité peut manquer.}{Oui : un carré latin avec neutre est une \og boucle \fg{}, et il en existe de non associatives dès l'ordre 5.}
+\choix{Oui, si de plus la table est symétrique.}{La symétrie donne la commutativité, pas l'associativité.}
+\choix{Non, jamais : un groupe ne peut pas avoir une table en carré latin.}{C'est l'inverse : toute table de groupe est un carré latin (\voir{prop-carre-latin}).}
+\begin{explication}
+La table d'un groupe est un carré latin (\voir{prop-carre-latin}), mais la réciproque est fausse : l'associativité demande de vérifier $n^3$ égalités et c'est le seul axiome qu'un coup d'œil sur la table ne montre pas. Les plus petits carrés latins avec neutre non associatifs sont d'ordre 5.
+\end{explication}
+\end{question}
+\begin{question}[plusieurs]
+Lesquelles de ces parties sont des sous-groupes du groupe indiqué ?
+\bonchoix{$\ens{z\in\C^*\mid z^{12}=1}$ dans $(\C^*,\times)$.}{Oui : produit et inverse d'une racine 12-ième de l'unité en sont encore.}
+\choix{$\ens{A\in\GL_2(\R)\mid\det A=2}$ dans $\GL_2(\R)$.}{Non : $I_2$ n'y est pas, et $\det(AB)=4$.}
+\bonchoix{$\ens{A\in\GL_2(\R)\mid\det A>0}$ dans $\GL_2(\R)$.}{Oui : c'est l'image réciproque de $\R_+^*$ par l'homomorphisme $\det$.}
+\choix{$2\Z\cup3\Z$ dans $(\Z,+)$.}{Non : $2+3=5$ n'y est pas ; une réunion de deux sous-groupes n'est un sous-groupe que si l'un contient l'autre.}
+\bonchoix{$\ens{\sigma\in S_5\mid\sigma(\ens{1,2})=\ens{1,2}}$ dans $S_5$.}{Oui : c'est le stabilisateur de la partie $\ens{1,2}$, isomorphe à $S_2\times S_3$.}
+\begin{explication}
+Critère de sous-groupe (\voir{thm-critere-sg}) ; une image réciproque de sous-groupe par un homomorphisme est un sous-groupe (\voir{prop-hom}), ce qui règle les deux exemples matriciels d'un coup : $\R_+^*$ est un sous-groupe de $\R^*$, $\ens2$ n'en est pas un.
+\end{explication}
+\end{question}
+\begin{question}
+Quel est l'ordre de $\cl{18}$ dans $\Z/42\Z$ ?
+\choix{18}{L'ordre d'un élément de $\Z/n\Z$ divise $n$ ; or $18\nmid42$.}
+\bonchoix{7}{Oui : $\frac{42}{\pgcd(18,42)}=\frac{42}6=7$.}
+\choix{6}{C'est $\pgcd(18,42)$, pas l'ordre.}
+\choix{42}{$\cl{18}$ n'engendre pas $\Z/42\Z$ car $\pgcd(18,42)\neq1$.}
+\begin{explication}
+Dans $\Z/n\Z$, l'ordre de $\cl k$ est $\frac n{\pgcd(k,n)}$. Ici $7\cdot18=126=3\cdot42$, et aucun multiple $j\cdot18$ avec $1\le j<7$ n'est divisible par $42$.
+\end{explication}
+\end{question}
+\begin{question}
+Combien $\Z/36\Z$ a-t-il de sous-groupes ?
+\choix{36}{Il y a un sous-groupe par \emph{diviseur} de 36, pas par élément.}
+\bonchoix{9}{Oui : un par diviseur de $36=2^2\cdot3^2$, et $36$ a $3\cdot3=9$ diviseurs.}
+\choix{12}{C'est le nombre de générateurs, $\varphi(36)=12$.}
+\choix{2}{Ce serait le cas pour un ordre premier.}
+\begin{explication}
+Pour chaque diviseur $d$ de $n$, $\Z/n\Z$ a exactement un sous-groupe d'ordre $d$, à savoir $\langle\cl{n/d}\rangle$, et aucun autre (\voir{prop-sg-Zn}).
+\end{explication}
+\end{question}
+\begin{question}[plusieurs]
+Lesquelles de ces applications sont des homomorphismes de groupes ?
+\bonchoix{$(\R,+)\to(\C^*,\times)$, $\theta\mapsto e^{i\theta}$.}{Oui : $e^{i(\theta+\theta')}=e^{i\theta}e^{i\theta'}$.}
+\choix{$(\Z,+)\to(\Z,+)$, $k\mapsto k+1$.}{Non : l'image du neutre $0$ est $1$, pas $0$.}
+\bonchoix{$\GL_n(\R)\to\R^*$, $A\mapsto\det(A)^2$.}{Oui : composée de $\det$ et de l'homomorphisme $x\mapsto x^2$ de $\R^*$ (abélien).}
+\choix{$S_3\to S_3$, $\sigma\mapsto\sigma^2$.}{Non : $x\mapsto x^2$ n'est un homomorphisme que si $G$ est abélien ; ici $((1\,2)(1\,3))^2=(1\,3\,2)^2=(1\,2\,3)$, alors que $(1\,2)^2(1\,3)^2=\id$.}
+\bonchoix{$\Z/6\Z\to\Z/3\Z$, $\cl k\mapsto\cl k$ (réduction modulo 3).}{Oui : bien défini car $3\mid6$, et additif.}
+\begin{explication}
+Un homomorphisme envoie le neutre sur le neutre (\voir{prop-hom-base}) ; $x\mapsto x^2$ est un homomorphisme exactement quand $(xy)^2=x^2y^2$, soit $yx=xy$. La réduction $\Z/n\Z\to\Z/m\Z$ est bien définie si et seulement si $m\mid n$.
+\end{explication}
+\end{question}
+\begin{question}
+Soit $f:G\to H$ un homomorphisme surjectif, avec $\abs G=60$ et $\abs H=12$. Que vaut $\abs{\Ker f}$ ?
+\choix{48}{C'est $\abs G-\abs H$ ; le bon calcul est un quotient.}
+\bonchoix{5}{Oui : $G/\Ker f\simeq H$, donc $\abs{\Ker f}=60/12$.}
+\choix{12}{C'est l'ordre de l'image.}
+\choix{On ne peut pas le savoir sans connaître $f$.}{Le premier théorème d'isomorphisme le détermine.}
+\begin{explication}
+Premier théorème d'isomorphisme (\voir{thm-iso1}) : $\abs G=\abs{\Ker f}\cdot\abs{\Img f}$. C'est l'analogue du théorème du rang.
+\end{explication}
+\end{question}
+\begin{question}[plusieurs]
+Lesquels de ces sous-groupes sont normaux ?
+\bonchoix{$A_n$ dans $S_n$.}{Oui : noyau de la signature (et d'indice 2).}
+\bonchoix{$\SL_n(\R)$ dans $\GL_n(\R)$.}{Oui : noyau de $\det$.}
+\choix{$\langle\tau\rangle$ dans $D_4$.}{Non : $r\tau r^{-1}=r^2\tau\notin\ens{e,\tau}$.}
+\bonchoix{$\langle r\rangle$ dans $D_n$.}{Oui : il est d'indice 2.}
+\choix{Le sous-groupe des matrices triangulaires supérieures inversibles dans $\GL_2(\R)$.}{Non : conjuguer par $\begin{pmatrix}0&1\\1&0\end{pmatrix}$ transforme $\begin{pmatrix}1&1\\0&1\end{pmatrix}$ en $\begin{pmatrix}1&0\\1&1\end{pmatrix}$, triangulaire inférieure.}
+\begin{explication}
+Trois sources de normalité : être un noyau, être d'indice 2, être dans un groupe abélien (\voir{prop-normaux-usuels}). Pour prouver qu'un sous-groupe n'est \emph{pas} normal, un seul conjugué qui sort suffit.
+\end{explication}
+\end{question}
+\begin{question}
+À quel groupe connu le quotient $(\Z/12\Z)/\langle\cl4\rangle$ est-il isomorphe ?
+\choix{$\Z/3\Z$}{C'est l'ordre de $\langle\cl4\rangle$, pas celui du quotient.}
+\bonchoix{$\Z/4\Z$}{Oui : $\langle\cl4\rangle=4\Z/12\Z$ et $(\Z/12\Z)/(4\Z/12\Z)\simeq\Z/4\Z$.}
+\choix{$\Z/2\Z\times\Z/2\Z$}{Le quotient d'un groupe cyclique est cyclique.}
+\choix{$\Z/8\Z$}{L'ordre du quotient est $12/3=4$.}
+\begin{explication}
+Troisième théorème d'isomorphisme (\voir{thm-iso3}), avec $12\Z\subset4\Z$. Un quotient de groupe cyclique est cyclique (engendré par la classe d'un générateur).
+\end{explication}
+\end{question}
+\begin{question}
+Quel est l'ordre de $\sigma=(1\,2\,3)(4\,5)(6\,7\,8\,9)$ dans $S_9$ ?
+\choix{9}{C'est la somme des longueurs, pas l'ordre.}
+\choix{24}{C'est le produit des longueurs ; l'ordre est leur ppcm.}
+\bonchoix{12}{Oui : $\mathrm{ppcm}(3,2,4)=12$.}
+\choix{4}{C'est la plus grande longueur ; $\sigma^4$ contient encore $(1\,2\,3)^4=(1\,2\,3)\neq\id$.}
+\begin{explication}
+Les cycles disjoints commutent et $\sigma^m=\id$ si et seulement si chaque longueur divise $m$ : l'ordre est le ppcm des longueurs (chapitre 4, ordre d'une permutation).
+\end{explication}
+\end{question}
+\begin{question}
+Quelle est la signature de $\sigma=\begin{pmatrix}1&2&3&4&5&6\\3&5&1&6&4&2\end{pmatrix}$ ?
+\bonchoix{$+1$}{Oui : $\sigma=(1\,3)(2\,5\,4\,6)$, de signature $(-1)\cdot(-1)^3=+1$.}
+\choix{$-1$}{Un 4-cycle est impair, une transposition aussi : le produit est pair.}
+\choix{On ne peut pas conclure sans écrire $\sigma$ comme produit de transpositions.}{La décomposition en cycles suffit : un $k$-cycle a pour signature $(-1)^{k-1}$.}
+\begin{explication}
+$1\mapsto3\mapsto1$ et $2\mapsto5\mapsto4\mapsto6\mapsto2$ : $\sigma=(1\,3)(2\,5\,4\,6)$, deux cycles, $\sgn\sigma=(-1)^{6-2}=1$ (\voir{thm-parite}).
+\end{explication}
+\end{question}
+\begin{question}[plusieurs]
+Lesquelles de ces paires sont formées de groupes isomorphes ?
+\bonchoix{$\Z/6\Z$ et $\Z/2\Z\times\Z/3\Z$.}{Oui : $(\cl1,\cl1)$ est d'ordre 6.}
+\choix{$\Z/4\Z$ et $\Z/2\Z\times\Z/2\Z$.}{Non : le premier a un élément d'ordre 4, pas le second.}
+\choix{$S_3$ et $\Z/6\Z$.}{Non : l'un n'est pas abélien.}
+\bonchoix{$D_3$ et $S_3$.}{Oui : $D_3$ agit fidèlement sur les 3 sommets et a 6 éléments.}
+\bonchoix{$(\R,+)$ et $(\R_+^*,\times)$.}{Oui : $\exp$ est un isomorphisme.}
+\choix{$(\Z,+)$ et $(\Q,+)$.}{Non : $\Z$ est cyclique, $\Q$ ne l'est pas (si $\Q=\langle q\rangle$, $q/2$ ne serait pas un multiple entier de $q$).}
+\begin{explication}
+Pour montrer un isomorphisme, l'exhiber ; pour le réfuter, trouver un invariant : commutativité, cyclicité, nombre d'éléments de chaque ordre.
+\end{explication}
+\end{question}
+\begin{question}
+Un groupe $G$ d'ordre 6 possède un élément d'ordre 6. Alors :
+\bonchoix{$G$ est cyclique, isomorphe à $\Z/6\Z$.}{Oui : l'élément engendre un sous-groupe d'ordre 6, donc $G$ entier.}
+\choix{$G$ est isomorphe à $S_3$.}{$S_3$ n'a pas d'élément d'ordre 6 (ordres 1, 2, 3).}
+\choix{$G$ peut être $\Z/6\Z$ ou $S_3$.}{L'hypothèse exclut $S_3$.}
+\choix{Ce n'est pas possible : l'ordre d'un élément est strictement inférieur à celui du groupe.}{L'ordre d'un élément divise celui du groupe et peut l'égaler : c'est la définition d'un groupe cyclique fini.}
+\begin{explication}
+$\abs{\langle g\rangle}=\abs g$ ; si $\abs g=\abs G$, alors $\langle g\rangle=G$. Tout groupe cyclique d'ordre $n$ est isomorphe à $\Z/n\Z$ (\voir{thm-cycliques}).
+\end{explication}
+\end{question}
+\end{qcm}
+
 \rubrique{A}
 \begin{exo}[S][Compléter une table]
 Un groupe $G=\ens{e,a,b,c}$ d'ordre $4$ vérifie $a\star a=b$. (a) Compléter sa table de Cayley en justifiant chaque case. (b) Est-il abélien ? cyclique ? (c) Même question si l'on sait seulement que $a\star a=e$, $b\star b=e$ et $c\star c=e$.
