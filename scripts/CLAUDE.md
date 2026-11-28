@@ -27,7 +27,7 @@ Builders called by `build/mxbuild` (see `pipeline.py` `COURSES`) or by `make`. E
 | `optimise-gomboc.py` | the visibly shaped Gömböc: support-function polynomial found by sequential linear programming (`site/js/gomboc-support-data.js`) | by hand |
 | `build-gallery-data.py` | Gerver's sofa from Romik's equations (`site/js/gallery/gallery-sofa-gerver.js`); best known square packings from a checkout of github.com/jlevy/squares (`site/js/gallery/gallery-squares-data.js`); needs numpy, scipy, shapely, pyyaml | by hand |
 
-`build-algebre1.py`: the Algèbre 1 course from `content/university/algebre-1/*.tex` (one parse, two renderers): seven web lessons with interactives, three XeLaTeX editions (cours, exercices, corrigés), source bundle, receipt `content/data/algebre1-build.json` (also feeds titles, summaries and outlines to `content_index.py`); `--check` verifies it, `--web` rebuilds only the pages while drafting. Called by `make site` (job `algebre-1`).
+`build-algebre1.py`: the Algèbre 1 course from `content/university/algebre-1/*.tex` (one parse, two renderers): eight web lessons with interactives and QCM series, three XeLaTeX editions (cours, exercices, corrigés), source bundle, receipt `content/data/algebre1-build.json` (also feeds titles, summaries and outlines to `content_index.py`); `--check` verifies it, `--web` rebuilds only the pages while drafting. Called by `make site` (job `algebre-1`).
 
 `build-fourier.py`: six web lessons, four XeLaTeX PDF editions, source bundle and checked build receipt.
 

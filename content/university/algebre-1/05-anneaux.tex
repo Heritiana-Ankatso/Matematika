@@ -183,6 +183,94 @@ Les algèbres d'Ore sont des anneaux de polynômes \og tordus \fg{} $A[\partial;
 \end{erreurs}
 
 \exercices
+
+\begin{qcm}[Anneaux, idéaux, quotients]
+Huit questions sur le chapitre.
+\begin{question}[plusieurs]
+Lesquels de ces anneaux sont intègres ?
+\bonchoix{$\Z[i]$}{Oui : sous-anneau du corps $\C$.}
+\choix{$\Z/12\Z$}{Non : $\cl3\cdot\cl4=\cl0$.}
+\bonchoix{$\R[X]$}{Oui : $\R$ est intègre, donc $\R[X]$ aussi, et les degrés s'ajoutent.}
+\choix{$\Z\times\Z$}{Non : $(1,0)(0,1)=(0,0)$.}
+\choix{$\Mat_2(\R)$}{Non : il n'est même pas commutatif, et il a des diviseurs de zéro.}
+\bonchoix{$\Z/13\Z$}{Oui : 13 est premier, c'est un corps.}
+\begin{explication}
+Voir la proposition \voir{prop-integre}. Un produit de deux anneaux non nuls n'est jamais intègre ; un sous-anneau d'un corps l'est toujours.
+\end{explication}
+\end{question}
+\begin{question}
+Combien d'éléments inversibles l'anneau $\Z/36\Z$ possède-t-il ?
+\choix{35}{Ce serait vrai pour un corps à 36 éléments ; or $\Z/36\Z$ n'est pas un corps.}
+\bonchoix{12}{Oui : les $\cl k$ avec $\pgcd(k,36)=1$, au nombre de $\varphi(36)=36\cdot\frac12\cdot\frac23=12$.}
+\choix{9}{C'est le nombre de diviseurs de 36.}
+\choix{18}{On a retiré les multiples de 2 mais oublié ceux de 3.}
+\begin{explication}
+$\cl k$ est inversible dans $\Z/n\Z$ si et seulement si $\pgcd(k,n)=1$ (Bézout). Par le théorème chinois, $\varphi(36)=\varphi(4)\varphi(9)=2\cdot6=12$.
+\end{explication}
+\end{question}
+\begin{question}[plusieurs]
+Lesquels de ces idéaux sont maximaux ?
+\bonchoix{$(7)$ dans $\Z$.}{Oui : $\Z/7\Z$ est un corps.}
+\choix{$(0)$ dans $\Z$.}{Non : il est premier ($\Z$ intègre) mais $\Z$ n'est pas un corps ; $(0)\subsetneq(2)\subsetneq\Z$.}
+\bonchoix{$(X^2+1)$ dans $\R[X]$.}{Oui : $X^2+1$ est irréductible sur $\R$ et $\R[X]/(X^2+1)\simeq\C$.}
+\choix{$(X^2+1)$ dans $\C[X]$.}{Non : $X^2+1=(X-i)(X+i)$, et $(X^2+1)\subsetneq(X-i)$.}
+\choix{$(X)$ dans $\Z[X]$.}{Non : $\Z[X]/(X)\simeq\Z$ n'est pas un corps ; $(X)\subsetneq(2,X)$.}
+\begin{explication}
+$I$ est maximal si et seulement si $A/I$ est un corps (\voir{thm-maximal}) ; dans $\K[X]$, $(P)$ est maximal si et seulement si $P$ est irréductible (\voir{prop-premiers-Z}).
+\end{explication}
+\end{question}
+\begin{question}
+Dans $\Z$, que vaut l'idéal $(12)+(18)$ ?
+\choix{$(30)$}{La somme d'idéaux n'est pas la somme des générateurs.}
+\bonchoix{$(6)$}{Oui : $12\Z+18\Z=\pgcd(12,18)\Z$, par Bézout.}
+\choix{$(36)$}{C'est $(12)\cap(18)=\mathrm{ppcm}(12,18)\Z$.}
+\choix{$(216)$}{C'est le produit des idéaux, $(12)(18)=(216)$.}
+\begin{explication}
+Dans $\Z$ : $(a)+(b)=(\pgcd(a,b))$, $(a)\cap(b)=(\mathrm{ppcm}(a,b))$, $(a)(b)=(ab)$.
+\end{explication}
+\end{question}
+\begin{question}
+Combien d'éléments a l'anneau $(\Z/3\Z)[X]/(X^2+1)$, et est-ce un corps ?
+\choix{9 éléments, pas un corps, car $X^2+1$ a une racine.}{$X^2+1$ n'a pas de racine modulo 3 : $0^2+1=1$, $1^2+1=2$, $2^2+1=5\equiv2$.}
+\bonchoix{9 éléments, et c'est un corps.}{Oui : les classes $a+b\cl X$ ($a,b\in\Z/3\Z$), et $X^2+1$ est irréductible (degré 2 sans racine).}
+\choix{3 éléments, c'est $\Z/3\Z$.}{Le quotient par un polynôme de degré 2 a pour base $\cl1,\cl X$ sur $\Z/3\Z$.}
+\choix{Une infinité d'éléments.}{Les restes de la division par un polynôme de degré 2 sont en nombre fini sur un corps fini.}
+\begin{explication}
+$\K[X]/(P)$ a pour base $\cl1,\cl X,\dots,\cl X^{d-1}$ si $\deg P=d$ (\voir{prop-kxp}) ; c'est un corps si et seulement si $P$ est irréductible. On obtient un corps à 9 éléments.
+\end{explication}
+\end{question}
+\begin{question}[plusieurs]
+Soit $f:A\to B$ un homomorphisme d'anneaux (avec $f(1)=1$). Lesquelles de ces affirmations sont vraies ?
+\bonchoix{$\Ker f$ est un idéal de $A$.}{Oui.}
+\choix{$\Img f$ est un idéal de $B$.}{Non en général : l'inclusion $\Z\to\Q$ a pour image $\Z$, qui n'est pas un idéal de $\Q$. L'image est un sous-anneau.}
+\bonchoix{$A/\Ker f\simeq\Img f$ comme anneaux.}{Oui : premier théorème d'isomorphisme pour les anneaux.}
+\bonchoix{Si $A$ est un corps et $B$ non nul, $f$ est injectif.}{Oui : $\Ker f$ est un idéal d'un corps, donc $(0)$ ou $A$, et ce n'est pas $A$ car $f(1)=1\neq0$.}
+\begin{explication}
+Voir le théorème \voir{thm-iso-anneaux}. Un corps n'a que deux idéaux, $(0)$ et lui-même.
+\end{explication}
+\end{question}
+\begin{question}
+Le système $x\equiv2\pmod5$, $x\equiv3\pmod7$ a pour solutions :
+\choix{$x\equiv5\pmod{35}$}{$5\not\equiv2\pmod5$.}
+\bonchoix{$x\equiv17\pmod{35}$}{Oui : $17=3\cdot5+2$ et $17=2\cdot7+3$.}
+\choix{$x\equiv6\pmod{35}$}{On a additionné les congruences.}
+\choix{Aucune solution, car $5$ et $7$ sont premiers.}{C'est justement parce qu'ils sont premiers entre eux que le théorème chinois donne une solution unique modulo 35.}
+\begin{explication}
+Théorème chinois (\voir{thm-chinois}) : $\Z/35\Z\simeq\Z/5\Z\times\Z/7\Z$, donc une unique solution modulo 35. Avec Bézout, $3\cdot5-2\cdot7=1$ ; $x=2\cdot(-14)+3\cdot15=17$.
+\end{explication}
+\end{question}
+\begin{question}
+Dans $\Z[i]$, quels sont les éléments inversibles ?
+\choix{Tous les éléments non nuls.}{$\Z[i]$ n'est pas un corps : $2$ n'y est pas inversible ($\frac12\notin\Z[i]$).}
+\choix{$\pm1$ seulement.}{$i\cdot(-i)=1$ : $i$ est inversible.}
+\bonchoix{$\pm1$ et $\pm i$.}{Oui : $z$ inversible impose $\abs z^2\,\abs{z^{-1}}^2=1$ avec deux entiers positifs, donc $\abs z^2=a^2+b^2=1$.}
+\choix{Les éléments de module $\le1$.}{$0$ est de module $\le1$ et n'est pas inversible.}
+\begin{explication}
+La norme $N(a+bi)=a^2+b^2$ est multiplicative et à valeurs entières : $zw=1$ donne $N(z)N(w)=1$, donc $N(z)=1$ (\voir{prop-gauss}).
+\end{explication}
+\end{question}
+\end{qcm}
+
 \rubrique{A}
 \begin{exo}[S][Inversibles]
 Déterminer les inversibles de : (a) $\Z/12\Z$ ; (b) $\Z[i]$ ; (c) $\R[X]$ ; (d) $(\Z/4\Z)[X]$, en montrant que $\cl1+\cl2X$ est inversible ; (e) $\Z\times\Z$ ; (f) $\Z[\sqrt2]=\ens{a+b\sqrt2\mid a,b\in\Z}$, en montrant que $1+\sqrt2$ est inversible.

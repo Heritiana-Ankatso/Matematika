@@ -410,8 +410,92 @@ function dihedral(root) {
   draw();
 }
 
+// ------------------------------------------------------------------ QCM series ([data-a1-qcm], built by scripts/build-algebre1.py)
+// Two modes, remembered for the visitor: instant correction (one "Valider" per question) or correction at the end of the
+// series. A series can be restarted with its choices in a new order; the best score is kept in the browser only.
+const QCM_MODE = 'algebre1-qcm-mode', QCM_BEST = 'algebre1-qcm-best';
+const readStore = (k, d) => { try { return JSON.parse(localStorage.getItem(k)) ?? d; } catch { return d; } };
+const writeStore = (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); } catch { /* private mode */ } };
+const VERDICT = { right: 'Juste.', wrong: 'Inexact.', partial: 'Incomplet : il manque au moins une bonne réponse.', empty: 'Sans réponse.' };
+
+function qcm(root) {
+  const id = root.id, questions = [...root.querySelectorAll('.qcm-q')];
+  root.classList.add('is-live');
+  const head = root.querySelector('.qcm-head');
+  head.insertAdjacentHTML('beforeend', `<div class="qcm-mode" role="radiogroup" aria-label="Mode de correction">
+    <label><input type="radio" name="${id}-mode" value="instant"> Correction immédiate</label>
+    <label><input type="radio" name="${id}-mode" value="serie"> Correction à la fin de la série</label></div>`);
+  root.insertAdjacentHTML('beforeend', `<footer class="qcm-foot"><button type="button" class="qcm-btn qcm-primary" data-qcm-finish>Corriger la série</button>
+    <button type="button" class="qcm-btn" data-qcm-reset>Recommencer, réponses mélangées</button><output class="qcm-score" aria-live="polite"></output></footer>`);
+  questions.forEach(q => q.querySelector('fieldset').insertAdjacentHTML('beforeend', '<div class="qcm-actions"><button type="button" class="qcm-btn" data-qcm-check>Valider</button></div>'));
+  const score = root.querySelector('.qcm-score'), finish = root.querySelector('[data-qcm-finish]');
+  let mode = readStore(QCM_MODE, 'instant') === 'serie' ? 'serie' : 'instant';
+  const grades = new Map();
+
+  const chosen = q => [...q.querySelectorAll('input:checked')].map(i => Number(i.value));
+  const right = q => [...q.querySelectorAll('.qcm-c')].filter(c => c.dataset.ok === '1').map(c => Number(c.querySelector('input').value));
+  function reveal(q) {
+    const g = M.gradeQuestion(right(q), chosen(q)); grades.set(q, g);
+    q.classList.add('is-graded', 'is-' + g.status);
+    for (const c of q.querySelectorAll('.qcm-c')) {
+      const input = c.querySelector('input'), ok = c.dataset.ok === '1';
+      input.disabled = true;
+      c.classList.toggle('is-ok', ok); c.classList.toggle('is-bad', input.checked && !ok); c.classList.toggle('is-missed', !input.checked && ok);
+      c.classList.toggle('is-shown', ok || input.checked);
+    }
+    q.querySelector('.qcm-verdict').textContent = VERDICT[g.status];
+    q.querySelector('[data-qcm-check]').hidden = true;
+  }
+  function tally(final) {
+    const s = M.seriesScore(questions.map(q => grades.get(q) || { status: 'empty', right: false }));
+    if (!final && mode === 'instant') { score.textContent = `${s.right} juste${s.right > 1 ? 's' : ''} sur ${grades.size} question${grades.size > 1 ? 's' : ''} corrigée${grades.size > 1 ? 's' : ''} (série de ${s.total}).`; }
+    if (final || grades.size === questions.length) {
+      const best = readStore(QCM_BEST, {}), prev = best[id] ?? -1;
+      if (s.right > prev) { best[id] = s.right; writeStore(QCM_BEST, best); }
+      const misses = questions.filter(q => !grades.get(q)?.right).map(q => `<a href="#${q.id}">${q.querySelector('.qcm-n').textContent}</a>`);
+      score.innerHTML = `<strong>Score : ${s.right} / ${s.total}</strong>${s.answered < s.total ? ` (${s.total - s.answered} sans réponse)` : ''}. Meilleur score sur cet appareil : ${Math.max(prev, s.right)} / ${s.total}.`
+        + (misses.length ? ` À reprendre : ${misses.join(', ')}.` : ' Série parfaite.');
+      finish.hidden = true;
+    }
+  }
+  function reset() {
+    grades.clear();
+    for (const q of questions) {
+      q.className = 'qcm-q'; q.querySelector('.qcm-verdict').textContent = '';
+      const list = q.querySelector('.qcm-choices');
+      for (const c of M.shuffled([...list.children])) { list.append(c); c.className = 'qcm-c'; const i = c.querySelector('input'); i.checked = false; i.disabled = false; }
+      q.querySelector('[data-qcm-check]').hidden = mode !== 'instant';
+    }
+    finish.hidden = false;
+    root.classList.toggle('is-serie', mode === 'serie');
+    const best = readStore(QCM_BEST, {})[id];
+    score.textContent = best !== undefined ? `Meilleur score sur cet appareil : ${best} / ${questions.length}.` : '';
+  }
+  root.querySelectorAll(`[name="${id}-mode"]`).forEach(r => { r.checked = r.value === mode; });
+  root.addEventListener('change', e => {
+    if (e.target.name !== `${id}-mode`) return;
+    mode = e.target.value; writeStore(QCM_MODE, mode); reset();
+  });
+  root.addEventListener('click', e => {
+    const b = e.target.closest('button'); if (!b) return;
+    if (b.matches('[data-qcm-check]')) {
+      const q = b.closest('.qcm-q');
+      if (!chosen(q).length) { q.querySelector('.qcm-verdict').textContent = 'Choisis au moins une réponse avant de valider.'; return; }
+      reveal(q); tally(false);
+    }
+    if (b.matches('[data-qcm-finish]')) { questions.filter(q => !grades.has(q)).forEach(reveal); tally(true); score.scrollIntoView({ block: 'nearest' }); }
+    if (b.matches('[data-qcm-reset]')) reset();
+  });
+  reset();
+}
+
 const WIDGETS = { venn, maps, zn, lu, cayley, perms, dihedral };
 export function mountAll(scope = document) {
+  for (const el of scope.querySelectorAll('[data-a1-qcm]')) {
+    if (el.dataset.mounted) continue;
+    el.dataset.mounted = '1';
+    try { qcm(el); } catch (e) { console.error(e); }
+  }
   for (const el of scope.querySelectorAll('[data-a1-widget]')) {
     const make = WIDGETS[el.dataset.a1Widget];
     if (!make || el.dataset.mounted) continue;

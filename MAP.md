@@ -72,7 +72,7 @@ really need them.
 | the library / pack builder / LaTeX sources pages | `site/js/library.js`, `pack-builder.js` | |
 | the slides index page | `site/js/slides-page.js` | |
 | university pages | `site/js/university.js`, `university-model.js`; data in `manifest.json` key `university`; sources `content/tex/university/`, `content/university/` | |
-| the Algèbre 1 university course (lessons, exercises, PDF editions, interactives) | sources `content/university/algebre-1/` (dialect in its `README.md`), builder `scripts/build-algebre1.py`; interactives `site/js/algebra1-widgets.js` with pure maths `site/js/algebra1-model.js`; lesson look `site/styles/algebra1.css`; `tests/algebra1.test.mjs` | `python3 scripts/build-algebre1.py` (or `make site`); receipt `content/data/algebre1-build.json` |
+| the Algèbre 1 university course (lessons, exercises, QCM series, PDF editions, interactives) | sources `content/university/algebre-1/` (dialect in its `README.md`; group theory complement `04b-groupes-actions.tex`), builder `scripts/build-algebre1.py`; interactives and QCM `site/js/algebra1-widgets.js` with pure maths and QCM grading `site/js/algebra1-model.js`; lesson look `site/styles/algebra1.css`; `tests/algebra1.test.mjs` | `python3 scripts/build-algebre1.py` (or `make site`); receipt `content/data/algebre1-build.json` |
 | enrichment workshops | `content/data/enrichment.json` (both languages) | `build/mxbuild/enrichment.py` only for the converter |
 | terminology FR/EN | `content/data/glossary.json` | |
 | the quadratic workshop (`#workshop/quadratic`) | `site/js/quadratic-workshop.js` | |
