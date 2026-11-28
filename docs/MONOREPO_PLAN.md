@@ -55,6 +55,23 @@ resource index and gallery/lab ids of both editions and fails if Matematika lack
 6. **Guard rails.** The superset test in CI; `AGENTS.md`, both `CLAUDE.md` and the memory rules rewritten.
 7. **Then** `site/js/` feature folders and a shorter `MAP.md`.
 
+## Step 3a findings (21 November 2026): the small differences are not missed ports
+
+All 45 files of the "other" group were read (the ten where Maths-explorer's file is newer, with the Fourier, bank,
+library and test files, and `app.js` and `content.js`). Every difference is one of two things, none a missed port:
+
+- **Scope**: Matematika's file is a superset (Malagasy bank `bank-mada.js`, pathways in `library.js` and
+  `lab-engine.test.mjs`, the university catalogue in `fourier-links.js`, Olympiad in `offline_browser.mjs`,
+  `FULL_EDITION` branches in tests). These stay in the shared source; the scope file switches them.
+- **Information architecture and identity**: `site/js/app.js` defines different main navigation (Maths-explorer: four
+  sections Cours, Exercices, Labo, Bibliothèque with hover flyouts; Matematika: three sections Apprendre, Explorer,
+  Lire, with a "Pour enseigner" fold and Programmes/Olympiades) and a different brand mark; `tests/history.test.mjs`
+  counts 4 versus 3 main links accordingly. `content.js` has no Maths-explorer-only line.
+
+Consequence for the plan: the edition layer holds more than CSS. Each edition carries its **navigation structure
+(`SECTIONS`, `TAB_OF`) and brand mark** (`editions/<id>/nav.js`, `brand.js`, copied or imported by `app.js` at build
+time), and the tests that count navigation links read the edition's structure. This goes into step 3b with the theme.
+
 ## Decisions (owner, 21 November 2026)
 
 1. Home repository: Matematika.
