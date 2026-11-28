@@ -191,7 +191,7 @@ canvas{display:block;width:100%;height:100%;touch-action:none}
 </head>
 <body>
 <div id="wrap"><main id="stage"></main></div>
-<script>window.__MX_EXPORT__={"deck":{"language":"fr","courseTitle":["T12 série C","T12 C · Malagasy curriculum"],"id":"t12c-07","course":"t12c","number":7,"title":["Similitudes planes","Plane similarities"],"slides":[{"k":"title","t":["Similitudes planes","Plane similarities"],"b":["",""]},{"k":"concept","t":["Généralités",""],"b":["Une similitude plane \\(S\\) est une transformation géométrique du plan pour laquelle il existe un réel \\(k&gt;0\\) tel que,\n            pour tous points \\(M\\) et \\(N\\) du plan, en posant \\(M' = S(M)\\) et \\(N' = S(N)\\) :\n                  \\[\n                        M'N' = k\\, MN.\n                  \\]<br><br>Le réel \\(k\\) est appelé le <i>rapport<\/i> de la similitude \\(S\\).<br><br>Toute isométrie est une similitude de rapport \\(1\\).\n            Une homothétie de rapport \\(k\\) (\\(k \\neq 0\\)) est une similitude de rapport \\(|k|\\).",""]},{"k":"concept","t":["Généralités",""],"b":["Toute similitude \\(S\\) de rapport \\(k (&gt;0)\\) peut s'écrire sous la forme \\(S = h \\circ f\\)\n                  où \\(h\\) est une homothétie de rapport \\(k\\) et \\(f\\) une isométrie.\n                  \n                  \n                  <ul>\n                        <li>Si \\(f\\) est un déplacement alors \\(S\\) est une similitude plane directe.<br><br>                        <li>Si \\(f\\) est un antidéplacement alors \\(S\\) est une similitude plane indirecte.<br><br>                  <\/ul>",""]},{"k":"proof","t":["Généralités",""],"b":["Soit \\(S\\) une similitude de rapport \\(k\\).\n                        Soit \\(h\\) l'homothétie de centre \\(I\\) et de rapport \\(k\\).\n                        On a \\(h^{-1} = h\\left(I ; \\frac{1}{k}\\right)\\).\n                        On pose \\(f = h^{-1} \\circ S\\).\n                        \n                        Montrons que \\(f\\) est une isométrie : \n                              Soient \\(M\\) et \\(N\\) deux points, posons \\(M' = f(M)\\) et \\(N' = f(N)\\).\n                              On a alors \n                              \\[\\begin{aligned}\n                                    M' &amp; = h^{-1} \\left[ S(M) \\right]       &amp; N' &amp; = h^{-1} \\left[ S(N) \\right]      \\\\\n                                       &amp; = h^{-1} (M_1)                     &amp;    &amp; = h^{-1} (N_1)                    \\\\\n                              \\end{aligned}\\]\n                              où \\(M_1 = S(M)\\) et \\(N_1 = S(N)\\), et donc \\(M_1 N_1 = k MN\\).\n                              Ainsi, \\(M'N' = \\frac{1}{k} M_1 N_1 = \\frac{1}{\\not k} \\not k MN\\).\n                              On déduit que \\(M'N' = MN\\), et par conséquent, que \\(f\\) est une isométrie.\n                              \n                        Montrons que \\(S = h\\circ f\\) : \n                              \\[\n                                    f = h^{-1} \\circ S \n                                          \\Rightarrow \n                                                h \\circ f = \\underbrace{h \\circ h^{-1}}_{\\mathrm{Id}} \\circ S\n                                                      \\Rightarrow\n                                                            h \\circ f = S.\n                              \\]",""]},{"k":"concept","t":["Généralités",""],"b":["<ol>\n                        <li>Toute similitude est une application affine bijective.\n                        <li>La composition de \\(2\\) similitudes est une similitude.\n                              Si\n                              <ul>\n                                    <li>\\(S\\) est une similitude de rapport \\(k\\),\n                                    <li>\\(S'\\) une similitude de rapport \\(k'\\),\n                              <\/ul>\n                              alors \\(S \\circ S'\\) est une similitude de rapport \\(kk'\\).\n                        <li>Une similitude de rapport \\(k\\) multiplie les distances par \\(k\\) et les aires par \\(k^2\\).\n                        <li>Une similitude conserve le parallélisme, l'orthogonalité, l'alignement et les milieux ;\n                              une similitude directe conserve les angles orientés, une similitude indirecte les change en leurs opposés.\n                  <\/ol>",""]},{"k":"concept","t":["Similitude plane directe",""],"b":["Une similitude plane directe \\(S\\) est soit une translation\n            soit la composition d'une homothétie et d'une rotation de même centre :\n            c'est la forme réduite.<br><br>Une similitude plane directe \\(S\\) a pour expression complexe \\(z' = az + b\\) avec \\(a \\in \\mathbb{C}^*\\) et \\(b \\in \\mathbb{C}\\).\n            <ul>\n                  <li>\\(|a| = k\\) est le rapport,\n                  <li>\\(\\mathrm{Arg}\\left( a \\right) = \\alpha\\) est l'angle,\n                  <li>\\(I\\left(\\frac{b}{1-a}\\right)\\) est le centre (si \\(a\\neq 1\\)).\n            <\/ul><br><br>Une similitude plane directe est définie analytiquement par un système du type :\n\t            \\[\n\t                  \\left\\lbrace\n\t                  \\begin{array}{l}\n\t                        x' = a x - b y + x_0, \\\\\n\t                        y' = b x + a y + y_0.\n\t                  \\end{array}\n\t                  \\right.\n\t            \\]<br><br>où \\(a^2 + b^2 = k^2\\), avec \\(k &gt; 0\\) le rapport.",""]},{"k":"concept","t":["Similitude plane indirecte",""],"b":["Une similitude plane indirecte \\(f\\) est la composée d'une homothétie et d'un antidéplacement.\n      Le rapport \\(k\\) de \\(f\\) est celui de l'homothétie (en valeur absolue).\n      <ul>\n            <li>Si \\(k=1\\) :  \\(f\\) est un antidéplacement.\n                  L'ensemble des points invariants de \\(f\\) est soit vide soit une droite.\n                  <ul>\n                        <li>Si \\(f\\) n'a pas de point invariant, alors \\(f\\) est la composée d'une symétrie\n                              orthogonale et d'une translation de vecteur non nul.\n                        <li>Si l'ensemble des points invariants est une droite \\((\\mathcal{D})\\), alors \n                              \\(f\\) la symétrie orthogonale d'axe \\((\\mathcal{D})\\).\n                  <\/ul>\n            <li>Si \\(k\\neq 1\\) :  \\(f\\) admet un seul point invariant \\(\\Omega\\).\n                  Il existe une droite \\((\\mathcal{D})\\) passant par \\(\\Omega\\) telle que \n                  \\(f = h(\\Omega,k) \\circ S_{(\\mathcal{D})} = S_{(\\mathcal{D})} \\circ h(\\Omega,k)\\).\n                  \n                  La droite \\((\\mathcal{D})\\) est l'ensemble des points \\(M\\) tels que \n                  \\(\\overrightarrow{\\Omega M'} = k \\cdot \\overrightarrow{\\Omega M}\\),<br><br>                  c'est la <i>première droite globalement invariante<\/i> par \\(f\\).\n                  \n                  La droite \\((\\mathcal{D}') = \\{ M \\mid \\overrightarrow{\\Omega M'} = -k \\cdot \\overrightarrow{\\Omega M} \\}\\)<br><br>                  est la <i>deuxième droite globalement invariante<\/i> par \\(f\\).\n      <\/ul>",""]},{"k":"concept","t":["Similitude plane indirecte",""],"b":["Soit \\(f\\) une similitude plane indirecte de rapport \\(k\\).\n            La similitude \\(f\\) est alors définie analytiquement par un système du type :\n            \\(\\left\\lbrace \\begin{array}{l} x' = a x + b y + x_0 \\\\ y' = b x - a y + y_0 \\end{array} \\right.\\)\n            où \\(a^2 + b^2 = k^2\\).",""]},{"k":"concept","t":["Similitude plane indirecte",""],"b":["Soit \\(S\\) la similitude plane indirecte égale à \\(h \\circ S_{(\\mathcal{D})}\\), où \\(h\\) est une homothétie de rapport \\(k\\).\n            Soient \n            \\[\n                  \\begin{array}{l}\n                        h : z' = k z + b \\quad (k \\in \\mathbb{R}^*) \\\\\n                        S_{(\\mathcal{D})} : z' = a \\overline{z} + c \n                  \\end{array}\n            \\]<br><br>les expressions complexes de \\(h\\) et \\(S_{(\\mathcal{D})}\\).<br><br>On a alors, \\(S : z' = k \\left( a \\overline{z} + c \\right) + b = k a \\overline{z} + k c + b\\).<br><br>De plus, on vérifie que \\(|k a| = |k| \\cdot |a| = |k|\\) (\\(S_{(\\mathcal{D})}\\) étant une isométrie, \\(|a| = 1\\)).<br><br>Une similitude plane indirecte a une expression complexe de la forme \\(z' = a \\overline{z} + b\\) (\\(a \\neq 0\\))<br><br>et son rapport est \\(k = |a|\\).",""]},{"k":"concept","t":["Similitude plane indirecte",""],"b":["Le point invariant \\(I\\)<br> Toute similitude plane indirecte de rapport \\(k \\neq 1\\) admet un point invariant \\(I\\) qu'on appelle le <i>centre<\/i>.<br><br>\\[\n                        \\left.\n                              \\begin{array}{l}\n                                    z_I = a \\overline{z_I} + b \\\\\n                                    \\overline{z_I} = \\overline{a} z_I + \\overline{b} \n                              \\end{array}\n                        \\right\\rbrace\n                              \\Rightarrow \n                        z_I = a (\\overline{a} z_I + \\overline{b} ) + b.\n                  \\]<br><br>Donc \\(z_I = a \\overline{a} z_I + a \\overline{b} + b\\).\n            Il vient que \\((1-a\\overline{a}) z_I = a\\overline{b} + b\\) et donc que<br><br>\\[\n                        z_I = \\frac{a\\overline{b}+b}{1 - a \\overline{a}} (|a| \\neq 1)\n                  \\]<br><br>est l'affixe du centre \\(I\\).",""]},{"k":"example","t":["Similitude plane indirecte",""],"b":["Soit \\(S\\) la transformation géométrique d'expression complexe \\(z'=2\\overline{z}+3i\\).\n                  Quelle est la nature de \\(S\\) ? Déterminer ses éléments caractéristiques.\n                  \n                  Construire ensuite le transformé du cercle \\((\\mathcal{C})\\) de centre \\(A(1-i)\\) et de rayon 1 par \\(S\\).\n                  Ecrire l'équation de ce cercle.",""]},{"k":"widget","t":["Les nombres prennent le plan","Numbers take the plane"],"b":["Une expérience guidée du laboratoire : lisez la mission, manipulez la figure, passez à la suivante avec ◀ ▶ (ou N et P quand la figure a le focus).","A guided experiment from the laboratory: read the mission, handle the figure, move to the next one with ◀ ▶ (or N and P while the figure has focus)."],"w":{"type":"lab","ref":"complex/angles"}}],"editions":{"fr":{"slides":[{"k":"title","t":["Similitudes planes","Plane similarities"],"b":["",""]},{"k":"concept","t":["Généralités",""],"b":["Une similitude plane \\(S\\) est une transformation géométrique du plan pour laquelle il existe un réel \\(k&gt;0\\) tel que,\n            pour tous points \\(M\\) et \\(N\\) du plan, en posant \\(M' = S(M)\\) et \\(N' = S(N)\\) :\n                  \\[\n                        M'N' = k\\, MN.\n                  \\]<br><br>Le réel \\(k\\) est appelé le <i>rapport<\/i> de la similitude \\(S\\).<br><br>Toute isométrie est une similitude de rapport \\(1\\).\n            Une homothétie de rapport \\(k\\) (\\(k \\neq 0\\)) est une similitude de rapport \\(|k|\\).",""]},{"k":"concept","t":["Généralités",""],"b":["Toute similitude \\(S\\) de rapport \\(k (&gt;0)\\) peut s'écrire sous la forme \\(S = h \\circ f\\)\n                  où \\(h\\) est une homothétie de rapport \\(k\\) et \\(f\\) une isométrie.\n                  \n                  \n                  <ul>\n                        <li>Si \\(f\\) est un déplacement alors \\(S\\) est une similitude plane directe.<br><br>                        <li>Si \\(f\\) est un antidéplacement alors \\(S\\) est une similitude plane indirecte.<br><br>                  <\/ul>",""]},{"k":"proof","t":["Généralités",""],"b":["Soit \\(S\\) une similitude de rapport \\(k\\).\n                        Soit \\(h\\) l'homothétie de centre \\(I\\) et de rapport \\(k\\).\n                        On a \\(h^{-1} = h\\left(I ; \\frac{1}{k}\\right)\\).\n                        On pose \\(f = h^{-1} \\circ S\\).\n                        \n                        Montrons que \\(f\\) est une isométrie : \n                              Soient \\(M\\) et \\(N\\) deux points, posons \\(M' = f(M)\\) et \\(N' = f(N)\\).\n                              On a alors \n                              \\[\\begin{aligned}\n                                    M' &amp; = h^{-1} \\left[ S(M) \\right]       &amp; N' &amp; = h^{-1} \\left[ S(N) \\right]      \\\\\n                                       &amp; = h^{-1} (M_1)                     &amp;    &amp; = h^{-1} (N_1)                    \\\\\n                              \\end{aligned}\\]\n                              où \\(M_1 = S(M)\\) et \\(N_1 = S(N)\\), et donc \\(M_1 N_1 = k MN\\).\n                              Ainsi, \\(M'N' = \\frac{1}{k} M_1 N_1 = \\frac{1}{\\not k} \\not k MN\\).\n                              On déduit que \\(M'N' = MN\\), et par conséquent, que \\(f\\) est une isométrie.\n                              \n                        Montrons que \\(S = h\\circ f\\) : \n                              \\[\n                                    f = h^{-1} \\circ S \n                                          \\Rightarrow \n                                                h \\circ f = \\underbrace{h \\circ h^{-1}}_{\\mathrm{Id}} \\circ S\n                                                      \\Rightarrow\n                                                            h \\circ f = S.\n                              \\]",""]},{"k":"concept","t":["Généralités",""],"b":["<ol>\n                        <li>Toute similitude est une application affine bijective.\n                        <li>La composition de \\(2\\) similitudes est une similitude.\n                              Si\n                              <ul>\n                                    <li>\\(S\\) est une similitude de rapport \\(k\\),\n                                    <li>\\(S'\\) une similitude de rapport \\(k'\\),\n                              <\/ul>\n                              alors \\(S \\circ S'\\) est une similitude de rapport \\(kk'\\).\n                        <li>Une similitude de rapport \\(k\\) multiplie les distances par \\(k\\) et les aires par \\(k^2\\).\n                        <li>Une similitude conserve le parallélisme, l'orthogonalité, l'alignement et les milieux ;\n                              une similitude directe conserve les angles orientés, une similitude indirecte les change en leurs opposés.\n                  <\/ol>",""]},{"k":"concept","t":["Similitude plane directe",""],"b":["Une similitude plane directe \\(S\\) est soit une translation\n            soit la composition d'une homothétie et d'une rotation de même centre :\n            c'est la forme réduite.<br><br>Une similitude plane directe \\(S\\) a pour expression complexe \\(z' = az + b\\) avec \\(a \\in \\mathbb{C}^*\\) et \\(b \\in \\mathbb{C}\\).\n            <ul>\n                  <li>\\(|a| = k\\) est le rapport,\n                  <li>\\(\\mathrm{Arg}\\left( a \\right) = \\alpha\\) est l'angle,\n                  <li>\\(I\\left(\\frac{b}{1-a}\\right)\\) est le centre (si \\(a\\neq 1\\)).\n            <\/ul><br><br>Une similitude plane directe est définie analytiquement par un système du type :\n\t            \\[\n\t                  \\left\\lbrace\n\t                  \\begin{array}{l}\n\t                        x' = a x - b y + x_0, \\\\\n\t                        y' = b x + a y + y_0.\n\t                  \\end{array}\n\t                  \\right.\n\t            \\]<br><br>où \\(a^2 + b^2 = k^2\\), avec \\(k &gt; 0\\) le rapport.",""]},{"k":"concept","t":["Similitude plane indirecte",""],"b":["Une similitude plane indirecte \\(f\\) est la composée d'une homothétie et d'un antidéplacement.\n      Le rapport \\(k\\) de \\(f\\) est celui de l'homothétie (en valeur absolue).\n      <ul>\n            <li>Si \\(k=1\\) :  \\(f\\) est un antidéplacement.\n                  L'ensemble des points invariants de \\(f\\) est soit vide soit une droite.\n                  <ul>\n                        <li>Si \\(f\\) n'a pas de point invariant, alors \\(f\\) est la composée d'une symétrie\n                              orthogonale et d'une translation de vecteur non nul.\n                        <li>Si l'ensemble des points invariants est une droite \\((\\mathcal{D})\\), alors \n                              \\(f\\) la symétrie orthogonale d'axe \\((\\mathcal{D})\\).\n                  <\/ul>\n            <li>Si \\(k\\neq 1\\) :  \\(f\\) admet un seul point invariant \\(\\Omega\\).\n                  Il existe une droite \\((\\mathcal{D})\\) passant par \\(\\Omega\\) telle que \n                  \\(f = h(\\Omega,k) \\circ S_{(\\mathcal{D})} = S_{(\\mathcal{D})} \\circ h(\\Omega,k)\\).\n                  \n                  La droite \\((\\mathcal{D})\\) est l'ensemble des points \\(M\\) tels que \n                  \\(\\overrightarrow{\\Omega M'} = k \\cdot \\overrightarrow{\\Omega M}\\),<br><br>                  c'est la <i>première droite globalement invariante<\/i> par \\(f\\).\n                  \n                  La droite \\((\\mathcal{D}') = \\{ M \\mid \\overrightarrow{\\Omega M'} = -k \\cdot \\overrightarrow{\\Omega M} \\}\\)<br><br>                  est la <i>deuxième droite globalement invariante<\/i> par \\(f\\).\n      <\/ul>",""]},{"k":"concept","t":["Similitude plane indirecte",""],"b":["Soit \\(f\\) une similitude plane indirecte de rapport \\(k\\).\n            La similitude \\(f\\) est alors définie analytiquement par un système du type :\n            \\(\\left\\lbrace \\begin{array}{l} x' = a x + b y + x_0 \\\\ y' = b x - a y + y_0 \\end{array} \\right.\\)\n            où \\(a^2 + b^2 = k^2\\).",""]},{"k":"concept","t":["Similitude plane indirecte",""],"b":["Soit \\(S\\) la similitude plane indirecte égale à \\(h \\circ S_{(\\mathcal{D})}\\), où \\(h\\) est une homothétie de rapport \\(k\\).\n            Soient \n            \\[\n                  \\begin{array}{l}\n                        h : z' = k z + b \\quad (k \\in \\mathbb{R}^*) \\\\\n                        S_{(\\mathcal{D})} : z' = a \\overline{z} + c \n                  \\end{array}\n            \\]<br><br>les expressions complexes de \\(h\\) et \\(S_{(\\mathcal{D})}\\).<br><br>On a alors, \\(S : z' = k \\left( a \\overline{z} + c \\right) + b = k a \\overline{z} + k c + b\\).<br><br>De plus, on vérifie que \\(|k a| = |k| \\cdot |a| = |k|\\) (\\(S_{(\\mathcal{D})}\\) étant une isométrie, \\(|a| = 1\\)).<br><br>Une similitude plane indirecte a une expression complexe de la forme \\(z' = a \\overline{z} + b\\) (\\(a \\neq 0\\))<br><br>et son rapport est \\(k = |a|\\).",""]},{"k":"concept","t":["Similitude plane indirecte",""],"b":["Le point invariant \\(I\\)<br> Toute similitude plane indirecte de rapport \\(k \\neq 1\\) admet un point invariant \\(I\\) qu'on appelle le <i>centre<\/i>.<br><br>\\[\n                        \\left.\n                              \\begin{array}{l}\n                                    z_I = a \\overline{z_I} + b \\\\\n                                    \\overline{z_I} = \\overline{a} z_I + \\overline{b} \n                              \\end{array}\n                        \\right\\rbrace\n                              \\Rightarrow \n                        z_I = a (\\overline{a} z_I + \\overline{b} ) + b.\n                  \\]<br><br>Donc \\(z_I = a \\overline{a} z_I + a \\overline{b} + b\\).\n            Il vient que \\((1-a\\overline{a}) z_I = a\\overline{b} + b\\) et donc que<br><br>\\[\n                        z_I = \\frac{a\\overline{b}+b}{1 - a \\overline{a}} (|a| \\neq 1)\n                  \\]<br><br>est l'affixe du centre \\(I\\).",""]},{"k":"example","t":["Similitude plane indirecte",""],"b":["Soit \\(S\\) la transformation géométrique d'expression complexe \\(z'=2\\overline{z}+3i\\).\n                  Quelle est la nature de \\(S\\) ? Déterminer ses éléments caractéristiques.\n                  \n                  Construire ensuite le transformé du cercle \\((\\mathcal{C})\\) de centre \\(A(1-i)\\) et de rayon 1 par \\(S\\).\n                  Ecrire l'équation de ce cercle.",""]},{"k":"widget","t":["Les nombres prennent le plan","Numbers take the plane"],"b":["Une expérience guidée du laboratoire : lisez la mission, manipulez la figure, passez à la suivante avec ◀ ▶ (ou N et P quand la figure a le focus).","A guided experiment from the laboratory: read the mission, handle the figure, move to the next one with ◀ ▶ (or N and P while the figure has focus)."],"w":{"type":"lab","ref":"complex/angles"}}]}},"languages":["fr"],"figureVersion":"e3b0c44298fc1c14"},"figs":{}};</script>
+<script>window.__MX_EXPORT__={"deck":{"language":"fr","courseTitle":["T12 série C","T12 C · Malagasy curriculum"],"id":"t12c-07","course":"t12c","number":7,"title":["Similitudes planes","Plane similarities"],"slides":[{"k":"title","t":["Similitudes planes","Plane similarities"],"b":["",""]},{"k":"concept","t":["Généralités",""],"b":["Une similitude plane \\(S\\) est une transformation géométrique du plan pour laquelle il existe un réel \\(k&gt;0\\) tel que,\n            pour tous points \\(M\\) et \\(N\\) du plan, en posant \\(M' = S(M)\\) et \\(N' = S(N)\\) :\n                  \\[\n                        M'N' = k\\, MN.\n                  \\]<br><br>Le réel \\(k\\) est appelé le <i>rapport<\/i> de la similitude \\(S\\).<br><br>Toute isométrie est une similitude de rapport \\(1\\).\n            Une homothétie de rapport \\(k\\) (\\(k \\neq 0\\)) est une similitude de rapport \\(|k|\\).",""]},{"k":"concept","t":["Généralités",""],"b":["Toute similitude \\(S\\) de rapport \\(k (&gt;0)\\) peut s'écrire sous la forme \\(S = h \\circ f\\)\n                  où \\(h\\) est une homothétie de rapport \\(k\\) et \\(f\\) une isométrie.\n                  \n                  \n                  <ul>\n                        <li>Si \\(f\\) est un déplacement alors \\(S\\) est une similitude plane directe.<br><br>                        <li>Si \\(f\\) est un antidéplacement alors \\(S\\) est une similitude plane indirecte.<br><br>                  <\/ul>",""]},{"k":"proof","t":["Généralités",""],"b":["Soit \\(S\\) une similitude de rapport \\(k\\).\n                        Soit \\(h\\) l'homothétie de centre \\(I\\) et de rapport \\(k\\).\n                        On a \\(h^{-1} = h\\left(I ; \\frac{1}{k}\\right)\\).\n                        On pose \\(f = h^{-1} \\circ S\\).\n                        \n                        Montrons que \\(f\\) est une isométrie : \n                              Soient \\(M\\) et \\(N\\) deux points, posons \\(M' = f(M)\\) et \\(N' = f(N)\\).\n                              On a alors \n                              \\[\\begin{aligned}\n                                    M' &amp; = h^{-1} \\left[ S(M) \\right]       &amp; N' &amp; = h^{-1} \\left[ S(N) \\right]      \\\\\n                                       &amp; = h^{-1} (M_1)                     &amp;    &amp; = h^{-1} (N_1)                    \\\\\n                              \\end{aligned}\\]\n                              où \\(M_1 = S(M)\\) et \\(N_1 = S(N)\\), et donc \\(M_1 N_1 = k MN\\).\n                              Ainsi, \\(M'N' = \\frac{1}{k} M_1 N_1 = \\frac{1}{\\not k} \\not k MN\\).\n                              On déduit que \\(M'N' = MN\\), et par conséquent, que \\(f\\) est une isométrie.\n                              \n                        Montrons que \\(S = h\\circ f\\) : \n                              \\[\n                                    f = h^{-1} \\circ S \n                                          \\Rightarrow \n                                                h \\circ f = \\underbrace{h \\circ h^{-1}}_{\\mathrm{Id}} \\circ S\n                                                      \\Rightarrow\n                                                            h \\circ f = S.\n                              \\]",""]},{"k":"concept","t":["Généralités",""],"b":["<ol>\n                        <li>Toute similitude est une application affine bijective.\n                        <li>La composition de \\(2\\) similitudes est une similitude.\n                              Si\n                              <ul>\n                                    <li>\\(S\\) est une similitude de rapport \\(k\\),\n                                    <li>\\(S'\\) une similitude de rapport \\(k'\\),\n                              <\/ul>\n                              alors \\(S \\circ S'\\) est une similitude de rapport \\(kk'\\).\n                        <li>Une similitude de rapport \\(k\\) multiplie les distances par \\(k\\) et les aires par \\(k^2\\).\n                        <li>Une similitude conserve le parallélisme, l'orthogonalité, l'alignement et les milieux ;\n                              une similitude directe conserve les angles orientés, une similitude indirecte les change en leurs opposés.\n                  <\/ol>",""]},{"k":"concept","t":["Similitude plane directe",""],"b":["Une similitude plane directe \\(S\\) est soit une translation\n            soit la composition d'une homothétie et d'une rotation de même centre :\n            c'est la forme réduite.<br><br>Une similitude plane directe \\(S\\) a pour expression complexe \\(z' = az + b\\) avec \\(a \\in \\mathbb{C}^*\\) et \\(b \\in \\mathbb{C}\\).\n            <ul>\n                  <li>\\(|a| = k\\) est le rapport,\n                  <li>\\(\\mathrm{Arg}\\left( a \\right) = \\alpha\\) est l'angle,\n                  <li>\\(I\\left(\\frac{b}{1-a}\\right)\\) est le centre (si \\(a\\neq 1\\)).\n            <\/ul><br><br>Une similitude plane directe est définie analytiquement par un système du type :\n\t            \\[\n\t                  \\left\\lbrace\n\t                  \\begin{array}{l}\n\t                        x' = a x - b y + x_0, \\\\\n\t                        y' = b x + a y + y_0.\n\t                  \\end{array}\n\t                  \\right.\n\t            \\]<br><br>où \\(a^2 + b^2 = k^2\\), avec \\(k &gt; 0\\) le rapport.",""]},{"k":"concept","t":["Similitude plane indirecte",""],"b":["Une similitude plane indirecte \\(f\\) est la composée d'une homothétie et d'un antidéplacement.\n      Le rapport \\(k\\) de \\(f\\) est celui de l'homothétie (en valeur absolue).\n      <ul>\n            <li>Si \\(k=1\\) :  \\(f\\) est un antidéplacement.\n                  L'ensemble des points invariants de \\(f\\) est soit vide soit une droite.\n                  <ul>\n                        <li>Si \\(f\\) n'a pas de point invariant, alors \\(f\\) est la composée d'une symétrie\n                              orthogonale et d'une translation de vecteur non nul.\n                        <li>Si l'ensemble des points invariants est une droite \\((\\mathcal{D})\\), alors \n                              \\(f\\) la symétrie orthogonale d'axe \\((\\mathcal{D})\\).\n                  <\/ul>\n            <li>Si \\(k\\neq 1\\) :  \\(f\\) admet un seul point invariant \\(\\Omega\\).\n                  Il existe une droite \\((\\mathcal{D})\\) passant par \\(\\Omega\\) telle que \n                  \\(f = h(\\Omega,k) \\circ S_{(\\mathcal{D})} = S_{(\\mathcal{D})} \\circ h(\\Omega,k)\\).\n                  \n                  La droite \\((\\mathcal{D})\\) est l'ensemble des points \\(M\\) tels que \n                  \\(\\overrightarrow{\\Omega M'} = k \\cdot \\overrightarrow{\\Omega M}\\),<br><br>                  c'est la <i>première droite globalement invariante<\/i> par \\(f\\).\n                  \n                  La droite \\((\\mathcal{D}') = \\{ M \\mid \\overrightarrow{\\Omega M'} = -k \\cdot \\overrightarrow{\\Omega M} \\}\\)<br><br>                  est la <i>deuxième droite globalement invariante<\/i> par \\(f\\).\n      <\/ul>",""]},{"k":"concept","t":["Similitude plane indirecte",""],"b":["Soit \\(f\\) une similitude plane indirecte de rapport \\(k\\).\n            La similitude \\(f\\) est alors définie analytiquement par un système du type :\n            \\(\\left\\lbrace \\begin{array}{l} x' = a x + b y + x_0 \\\\ y' = b x - a y + y_0 \\end{array} \\right.\\)\n            où \\(a^2 + b^2 = k^2\\).",""]},{"k":"concept","t":["Similitude plane indirecte",""],"b":["Soit \\(S\\) la similitude plane indirecte égale à \\(h \\circ S_{(\\mathcal{D})}\\), où \\(h\\) est une homothétie de rapport \\(k\\).\n            Soient \n            \\[\n                  \\begin{array}{l}\n                        h : z' = k z + b \\quad (k \\in \\mathbb{R}^*) \\\\\n                        S_{(\\mathcal{D})} : z' = a \\overline{z} + c \n                  \\end{array}\n            \\]<br><br>les expressions complexes de \\(h\\) et \\(S_{(\\mathcal{D})}\\).<br><br>On a alors, \\(S : z' = k \\left( a \\overline{z} + c \\right) + b = k a \\overline{z} + k c + b\\).<br><br>De plus, on vérifie que \\(|k a| = |k| \\cdot |a| = |k|\\) (\\(S_{(\\mathcal{D})}\\) étant une isométrie, \\(|a| = 1\\)).<br><br>Une similitude plane indirecte a une expression complexe de la forme \\(z' = a \\overline{z} + b\\) (\\(a \\neq 0\\))<br><br>et son rapport est \\(k = |a|\\).",""]},{"k":"concept","t":["Similitude plane indirecte",""],"b":["Le point invariant \\(I\\)<br> Toute similitude plane indirecte de rapport \\(k \\neq 1\\) admet un point invariant \\(I\\) qu'on appelle le <i>centre<\/i>.<br><br>\\[\n                        \\left.\n                              \\begin{array}{l}\n                                    z_I = a \\overline{z_I} + b \\\\\n                                    \\overline{z_I} = \\overline{a} z_I + \\overline{b} \n                              \\end{array}\n                        \\right\\rbrace\n                              \\Rightarrow \n                        z_I = a (\\overline{a} z_I + \\overline{b} ) + b.\n                  \\]<br><br>Donc \\(z_I = a \\overline{a} z_I + a \\overline{b} + b\\).\n            Il vient que \\((1-a\\overline{a}) z_I = a\\overline{b} + b\\) et donc que<br><br>\\[\n                        z_I = \\frac{a\\overline{b}+b}{1 - a \\overline{a}} (|a| \\neq 1)\n                  \\]<br><br>est l'affixe du centre \\(I\\).",""]},{"k":"example","t":["Similitude plane indirecte",""],"b":["Soit \\(S\\) la transformation géométrique d'expression complexe \\(z'=2\\overline{z}+3i\\).\n                  Quelle est la nature de \\(S\\) ? Déterminer ses éléments caractéristiques.\n                  \n                  Construire ensuite le transformé du cercle \\((\\mathcal{C})\\) de centre \\(A(1-i)\\) et de rayon 1 par \\(S\\).\n                  Ecrire l'équation de ce cercle.",""]},{"k":"widget","t":["Agrandir, tourner, retourner : les similitudes","Enlarge, turn, flip: similarities"],"b":["Une expérience guidée du laboratoire : lisez la mission, manipulez la figure, passez à la suivante avec ◀ ▶ (ou N et P quand la figure a le focus).","A guided experiment from the laboratory: read the mission, handle the figure, move to the next one with ◀ ▶ (or N and P while the figure has focus)."],"w":{"type":"lab","ref":"similitude/fixed"}},{"k":"widget","t":["Les nombres prennent le plan","Numbers take the plane"],"b":["Une expérience guidée du laboratoire : lisez la mission, manipulez la figure, passez à la suivante avec ◀ ▶ (ou N et P quand la figure a le focus).","A guided experiment from the laboratory: read the mission, handle the figure, move to the next one with ◀ ▶ (or N and P while the figure has focus)."],"w":{"type":"lab","ref":"complex/angles"}}],"editions":{"fr":{"slides":[{"k":"title","t":["Similitudes planes","Plane similarities"],"b":["",""]},{"k":"concept","t":["Généralités",""],"b":["Une similitude plane \\(S\\) est une transformation géométrique du plan pour laquelle il existe un réel \\(k&gt;0\\) tel que,\n            pour tous points \\(M\\) et \\(N\\) du plan, en posant \\(M' = S(M)\\) et \\(N' = S(N)\\) :\n                  \\[\n                        M'N' = k\\, MN.\n                  \\]<br><br>Le réel \\(k\\) est appelé le <i>rapport<\/i> de la similitude \\(S\\).<br><br>Toute isométrie est une similitude de rapport \\(1\\).\n            Une homothétie de rapport \\(k\\) (\\(k \\neq 0\\)) est une similitude de rapport \\(|k|\\).",""]},{"k":"concept","t":["Généralités",""],"b":["Toute similitude \\(S\\) de rapport \\(k (&gt;0)\\) peut s'écrire sous la forme \\(S = h \\circ f\\)\n                  où \\(h\\) est une homothétie de rapport \\(k\\) et \\(f\\) une isométrie.\n                  \n                  \n                  <ul>\n                        <li>Si \\(f\\) est un déplacement alors \\(S\\) est une similitude plane directe.<br><br>                        <li>Si \\(f\\) est un antidéplacement alors \\(S\\) est une similitude plane indirecte.<br><br>                  <\/ul>",""]},{"k":"proof","t":["Généralités",""],"b":["Soit \\(S\\) une similitude de rapport \\(k\\).\n                        Soit \\(h\\) l'homothétie de centre \\(I\\) et de rapport \\(k\\).\n                        On a \\(h^{-1} = h\\left(I ; \\frac{1}{k}\\right)\\).\n                        On pose \\(f = h^{-1} \\circ S\\).\n                        \n                        Montrons que \\(f\\) est une isométrie : \n                              Soient \\(M\\) et \\(N\\) deux points, posons \\(M' = f(M)\\) et \\(N' = f(N)\\).\n                              On a alors \n                              \\[\\begin{aligned}\n                                    M' &amp; = h^{-1} \\left[ S(M) \\right]       &amp; N' &amp; = h^{-1} \\left[ S(N) \\right]      \\\\\n                                       &amp; = h^{-1} (M_1)                     &amp;    &amp; = h^{-1} (N_1)                    \\\\\n                              \\end{aligned}\\]\n                              où \\(M_1 = S(M)\\) et \\(N_1 = S(N)\\), et donc \\(M_1 N_1 = k MN\\).\n                              Ainsi, \\(M'N' = \\frac{1}{k} M_1 N_1 = \\frac{1}{\\not k} \\not k MN\\).\n                              On déduit que \\(M'N' = MN\\), et par conséquent, que \\(f\\) est une isométrie.\n                              \n                        Montrons que \\(S = h\\circ f\\) : \n                              \\[\n                                    f = h^{-1} \\circ S \n                                          \\Rightarrow \n                                                h \\circ f = \\underbrace{h \\circ h^{-1}}_{\\mathrm{Id}} \\circ S\n                                                      \\Rightarrow\n                                                            h \\circ f = S.\n                              \\]",""]},{"k":"concept","t":["Généralités",""],"b":["<ol>\n                        <li>Toute similitude est une application affine bijective.\n                        <li>La composition de \\(2\\) similitudes est une similitude.\n                              Si\n                              <ul>\n                                    <li>\\(S\\) est une similitude de rapport \\(k\\),\n                                    <li>\\(S'\\) une similitude de rapport \\(k'\\),\n                              <\/ul>\n                              alors \\(S \\circ S'\\) est une similitude de rapport \\(kk'\\).\n                        <li>Une similitude de rapport \\(k\\) multiplie les distances par \\(k\\) et les aires par \\(k^2\\).\n                        <li>Une similitude conserve le parallélisme, l'orthogonalité, l'alignement et les milieux ;\n                              une similitude directe conserve les angles orientés, une similitude indirecte les change en leurs opposés.\n                  <\/ol>",""]},{"k":"concept","t":["Similitude plane directe",""],"b":["Une similitude plane directe \\(S\\) est soit une translation\n            soit la composition d'une homothétie et d'une rotation de même centre :\n            c'est la forme réduite.<br><br>Une similitude plane directe \\(S\\) a pour expression complexe \\(z' = az + b\\) avec \\(a \\in \\mathbb{C}^*\\) et \\(b \\in \\mathbb{C}\\).\n            <ul>\n                  <li>\\(|a| = k\\) est le rapport,\n                  <li>\\(\\mathrm{Arg}\\left( a \\right) = \\alpha\\) est l'angle,\n                  <li>\\(I\\left(\\frac{b}{1-a}\\right)\\) est le centre (si \\(a\\neq 1\\)).\n            <\/ul><br><br>Une similitude plane directe est définie analytiquement par un système du type :\n\t            \\[\n\t                  \\left\\lbrace\n\t                  \\begin{array}{l}\n\t                        x' = a x - b y + x_0, \\\\\n\t                        y' = b x + a y + y_0.\n\t                  \\end{array}\n\t                  \\right.\n\t            \\]<br><br>où \\(a^2 + b^2 = k^2\\), avec \\(k &gt; 0\\) le rapport.",""]},{"k":"concept","t":["Similitude plane indirecte",""],"b":["Une similitude plane indirecte \\(f\\) est la composée d'une homothétie et d'un antidéplacement.\n      Le rapport \\(k\\) de \\(f\\) est celui de l'homothétie (en valeur absolue).\n      <ul>\n            <li>Si \\(k=1\\) :  \\(f\\) est un antidéplacement.\n                  L'ensemble des points invariants de \\(f\\) est soit vide soit une droite.\n                  <ul>\n                        <li>Si \\(f\\) n'a pas de point invariant, alors \\(f\\) est la composée d'une symétrie\n                              orthogonale et d'une translation de vecteur non nul.\n                        <li>Si l'ensemble des points invariants est une droite \\((\\mathcal{D})\\), alors \n                              \\(f\\) la symétrie orthogonale d'axe \\((\\mathcal{D})\\).\n                  <\/ul>\n            <li>Si \\(k\\neq 1\\) :  \\(f\\) admet un seul point invariant \\(\\Omega\\).\n                  Il existe une droite \\((\\mathcal{D})\\) passant par \\(\\Omega\\) telle que \n                  \\(f = h(\\Omega,k) \\circ S_{(\\mathcal{D})} = S_{(\\mathcal{D})} \\circ h(\\Omega,k)\\).\n                  \n                  La droite \\((\\mathcal{D})\\) est l'ensemble des points \\(M\\) tels que \n                  \\(\\overrightarrow{\\Omega M'} = k \\cdot \\overrightarrow{\\Omega M}\\),<br><br>                  c'est la <i>première droite globalement invariante<\/i> par \\(f\\).\n                  \n                  La droite \\((\\mathcal{D}') = \\{ M \\mid \\overrightarrow{\\Omega M'} = -k \\cdot \\overrightarrow{\\Omega M} \\}\\)<br><br>                  est la <i>deuxième droite globalement invariante<\/i> par \\(f\\).\n      <\/ul>",""]},{"k":"concept","t":["Similitude plane indirecte",""],"b":["Soit \\(f\\) une similitude plane indirecte de rapport \\(k\\).\n            La similitude \\(f\\) est alors définie analytiquement par un système du type :\n            \\(\\left\\lbrace \\begin{array}{l} x' = a x + b y + x_0 \\\\ y' = b x - a y + y_0 \\end{array} \\right.\\)\n            où \\(a^2 + b^2 = k^2\\).",""]},{"k":"concept","t":["Similitude plane indirecte",""],"b":["Soit \\(S\\) la similitude plane indirecte égale à \\(h \\circ S_{(\\mathcal{D})}\\), où \\(h\\) est une homothétie de rapport \\(k\\).\n            Soient \n            \\[\n                  \\begin{array}{l}\n                        h : z' = k z + b \\quad (k \\in \\mathbb{R}^*) \\\\\n                        S_{(\\mathcal{D})} : z' = a \\overline{z} + c \n                  \\end{array}\n            \\]<br><br>les expressions complexes de \\(h\\) et \\(S_{(\\mathcal{D})}\\).<br><br>On a alors, \\(S : z' = k \\left( a \\overline{z} + c \\right) + b = k a \\overline{z} + k c + b\\).<br><br>De plus, on vérifie que \\(|k a| = |k| \\cdot |a| = |k|\\) (\\(S_{(\\mathcal{D})}\\) étant une isométrie, \\(|a| = 1\\)).<br><br>Une similitude plane indirecte a une expression complexe de la forme \\(z' = a \\overline{z} + b\\) (\\(a \\neq 0\\))<br><br>et son rapport est \\(k = |a|\\).",""]},{"k":"concept","t":["Similitude plane indirecte",""],"b":["Le point invariant \\(I\\)<br> Toute similitude plane indirecte de rapport \\(k \\neq 1\\) admet un point invariant \\(I\\) qu'on appelle le <i>centre<\/i>.<br><br>\\[\n                        \\left.\n                              \\begin{array}{l}\n                                    z_I = a \\overline{z_I} + b \\\\\n                                    \\overline{z_I} = \\overline{a} z_I + \\overline{b} \n                              \\end{array}\n                        \\right\\rbrace\n                              \\Rightarrow \n                        z_I = a (\\overline{a} z_I + \\overline{b} ) + b.\n                  \\]<br><br>Donc \\(z_I = a \\overline{a} z_I + a \\overline{b} + b\\).\n            Il vient que \\((1-a\\overline{a}) z_I = a\\overline{b} + b\\) et donc que<br><br>\\[\n                        z_I = \\frac{a\\overline{b}+b}{1 - a \\overline{a}} (|a| \\neq 1)\n                  \\]<br><br>est l'affixe du centre \\(I\\).",""]},{"k":"example","t":["Similitude plane indirecte",""],"b":["Soit \\(S\\) la transformation géométrique d'expression complexe \\(z'=2\\overline{z}+3i\\).\n                  Quelle est la nature de \\(S\\) ? Déterminer ses éléments caractéristiques.\n                  \n                  Construire ensuite le transformé du cercle \\((\\mathcal{C})\\) de centre \\(A(1-i)\\) et de rayon 1 par \\(S\\).\n                  Ecrire l'équation de ce cercle.",""]},{"k":"widget","t":["Agrandir, tourner, retourner : les similitudes","Enlarge, turn, flip: similarities"],"b":["Une expérience guidée du laboratoire : lisez la mission, manipulez la figure, passez à la suivante avec ◀ ▶ (ou N et P quand la figure a le focus).","A guided experiment from the laboratory: read the mission, handle the figure, move to the next one with ◀ ▶ (or N and P while the figure has focus)."],"w":{"type":"lab","ref":"similitude/fixed"}},{"k":"widget","t":["Les nombres prennent le plan","Numbers take the plane"],"b":["Une expérience guidée du laboratoire : lisez la mission, manipulez la figure, passez à la suivante avec ◀ ▶ (ou N et P quand la figure a le focus).","A guided experiment from the laboratory: read the mission, handle the figure, move to the next one with ◀ ▶ (or N and P while the figure has focus)."],"w":{"type":"lab","ref":"complex/angles"}}]}},"languages":["fr"],"figureVersion":"e3b0c44298fc1c14"},"figs":{}};</script>
 <script>
 (function(){
 "use strict";
@@ -6322,6 +6322,319 @@ __e.default = full;
 
 __e.drawingExperiment = drawingExperiment;
 });
+__d("lab/experiments/groups.js", function (__e, __r) {
+// Experiments of the group `groups` (template group): a group seen acting. `shuffles` (the symmetric group Sₙ: shuffles of
+// n cards, order of a shuffle, swaps and parity), `polygon` (the dihedral group Dₙ: the symmetries of a regular polygon, order
+// matters, τ r τ = r⁻¹) and `rubik` (the Rubik's cube as a group of moves: the order of a sequence, commutators, and the
+// picture hung on nails). Pure maths: models/groups.js. Linked from the Algèbre 1 sequence « Groupes ».
+const G = __r("lab/models/groups.js");
+
+const P = (fr, en) => [fr, en];
+const ident = (n) => G.identity(n).join(",");
+
+// ---------------------------------------------------------------- shuffles (Sₙ)
+const SHUFFLES = [
+  ["5|(1 2)", P("Échanger les deux premières (5 cartes)", "Swap the first two (5 cards)")],
+  ["5|(1 2 3)", P("Faire tourner les trois premières (5 cartes)", "Rotate the first three (5 cards)")],
+  ["5|(1 2 3)(4 5)", P("(1 2 3)(4 5) (5 cartes)", "(1 2 3)(4 5) (5 cards)")],
+  ["5|(1 2 3 4 5)", P("Couper le paquet : (1 2 3 4 5)", "Cut the deck: (1 2 3 4 5)")],
+  ["6|(1 6)(2 5)(3 4)", P("Retourner le paquet (6 cartes)", "Reverse the deck (6 cards)")],
+  ["8|(2 3 5)(4 7 6)", P("Mélange parfait de 8 cartes", "Perfect shuffle of 8 cards")],
+  ["7|(1 2 3)(4 5 6 7)", P("(1 2 3)(4 5 6 7) (7 cartes)", "(1 2 3)(4 5 6 7) (7 cards)")],
+  ["8|(1 2 3 4 5)(6 7 8)", P("(1 2 3 4 5)(6 7 8) (8 cartes)", "(1 2 3 4 5)(6 7 8) (8 cards)")],
+];
+const shuffleSet = (v) => { const [n, sigma] = v.split("|"); return { n: +n, sigma, cards: ident(+n), k: 0, swaps: 0 }; };
+const permModel = (s) => {
+  const sigma = G.fromCycles(s.sigma, s.n), cards = s.cards.split(",").map(Number), arr = G.inverse(cards);
+  return { sigma, order: G.order(sigma), swaps: G.minSwaps(arr), sign: G.sign(arr), back: cards.every((c, i) => c === i) };
+};
+const shuffles = {
+  id: "shuffles", template: "group", groupView: "cards", section: "groups", sub: P("Le groupe symétrique Sₙ", "The symmetric group Sₙ"),
+  symbol: "Sₙ", group: P("Algèbre", "Algebra"),
+  title: P("Mélanger des cartes", "Shuffling cards"),
+  short: P("Permutations et groupe Sₙ", "Permutations and the group Sₙ"),
+  intro: P(
+    "Un mélange de n cartes est une permutation. On peut l’appliquer, le répéter, le défaire : les mélanges forment un groupe, et des nombres simples (ordre, nombre d’échanges) décrivent ce qu’ils font.",
+    "A shuffle of n cards is a permutation. It can be applied, repeated and undone: the shuffles form a group, and simple numbers (order, number of swaps) describe what they do."),
+  duration: 15,
+  level: P("Lycée curieux · Université", "Curious students · University"),
+  prereq: P("Compter, le ppcm", "Counting, the lowest common multiple"),
+  model: { model: permModel, quantities: { swaps: P("Échanges pour tout remettre", "Swaps to put it back"), order: P("Ordre de σ", "Order of σ") }, quantity: (q, st) => permModel(st)[q] },
+  state: { n: 5, sigma: "(1 2 3)(4 5)", cards: ident(5), k: 0, swaps: 0 },
+  keys: P("Cliquez deux cartes pour les échanger (ou Tab puis Entrée) ; les boutons appliquent le mélange σ.", "Click two cards to swap them (or Tab then Enter); the buttons apply the shuffle σ."),
+  controls: {
+    sigma: {
+      kind: "choice", presentation: "select", label: P("Mélange σ", "Shuffle σ"),
+      options: SHUFFLES.map(([value, label]) => ({ value, label })),
+      get: (s) => `${s.n}|${s.sigma}`, set: (s, v) => shuffleSet(v),
+    },
+    apply: {
+      kind: "action", label: P("Mélanger", "Shuffle"),
+      options: [{ value: "s", label: P("Appliquer σ", "Apply σ") }, { value: "reset", label: P("Remettre dans l’ordre", "Put back in order") }],
+      act: (s, v) => (v === "reset" ? { cards: ident(s.n), k: 0, swaps: 0 } : { cards: G.applyTo(s.cards.split(",").map(Number), G.fromCycles(s.sigma, s.n)).join(","), k: s.k + 1 }),
+    },
+  },
+  views: {
+    panels: [],
+    formula: (s) => `σ = ${s.sigma}`,
+    readout: (s) => { const m = permModel(s); return [[P("Ordre de σ", "Order of σ"), String(m.order)], [P("σ appliqué", "σ applied"), String(s.k)]]; },
+  },
+  missions: [
+    {
+      id: "order", kind: "predict", set: shuffleSet("5|(1 2 3)(4 5)"), correct: 3,
+      scene: { title: P("Six fois avant le retour", "Six times before coming back"), caption: P(
+        "σ = (1 2 3)(4 5) : les cartes 1, 2, 3 tournent en rond, les cartes 4 et 5 s’échangent. Le petit cycle revient tous les 3 coups, l’échange tous les 2 : l’ordre de départ revient après un multiple de 3 et de 2, soit 6 applications.",
+        "σ = (1 2 3)(4 5): cards 1, 2, 3 go round, cards 4 and 5 swap. The 3-cycle comes back every 3 moves, the swap every 2: the starting order comes back after a multiple of 3 and 2, so 6 applications.") },
+      prompt: P("σ fait tourner les cartes 1, 2, 3 et échange 4 et 5. Combien de fois faut-il appliquer σ pour retrouver l’ordre de départ ?", "σ rotates cards 1, 2, 3 and swaps 4 and 5. How many times must σ be applied to get the starting order back?"),
+      choices: [P("2 fois", "2 times"), P("3 fois", "3 times"), P("5 fois", "5 times"), P("6 fois", "6 times")],
+    },
+    {
+      id: "perfect", kind: "explore", set: shuffleSet("8|(2 3 5)(4 7 6)"), unlock: ["apply"],
+      scene: { title: P("Le mélange parfait des magiciens", "The magicians’ perfect shuffle"), caption: P(
+        "On coupe 8 cartes en deux moitiés et on les intercale exactement : la carte du dessus reste dessus. Trois mélanges parfaits et le paquet est revenu dans l’ordre : les mélanges « au hasard » d’un magicien ne le sont pas.",
+        "Cut 8 cards into two halves and interleave them exactly: the top card stays on top. Three perfect shuffles and the deck is back in order: a magician’s “random” shuffles are not random at all.") },
+      prompt: P("Appliquez le mélange parfait jusqu’à retrouver l’ordre de départ.", "Apply the perfect shuffle until the starting order comes back."),
+      goal: (s, m) => s.k > 0 && m.back,
+      done: P("Trois mélanges parfaits suffisent pour 8 cartes : σ a deux cycles de longueur 3, son ordre est 3. Pour 52 cartes il en faut 8.", "Three perfect shuffles are enough for 8 cards: σ has two cycles of length 3, its order is 3. For 52 cards it takes 8."),
+    },
+    {
+      id: "lcm", kind: "explore", set: shuffleSet("5|(1 2 3 4 5)"), unlock: ["sigma"],
+      scene: { title: P("L’ordre est un ppcm", "The order is a lowest common multiple"), caption: P(
+        "L’ordre d’un mélange est le ppcm des longueurs de ses cycles. (1 2 3)(4 5 6 7) ne bouge que 7 cartes mais demande ppcm(3, 4) = 12 applications, plus que le cycle des 7 cartes d’un coup.",
+        "The order of a shuffle is the lowest common multiple of its cycle lengths. (1 2 3)(4 5 6 7) moves only 7 cards but needs lcm(3, 4) = 12 applications, more than one cycle of all 7 cards.") },
+      prompt: P("Parmi les mélanges proposés, trouvez-en un d’ordre au moins 12.", "Among the shuffles offered, find one of order at least 12."),
+      goal: (s, m) => m.order >= 12,
+      done: P("(1 2 3)(4 5 6 7) est d’ordre 12 et (1 2 3 4 5)(6 7 8) d’ordre 15 : des cycles de longueurs premières entre elles font de grands ordres.", "(1 2 3)(4 5 6 7) has order 12 and (1 2 3 4 5)(6 7 8) order 15: cycles of coprime lengths give large orders."),
+    },
+    {
+      id: "swaps", kind: "check", set: { ...shuffleSet("5|(1 2 3)(4 5)"), cards: "2,0,1,4,3" }, quantity: "swaps", answer: 3,
+      scene: { title: P("Défaire un mélange en échanges", "Undoing a shuffle with swaps"), caption: P(
+        "Les cartes sont dans l’ordre 3 1 2 5 4. En cliquant deux cartes à la fois, il faut au moins 3 échanges : un cycle de 3 cartes demande 2 échanges, un cycle de 2 cartes en demande 1. Quelle que soit la méthode, le nombre d’échanges reste impair : c’est la signature.",
+        "The cards read 3 1 2 5 4. Clicking two cards at a time, at least 3 swaps are needed: a cycle of 3 cards takes 2 swaps, a cycle of 2 takes 1. Whatever the method, the number of swaps stays odd: that is the sign.") },
+      prompt: P("Les cartes sont dans l’ordre 3 1 2 5 4. Combien d’échanges de deux cartes faut-il au minimum pour les remettre dans l’ordre ?", "The cards read 3 1 2 5 4. What is the least number of swaps of two cards that puts them back in order?"),
+      hint: P("Suivez où va chaque carte : on trouve un cycle de 3 cartes et un de 2.", "Follow where each card goes: there is a cycle of 3 cards and one of 2."),
+      because: P("Un cycle de longueur L se défait en L − 1 échanges : 2 + 1 = 3.", "A cycle of length L is undone in L − 1 swaps: 2 + 1 = 3."),
+    },
+    {
+      id: "why", kind: "explain", set: shuffleSet("5|(1 2 3)(4 5)"),
+      scene: { title: P("Pourquoi c’est un groupe", "Why it is a group"), caption: P(
+        "Enchaîner deux mélanges donne un mélange ; ne rien faire en est un ; tout mélange se défait. Les n! mélanges de n cartes forment le groupe symétrique Sₙ. L’ordre d’un mélange est le ppcm de ses cycles, et la parité du nombre d’échanges ne dépend que du mélange.",
+        "Doing two shuffles in a row gives a shuffle; doing nothing is one; every shuffle can be undone. The n! shuffles of n cards form the symmetric group Sₙ. The order of a shuffle is the lcm of its cycles, and the parity of the number of swaps depends only on the shuffle.") },
+      prompt: P("Pourquoi l’ordre de σ est-il le ppcm des longueurs de ses cycles ?", "Why is the order of σ the lowest common multiple of its cycle lengths?"),
+      argument: P(
+        "Les cycles disjoints de σ agissent sur des cartes différentes, donc indépendamment. Un cycle de longueur L remet ses cartes en place exactement après L, 2L, 3L… applications. Toutes les cartes sont en place après k applications si et seulement si k est un multiple de chaque longueur, et le plus petit tel k est leur ppcm.",
+        "The disjoint cycles of σ act on different cards, so independently. A cycle of length L puts its cards back exactly after L, 2L, 3L… applications. All cards are back after k applications if and only if k is a multiple of every length, and the least such k is their lcm."),
+    },
+  ],
+  conclusion: P(
+    "Les mélanges de n cartes forment un groupe à n! éléments. L’ordre d’un mélange est le ppcm des longueurs de ses cycles ; la parité du nombre d’échanges qui le réalisent ne dépend pas de la façon de faire (la signature).",
+    "The shuffles of n cards form a group with n! elements. The order of a shuffle is the lcm of its cycle lengths; the parity of the number of swaps that produce it does not depend on how it is done (the sign)."),
+  seeAlso: [["#university/algebre-1-groupes", P("Cours : Algèbre 1, les groupes", "Course: Algebra 1, groups")], ["#lab/polygon", P("Les symétries d’un polygone", "The symmetries of a polygon")], ["#lab/rubik", P("Le Rubik’s cube", "The Rubik’s cube")]],
+  history: {
+    title: P("Cauchy · 1815, Diaconis, Graham et Kantor · 1983", "Cauchy · 1815, Diaconis, Graham and Kantor · 1983"),
+    story: P(
+      "Augustin Louis Cauchy étudie les permutations dès 1815 ; Galois en fait l’outil de sa théorie des équations. En 1983, Persi Diaconis (mathématicien et ancien magicien), Ronald Graham et William Kantor publient l’étude complète des mélanges parfaits.",
+      "Augustin Louis Cauchy studied permutations from 1815; Galois made them the tool of his theory of equations. In 1983 Persi Diaconis (mathematician and former magician), Ronald Graham and William Kantor published the full study of perfect shuffles."),
+    source: "https://mathshistory.st-andrews.ac.uk/Biographies/Cauchy/",
+  },
+};
+
+// ---------------------------------------------------------------- polygon (Dₙ)
+const gText = (g) => `${g.k},${g.s}`;
+const polySet = (n, word = "") => ({ n, word, g: gText(G.dWord(n, word)) });
+const polyModel = (s) => { const [k, sg] = s.g.split(",").map(Number), g = { k, s: sg }; return { g, order: G.dOrder(s.n, g), home: k === 0 && sg === 0, size: 2 * s.n }; };
+const MOVE = { r: G.R, t: G.T };
+const polygon = {
+  id: "polygon", template: "group", groupView: "polygon", section: "groups", sub: P("Le groupe diédral Dₙ", "The dihedral group Dₙ"),
+  symbol: "Dₙ", group: P("Algèbre", "Algebra"),
+  title: P("Les symétries d’un polygone", "The symmetries of a polygon"),
+  short: P("Rotations, retournements, groupe Dₙ", "Rotations, flips, the group Dₙ"),
+  intro: P(
+    "Un carré découpé dans du carton se repose dans son trou de 8 façons : 4 en le tournant, 4 en le retournant. Ces mouvements se composent, et l’ordre dans lequel on les fait compte.",
+    "A square cut out of card fits back into its hole in 8 ways: 4 by turning it, 4 by flipping it. These moves compose, and the order in which they are done matters."),
+  duration: 12,
+  level: P("Lycée curieux · Université", "Curious students · University"),
+  prereq: P("Angles, rotations et symétries axiales", "Angles, rotations and reflections"),
+  model: { model: polyModel, quantities: { order: P("Ordre de l’élément", "Order of the element") }, quantity: (q, st) => polyModel(st)[q] },
+  state: polySet(4),
+  keys: P("Les boutons tournent (r, r⁻¹) ou retournent (τ) la figure autour de l’axe fixe en pointillés.", "The buttons turn (r, r⁻¹) or flip (τ) the figure over the fixed dashed axis."),
+  controls: {
+    n: { kind: "choice", label: P("Polygone", "Polygon"), options: [3, 4, 5, 6, 8].map((n) => ({ value: n, label: P({ 3: "triangle", 4: "carré", 5: "pentagone", 6: "hexagone", 8: "octogone" }[n], { 3: "triangle", 4: "square", 5: "pentagon", 6: "hexagon", 8: "octagon" }[n]) })), get: (s) => s.n, set: (s, v) => polySet(v) },
+    move: {
+      kind: "action", label: P("Bouger la figure", "Move the figure"),
+      options: [{ value: "r", label: P("r : tourner", "r: turn") }, { value: "R", label: P("r⁻¹ : tourner en arrière", "r⁻¹: turn back") }, { value: "t", label: P("τ : retourner", "τ: flip") }, { value: "0", label: P("Position de départ", "Starting position") }],
+      act: (s, v) => {
+        if (v === "0") return { g: "0,0", word: "" };
+        const [k, sg] = s.g.split(",").map(Number), m = v === "R" ? { k: s.n - 1, s: 0 } : MOVE[v];
+        return { g: gText(G.dMul(s.n, m, { k, s: sg })), word: s.word + v };
+      },
+    },
+  },
+  views: { panels: [], formula: (s) => s.g, readout: (s) => [[P("Ordre", "Order"), String(polyModel(s).order)]] },
+  missions: [
+    {
+      id: "count", kind: "predict", set: polySet(4), correct: 2,
+      scene: { title: P("Huit symétries pour un carré", "Eight symmetries for a square"), caption: P(
+        "Le carré a 4 rotations (dont « ne rien faire ») et 4 retournements : 8 symétries, rangées à droite, où la position atteinte s’allume. Un polygone régulier à n côtés en a 2n.",
+        "The square has 4 rotations (including “do nothing”) and 4 flips: 8 symmetries, listed on the right, where the position reached lights up. A regular polygon with n sides has 2n.") },
+      prompt: P("De combien de façons peut-on reposer un carré de carton dans son trou ?", "In how many ways can a cardboard square be put back into its hole?"),
+      choices: [P("4", "4"), P("6", "6"), P("8", "8"), P("16", "16")],
+    },
+    {
+      id: "order-matters", kind: "contrast", set: polySet(4, "rt"),
+      variants: [{ label: P("A : tourner puis retourner", "A: turn then flip"), set: polySet(4, "rt") }, { label: P("B : retourner puis tourner", "B: flip then turn"), set: polySet(4, "tr") }],
+      scene: { title: P("L’ordre compte", "Order matters"), caption: P(
+        "Tourner puis retourner ne met pas le carré dans la même position que retourner puis tourner : le coin 1 n’arrive pas au même endroit. Le groupe n’est pas commutatif : τ ∘ r = r⁻¹ ∘ τ.",
+        "Turning then flipping does not put the square in the same position as flipping then turning: corner 1 does not end up in the same place. The group is not commutative: τ ∘ r = r⁻¹ ∘ τ.") },
+      prompt: P("Comparez A et B : la position finale est-elle la même ?", "Compare A and B: is the final position the same?"),
+      done: P("Non : A donne r³τ et B donne rτ. En général, a ∘ b ≠ b ∘ a.", "No: A gives r³τ and B gives rτ. In general, a ∘ b ≠ b ∘ a."),
+    },
+    {
+      id: "relation", kind: "explore", set: polySet(5), unlock: ["move"],
+      scene: { title: P("Une relation qui dit tout", "One relation says it all"), caption: P(
+        "Retourner, tourner, retourner revient à tourner dans l’autre sens : τ r τ = r⁻¹. Ainsi τ, r, τ, r ramène le pentagone à sa place. Avec rⁿ = e et τ² = e, cette relation suffit à calculer dans tout le groupe.",
+        "Flip, turn, flip amounts to turning the other way: τ r τ = r⁻¹. So τ, r, τ, r brings the pentagon back into place. With rⁿ = e and τ² = e, this relation is enough to compute in the whole group.") },
+      prompt: P("Trouvez une suite de mouvements qui contient au moins un retournement et ramène le pentagone exactement à sa place.", "Find a sequence of moves containing at least one flip that brings the pentagon exactly back into place."),
+      goal: (s, m) => m.home && s.word.includes("t") && /[rR]/.test(s.word),
+      done: P("Par exemple τ r τ r = e, car τ r τ = r⁻¹.", "For example τ r τ r = e, because τ r τ = r⁻¹."),
+    },
+    {
+      id: "hexagon", kind: "check", set: polySet(6, "rr"), quantity: "order", answer: 3,
+      scene: { title: P("L’ordre d’une rotation", "The order of a rotation"), caption: P(
+        "Dans l’hexagone, r² tourne de 2 × 60° = 120° : trois fois r² font un tour complet, son ordre est 3. Chaque retournement est d’ordre 2.",
+        "In the hexagon, r² turns by 2 × 60° = 120°: three times r² is a full turn, its order is 3. Every flip has order 2.") },
+      prompt: P("Dans l’hexagone, quel est l’ordre de r² (combien de fois le faire pour revenir) ?", "In the hexagon, what is the order of r² (how many times to do it to come back)?"),
+      because: P("r² tourne de 120° et 3 × 120° = 360°.", "r² turns by 120° and 3 × 120° = 360°."),
+    },
+    {
+      id: "why", kind: "explain", set: polySet(4),
+      scene: { title: P("Le groupe diédral", "The dihedral group"), caption: P(
+        "Les 2n symétries du polygone forment le groupe diédral Dₙ. Les n rotations en forment un sous-groupe, de moitié moins d’éléments : un exemple du théorème de Lagrange (l’ordre d’un sous-groupe divise l’ordre du groupe).",
+        "The 2n symmetries of the polygon form the dihedral group Dₙ. The n rotations form a subgroup with half as many elements: an example of Lagrange’s theorem (the order of a subgroup divides the order of the group).") },
+      prompt: P("Pourquoi un polygone régulier à n côtés a-t-il exactement 2n symétries ?", "Why does a regular polygon with n sides have exactly 2n symmetries?"),
+      argument: P(
+        "Une symétrie est déterminée par l’endroit où elle envoie le coin 1 (n choix) et par le sens dans lequel les coins se suivent ensuite (2 choix : le même, ou retourné). Toutes ces 2n possibilités sont réalisées par les rotations rᵏ et les retournements rᵏτ.",
+        "A symmetry is determined by where it sends corner 1 (n choices) and by the direction in which the corners then follow (2 choices: the same, or flipped). All 2n possibilities are achieved by the rotations rᵏ and the flips rᵏτ."),
+    },
+  ],
+  conclusion: P(
+    "Le groupe diédral Dₙ a 2n éléments : n rotations et n retournements. Il n’est pas commutatif, et tout s’y calcule avec rⁿ = e, τ² = e et τ r τ = r⁻¹.",
+    "The dihedral group Dₙ has 2n elements: n rotations and n flips. It is not commutative, and everything in it follows from rⁿ = e, τ² = e and τ r τ = r⁻¹."),
+  seeAlso: [["#university/algebre-1-groupes", P("Cours : Algèbre 1, les groupes", "Course: Algebra 1, groups")], ["#lab/shuffles", P("Mélanger des cartes", "Shuffling cards")], ["#lab/rubik", P("Le Rubik’s cube", "The Rubik’s cube")]],
+  history: {
+    title: P("Cayley · 1854", "Cayley · 1854"),
+    story: P("Arthur Cayley donne en 1854 la première définition abstraite d’un groupe, avec sa table de multiplication ; les symétries des figures en sont les premiers exemples.", "In 1854 Arthur Cayley gave the first abstract definition of a group, with its multiplication table; the symmetries of figures are its first examples."),
+    source: "https://mathshistory.st-andrews.ac.uk/Biographies/Cayley/",
+  },
+};
+
+// ---------------------------------------------------------------- Rubik's cube
+const SEQUENCES = ["R", "RU", "RUR'U'", "R2U2", "RUF", "RUR'URU2R'"];
+const seqLabel = (q) => `${G.parseMoves(q).join(" ")} · ${G.sequenceOrder(G.parseMoves(q))}`;
+const cubeModel = (s) => {
+  const moves = G.parseMoves(s.moves), st = G.applyMoves(G.solvedStickers(), moves);
+  return { order: G.sequenceOrder(G.parseMoves(s.seq)), solved: G.isSolved(st), moved: G.movedCubies(st), played: moves.length };
+};
+const cubeSet = (seq) => ({ seq, moves: "", reps: 0 });
+const rubik = {
+  id: "rubik", template: "group", groupView: "cube", section: "groups", sub: P("Le groupe du Rubik’s cube", "The Rubik’s cube group"),
+  symbol: "⧈", group: P("Algèbre", "Algebra"),
+  title: P("Le Rubik’s cube, un groupe dans la main", "The Rubik’s cube, a group in your hand"),
+  short: P("Ordre d’une séquence, commutateurs", "Order of a sequence, commutators"),
+  intro: P(
+    "Chaque mouvement du Rubik’s cube se défait, et deux mouvements enchaînés en font un troisième : les positions du cube forment un groupe. Répétez une séquence assez longtemps et le cube revient toujours à son état de départ.",
+    "Every move of the Rubik’s cube can be undone, and two moves in a row make a third: the positions of the cube form a group. Repeat a sequence long enough and the cube always comes back to its starting state."),
+  duration: 15,
+  level: P("Tout public · Université", "Everyone · University"),
+  prereq: P("Le ppcm ; pour aller plus loin, les permutations", "The lowest common multiple; to go further, permutations"),
+  model: { model: cubeModel, quantities: { order: P("Ordre de la séquence", "Order of the sequence") }, quantity: (q, st) => cubeModel(st)[q] },
+  state: cubeSet("RU"),
+  keys: P("Faites glisser le fond pour tourner la vue (ou les flèches du clavier) ; les boutons tournent les faces. R = droite, U = haut, F = devant ; ' = dans l’autre sens.", "Drag the background to turn the view (or the arrow keys); the buttons turn the faces. R = right, U = up, F = front; ' = the other way."),
+  controls: {
+    seq: { kind: "choice", presentation: "select", label: P("Séquence étudiée (et son ordre)", "Sequence studied (and its order)"), options: SEQUENCES.map((q) => ({ value: q, label: [seqLabel(q), seqLabel(q)] })), get: (s) => s.seq, set: (s, v) => cubeSet(v) },
+    play: {
+      kind: "action", label: P("Jouer la séquence", "Play the sequence"),
+      options: [{ value: "once", label: P("Une fois", "Once") }, { value: "all", label: P("Jusqu’au retour", "Until it comes back") }, { value: "reset", label: P("Cube neuf", "New cube") }],
+      act: (s, v) => {
+        if (v === "reset") return { moves: "", reps: 0 };
+        const order = G.sequenceOrder(G.parseMoves(s.seq)), times = v === "once" ? 1 : order - (s.reps % order);
+        return { moves: s.moves + s.seq.repeat(times), reps: s.reps + times };
+      },
+    },
+    turn: {
+      kind: "action", label: P("Tourner une face", "Turn a face"),
+      options: ["U", "R", "F", "U'", "R'", "F'"].map((m) => ({ value: m, label: [m, m] })),
+      act: (s, v) => ({ moves: s.moves + v }),
+    },
+  },
+  views: { panels: [], formula: (s) => s.seq, readout: (s) => [[P("Ordre", "Order"), String(cubeModel(s).order)]] },
+  missions: [
+    {
+      id: "guess", kind: "predict", set: cubeSet("RU"), correct: 3,
+      scene: { title: P("R puis U, cent cinq fois", "R then U, a hundred and five times"), caption: P(
+        "Tourner la face droite puis la face du haut, et recommencer : le cube ne revient qu’après 105 fois. Le désordre grandit, puis tout se remet en place d’un coup.",
+        "Turn the right face then the top face, and again: the cube only comes back after 105 times. The mess grows, then everything falls back into place at once.") },
+      prompt: P("On répète « R puis U ». Combien de répétitions avant que le cube revienne à son état de départ ?", "Repeat “R then U”. How many repetitions before the cube is back to its starting state?"),
+      choices: [P("4", "4"), P("12", "12"), P("36", "36"), P("105", "105")],
+    },
+    {
+      id: "back", kind: "explore", set: cubeSet("RU"), unlock: ["play"],
+      scene: { title: P("Le retour, et pourquoi 105", "The return, and why 105"), caption: P(
+        "105 = 3 × 5 × 7. La séquence R U déplace les coins et les arêtes en cycles de longueurs différentes, en les faisant aussi pivoter sur eux-mêmes ; le cube revient quand tous les cycles sont revenus en même temps : au ppcm, comme pour les cartes.",
+        "105 = 3 × 5 × 7. The sequence R U moves the corners and edges in cycles of different lengths, twisting them as well; the cube comes back when every cycle is back at the same time: at the lcm, as with the cards.") },
+      prompt: P("Jouez R U jusqu’au retour du cube.", "Play R U until the cube comes back."),
+      goal: (s, m) => s.reps > 0 && m.solved,
+      done: P("Retour après 105 répétitions, soit 210 quarts de tour.", "Back after 105 repetitions, that is 210 quarter turns."),
+    },
+    {
+      id: "commutator", kind: "explore", set: cubeSet("RUR'U'"), unlock: ["play"],
+      scene: { title: P("Le commutateur, l’outil des solveurs", "The commutator, the solvers’ tool"), caption: P(
+        "R U R⁻¹ U⁻¹ ne déplace que 7 des 20 petits cubes : si R et U commutaient, il ne ferait rien du tout. Un commutateur a b a⁻¹ b⁻¹ mesure à quel point a et b ne commutent pas ; ceux qui résolvent le cube les utilisent pour bouger peu de pièces à la fois.",
+        "R U R⁻¹ U⁻¹ moves only 7 of the 20 small cubes: if R and U commuted, it would do nothing at all. A commutator a b a⁻¹ b⁻¹ measures how far a and b fail to commute; people who solve the cube use them to move few pieces at a time.") },
+      prompt: P("Jouez R U R′ U′ une fois : combien de petits cubes ont bougé ? Puis jusqu’au retour.", "Play R U R′ U′ once: how many small cubes moved? Then until it comes back."),
+      goal: (s, m) => s.reps >= 1,
+      done: P("7 cubes seulement ont bougé, et le retour arrive après 6 répétitions.", "Only 7 cubes moved, and it comes back after 6 repetitions."),
+    },
+    {
+      id: "half", kind: "check", set: cubeSet("R2U2"), quantity: "order", answer: 6,
+      scene: { title: P("Des demi-tours", "Half turns"), caption: P(
+        "R2 U2 (deux demi-tours) a pour ordre 6 : six répétitions ramènent le cube neuf.",
+        "R2 U2 (two half turns) has order 6: six repetitions bring the cube back to new.") },
+      prompt: P("Combien de fois faut-il répéter R2 U2 pour retrouver le cube de départ ?", "How many times must R2 U2 be repeated to get the starting cube back?"),
+      because: P("R2 U2 échange des pièces par paires et en fait tourner d’autres par trois : ppcm(2, 3) = 6.", "R2 U2 swaps pieces in pairs and moves others in threes: lcm(2, 3) = 6."),
+    },
+    {
+      id: "nails", kind: "explain", set: cubeSet("RUR'U'"),
+      scene: { title: P("Le même calcul que le tableau sur des clous", "The same algebra as the picture on nails"), caption: P(
+        "Un tableau suspendu à deux clous a et b par la ficelle enroulée a b a⁻¹ b⁻¹ tombe dès qu’on retire un seul clou : retirer a efface les lettres a, il reste b b⁻¹, qui se défait. C’est un commutateur, comme R U R⁻¹ U⁻¹. Le défi « Un tableau sur des clous » est de la théorie des groupes.",
+        "A picture hung on two nails a and b by the string wound a b a⁻¹ b⁻¹ falls as soon as one nail is removed: removing a erases the letters a, leaving b b⁻¹, which comes undone. It is a commutator, like R U R⁻¹ U⁻¹. The challenge “A picture on nails” is group theory.") },
+      prompt: P("Pourquoi toute séquence répétée finit-elle par ramener le cube ?", "Why does every repeated sequence end up bringing the cube back?"),
+      argument: P(
+        "Le cube n’a qu’un nombre fini d’états (43 252 003 274 489 856 000). En répétant une séquence s, deux états finissent par se répéter : sᵃ = sᵇ avec a < b. Comme chaque mouvement se défait, on simplifie par sᵃ : s^(b − a) = identité. Le plus petit tel exposant est l’ordre de s.",
+        "The cube has only finitely many states (43,252,003,274,489,856,000). Repeating a sequence s, two states must eventually repeat: sᵃ = sᵇ with a < b. Since every move can be undone, cancel sᵃ: s^(b − a) = identity. The least such exponent is the order of s."),
+    },
+  ],
+  conclusion: P(
+    "Les positions du Rubik’s cube forment un groupe de 43 252 003 274 489 856 000 éléments. Toute séquence a un ordre fini, le ppcm des cycles qu’elle produit ; les commutateurs a b a⁻¹ b⁻¹ ne bougent que peu de pièces. Depuis 2010 on sait que 20 mouvements suffisent toujours pour résoudre le cube.",
+    "The positions of the Rubik’s cube form a group of 43,252,003,274,489,856,000 elements. Every sequence has a finite order, the lcm of the cycles it produces; commutators a b a⁻¹ b⁻¹ move only a few pieces. Since 2010 it has been known that 20 moves always suffice to solve the cube."),
+  seeAlso: [["#challenges/nails", P("Défi : un tableau sur des clous", "Challenge: a picture on nails")], ["#university/algebre-1-groupes", P("Cours : Algèbre 1, les groupes", "Course: Algebra 1, groups")], ["#lab/shuffles", P("Mélanger des cartes", "Shuffling cards")]],
+  history: {
+    title: P("Rubik · 1974, le nombre de Dieu · 2010", "Rubik · 1974, God’s number · 2010"),
+    story: P(
+      "Ernő Rubik invente le cube en 1974 pour enseigner la géométrie dans l’espace. En 2010, Tomas Rokicki, Herbert Kociemba, Morley Davidson et John Dethridge montrent par calcul que 20 mouvements suffisent pour résoudre n’importe quelle position.",
+      "Ernő Rubik invented the cube in 1974 to teach spatial geometry. In 2010 Tomas Rokicki, Herbert Kociemba, Morley Davidson and John Dethridge showed by computation that 20 moves suffice to solve any position."),
+    source: "https://www.cube20.org/",
+    sourceLabel: P("Le nombre de Dieu est 20 (cube20.org)", "God’s number is 20 (cube20.org)"),
+  },
+};
+
+const groupExperiments = [shuffles, polygon, rubik];
+
+__e.shuffles = shuffles;
+__e.polygon = polygon;
+__e.rubik = rubik;
+__e.groupExperiments = groupExperiments;
+});
 __d("lab/experiments/illumination.js", function (__e, __r) {
 // Guided mirrored-room exploration. Gallery and lab use the same editor, source and exact reflection model.
 const M = __r("illumination-model.js");
@@ -7986,6 +8299,299 @@ __e.default = {
       "Fibonacci’s Liber abaci helped spread Hindu-Arabic numerals in Europe. His rabbit problem leads to a sequence where each term is the sum of the previous two: another way to build a sequence.",
     ],
     source: "https://mathshistory.st-andrews.ac.uk/Biographies/Fibonacci/",
+  },
+};
+
+
+});
+__d("lab/experiments/similitude.js", function (__e, __r) {
+// Experiment `similitude` (template figure, listed under « Transformer le plan »): plane similarities, for the Malagasy
+// T12 C chapter 7 « Similitudes planes ». One plane holds a little house, its image, a point M and its image M′. The
+// similitude is given by its centre Ω (handle), its ratio k and an angle (sliders): the angle α of a direct similitude
+// z′ = az + b, or the direction θ of the axis of an indirect one z′ = a z̄ + b; dragging M′ sets k and the angle at once.
+// A second similitude can be composed after it. State {kind, k, angle, ox, oy, mx, my, second, hide}; `hide` keeps the
+// centre out of the figure and the readout (the fixed-point hunt, the check). Pure maths: models/similitude.js.
+const S = __r("lab/models/similitude.js");
+const { clamp, snap } = __r("lab/models/num.js");
+
+const { model } = S;
+const P = (fr, en) => [fr, en];
+const RANGE_X = 6, RANGE_Y = 4.5, KMAX = 3;
+const near = (a, b) => Math.abs(a - b) < 1e-9;
+const base = { kind: "direct", k: 1, angle: 45, ox: 0, oy: 0, mx: 3, my: -1, second: "none", hide: 0 };
+
+// x + iy written as a person would: 2 + i, −1 − 2i, 3, i
+function alg(num, [x, y]) {
+  const im = Math.abs(y) === 1 ? "i" : `${num(Math.abs(y))}i`;
+  if (y === 0) return num(x);
+  if (x === 0) return `${y < 0 ? "−" : ""}${im}`;
+  return `${num(x)} ${y < 0 ? "−" : "+"} ${im}`;
+}
+const paren = (text) => (text.includes(" ") || text.startsWith("−") ? `(${text})` : text);
+function written(num, f) {
+  const z = f.conj ? "z̄" : "z", a = f.a, b = f.b;
+  const head = a[0] === 1 && a[1] === 0 ? z : a[0] === -1 && a[1] === 0 ? `−${z}` : `${paren(alg(num, a))}${z}`;
+  if (b[0] === 0 && b[1] === 0) return `z′ = ${head}`;
+  const tail = alg(num, b);
+  return tail.startsWith("−") && !tail.includes(" ") ? `z′ = ${head} − ${tail.slice(1)}` : `z′ = ${head} + ${paren(tail)}`;
+}
+// the nature of the similitude in words
+function nature(t, s) {
+  const turnBy = S.turn(s.angle);
+  if (s.kind === "indirect") return s.k === 1 ? t(P("réflexion (similitude indirecte de rapport 1)", "reflection (indirect similarity of ratio 1)")) : t(P("similitude indirecte", "indirect similarity"));
+  if (turnBy === 0) return s.k === 1 ? t(P("identité", "identity")) : t(P(`homothétie de rapport ${s.k}`, `enlargement of ratio ${s.k}`));
+  if (turnBy === 180) return t(P(`homothétie de rapport −${s.k}`, `enlargement of ratio −${s.k}`));
+  return s.k === 1 ? t(P("rotation (similitude directe de rapport 1)", "rotation (direct similarity of ratio 1)")) : t(P("similitude directe", "direct similarity"));
+}
+const SECOND_NAMES = {
+  rot: P("rotation de centre O et d’angle 90°", "rotation about O by 90°"),
+  hom: P("homothétie de centre O et de rapport −1/2", "enlargement about O of ratio −1/2"),
+  refl: P("réflexion d’axe (Ox)", "reflection in the axis (Ox)"),
+};
+
+// The image handle M′: from M′ the map gives a = (M′ − Ω) / (M − Ω), or (M′ − Ω) / conj(M − Ω) for an indirect one.
+function fromImage(s, x, y) {
+  const u = [s.mx - s.ox, s.my - s.oy];
+  if (S.abs(u) < 1e-9) return null;
+  const a = S.div([x - s.ox, y - s.oy], s.kind === "indirect" ? S.conj(u) : u), arg = S.arg(a);
+  if (arg === null) return null;
+  const k = clamp(snap(S.abs(a), 0.25), 0.25, KMAX);
+  return { k, angle: S.turn(snap(s.kind === "indirect" ? arg / 2 : arg, 15)) };
+}
+
+__e.default = {
+  id: "similitude", template: "figure", section: "transform",
+  symbol: "s", group: ["Géométrie", "Geometry"],
+  title: ["Agrandir, tourner, retourner : les similitudes", "Enlarge, turn, flip: similarities"],
+  short: ["Similitudes planes", "Plane similarities"],
+  intro: [
+    "Une similitude multiplie toutes les distances par un même nombre k, son rapport. La figure montre une petite maison, son image, un point M et son image M′ autour du centre Ω. Une similitude directe s’écrit z′ = az + b et garde le sens des figures ; une similitude indirecte s’écrit z′ = a z̄ + b et les retourne comme un miroir.",
+    "A similarity multiplies every distance by the same number k, its ratio. The figure shows a little house, its image, a point M and its image M′ around the centre Ω. A direct similarity is written z′ = az + b and keeps the orientation of figures; an indirect one is written z′ = a z̄ + b and flips them like a mirror.",
+  ],
+  duration: 15,
+  level: ["Terminale C", "Grade 12"],
+  prereq: ["Nombres complexes, rotations et homothéties", "Complex numbers, rotations and enlargements"],
+  model: S,
+  state: base,
+  controls: {
+    centre: {
+      kind: "handle", color: "obj2", grid: 0.5, label: ["Centre Ω de la similitude", "Centre Ω of the similarity"],
+      at: (s) => [s.ox, s.oy],
+      drag: (s, x, y) => (s.hide ? null : { ox: clamp(x, -5, 5), oy: clamp(y, -4, 4) }),
+      hidden: (s) => !!s.hide,
+      valuetext: (s, f) => (s.hide ? f.t(["caché", "hidden"]) : f.pt(s.ox, s.oy)),
+    },
+    point: {
+      kind: "handle", color: "obj3", grid: 0.5, label: ["Point M", "Point M"],
+      at: (s) => [s.mx, s.my],
+      drag: (s, x, y) => ({ mx: clamp(x, -5, 5), my: clamp(y, -4, 4) }),
+      valuetext: (s, f) => f.pt(s.mx, s.my),
+    },
+    image: {
+      kind: "handle", color: "object",
+      label: ["Image M′ de M (flèches : haut et bas changent le rapport, gauche et droite l’angle)", "Image M′ of M (arrows: up and down change the ratio, left and right the angle)"],
+      at: (s) => model(s).M2,
+      drag: fromImage,
+      nudge: (s, dx, dy) => ({ k: clamp(snap(s.k + dy * 0.25, 0.25), 0.25, KMAX), angle: S.turn(s.angle + dx * 15) }),
+      lattice: (s) => near(s.k / 0.25, Math.round(s.k / 0.25)) && near(s.angle / 15, Math.round(s.angle / 15)),
+      valuetext: (s, f) => { const m = model(s); return `${f.pt(m.M2[0], m.M2[1])}, k = ${f.num(s.k)}`; },
+    },
+    ratio: { kind: "slider", key: "k", label: ["Rapport k", "Ratio k"], min: 0.25, max: KMAX, step: 0.25 },
+    angle: { kind: "slider", key: "angle", label: ["Angle α (directe) ou direction θ de l’axe (indirecte), en degrés", "Angle α (direct) or direction θ of the axis (indirect), in degrees"], min: -180, max: 180, step: 15, format: (v) => `${v}°` },
+    kind: {
+      kind: "choice", key: "kind", label: ["Sorte de similitude", "Kind of similarity"],
+      options: [{ value: "direct", label: ["directe : z′ = az + b", "direct: z′ = az + b"] }, { value: "indirect", label: ["indirecte : z′ = a z̄ + b", "indirect: z′ = a z̄ + b"] }],
+    },
+    second: {
+      kind: "choice", key: "second", presentation: "select", label: ["Puis appliquer s₂", "Then apply s₂"],
+      options: [{ value: "none", label: ["rien", "nothing"] }, ...Object.entries(SECOND_NAMES).map(([value, label]) => ({ value, label }))],
+    },
+  },
+  views: {
+    panels: ["figure"],
+    figure: {
+      x: [-RANGE_X, RANGE_X], y: [-RANGE_Y, RANGE_Y], equal: true, xTicks: [-6, -4, -2, 0, 2, 4, 6], yTicks: [-4, -2, 0, 2, 4],
+      scene(s, { fmt }) {
+        const m = model(s), O = m.centre, scene = { polys: [], lines: [], arcs: [], points: [], texts: [] };
+        // the axis of an indirect similitude, and the second line it keeps (perpendicular, through Ω)
+        if (s.kind === "indirect" && !s.hide) {
+          const d = S.polar(20, s.angle), e = S.polar(20, s.angle + 90);
+          scene.lines.push({ a: S.sub(O, d), b: S.add(O, d), color: "obj2", width: 1.6, dash: [7, 6] });
+          if (s.k !== 1) scene.lines.push({ a: S.sub(O, e), b: S.add(O, e), color: "obj2", width: 1, dash: [2, 6], alpha: 0.6 });
+        }
+        scene.polys.push({ pts: S.HOUSE, fill: "muted", alpha: 0.12, color: "muted", width: 1.6 });
+        scene.polys.push({ pts: m.house, fill: "object", alpha: 0.25, color: "object", width: 2.2 });
+        if (m.twice) scene.polys.push({ pts: m.twice, fill: "c6", alpha: 0.2, color: "c6", width: 2, dash: [6, 4] });
+        // corners and their images: the order A, B, C turns the same way, or the other way
+        for (const [name, z] of Object.entries(S.CORNERS)) {
+          const w = S.tidy(S.apply(m.f, z));
+          scene.points.push({ at: z, color: "muted", r: 3, label: name, dx: -14, dy: -6 }, { at: w, color: "object", r: 3.5, label: `${name}′`, dx: 6, dy: -6 });
+        }
+        // Ω, M, M′ and the angle at Ω
+        if (S.abs(S.sub(m.M, O)) > 1e-9) {
+          if (!s.hide) scene.lines.push({ a: O, b: m.M, color: "obj3", width: 1.4, dash: [5, 5] }, { a: O, b: m.M2, color: "object", width: 1.4, dash: [5, 5] });
+          const from = S.arg(S.sub(m.M, O));
+          if (!s.hide && s.kind === "direct" && S.turn(s.angle) !== 0 && from !== null) scene.arcs.push({ c: O, from, to: from + S.turn(s.angle), color: "obj2", width: 2.4, pixels: 30 });
+          scene.lines.push({ a: m.M, b: m.M2, color: "muted", width: 1, dash: [2, 5] });
+        }
+        if (!s.hide) scene.points.push({ at: O, color: "obj2", r: 5, label: "Ω", dx: -16, dy: 18 });
+        scene.points.push({ at: m.M, color: "obj3", r: 4, label: "M", dx: 9, dy: -9 }, { at: m.M2, color: "object", r: 4, label: "M′", dx: 9, dy: -9 });
+        if (m.gfCentre && !s.hide) scene.points.push({ at: m.gfCentre, color: "c6", r: 4.5, hollow: true, label: fmt.t(["centre de s₂ ∘ s", "centre of s₂ ∘ s"]), dx: 8, dy: 18 });
+        return scene;
+      },
+      measure(s, { fmt }) {
+        return { text: s.kind === "indirect" ? `k = ${fmt.num(s.k)} · ${fmt.t(["axe", "axis"])} θ = ${fmt.num(S.turn(s.angle))}°` : `k = ${fmt.num(s.k)} · α = ${fmt.num(S.turn(s.angle))}°`, color: "obj2" };
+      },
+    },
+    formula(s, { fmt }) {
+      const m = model(s), e = [...m.f.a, ...m.f.b].every((v) => fmt.isExact(v)) ? "" : `${fmt.t(["valeurs arrondies", "rounded values"])} : `;
+      return `${e}s : ${written(fmt.num, m.f).replace("z′ =", e ? "z′ ≈" : "z′ =")}`;
+    },
+    readout(s, { fmt }) {
+      const m = model(s), t = fmt.t, num = fmt.num, fr = fmt.fr;
+      let centre;
+      if (s.hide) centre = t(["à trouver", "to be found"]);
+      else if (!m.centreUnique) centre = s.kind === "direct" ? t(["tous les points sont fixes", "every point is fixed"]) : t(["tous les points de l’axe sont fixes", "every point of the axis is fixed"]);
+      else centre = fmt.pt(s.ox, s.oy);
+      const rows = [
+        [["Nature", "Kind"], nature(t, s)],
+        [["Rapport k", "Ratio k"], s.hide || S.abs(S.sub(m.M, m.centre)) < 1e-9 ? num(s.k) : `${num(s.k)} ${fr ? "et" : "and"} ΩM′ ÷ ΩM ${fmt.eq(m.distM2 / m.distM, 3)} ${num(m.distM2 / m.distM, 3)}`],
+        s.kind === "indirect" ? [["Direction θ de l’axe", "Direction θ of the axis"], `${num(((S.turn(s.angle) % 180) + 180) % 180)}°`] : [["Angle α", "Angle α"], `${num(S.turn(s.angle))}°`],
+        [["Centre Ω (point fixe)", "Centre Ω (fixed point)"], centre],
+        [["M et son image M′", "M and its image M′"], `${fmt.pt(s.mx, s.my)} → ${fmt.pt(m.M2[0], m.M2[1])}`],
+        [["Aire de l’image ÷ aire de la maison", "Area of the image ÷ area of the house"], `${fmt.eq(m.areaRatio, 3)} ${num(m.areaRatio, 3)} ; k² = ${num(s.k * s.k, 4)}`],
+      ];
+      if (!m.gf) rows.push([["s₂ ∘ s", "s₂ ∘ s"], t(["pas de seconde similitude", "no second similarity"])]);
+      else {
+        const a = m.gfAngle === null ? "" : m.gf.conj ? `, ${t(["axe", "axis"])} ${num(m.gfAngle)}°` : `, ${t(["angle", "angle"])} ${num(m.gfAngle)}°`;
+        const c = m.gfCentre ? fmt.pt(m.gfCentre[0], m.gfCentre[1]) : t(["aucun centre unique", "no single centre"]);
+        rows.push([["s₂ ∘ s", "s₂ ∘ s"], `${m.gf.conj ? t(["indirecte", "indirect"]) : t(["directe", "direct"])}, k = ${num(m.gfRatio, 3)}${a} ; ${t(["centre", "centre"])} ${c}`]);
+      }
+      return rows;
+    },
+  },
+  missions: [
+    {
+      id: "open", kind: "predict", set: { ...base }, correct: 1,
+      prompt: [
+        "Ici la similitude a pour rapport 1 : c’est une rotation de centre Ω, la maison tourne sans changer de taille. On passe au rapport 2, toutes les distances sont doublées. Par combien l’aire de la maison est-elle multipliée ?",
+        "Here the similarity has ratio 1: it is a rotation about Ω, the house turns without changing size. The ratio becomes 2, every distance is doubled. By how much is the area of the house multiplied?",
+      ],
+      choices: [P("Par 2", "By 2"), P("Par 4", "By 4"), P("Par 8", "By 8")],
+    },
+    {
+      id: "fixed", kind: "explore", set: { ...base, k: 1.5, angle: 90, ox: 1, oy: 0, mx: -1, my: 1, hide: 1 }, unlock: ["point"],
+      scene: {
+        title: ["Le centre caché", "The hidden centre"],
+        caption: [
+          "Une similitude directe de rapport 1,5 et d’angle 90° dont le centre est caché. Le seul point qui ne bouge pas est le centre Ω(1 ; 0) : quand M y arrive, M′ et M se confondent.",
+          "A direct similarity of ratio 1.5 and angle 90° whose centre is hidden. The only point that does not move is the centre Ω(1, 0): when M gets there, M′ and M coincide.",
+        ],
+      },
+      prompt: [
+        "Le centre de cette similitude est caché. Déplace M jusqu’à ce que son image M′ soit M lui-même.",
+        "The centre of this similarity is hidden. Move M until its image M′ is M itself.",
+      ],
+      hint: [
+        "Quand M est loin du centre, M′ est encore plus loin (rapport 1,5) et un quart de tour plus loin. Rapproche M de l’endroit autour duquel la maison tourne.",
+        "When M is far from the centre, M′ is even further away (ratio 1.5) and a quarter turn further round. Bring M towards the place the house turns about.",
+      ],
+      goal: (s, m) => m.fixedM,
+      done: [
+        "M′ = M : M est le centre Ω(1 ; 0). Une similitude directe qui n’est pas une translation a un seul point fixe, son centre, d’affixe b ÷ (1 − a).",
+        "M′ = M: M is the centre Ω(1, 0). A direct similarity that is not a translation has exactly one fixed point, its centre, of affix b ÷ (1 − a).",
+      ],
+    },
+    {
+      id: "orient", kind: "contrast", set: { ...base, k: 1.5, angle: 30, ox: 1, oy: 1, mx: 3, my: 0 },
+      scene: {
+        title: ["Directe ou indirecte", "Direct or indirect"],
+        caption: [
+          "Rapport 1,5 et centre Ω(1 ; 1) dans les deux cas. La similitude directe d’angle 30° garde le sens A, B, C de la maison ; l’indirecte, d’axe incliné de 30°, la retourne : la cheminée change de côté.",
+          "Ratio 1.5 and centre Ω(1, 1) in both cases. The direct similarity of angle 30° keeps the order A, B, C of the house; the indirect one, with its axis at 30°, flips it: the chimney changes side.",
+        ],
+      },
+      variants: [
+        { label: ["A : directe, z′ = az + b", "A: direct, z′ = az + b"], set: { kind: "direct" } },
+        { label: ["B : indirecte, z′ = a z̄ + b", "B: indirect, z′ = a z̄ + b"], set: { kind: "indirect" } },
+      ],
+      prompt: [
+        "Même rapport 1,5 et même centre. Compare la similitude directe (A) et l’indirecte (B). Dans quel cas la maison est-elle retournée, comme dans un miroir ? Regarde la cheminée et l’ordre A, B, C.",
+        "Same ratio 1.5 and same centre. Compare the direct similarity (A) and the indirect one (B). In which case is the house flipped, as in a mirror? Look at the chimney and the order A, B, C.",
+      ],
+      done: [
+        "La similitude indirecte (B) retourne la maison : A′, B′, C′ tournent dans l’autre sens que A, B, C. Elle est la composée d’une réflexion d’axe passant par Ω et d’une homothétie de centre Ω ; la directe (A) est la composée d’une rotation et d’une homothétie de même centre.",
+        "The indirect similarity (B) flips the house: A′, B′, C′ turn the other way round from A, B, C. It is a reflection in an axis through Ω followed by an enlargement about Ω; the direct one (A) is a rotation followed by an enlargement with the same centre.",
+      ],
+    },
+    {
+      id: "compose", kind: "explore", set: { ...base, k: 2, angle: 0, ox: 2, oy: 1, mx: 1, my: 1, second: "rot" }, unlock: ["angle"],
+      scene: {
+        title: ["Deux similitudes à la suite", "Two similarities in a row"],
+        caption: [
+          "La similitude s est une homothétie de centre Ω(2 ; 1) et de rapport 2, puis s₂ fait un quart de tour autour de O. La composée s₂ ∘ s, en pointillés, a pour rapport 2 × 1 = 2 et pour angle 0° + 90° = 90°, avec un nouveau centre.",
+          "The similarity s is an enlargement about Ω(2, 1) of ratio 2, then s₂ makes a quarter turn about O. The composition s₂ ∘ s, dashed, has ratio 2 × 1 = 2 and angle 0° + 90° = 90°, with a new centre.",
+        ],
+      },
+      prompt: [
+        "Après s, on applique s₂, le quart de tour de centre O : la maison en pointillés est l’image par s₂ ∘ s. Change l’angle α de s pour que s₂ ∘ s soit une homothétie (angle total 0° ou 180°).",
+        "After s comes s₂, the quarter turn about O: the dashed house is the image under s₂ ∘ s. Change the angle α of s so that s₂ ∘ s is an enlargement (total angle 0° or 180°).",
+      ],
+      hint: [
+        "Les angles s’ajoutent : l’angle de s₂ ∘ s est α + 90°.",
+        "The angles add up: the angle of s₂ ∘ s is α + 90°.",
+      ],
+      goal: (s, m) => !!m.gf && !m.gf.conj && Math.abs(m.gf.a[1]) < 1e-9,
+      done: [
+        "Avec α = −90° (ou 90°), l’angle de s₂ ∘ s vaut 0° (ou 180°) : la composée est une homothétie de rapport 2 (ou −2). La composée de deux similitudes directes est une similitude directe : les rapports se multiplient, les angles s’ajoutent.",
+        "With α = −90° (or 90°), the angle of s₂ ∘ s is 0° (or 180°): the composition is an enlargement of ratio 2 (or −2). Composing two direct similarities gives a direct similarity: the ratios multiply and the angles add up.",
+      ],
+    },
+    {
+      id: "book", kind: "check", set: { ...base, kind: "indirect", k: 2, angle: 0, ox: 0, oy: 1, mx: 2, my: 2, hide: 1 }, quantity: "centreY", answer: 1, tolerance: 0.01,
+      scene: {
+        title: ["L’exemple du cours : z′ = 2z̄ + 3i", "The lesson’s example: z′ = 2z̄ + 3i"],
+        caption: [
+          "La similitude z′ = 2z̄ + 3i est indirecte, de rapport 2. Son centre est le point fixe : z = 2z̄ + 3i donne x = 2x et y = −2y + 3, donc Ω = i, le point (0 ; 1), et son axe est la droite y = 1.",
+          "The similarity z′ = 2z̄ + 3i is indirect, of ratio 2. Its centre is the fixed point: z = 2z̄ + 3i gives x = 2x and y = −2y + 3, so Ω = i, the point (0, 1), and its axis is the line y = 1.",
+        ],
+      },
+      prompt: [
+        "Voici la similitude indirecte z′ = 2z̄ + 3i (son écriture est sous la figure). Son centre Ω est caché. Quelle est l’ordonnée de Ω ?",
+        "Here is the indirect similarity z′ = 2z̄ + 3i (written under the figure). Its centre Ω is hidden. What is the y-coordinate of Ω?",
+      ],
+      hint: [
+        "Le centre est le point fixe : écris z = x + iy et résous z = 2z̄ + 3i, partie réelle et partie imaginaire.",
+        "The centre is the fixed point: write z = x + iy and solve z = 2z̄ + 3i, real part and imaginary part.",
+      ],
+      because: [
+        "z = 2z̄ + 3i donne x + iy = 2x − 2iy + 3i, donc x = 0 et 3y = 3 : Ω = i, d’ordonnée 1. La formule du cours (a b̄ + b) ÷ (1 − |a|²) = (−6i + 3i) ÷ (−3) = i donne le même point.",
+        "z = 2z̄ + 3i gives x + iy = 2x − 2iy + 3i, so x = 0 and 3y = 3: Ω = i, with y-coordinate 1. The lesson’s formula (a b̄ + b) ÷ (1 − |a|²) = (−6i + 3i) ÷ (−3) = i gives the same point.",
+      ],
+    },
+    {
+      id: "why", kind: "explain", set: { ...base, k: 1.5, angle: 60, ox: 1, oy: 0, mx: 3, my: 0 },
+      prompt: [
+        "Pourquoi une similitude directe z′ = az + b multiplie-t-elle toutes les distances par |a|, et pourquoi a-t-elle un seul point fixe quand a ≠ 1 ?",
+        "Why does a direct similarity z′ = az + b multiply every distance by |a|, and why does it have exactly one fixed point when a ≠ 1?",
+      ],
+      argument: [
+        "Pour deux points M et N d’affixes z et w, les images ont pour affixes az + b et aw + b, donc z′ − w′ = a(z − w) et M′N′ = |a| × MN : le rapport est |a| pour tous les points à la fois. Un point fixe vérifie z = az + b, soit (1 − a)z = b ; si a ≠ 1 cette équation a une seule solution z = b ÷ (1 − a), le centre Ω. Alors z′ − ω = a(z − ω) : autour de Ω, la similitude tourne de arg a et agrandit de |a|. Pour z′ = a z̄ + b le même calcul donne M′N′ = |a| × MN, avec un conjugué qui retourne les figures.",
+        "For two points M and N with affixes z and w, the images have affixes az + b and aw + b, so z′ − w′ = a(z − w) and M′N′ = |a| × MN: the ratio is |a| for every pair of points at once. A fixed point satisfies z = az + b, that is (1 − a)z = b; if a ≠ 1 this equation has exactly one solution z = b ÷ (1 − a), the centre Ω. Then z′ − ω = a(z − ω): about Ω the similarity turns by arg a and enlarges by |a|. For z′ = a z̄ + b the same computation gives M′N′ = |a| × MN, with a conjugate that flips figures.",
+      ],
+    },
+  ],
+  conclusion: [
+    "Une similitude directe z′ = az + b, a ≠ 1, est la composée de la rotation de centre Ω et d’angle arg a et de l’homothétie de centre Ω et de rapport |a|, où Ω = b ÷ (1 − a) est son seul point fixe ; une similitude indirecte z′ = a z̄ + b y ajoute une réflexion. Composer deux similitudes multiplie les rapports. Les figures le montrent sur des exemples ; le calcul z′ − w′ = a(z − w) le démontre pour tous les points.",
+    "A direct similarity z′ = az + b, a ≠ 1, is the rotation about Ω by arg a followed by the enlargement about Ω of ratio |a|, where Ω = b ÷ (1 − a) is its only fixed point; an indirect similarity z′ = a z̄ + b adds a reflection. Composing two similarities multiplies the ratios. The figures show this on examples; the computation z′ − w′ = a(z − w) proves it for every point.",
+  ],
+  history: {
+    title: ["Wessel · 1799", "Wessel · 1799"],
+    story: [
+      "L’arpenteur danois Caspar Wessel présente en 1797 à l’Académie royale du Danemark, et publie en 1799, une représentation des nombres complexes par des segments du plan : multiplier revient à tourner et à agrandir, ce qu’écrit z′ = az.",
+      "The Danish surveyor Caspar Wessel presented to the Royal Danish Academy in 1797, and published in 1799, a representation of complex numbers by segments of the plane: multiplying amounts to turning and enlarging, which is what z′ = az says.",
+    ],
+    source: "https://mathshistory.st-andrews.ac.uk/Biographies/Wessel/",
   },
 };
 
@@ -10105,6 +10711,171 @@ __e.model = model;
 __e.quantities = quantities;
 __e.quantity = quantity;
 });
+__d("lab/models/groups.js", function (__e, __r) {
+// Pure maths of the group laboratories (no DOM, no Math.random): permutations of n cards (the symmetric group Sₙ), the
+// symmetries of a regular polygon (the dihedral group Dₙ) and the Rubik's cube as a group of moves acting on its 54
+// stickers. Positions and cards are numbered from 0 here; the pages show them from 1.
+
+// ---------------------------------------------------------------- permutations
+// A permutation of {0, …, n−1} is an array p with p[i] = image of i. "Apply σ to the cards" sends the card at position i
+// to position σ(i).
+const identity = (n) => Array.from({ length: n }, (_, i) => i);
+// (p ∘ q)(i) = p(q(i)): first q, then p
+const compose = (p, q) => q.map((x) => p[x]);
+const inverse = (p) => { const r = Array(p.length); p.forEach((y, x) => { r[y] = x; }); return r; };
+const isIdentity = (p) => p.every((y, i) => y === i);
+function power(p, k) {
+  let r = identity(p.length), b = k >= 0 ? p : inverse(p);
+  for (let i = 0; i < Math.abs(k); i++) r = compose(b, r);
+  return r;
+}
+// disjoint cycles (fixed points left out unless `all`)
+function cycles(p, all = false) {
+  const seen = new Array(p.length).fill(false), out = [];
+  for (let i = 0; i < p.length; i++) {
+    if (seen[i]) continue;
+    const c = []; let x = i;
+    while (!seen[x]) { seen[x] = true; c.push(x); x = p[x]; }
+    if (c.length > 1 || all) out.push(c);
+  }
+  return out;
+}
+const gcd = (a, b) => (b ? gcd(b, a % b) : Math.abs(a));
+const lcm = (a, b) => (a / gcd(a, b)) * b;
+const order = (p) => cycles(p).reduce((m, c) => lcm(m, c.length), 1);
+// least number of swaps (transpositions) that give p: n − (number of cycles, fixed points included)
+const minSwaps = (p) => p.length - cycles(p, true).length;
+const sign = (p) => (minSwaps(p) % 2 ? -1 : 1);
+const cycleText = (p) => { const c = cycles(p); return c.length ? c.map((x) => `(${x.map((i) => i + 1).join(" ")})`).join("") : "id"; };
+// "(1 2 3)(4 5)" in Sₙ → array; positions written from 1
+function fromCycles(text, n) {
+  const p = identity(n);
+  for (const m of String(text).matchAll(/\(([^)]*)\)/g)) {
+    const c = m[1].trim().split(/[\s,]+/).filter(Boolean).map((x) => Number(x) - 1);
+    if (c.some((x) => !Number.isInteger(x) || x < 0 || x >= n) || new Set(c).size !== c.length) throw new Error("bad cycle");
+    c.forEach((x, i) => { p[x] = c[(i + 1) % c.length]; });
+  }
+  return p;
+}
+// The cards after applying a word of permutations, rightmost first: arrangement[pos] = card at that position.
+// Applying σ moves the card at position i to position σ(i): new[σ(i)] = old[i].
+const applyTo = (cards, p) => { const r = Array(cards.length); cards.forEach((c, i) => { r[p[i]] = c; }); return r; };
+
+// ---------------------------------------------------------------- dihedral group Dₙ
+// An element is {k, s}: first the reflection τ if s = 1 (axis through vertex 0), then the rotation rᵏ (angle 2πk/n).
+// As a map of the vertex positions: i ↦ (s ? −i : i) + k (mod n).
+const mod = (a, n) => ((a % n) + n) % n;
+const dIdentity = { k: 0, s: 0 };
+const dPerm = (n, g) => Array.from({ length: n }, (_, i) => mod((g.s ? -i : i) + g.k, n));
+// (a ∘ b): first b, then a. rᵃτ^α ∘ rᵇτ^β = r^(a + (−1)^α b) τ^(α+β)
+const dMul = (n, a, b) => ({ k: mod(a.k + (a.s ? -b.k : b.k), n), s: (a.s + b.s) % 2 });
+const dInverse = (n, g) => (g.s ? { ...g } : { k: mod(-g.k, n), s: 0 });
+const dOrder = (n, g) => (g.s ? 2 : n / gcd(g.k || n, n));
+const dName = (g, fr = true) => (g.s ? (g.k ? `r${sup(g.k)}τ` : "τ") : g.k ? `r${sup(g.k)}` : "e");
+const R = { k: 1, s: 0 }, T = { k: 0, s: 1 };
+// apply a word written as a string of 'r', 'R' (r⁻¹) and 't' to the identity, the leftmost letter acting first
+function dWord(n, word) {
+  let g = dIdentity;
+  for (const c of word) g = dMul(n, c === "r" ? R : c === "R" ? { k: n - 1, s: 0 } : T, g);
+  return g;
+}
+const SUP = { 0: "⁰", 1: "¹", 2: "²", 3: "³", 4: "⁴", 5: "⁵", 6: "⁶", 7: "⁷", 8: "⁸", 9: "⁹", "-": "⁻" };
+const sup = (k) => (k === 1 ? "" : String(k).split("").map((c) => SUP[c]).join(""));
+
+// ---------------------------------------------------------------- Rubik's cube
+// 54 stickers. Each sticker has a cubie position p ∈ {−1, 0, 1}³ and an outward normal n (a unit axis vector). A face turn
+// rotates by a quarter turn every sticker whose cubie lies in the layer, clockwise when looking at that face. The colour of a
+// sticker is the face it started on. x to the right (R), y up (U), z towards the viewer (F).
+const FACES = ["U", "D", "R", "L", "F", "B"];
+const NORMAL = { U: [0, 1, 0], D: [0, -1, 0], R: [1, 0, 0], L: [-1, 0, 0], F: [0, 0, 1], B: [0, 0, -1] };
+function solvedStickers() {
+  const out = [];
+  for (const f of FACES) {
+    const nv = NORMAL[f], axis = nv.findIndex((v) => v !== 0);
+    for (let a = -1; a <= 1; a++) for (let b = -1; b <= 1; b++) {
+      const p = [0, 0, 0], others = [0, 1, 2].filter((i) => i !== axis);
+      p[axis] = nv[axis]; p[others[0]] = a; p[others[1]] = b;
+      out.push({ face: f, p, n: nv.slice() });
+    }
+  }
+  return out;
+}
+// quarter turn about the axis (0 x, 1 y, 2 z), positive = counter-clockwise seen from the + side
+const rot = (v, axis, q) => {
+  const [i, j] = axis === 0 ? [1, 2] : axis === 1 ? [2, 0] : [0, 1];
+  let r = v.slice();
+  for (let t = 0; t < mod(q, 4); t++) { const a = r[i], b = r[j]; r[i] = -b; r[j] = a; }
+  return r;
+};
+// a move: face letter, then ' for the inverse or 2 for a half turn
+function moveSpec(m) {
+  const f = m[0], nv = NORMAL[f], axis = nv.findIndex((v) => v !== 0), side = nv[axis];
+  const turns = m.endsWith("2") ? 2 : m.endsWith("'") ? -1 : 1;
+  // clockwise seen from the face = negative rotation about the outward normal
+  return { face: f, axis, side, q: -side * turns, turns };
+}
+function applyMove(stickers, m) {
+  const { axis, side, q } = moveSpec(m);
+  return stickers.map((s) => (s.p[axis] === side ? { ...s, p: rot(s.p, axis, q), n: rot(s.n, axis, q) } : s));
+}
+const parseMoves = (text) => (String(text).match(/[UDRLFB](?:2|')?/g) || []);
+const applyMoves = (stickers, moves) => moves.reduce(applyMove, stickers);
+const invertMoves = (moves) => moves.slice().reverse().map((m) => (m.endsWith("2") ? m : m.endsWith("'") ? m[0] : m + "'"));
+const key = (s) => s.p.join(",") + "|" + s.n.join(",");
+// the permutation of the 54 sticker places produced by a sequence of moves
+function stickerPerm(moves) {
+  const start = solvedStickers(), end = applyMoves(start, moves), index = new Map(start.map((s, i) => [key(s), i]));
+  return end.map((s) => index.get(key(s)));
+}
+// how many times the sequence must be repeated before the cube is solved again (its order in the cube group)
+const sequenceOrder = (moves) => order(stickerPerm(moves));
+// the cube looks solved when each face shows one colour
+function isSolved(stickers) {
+  const seen = {};
+  for (const s of stickers) { const k = s.n.join(","); if (seen[k] && seen[k] !== s.face) return false; seen[k] = s.face; }
+  return true;
+}
+// stickers not in their starting place (cubies moved), counted by cubie
+function movedCubies(stickers) {
+  const start = solvedStickers(), moved = new Set();
+  stickers.forEach((s, i) => { if (key(s) !== key(start[i])) moved.add(start[i].p.join(",")); });
+  return moved.size;
+}
+
+__e.identity = identity;
+__e.compose = compose;
+__e.inverse = inverse;
+__e.isIdentity = isIdentity;
+__e.power = power;
+__e.cycles = cycles;
+__e.lcm = lcm;
+__e.order = order;
+__e.minSwaps = minSwaps;
+__e.sign = sign;
+__e.cycleText = cycleText;
+__e.fromCycles = fromCycles;
+__e.applyTo = applyTo;
+__e.dIdentity = dIdentity;
+__e.dPerm = dPerm;
+__e.dMul = dMul;
+__e.dInverse = dInverse;
+__e.dOrder = dOrder;
+__e.dName = dName;
+__e.R = R;
+__e.dWord = dWord;
+__e.sup = sup;
+__e.FACES = FACES;
+__e.solvedStickers = solvedStickers;
+__e.moveSpec = moveSpec;
+__e.applyMove = applyMove;
+__e.parseMoves = parseMoves;
+__e.applyMoves = applyMoves;
+__e.invertMoves = invertMoves;
+__e.stickerPerm = stickerPerm;
+__e.sequenceOrder = sequenceOrder;
+__e.isSolved = isSolved;
+__e.movedCubies = movedCubies;
+});
 __d("lab/models/inference.js", function (__e, __r) {
 // Seeded probability and inference models. Exact benchmarks are separate from simulation.
 const { rng } = __r("lab/models/probability.js");
@@ -11029,6 +11800,119 @@ __e.model = model;
 __e.quantities = quantities;
 __e.quantity = quantity;
 });
+__d("lab/models/similitude.js", function (__e, __r) {
+// Pure maths of the experiment `similitude` (Malagasy T12 C chapter 7, « Similitudes planes »). A similitude is written
+// as a complex map {a, b, conj}: z' = a z + b (direct) or z' = a z̄ + b (indirect), a ≠ 0. The experiment gives it by its
+// centre Ω, its ratio k and an angle: for a direct one the angle α (a = k e^{iα}, b = ω(1 − a)); for an indirect one the
+// direction θ of its axis through Ω (a = k e^{2iθ}, b = ω − a ω̄). Points are [x, y] = x + iy. No DOM.
+const clean = (x) => (Object.is(x, -0) || Math.abs(x) < 1e-12 ? 0 : x);
+const rad = (d) => (d * Math.PI) / 180;
+const deg = (r) => (r * 180) / Math.PI;
+
+const add = (p, q) => [p[0] + q[0], p[1] + q[1]];
+const sub = (p, q) => [p[0] - q[0], p[1] - q[1]];
+const mul = (p, q) => [p[0] * q[0] - p[1] * q[1], p[0] * q[1] + p[1] * q[0]];
+const conj = (p) => [p[0], -p[1]];
+const abs = (p) => Math.hypot(p[0], p[1]);
+const div = (p, q) => { const d = q[0] * q[0] + q[1] * q[1]; return [(p[0] * q[0] + p[1] * q[1]) / d, (p[1] * q[0] - p[0] * q[1]) / d]; };
+const polar = (r, d) => [clean(r * Math.cos(rad(d))), clean(r * Math.sin(rad(d)))];
+const tidy = (p) => p.map((v) => clean(Number(v.toFixed(12))));
+// argument in degrees in ]-180, 180], null for 0
+const arg = (p) => (abs(p) < 1e-12 ? null : clean(Number(deg(Math.atan2(p[1], p[0])).toFixed(9))));
+const turn = (d) => { let t = ((d % 360) + 360) % 360; if (t > 180) t -= 360; return clean(t); };
+
+// The similitude of a state {kind, k, angle, ox, oy}.
+function simOf(s) {
+  const w = [s.ox, s.oy];
+  if (s.kind === "indirect") { const a = polar(s.k, 2 * s.angle); return { a, b: tidy(sub(w, mul(a, conj(w)))), conj: true }; }
+  const a = polar(s.k, s.angle);
+  return { a, b: tidy(mul(w, sub([1, 0], a))), conj: false };
+}
+const apply = (f, z) => add(mul(f.a, f.conj ? conj(z) : z), f.b);
+// g ∘ f: first f, then g
+const compose = (g, f) => ({
+  a: tidy(mul(g.a, g.conj ? conj(f.a) : f.a)),
+  b: tidy(add(mul(g.a, g.conj ? conj(f.b) : f.b), g.b)),
+  conj: f.conj !== g.conj,
+});
+// The fixed point: b / (1 − a) for a direct map with a ≠ 1, (a b̄ + b) / (1 − |a|²) for an indirect one with |a| ≠ 1.
+// Otherwise null: a translation or the identity (direct, a = 1), a reflection or a glide reflection (indirect, |a| = 1).
+function fixedPoint(f) {
+  if (!f.conj) return abs(sub([1, 0], f.a)) < 1e-12 ? null : tidy(div(f.b, sub([1, 0], f.a)));
+  const n = 1 - (f.a[0] ** 2 + f.a[1] ** 2);
+  return Math.abs(n) < 1e-12 ? null : tidy(add(mul(f.a, conj(f.b)), f.b).map((v) => v / n));
+}
+const ratio = (f) => abs(f.a);
+// angle of a direct map (arg a), or direction of the axis of an indirect one (arg a / 2, in ]-90, 90])
+const angleOf = (f) => { const t = arg(f.a); return t === null ? null : f.conj ? clean(t / 2) : t; };
+
+// The second similitude offered for a composition.
+const SECONDS = {
+  none: null,
+  rot: { a: [0, 1], b: [0, 0], conj: false },     // rotation of centre O and angle 90°
+  hom: { a: [-0.5, 0], b: [0, 0], conj: false },  // homothety of centre O and ratio −1/2
+  refl: { a: [1, 0], b: [0, 0], conj: true },     // reflection in the axis (Ox)
+};
+
+// The figure: a little house with a chimney on the right, so that a reflection shows. A, B, C name three of its corners.
+const HOUSE = [[1, 0.5], [2.5, 0.5], [2.5, 1.75], [2.25, 2], [2.25, 2.45], [2, 2.45], [2, 2.25], [1.75, 2.5], [1, 1.75]];
+const CORNERS = { A: HOUSE[0], B: HOUSE[1], C: HOUSE[7] };
+const area = (pts) => Math.abs(pts.reduce((t, p, i) => { const q = pts[(i + 1) % pts.length]; return t + p[0] * q[1] - q[0] * p[1]; }, 0)) / 2;
+// orientation of the triangle A, B, C: +1 counterclockwise, −1 clockwise
+const orientation = (A, B, C) => Math.sign((B[0] - A[0]) * (C[1] - A[1]) - (B[1] - A[1]) * (C[0] - A[0]));
+
+function model(s) {
+  const f = simOf(s), F = (z) => tidy(apply(f, z)), M = [s.mx, s.my], M2 = F(M), centre = [s.ox, s.oy];
+  const g = SECONDS[s.second] || null, gf = g ? compose(g, f) : null, house = HOUSE.map(F);
+  const om = abs(sub(M, centre)), om2 = abs(sub(M2, centre));
+  return {
+    f, M, M2, centre, house, g, gf,
+    k: s.k,
+    // the centre is the only fixed point unless k = 1 (a rotation by 0 is the identity; an indirect isometry fixes its axis)
+    centreUnique: fixedPoint(f) !== null,
+    distM: om, distM2: om2,
+    areaRatio: area(house) / area(HOUSE),
+    sameOrientation: orientation(...["A", "B", "C"].map((c) => F(CORNERS[c]))) === orientation(CORNERS.A, CORNERS.B, CORNERS.C),
+    fixedM: abs(sub(M2, M)) < 1e-9,
+    twice: gf ? HOUSE.map((z) => tidy(apply(gf, z))) : null,
+    gfCentre: gf ? fixedPoint(gf) : null,
+    gfRatio: gf ? ratio(gf) : null,
+    gfAngle: gf ? angleOf(gf) : null,
+  };
+}
+
+const quantities = {
+  centreY: (s) => model(s).centre[1],
+  areaRatio: (s) => model(s).areaRatio,
+  k: (s) => s.k,
+};
+const quantity = (name, s) => quantities[name](s);
+
+__e.add = add;
+__e.sub = sub;
+__e.mul = mul;
+__e.conj = conj;
+__e.abs = abs;
+__e.div = div;
+__e.polar = polar;
+__e.tidy = tidy;
+__e.arg = arg;
+__e.turn = turn;
+__e.simOf = simOf;
+__e.apply = apply;
+__e.compose = compose;
+__e.fixedPoint = fixedPoint;
+__e.ratio = ratio;
+__e.angleOf = angleOf;
+__e.SECONDS = SECONDS;
+__e.HOUSE = HOUSE;
+__e.CORNERS = CORNERS;
+__e.area = area;
+__e.orientation = orientation;
+__e.model = model;
+__e.quantities = quantities;
+__e.quantity = quantity;
+});
 __d("lab/models/space-lines.js", function (__e, __r) {
 // Pure maths of the space-lines experiment: the plane P: x + y + 2z + d = 0 (normal vector n = (1 ; 1 ; 2)), the line through
 // A with direction vector u (the points M(t) = A + t u), their common points, the orthogonal projection H of A on P and the
@@ -11829,6 +12713,7 @@ function buildHandles({ exp, fmt, getState, getShown = getState, setState, views
       // At the default view a handle just outside its panel is kept on the edge (reachable); once the learner has zoomed or
       // moved the view, a handle out of sight is out of sight: not drawn, not grabbed.
       hidden() {
+        if (c.hidden?.(getShown())) return true;   // a handle the experiment keeps out of sight in this state (a centre to be found)
         const v = view(), cam = v.cam, [wx, wy] = c.at(getShown()), X = v.X(wx), Y = v.Y(wy);
         if (!cam || (cam.kx === 1 && cam.ky === 1 && !cam.ox && !cam.oy)) return false;
         return X < v.left - 2 || X > v.left + v.width + 2 || Y < v.top - 2 || Y > v.top + v.height + 2;
@@ -11914,14 +12799,17 @@ const { monteCarloExperiments } = __r("lab/experiments/monte-carlo.js");
 const illumination = __r("lab/experiments/illumination.js").default;
 const ferrisWheel = __r("lab/experiments/ferris-wheel.js").default;
 const eratosthenes = __r("lab/experiments/eratosthenes.js").default;
+const { groupExperiments } = __r("lab/experiments/groups.js");
+const similitude = __r("lab/experiments/similitude.js").default;
 
 // Order of the catalogue. The experiments are plain data and small; the heavy part (templates) is imported on demand.
 const EXPERIMENTS = [quadratic, trig, sequences, derivative, integral, probability, vectors, statistics, complex, line, exponential, cobweb, matrix, spaceLines, fourier, drawingExperiment, tiles, eulerPrimes, fermat, circleRegions, buffon, bertrand, fairDivision, fairGoods, ...inferenceExperiments, ...monteCarloExperiments, doublePendulum, threeBody, logistic, illumination];
 
-EXPERIMENTS.push(hairyExperiment, surfacesExperiment, banachExperiment, banachTreeExperiment, ferrisWheel, eratosthenes);
+EXPERIMENTS.push(hairyExperiment, surfacesExperiment, banachExperiment, banachTreeExperiment, ferrisWheel, eratosthenes, ...groupExperiments, similitude);
 
 const TEMPLATES = {
   illumination: () => Promise.resolve(__r("lab/templates/illumination.js")),
+  group: () => Promise.resolve(__r("lab/templates/group.js")),
   dynamics: () => Promise.resolve(__r("lab/templates/dynamics.js")),
   logistic: () => Promise.resolve(__r("lab/templates/logistic.js")),
   inference: () => Promise.resolve(__r("lab/templates/inference.js")),
@@ -11938,6 +12826,7 @@ const TEMPLATES = {
 
 // Type of activity, shown as the group titles of the #lab index.
 const TEMPLATE_INFO = {
+  group: { title: ["Des groupes en action", "Groups in action"], blurb: ["Des mouvements qui se composent et se défont.", "Moves that compose and can be undone."] },
   illumination: { title: ["Réfléchir des rayons", "Reflect rays"], blurb: ["Explorer et construire des pièces de miroirs.", "Explore and construct mirrored rooms."] },
   dynamics: {title:["Simuler un mouvement","Simulate motion"],blurb:["Conditions initiales, lois physiques et erreurs numériques.","Initial conditions, physical laws and numerical errors."]},
   logistic: {title:["Itérer une population","Iterate a population"],blurb:["Points fixes, cycles et fenêtres périodiques.","Fixed points, cycles and periodic windows."]},
@@ -11961,9 +12850,10 @@ const SECTION_INFO = {
   inference: { title: ["Inférer et décider", "Infer and decide"], blurb: ["Du tirage au hasard à une décision : hypothèses, incertitude et preuves.", "From random sampling to decisions: assumptions, uncertainty and proof."] },
   tiles: { title: ["Une figure n’est pas une preuve", "A figure is not a proof"], blurb: ["Des pièces qui semblent changer d’aire : la démonstration dit où est l’erreur.", "Pieces that seem to change their area: the proof says where the error is."] },
   patterns: { title: ["Une régularité n’est pas une preuve", "A pattern is not a proof"], blurb: ["Des observations vraies pendant 5 ou 40 cas, puis fausses.", "Observations true for 5 or 40 cases, then false."] },
+  groups: { title: ["Des groupes en action", "Groups in action"], blurb: ["Mélanger des cartes, retourner un polygone, tourner un Rubik’s cube : des mouvements qui se composent et se défont.", "Shuffle cards, flip a polygon, turn a Rubik’s cube: moves that compose and can be undone."] },
   geochance: { title: ["Probabilités géométriques", "Geometric probability"], blurb: ["Le hasard dans le plan : une aiguille, une corde.", "Chance in the plane: a needle, a chord."] },
 };
-const INDEX_ORDER = ["family", "process", "modelling", "dynamics", "logistic", "chance", "inference", "geochance", "illumination", "figure", "tiles", "patterns", "data", "transform", "space", "fourier"];
+const INDEX_ORDER = ["family", "process", "modelling", "dynamics", "logistic", "chance", "inference", "geochance", "illumination", "figure", "tiles", "patterns", "groups", "data", "transform", "space", "fourier"];
 const groupOf = (e) => e.section || e.template;
 
 const experimentById = (id) => EXPERIMENTS.find((e) => e.id === id) || null;
@@ -12350,7 +13240,7 @@ function createShell(host, exp, tpl, opts = {}) {
     head.append(prevBtn, label, nextBtn);
   } else head.append(stepEl, kindEl, fold);
   const dots = el("ol", "lab2-progress");
-  dots.setAttribute("aria-label", free ? t(["Scènes", "Scenes"]) : t(["Missions", "Missions"]));
+  dots.setAttribute("aria-label", free ? t(["Étapes à regarder", "Steps to look at"]) : t(["Missions", "Missions"]));
   if (free) dots.classList.add("lab2-scenes");
   const promptEl = slide && opts.hint ? opts.hint : el("p", "lab2-prompt");
   if (slide && opts.hint) promptEl.classList.add("lab2-hint");
@@ -12621,7 +13511,7 @@ function createShell(host, exp, tpl, opts = {}) {
     ghostSet = null; variantSeen = new Set(); currentVariant = null; attempts = 0;
     lockControls(m);
     setClass(card, "is-done", !!done[m.id]);
-    setText(stepEl, free ? t(["Scènes", "Scenes"]) : (slide ? `${i + 1}/${missions.length}` : `${t(T("mission"))} ${full ? `${i + 1}/${missions.length}` : ""}`).trim());
+    setText(stepEl, free ? t(["Étapes à regarder", "Steps to look at"]) : (slide ? `${i + 1}/${missions.length}` : `${t(T("mission"))} ${full ? `${i + 1}/${missions.length}` : ""}`).trim());
     setText(kindEl, free ? "" : t(KINDS[m.kind]));
     kindEl.hidden = free;
     card.dataset.kind = free ? "scene" : m.kind;
@@ -13078,6 +13968,329 @@ function mount(env){
 
 __e.mount = mount;
 });
+__d("lab/templates/group.js", function (__e, __r) {
+// Template `group`: three ways to see a group acting, chosen by the experiment's `groupView`:
+//   cards     n numbered cards in a row (Sₙ). Applying a shuffle σ sends the card at position i to position σ(i): the cards glide
+//             along arcs, the arrows of σ are drawn above them, coloured cycle by cycle. Two cards clicked in turn are swapped.
+//   polygon   a regular polygon with numbered, coloured corners and a flag that shows its side (Dₙ). The rotation r turns it,
+//             the reflection τ flips it over the fixed vertical axis, in 3D; the 2n elements of the group are listed under it.
+//   cube      a Rubik's cube in 3D. Each move turns one layer by a quarter turn, animated; a long sequence plays quickly. Drag
+//             the background (or use the arrow keys) to turn the view; the view is never part of the state.
+// Every change goes through setState; the shell's buttons and the cards share the same state. Under reduced motion nothing
+// glides: the figure jumps to the new state. Readouts are written under the figure (a custom stage hides the shell's own).
+const G = __r("lab/models/groups.js");
+
+const STYLE_ID = "lab-group-style";
+const CSS = `
+.grp { position: relative; padding: 10px; min-width: 0; touch-action: manipulation; }
+.grp-canvas { position: relative; width: 100%; }
+.grp-canvas canvas { display: block; width: 100%; height: 100%; }
+.grp-cards { position: absolute; inset: 0; pointer-events: none; }
+.grp-card { position: absolute; left: 0; top: 0; display: grid; place-items: center; border: 2px solid var(--ink, #222); border-radius: 10px; font: 700 1.35rem/1 var(--math, serif); color: #fff; cursor: pointer; pointer-events: auto; box-shadow: 0 3px 0 rgba(0,0,0,.35); will-change: transform; padding: 0; }
+.grp-card:focus-visible { outline: 3px solid var(--focus, #5b8def); outline-offset: 3px; }
+.grp-card[aria-pressed="true"] { box-shadow: 0 0 0 4px var(--object-ink, #d9b25f); }
+.grp-info { display: grid; grid-template-columns: repeat(auto-fit, minmax(10.5rem, 1fr)); gap: 8px 18px; margin: 10px 0 0; padding: 10px 12px; border-top: 1px solid var(--line, #444); font: .95rem/1.35 var(--ui, system-ui); }
+.grp-info div { min-width: 0; }
+.grp-info dt { font-size: .76rem; letter-spacing: .04em; text-transform: uppercase; color: var(--muted, #999); }
+.grp-info dd { margin: 2px 0 0; font: 600 1.05rem/1.3 var(--math, serif); overflow-wrap: anywhere; }
+.grp-note { margin: 8px 12px 0; font: .9rem/1.4 var(--ui, system-ui); color: var(--muted, #999); }
+.grp-note[data-tone="win"] { color: var(--object-ink, #d9b25f); font-weight: 700; }
+`;
+
+const el = (tag, cls, text) => { const n = document.createElement(tag); if (cls) n.className = cls; if (text !== undefined) n.textContent = text; return n; };
+const css = (node, name, fallback) => getComputedStyle(node).getPropertyValue(name).trim() || fallback;
+const ease = (u) => (u < 0.5 ? 4 * u * u * u : 1 - Math.pow(-2 * u + 2, 3) / 2);
+
+function createStage(host, { onFrame, label }) {
+  const wrap = el("div", "grp lab2-group");
+  wrap.tabIndex = 0; wrap.setAttribute("role", "group"); wrap.setAttribute("aria-label", label);
+  host.append(wrap);
+  let frame = 0, alive = true;
+  return {
+    wrap, canvas: null, setHandles() {},
+    reduced: () => globalThis.matchMedia?.("(prefers-reduced-motion: reduce)").matches ?? false,
+    invalidate() { if (alive && !frame) frame = requestAnimationFrame(() => { frame = 0; if (alive) onFrame(); }); },
+    destroy() { alive = false; cancelAnimationFrame(frame); wrap.remove(); },
+  };
+}
+
+function mount(env) {
+  const { exp, stage } = env, doc = stage.wrap.ownerDocument;
+  if (!doc.getElementById(STYLE_ID)) { const st = doc.createElement("style"); st.id = STYLE_ID; st.textContent = CSS; doc.head.append(st); }
+  const box = el("div", "grp-canvas"), cv = el("canvas"), info = el("dl", "grp-info"), note = el("p", "grp-note");
+  note.setAttribute("role", "status"); note.setAttribute("aria-live", "polite");
+  box.append(cv); stage.wrap.append(box, info, note);
+  const view = { cards: cardsView, polygon: polygonView, cube: cubeView }[exp.groupView](env, { box, cv, info, note });
+  const ro = new ResizeObserver(() => view.resize?.()); ro.observe(box);
+  return { handles: [], draw: () => view.draw(), destroy() { ro.disconnect(); view.destroy?.(); } };
+}
+
+// A canvas sized to its box, with a loop that runs only while something moves.
+function surface(box, cv, height, paint) {
+  let W = 1, H = 1, raf = 0, alive = true;
+  const g = cv.getContext("2d");
+  const size = () => {
+    const d = Math.min(2, devicePixelRatio || 1); W = Math.max(1, box.clientWidth); H = height(W);
+    box.style.height = H + "px"; cv.width = Math.round(W * d); cv.height = Math.round(H * d); g.setTransform(d, 0, 0, d, 0, 0);
+  };
+  const tick = (now) => { raf = 0; if (!alive) return; if (paint(g, W, H, now)) raf = requestAnimationFrame(tick); };
+  size();
+  return {
+    get W() { return W; }, get H() { return H; },
+    resize() { size(); this.kick(); },
+    kick() { if (!raf && alive) raf = requestAnimationFrame(tick); },
+    stop() { alive = false; cancelAnimationFrame(raf); },
+  };
+}
+function info(dl, rows) {
+  const html = rows.map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join("");
+  if (dl._html !== html) { dl._html = html; dl.innerHTML = html; }
+}
+const say = (node, text, tone = "") => { if (node.textContent !== text) node.textContent = text; node.dataset.tone = tone; };
+
+// ---------------------------------------------------------------- cards (Sₙ)
+function cardsView({ exp, stage, fmt, getState, setState }, { box, cv, info: dl, note }) {
+  const t = fmt.t, layer = el("div", "grp-cards"); box.append(layer);
+  let buttons = [], shown = null, from = null, start = 0, dur = 0, pick = -1, n = 0;
+  const palette = () => [1, 2, 3, 4, 5, 6, 7, 8].map((i) => css(stage.wrap, `--c${i}`, "#888"));
+  const geom = (W, H) => { const s = Math.min(78, (W - 24) / n - 12), gap = (W - n * s) / (n + 1); return { s, x: (i) => gap + i * (s + gap), y: H * 0.56 }; };
+  const surf = surface(box, cv, (W) => Math.max(220, Math.min(320, W * 0.42)), paint);
+  function build(count) {
+    n = count; layer.replaceChildren(); pick = -1;
+    const cols = palette();
+    buttons = Array.from({ length: n }, (_, c) => {
+      const b = el("button", "grp-card", String(c + 1));
+      b.type = "button"; b.style.background = cols[c % 8]; b.setAttribute("aria-pressed", "false");
+      b.addEventListener("click", () => choose(c));
+      layer.append(b); return b;
+    });
+  }
+  function choose(card) {
+    const s = getState(), cards = s.cards.split(",").map(Number), at = cards.indexOf(card);
+    if (pick < 0) { pick = at; paintPick(); return; }
+    if (pick === at) { pick = -1; paintPick(); return; }
+    const next = cards.slice(); [next[pick], next[at]] = [next[at], next[pick]];
+    pick = -1; paintPick();
+    setState({ cards: next.join(","), swaps: s.swaps + 1 });
+  }
+  function paintPick() { const cards = getState().cards.split(",").map(Number); buttons.forEach((b, c) => b.setAttribute("aria-pressed", String(cards.indexOf(c) === pick))); }
+  function paint(g, W, H, now) {
+    const s = getState();
+    if (W < 80 || n !== s.n) return false; // not laid out yet, or the cards of a new n are not built yet: draw() kicks again
+    const sigma = G.fromCycles(s.sigma, s.n), { s: size, x, y } = geom(W, H);
+    g.clearRect(0, 0, W, H);
+    const ink = css(stage.wrap, "--ink", "#ddd"), muted = css(stage.wrap, "--muted", "#999"), cols = palette();
+    // the arrows of σ above the row: from position i to position σ(i), one colour per cycle
+    G.cycles(sigma).forEach((cyc, ci) => cyc.forEach((i) => {
+      const j = sigma[i], a = x(i) + size / 2, b = x(j) + size / 2, top = y - size / 2 - 10, lift = 22 + Math.abs(j - i) * 10;
+      g.strokeStyle = cols[(ci * 3 + 2) % 8]; g.fillStyle = g.strokeStyle; g.lineWidth = 2.2; g.globalAlpha = 0.9;
+      g.beginPath(); g.moveTo(a, top); g.quadraticCurveTo((a + b) / 2, top - lift * 1.4, b, top); g.stroke();
+      const ang = Math.atan2(top - (top - lift * 1.4), b - (a + b) / 2);
+      g.beginPath(); g.moveTo(b, top); g.lineTo(b - 10 * Math.cos(ang - 0.4), top - 10 * Math.sin(ang - 0.4)); g.lineTo(b - 10 * Math.cos(ang + 0.4), top - 10 * Math.sin(ang + 0.4)); g.closePath(); g.fill();
+    }));
+    g.globalAlpha = 1;
+    g.fillStyle = muted; g.font = "600 13px system-ui"; g.textAlign = "center";
+    // the caption fits the width (two lines on a phone); the position labels shorten to their number when the row is narrow
+    const caption = t(["σ envoie la carte de chaque position au bout de sa flèche", "σ sends the card at each position to the end of its arrow"]);
+    if (g.measureText(caption).width <= W - 16) g.fillText(caption, W / 2, 18);
+    else { const words = caption.split(" "), half = Math.ceil(words.length / 2); g.fillText(words.slice(0, half).join(" "), W / 2, 16); g.fillText(words.slice(half).join(" "), W / 2, 33); }
+    const pitch = n > 1 ? x(1) - x(0) : W, long = g.measureText(`${t(["position", "position"])} ${n}`).width <= pitch - 8, mid = g.measureText(`pos. ${n}`).width <= pitch - 8;
+    for (let i = 0; i < n; i++) { g.strokeStyle = muted; g.setLineDash([4, 4]); g.lineWidth = 1; g.strokeRect(x(i) - 3, y - size / 2 - 3, size + 6, size + 6); g.setLineDash([]); g.fillStyle = muted; g.fillText(long ? `${t(["position", "position"])} ${i + 1}` : mid ? `pos. ${i + 1}` : String(i + 1), x(i) + size / 2, y + size / 2 + 22); }
+    // the cards, gliding from their old places along an arc
+    const target = s.cards.split(",").map(Number), u = dur ? Math.min(1, (now - start) / dur) : 1, e = ease(u);
+    target.forEach((card, pos) => {
+      const b = buttons[card]; if (!b) return;
+      const p0 = from ? from.indexOf(card) : pos, x0 = x(p0), x1 = x(pos), lift = p0 === pos ? 0 : Math.sin(Math.PI * e) * (28 + 6 * Math.abs(pos - p0));
+      const px = x0 + (x1 - x0) * e, py = y - size / 2 - lift;
+      b.style.width = b.style.height = size + "px";
+      b.style.transform = `translate(${px.toFixed(1)}px, ${py.toFixed(1)}px)`;
+    });
+    void ink;
+    if (u >= 1) { from = null; dur = 0; return false; }
+    return true;
+  }
+  return {
+    resize: () => surf.resize(),
+    draw() {
+      const s = getState();
+      if (s.n !== n) { build(s.n); shown = null; }
+      if (shown !== s.cards) {
+        if (shown && !stage.reduced() && shown.split(",").length === s.n) { from = shown.split(",").map(Number); start = performance.now(); dur = 650; }
+        shown = s.cards; pick = -1; paintPick();
+      }
+      surf.kick();
+      const sigma = G.fromCycles(s.sigma, s.n), cards = s.cards.split(",").map(Number);
+      // the arrangement as a permutation: the card at position i is cards[i]; the map "position of card c" is its inverse
+      const arr = G.inverse(cards), back = cards.every((c, i) => c === i);
+      info(dl, [
+        [t(["Mélange σ", "Shuffle σ"]), G.cycleText(sigma)],
+        [t(["Ordre de σ", "Order of σ"]), `${G.order(sigma)}${G.cycles(sigma).length > 1 ? ` = ppcm(${G.cycles(sigma).map((c) => c.length).join(", ")})`.replace("ppcm", t(["ppcm", "lcm"])) : ""}`],
+        [t(["σ appliqué", "σ applied"]), `${s.k} ${t(s.k > 1 ? ["fois", "times"] : ["fois", "time"])}`],
+        [t(["Ordre des cartes", "Order of the cards"]), cards.map((c) => c + 1).join(" ")],
+        [t(["Comme permutation", "As a permutation"]), G.cycleText(arr)],
+        [t(["Échanges pour tout remettre", "Swaps to put it back"]), `${G.minSwaps(arr)} · ${G.sign(arr) > 0 ? t(["paire", "even"]) : t(["impaire", "odd"])}`],
+      ]);
+      say(note, back && s.k > 0 ? t([`Retour à l’ordre de départ après ${s.k} application${s.k > 1 ? "s" : ""} de σ.`, `Back to the starting order after applying σ ${s.k} time${s.k > 1 ? "s" : ""}.`]) : t(["Cliquez deux cartes l’une après l’autre pour les échanger.", "Click two cards one after the other to swap them."]), back && s.k > 0 ? "win" : "");
+    },
+    destroy: () => surf.stop(),
+  };
+}
+
+// ---------------------------------------------------------------- polygon (Dₙ)
+function polygonView({ stage, fmt, getState }, { box, cv, info: dl, note }) {
+  const t = fmt.t;
+  let shown = null, anim = null;
+  const parse = (s) => { const [k, sg] = s.g.split(",").map(Number); return { k, s: sg }; };
+  const surf = surface(box, cv, (W) => Math.max(260, Math.min(400, W * 0.62)), paint);
+  // the figure for the element g, partway through a move: rotation by `turn` (radians), flip with horizontal scale `sx`
+  function paint(g, W, H, now) {
+    const s = getState(), n = s.n, cur = parse(s), cx = W * 0.36, cy = H / 2, R = Math.min(W * 0.28, H * 0.38);
+    const ink = css(stage.wrap, "--ink", "#ddd"), muted = css(stage.wrap, "--muted", "#999"), line = css(stage.wrap, "--line", "#555"), obj = css(stage.wrap, "--object-ink", "#d9b25f");
+    const cols = [1, 2, 3, 4, 5, 6, 7, 8].map((i) => css(stage.wrap, `--c${i}`, "#888"));
+    let base = cur, turn = 0, sx = 1, u = 1;
+    if (anim) {
+      u = Math.min(1, (now - anim.start) / anim.dur); const e = ease(u);
+      base = anim.from;
+      if (anim.move === "t") sx = Math.cos(Math.PI * e); else turn = (anim.move === "r" ? 1 : -1) * e * 2 * Math.PI / n;
+    }
+    g.clearRect(0, 0, W, H);
+    // the fixed axis of τ and the outline of the starting position
+    g.strokeStyle = line; g.setLineDash([6, 6]); g.lineWidth = 1.2; g.beginPath(); g.moveTo(cx, cy - R * 1.32); g.lineTo(cx, cy + R * 1.32); g.stroke(); g.setLineDash([]);
+    g.fillStyle = muted; g.font = "600 12px system-ui"; g.textAlign = "center"; g.fillText(t(["axe de τ", "axis of τ"]), cx, cy - R * 1.36);
+    const corner = (i) => { const a = -Math.PI / 2 + (2 * Math.PI * i) / n; return [Math.cos(a), Math.sin(a)]; };
+    g.strokeStyle = line; g.beginPath(); for (let i = 0; i <= n; i++) { const [a, b] = corner(i % n); i ? g.lineTo(cx + R * a, cy + R * b) : g.moveTo(cx + R * a, cy + R * b); } g.stroke();
+    // where vertex i of the shape is: its place under `base`, then the partial move (turn about the centre, or flip)
+    const perm = G.dPerm(n, base);
+    const place = (i) => { const [a, b] = corner(perm[i]), c = Math.cos(turn), sn = Math.sin(turn); const x = a * c - b * sn, y = a * sn + b * c; return [cx + R * x * sx, cy + R * y]; };
+    const flipped = (base.s ? -1 : 1) * Math.sign(sx || 1) < 0;
+    g.fillStyle = flipped ? css(stage.wrap, "--sunken", "#2a2f3d") : css(stage.wrap, "--surface", "#1b2336"); g.strokeStyle = ink; g.lineWidth = 2.5;
+    g.beginPath(); for (let i = 0; i <= n; i++) { const [x, y] = place(i % n); i ? g.lineTo(x, y) : g.moveTo(x, y); } g.closePath(); g.fill(); g.stroke();
+    // the flag: a small asymmetric mark inside, from the centre towards corner 1 then bent towards corner 2, so a flip shows
+    const [ax, ay] = place(0), [bx, by] = place(1), mx = cx + (ax - cx) * 0.55, my = cy + (ay - cy) * 0.55, fx = mx + (bx - ax) * 0.22, fy = my + (by - ay) * 0.22;
+    g.strokeStyle = obj; g.fillStyle = obj; g.lineWidth = 3; g.beginPath(); g.moveTo(cx + (mx - cx) * 0.1, cy + (my - cy) * 0.1); g.lineTo(mx, my); g.stroke();
+    g.beginPath(); g.moveTo(mx, my); g.lineTo(fx, fy); g.lineTo(mx + (fx - mx) * 0.2 + (cx - mx) * 0.25, my + (fy - my) * 0.2 + (cy - my) * 0.25); g.closePath(); g.fill();
+    for (let i = 0; i < n; i++) { const [x, y] = place(i); g.fillStyle = cols[i % 8]; g.beginPath(); g.arc(x, y, 15, 0, 7); g.fill(); g.strokeStyle = ink; g.lineWidth = 2; g.stroke(); g.fillStyle = "#fff"; g.font = "700 15px system-ui"; g.fillText(String(i + 1), x, y + 5); }
+    // the 2n elements: rotations above, reflections below; the current one ringed
+    const gx = W * 0.7, gw = W * 0.27, cell = Math.min(46, gw / n), top = cy - cell * 1.3;
+    g.font = "600 12px system-ui"; g.fillStyle = muted; g.textAlign = "left";
+    g.fillText(t([`les ${2 * n} symétries`, `the ${2 * n} symmetries`]), gx, top - 12);
+    for (let row = 0; row < 2; row++) for (let k = 0; k < n; k++) {
+      const x = gx + k * cell, y = top + row * cell * 1.3, el2 = { k, s: row }, here = el2.k === cur.k && el2.s === cur.s && !anim;
+      g.strokeStyle = here ? obj : line; g.lineWidth = here ? 3 : 1; g.strokeRect(x + 2, y, cell - 4, cell - 4);
+      g.fillStyle = here ? obj : ink; g.font = `${here ? 700 : 500} ${Math.min(15, cell * 0.36)}px serif`; g.textAlign = "center";
+      g.fillText(G.dName(el2), x + cell / 2, y + cell / 2 + 3);
+    }
+    g.textAlign = "left"; g.fillStyle = muted; g.font = "12px system-ui";
+    g.fillText(t(["en haut : les rotations", "top row: the rotations"]), gx, top + cell * 2.6 + 6); g.fillText(t(["en bas : les retournements", "bottom row: the reflections"]), gx, top + cell * 2.6 + 22);
+    if (u >= 1 && anim) { anim = null; return true; }
+    return !!anim;
+  }
+  return {
+    resize: () => surf.resize(),
+    draw() {
+      const s = getState();
+      if (shown && shown.n === s.n && shown.word !== s.word && s.word.startsWith(shown.word) && s.word.length === shown.word.length + 1 && !stage.reduced()) {
+        anim = { from: parse(shown), move: s.word.at(-1), start: performance.now(), dur: 700 };
+      } else anim = null;
+      shown = { n: s.n, word: s.word, g: s.g };
+      surf.kick();
+      const g = parse(s), perm = G.dPerm(s.n, g);
+      const word = s.word ? s.word.split("").map((c) => (c === "t" ? "τ" : c === "R" ? "r⁻¹" : "r")).reverse().join(" ∘ ") : "e";
+      info(dl, [
+        [t(["Mouvements faits (le dernier à gauche)", "Moves made (last on the left)"]), word],
+        [t(["Résultat", "Result"]), `${G.dName(g)}${g.s ? t([" : un retournement", ": a reflection"]) : g.k ? t([" : une rotation", ": a rotation"]) : t([" : rien n’a bougé", ": nothing moved"])}`],
+        [t(["Ordre de cet élément", "Order of this element"]), String(G.dOrder(s.n, g))],
+        [t(["Sommets déplacés", "Corners moved"]), G.cycleText(perm)],
+      ]);
+      say(note, g.k === 0 && g.s === 0 && s.word ? t(["Retour à la position de départ.", "Back to the starting position."]) : t(["r tourne d’un cran ; τ retourne la figure autour de l’axe fixe.", "r turns by one step; τ flips the figure over the fixed axis."]), g.k === 0 && g.s === 0 && s.word ? "win" : "");
+    },
+    destroy: () => surf.stop(),
+  };
+}
+
+// ---------------------------------------------------------------- Rubik's cube
+const FACE_COLOUR = { U: "#f4f4f0", D: "#f2cf1d", F: "#1f9e4a", B: "#2a5fd0", R: "#d6332b", L: "#f08a1c" };
+function cubeView({ stage, fmt, getState }, { box, cv, info: dl, note }) {
+  const t = fmt.t;
+  let yaw = -0.62, pitch = 0.5, shown = null, stickers = G.solvedStickers(), queue = [], current = null, drag = null;
+  const surf = surface(box, cv, (W) => Math.max(280, Math.min(420, W * 0.66)), paint);
+  const rotAxis = (v, axis, a) => { const [i, j] = axis === 0 ? [1, 2] : axis === 1 ? [2, 0] : [0, 1], r = v.slice(), c = Math.cos(a), s = Math.sin(a); r[i] = v[i] * c - v[j] * s; r[j] = v[i] * s + v[j] * c; return r; };
+  const toView = (v) => { let r = rotAxis(v, 1, yaw); r = rotAxis(r, 0, pitch); return r; };
+  function paint(g, W, H, now) {
+    // the queue of moves plays one move at a time; a long queue plays faster
+    if (!current && queue.length) { const m = queue.shift(); current = { m, start: now, dur: stage.reduced() ? 0 : Math.max(60, 300 / Math.sqrt(1 + queue.length / 3)) }; }
+    let angle = 0, spec = null;
+    if (current) {
+      const u = current.dur ? Math.min(1, (now - current.start) / current.dur) : 1;
+      spec = G.moveSpec(current.m); angle = ease(u) * spec.q * Math.PI / 2;
+      if (u >= 1) { stickers = G.applyMove(stickers, current.m); current = null; spec = null; angle = 0; }
+    }
+    const S = Math.min(W, H) * 0.19, cx = W / 2, cy = H / 2 + S * 0.15, line = css(stage.wrap, "--bg", "#111");
+    const proj = (v) => [cx + v[0] * S, cy - v[1] * S, v[2]];
+    // one quad per sticker and one dark quad per cubie face, all sorted back to front
+    const quads = [];
+    const inLayer = (p) => spec && p[spec.axis] === spec.side;
+    const cubies = new Set();
+    for (const s of stickers) cubies.add(s.p.join(","));
+    for (const c of cubies) {
+      const p = c.split(",").map(Number), moving = inLayer(p);
+      for (const nv of [[1, 0, 0], [-1, 0, 0], [0, 1, 0], [0, -1, 0], [0, 0, 1], [0, 0, -1]]) quads.push(face(p, nv, 0.5, "#0d0d10", moving));
+    }
+    for (const s of stickers) quads.push(face(s.p, s.n, 0.42, FACE_COLOUR[s.face], inLayer(s.p), 0.505));
+    function face(p, nv, half, colour, moving, out = 0.5) {
+      const axis = nv.findIndex((v) => v !== 0), others = [0, 1, 2].filter((i) => i !== axis), pts = [];
+      for (const [a, b] of [[-1, -1], [1, -1], [1, 1], [-1, 1]]) { const v = p.slice(); v[axis] += nv[axis] * out; v[others[0]] += a * half; v[others[1]] += b * half; pts.push(v); }
+      let P = pts, N = nv, C = p;
+      if (moving) { P = pts.map((v) => rotAxis(v, spec.axis, angle)); N = rotAxis(nv, spec.axis, angle); C = rotAxis(p, spec.axis, angle); }
+      const V = P.map(toView), n2 = toView(N), c2 = toView(C.map((x, i) => x + N[i] * out));
+      return { pts: V.map(proj), depth: c2[2], facing: n2[2] > 0.001, colour };
+    }
+    g.clearRect(0, 0, W, H);
+    quads.filter((q) => q.facing).sort((a, b) => a.depth - b.depth).forEach((q) => {
+      g.beginPath(); q.pts.forEach(([x, y], i) => (i ? g.lineTo(x, y) : g.moveTo(x, y))); g.closePath();
+      g.fillStyle = q.colour; g.fill(); g.strokeStyle = line; g.lineWidth = 1; g.stroke();
+    });
+    if (!current && !queue.length) { update(); return false; }
+    return true;
+  }
+  function update() {
+    const s = getState(), seq = G.parseMoves(s.seq), solved = G.isSolved(stickers), busy = !!current || queue.length > 0;
+    info(dl, [
+      [t(["Séquence étudiée", "Sequence studied"]), seq.join(" ") || "–"],
+      [t(["Son ordre", "Its order"]), `${G.sequenceOrder(seq)} ${t(["répétitions", "repetitions"])}`],
+      [t(["Séquence répétée", "Sequence repeated"]), `${s.reps} ${t(["fois", "times"])}`],
+      [t(["Coups joués", "Moves played"]), String(G.parseMoves(s.moves).length)],
+      [t(["Cubes déplacés", "Cubies moved"]), `${G.movedCubies(G.applyMoves(G.solvedStickers(), G.parseMoves(s.moves)))} / 20`],
+    ]);
+    say(note, busy ? t(["Le cube tourne…", "The cube is turning…"]) : solved && s.moves ? t(["Le cube est revenu à son état de départ.", "The cube is back to its starting state."]) : t(["Faites glisser le fond pour tourner la vue.", "Drag the background to turn the view."]), solved && s.moves && !busy ? "win" : "");
+  }
+  // turning the view: a drag on the canvas, or the arrow keys when the figure has the focus
+  const down = (e) => { drag = { x: e.clientX, y: e.clientY, yaw, pitch }; cv.setPointerCapture?.(e.pointerId); };
+  const move = (e) => { if (!drag) return; yaw = drag.yaw + (e.clientX - drag.x) * 0.01; pitch = Math.max(-1.2, Math.min(1.2, drag.pitch + (e.clientY - drag.y) * 0.01)); surf.kick(); };
+  const up = () => { drag = null; };
+  const key = (e) => { const d = { ArrowLeft: [-0.15, 0], ArrowRight: [0.15, 0], ArrowUp: [0, -0.15], ArrowDown: [0, 0.15] }[e.key]; if (!d || e.target !== stage.wrap) return; e.preventDefault(); yaw += d[0]; pitch = Math.max(-1.2, Math.min(1.2, pitch + d[1])); surf.kick(); };
+  cv.style.touchAction = "none"; cv.style.cursor = "grab";
+  cv.addEventListener("pointerdown", down); cv.addEventListener("pointermove", move); cv.addEventListener("pointerup", up); cv.addEventListener("pointercancel", up);
+  stage.wrap.addEventListener("keydown", key);
+  return {
+    resize: () => surf.resize(),
+    draw() {
+      const s = getState();
+      if (s.moves !== shown) {
+        // more moves at the end: play them; anything else (a reset, a new mission): jump there
+        if (shown !== null && s.moves.startsWith(shown) && !stage.reduced()) queue.push(...G.parseMoves(s.moves.slice(shown.length)));
+        else { queue = []; current = null; stickers = G.applyMoves(G.solvedStickers(), G.parseMoves(s.moves)); }
+        shown = s.moves;
+      }
+      update(); surf.kick();
+    },
+    destroy() { surf.stop(); stage.wrap.removeEventListener("keydown", key); },
+  };
+}
+
+__e.createStage = createStage;
+__e.mount = mount;
+});
 __d("lab/templates/illumination.js", function (__e, __r) {
 // The mirrored room in the laboratory: the shared canvas of ../../illumination-view.js (light, dark zones, rays, room editor)
 // with a compact toolbar; the shell's controls (room, reflections, rays, direction, speed) and missions drive the same state.
@@ -13268,8 +14481,8 @@ const BUILD = {
       line(g, xv(N), T - 10, xv(N), B, p.object, 3); txt(g, 'N = ' + N, xv(N) + 5, T - 14, { size: 12, color: p.object, weight: 700 });
       const mM = Mo.maxima.reduce((a, b) => a + b, 0) / Mo.maxima.length, mE = Mo.observedMean;
       for (const [v, col, name, dy] of [[mM, p.c[1], 'M', 30], [mE, p.c[0], 'N̂', 30]]) { g.fillStyle = col; g.beginPath(); g.moveTo(xv(v), B + 18); g.lineTo(xv(v) - 6, B + 28); g.lineTo(xv(v) + 6, B + 28); g.closePath(); g.fill(); }
-      g.fillStyle = p.c[1]; g.fillRect(20, H - 22, 10, 10); txt(g, t(['maximum M — moyenne ', 'maximum M — mean ']) + fmt.num(mM, 1), 34, H - 13, { size: 11, color: p.ink });
-      g.fillStyle = p.c[0]; g.fillRect(W / 2 + 4, H - 22, 10, 10); txt(g, 'N̂ = M(1+1/k)−1 — ' + t(['moyenne ', 'mean ']) + fmt.num(mE, 1), W / 2 + 18, H - 13, { size: 11, color: p.ink });
+      g.fillStyle = p.c[1]; g.fillRect(20, H - 22, 10, 10); txt(g, t(['maximum M, moyenne ', 'maximum M, mean ']) + fmt.num(mM, 1), 34, H - 13, { size: 11, color: p.ink });
+      g.fillStyle = p.c[0]; g.fillRect(W / 2 + 4, H - 22, 10, 10); txt(g, 'N̂ = M(1+1/k)−1, ' + t(['moyenne ', 'mean ']) + fmt.num(mE, 1), W / 2 + 18, H - 13, { size: 11, color: p.ink });
     });
     // Five estimators of N compared over the repeated draws: where their average falls (dot) and their typical error (bar = root mean square error around N).
     const NAMES = { max: ['maximum M', 'maximum M'], unbiased: ['N̂ = M(1+1/k)−1', 'N̂ = M(1+1/k)−1'], mean: ['2 × moyenne − 1', '2 × mean − 1'], bayes: ['bayésien : moyenne a posteriori', 'Bayesian: posterior mean'], median: ['bayésien : médiane a posteriori', 'Bayesian: posterior median'] };
@@ -13293,7 +14506,7 @@ const BUILD = {
         hist = Array(32).fill(0); histM = Array(32).fill(0);
         if (s.revealed && s.runs) { const xmax = Math.min(2 * s.N, Math.max(1.3 * s.N, s.N * (1 + 1 / s.k))); const f = (arr, vs) => vs.forEach(v => arr[clamp(Math.floor(v / xmax * 32), 0, 31)]++); f(hist, m.estimates); f(histM, m.maxima); }
         lineP.cv.setAttribute('aria-label', `${t(['Numéros observés', 'Observed serials'])}: ${m.sample.join(', ')}. M = ${m.m}, N̂ = ${fmt.num(m.estimate, 1)}, ${t(['borne 95 %', '95% bound'])} ${m.upper}${s.revealed ? ', N = ' + s.N : ''}`); lineP.setAria();
-        cmp.cv.setAttribute('aria-label', s.revealed && s.runs ? t(['Estimateurs de N : ', 'Estimators of N: ']) + m.estimators.map(e => t(NAMES[e.id]) + ' ' + (e.mean === null ? '—' : fmt.num(e.mean, 1) + ' ± ' + fmt.num(e.rmse, 1))).join('; ') : t(['Comparaison des estimateurs : pas encore', 'Estimator comparison: not yet']));
+        cmp.cv.setAttribute('aria-label', s.revealed && s.runs ? t(['Estimateurs de N : ', 'Estimators of N: ']) + m.estimators.map(e => t(NAMES[e.id]) + ' ' + (e.mean === null ? t(['pas encore', 'not yet']) : fmt.num(e.mean, 1) + ' ± ' + fmt.num(e.rmse, 1))).join('; ') : t(['Comparaison des estimateurs : pas encore', 'Estimator comparison: not yet']));
         rep.cv.setAttribute('aria-label', s.revealed && s.runs ? `${t(['Répétitions', 'Repetitions'])}: ${t(['moyenne de N̂', 'mean of N̂'])} ${fmt.num(m.observedMean, 1)}, N = ${s.N}` : t(['Répétitions : pas encore', 'Repetitions: not yet']));
       },
       step(k) { let moving = Math.abs(shownEst - Mo.estimate) > .05; shownEst = moving ? shownEst + (Mo.estimate - shownEst) * k : Mo.estimate;
@@ -13361,7 +14574,7 @@ const BUILD = {
         const first = !S; S = s; Mo = m; const key = s.seed + '|' + s.host; if (key !== tkey) { tkey = key; tally = M.montyTally(s.seed, 10000, s.host); }
         shownRuns = Math.min(shownRuns, s.runs); if (first) shownRuns = s.runs;
         side.cv.setAttribute('aria-label', t(['Gains cumulés. ', 'Cumulative wins. ']) + `${t(['changer', 'switch'])} ${m.wins}/${m.eligible}`); void pulse;
-        doorsPanel.caption.textContent = t(['Trois portes — ', 'Three doors — ']) + (!s.opened ? t(['à toi de choisir', 'your pick']) : s.finished ? (m.win ? t(['gagné', 'won']) : t(['perdu', 'lost'])) : t(['une chèvre est révélée', 'a goat is revealed']));
+        doorsPanel.caption.textContent = t(['Trois portes : ', 'Three doors: ']) + (!s.opened ? t(['à toi de choisir', 'your pick']) : s.finished ? (m.win ? t(['gagné', 'won']) : t(['perdu', 'lost'])) : t(['une chèvre est révélée', 'a goat is revealed']));
       },
       step(k, dt) {
         let moving = false;

@@ -76,6 +76,31 @@ they help.
   a light-theme visual pass, a screen reader, real phones. `make check` failures in the container are environmental
   (no xelatex, no Python Playwright, git-ignored lecture build, an untouched Terminale PDF).
 
+## Owner review fixes (22 November 2026, branch `review-fixes-nov22`)
+
+The owner reviewed the v8 site on a large horizontal screen. One pull request answers the seven points:
+1. Home on one screen: `site/styles/world-home.css` (threshold = window height minus the bar and its 1 px rule; doors
+   two by two, or four in a row on a low wide screen). No vertical scroll at 1366x768, 1440x860, 1920x1080, 390x844.
+2. Musée exhibit of the day (chaos game) drawn progressively: `site/js/home-art.js` `chaosArt`, `site/js/v8/threshold.js`.
+3. Exhibits and stories in two columns from 1100 px with the figure kept in view (`v8/exhibit.js`, `world-musee.css`,
+   `reading.js` `withFigure`, `app.js` `mountReadFigure`, `lift-mission.js`); a figure column taller than the window
+   scrolls inside its frame. Lab pages keep their figure sticky on a wide, tall screen (`pages.css`).
+4. Lab reading guides for every experiment (`site/js/lab/guides.js`, drawn by `page.js` `readingGuide`); 23 guides
+   corrected after a review against each experiment file. « Scènes » is now « Étapes à regarder ».
+5. Algèbre 1 lesson frame: exactly the window under the bar, snapping, tab clicks line it up (`pages.css`
+   `.lesson-frame`, `university.js`); Atkinson Hyperlegible replaces the missing Source Serif 4 files.
+6. Group laboratories `shuffles` (Sₙ), `polygon` (Dₙ), `rubik` (template `group`), linked from Algèbre 1 « Groupes »
+   and from the nails challenge; seen in Chromium at 1440 and 390 px (fixes: overflow of the shuffle select, scene
+   buttons on two lines, phone labels, the NaN dom-smoke found).
+7. Similitudes laboratory `similitude` (Malagasy T12 C chapter 7 and T12 D chapter 4): direct and indirect,
+   centre, point and image handles, composition, the lesson's z′ = 2z̄ + 3i. The copybook chapter page ends with
+   « Voir et manipuler », the chapter's first laboratory drawn live (every chapter with `labs`). The decks of
+   t12c-07 and t12d-04 were rebuilt with `MX_REUSE_FIGS=1` and the receipt adopted (no TeX in the session).
+Loading budget (`tests/budgets.json`): lab index and university page raised to the new measurements (guides, four
+experiments, lab links), to be confirmed by the owner.
+Open: the copybook still draws no TeX figure for t12c-07 (the chapter source has one TikZ figure inside a solution,
+which the deck builder drops); `tests/lab_browser.py` times out at line 121 on `main` as well (see the pull request).
+
 ## Design v8 rebuild: stages 0 and 1 (22 November 2026)
 
 Stage 0: `tests/budget_browser.mjs` (`npm run test:budget`, CI `browser`) measures six pages against `tests/budgets.json`.

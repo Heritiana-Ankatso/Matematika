@@ -411,6 +411,7 @@ function draw(serial) {
     if (page === "resources" || (page === "bank" && r.id !== "annales" && !r.tab)) mountContextStrip($("#main"), contextStripHtml({ page, t, course: r.id || currentCourse() }));
   }
   if (page === "gallery" && r.id) bindGallery();
+  if (page === "stories" && r.id) stopViews.push(mountReadFigure($("#main")));
   if (page === "chapter" || (page === "gallery" && r.id) || experiment) stopViews.push(mountRelated($("#main"), page === "chapter" ? "#chapter/" + r.id : page === "gallery" ? "#gallery/" + r.id : "#lab/" + experiment.id));
   if (page === "lab" && !experiment) bindLabIndex($("#main"), pair);
   if (page === "challenges") stopChapter = bindChallenges();
@@ -495,6 +496,16 @@ function whenNearEnd(main, slot, load) {
     timer = setTimeout(() => { mutations?.disconnect(); mutations = null; watch(); }, 8000);
   } else watch();
   return () => { gone = true; observer?.disconnect(); mutations?.disconnect(); clearTimeout(timer); };
+}
+// The live figure beside a reading (reading.js withFigure): the exhibit's own figure, loaded with the page; on a wide
+// screen it stays in view while the text scrolls (pages.css .read-figure-frame).
+function mountReadFigure(main) {
+  const host = main?.querySelector("[data-read-object]");
+  if (!host) return () => {};
+  let gone = false, stop = () => {}, lift = () => {};
+  import("./lift-mission.js").then((m) => { if (!gone) lift = m.liftMission(host, main.querySelector("[data-mission-slot]")); }).catch(() => {});
+  import("./lab-objects.js").then((m) => { if (!gone && host.isConnected) stop = m.mountObject(host.dataset.readObject, host, { lang, reduced: reducedMotion }) || (() => {}); }).catch(() => { host.closest(".read-figure")?.remove(); });
+  return () => { gone = true; stop(); lift(); };
 }
 // The "related resources" box: a placeholder at the end of the page, filled by related-box.js (which carries the whole index)
 // only when it comes near the viewport.

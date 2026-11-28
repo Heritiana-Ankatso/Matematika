@@ -147,8 +147,8 @@ const BUILD = {
       line(g, xv(N), T - 10, xv(N), B, p.object, 3); txt(g, 'N = ' + N, xv(N) + 5, T - 14, { size: 12, color: p.object, weight: 700 });
       const mM = Mo.maxima.reduce((a, b) => a + b, 0) / Mo.maxima.length, mE = Mo.observedMean;
       for (const [v, col, name, dy] of [[mM, p.c[1], 'M', 30], [mE, p.c[0], 'N̂', 30]]) { g.fillStyle = col; g.beginPath(); g.moveTo(xv(v), B + 18); g.lineTo(xv(v) - 6, B + 28); g.lineTo(xv(v) + 6, B + 28); g.closePath(); g.fill(); }
-      g.fillStyle = p.c[1]; g.fillRect(20, H - 22, 10, 10); txt(g, t(['maximum M — moyenne ', 'maximum M — mean ']) + fmt.num(mM, 1), 34, H - 13, { size: 11, color: p.ink });
-      g.fillStyle = p.c[0]; g.fillRect(W / 2 + 4, H - 22, 10, 10); txt(g, 'N̂ = M(1+1/k)−1 — ' + t(['moyenne ', 'mean ']) + fmt.num(mE, 1), W / 2 + 18, H - 13, { size: 11, color: p.ink });
+      g.fillStyle = p.c[1]; g.fillRect(20, H - 22, 10, 10); txt(g, t(['maximum M, moyenne ', 'maximum M, mean ']) + fmt.num(mM, 1), 34, H - 13, { size: 11, color: p.ink });
+      g.fillStyle = p.c[0]; g.fillRect(W / 2 + 4, H - 22, 10, 10); txt(g, 'N̂ = M(1+1/k)−1, ' + t(['moyenne ', 'mean ']) + fmt.num(mE, 1), W / 2 + 18, H - 13, { size: 11, color: p.ink });
     });
     // Five estimators of N compared over the repeated draws: where their average falls (dot) and their typical error (bar = root mean square error around N).
     const NAMES = { max: ['maximum M', 'maximum M'], unbiased: ['N̂ = M(1+1/k)−1', 'N̂ = M(1+1/k)−1'], mean: ['2 × moyenne − 1', '2 × mean − 1'], bayes: ['bayésien : moyenne a posteriori', 'Bayesian: posterior mean'], median: ['bayésien : médiane a posteriori', 'Bayesian: posterior median'] };
@@ -172,7 +172,7 @@ const BUILD = {
         hist = Array(32).fill(0); histM = Array(32).fill(0);
         if (s.revealed && s.runs) { const xmax = Math.min(2 * s.N, Math.max(1.3 * s.N, s.N * (1 + 1 / s.k))); const f = (arr, vs) => vs.forEach(v => arr[clamp(Math.floor(v / xmax * 32), 0, 31)]++); f(hist, m.estimates); f(histM, m.maxima); }
         lineP.cv.setAttribute('aria-label', `${t(['Numéros observés', 'Observed serials'])}: ${m.sample.join(', ')}. M = ${m.m}, N̂ = ${fmt.num(m.estimate, 1)}, ${t(['borne 95 %', '95% bound'])} ${m.upper}${s.revealed ? ', N = ' + s.N : ''}`); lineP.setAria();
-        cmp.cv.setAttribute('aria-label', s.revealed && s.runs ? t(['Estimateurs de N : ', 'Estimators of N: ']) + m.estimators.map(e => t(NAMES[e.id]) + ' ' + (e.mean === null ? '—' : fmt.num(e.mean, 1) + ' ± ' + fmt.num(e.rmse, 1))).join('; ') : t(['Comparaison des estimateurs : pas encore', 'Estimator comparison: not yet']));
+        cmp.cv.setAttribute('aria-label', s.revealed && s.runs ? t(['Estimateurs de N : ', 'Estimators of N: ']) + m.estimators.map(e => t(NAMES[e.id]) + ' ' + (e.mean === null ? t(['pas encore', 'not yet']) : fmt.num(e.mean, 1) + ' ± ' + fmt.num(e.rmse, 1))).join('; ') : t(['Comparaison des estimateurs : pas encore', 'Estimator comparison: not yet']));
         rep.cv.setAttribute('aria-label', s.revealed && s.runs ? `${t(['Répétitions', 'Repetitions'])}: ${t(['moyenne de N̂', 'mean of N̂'])} ${fmt.num(m.observedMean, 1)}, N = ${s.N}` : t(['Répétitions : pas encore', 'Repetitions: not yet']));
       },
       step(k) { let moving = Math.abs(shownEst - Mo.estimate) > .05; shownEst = moving ? shownEst + (Mo.estimate - shownEst) * k : Mo.estimate;
@@ -240,7 +240,7 @@ const BUILD = {
         const first = !S; S = s; Mo = m; const key = s.seed + '|' + s.host; if (key !== tkey) { tkey = key; tally = M.montyTally(s.seed, 10000, s.host); }
         shownRuns = Math.min(shownRuns, s.runs); if (first) shownRuns = s.runs;
         side.cv.setAttribute('aria-label', t(['Gains cumulés. ', 'Cumulative wins. ']) + `${t(['changer', 'switch'])} ${m.wins}/${m.eligible}`); void pulse;
-        doorsPanel.caption.textContent = t(['Trois portes — ', 'Three doors — ']) + (!s.opened ? t(['à toi de choisir', 'your pick']) : s.finished ? (m.win ? t(['gagné', 'won']) : t(['perdu', 'lost'])) : t(['une chèvre est révélée', 'a goat is revealed']));
+        doorsPanel.caption.textContent = t(['Trois portes : ', 'Three doors: ']) + (!s.opened ? t(['à toi de choisir', 'your pick']) : s.finished ? (m.win ? t(['gagné', 'won']) : t(['perdu', 'lost'])) : t(['une chèvre est révélée', 'a goat is revealed']));
       },
       step(k, dt) {
         let moving = false;

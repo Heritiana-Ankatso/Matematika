@@ -31,14 +31,17 @@ import { monteCarloExperiments } from "./experiments/monte-carlo.js";
 import illumination from "./experiments/illumination.js";
 import ferrisWheel from "./experiments/ferris-wheel.js";
 import eratosthenes from "./experiments/eratosthenes.js";
+import { groupExperiments } from "./experiments/groups.js";
+import similitude from "./experiments/similitude.js";
 
 // Order of the catalogue. The experiments are plain data and small; the heavy part (templates) is imported on demand.
 export const EXPERIMENTS = [quadratic, trig, sequences, derivative, integral, probability, vectors, statistics, complex, line, exponential, cobweb, matrix, spaceLines, fourier, drawingExperiment, tiles, eulerPrimes, fermat, circleRegions, buffon, bertrand, fairDivision, fairGoods, ...inferenceExperiments, ...monteCarloExperiments, doublePendulum, threeBody, logistic, illumination];
 
-EXPERIMENTS.push(hairyExperiment, surfacesExperiment, banachExperiment, banachTreeExperiment, ferrisWheel, eratosthenes);
+EXPERIMENTS.push(hairyExperiment, surfacesExperiment, banachExperiment, banachTreeExperiment, ferrisWheel, eratosthenes, ...groupExperiments, similitude);
 
 export const TEMPLATES = {
   illumination: () => import("./templates/illumination.js"),
+  group: () => import("./templates/group.js"),
   dynamics: () => import("./templates/dynamics.js"),
   logistic: () => import("./templates/logistic.js"),
   inference: () => import("./templates/inference.js"),
@@ -55,6 +58,7 @@ export const TEMPLATES = {
 
 // Type of activity, shown as the group titles of the #lab index.
 export const TEMPLATE_INFO = {
+  group: { title: ["Des groupes en action", "Groups in action"], blurb: ["Des mouvements qui se composent et se défont.", "Moves that compose and can be undone."] },
   illumination: { title: ["Réfléchir des rayons", "Reflect rays"], blurb: ["Explorer et construire des pièces de miroirs.", "Explore and construct mirrored rooms."] },
   dynamics: {title:["Simuler un mouvement","Simulate motion"],blurb:["Conditions initiales, lois physiques et erreurs numériques.","Initial conditions, physical laws and numerical errors."]},
   logistic: {title:["Itérer une population","Iterate a population"],blurb:["Points fixes, cycles et fenêtres périodiques.","Fixed points, cycles and periodic windows."]},
@@ -78,9 +82,10 @@ export const SECTION_INFO = {
   inference: { title: ["Inférer et décider", "Infer and decide"], blurb: ["Du tirage au hasard à une décision : hypothèses, incertitude et preuves.", "From random sampling to decisions: assumptions, uncertainty and proof."] },
   tiles: { title: ["Une figure n’est pas une preuve", "A figure is not a proof"], blurb: ["Des pièces qui semblent changer d’aire : la démonstration dit où est l’erreur.", "Pieces that seem to change their area: the proof says where the error is."] },
   patterns: { title: ["Une régularité n’est pas une preuve", "A pattern is not a proof"], blurb: ["Des observations vraies pendant 5 ou 40 cas, puis fausses.", "Observations true for 5 or 40 cases, then false."] },
+  groups: { title: ["Des groupes en action", "Groups in action"], blurb: ["Mélanger des cartes, retourner un polygone, tourner un Rubik’s cube : des mouvements qui se composent et se défont.", "Shuffle cards, flip a polygon, turn a Rubik’s cube: moves that compose and can be undone."] },
   geochance: { title: ["Probabilités géométriques", "Geometric probability"], blurb: ["Le hasard dans le plan : une aiguille, une corde.", "Chance in the plane: a needle, a chord."] },
 };
-export const INDEX_ORDER = ["family", "process", "modelling", "dynamics", "logistic", "chance", "inference", "geochance", "illumination", "figure", "tiles", "patterns", "data", "transform", "space", "fourier"];
+export const INDEX_ORDER = ["family", "process", "modelling", "dynamics", "logistic", "chance", "inference", "geochance", "illumination", "figure", "tiles", "patterns", "groups", "data", "transform", "space", "fourier"];
 export const groupOf = (e) => e.section || e.template;
 
 export const experimentById = (id) => EXPERIMENTS.find((e) => e.id === id) || null;

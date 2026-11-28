@@ -139,7 +139,7 @@
    "Similitudes planes",
    "Plane similarities"
   ],
-  "slides": 12,
+  "slides": 13,
   "kind": "extracted",
   "languages": [
    "fr"
@@ -147,9 +147,9 @@
   "editions": {
    "fr": {
     "path": "slides/data/t12c-07.json",
-    "bytes": 20697,
-    "sha256": "be93603a48d478191cbd4b76d4142bff2b8df1b71d6f19d72fbf592c8ecfebcd",
-    "slides": 12
+    "bytes": 21633,
+    "sha256": "349c8f001462bc39b4e01856d18d5a8b0689b9c1344be6ae5e880b160e0e9a5a",
+    "slides": 13
    }
   }
  },
@@ -337,7 +337,7 @@
    "Similitudes planes",
    "Plane similarities"
   ],
-  "slides": 12,
+  "slides": 13,
   "kind": "extracted",
   "languages": [
    "fr"
@@ -345,9 +345,9 @@
   "editions": {
    "fr": {
     "path": "slides/data/t12d-04.json",
-    "bytes": 20697,
-    "sha256": "661fe1031054e233f21c93dc26c1047c4adcfc7732988e9fa584939aadc1912b",
-    "slides": 12
+    "bytes": 21633,
+    "sha256": "6b4cc6001809c81644dfdb32af8357c191d6ba3d53e3ea93b4cb07cb73fd06ae",
+    "slides": 13
    }
   }
  },

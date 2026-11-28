@@ -117,15 +117,55 @@ const juliaArt = (cv, o) => fractalArt(cv, o, (px, w, h, t) => {
 const mandelArt = (cv, opts) => mountMandelbrotPreview(cv, opts);
 
 /* ------------------------------------------------------------ chaos game */
+// The Sierpinski triangle uncovers itself: a few slow jumps first (the point, the chosen vertex, the halfway mark), then
+// the jumps speed up and the points, each faint, pile up until the triangle stands out of the dust. It rests, fades out
+// slowly and starts again. Under reduced motion the finished triangle is drawn once.
+export const CHAOS_TOTAL = 90000, CHAOS_RATE = 0.8;
+// number of points shown after t seconds: one jump at a time at first, then faster and faster (exponential)
+export const chaosCount = (t) => Math.min(CHAOS_TOTAL, Math.floor(Math.expm1(Math.max(0, t) * CHAOS_RATE)));
+const CHAOS_HOLD = 21, CHAOS_FADE = 3.5, CHAOS_CYCLE = CHAOS_HOLD + CHAOS_FADE + 0.6;
 function chaosArt(cv, opts) {
-  let x = 0.3, y = 0.3, n = 0, ctxReset = false;
-  const V = [[0.5, 0.06], [0.06, 0.94], [0.94, 0.94]];
-  return runner(cv, (g, W, H, t, C, frames) => {
-    if (!ctxReset || n > 60000) { g.clearRect(0, 0, W, H); n = 0; ctxReset = true; }
-    const batch = opts.reduced?.() ? 14000 : 160;
-    for (let i = 0; i < batch; i++) { const k = Math.floor(Math.random() * 3); x = (x + V[k][0]) / 2; y = (y + V[k][1]) / 2; g.fillStyle = C.c[(k * 2) % 8]; g.fillRect(x * W, y * H, 1.6, 1.6); n++; }
-    void t; void frames;
-  }, { reduced: opts.reduced, trailing: true });
+  const V = [[0.5, 0.06], [0.06, 0.94], [0.94, 0.94]], acc = document.createElement("canvas"), ac = acc.getContext("2d");
+  let rnd = Math.random, x = 0, y = 0, n = 0, cycle = -1, size = "", walk = [];
+  const restart = () => { x = 0.5 + (Math.random() - 0.5) * 0.3; y = 0.55 + (Math.random() - 0.5) * 0.3; n = 0; walk = [{ x, y, k: -1 }]; ac.clearRect(0, 0, acc.width, acc.height); };
+  return runner(cv, (g, W, H, t, C) => {
+    const still = opts.reduced?.(), d = Math.min(2, devicePixelRatio || 1);
+    // the triangle keeps its proportions and sits in the middle of the card
+    const side = Math.min(W * 0.92, H * 0.95 / 0.88), ox = (W - side) / 2, oy = (H - side * 0.88) / 2 - side * 0.06;
+    const X = (u) => ox + u * side, Y = (v) => oy + v * side;
+    const key = W + "x" + H + ":" + d;
+    if (key !== size) { size = key; acc.width = Math.round(W * d); acc.height = Math.round(H * d); ac.setTransform(d, 0, 0, d, 0, 0); cycle = -1; }
+    const c = still ? 0 : Math.floor(t / CHAOS_CYCLE), local = still ? CHAOS_CYCLE : t - c * CHAOS_CYCLE;
+    if (c !== cycle) { cycle = c; restart(); }
+    const want = still ? CHAOS_TOTAL : chaosCount(local);
+    // new points go on the accumulation layer; each one is faint, so the shape appears where they pile up
+    while (n < want) {
+      const k = Math.floor(rnd() * 3); x = (x + V[k][0]) / 2; y = (y + V[k][1]) / 2; n++;
+      if (n <= 14) walk.push({ x, y, k });
+      if (n > 6) { ac.globalAlpha = n < 400 ? 0.9 : n < 4000 ? 0.55 : 0.32; ac.fillStyle = C.c[(k * 2) % 8]; const r = n < 400 ? 2.2 : 1.3; ac.fillRect(X(x) - r / 2, Y(y) - r / 2, r, r); }
+    }
+    ac.globalAlpha = 1;
+    const fade = still ? 1 : local < CHAOS_HOLD ? 1 : Math.max(0, 1 - (local - CHAOS_HOLD) / CHAOS_FADE);
+    // the three vertices, always there
+    g.globalAlpha = 0.85 * fade + 0.15;
+    V.forEach(([u, v], k) => { g.fillStyle = C.c[(k * 2) % 8]; g.beginPath(); g.arc(X(u), Y(v), 4, 0, TAU); g.fill(); });
+    g.globalAlpha = fade; g.drawImage(acc, 0, 0, W, H); g.globalAlpha = 1;
+    // the first jumps, one by one: from the point towards the chosen vertex, stopping halfway
+    if (!still && n < 400) {
+      const shown = walk.slice(0, Math.min(walk.length, n + 1)), last = shown[shown.length - 1], prev = shown[shown.length - 2], op = Math.max(0, 1 - n / 400);
+      let mx = last.x, my = last.y;
+      if (prev && last.k >= 0) {
+        const [vu, vv] = V[last.k]; g.globalAlpha = 0.55 * op; g.strokeStyle = C.muted; g.setLineDash([4, 4]); g.lineWidth = 1;
+        g.beginPath(); g.moveTo(X(prev.x), Y(prev.y)); g.lineTo(X(vu), Y(vv)); g.stroke(); g.setLineDash([]);
+        // the point travels to its new place during the first part of the interval before the next jump
+        const f = Math.expm1(local * CHAOS_RATE) % 1, p = n < 30 ? Math.min(1, f * 2.5) : 1, e = p * p * (3 - 2 * p);
+        mx = prev.x + (last.x - prev.x) * e; my = prev.y + (last.y - prev.y) * e;
+        g.globalAlpha = op; g.strokeStyle = C.c[(last.k * 2) % 8]; g.lineWidth = 2; g.beginPath(); g.moveTo(X(prev.x), Y(prev.y)); g.lineTo(X(mx), Y(my)); g.stroke();
+        g.beginPath(); g.arc(X(vu), Y(vv), 8, 0, TAU); g.stroke();
+      }
+      g.globalAlpha = op; g.fillStyle = C.ink; g.beginPath(); g.arc(X(mx), Y(my), 3.6, 0, TAU); g.fill(); g.globalAlpha = 1;
+    }
+  }, { reduced: opts.reduced });
 }
 
 /* ------------------------------------------------------------ Galton board */

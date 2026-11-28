@@ -315,6 +315,7 @@ export function buildHandles({ exp, fmt, getState, getShown = getState, setState
       // At the default view a handle just outside its panel is kept on the edge (reachable); once the learner has zoomed or
       // moved the view, a handle out of sight is out of sight: not drawn, not grabbed.
       hidden() {
+        if (c.hidden?.(getShown())) return true;   // a handle the experiment keeps out of sight in this state (a centre to be found)
         const v = view(), cam = v.cam, [wx, wy] = c.at(getShown()), X = v.X(wx), Y = v.Y(wy);
         if (!cam || (cam.kx === 1 && cam.ky === 1 && !cam.ox && !cam.oy)) return false;
         return X < v.left - 2 || X > v.left + v.width + 2 || Y < v.top - 2 || Y > v.top + v.height + 2;

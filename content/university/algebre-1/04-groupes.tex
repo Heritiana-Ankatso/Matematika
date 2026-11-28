@@ -143,6 +143,10 @@ Soit $f:G_1\to G_2$ un homomorphisme.
 L'image d'un sous-groupe est toujours un sous-groupe, par (1). Ce qui peut échouer, c'est la \emph{normalité} : l'image d'un sous-groupe normal de $G_1$ n'est normale que dans $\Img f$, pas forcément dans $G_2$.
 \end{attention}
 
+\begin{remarque}[Un tableau sur des clous]
+Une ficelle enroulée autour de clous $a,b,\dots$ se décrit par un mot en $a,a^{-1},b,b^{-1},\dots$ (un tour dans un sens ou dans l'autre), et deux tours contraires consécutifs autour du même clou se défont : ces mots forment le \emph{groupe libre} engendré par les clous. Arracher le clou $a$ revient à appliquer l'homomorphisme qui envoie $a$ sur $e$ et laisse les autres lettres. Le commutateur $aba^{-1}b^{-1}$ n'est pas $e$, mais ses images par « arracher $a$ » et par « arracher $b$ » valent $bb^{-1}=e$ et $aa^{-1}=e$ : le tableau tombe dès qu'on retire un clou, et pas avant. C'est le défi \site{challenges/nails}{Un tableau sur des clous}.
+\end{remarque}
+
 \section{Classes à gauche et théorème de Lagrange}
 \begin{definition}[Classes]
 Soit $H<G$. Pour $x\in G$, la \textbf{classe à gauche} de $x$ est $xH=\ens{xh\mid h\in H}$ et sa \textbf{classe à droite} est $Hx$. Ce sont les classes des relations d'équivalence $a\,\mathcal R_g\,b\iff b^{-1}a\in H$ et $a\,\mathcal R_d\,b\iff ab^{-1}\in H$. Le nombre de classes à gauche est l'\textbf{indice} de $H$, noté $[G:H]$.
@@ -272,6 +276,7 @@ L'ordre de $\sigma$ est le ppcm des longueurs des cycles de sa décomposition en
 Un $k$-cycle est d'ordre $k$. Les cycles disjoints commutent, donc $\sigma^m=\gamma_1^m\cdots\gamma_r^m$, et ce produit de permutations à supports disjoints vaut $\id$ si et seulement si chaque $\gamma_i^m=\id$, c'est-à-dire chaque $k_i$ divise $m$.
 \end{preuve}
 \widget{perms}
+Au laboratoire, \site{lab/shuffles}{Mélanger des cartes} anime ces calculs (ordre d'un mélange, nombre d'échanges, signature) et \site{lab/rubik}{Le Rubik's cube, un groupe dans la main} les applique au cube : la séquence $RU$ est d'ordre $105=3\times5\times7$, et le commutateur $RUR^{-1}U^{-1}$ ne déplace que 7 des 20 petits cubes.
 \begin{theoreme}[Cayley]\label{thm-cayley}
 Tout groupe fini $G$ d'ordre $n$ est isomorphe à un sous-groupe de $S_n$.
 \end{theoreme}
@@ -289,6 +294,7 @@ $D_n$ permute les $n$ sommets fidèlement : c'est un sous-groupe de $S_n$, non a
 Une isométrie qui préserve le polygone fixe son centre $O$ et permute ses sommets en respectant l'adjacence. Elle est déterminée par l'image du sommet 1 ($n$ choix) et celle du sommet 2, qui doit être l'un des deux voisins de l'image de 1 ($2$ choix) : au plus $2n$ éléments, et les $r^k$, $r^k\tau$ en fournissent $2n$ distincts. La relation $\tau r\tau=r^{-1}$ exprime qu'une rotation lue dans un miroir tourne en sens inverse ; puis $(r^k\tau)(r^l\tau)=r^k(\tau r^l\tau)=r^kr^{-l}$. Enfin $r\tau=\tau r^{-1}\neq\tau r$ pour $n\ge3$.
 \end{preuve}
 \widget{dihedral}
+Au laboratoire, \site{lab/polygon}{Les symétries d'un polygone} fait tourner et retourner le polygone en trois dimensions et range les $2n$ éléments de $D_n$.
 
 \section{Groupes de matrices}
 \begin{proposition}\label{prop-gl}

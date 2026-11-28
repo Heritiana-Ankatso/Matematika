@@ -1,10 +1,10 @@
 {
-  "about": "Loading budget per page, checked by tests/budget_browser.mjs: requests, JavaScript requests and kilobytes transferred (gzip) excluding fonts. Stage 1 of docs/REBUILD_PLAN.md: the values measured after stage 1 plus a small margin; a page that grows beyond them fails. Requests include the 13 stylesheets and 5 fonts every page loads today (stage 2 groups the stylesheets by world). Stage 8 (v8 on by default): the home is the threshold, whose four doors load the faces of the four worlds (measured 55 requests, 193 kB), and a page framed in the Université world adds its faces (university: 60 requests); those two budgets were reset to the v8 measurements plus a small margin. The unused font preload of the previous look was removed.",
+  "about": "Loading budget per page, checked by tests/budget_browser.mjs: requests, JavaScript requests and kilobytes transferred (gzip) excluding fonts. Stage 1 of docs/REBUILD_PLAN.md: the values measured after stage 1 plus a small margin; a page that grows beyond them fails. Requests include the 13 stylesheets and 5 fonts every page loads today (stage 2 groups the stylesheets by world). Stage 8 (v8 on by default): the home is the threshold, whose four doors load the faces of the four worlds (measured 55 requests, 193 kB), and a page framed in the Université world adds its faces (university: 60 requests); those two budgets were reset to the v8 measurements plus a small margin. The unused font preload of the previous look was removed. Owner review of 22 November 2026: the laboratory index also loads the reading guides of every experiment (guides.js) and four new experiments with their models (shuffles, polygon, rubik in groups.js; similitude), measured 135 requests, 114 JavaScript, 555 kB; a university lesson page links its laboratories by title (catalogue-lines.js) and loads Atkinson Hyperlegible instead of the missing Source Serif 4, measured 64 requests, 38 JavaScript and 1015 kB (catalogue-lines.js is 8.7 kB gzipped); both budgets reset to those measurements plus a small margin. 28 November 2026: with the figure and console rules (end of pages.css) and the threshold and home art of this review, the home measures 201 kB; its budget is reset to 205.",
   "pages": {
     "home": {
       "requests": 58,
       "js": 30,
-      "kbNoFonts": 200
+      "kbNoFonts": 205
     },
     "chapter": {
       "requests": 65,
@@ -12,14 +12,14 @@
       "kbNoFonts": 1080
     },
     "university": {
-      "requests": 63,
-      "js": 37,
-      "kbNoFonts": 1010
+      "requests": 66,
+      "js": 39,
+      "kbNoFonts": 1030
     },
     "lab": {
-      "requests": 130,
-      "js": 111,
-      "kbNoFonts": 530
+      "requests": 138,
+      "js": 117,
+      "kbNoFonts": 570
     },
     "gallery": {
       "requests": 466,

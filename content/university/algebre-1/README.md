@@ -30,6 +30,7 @@ rubrics (A techniques, B proofs, C decisions and counterexamples, D synthesis) a
 | `\begin{erreurs} \item ... \end{erreurs}`, `\begin{bilan} \item ... \end{bilan}` | frequent errors; self-assessment checklist |
 | `\begin{tabular}{ll} a & b \\ ... \end{tabular}` | simple table, first row is the header |
 | `$...$`, `\[...\]`, `\begin{align*}` | mathematics; macros from `MACROS` in the builder (`\Z`, `\K`, `\Ker`, `\Img`, `\GL`, `\cl{a}`, `\ens{...}`, `\parties`, `\Card`, `\tr`...) |
+| `\site{lab/rubik}{texte}` | a page of the site (hash without `#`): a link opened in the whole window on the web, the text followed by « (site Matematika) » in the PDFs |
 | `\textbf`, `\emph`, `\og ... \fg`, `\nom{Cantor}`, `\href{url}{text}`, `~` | inline text |
 
 A reference after a word that names its kind (`le théorème \voir{thm-x}`, `l'exercice \voir{exo-y}`) prints only the number; alone, `\voir{thm-x}` prints « Théorème 4.7 ».

@@ -2473,6 +2473,7 @@
         ],
         "topic": "complex-plane",
         "labs": [
+          "similitude/fixed",
           "complex/angles"
         ]
       },
@@ -2586,6 +2587,7 @@
         ],
         "topic": "complex-plane",
         "labs": [
+          "similitude/fixed",
           "complex/angles"
         ]
       },
@@ -29843,6 +29845,11 @@
           },
           {
             "id": "algebre-1-groupes",
+            "labRefs": [
+              "shuffles",
+              "polygon",
+              "rubik"
+            ],
             "slide": "ch4-groupes.html",
             "folder": "lecons",
             "source": "04-groupes.tex",

@@ -50,7 +50,7 @@ test('every lab reference of the manifest resolves, and a chapter names an exper
 });
 
 test('every experiment is reachable from a chapter, a pathway stage or its sourced mathematical reading', () => {
-  const universityRefs=manifest.university.sections.flatMap(s=>s.sequences.map(q=>q.labRef).filter(Boolean));
+  const universityRefs=manifest.university.sections.flatMap(s=>s.sequences.flatMap(q=>q.labRefs||(q.labRef?[q.labRef]:[])));
   for(const ref of universityRefs)assert.ok(resolveRef(ref), 'university: '+ref);
   const readingRefs=STORIES.filter(s=>s.sources?.length&&s.sections?.length).flatMap(s=>(s.links||[]).filter(r=>r.startsWith('#lab/')).map(r=>r.split('/')[1]));
   // a stage of a pathway (International, SAT...) names experiments by id: that counts, for an experiment placed in a pathway only

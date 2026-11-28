@@ -97,3 +97,6 @@
 .v8-exercises { padding-left: 1.4em; }
 .v8-exercises > li { margin-bottom: var(--w-heavy); }
 .v8-text mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; max-width: 100%; }
+
+/* the chapter's laboratory at the end of the lesson: a panel on the page, off the ruling */
+.v8-lab-host { margin: 0 0 var(--w-heavy); padding: var(--w-s2); background: var(--w-surface); border: 2px solid var(--w-accent2); border-radius: var(--w-r); min-height: 120px; }

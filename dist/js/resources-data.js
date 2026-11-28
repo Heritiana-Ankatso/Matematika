@@ -7541,6 +7541,7 @@ export const resourceCatalog = {
         }
       ],
       "labs": [
+        "similitude/fixed",
         "complex/angles"
       ]
     },
@@ -8014,6 +8015,7 @@ export const resourceCatalog = {
         }
       ],
       "labs": [
+        "similitude/fixed",
         "complex/angles"
       ]
     },

@@ -37,7 +37,7 @@ const known=new Set(['monte-carlo','ferris-wheel','quadratic','probability','tri
  'double-pendulum','three-body','logistic','illumination','fair-division','fair-goods','hairy-ball',
  'nonorientable-surfaces','banach-tarski-model','gomboc','derivative','integral','vectors','statistics','complex',
  'line','exponential','cobweb','matrix','space-lines','sequences','fourier','circle-regions','buffon','bertrand','eratosthenes',
- 'euler-primes','fermat','tiles','functions','limits','logarithm','reuleaux','platonic','chaos','self-similar','polyhedra','viviani','dandelin','cavalieri','rupert','star-polyhedra','wythoff','basins','apollonian','escape-3d','life',
+ 'euler-primes','fermat','tiles','shuffles','polygon','rubik','similitude','functions','limits','logarithm','reuleaux','platonic','chaos','self-similar','polyhedra','viviani','dandelin','cavalieri','rupert','star-polyhedra','wythoff','basins','apollonian','escape-3d','life',
  'voronoi','fastest-slide','einstein','square-packing','inscribed-square','soap-films','knots','moving-sofa',
  'opaque-square','equidecomposition','collisions','napkin-ring','hundred-boxes','morley','four-colours','mandelbrot','arithmetic','reals','algebra','percentages','conditioning',
  'random-variable','counting','polynomials','modular','bezout','primes','graphs','markov','logic','sets']);
@@ -168,6 +168,28 @@ export function modelPreview(kind) {
   const arc=[...Array(25)].map((_,i)=>at(-36+i*3));
   drawing=path(arc)+path([at(0),top(0)])+path([at(14),top(14)])+path([[top(0)[0],2],at(0)])+path([[top(14)[0],2],top(14)])+path([O,top(0)])+path([O,top(14)]);
   caption=P('Deux bâtons, deux ombres, un angle au centre','Two sticks, two shadows, one angle at the centre');
+ } else if(kind==='shuffles') {
+  // σ = (1 2 3)(4 5): five cards and the arrows of the shuffle above them
+  const x=i=>18+i*28;
+  drawing=[0,1,2,3,4].map(i=>`<rect class="preview-fill" x="${x(i)}" y="58" width="20" height="26" rx="3"/><text x="${x(i)+10}" y="76" text-anchor="middle">${i+1}</text>`).join('')
+   +[[0,1],[1,2],[2,0],[3,4],[4,3]].map(([a,b])=>`<path d="M${x(a)+10},54 Q${(x(a)+x(b))/2+10},${30-Math.abs(a-b)*6} ${x(b)+10},54"/>`).join('');
+  caption=P('Le mélange (1 2 3)(4 5), d’ordre 6','The shuffle (1 2 3)(4 5), of order 6');
+ } else if(kind==='polygon') {
+  // a square, its dashed axis of reflection and an asymmetric flag
+  drawing=path([[80,12],[118,50],[80,88],[42,50]],true)+'<path class="preview-axis" stroke-dasharray="3 3" d="M80 4V96"/>'+path([[80,62],[80,36],[96,42],[80,48]])+dot(80,12)+dot(118,50)+dot(80,88)+dot(42,50);
+  caption=P('Les 8 symétries du carré','The 8 symmetries of the square');
+ } else if(kind==='rubik') {
+  // an isometric cube with its 3 by 3 faces
+  const O=[80,52],u=[17,-9],v=[-17,-9],w=[0,20],at=(a,b,c)=>[O[0]+a*u[0]+b*v[0]+c*w[0],O[1]+a*u[1]+b*v[1]+c*w[1]];
+  const lines=[];for(let i=0;i<=3;i++){const t=i/3*2.4;lines.push(path([at(t,0,0),at(t,2.4,0)]),path([at(0,t,0),at(2.4,t,0)]),path([at(t,0,0),at(t,0,2.4)]),path([at(0,t,0),at(0,t,2.4)]));}
+  for(let i=0;i<=3;i++){const t=i/3*2.4;lines.push(path([at(0,0,t),at(2.4,0,t)]),path([at(0,0,t),at(0,2.4,t)]));}
+  drawing=lines.join('');
+  caption=P('R puis U, répété : retour après 105 fois','R then U, repeated: back after 105 times');
+ } else if(kind==='similitude') {
+  // a little house and its image by the similitude of centre Ω, ratio 2 and angle 90°
+  const H=[[1,0.5],[2.5,0.5],[2.5,1.75],[1.75,2.5],[1,1.75]],X=([x,y])=>[70+12*x,78-12*y],img=([x,y])=>[-2*y,2*x];
+  drawing='<path class="preview-axis" d="M10 78H150M70 6V96"/>'+path(H.map(X),true)+`<g class="preview-fill">${path(H.map(img).map(X),true)}</g>`+dot(70,78);
+  caption=P('Centre Ω, rapport 2, angle 90°','Centre Ω, ratio 2, angle 90°');
  } else if(kind==='circle-regions'||kind==='bertrand') {
   const pts=Array.from({length:5},(_,i)=>[80+37*Math.cos(i*2*Math.PI/5),50+37*Math.sin(i*2*Math.PI/5)]);
   drawing='<circle cx="80" cy="50" r="37"/>'+pts.flatMap((p,i)=>pts.slice(i+1).map(q=>path([p,q]))).join('');

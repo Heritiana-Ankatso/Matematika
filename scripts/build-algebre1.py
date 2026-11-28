@@ -271,7 +271,7 @@ def html_inline(s, labels, page):
                 if nxt == '\\': text.pop(); flush(); res.append('<br>')
                 i += 2; continue
             name = m[1]; j = i + len(m[0]) if name in ('og', 'fg', 'ldots', 'dots', 'quad', 'newline') else i + 1 + len(name)
-            if name in ('textbf', 'emph', 'textit', 'voir', 'href', 'url', 'textsc', 'mbox', 'nom'):
+            if name in ('textbf', 'emph', 'textit', 'voir', 'href', 'url', 'textsc', 'mbox', 'nom', 'site'):
                 a, j = braced(s, j)
                 named = name == 'voir' and named_before(''.join(text), labels, a)
                 flush()
@@ -282,6 +282,8 @@ def html_inline(s, labels, page):
                 elif name == 'url': res.append(f'<a href="{html.escape(a)}">{html.escape(a)}</a>')
                 elif name == 'href':
                     b, j = braced(s, j); res.append(f'<a href="{html.escape(a)}">{html_inline(b, labels, page)}</a>')
+                elif name == 'site':   # \site{lab/rubik}{text}: a page of the site, opened in the whole window (the lesson is in a frame)
+                    b, j = braced(s, j); res.append(f'<a class="site-link" href="../../../../index.html#{html.escape(a)}" target="_top">{html_inline(b, labels, page)}</a>')
                 else:
                     t, L = label_text(labels, a)
                     if named: t = L['num']
@@ -314,6 +316,7 @@ def tex_inline(s, labels):
         if named_before(s[:m.start()], labels, m[1]): text = L['num']
         return r'\hyperlink{' + labels[m[1]]['anchor'] + '}{' + text.replace('\u00a0', '~') + '}'
     s = re.sub(r'\\voir\{([^}]*)\}', voir, s)
+    s = re.sub(r'\\site\{[^}]*\}\{([^}]*)\}', lambda m: r'\emph{' + m[1] + r'} (site Matematika)', s)
     s = s.replace(r'\nom{', r'\textsc{')
     return s
 
