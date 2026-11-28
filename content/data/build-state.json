@@ -10,7 +10,7 @@
     "course:enrichment": "5a8fc3382decfde585f7c3b295fb72f566a071cfbb4f56b5e8327eef4c2ed9c7",
     "t12": "53b8987064ad013f3cbd79525cdcfdccc6775056b7da802e9abc7f05be289079",
     "annals": "bb9bef55ccfa0a697de93997094ca7d64a1982fc806a420b9b7afe301be68661",
-    "static-site": "69d6a5fc32ecf9ba880e262754190d0ba16f96935173b6c4bcd39d6bf13c4096",
+    "static-site": "7bd2db469ae81041b503e2b2c8cdfe89b104ae99637981a77b39c40cf60732af",
     "fourier": "fcbfcba2394a03a443b98b1aebac6fcf58cbbde9da37fb32cc0eed80689559e1",
     "algebre-1": "d2e6011d502556342f48b927c03944d97743c65cbc762a833a9cd228bd3dfdde",
     "foundations": "4b4237c4fbe24cd8ff7509c3c2230e6d15a145d583cd122ee6ca49d4765a3868",
@@ -5258,9 +5258,9 @@
     "dist/resources/terminale-proofs-prof.pdf": "c87812e40f8fec5f261772218c3e450a1d0af2c27a2fcb92cefe3398f1d68f8d",
     "dist/resources/terminale-revision/bank-2-en.pdf": "04a6d7cbd17959f7189457cf8c16af55824f4b4049807cab7904d7571c14123b",
     "dist/resources/terminale-revision/bank-2.pdf": "ee7222f0e1ed407839ae99ccce816037094ae454e831dde9739838b4f5a7b68f",
-    "dist/resources/university/algebre-1/corriges.pdf": "34055486c7f729ec432fb6b3f7c12aacf82429a39391698c804f91dd712135dc",
-    "dist/resources/university/algebre-1/cours.pdf": "290bab7594f1a8d3faa74c8d90b4495e1ec51139860694178be095d2b11926d3",
-    "dist/resources/university/algebre-1/exercices.pdf": "c9c5c348ee017c7d979e4a710704bc71146e936174c8150d325e94b22022066a",
+    "dist/resources/university/algebre-1/corriges.pdf": "aa5e3896ac454a1c0a70e6a84f38b73cd141dad12a9dd278591f422981e97f4b",
+    "dist/resources/university/algebre-1/cours.pdf": "4011f227a3bea250d1770dec0ab95ad2c7c575f5b75946c93d33bcf4e92c24b6",
+    "dist/resources/university/algebre-1/exercices.pdf": "60e38f72c14dba472c68315832343df4f028677c13984598557ee756db3930fc",
     "dist/resources/university/algebre-1/lecons/ch1-ensembles.html": "51783c024f09414abcfffe0fcaf3c53b3a98790afd19d8e83da94bab102741ff",
     "dist/resources/university/algebre-1/lecons/ch2-matrices.html": "8b0b9d2a3bf3d47627f7eb4e0b293418484dc19b4e976fabb382eb86a46929c8",
     "dist/resources/university/algebre-1/lecons/ch3-espaces-vectoriels.html": "9fa261c79e739fe08f796f75050d1e166cea97f1027c23ced9917eefcd3acff1",
@@ -5269,7 +5269,7 @@
     "dist/resources/university/algebre-1/lecons/ch5-anneaux.html": "b9fbba07010c976186e97ae60153089139c77884017b82ef78337b09c01ca32e",
     "dist/resources/university/algebre-1/lecons/index.html": "bc8f871b9ab417fa383601b0c5dcb1b2fa5cab96c78ed5b505a4b9099fb9d234",
     "dist/resources/university/algebre-1/lecons/synthese.html": "a637726fe4f2c12184c794a67753e3a6e82b440ff4decf485b296f13d1c1708e",
-    "dist/resources/university/algebre-1/sources-latex.zip": "db302dd12af2c3cdc9ed6e0dbaf08efcb179f0a11bfd18b19c9c50429616ade0",
+    "dist/resources/university/algebre-1/sources-latex.zip": "9434ff1ab784874935d0d6bf2eef0a8a5685eef3f99924f1e20441e5db970d38",
     "dist/resources/university/foundations/guide-enseignant.pdf": "23b56d38f3d82616c6cb56b1b52542ef5f26d835a3a3420d87b9201c36c2d6f0",
     "dist/resources/university/foundations/notes-etudiant.pdf": "7cfce39de2bbe41ebf42d16f1da24b7584ce9ddf831c6de0513c7d69c9948f03",
     "dist/resources/university/foundations/slides/seq1-calculs-algebriques.html": "98bafc3420f861988ee245a0861d3a3e47d50deb8d32579677863af35e9355f8",
@@ -5295,7 +5295,7 @@
     "dist/resources/university/fourier/tex/cours.tex": "19d344c0a83dd04c85762e50715bed3cb5f14de40359fe8cb9184a9a11fe704a",
     "dist/resources/university/fourier/tex/exercices.tex": "0bb847f88f9469bc02aefacb954f555e4031eccbe435cde8617f8b9ddee7dba7",
     "dist/resources/university/fourier/tex/guide.tex": "3654fdb11af6c896a80b4698b0e962cff690c78b24fe2a759918b67bbce38a7e",
-    "dist/resources/university/index.json": "3d0eaf5fc8ce7893b9cbf6cf73146fef1767261a2c4bb1265d5dcf362e06a39a",
+    "dist/resources/university/index.json": "3f034d1fbe3157dad7a342863f460aa681320f4ec054cce5de6cecb31c1a34b8",
     "dist/resources/university/module-maths/Guide-etudiant.pdf": "8277eb66e257d0012b08f752f2c216ab2b2e543d3b56b22ad21d2255099f1b8f",
     "dist/resources/university/module-maths/Guide-professeur.pdf": "63ddf6efe06ecc71e017baf5008a90fda3532f8e3efd320d78e2dab78135a098",
     "dist/resources/university/module-maths/cahier-de-travail-autonome-ENONCES.pdf": "4482b1d0e4b2769a61fa385ed71b3765cf988db34830eef69f2041fcb4c2feba",
@@ -6659,6 +6659,6 @@
     "dist/sources/terminale/front.fr.tex": "6e0705de4aea6c7aeff5bcbc6278cb3e21103c8db1597deb9e1bb745ab5ed1d5",
     "dist/sources/terminale/professeur-en.tex": "bdd05751c41ef8d45a4fdebb250bedee918064e4ddc75c852d5e5d23d31294ed",
     "dist/sources/terminale/professeur.tex": "dfb65ed2d53534797ea1b639f6ce37f37c6cf3a3e907c37f5648243a5d6c6656",
-    "site/js/catalogue-data.js": "cdaf7bfe3f22f879fd29041601c28e0a3ae11f4ea2dc4b7d5b31fb221b277c2a"
+    "site/js/catalogue-data.js": "eb697ffcfdb71271d26ba297cc47e4504d4de27920dae26baa42bc15bd4d5e0d"
   }
 }
