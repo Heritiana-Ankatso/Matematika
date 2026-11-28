@@ -1,5 +1,33 @@
 # Handoff
 
+## Algèbre 1: group theory complement and QCM (28 November 2026, owner request)
+
+Owner request: expand Algèbre 1 with classical exercises and problems, especially in group theory (some created, with
+care), and a QCM feature with feedback, instant or after a series, at university level.
+
+- New lesson `content/university/algebre-1/04b-groupes-actions.tex` (« Complément au chapitre 4 », prefix 4C, page
+  `ch4-actions.html`, manifest sequence `algebre-1-actions`): centre, conjugation, Aut and Inn, products HK and internal
+  direct products, group actions (orbit-stabiliser, Burnside), class equation, p-groups and groups of order p², Cauchy
+  (McKay's proof), Sylow (Wielandt's existence proof, full proofs of conjugacy and counting), classes of S_n and A_n,
+  simplicity of A_5. 31 graded exercises (rubrics A to D) with hints and full solutions: centres, classes of S_4 and A_4,
+  orbits (cube, GL_2(F_2)), Burnside counting (necklaces, cube colourings, Fermat), Sylow counts, automorphism groups,
+  Q_8, Cauchy and consequences, finite subgroups of K* cyclic, Wilson, conjugation and generators of S_n and A_n,
+  derived subgroup, A_4 without subgroup of order 6, true/false sets, groups of order pq, 2p and 8, non-simplicity of
+  orders 12, 30, 56, 200 and p²q, rotations of the cube ≅ S_4, order 2n with n odd, subgroups of p-groups, A_5.
+- QCM: dialect `qcm` / `question[plusieurs]` / `\choix` / `\bonchoix` / `explication` (README of the folder); 40
+  questions: 12 for chapter 4, 20 for the complement (two series), 8 for chapter 5. Web: instant or end-of-series
+  correction, exact-set grading, per-choice feedback and explanation, reshuffle, best score on the device; PDF: questions
+  in `exercices.pdf`, explained answers in `corriges.pdf`.
+- Builder: long inline formulas now break after relations from 24 characters (was 48) and inside `\ens{...}` after
+  commas and `\mid`: the new lesson has no horizontal scroll at 320 px. Still overflowing at 320 px, all from before:
+  a few inline matrices (chapter 2 exercise 2 and 28, chapter 3 exercises 2 and 32, synthesis exercise 4) and the
+  Cayley widget's select in chapter 4. References: « le théorème \voir{x} » now prints « le théorème 4.7 » (the kind
+  word was doubled before, about seventy places).
+- Every count quoted by the new material is recomputed by brute force in `tests/algebra1.test.mjs`.
+- Owner to review before class use: the whole complement, in particular the D exercises (groups of order 8, p²q, cube).
+- Next candidates: QCM series for chapters 1 to 3 and the synthesis; Sylow applications to order 12 classification;
+  group actions widget (orbits of colourings).
+
 ## Competition archive (23 November 2026, owner request)
 
 New page `#contests` (Résoudre > Concours; linked from the Olympiad arena and index), files in `site/js/contests/`

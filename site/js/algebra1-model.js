@@ -296,3 +296,24 @@ export function isNormal(S, H) {
   }
   return { normal: true, rights };
 }
+
+// ------------------------------------------------------------------ QCM grading
+// A question is right only when the chosen set equals the set of right choices (no partial credit at university level);
+// "partial" names a several-answer question where every choice made is right but some right choice is missing.
+export function gradeQuestion(right, chosen) {
+  const R = new Set(right), C = new Set(chosen);
+  if (!C.size) return { status: 'empty', right: false, wrongChosen: [], missed: [...R] };
+  const wrongChosen = [...C].filter(x => !R.has(x)), missed = [...R].filter(x => !C.has(x));
+  const ok = !wrongChosen.length && !missed.length;
+  return { status: ok ? 'right' : (!wrongChosen.length ? 'partial' : 'wrong'), right: ok, wrongChosen, missed };
+}
+export function seriesScore(grades) {
+  const answered = grades.filter(g => g.status !== 'empty').length, right = grades.filter(g => g.right).length;
+  return { right, answered, total: grades.length };
+}
+// Fisher and Yates, with an injectable random source for tests.
+export function shuffled(list, rand = Math.random) {
+  const a = list.slice();
+  for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(rand() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; }
+  return a;
+}

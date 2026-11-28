@@ -170,7 +170,38 @@
             "Groupes de matrices"
           ],
           "exercises": 37,
+          "mcq": 12,
           "number": 5
+        },
+        {
+          "id": "algebre-1-actions",
+          "slide": "ch4-actions.html",
+          "folder": "lecons",
+          "source": "04b-groupes-actions.tex",
+          "edition": "lesson",
+          "title": [
+            "Groupes : conjugaison, actions et problèmes classiques",
+            "Groups: conjugation, actions and classical problems"
+          ],
+          "summary": [
+            "La suite du chapitre 4, pour aborder les problèmes classiques : centre et conjugaison, produits de sous-groupes, actions de groupe et formule des classes, p-groupes, théorèmes de Cauchy et de Sylow, conjugaison dans Sₙ et simplicité de A₅ ; puis une banque de problèmes classiques gradués et deux séries de QCM corrigés.",
+            "The sequel to chapter 4, aimed at the classical problems: centre and conjugation, products of subgroups, group actions and the class equation, p-groups, the theorems of Cauchy and Sylow, conjugation in S_n and the simplicity of A_5; then a graded bank of classical problems and two series of multiple-choice questions with explained answers."
+          ],
+          "prerequisites": [
+            "Tout le chapitre 4 : sous-groupes, ordre, Lagrange, sous-groupes normaux, quotients et premier théorème d'isomorphisme, Sₙ (cycles, signature), Dₙ. Du chapitre 5 : l'anneau (ℤ/pℤ)[X] et, pour un exercice, le fait qu'un polynôme non nul de degré d sur un corps a au plus d racines.",
+            "Chapter 4: groups, subgroups, homomorphisms, Lagrange, normal subgroups, quotients, S_n, D_n."
+          ],
+          "outline": [
+            "Centre, conjugaison, automorphismes",
+            "Produits de sous-groupes",
+            "Actions de groupe",
+            "Équation aux classes et p-groupes",
+            "Théorèmes de Cauchy et de Sylow",
+            "Conjugaison dans Sₙ ; simplicité de A₅"
+          ],
+          "exercises": 31,
+          "mcq": 20,
+          "number": 6
         },
         {
           "id": "algebre-1-anneaux",
@@ -198,7 +229,8 @@
             "Exemples d'anneaux"
           ],
           "exercises": 21,
-          "number": 6
+          "mcq": 8,
+          "number": 7
         },
         {
           "id": "algebre-1-synthese",
@@ -223,7 +255,7 @@
             "Les autres fils"
           ],
           "exercises": 8,
-          "number": 7
+          "number": 8
         }
       ],
       "documents": [
@@ -882,61 +914,66 @@
   "files": {
     "algebre-1-guide": {
       "path": "resources/university/algebre-1/lecons/index.html",
-      "bytes": 15412,
-      "sha256": "1e383d241537422eefca2b8ebf1900416db5d3f160e86d97e0ce89498829403b"
+      "bytes": 16745,
+      "sha256": "a424164caa443e00a053a9a93a50f47e66edb7b1d99ce8c87112470d2eb7720e"
     },
     "algebre-1-ensembles": {
       "path": "resources/university/algebre-1/lecons/ch1-ensembles.html",
-      "bytes": 91299,
-      "sha256": "9102e4a723484aa20a89df93341975736e2b6cf2c4997cd1970bdd82870a4cc0"
+      "bytes": 92431,
+      "sha256": "948e2030b7ea1a5d5403f50005bbc9e0d26898d813e322ba671cd8589be8123c"
     },
     "algebre-1-matrices": {
       "path": "resources/university/algebre-1/lecons/ch2-matrices.html",
-      "bytes": 85922,
-      "sha256": "0686bfa29aca568d5c042b7ec70111525438ed4c3bb05a0e24236cd3f6472de7"
+      "bytes": 86741,
+      "sha256": "9bd15bac5724c78fa5463a07bf0a6075f566a3dc11247788e0c319255f8c30b3"
     },
     "algebre-1-espaces": {
       "path": "resources/university/algebre-1/lecons/ch3-espaces-vectoriels.html",
-      "bytes": 96879,
-      "sha256": "a4533544e19563e5769c7a8e6a1ddbc8915cee335d328389d7c5c5db5b625ed8"
+      "bytes": 97826,
+      "sha256": "57c6ee23265e41720bc6863b9ea7c6f616149710a8337040f5dcc33ed67bbfdf"
     },
     "algebre-1-groupes": {
       "path": "resources/university/algebre-1/lecons/ch4-groupes.html",
-      "bytes": 102398,
-      "sha256": "ce708731aabc252a03df6da704de91c041c0f679e3ed14c53b789fd771c42a33"
+      "bytes": 129272,
+      "sha256": "566fdae5a8c83daec59e2b2389f641ef895a91bae77bcbce71b7a11fc7a9f1d0"
+    },
+    "algebre-1-actions": {
+      "path": "resources/university/algebre-1/lecons/ch4-actions.html",
+      "bytes": 161270,
+      "sha256": "07b6cb729a60c10941cc8ceb950219b2091eb2f1ada491d05de78b5f9ce9f9fc"
     },
     "algebre-1-anneaux": {
       "path": "resources/university/algebre-1/lecons/ch5-anneaux.html",
-      "bytes": 58544,
-      "sha256": "0dd161c6d7a6b661524355e65c8054f92ee4af0e8e0d678ca97d27bab3374121"
+      "bytes": 75594,
+      "sha256": "89abc1bf5da7f7b900dfb0d4498105fc84dd9a21418d5e8784c99c2f64298a61"
     },
     "algebre-1-synthese": {
       "path": "resources/university/algebre-1/lecons/synthese.html",
-      "bytes": 28124,
-      "sha256": "529bc7d6e654e84dec6f8d1c1142468965c40b5ca14803b0aee02f7553737223"
+      "bytes": 28484,
+      "sha256": "5d6a70769946868fc9a7bfdbf1fc580e68dc0a7478663c3bbdc9dd8a091a7911"
     },
     "algebre-1-cours": {
       "path": "resources/university/algebre-1/cours.pdf",
-      "bytes": 414418,
-      "sha256": "4b144f11d889e1cf5994594d87ca524bb3258ed62b8a7fb146d1b4ce610c2c1f",
-      "pages": 67
+      "bytes": 485518,
+      "sha256": "3657c90f9ff343653e5ea4a6dcce0105ab906f4a8340f30076161aa767dd8127",
+      "pages": 79
     },
     "algebre-1-exercices": {
       "path": "resources/university/algebre-1/exercices.pdf",
-      "bytes": 195669,
-      "sha256": "94c8a40d9da265ed834bf9cf31417bc38746bceaf6648333edebe538879d64f2",
-      "pages": 27
+      "bytes": 279072,
+      "sha256": "603936cd9451eb78d4e33cf965590a38a307c4dbec62f6b2a9c989869e06bb5f",
+      "pages": 42
     },
     "algebre-1-corriges": {
       "path": "resources/university/algebre-1/corriges.pdf",
-      "bytes": 369930,
-      "sha256": "d5185942625d3ea4de7d9352b0f12c94c1df49adcd5fc07c141ad8063a53e7d5",
-      "pages": 50
+      "bytes": 553764,
+      "sha256": "9c2ec7dee0eec4491f5fcd8815b21b9126175d2cd05f01469782d2efd3eb660f",
+      "pages": 82
     },
     "algebre-1-tex": {
       "path": "resources/university/algebre-1/sources-latex.zip",
-      "bytes": 1778170,
-      "sha256": "726760160df58f633aeca7eac237d748ffed5df39705812ad51060a3004433bb"
+      "bytes": 1856201,
+      "sha256": "51aeabd3f053ac314af4242cab1d0918882c19e5fcf9a76fd35b2bf0b1014dca"
     },
     "calculs-algebriques": {
       "path": "resources/university/foundations/slides/seq1-calculs-algebriques.html",

@@ -1,0 +1,883 @@
+\chapitre[Chapter 4: groups, subgroups, homomorphisms, Lagrange, normal subgroups, quotients, S_n, D_n.]{Complément au chapitre 4|4C}{Groupes : conjugaison, actions et problèmes classiques}{Groups: conjugation, actions and classical problems}
+\resume{La suite du chapitre 4, pour aborder les problèmes classiques : centre et conjugaison, produits de sous-groupes, actions de groupe et formule des classes, $p$-groupes, théorèmes de Cauchy et de Sylow, conjugaison dans $S_n$ et simplicité de $A_5$ ; puis une banque de problèmes classiques gradués et deux séries de QCM corrigés.}
+\summary{The sequel to chapter 4, aimed at the classical problems: centre and conjugation, products of subgroups, group actions and the class equation, p-groups, the theorems of Cauchy and Sylow, conjugation in S_n and the simplicity of A_5; then a graded bank of classical problems and two series of multiple-choice questions with explained answers.}
+\begin{objectifs}
+\item Calculer un centre, un centralisateur, un normalisateur, des classes de conjugaison ; utiliser $G/Z(G)\simeq\Inn(G)$.
+\item Reconnaître un produit direct interne et calculer $\abs{HK}$.
+\item Définir une action, en déterminer orbites et stabilisateurs, appliquer la relation orbite-stabilisateur et la formule de Burnside.
+\item Écrire l'équation aux classes et en déduire les propriétés des $p$-groupes.
+\item Démontrer les théorèmes de Cauchy et de Sylow, et s'en servir pour étudier les groupes d'ordre donné.
+\item Décrire les classes de conjugaison de $S_n$ et de $A_n$ ; démontrer que $A_5$ est simple.
+\end{objectifs}
+\begin{prerequis}
+Tout le chapitre 4 : sous-groupes, ordre, Lagrange, sous-groupes normaux, quotients et premier théorème d'isomorphisme, $S_n$ (cycles, signature), $D_n$. Du chapitre 5 : l'anneau $(\Z/p\Z)[X]$ et, pour un exercice, le fait qu'un polynôme non nul de degré $d$ sur un corps a au plus $d$ racines.
+\end{prerequis}
+
+\section{Centre, conjugaison, automorphismes}
+Dans tout le chapitre, les permutations se composent de droite à gauche, comme au chapitre 4 : $\sigma\tau$ applique d'abord $\tau$.
+\begin{definition}[Centre, centralisateur, normalisateur]
+Soit $G$ un groupe. Le \textbf{centre} de $G$ est $Z(G)=\ens{z\in G\mid zg=gz\text{ pour tout }g\in G}$. Le \textbf{centralisateur} d'un élément $x$ est $C_G(x)=\ens{g\in G\mid gx=xg}$. Le \textbf{normalisateur} d'un sous-groupe $H$ est $N_G(H)=\ens{g\in G\mid gHg^{-1}=H}$.
+\end{definition}
+\begin{proposition}\label{prop-centre}
+$C_G(x)$ et $N_G(H)$ sont des sous-groupes de $G$. $Z(G)=\bigcap_{x\in G}C_G(x)$ est un sous-groupe abélien et normal de $G$. On a $H\lhd N_G(H)$, et $H\lhd G$ si et seulement si $N_G(H)=G$.
+\end{proposition}
+\begin{preuve}
+$e\in C_G(x)$. Si $gx=xg$ et $hx=xh$, alors $ghx=gxh=xgh$ ; en multipliant $gx=xg$ à gauche et à droite par $g^{-1}$, on obtient $xg^{-1}=g^{-1}x$. Même raisonnement pour $N_G(H)$ : si $gHg^{-1}=H$ et $kHk^{-1}=H$, alors $(gk)H(gk)^{-1}=g(kHk^{-1})g^{-1}=H$, et $g^{-1}Hg=g^{-1}(gHg^{-1})g=H$. L'égalité $Z(G)=\bigcap_xC_G(x)$ est la définition ; une intersection de sous-groupes est un sous-groupe ; deux éléments du centre commutent ; et $gzg^{-1}=z$ pour $z\in Z(G)$, donc $gZ(G)g^{-1}=Z(G)$. Enfin $hHh^{-1}=H$ pour $h\in H$, donc $H\subset N_G(H)$, et par définition $H$ est normal dans $N_G(H)$ ; $H\lhd G$ signifie exactement que tout $g\in G$ est dans $N_G(H)$.
+\end{preuve}
+\begin{definition}[Conjugaison]
+Deux éléments $x,y$ de $G$ sont \textbf{conjugués} s'il existe $g\in G$ avec $y=gxg^{-1}$. C'est une relation d'équivalence ; ses classes sont les \textbf{classes de conjugaison}. Deux sous-groupes $H,K$ sont conjugués s'il existe $g$ avec $K=gHg^{-1}$.
+\end{definition}
+\begin{remarque}
+La classe de $x$ est réduite à $\ens x$ si et seulement si $x\in Z(G)$. Dans un groupe abélien, toutes les classes sont des singletons. Un sous-groupe $H$ est normal si et seulement s'il est réunion de classes de conjugaison : c'est le critère le plus efficace pour trouver les sous-groupes normaux d'un petit groupe (exercice \voir{exo-classes-s4}).
+\end{remarque}
+\begin{definition}[Automorphismes]
+Un \textbf{automorphisme} de $G$ est un isomorphisme de $G$ sur lui-même. Les automorphismes forment un groupe $\Aut(G)$ pour la composition. Pour $g\in G$, la \textbf{conjugaison} $c_g:x\mapsto gxg^{-1}$ est un automorphisme, dit \textbf{intérieur} ; on note $\Inn(G)$ l'ensemble des $c_g$.
+\end{definition}
+\begin{proposition}[Automorphismes intérieurs]\label{prop-inn}
+L'application $c:G\to\Aut(G)$, $g\mapsto c_g$ est un homomorphisme de noyau $Z(G)$ et d'image $\Inn(G)$. Donc $\Inn(G)$ est un sous-groupe de $\Aut(G)$, normal, et
+\[G/Z(G)\simeq\Inn(G).\]
+\end{proposition}
+\begin{preuve}
+$c_g(xy)=gxg^{-1}gyg^{-1}=c_g(x)c_g(y)$, et $c_g\circ c_{g^{-1}}=c_{g^{-1}}\circ c_g=\Id_G$ : $c_g\in\Aut(G)$. Puis $c_g\circ c_h(x)=ghxh^{-1}g^{-1}=c_{gh}(x)$ : $c$ est un homomorphisme, d'image $\Inn(G)$, donc $\Inn(G)<\Aut(G)$. $c_g=\Id_G$ signifie $gx=xg$ pour tout $x$ : $\Ker c=Z(G)$. Pour $\varphi\in\Aut(G)$ : $\varphi\circ c_g\circ\varphi^{-1}(x)=\varphi(g\varphi^{-1}(x)g^{-1})=\varphi(g)\,x\,\varphi(g)^{-1}$, donc $\varphi c_g\varphi^{-1}=c_{\varphi(g)}\in\Inn(G)$ : $\Inn(G)$ est normal. Le premier théorème d'isomorphisme (\voir{thm-iso1}) conclut.
+\end{preuve}
+\begin{proposition}[Quotient par le centre]\label{prop-gz-cyclique}
+Si $G/Z(G)$ est cyclique, alors $G$ est abélien. En particulier, l'indice $[G:Z(G)]$ d'un groupe fini n'est jamais un nombre premier.
+\end{proposition}
+\begin{preuve}
+Soit $Z=Z(G)$ et $G/Z=\langle gZ\rangle$. Tout élément de $G$ est dans une classe $g^kZ$, donc s'écrit $g^kz$ avec $k\in\Z$, $z\in Z$. Pour $x=g^kz$ et $y=g^lz'$ : $xy=g^kg^lzz'=g^{k+l}zz'$, car $z$ commute avec tout, et de même $yx=g^{l+k}z'z$. Comme $zz'=z'z$, $xy=yx$. Si $[G:Z]=p$ est premier, $G/Z$ est cyclique (\voir{cor-lagrange}), donc $G$ est abélien, donc $Z=G$ et $[G:Z]=1$ : contradiction.
+\end{preuve}
+\begin{attention}
+La réciproque naïve est fausse dans l'autre sens : $G/Z(G)$ peut être abélien sans que $G$ le soit. Le groupe des quaternions ci-dessous en est l'exemple type.
+\end{attention}
+\begin{exemple}[Le groupe des quaternions $Q_8$]\label{ex-q8}
+Dans $\GL_2(\C)$, posons
+\[\mathbf i=\begin{pmatrix}i&0\\0&-i\end{pmatrix},\quad\mathbf j=\begin{pmatrix}0&1\\-1&0\end{pmatrix},\quad\mathbf k=\mathbf i\mathbf j=\begin{pmatrix}0&i\\i&0\end{pmatrix}.\]
+Un calcul direct donne $\mathbf i^2=\mathbf j^2=\mathbf k^2=-I_2$, $\mathbf j\mathbf i=-\mathbf k$, $\mathbf j\mathbf k=\mathbf i=-\mathbf k\mathbf j$, $\mathbf k\mathbf i=\mathbf j=-\mathbf i\mathbf k$. L'ensemble $Q_8=\ens{\pm I_2,\pm\mathbf i,\pm\mathbf j,\pm\mathbf k}$ est donc stable par produit ; il contient l'inverse de chacun de ses éléments ($\mathbf i^{-1}=-\mathbf i$, etc.) : c'est un sous-groupe d'ordre $8$ de $\GL_2(\C)$, non abélien. Son centre est $\ens{\pm I_2}$, et $Q_8/Z(Q_8)$ est d'ordre $4$ avec tous ses éléments de carré neutre : il est isomorphe à $\Z/2\Z\times\Z/2\Z$, abélien.
+\end{exemple}
+
+\section{Produits de sous-groupes}
+\begin{proposition}[Le produit $HK$]\label{prop-hk}
+Soient $H,K$ deux sous-groupes d'un groupe $G$ et $HK=\ens{hk\mid h\in H,\ k\in K}$.
+\begin{enumerate}
+\item Si $H$ et $K$ sont finis, $\abs{HK}=\dfrac{\abs H\,\abs K}{\abs{H\cap K}}$.
+\item $HK$ est un sous-groupe si et seulement si $HK=KH$.
+\item C'est le cas dès que $K\subset N_G(H)$, en particulier dès que $H$ ou $K$ est normal dans $G$.
+\end{enumerate}
+\end{proposition}
+\begin{preuve}
+(1) L'application $\mu:H\times K\to HK$, $(h,k)\mapsto hk$ est surjective. Si $hk=h'k'$, alors $t=h^{-1}h'=kk'^{-1}$ est dans $H\cap K$, et $(h',k')=(ht,t^{-1}k)$ ; réciproquement chaque $t\in H\cap K$ donne un antécédent $(ht,t^{-1}k)$ de $hk$, et $t\mapsto(ht,t^{-1}k)$ est injective. Chaque élément de $HK$ a donc exactement $\abs{H\cap K}$ antécédents, et $\abs H\abs K=\abs{HK}\,\abs{H\cap K}$.
+(2) Si $HK$ est un sous-groupe, il est stable par inverse : $HK=(HK)^{-1}=K^{-1}H^{-1}=KH$. Réciproquement, si $HK=KH$ : $e\in HK$, et $(hk)(h'k')^{-1}=h\,(kk'^{-1}h'^{-1})$ ; l'élément entre parenthèses est dans $KH=HK$, donc s'écrit $h''k''$, et $(hk)(h'k')^{-1}=(hh'')k''\in HK$.
+(3) Si $K\subset N_G(H)$ : $kh=(khk^{-1})k\in HK$ et $hk=k(k^{-1}hk)\in KH$, donc $HK=KH$. Si $K\lhd G$, on échange les rôles de $H$ et $K$.
+\end{preuve}
+\begin{exemple}
+Dans $S_3$, avec $H=\langle(1\,2)\rangle$ et $K=\langle(1\,3)\rangle$ : $HK=\ens{\id,(1\,2),(1\,3),(1\,2)(1\,3)}$ a $\frac{2\cdot2}1=4$ éléments, ce n'est pas un sous-groupe ($4\nmid6$).
+\end{exemple}
+\begin{theoreme}[Produit direct interne]\label{thm-produit-direct}
+Soient $H,K$ deux sous-groupes \emph{normaux} de $G$ tels que $H\cap K=\ens e$ et $HK=G$. Alors $hk=kh$ pour tous $h\in H$, $k\in K$, et $(h,k)\mapsto hk$ est un isomorphisme de $H\times K$ sur $G$.
+\end{theoreme}
+\begin{preuve}
+Le commutateur $hkh^{-1}k^{-1}$ s'écrit $(hkh^{-1})k^{-1}$, produit de deux éléments de $K$ ($K$ normal), et $h(kh^{-1}k^{-1})$, produit de deux éléments de $H$ ($H$ normal) : il est dans $H\cap K=\ens e$, d'où $hk=kh$. Alors $\mu(h,k)\mu(h',k')=hkh'k'=hh'kk'=\mu(hh',kk')$ : $\mu$ est un homomorphisme. Il est surjectif car $HK=G$, et injectif car $\mu(h,k)=e$ donne $h=k^{-1}\in H\cap K$.
+\end{preuve}
+\begin{exemple}
+Dans $\Z/6\Z$, $H=\langle\cl3\rangle$ (ordre 2) et $K=\langle\cl2\rangle$ (ordre 3) sont normaux, d'intersection nulle, et $\abs{H+K}=6$ : $\Z/6\Z\simeq\Z/2\Z\times\Z/3\Z$.
+\end{exemple}
+
+\section{Actions de groupe}
+\begin{intuition}
+Un groupe se comprend en le regardant \emph{agir} : $D_n$ déplace les sommets d'un polygone, $\GL_n(\R)$ déplace les vecteurs, $G$ se déplace lui-même par conjugaison. Compter les positions atteintes (les orbites) et les éléments qui ne bougent rien (les stabilisateurs) donne des renseignements sur $\abs G$ : c'est la méthode de presque tous les théorèmes de ce chapitre.
+\end{intuition}
+\begin{definition}[Action]
+Une \textbf{action} (à gauche) d'un groupe $G$ sur un ensemble $X$ est une application $G\times X\to X$, $(g,x)\mapsto g\cdot x$, telle que $e\cdot x=x$ et $g\cdot(h\cdot x)=(gh)\cdot x$ pour tous $g,h\in G$, $x\in X$. L'\textbf{orbite} de $x$ est $G\cdot x=\ens{g\cdot x\mid g\in G}$ ; son \textbf{stabilisateur} est $G_x=\ens{g\in G\mid g\cdot x=x}$ ; les \textbf{points fixes} de l'action forment $X^G=\ens{x\mid G\cdot x=\ens x}$, et ceux de $g$ forment $\Fix(g)=\ens{x\mid g\cdot x=x}$. L'action est \textbf{transitive} si elle a une seule orbite, \textbf{fidèle} si seul $e$ fixe tous les points.
+\end{definition}
+\begin{proposition}[Action et homomorphisme vers $S(X)$]\label{prop-action-hom}
+Une action de $G$ sur $X$ est la même chose qu'un homomorphisme $\rho:G\to S(X)$, par $\rho(g)(x)=g\cdot x$. Le noyau de $\rho$ est l'ensemble des éléments qui fixent tous les points ; l'action est fidèle si et seulement si $\rho$ est injectif.
+\end{proposition}
+\begin{preuve}
+Pour une action, $\rho(g)\circ\rho(g^{-1})=\rho(g^{-1})\circ\rho(g)=\rho(e)=\Id_X$ par les deux axiomes : $\rho(g)$ est une bijection, et le second axiome dit exactement $\rho(gh)=\rho(g)\circ\rho(h)$. Réciproquement, un homomorphisme $\rho$ vérifie $\rho(e)=\Id_X$ et $\rho(gh)=\rho(g)\circ\rho(h)$, ce qui donne les deux axiomes.
+\end{preuve}
+\begin{proposition}[Orbites et stabilisateurs]\label{prop-orbites}
+Les orbites forment une partition de $X$. Chaque stabilisateur $G_x$ est un sous-groupe de $G$, et $G_{g\cdot x}=gG_xg^{-1}$ : les stabilisateurs des points d'une même orbite sont conjugués.
+\end{proposition}
+\begin{preuve}
+La relation \og $y=g\cdot x$ pour un $g\in G$ \fg{} est réflexive ($e$), symétrique ($x=g^{-1}\cdot y$) et transitive ($h\cdot(g\cdot x)=(hg)\cdot x$) ; ses classes sont les orbites. $e\in G_x$, et si $g,h\in G_x$, alors $gh^{-1}\cdot x=g\cdot(h^{-1}\cdot(h\cdot x))=g\cdot x=x$. Enfin $k\cdot(g\cdot x)=g\cdot x\iff(g^{-1}kg)\cdot x=x\iff g^{-1}kg\in G_x\iff k\in gG_xg^{-1}$.
+\end{preuve}
+\begin{exemple}[Actions à connaître]\label{ex-actions}
+\begin{itemize}
+\item $G$ agit sur lui-même par \textbf{translation} : $g\cdot x=gx$. Action transitive et fidèle ; c'est la preuve du théorème de Cayley (\voir{thm-cayley}).
+\item $G$ agit sur lui-même par \textbf{conjugaison} : $g\cdot x=gxg^{-1}$. On vérifie $g\cdot(h\cdot x)=ghxh^{-1}g^{-1}=(gh)\cdot x$. Orbites : les classes de conjugaison ; stabilisateur de $x$ : $C_G(x)$ ; points fixes : $Z(G)$ ; homomorphisme associé : $g\mapsto c_g$ (\voir{prop-inn}).
+\item $G$ agit par conjugaison sur l'ensemble de ses sous-groupes ; le stabilisateur de $H$ est $N_G(H)$.
+\item Si $H<G$, $G$ agit sur l'ensemble $G/H$ des classes à gauche : $g\cdot xH=gxH$. Action transitive ; le stabilisateur de $xH$ est $xHx^{-1}$.
+\item $S_n$ agit sur $\ens{1,\dots,n}$ ; $D_n$ sur les sommets du polygone ; $\GL_n(\R)$ sur $\R^n$, avec deux orbites, $\ens0$ et $\R^n\setminus\ens0$.
+\end{itemize}
+\end{exemple}
+\begin{theoreme}[Relation orbite-stabilisateur]\label{thm-orbite-stab}
+Pour une action de $G$ sur $X$ et $x\in X$, l'application $gG_x\mapsto g\cdot x$ est une bijection bien définie de $G/G_x$ sur l'orbite $G\cdot x$. Si $G$ est fini :
+\[\abs{G\cdot x}=[G:G_x]=\frac{\abs G}{\abs{G_x}},\]
+et le cardinal de chaque orbite divise $\abs G$.
+\end{theoreme}
+\begin{preuve}
+$g\cdot x=h\cdot x\iff(h^{-1}g)\cdot x=x\iff h^{-1}g\in G_x\iff gG_x=hG_x$. Le sens \og $\Leftarrow$ \fg{} montre que l'application est bien définie, le sens \og $\Rightarrow$ \fg{} qu'elle est injective ; elle est surjective par définition de l'orbite. Le théorème de Lagrange (\voir{thm-lagrange}) donne la formule.
+\end{preuve}
+\begin{corollaire}\label{cor-nb-conjugues}
+Dans un groupe fini, le nombre de conjugués d'un élément $x$ est $[G:C_G(x)]$, et le nombre de conjugués d'un sous-groupe $H$ est $[G:N_G(H)]$. Ces nombres divisent $\abs G$.
+\end{corollaire}
+\begin{theoreme}[Formule de Burnside]\label{thm-burnside}
+Si un groupe fini $G$ agit sur un ensemble fini $X$, le nombre d'orbites est
+\[\frac1{\abs G}\sum_{g\in G}\abs{\Fix(g)}.\]
+\end{theoreme}
+\begin{preuve}
+On compte de deux façons l'ensemble $A=\ens{(g,x)\in G\times X\mid g\cdot x=x}$. Par lignes, $\abs A=\sum_g\abs{\Fix(g)}$. Par colonnes, $\abs A=\sum_x\abs{G_x}=\sum_x\frac{\abs G}{\abs{G\cdot x}}$. Regroupons les $x$ par orbite : pour une orbite $O$, $\sum_{x\in O}\frac{\abs G}{\abs O}=\abs G$. Donc $\abs A=\abs G\times(\text{nombre d'orbites})$.
+\end{preuve}
+\begin{histoire}
+Cette formule est souvent appelée \og lemme de Burnside \fg{}, d'après le livre de \nom{Burnside} (1897), mais elle figure déjà chez \nom{Cauchy} (1845) et \nom{Frobenius} (1887).
+\end{histoire}
+\begin{exemple}[Colliers]
+Combien de colliers différents de 6 perles, chacune noire ou blanche, si deux colliers qui se déduisent l'un de l'autre par rotation sont identiques ? Le groupe $\Z/6\Z$ des rotations agit sur les $2^6$ coloriages. La rotation de $j$ crans découpe les 6 positions en $\pgcd(j,6)$ cycles, et un coloriage fixe est constant sur chaque cycle : $\abs{\Fix}=2^{\pgcd(j,6)}$. Nombre de colliers : $\frac16(2^6+2^1+2^2+2^3+2^2+2^1)=\frac{84}6=14$.
+\end{exemple}
+\begin{proposition}[Action sur les classes]\label{prop-action-classes}
+Soit $H$ un sous-groupe d'indice fini $n$ de $G$. L'action de $G$ sur $G/H$ donne un homomorphisme $\rho:G\to S(G/H)\simeq S_n$ de noyau $N=\bigcap_{g\in G}gHg^{-1}$. Ainsi $N$ est un sous-groupe normal de $G$ contenu dans $H$, et $[G:N]$ divise $n!$.
+\end{proposition}
+\begin{preuve}
+Le noyau est l'ensemble des $g$ qui fixent toutes les classes, c'est-à-dire l'intersection des stabilisateurs $xHx^{-1}$ (\voir{ex-actions}). Il est normal comme tout noyau, et contenu dans $H$ (stabilisateur de $eH$). Par le premier théorème d'isomorphisme, $G/N$ est isomorphe à un sous-groupe de $S_n$, donc son ordre divise $n!$ par Lagrange.
+\end{preuve}
+\begin{corollaire}[Indice égal au plus petit premier]\label{cor-plus-petit-premier}
+Soit $G$ un groupe fini et $p$ le plus petit nombre premier qui divise $\abs G$. Tout sous-groupe d'indice $p$ est normal.
+\end{corollaire}
+\begin{preuve}
+Avec les notations précédentes et $n=p$ : $[G:N]=[G:H][H:N]=p\,[H:N]$ divise $p!$, donc $[H:N]$ divise $(p-1)!$, dont tous les facteurs premiers sont $<p$. Mais $[H:N]$ divise aussi $\abs G$, dont tous les facteurs premiers sont $\ge p$. Donc $[H:N]=1$ et $H=N$ est normal.
+\end{preuve}
+\begin{remarque}
+Pour $p=2$, on retrouve le fait qu'un sous-groupe d'indice $2$ est normal (\voir{prop-normaux-usuels}).
+\end{remarque}
+
+\section{Équation aux classes et $p$-groupes}
+\begin{definition}[$p$-groupe]
+Soit $p$ un nombre premier. Un \textbf{$p$-groupe} est un groupe fini d'ordre $p^a$, $a\ge0$.
+\end{definition}
+\begin{lemme}[Points fixes d'un $p$-groupe]\label{lem-points-fixes}
+Si un $p$-groupe $P$ agit sur un ensemble fini $X$, alors $\abs X\equiv\abs{X^P}\pmod p$.
+\end{lemme}
+\begin{preuve}
+$X$ est réunion disjointe de ses orbites. Les orbites à un élément sont les points fixes. Toute autre orbite a un cardinal $>1$ qui divise $\abs P=p^a$ (\voir{thm-orbite-stab}), donc divisible par $p$.
+\end{preuve}
+\begin{theoreme}[Équation aux classes]\label{thm-equation-classes}
+Soit $G$ un groupe fini et $x_1,\dots,x_r$ des représentants des classes de conjugaison non réduites à un élément. Alors
+\[\abs G=\abs{Z(G)}+\sum_{i=1}^r[G:C_G(x_i)],\]
+où chaque $[G:C_G(x_i)]$ est un diviseur de $\abs G$ strictement supérieur à $1$.
+\end{theoreme}
+\begin{preuve}
+Les classes de conjugaison partitionnent $G$. Les classes à un élément sont celles des éléments du centre ; la classe de $x_i$ a $[G:C_G(x_i)]$ éléments (\voir{cor-nb-conjugues}), nombre $>1$ puisque $x_i\notin Z(G)$.
+\end{preuve}
+\begin{theoreme}[Centre d'un $p$-groupe]\label{thm-centre-p}
+Le centre d'un $p$-groupe non trivial n'est pas trivial.
+\end{theoreme}
+\begin{preuve}
+On applique le lemme \voir{lem-points-fixes} à l'action de $P$ sur lui-même par conjugaison, dont les points fixes forment $Z(P)$ : $\abs{Z(P)}\equiv\abs P\equiv0\pmod p$. Comme $e\in Z(P)$, $\abs{Z(P)}\ge1$, donc $\abs{Z(P)}\ge p$.
+\end{preuve}
+\begin{corollaire}[Groupes d'ordre $p^2$]\label{cor-p2}
+Tout groupe d'ordre $p^2$ est abélien, isomorphe à $\Z/p^2\Z$ ou à $\Z/p\Z\times\Z/p\Z$.
+\end{corollaire}
+\begin{preuve}
+$\abs{Z(G)}\in\ens{p,p^2}$. Si c'était $p$, $G/Z(G)$ serait d'ordre $p$, donc cyclique, et $G$ serait abélien (\voir{prop-gz-cyclique}), d'où $Z(G)=G$ : absurde. Donc $G=Z(G)$ est abélien. S'il a un élément d'ordre $p^2$, il est cyclique. Sinon, tout $a\neq e$ est d'ordre $p$. Choisissons $a\neq e$ et $b\notin\langle a\rangle$. $\langle a\rangle\cap\langle b\rangle$ est un sous-groupe de $\langle a\rangle$, d'ordre $1$ ou $p$ ; s'il était d'ordre $p$, on aurait $\langle b\rangle=\langle a\rangle\ni b$. Il est donc trivial, $\abs{\langle a\rangle\langle b\rangle}=p^2$ (\voir{prop-hk}), et le théorème \voir{thm-produit-direct} (tout sous-groupe est normal dans un groupe abélien) donne $G\simeq\langle a\rangle\times\langle b\rangle\simeq\Z/p\Z\times\Z/p\Z$.
+\end{preuve}
+
+\section{Théorèmes de Cauchy et de Sylow}
+\begin{theoreme}[Cauchy]\label{thm-cauchy}
+Si un nombre premier $p$ divise l'ordre d'un groupe fini $G$, alors $G$ a un élément d'ordre $p$.
+\end{theoreme}
+\begin{preuve}[Démonstration (McKay, 1959)]
+Soit $X=\ens{(x_1,\dots,x_p)\in G^p\mid x_1x_2\cdots x_p=e}$. On choisit librement $x_1,\dots,x_{p-1}$, et $x_p=(x_1\cdots x_{p-1})^{-1}$ est imposé : $\abs X=\abs G^{p-1}$, divisible par $p$. Si $x_1x_2\cdots x_p=e$, alors $x_2\cdots x_px_1=x_1^{-1}(x_1\cdots x_p)x_1=e$ : la permutation circulaire des coordonnées préserve $X$, et le groupe $\Z/p\Z$ agit sur $X$ par $\cl k\cdot(x_1,\dots,x_p)=(x_{1+k},\dots,x_{p+k})$, indices lus modulo $p$. Ses points fixes sont les $p$-uplets constants $(x,\dots,x)$ avec $x^p=e$. Par le lemme \voir{lem-points-fixes}, leur nombre est $\equiv\abs X\equiv0\pmod p$. Il y en a au moins un, $(e,\dots,e)$, donc au moins $p\ge2$ : il existe $x\neq e$ avec $x^p=e$, et l'ordre de $x$, diviseur de $p$ différent de $1$, vaut $p$.
+\end{preuve}
+\begin{corollaire}\label{cor-p-groupe-ordres}
+Un groupe fini est un $p$-groupe si et seulement si l'ordre de chacun de ses éléments est une puissance de $p$.
+\end{corollaire}
+\begin{preuve}
+Si $\abs G=p^a$, l'ordre de chaque élément divise $p^a$ (Lagrange). Réciproquement, si un nombre premier $q\neq p$ divisait $\abs G$, Cauchy donnerait un élément d'ordre $q$.
+\end{preuve}
+\begin{definition}[Sous-groupe de Sylow]
+Soit $G$ un groupe fini d'ordre $p^am$ avec $p$ premier, $a\ge1$ et $p\nmid m$. Un \textbf{$p$-sous-groupe de Sylow} (ou $p$-Sylow) de $G$ est un sous-groupe d'ordre $p^a$. On note $\Syl_p(G)$ leur ensemble et $n_p$ leur nombre.
+\end{definition}
+\begin{lemme}\label{lem-binomial}
+Si $p\nmid m$, alors $\binom{p^am}{p^a}\equiv m\pmod p$ ; en particulier ce coefficient n'est pas divisible par $p$.
+\end{lemme}
+\begin{preuve}
+Pour $0<k<p$, $p$ divise $\binom pk=\frac{p!}{k!\,(p-k)!}$ : il divise le numérateur et pas le dénominateur. Dans l'anneau commutatif $(\Z/p\Z)[X]$, on a donc $(A+B)^p=A^p+B^p$, et en itérant $(1+X)^{p^a}=1+X^{p^a}$. Ainsi $(1+X)^{p^am}=(1+X^{p^a})^m=\sum_{j=0}^m\binom mj X^{p^aj}$. Le coefficient de $X^{p^a}$ est $\cl m$ à droite et la classe de $\binom{p^am}{p^a}$ à gauche.
+\end{preuve}
+\begin{theoreme}[Sylow, 1872]\label{thm-sylow}
+Soit $G$ un groupe fini d'ordre $p^am$ avec $p\nmid m$.
+\begin{enumerate}
+\item (Existence) $G$ a au moins un $p$-sous-groupe de Sylow.
+\item (Conjugaison) Tout $p$-sous-groupe de $G$ est contenu dans un $p$-Sylow, et deux $p$-Sylow sont conjugués.
+\item (Nombre) $n_p=[G:N_G(P)]$ pour tout $P\in\Syl_p(G)$ ; $n_p$ divise $m$ et $n_p\equiv1\pmod p$.
+\end{enumerate}
+\end{theoreme}
+\begin{preuve}
+(1) (Wielandt, 1959) Soit $\mathcal X$ l'ensemble des parties de $G$ à $p^a$ éléments. $G$ agit sur $\mathcal X$ par translation : $g\cdot A=gA$, qui a encore $p^a$ éléments. $\abs{\mathcal X}=\binom{p^am}{p^a}$ n'est pas divisible par $p$ (\voir{lem-binomial}), donc l'une des orbites, $O$, a un cardinal non divisible par $p$. Soient $A\in O$ et $H=G_A$. Comme $\abs O\abs H=\abs G$ et $p\nmid\abs O$, $p^a$ divise $\abs H$. D'autre part, si $a_0\in A$, l'application $h\mapsto ha_0$ est injective de $H$ dans $hA=A$ : $\abs H\le p^a$. Donc $\abs H=p^a$.
+(2) Soient $P$ un $p$-Sylow et $Q$ un $p$-sous-groupe. $Q$ agit sur $G/P$ par translation, et $\abs{G/P}=m$ n'est pas divisible par $p$ : par le lemme \voir{lem-points-fixes}, il y a un point fixe $gP$. Pour tout $q\in Q$, $qgP=gP$, c'est-à-dire $g^{-1}qg\in P$ : $Q\subset gPg^{-1}$, qui est un $p$-Sylow. Si $Q$ est lui-même un $p$-Sylow, l'égalité des cardinaux donne $Q=gPg^{-1}$.
+(3) $G$ agit par conjugaison sur $\Syl_p(G)$, transitivement d'après (2), et le stabilisateur de $P$ est $N_G(P)$ : $n_p=[G:N_G(P)]$ (\voir{thm-orbite-stab}). Comme $P\subset N_G(P)$, $m=[G:P]=[G:N_G(P)]\,[N_G(P):P]$ est un multiple de $n_p$. Faisons maintenant agir $P$ seul par conjugaison sur $\Syl_p(G)$ ; $P$ est un point fixe. Si $Q$ en est un, $P\subset N_G(Q)=:N$. Alors $P$ et $Q$ sont des $p$-Sylow de $N$ (leur ordre $p^a$ est la plus grande puissance de $p$ qui divise $\abs N$, diviseur de $\abs G$), donc conjugués dans $N$ d'après (2) : $P=nQn^{-1}=Q$ car $Q\lhd N$. Il y a donc un seul point fixe, et le lemme \voir{lem-points-fixes} donne $n_p\equiv1\pmod p$.
+\end{preuve}
+\begin{corollaire}\label{cor-sylow-normal}
+Un $p$-Sylow $P$ est normal dans $G$ si et seulement si $n_p=1$.
+\end{corollaire}
+\begin{preuve}
+Les conjugués de $P$ sont des $p$-Sylow, et tous les $p$-Sylow sont des conjugués de $P$. Donc $P$ est normal (seul conjugué : lui-même) si et seulement s'il est le seul $p$-Sylow.
+\end{preuve}
+\begin{methode}[Étudier les groupes d'ordre donné]
+\begin{enumerate}
+\item Factoriser $\abs G=p^am$ et lister, pour chaque $p$, les diviseurs de $m$ congrus à $1$ modulo $p$ : ce sont les valeurs possibles de $n_p$.
+\item Si une seule valeur est possible, $n_p=1$ et le $p$-Sylow est normal (\voir{cor-sylow-normal}).
+\item Sinon, compter les éléments : deux sous-groupes distincts d'ordre premier $p$ ne se rencontrent qu'en $e$, donc $n_p$ sous-groupes d'ordre $p$ apportent $n_p(p-1)$ éléments d'ordre $p$. Si les comptes dépassent $\abs G$, une hypothèse est fausse.
+\item Avec deux Sylow normaux d'intersection triviale, conclure par le produit direct interne (\voir{thm-produit-direct}).
+\end{enumerate}
+\end{methode}
+\begin{exemple}[Tout groupe d'ordre 15 est cyclique]
+$15=3\cdot5$. $n_3$ divise $5$ et vaut $1$ modulo $3$ : $n_3=1$. $n_5$ divise $3$ et vaut $1$ modulo $5$ : $n_5=1$. Les deux Sylow $P_3,P_5$ sont normaux, d'intersection triviale (ordres premiers entre eux), et $\abs{P_3P_5}=15$ : $G\simeq\Z/3\Z\times\Z/5\Z\simeq\Z/15\Z$ (exercice \og De $\Z$ à $\Z/n\Z$ \fg{} du chapitre 4).
+\end{exemple}
+\begin{histoire}
+\nom{Cauchy} démontre en 1845 l'existence d'un élément d'ordre $p$ ; le mathématicien norvégien \nom{Sylow} publie ses théorèmes en 1872. La preuve de l'existence donnée ici est celle de \nom{Wielandt} (1959), celle du théorème de Cauchy est celle de \nom{McKay} (1959).
+\end{histoire}
+
+\section{Conjugaison dans $S_n$ ; simplicité de $A_5$}
+\begin{definition}[Type d'une permutation]
+Le \textbf{type} d'une permutation de $S_n$ est la liste des longueurs des cycles de sa décomposition en cycles disjoints, points fixes compris (cycles de longueur 1), rangée par ordre décroissant. Par exemple $(1\,4\,2)(3\,5)\in S_6$ est de type $(3,2,1)$.
+\end{definition}
+\begin{proposition}[Conjugaison dans $S_n$]\label{prop-conj-sn}
+Pour $\sigma\in S_n$ et un cycle $(a_1\,a_2\,\cdots\,a_k)$ :
+\[\sigma\,(a_1\,a_2\,\cdots\,a_k)\,\sigma^{-1}=(\sigma(a_1)\,\sigma(a_2)\,\cdots\,\sigma(a_k)).\]
+Deux permutations de $S_n$ sont conjuguées si et seulement si elles ont le même type.
+\end{proposition}
+\begin{preuve}
+Notons $\gamma=(a_1\,\cdots\,a_k)$. Pour $i<k$ : $\sigma\gamma\sigma^{-1}(\sigma(a_i))=\sigma(\gamma(a_i))=\sigma(a_{i+1})$, et $\sigma(a_k)\mapsto\sigma(a_1)$. Si $b$ n'est pas l'un des $\sigma(a_i)$, $\sigma^{-1}(b)$ n'est pas l'un des $a_i$, donc est fixé par $\gamma$, et $\sigma\gamma\sigma^{-1}(b)=b$. Si $\pi=\gamma_1\cdots\gamma_r$ en cycles disjoints, $\sigma\pi\sigma^{-1}=(\sigma\gamma_1\sigma^{-1})\cdots(\sigma\gamma_r\sigma^{-1})$ est un produit de cycles disjoints de mêmes longueurs : la conjugaison préserve le type. Réciproquement, si $\pi$ et $\pi'$ ont même type, on écrit leurs décompositions l'une sous l'autre, cycles de même longueur alignés, points fixes compris ; la permutation $\sigma$ qui envoie chaque entrée de la première ligne sur l'entrée placée dessous vérifie $\sigma\pi\sigma^{-1}=\pi'$ d'après la formule.
+\end{preuve}
+\begin{exemple}[Les classes de $S_4$]
+Cinq types, donc cinq classes : $(1,1,1,1)$, l'identité, 1 élément ; $(2,1,1)$, les transpositions, 6 ; $(2,2)$, les doubles transpositions, 3 ; $(3,1)$, les 3-cycles, 8 ; $(4)$, les 4-cycles, 6. On vérifie $1+6+3+8+6=24$.
+\end{exemple}
+\begin{proposition}[Classes de $A_n$]\label{prop-classes-an}
+Soit $\sigma\in A_n$ et $K$ sa classe de conjugaison dans $S_n$. Si $C_{S_n}(\sigma)$ contient une permutation impaire, $K$ est une seule classe de conjugaison de $A_n$. Sinon, $K$ est la réunion de deux classes de $A_n$ de même cardinal $\frac{\abs K}2$.
+\end{proposition}
+\begin{preuve}
+$K\subset A_n$ car $A_n$ est normal. La classe de $\sigma$ dans $A_n$ a $[A_n:C_{A_n}(\sigma)]$ éléments, avec $C_{A_n}(\sigma)=C_{S_n}(\sigma)\cap A_n$. Si $C_{S_n}(\sigma)$ contient une permutation impaire, la signature restreinte à $C_{S_n}(\sigma)$ est surjective, de noyau $C_{A_n}(\sigma)$, d'indice $2$ : la classe dans $A_n$ a $\frac{n!/2}{\abs{C_{S_n}(\sigma)}/2}=\abs K$ éléments, c'est $K$. Sinon $C_{A_n}(\sigma)=C_{S_n}(\sigma)$, et la classe dans $A_n$ a $\frac{\abs K}2$ éléments. Fixons une transposition $\tau$. Tout élément de $K$ s'écrit $\rho\sigma\rho^{-1}$ ; si $\rho$ est pair, il est dans la classe $A_n$ de $\sigma$ ; si $\rho$ est impair, $\rho=\tau\rho'$ avec $\rho'$ pair, et $\rho\sigma\rho^{-1}=\tau(\rho'\sigma\rho'^{-1})\tau^{-1}$ est dans l'image par $c_\tau$ de la classe $A_n$ de $\sigma$, qui est la classe $A_n$ de $\tau\sigma\tau^{-1}$ (car $c_\tau(A_n)=A_n$). $K$ est donc réunion de ces deux classes, chacune de cardinal $\frac{\abs K}2$.
+\end{preuve}
+\begin{definition}[Groupe simple]
+Un groupe $G\neq\ens e$ est \textbf{simple} si ses seuls sous-groupes normaux sont $\ens e$ et $G$.
+\end{definition}
+\begin{theoreme}[Simplicité de $A_5$]\label{thm-a5-simple}
+Les classes de conjugaison de $A_5$ ont pour cardinaux $1$, $20$, $15$, $12$, $12$, et $A_5$ est simple.
+\end{theoreme}
+\begin{preuve}
+Les éléments de $A_5$ sont l'identité, les 3-cycles (20), les doubles transpositions (15) et les 5-cycles (24) : $1+20+15+24=60$. On applique la proposition \voir{prop-classes-an}. $(4\,5)$ commute avec $(1\,2\,3)$ et $(1\,2)$ commute avec $(1\,2)(3\,4)$ : ces deux classes de $S_5$ restent des classes de $A_5$. Pour $c=(1\,2\,3\,4\,5)$, la classe de $S_5$ a $24$ éléments, donc $\abs{C_{S_5}(c)}=\frac{120}{24}=5$, et $C_{S_5}(c)=\langle c\rangle\subset A_5$ : les 5-cycles forment deux classes de $12$. Un sous-groupe normal $N$ est réunion de classes, contient la classe $\ens{\id}$, et $\abs N$ divise $60$. Les sommes $1+\dots$ possibles sont $1$, $13$, $16$, $21$, $25$, $28$, $33$, $36$, $40$, $45$, $48$, $60$ ; seules $1$ et $60$ divisent $60$. Donc $N=\ens{\id}$ ou $N=A_5$.
+\end{preuve}
+\begin{remarque}
+On démontre plus généralement que $A_n$ est simple pour tout $n\ge5$, et que $A_5$ est, à isomorphisme près, le seul groupe simple non abélien d'ordre au plus $60$ ; ces résultats ne sont pas démontrés ici. La simplicité de $A_5$ est l'ingrédient de théorie des groupes de l'impossibilité de résoudre par radicaux l'équation générale de degré $5$ (théorie de \nom{Galois}).
+\end{remarque}
+
+\begin{erreurs}
+\item Confondre l'orbite $G\cdot x$ (une partie de $X$) et le stabilisateur $G_x$ (un sous-groupe de $G$) ; oublier que $\abs{G\cdot x}\,\abs{G_x}=\abs G$ n'a de sens que pour $G$ fini.
+\item Croire que la réciproque de Lagrange est vraie : $A_4$, d'ordre 12, n'a pas de sous-groupe d'ordre 6 (exercice \voir{exo-a4}). Seules les puissances de nombres premiers sont garanties, par Sylow.
+\item Conclure $n_p=1$ sans avoir vérifié les \emph{deux} conditions $n_p\mid m$ et $n_p\equiv1\pmod p$, ou écrire $n_p\mid\abs G$ au lieu de $n_p\mid m$.
+\item Compter les éléments d'ordre $p$ comme $n_p\cdot p$ au lieu de $n_p(p-1)$ (le neutre est commun), ou appliquer ce comptage à des Sylow d'ordre $p^a$ avec $a\ge2$, qui peuvent se rencontrer.
+\item Croire que deux permutations de même type sont conjuguées dans $A_n$ : les deux classes de 5-cycles de $A_5$ montrent le contraire.
+\item Croire que $H\lhd K\lhd G$ entraîne $H\lhd G$ (exercice \voir{exo-vf-groupes}).
+\end{erreurs}
+
+\exercices
+
+\begin{qcm}[Conjugaison, produits, actions]
+Questions de compréhension sur les sections 1 à 3. Le mode de correction se choisit en tête de série.
+\begin{question}
+Soit $G$ un groupe fini non abélien. Que peut valoir l'indice $[G:Z(G)]$ ?
+\choix{N'importe quel diviseur de $\abs G$ strictement supérieur à 1.}{Non : si $[G:Z(G)]$ était premier, $G/Z(G)$ serait cyclique, donc $G$ abélien.}
+\bonchoix{Un entier $\ge4$, jamais premier.}{Oui : il est $>1$ car $G$ n'est pas abélien, et il n'est pas premier (\voir{prop-gz-cyclique}) ; $4$ est atteint par $Q_8$ et par $D_4$.}
+\choix{Exactement 2.}{C'est impossible : un groupe d'ordre 2 est cyclique, et $G/Z(G)$ cyclique force $G$ abélien.}
+\choix{Un nombre premier.}{C'est précisément la seule valeur interdite (avec 1).}
+\begin{explication}
+La proposition \voir{prop-gz-cyclique} : $G/Z(G)$ cyclique entraîne $G$ abélien. Un groupe d'ordre premier est cyclique, donc $[G:Z(G)]$ n'est ni 1 ni premier ; le plus petit indice possible est $4$, avec $Z(Q_8)=\ens{\pm1}$.
+\end{explication}
+\end{question}
+\begin{question}[plusieurs]
+Lesquels de ces sous-groupes sont normaux dans le groupe indiqué ?
+\bonchoix{$Z(G)$ dans $G$.}{Oui : $gzg^{-1}=z$.}
+\bonchoix{$\Inn(G)$ dans $\Aut(G)$.}{Oui : $\varphi c_g\varphi^{-1}=c_{\varphi(g)}$ (\voir{prop-inn}).}
+\choix{$\langle(1\,2)\rangle$ dans $S_3$.}{Non : $(1\,3)(1\,2)(1\,3)^{-1}=(3\,2)$ n'est pas dans ce sous-groupe.}
+\bonchoix{$H$ dans $N_G(H)$, pour tout sous-groupe $H$.}{Oui, c'est la définition même du normalisateur : le plus grand sous-groupe dans lequel $H$ est normal.}
+\choix{$C_G(x)$ dans $G$, pour tout $x$.}{Non : $C_{S_3}((1\,2))=\langle(1\,2)\rangle$, qui n'est pas normal.}
+\begin{explication}
+Voir la proposition \voir{prop-centre} et la proposition \voir{prop-inn}. Un centralisateur n'est pas normal en général : $gC_G(x)g^{-1}=C_G(gxg^{-1})$, qui change avec $x$.
+\end{explication}
+\end{question}
+\begin{question}
+Dans $S_4$, combien d'éléments a la classe de conjugaison de $(1\,2)(3\,4)$ ?
+\choix{6}{C'est le nombre de transpositions, ou de 4-cycles.}
+\bonchoix{3}{Oui : $(1\,2)(3\,4)$, $(1\,3)(2\,4)$, $(1\,4)(2\,3)$, les trois doubles transpositions.}
+\choix{8}{C'est le nombre de 3-cycles.}
+\choix{1}{Cela signifierait que $(1\,2)(3\,4)$ est central ; or $Z(S_4)$ est trivial.}
+\begin{explication}
+Deux permutations sont conjuguées dans $S_n$ si et seulement si elles ont le même type (\voir{prop-conj-sn}). Les permutations de type $(2,2)$ de $S_4$ correspondent aux partages de $\ens{1,2,3,4}$ en deux paires : $\frac12\binom42=3$. Donc $\abs{C_{S_4}((1\,2)(3\,4))}=24/3=8$ : ce centralisateur est un $2$-Sylow de $S_4$.
+\end{explication}
+\end{question}
+\begin{question}
+$H$ et $K$ sont deux sous-groupes d'un groupe fini, d'ordres $12$ et $18$, avec $\abs{H\cap K}=6$. Que vaut $\abs{HK}$ ?
+\choix{216}{C'est $\abs H\abs K$ : on a oublié que chaque élément de $HK$ s'écrit de $\abs{H\cap K}$ façons.}
+\bonchoix{36}{Oui : $\frac{12\cdot18}6=36$ (\voir{prop-hk}).}
+\choix{6}{C'est $\abs{H\cap K}$.}
+\choix{On ne peut pas le savoir sans savoir si $HK$ est un sous-groupe.}{La formule de cardinal vaut pour l'ensemble $HK$, sous-groupe ou non.}
+\begin{explication}
+L'application $(h,k)\mapsto hk$ a des fibres de cardinal $\abs{H\cap K}$. La formule ne demande pas que $HK$ soit un sous-groupe : dans $S_3$, $\langle(1\,2)\rangle\langle(1\,3)\rangle$ a 4 éléments sans en être un.
+\end{explication}
+\end{question}
+\begin{question}[plusieurs]
+Le groupe $D_4$ (ordre 8) agit sur les 4 sommets d'un carré. Quelles affirmations sont vraies ?
+\bonchoix{L'action est transitive.}{Oui : les rotations suffisent à envoyer un sommet sur n'importe quel autre.}
+\bonchoix{Le stabilisateur d'un sommet a 2 éléments.}{Oui : $8/4=2$, l'identité et la réflexion d'axe passant par ce sommet.}
+\choix{Tous les sommets ont le même stabilisateur.}{Non : les stabilisateurs des sommets sont conjugués, pas égaux ; le sommet voisin est fixé par une autre réflexion.}
+\bonchoix{L'action est fidèle.}{Oui : un élément qui fixe tous les sommets est l'identité ($D_4$ se plonge dans $S_4$).}
+\begin{explication}
+Relation orbite-stabilisateur : $\abs{D_4}=4\times2$. Les stabilisateurs d'une même orbite sont conjugués, $G_{g\cdot x}=gG_xg^{-1}$ (\voir{prop-orbites}), mais pas égaux en général.
+\end{explication}
+\end{question}
+\begin{question}
+Un groupe d'ordre $15$ agit sur un ensemble à $7$ éléments. Alors :
+\bonchoix{il y a forcément au moins un point fixe.}{Oui : les orbites ont 1, 3, 5 ou 15 éléments, et $7$ ne s'écrit pas comme somme de 3 et de 5 seulement.}
+\choix{l'action est forcément triviale.}{Non : un élément d'ordre 3 peut agir comme un 3-cycle sur 3 des points.}
+\choix{il n'y a jamais de point fixe.}{Toutes les orbites auraient 3, 5 ou 15 éléments ; essaie d'écrire 7.}
+\choix{une telle action n'existe pas.}{L'action triviale existe toujours.}
+\begin{explication}
+Les cardinaux des orbites divisent l'ordre du groupe (\voir{thm-orbite-stab}) et leur somme vaut $\abs X$. Comme $7\notin\ens{3a+5b\mid a,b\ge0}$ ($7-5=2$, $7-3=4$, $7-6=1$ ne conviennent pas), une orbite au moins est de cardinal 1.
+\end{explication}
+\end{question}
+\begin{question}
+Combien y a-t-il de façons de colorier les 4 sommets d'un carré en 2 couleurs, à rotation près ?
+\choix{16}{C'est le nombre de coloriages, sans identifier ceux qui se déduisent par rotation.}
+\choix{4}{C'est $16/4$ : on a divisé par l'ordre du groupe, ce qui suppose toutes les orbites de cardinal 4.}
+\bonchoix{6}{Oui : $\frac14(2^4+2+2^2+2)=6$.}
+\choix{5}{On a compté les coloriages par nombre de sommets noirs ; deux coloriages à 2 sommets noirs (adjacents ou opposés) ne sont pas équivalents.}
+\begin{explication}
+Formule de Burnside (\voir{thm-burnside}) avec $\Z/4\Z$ : l'identité fixe $2^4$ coloriages, les rotations d'un quart de tour fixent les 2 coloriages constants, le demi-tour en fixe $2^2$. Les 6 classes : 0 noir, 1 noir, 2 noirs adjacents, 2 noirs opposés, 3 noirs, 4 noirs.
+\end{explication}
+\end{question}
+\begin{question}
+$H$ est un sous-groupe d'indice $3$ d'un groupe $G$ d'ordre $33$. Alors :
+\bonchoix{$H$ est normal dans $G$.}{Oui : 3 est le plus petit nombre premier qui divise 33 (\voir{cor-plus-petit-premier}).}
+\choix{$H$ n'est normal que si $G$ est abélien.}{Non, l'argument ne fait pas appel à la commutativité.}
+\choix{On ne peut rien dire : seuls les sous-groupes d'indice 2 sont toujours normaux.}{L'indice 2 est le cas $p=2$ d'un résultat plus général.}
+\choix{$H$ n'existe pas, car 3 ne divise pas $\abs H$.}{$\abs H=11$ ; rien n'oblige 3 à diviser $\abs H$.}
+\begin{explication}
+L'action de $G$ sur $G/H$ donne $G/N\hookrightarrow S_3$ avec $N\subset H$ normal ; $[H:N]$ divise $2$ et $33$, donc vaut $1$. Plus généralement, un sous-groupe d'indice égal au plus petit premier divisant $\abs G$ est normal.
+\end{explication}
+\end{question}
+\begin{question}[plusieurs]
+Lesquelles de ces applications définissent une action de $G$ sur $X=G$ ?
+\bonchoix{$g\cdot x=gx$.}{Oui : translation à gauche.}
+\choix{$g\cdot x=xg$.}{Non (si $G$ n'est pas abélien) : $g\cdot(h\cdot x)=xhg$ alors que $(gh)\cdot x=xgh$. C'est une action à droite.}
+\bonchoix{$g\cdot x=xg^{-1}$.}{Oui : $g\cdot(h\cdot x)=xh^{-1}g^{-1}=x(gh)^{-1}=(gh)\cdot x$.}
+\bonchoix{$g\cdot x=gxg^{-1}$.}{Oui : conjugaison.}
+\choix{$g\cdot x=g^{-1}xg$.}{Non (si $G$ n'est pas abélien) : $g\cdot(h\cdot x)=g^{-1}h^{-1}xhg=(hg)\cdot x$, l'ordre est inversé.}
+\begin{explication}
+L'axiome à tester est $g\cdot(h\cdot x)=(gh)\cdot x$. Les deux formules fausses vérifient $g\cdot(h\cdot x)=(hg)\cdot x$ : ce sont des actions à droite, qu'on transforme en actions à gauche en remplaçant $g$ par $g^{-1}$.
+\end{explication}
+\end{question}
+\begin{question}
+Quel est le centre du groupe diédral $D_6$ (symétries de l'hexagone régulier, ordre 12) ?
+\choix{$\ens e$}{C'est le cas pour $n$ impair seulement.}
+\bonchoix{$\ens{e,r^3}$}{Oui : pour $n$ pair, le demi-tour $r^{n/2}$ commute avec tout.}
+\choix{$\langle r\rangle$}{Les rotations commutent entre elles, mais $\tau r\tau^{-1}=r^{-1}\neq r$.}
+\choix{$\ens{e,\tau}$}{Une réflexion ne commute pas avec $r$ quand $n\ge3$.}
+\begin{explication}
+$r^k$ commute avec $\tau$ si et seulement si $r^{-k}=r^k$, soit $n\mid2k$ ; aucune réflexion n'est centrale pour $n\ge3$ (exercice \voir{exo-centres}). Pour $n=6$ : $k\in\ens{0,3}$.
+\end{explication}
+\end{question}
+\end{qcm}
+
+\begin{qcm}[$p$-groupes, Cauchy, Sylow, $S_n$]
+Questions sur les sections 4 à 6.
+\begin{question}
+Un groupe $G$ a pour ordre $3^4\cdot5\cdot7=2835$. D'après Sylow, quelles sont les valeurs possibles de $n_3$ ?
+\choix{$1$, $5$, $7$, $35$}{Ce sont les diviseurs de $35$ ; il faut garder ceux qui valent 1 modulo 3.}
+\bonchoix{$1$, $7$}{Oui : parmi $1,5,7,35$, seuls $1$ et $7$ sont congrus à 1 modulo 3 ($5\equiv2$, $35\equiv2$).}
+\choix{$1$ seulement}{$7\equiv1\pmod3$ et $7\mid35$ : la valeur $7$ n'est pas exclue par Sylow.}
+\choix{$1$, $4$, $7$, $10$, $\dots$}{$n_3$ doit aussi diviser $m=35$.}
+\begin{explication}
+$n_p$ divise $m$ (la partie de $\abs G$ première à $p$) et $n_p\equiv1\pmod p$ (\voir{thm-sylow}). Ici $m=35$.
+\end{explication}
+\end{question}
+\begin{question}[plusieurs]
+Soit $P$ un groupe d'ordre $p^3$, $p$ premier. Quelles affirmations sont toujours vraies ?
+\bonchoix{$Z(P)\neq\ens e$.}{Oui : le centre d'un $p$-groupe non trivial n'est pas trivial (\voir{thm-centre-p}).}
+\choix{$P$ est abélien.}{Non : $D_4$ et $Q_8$ sont d'ordre $2^3$ et non abéliens.}
+\bonchoix{Si $P$ n'est pas abélien, $\abs{Z(P)}=p$.}{Oui : $\abs{Z(P)}=p^2$ donnerait $P/Z(P)$ d'ordre $p$, cyclique, donc $P$ abélien.}
+\bonchoix{$P$ a un sous-groupe d'ordre $p^2$.}{Oui : c'est vrai pour tout $p$-groupe et tout exposant (exercice \voir{exo-p-sous-groupes}).}
+\begin{explication}
+Équation aux classes pour les $p$-groupes, puis la proposition \voir{prop-gz-cyclique}. Les groupes d'ordre $p^2$, eux, sont tous abéliens (\voir{cor-p2}).
+\end{explication}
+\end{question}
+\begin{question}
+Dans la preuve de McKay du théorème de Cauchy, $\Z/p\Z$ agit sur $X=\ens{(x_1,\dots,x_p)\mid x_1\cdots x_p=e}$. Quel est le fait décisif ?
+\choix{$\abs X=\abs G^p$.}{Non : $x_p$ est déterminé par les autres, $\abs X=\abs G^{p-1}$.}
+\bonchoix{Le nombre de points fixes est congru à $\abs X$, donc à $0$, modulo $p$, et $(e,\dots,e)$ en est un.}{Oui : il y a donc au moins $p$ points fixes, et un point fixe $(x,\dots,x)\neq(e,\dots,e)$ donne $x^p=e$, $x\neq e$.}
+\choix{$G$ agit sur $X$ par conjugaison.}{L'action utilisée est la permutation circulaire des coordonnées, par le groupe $\Z/p\Z$.}
+\choix{Toutes les orbites ont exactement $p$ éléments.}{Les points fixes forment des orbites à un élément ; c'est justement eux qu'on compte.}
+\begin{explication}
+Lemme \voir{lem-points-fixes} appliqué au $p$-groupe $\Z/p\Z$ : $\abs X\equiv\abs{X^{\Z/p\Z}}\pmod p$, et $p\mid\abs X=\abs G^{p-1}$.
+\end{explication}
+\end{question}
+\begin{question}
+Combien $A_5$ a-t-il de sous-groupes d'ordre $5$ ?
+\choix{1}{Un 5-Sylow unique serait normal, et $A_5$ est simple.}
+\bonchoix{6}{Oui : 24 éléments d'ordre 5, quatre par sous-groupe : $24/4=6$.}
+\choix{24}{C'est le nombre d'éléments d'ordre 5 ; chaque sous-groupe d'ordre 5 en contient 4.}
+\choix{12}{C'est le cardinal de chacune des deux classes de conjugaison de 5-cycles.}
+\begin{explication}
+Sylow impose $n_5\mid12$ et $n_5\equiv1\pmod5$, soit $n_5\in\ens{1,6}$ ; $n_5=1$ est exclu par la simplicité (\voir{thm-a5-simple}). Le comptage direct donne aussi 6.
+\end{explication}
+\end{question}
+\begin{question}[plusieurs]
+Quelles affirmations sur les groupes d'ordre donné sont vraies ?
+\bonchoix{Tout groupe d'ordre 35 est cyclique.}{Oui : $n_5=n_7=1$, et $G\simeq\Z/5\Z\times\Z/7\Z\simeq\Z/35\Z$.}
+\choix{Tout groupe d'ordre 21 est cyclique.}{Non : $n_7=1$, mais $7\equiv1\pmod3$ autorise $n_3=7$ ; il existe un groupe non abélien d'ordre 21 (exercice \voir{exo-pq}).}
+\bonchoix{Aucun groupe d'ordre 30 n'est simple.}{Oui : si $n_3=10$ et $n_5=6$, on aurait $20+24=44>30$ éléments d'ordre 3 ou 5.}
+\choix{Tout groupe d'ordre 12 a un 3-Sylow normal.}{Non : $A_4$ a quatre 3-Sylow. C'est alors le 2-Sylow qui est normal.}
+\bonchoix{Tout groupe d'ordre 9 est abélien.}{Oui : $9=3^2$ (\voir{cor-p2}).}
+\begin{explication}
+Méthode de Sylow : valeurs possibles de $n_p$, puis comptage des éléments d'ordre premier. Pour $pq$ avec $p<q$ et $p\nmid q-1$, le groupe est cyclique.
+\end{explication}
+\end{question}
+\begin{question}
+Deux 2-Sylow distincts de $S_4$ (d'ordre 8) se rencontrent en :
+\choix{$\ens{\id}$}{C'est vrai pour des sous-groupes d'ordre premier, pas pour des Sylow d'ordre $p^a$ avec $a\ge2$.}
+\bonchoix{le groupe $V=\ens{\id,(1\,2)(3\,4),(1\,3)(2\,4),(1\,4)(2\,3)}$.}{Oui : $V$ est un 2-sous-groupe normal, donc contenu dans tous les 2-Sylow ; deux Sylow distincts d'ordre 8 ont une intersection d'ordre au plus 4.}
+\choix{un sous-groupe d'ordre 2.}{L'intersection contient $V$, d'ordre 4.}
+\choix{un sous-groupe qui dépend des deux Sylow choisis.}{Les trois 2-Sylow de $S_4$ ont la même intersection deux à deux.}
+\begin{explication}
+Un $p$-sous-groupe normal $Q$ est contenu dans un Sylow $P$, donc dans tous ses conjugués $gPg^{-1}\supset gQg^{-1}=Q$, c'est-à-dire dans tous les Sylow (\voir{thm-sylow}).
+\end{explication}
+\end{question}
+\begin{question}
+Combien d'éléments de $S_6$ sont de type $(2,2,2)$ ?
+\choix{90}{C'est $6!/2^3$ : on a oublié de diviser par $3!$, l'ordre dans lequel on écrit les trois transpositions.}
+\bonchoix{15}{Oui : $\frac{6!}{2^3\cdot3!}=15$, le nombre de partages de 6 objets en 3 paires.}
+\choix{120}{C'est $6!/3!$ : on a oublié que chaque transposition $(a\,b)=(b\,a)$ s'écrit de deux façons.}
+\choix{48}{C'est l'ordre du centralisateur, $2^3\cdot3!$, pas le cardinal de la classe.}
+\begin{explication}
+Le cardinal de la classe d'une permutation de type ayant $m_k$ cycles de longueur $k$ est $\frac{n!}{\prod_kk^{m_k}m_k!}$ (exercice \voir{exo-conj-sn}) ; ici $m_2=3$.
+\end{explication}
+\end{question}
+\begin{question}
+Dans $A_5$, $(1\,2\,3\,4\,5)$ et $(1\,3\,5\,2\,4)=(1\,2\,3\,4\,5)^2$ sont-ils conjugués ?
+\bonchoix{Non : les 5-cycles forment deux classes de $A_5$, et ces deux-là sont dans des classes différentes.}{Oui. Un $\rho\in S_5$ avec $\rho c\rho^{-1}=c^2$ est déterminé à multiplication par $C_{S_5}(c)=\langle c\rangle$ près ; on peut prendre $\rho=(2\,3\,5\,4)$, impair, et tous les autres sont $\rho c^k$, impairs aussi.}
+\choix{Oui, car ils ont le même type dans $S_5$.}{Même type donne conjugués dans $S_5$, pas forcément dans $A_5$ (\voir{prop-classes-an}).}
+\choix{Oui, car l'un est une puissance de l'autre.}{Une puissance n'est pas en général un conjugué ; ici, ce n'en est pas un dans $A_5$.}
+\choix{La question n'a pas de sens : $(1\,3\,5\,2\,4)$ est impair.}{Un 5-cycle est pair ($(-1)^4=1$).}
+\begin{explication}
+Avec $c=(1\,2\,3\,4\,5)$ et $c^2=(1\,3\,5\,2\,4)$, la formule $\rho c\rho^{-1}=(\rho(1)\,\cdots\,\rho(5))$ donne la solution $\rho:1\mapsto1,\ 2\mapsto3,\ 3\mapsto5,\ 4\mapsto2,\ 5\mapsto4$, soit $\rho=(2\,3\,5\,4)$, un 4-cycle, impair. Les autres solutions sont $\rho c^k$, impaires aussi. Donc aucune permutation paire ne conjugue $c$ en $c^2$.
+\end{explication}
+\end{question}
+\begin{question}
+Pourquoi le théorème de Sylow ne contredit-il pas le fait que $A_4$ n'a pas de sous-groupe d'ordre 6 ?
+\bonchoix{Parce que Sylow ne garantit que des sous-groupes d'ordre puissance d'un nombre premier.}{Oui : $6$ n'est pas une puissance de nombre premier ; pour $12=2^2\cdot3$, Sylow donne des sous-groupes d'ordre 4 et 3, et $A_4$ en a.}
+\choix{Parce que Sylow ne s'applique qu'aux groupes abéliens.}{Sylow s'applique à tout groupe fini.}
+\choix{Parce que $A_4$ n'est pas un groupe fini.}{$\abs{A_4}=12$.}
+\choix{Parce que 6 ne divise pas 12.}{6 divise 12 : c'est bien la réciproque de Lagrange qui est en défaut.}
+\begin{explication}
+La réciproque de Lagrange est fausse en général ; Cauchy et Sylow en sont des réciproques partielles, pour les ordres premiers puis les puissances maximales de premiers (et, en fait, toutes les puissances de premiers : exercice \voir{exo-p-sous-groupes}).
+\end{explication}
+\end{question}
+\begin{question}[plusieurs]
+Soit $G$ un groupe fini et $p$ un nombre premier divisant $\abs G$. Lesquelles de ces affirmations sont vraies ?
+\bonchoix{Le nombre d'éléments d'ordre $p$ est un multiple de $p-1$.}{Oui : chaque sous-groupe d'ordre $p$ en contient $p-1$, et deux tels sous-groupes distincts ne se rencontrent qu'en $e$.}
+\choix{Le nombre d'éléments d'ordre $p$ est au plus $p-1$.}{Non : $S_3$ a trois éléments d'ordre 2.}
+\bonchoix{$G$ a un sous-groupe d'ordre $p$.}{Oui : par Cauchy, $\langle x\rangle$ avec $x$ d'ordre $p$.}
+\choix{Si $G$ a un unique sous-groupe d'ordre $p$, alors $G$ est cyclique.}{Non : $Q_8$ n'a qu'un sous-groupe d'ordre 2 et n'est pas cyclique.}
+\begin{explication}
+Les sous-groupes d'ordre $p$ sont cycliques, engendrés par n'importe lequel de leurs $p-1$ éléments non neutres. Le nombre d'éléments d'ordre $p$ est donc $(p-1)$ fois le nombre de sous-groupes d'ordre $p$.
+\end{explication}
+\end{question}
+\end{qcm}
+
+\rubrique{A}
+\begin{exo}[S][Quatre centres]\label{exo-centres}
+Déterminer : (a) $Z(S_3)$ ; (b) $Z(D_n)$ pour $n\ge3$, selon la parité de $n$ ; (c) $Z(Q_8)$ et le quotient $Q_8/Z(Q_8)$ ; (d) $Z(\GL_2(\R))$.
+\begin{indication}
+(a) Utiliser la formule $\sigma(a\,b)\sigma^{-1}=(\sigma(a)\,\sigma(b))$. (b) Tester $r^k$ contre $\tau$ et $r^k\tau$ contre $r$, avec $\tau r\tau=r^{-1}$. (d) Une matrice centrale commute en particulier avec $E=\begin{pmatrix}1&1\\0&1\end{pmatrix}$ et $F=\begin{pmatrix}1&0\\1&1\end{pmatrix}$.
+\end{indication}
+\begin{corrige}
+(a) Par \voir{prop-conj-sn}, la conjugaison par $(2\,3)$ envoie $(1\,2)$ sur $(1\,3)$ ; celle par $(1\,2)$ envoie $(1\,3)$ sur $(2\,3)$, $(2\,3)$ sur $(1\,3)$ et $(1\,2\,3)$ sur $(2\,1\,3)=(1\,3\,2)$. Enfin $(1\,3\,2)=(1\,2\,3)^{-1}$ n'est pas central, puisque l'inverse d'un élément central est central. Aucun des cinq éléments différents de $\id$ n'est central : $Z(S_3)=\ens{\id}$.
+(b) $\tau r^k\tau^{-1}=(\tau r\tau)^k=r^{-k}$, donc $r^k$ commute avec $\tau$ si et seulement si $r^{2k}=e$, c'est-à-dire $n\mid2k$ ; comme $r^k$ commute avec les rotations, $r^k$ est central si et seulement si $n\mid 2k$. Pour une réflexion : $r\cdot r^k\tau=r^{k+1}\tau$ et $r^k\tau\cdot r=r^k(\tau r\tau)\tau=r^{k-1}\tau$, égaux seulement si $r^2=e$, exclu pour $n\ge3$. Donc $Z(D_n)=\ens e$ si $n$ est impair et $Z(D_n)=\ens{e,r^{n/2}}$ si $n$ est pair.
+(c) $\pm I_2$ sont centraux (matrices scalaires). $\mathbf i\mathbf j=\mathbf k=-\mathbf j\mathbf i$ : ni $\pm\mathbf i$ ni $\pm\mathbf j$ ne sont centraux, et $\mathbf k\mathbf i=\mathbf j=-\mathbf i\mathbf k$ : $\pm\mathbf k$ non plus. Donc $Z(Q_8)=\ens{\pm I_2}$. Le quotient est d'ordre 4, et le carré de chaque élément de $Q_8$ est $\pm I_2$ : tous les éléments du quotient sont d'ordre au plus 2, donc $Q_8/Z(Q_8)\simeq\Z/2\Z\times\Z/2\Z$ (groupes d'ordre 4, chapitre 4).
+(d) Soit $A=\begin{pmatrix}a&b\\c&d\end{pmatrix}$ central. $AE=\begin{pmatrix}a&a+b\\c&c+d\end{pmatrix}$ et $EA=\begin{pmatrix}a+c&b+d\\c&d\end{pmatrix}$ donnent $c=0$ et $a=d$ ; $AF=\begin{pmatrix}a+b&b\\c+d&d\end{pmatrix}$ et $FA=\begin{pmatrix}a&b\\a+c&b+d\end{pmatrix}$ donnent $b=0$. Donc $A=aI_2$ avec $a\neq0$, et réciproquement les matrices scalaires inversibles sont centrales : $Z(\GL_2(\R))=\R^*I_2$.
+\end{corrige}
+\end{exo}
+
+\begin{exo}[S][Classes de $S_4$ et de $A_4$, sous-groupes normaux]\label{exo-classes-s4}
+(a) Donner les classes de conjugaison de $S_4$ avec leurs cardinaux, et écrire l'équation aux classes. (b) Montrer que les sous-groupes normaux de $S_4$ sont $\ens{\id}$, $V=\ens{\id,(1\,2)(3\,4),(1\,3)(2\,4),(1\,4)(2\,3)}$, $A_4$ et $S_4$. (c) Donner les classes de conjugaison de $A_4$, puis ses sous-groupes normaux.
+\begin{indication}
+Un sous-groupe normal est une réunion de classes qui contient $\id$ et dont le cardinal divise l'ordre du groupe. Pour $A_4$, appliquer la proposition \voir{prop-classes-an} au 3-cycle $(1\,2\,3)$.
+\end{indication}
+\begin{corrige}
+(a) Par types (\voir{prop-conj-sn}) : $\ens{\id}$ (1), transpositions (6), doubles transpositions (3), 3-cycles (8), 4-cycles (6) ; $24=1+6+3+8+6$, et $Z(S_4)$ est trivial.
+(b) Un sous-groupe normal $N$ contient avec chaque élément tous ses conjugués : c'est une réunion de classes contenant $\ens{\id}$, et $\abs N$ divise $24$. Les sommes $1+$(somme d'une partie de $\ens{6,3,8,6}$) sont $1,7,4,9,13,10,15,12,18,21,16,24$ (en tenant compte des deux classes de cardinal 6). Celles qui divisent 24 sont $1$, $4=1+3$, $12=1+3+8$ et $24$. Ces réunions sont bien des sous-groupes : $\ens{\id}$, $V$ (chapitre 4), $A_4$ (pair : identité, doubles transpositions, 3-cycles) et $S_4$. Ce sont donc les quatre sous-groupes normaux.
+(c) Les doubles transpositions restent une classe de $A_4$ : $(1\,2)$ est impaire et commute avec $(1\,2)(3\,4)$. Pour $c=(1\,2\,3)$, $\abs{C_{S_4}(c)}=24/8=3$, donc $C_{S_4}(c)=\langle c\rangle\subset A_4$ : les 3-cycles forment deux classes de 4 éléments. Équation aux classes : $12=1+3+4+4$. Les réunions candidates ont pour cardinal $1,4,5,5,8,9,9,12$ ; seuls $1$, $4$, $12$ divisent 12, et $1+3$ correspond à $V$. Sous-groupes normaux de $A_4$ : $\ens{\id}$, $V$, $A_4$.
+\end{corrige}
+\end{exo}
+
+\begin{exo}[S][Orbites et stabilisateurs]
+(a) Le groupe $G$ des rotations du cube. Montrer que $\abs G=24$ en le faisant agir sur les 6 faces, puis vérifier le résultat avec les 8 sommets et les 12 arêtes. (b) Le corps $\mathbb F_2=\Z/2\Z$. Montrer que $\GL_2(\mathbb F_2)$ agit fidèlement sur les trois vecteurs non nuls de $\mathbb F_2^2$, et en déduire $\GL_2(\mathbb F_2)\simeq S_3$. (c) Déterminer le noyau de l'action de $D_4$ sur l'ensemble des deux diagonales du carré.
+\begin{indication}
+(a) Les rotations qui fixent une face sont celles d'axe passant par son centre ; pour un sommet, l'axe est la grande diagonale ; pour une arête, l'axe passe par son milieu et celui de l'arête opposée. (b) Compter les matrices inversibles : la première colonne est non nulle, la seconde n'est pas sur la droite de la première. (c) Sommets $1,2,3,4$ dans l'ordre, diagonales $\ens{1,3}$ et $\ens{2,4}$ ; $\tau$ a pour axe la diagonale $\ens{1,3}$.
+\end{indication}
+\begin{corrige}
+(a) $G$ agit transitivement sur les faces (les quarts de tour d'axes passant par les centres de faces envoient une face sur n'importe quelle autre). Le stabilisateur d'une face est formé des 4 rotations d'axe perpendiculaire à cette face passant par son centre (angles $0,\frac\pi2,\pi,\frac{3\pi}2$) : $\abs G=6\cdot4=24$. Avec les sommets : stabilisateur d'ordre 3 (rotations d'angles $0,\pm\frac{2\pi}3$ autour de la grande diagonale), $8\cdot3=24$. Avec les arêtes : stabilisateur d'ordre 2 (l'identité et le demi-tour autour de l'axe joignant le milieu de l'arête à celui de l'arête opposée), $12\cdot2=24$.
+(b) Une matrice $A\in\GL_2(\mathbb F_2)$ est une bijection linéaire, qui envoie $\mathbb F_2^2\setminus\ens0=\ens{e_1,e_2,e_1+e_2}$ dans lui-même : on obtient une action, donc un homomorphisme $\rho:\GL_2(\mathbb F_2)\to S_3$. Si $A$ fixe $e_1$ et $e_2$, $A=I_2$ : l'action est fidèle, $\rho$ est injectif. Il y a $3$ choix de première colonne (non nulle) et $2$ choix de seconde (non nulle et différente de la première) : $\abs{\GL_2(\mathbb F_2)}=6=\abs{S_3}$, et $\rho$ est un isomorphisme.
+(c) $r$ échange les deux diagonales, donc $r$ et $r^3$ ne sont pas dans le noyau, mais $r^2$ (demi-tour) préserve chacune d'elles. $\tau$ fixe $1$ et $3$ et échange $2$ et $4$ : il préserve les deux diagonales, de même que $r^2\tau$, réflexion d'axe $\ens{2,4}$. Les réflexions $r\tau$ et $r^3\tau$, d'axes passant par des milieux de côtés, échangent les diagonales. Le noyau est $\ens{e,r^2,\tau,r^2\tau}\simeq\Z/2\Z\times\Z/2\Z$, d'indice 2.
+\end{corrige}
+\end{exo}
+
+\begin{exo}[S][Dénombrer avec Burnside]
+(a) Combien de colliers de 6 perles noires ou blanches, à rotation près ? à rotation et retournement près (groupe $D_6$) ? (b) Les rotations du cube se répartissent ainsi : l'identité ; 6 quarts de tour autour des axes de faces ; 3 demi-tours autour de ces axes ; 8 rotations de $\pm\frac{2\pi}3$ autour des grandes diagonales ; 6 demi-tours autour des axes d'arêtes. Combien y a-t-il de façons de colorier les faces d'un cube avec $3$ couleurs, à rotation près ? avec $2$ couleurs ? (c) Soit $p$ premier et $k\ge1$. Compter les colliers de $p$ perles à $k$ couleurs, à rotation près, et en déduire le petit théorème de Fermat $k^p\equiv k\pmod p$.
+\begin{indication}
+Un coloriage est fixé par un élément si et seulement s'il est constant sur chacun des cycles de cet élément : $\abs{\Fix(g)}=k^{c(g)}$, où $c(g)$ est le nombre de cycles de $g$ sur les objets coloriés.
+\end{indication}
+\begin{corrige}
+(a) À rotation près : 14 (voir l'exemple du cours). Les 6 réflexions de l'hexagone : 3 axes passent par deux perles opposées (cycles : 2 points fixes et 2 paires, $2^4$ coloriages fixes) et 3 axes par des milieux d'arêtes (3 paires, $2^3$). Nombre de bracelets : $\frac1{12}(84+3\cdot16+3\cdot8)=\frac{156}{12}=13$.
+(b) Nombres de cycles sur les faces : identité 6 ; quart de tour 3 (deux faces fixes, un 4-cycle) ; demi-tour d'axe de face 4 (deux faces fixes, deux 2-cycles) ; rotation de $\frac{2\pi}3$ : 2 (deux 3-cycles) ; demi-tour d'axe d'arête 3 (trois 2-cycles). Avec $k$ couleurs : $\frac1{24}(k^6+6k^3+3k^4+8k^2+6k^3)$. Pour $k=3$ : $\frac{729+162+243+72+162}{24}=\frac{1368}{24}=57$. Pour $k=2$ : $\frac{64+48+48+32+48}{24}=10$.
+(c) Pour $j\in\ens{1,\dots,p-1}$, la rotation de $j$ crans est d'ordre $p$ et n'a qu'un cycle : elle fixe les $k$ colliers unicolores. Nombre de colliers : $N=\frac1p\big(k^p+(p-1)k\big)$. Comme $N$ est un entier, $p$ divise $k^p+(p-1)k=k^p-k+pk$, donc $p\mid k^p-k$.
+\end{corrige}
+\end{exo}
+
+\begin{exo}[S][Sylow dans de petits groupes]
+Déterminer $n_2$ et $n_3$ pour $S_3$, $A_4$ et $S_4$, puis $n_2$, $n_3$, $n_5$ pour $A_5$, en comptant directement, et vérifier à chaque fois les conditions du théorème de Sylow.
+\begin{indication}
+Un sous-groupe d'ordre 3 contient deux 3-cycles ; un sous-groupe d'ordre 5 contient quatre 5-cycles. Pour les 2-Sylow de $A_5$ : $A_5$ n'a pas d'élément d'ordre 4.
+\end{indication}
+\begin{corrige}
+$S_3$ ($6=2\cdot3$) : trois sous-groupes $\langle(a\,b)\rangle$, $n_2=3$ ($3\mid3$, $3$ impair) ; $n_3=1$, $A_3$ ($1\mid2$).
+$A_4$ ($12=4\cdot3$) : $V$ est un 2-Sylow normal, $n_2=1$ ; 8 éléments d'ordre 3, deux par sous-groupe d'ordre 3 : $n_3=4$ ($4\mid4$, $4\equiv1\pmod3$).
+$S_4$ ($24=8\cdot3$) : $n_3=4$ comme dans $A_4$. $n_2\in\ens{1,3}$ ; le groupe $D_4$ des symétries d'un carré de sommets $1,2,3,4$ est un 2-Sylow, il contient les 4-cycles $(1\,2\,3\,4)$ et $(1\,4\,3\,2)$ mais pas les quatre autres 4-cycles, donc n'est pas réunion de classes, donc n'est pas normal : $n_2=3$.
+$A_5$ ($60=4\cdot3\cdot5$) : 24 éléments d'ordre 5, $n_5=24/4=6$ ($6\mid12$, $6\equiv1\pmod5$). 20 éléments d'ordre 3, $n_3=10$ ($10\mid20$, $10\equiv1\pmod3$). Un 2-Sylow est d'ordre 4 et sans élément d'ordre 4 (les 4-cycles sont impairs), donc formé de $\id$ et de trois doubles transpositions ; le groupe $V_i$ des doubles transpositions fixant $i$, avec $\id$, en est un, et les 2-Sylow sont ses conjugués $\sigma V_i\sigma^{-1}=V_{\sigma(i)}$ : $n_2=5$ ($5\mid15$, $5$ impair).
+\end{corrige}
+\end{exo}
+
+\begin{exo}[A][Groupes d'automorphismes]
+(a) Montrer que $\Aut(\Z)\simeq\Z/2\Z$. (b) Montrer que $\Aut(\Z/n\Z)\simeq(\Z/n\Z)^\times$ ; en déduire que $\Aut(\Z/8\Z)$ n'est pas cyclique. (c) Montrer que $\Aut(\Z/2\Z\times\Z/2\Z)\simeq S_3$. (d) Montrer que tout automorphisme de $S_3$ est intérieur et que $\Aut(S_3)\simeq S_3$.
+\begin{indication}
+Un homomorphisme issu d'un groupe cyclique est déterminé par l'image d'un générateur. Pour (d) : $S_3$ est engendré par $(1\,2)$ et $(1\,2\,3)$, et un automorphisme préserve l'ordre des éléments.
+\end{indication}
+\begin{corrige}
+(a) $\varphi\in\Aut(\Z)$ vérifie $\varphi(k)=k\varphi(1)$, et $\varphi(1)$ doit engendrer $\Z$ : $\varphi(1)=\pm1$. Les deux applications $\pm\Id$ sont des automorphismes : $\Aut(\Z)=\ens{\Id,-\Id}\simeq\Z/2\Z$.
+(b) Un homomorphisme $\varphi:\Z/n\Z\to\Z/n\Z$ vérifie $\varphi(\cl k)=k\,\varphi(\cl1)$ ; posons $\varphi(\cl1)=\cl a$, de sorte que $\varphi=\varphi_a:\cl k\mapsto\cl{ak}$, bien défini pour tout $a$. $\varphi_a$ est bijectif si et seulement si $\cl a$ engendre $\Z/n\Z$, c'est-à-dire $\pgcd(a,n)=1$. Enfin $\varphi_a\circ\varphi_b=\varphi_{ab}$ : $\cl a\mapsto\varphi_a$ est un isomorphisme de $(\Z/n\Z)^\times$ sur $\Aut(\Z/n\Z)$. Pour $n=8$ : $(\Z/8\Z)^\times=\ens{\cl1,\cl3,\cl5,\cl7}$ et $3^2=9$, $5^2=25$, $7^2=49$ sont tous $\equiv1\pmod8$ : pas d'élément d'ordre 4, le groupe n'est pas cyclique.
+(c) Les trois éléments non nuls $x,y,z$ vérifient $x+y=z$, $y+z=x$, $z+x=y$ et $2x=0$ : la loi se décrit par \og la somme de deux éléments non nuls distincts est le troisième \fg. Un automorphisme permute $\ens{x,y,z}$, et toute permutation de $\ens{x,y,z}$ (complétée par $0\mapsto0$) préserve cette description, donc est un automorphisme. D'où $\Aut\simeq S(\ens{x,y,z})\simeq S_3$.
+(d) $Z(S_3)$ est trivial, donc $\Inn(S_3)\simeq S_3/Z(S_3)$ a 6 éléments (\voir{prop-inn}). Un automorphisme $\varphi$ est déterminé par $\varphi((1\,2))$, d'ordre 2 (3 choix : une transposition) et $\varphi((1\,2\,3))$, d'ordre 3 (2 choix) : $\abs{\Aut(S_3)}\le6$. Donc $\Aut(S_3)=\Inn(S_3)\simeq S_3$.
+\end{corrige}
+\end{exo}
+
+\begin{exo}[S][Le groupe des quaternions]\label{exo-q8}
+(a) Vérifier par le calcul les relations de l'exemple \voir{ex-q8}. (b) Donner l'ordre de chaque élément de $Q_8$ ; en déduire que $Q_8\not\simeq D_4$. (c) Déterminer tous les sous-groupes de $Q_8$ et montrer qu'ils sont tous normaux, bien que $Q_8$ ne soit pas abélien.
+\begin{indication}
+(c) Un sous-groupe qui contient un élément d'ordre 4 contient son carré $-I_2$ ; un sous-groupe qui contient deux des éléments $\pm\mathbf i,\pm\mathbf j,\pm\mathbf k$ non opposés contient le troisième.
+\end{indication}
+\begin{corrige}
+(a) Par exemple $\mathbf j\mathbf i=\begin{pmatrix}0&1\\-1&0\end{pmatrix}\begin{pmatrix}i&0\\0&-i\end{pmatrix}=\begin{pmatrix}0&-i\\-i&0\end{pmatrix}=-\mathbf k$ et $\mathbf k^2=\begin{pmatrix}0&i\\i&0\end{pmatrix}^2=\begin{pmatrix}-1&0\\0&-1\end{pmatrix}$ ; les autres relations se calculent de même.
+(b) $I_2$ est d'ordre 1, $-I_2$ d'ordre 2, et les six éléments $\pm\mathbf i,\pm\mathbf j,\pm\mathbf k$ sont d'ordre 4 (leur carré est $-I_2$). $D_4$ a cinq éléments d'ordre 2 ($r^2$ et les quatre réflexions) : les deux groupes ne sont pas isomorphes.
+(c) Ordre 1 : $\ens{I_2}$. Ordre 2 : $\ens{\pm I_2}$, seul élément d'ordre 2. Ordre 4 : un tel sous-groupe ne peut être isomorphe à $\Z/2\Z\times\Z/2\Z$ (il faudrait trois éléments d'ordre 2), il est donc cyclique : $\langle\mathbf i\rangle$, $\langle\mathbf j\rangle$, $\langle\mathbf k\rangle$. Ordre 8 : $Q_8$. Normalité : $\ens{I_2}$ et $Q_8$ ; $\ens{\pm I_2}=Z(Q_8)$ ; les trois sous-groupes d'ordre 4 sont d'indice 2. $Q_8$ est un groupe non abélien dont tous les sous-groupes sont normaux.
+\end{corrige}
+\end{exo}
+
+\begin{exo}[S][Produits de sous-groupes]
+(a) Dans $S_3$, avec $H=\langle(1\,2)\rangle$ et $K=\langle(1\,3)\rangle$, écrire $HK$ et $KH$, et vérifier qu'aucun n'est un sous-groupe. (b) Dans $S_4$, soit $D$ le 2-Sylow $\langle(1\,2\,3\,4),(2\,4)\rangle$ (symétries du carré $1,2,3,4$). Calculer $D\cap A_4$ et en déduire $DA_4=S_4$.
+\begin{indication}
+(b) Les éléments de $D$ sont $\id$, les deux 4-cycles $(1\,2\,3\,4)$, $(1\,4\,3\,2)$, le demi-tour $(1\,3)(2\,4)$ et quatre réflexions.
+\end{indication}
+\begin{corrige}
+(a) $(1\,2)(1\,3)=(1\,3\,2)$ et $(1\,3)(1\,2)=(1\,2\,3)$. $HK=\ens{\id,(1\,2),(1\,3),(1\,3\,2)}$ et $KH=\ens{\id,(1\,2),(1\,3),(1\,2\,3)}$ : $HK\neq KH$, donc ni l'un ni l'autre n'est un sous-groupe (\voir{prop-hk}) ; d'ailleurs $4\nmid6$.
+(b) Les réflexions du carré sont $(2\,4)$, $(1\,3)$ (axes diagonaux), $(1\,2)(3\,4)$ et $(1\,4)(2\,3)$ (axes par les milieux des côtés). Éléments pairs de $D$ : $\id$, $(1\,3)(2\,4)$, $(1\,2)(3\,4)$, $(1\,4)(2\,3)$, c'est-à-dire $D\cap A_4=V$. Comme $A_4\lhd S_4$, $DA_4$ est un sous-groupe, de cardinal $\frac{8\cdot12}4=24$ : $DA_4=S_4$.
+\end{corrige}
+\end{exo}
+
+\rubrique{B}
+\begin{exo}[S][Centre, normalisateur, quotient par le centre]
+(a) Démontrer la proposition \voir{prop-centre}. (b) Démontrer que si $G/Z(G)$ est cyclique, $G$ est abélien. (c) Soit $G$ un groupe non abélien d'ordre $p^3$, $p$ premier. Montrer que $\abs{Z(G)}=p$ et que $G/Z(G)\simeq\Z/p\Z\times\Z/p\Z$.
+\begin{indication}
+(c) $Z(G)$ n'est pas trivial (\voir{thm-centre-p}) et n'est pas $G$. Exclure $\abs{Z(G)}=p^2$ avec (b), puis appliquer \voir{cor-p2} au quotient.
+\end{indication}
+\begin{corrige}
+(a) et (b) : voir les démonstrations du cours (\voir{prop-centre}, \voir{prop-gz-cyclique}) ; à rédiger sans notes.
+(c) $\abs{Z(G)}\in\ens{p,p^2}$ puisque $Z(G)\neq\ens e$ et $Z(G)\neq G$. Si $\abs{Z(G)}=p^2$, $G/Z(G)$ est d'ordre $p$, cyclique, et $G$ serait abélien par (b). Donc $\abs{Z(G)}=p$, et $G/Z(G)$ est d'ordre $p^2$ ; il n'est pas cyclique (par (b) encore), donc isomorphe à $\Z/p\Z\times\Z/p\Z$ (\voir{cor-p2}). Exemples : $D_4$ et $Q_8$, avec $p=2$.
+\end{corrige}
+\end{exo}
+
+\begin{exo}[S][Orbite-stabilisateur, Burnside, équation aux classes]
+Rédiger sans notes : (a) la relation orbite-stabilisateur, en définissant soigneusement l'application $G/G_x\to G\cdot x$ ; (b) la formule de Burnside ; (c) l'équation aux classes et le théorème sur le centre d'un $p$-groupe.
+\begin{indication}
+Pour (a), une seule chaîne d'équivalences donne à la fois la bonne définition et l'injectivité. Pour (b), compter les couples $(g,x)$ avec $g\cdot x=x$.
+\end{indication}
+\begin{corrige}
+Voir \voir{thm-orbite-stab}, \voir{thm-burnside}, \voir{thm-equation-classes} et \voir{thm-centre-p}. Points de rédaction attendus : en (a), écrire $g\cdot x=h\cdot x\iff h^{-1}g\in G_x\iff gG_x=hG_x$ et dire quel sens sert à quoi ; en (b), le regroupement par orbites $\sum_{x\in O}\frac{\abs G}{\abs O}=\abs G$ ; en (c), dire pourquoi chaque terme $[G:C_G(x_i)]$ est divisible par $p$ (il divise $p^a$ et vaut plus que 1).
+\end{corrige}
+\end{exo}
+
+\begin{exo}[S][Le théorème de Cauchy]\label{exo-cauchy}
+(a) Rédiger la démonstration de McKay du théorème de Cauchy. (b) Montrer qu'un groupe fini dont tous les éléments différents de $e$ sont d'ordre 2 a pour ordre une puissance de 2. (c) Montrer qu'un groupe abélien fini $G$ a un sous-groupe de chaque ordre $d$ divisant $\abs G$.
+\begin{indication}
+(c) Récurrence sur $\abs G$ : si $p\mid d$, prendre $g$ d'ordre $p$ et travailler dans $G/\langle g\rangle$, puis remonter par la projection.
+\end{indication}
+\begin{corrige}
+(a) Voir \voir{thm-cauchy}. Points à ne pas oublier : $\abs X=\abs G^{p-1}$ ; la stabilité de $X$ par permutation circulaire ; le groupe qui agit, $\Z/p\Z$, est un $p$-groupe ; le point fixe $(e,\dots,e)$.
+(b) Si un nombre premier impair $q$ divisait $\abs G$, Cauchy donnerait un élément d'ordre $q$ : c'est \voir{cor-p-groupe-ordres} avec $p=2$.
+(c) Récurrence sur $\abs G$ ; le cas $d=1$ est clair. Soit $d>1$, $p$ un diviseur premier de $d$, et $g\in G$ d'ordre $p$ (Cauchy). $N=\langle g\rangle$ est normal ($G$ abélien), $G/N$ est abélien d'ordre $\frac{\abs G}p$, et $\frac dp$ divise $\frac{\abs G}p$. Par hypothèse de récurrence, $G/N$ a un sous-groupe $M$ d'ordre $\frac dp$. Son image réciproque $\pi^{-1}(M)$ par la projection $\pi:G\to G/N$ est un sous-groupe de $G$ (\voir{prop-hom}), réunion de $\frac dp$ classes de $N$, donc d'ordre $d$.
+\end{corrige}
+\end{exo}
+
+\begin{exo}[S][Les groupes d'ordre $p^2$]
+Rédiger la démonstration du corollaire \voir{cor-p2}, en citant précisément chaque résultat utilisé. Expliquer pourquoi l'argument ne s'étend pas aux groupes d'ordre $p^3$.
+\begin{indication}
+Les deux résultats clés sont \voir{thm-centre-p} et \voir{prop-gz-cyclique}.
+\end{indication}
+\begin{corrige}
+Voir le corollaire \voir{cor-p2}. Pour $p^3$ : $\abs{Z(G)}=p$ est alors possible, car $G/Z(G)$ est d'ordre $p^2$ et peut ne pas être cyclique ; $D_4$ et $Q_8$ (ordre 8) ne sont pas abéliens.
+\end{corrige}
+\end{exo}
+
+\begin{exo}[A][Indice égal au plus petit premier]
+(a) Démontrer la proposition \voir{prop-action-classes} et le corollaire \voir{cor-plus-petit-premier}. (b) Soit $G$ un groupe d'ordre $p^n$ et $H$ un sous-groupe d'indice $p$. Montrer que $H\lhd G$. (c) Montrer qu'un groupe infini qui possède un sous-groupe propre d'indice fini possède un sous-groupe normal propre d'indice fini.
+\begin{indication}
+(c) Le noyau $N$ de l'action sur $G/H$ est d'indice divisant $n!$ et contenu dans $H$.
+\end{indication}
+\begin{corrige}
+(a) Voir le cours. (b) $p$ est le seul (donc le plus petit) premier qui divise $p^n$ : c'est le corollaire. (c) Soit $H$ propre d'indice fini $n\ge2$ et $N=\bigcap_ggHg^{-1}$ le noyau de $\rho:G\to S(G/H)$. $N$ est normal, $N\subset H\neq G$, et $[G:N]=\abs{\rho(G)}$ divise $n!$ : $N$ est un sous-groupe normal propre d'indice fini.
+\end{corrige}
+\end{exo}
+
+\begin{exo}[A][Sous-groupes finis du groupe multiplicatif d'un corps]
+Soit $\K$ un corps et $G$ un sous-groupe fini de $\K^*$, d'ordre $n$. On admet qu'un polynôme non nul de degré $d$ à coefficients dans $\K$ a au plus $d$ racines dans $\K$. (a) Montrer que $\sum_{d\mid n}\varphi(d)=n$, où $\varphi(d)$ est le nombre de générateurs de $\Z/d\Z$. (b) Soit $\psi(d)$ le nombre d'éléments d'ordre $d$ de $G$. Montrer que $\psi(d)\in\ens{0,\varphi(d)}$ pour tout $d\mid n$. (c) En déduire que $G$ est cyclique. (d) Trouver un générateur de $(\Z/7\Z)^\times$ et de $(\Z/11\Z)^\times$. Pourquoi l'argument ne s'applique-t-il pas à $(\Z/8\Z)^\times$ ?
+\begin{indication}
+(a) Trier les éléments de $\Z/n\Z$ selon leur ordre, avec \voir{prop-sg-Zn}. (b) Si $x$ est d'ordre $d$, les éléments de $\langle x\rangle$ sont $d$ racines de $X^d-1$.
+\end{indication}
+\begin{corrige}
+(a) Pour $d\mid n$, $\Z/n\Z$ a un unique sous-groupe d'ordre $d$, cyclique, et ses éléments d'ordre $d$ sont ses générateurs : il y en a $\varphi(d)$. Un élément d'ordre $d$ engendre un sous-groupe d'ordre $d$, donc celui-là. Comme tout élément a un ordre divisant $n$, $n=\sum_{d\mid n}\varphi(d)$.
+(b) Supposons $\psi(d)\ge1$ et soit $x$ d'ordre $d$. Les $d$ éléments de $\langle x\rangle$ vérifient $y^d=1$ : ce sont $d$ racines de $X^d-1$, donc toutes ses racines. Un élément $y$ d'ordre $d$ vérifie $y^d=1$, donc $y\in\langle x\rangle$, et c'en est un générateur : $\psi(d)=\varphi(d)$.
+(c) $\sum_{d\mid n}\psi(d)=n=\sum_{d\mid n}\varphi(d)$ (tout élément a un ordre divisant $n$) et $\psi(d)\le\varphi(d)$ pour chaque $d$ : il y a égalité partout, et $\psi(n)=\varphi(n)\ge1$. Un élément d'ordre $n$ engendre $G$.
+(d) Modulo 7 : $3^1,\dots,3^6\equiv3,2,6,4,5,1$, donc $\cl3$ engendre. Modulo 11 : $2^1,\dots,2^{10}\equiv2,4,8,5,10,9,7,3,6,1$, donc $\cl2$ engendre. $\Z/8\Z$ n'est pas un corps, et $X^2-1$ y a quatre racines $\cl1,\cl3,\cl5,\cl7$ : l'argument (b) tombe, et $(\Z/8\Z)^\times$ n'est pas cyclique.
+\end{corrige}
+\end{exo}
+
+\begin{exo}[A][Le théorème de Wilson]
+(a) Soit $p$ premier. Montrer que $\cl1$ et $\cl{-1}$ sont les seuls éléments de $(\Z/p\Z)^\times$ égaux à leur inverse. (b) En regroupant chaque élément avec son inverse, montrer que $(p-1)!\equiv-1\pmod p$. (c) Montrer que si $n>4$ n'est pas premier, alors $(n-1)!\equiv0\pmod n$, et que $3!\equiv2\pmod4$. En déduire que $n\ge2$ est premier si et seulement si $(n-1)!\equiv-1\pmod n$.
+\begin{indication}
+(a) $x^2=1$ s'écrit $(x-1)(x+1)=0$ dans un corps. (c) Écrire $n=ab$ avec $1<a\le b<n$ ; distinguer $a<b$ et $a=b$.
+\end{indication}
+\begin{corrige}
+(a) $x=x^{-1}\iff x^2=\cl1\iff(x-\cl1)(x+\cl1)=\cl0$, et $\Z/p\Z$ est intègre : $x=\pm\cl1$ (confondus si $p=2$).
+(b) Le produit de tous les éléments de $(\Z/p\Z)^\times$ est $\cl{(p-1)!}$. Les éléments autres que $\pm\cl1$ se regroupent en paires $\ens{x,x^{-1}}$ de produit $\cl1$ ; il reste $\cl1\cdot\cl{-1}=\cl{-1}$. Pour $p=2$, $1!=1\equiv-1\pmod 2$.
+(c) Si $n=ab$ avec $1<a<b<n$, $a$ et $b$ sont deux facteurs distincts de $(n-1)!$, donc $n\mid(n-1)!$. Si $n=a^2$ avec $a>2$ (car $n>4$), $a$ et $2a$ sont deux facteurs distincts de $(n-1)!$ (car $2a<a^2=n$), et $a\cdot2a=2n$. Dans les deux cas $(n-1)!\equiv0\not\equiv-1\pmod n$. Et $3!=6\equiv2\pmod 4$. Avec (b) : $(n-1)!\equiv-1\pmod n$ si et seulement si $n$ est premier.
+\end{corrige}
+\end{exo}
+
+\begin{exo}[S][Produit direct interne]
+(a) Démontrer le théorème \voir{thm-produit-direct}. (b) Dans $D_6$ (ordre 12), montrer que $Z=\ens{e,r^3}$ et $K=\ens{e,r^2,r^4,\tau,r^2\tau,r^4\tau}$ sont des sous-groupes normaux, puis que $D_6\simeq D_3\times\Z/2\Z$. (c) Montrer que l'hypothèse \og $H$ et $K$ normaux \fg{} ne peut pas être affaiblie en \og $H$ normal \fg{} : exhiber $H\lhd G$, $K<G$ avec $H\cap K=\ens e$, $HK=G$ et $G\not\simeq H\times K$.
+\begin{indication}
+(b) $K$ est d'indice 2, et ses éléments vérifient les relations de $D_3$ avec $r^2$ dans le rôle de $r$. (c) Regarder $S_3$.
+\end{indication}
+\begin{corrige}
+(a) Voir le cours.
+(b) $Z=Z(D_6)$ (exercice \voir{exo-centres}) est normal. $K$ est stable : $(r^{2i})(r^{2j})=r^{2(i+j)}$, $(r^{2i}\tau)(r^{2j}\tau)=r^{2(i-j)}$, $r^{2i}(r^{2j}\tau)=r^{2(i+j)}\tau$, $(r^{2j}\tau)r^{2i}=r^{2(j-i)}\tau$ ; c'est un sous-groupe d'ordre 6, d'indice 2, donc normal. Avec $s=r^2$ : $s^3=e$, $\tau^2=e$, $\tau s\tau=s^{-1}$ ; $s\mapsto r$, $\tau\mapsto\tau$ définit un isomorphisme de $K$ sur $D_3$, car les deux groupes ont les mêmes règles de calcul $(s^k\tau)(s^l\tau)=s^{k-l}$. $r^3\notin K$, donc $Z\cap K=\ens e$, et $\abs{ZK}=12$ : $D_6\simeq K\times Z\simeq D_3\times\Z/2\Z$.
+(c) Dans $S_3$ : $H=A_3$ est normal, $K=\langle(1\,2)\rangle$ ne l'est pas, $H\cap K=\ens{\id}$ et $\abs{HK}=6$. Mais $A_3\times K\simeq\Z/3\Z\times\Z/2\Z$ est abélien, et $S_3$ ne l'est pas.
+\end{corrige}
+\end{exo}
+
+\begin{exo}[A][Conjugaison dans $S_n$]\label{exo-conj-sn}
+(a) Démontrer la proposition \voir{prop-conj-sn}. (b) Montrer que $Z(S_n)=\ens{\id}$ pour $n\ge3$. (c) Soit $\sigma\in S_n$ ayant $m_k$ cycles de longueur $k$ (points fixes comptés pour $k=1$). Montrer que la classe de $\sigma$ a $\dfrac{n!}{\prod_k k^{m_k}m_k!}$ éléments, et que $\abs{C_{S_n}(\sigma)}=\prod_kk^{m_k}m_k!$. (d) Applications : nombre de doubles transpositions de $S_4$, de 3-cycles de $S_5$, d'éléments de type $(2,2,2)$ de $S_6$, d'éléments d'ordre 6 de $S_5$.
+\begin{indication}
+(b) Si $\sigma(a)=b\neq a$, choisir $c\notin\ens{a,b}$ et conjuguer par $(b\,c)$. (c) Remplir un gabarit de cycles $(\cdot\,\cdot\,\cdot)(\cdot\,\cdot)\cdots$ avec les entiers $1,\dots,n$ : de combien de façons obtient-on la même permutation ?
+\end{indication}
+\begin{corrige}
+(a) Voir le cours.
+(b) Soit $\sigma\neq\id$, $\sigma(a)=b\neq a$, $c\notin\ens{a,b}$ et $\tau=(b\,c)$. Alors $\tau\sigma\tau^{-1}(a)=\tau(\sigma(a))=\tau(b)=c\neq b=\sigma(a)$ (car $\tau(a)=a$) : $\tau\sigma\tau^{-1}\neq\sigma$, $\sigma$ n'est pas central.
+(c) On écrit un gabarit de cycles de longueurs données ; les $n!$ façons de le remplir donnent toutes les permutations du type, chacune exactement $\prod_kk^{m_k}m_k!$ fois : chaque cycle de longueur $k$ peut commencer par n'importe lequel de ses $k$ éléments, et les $m_k$ cycles de même longueur peuvent être écrits dans n'importe quel ordre. La relation orbite-stabilisateur pour la conjugaison donne le centralisateur.
+(d) Type $(2,2)$ dans $S_4$ : $\frac{24}{2^2\cdot2!}=3$. Type $(3,1,1)$ dans $S_5$ : $\frac{120}{3\cdot1^2\cdot2!}=20$. Type $(2,2,2)$ dans $S_6$ : $\frac{720}{2^3\cdot3!}=15$. Ordre 6 dans $S_5$ : l'ordre est le ppcm des longueurs, seul le type $(3,2)$ convient : $\frac{120}{3\cdot2}=20$.
+\end{corrige}
+\end{exo}
+
+\begin{exo}[A][Générateurs de $S_n$ et de $A_n$]
+(a) Montrer que les transpositions $(i\,i+1)$, $1\le i<n$, engendrent $S_n$. (b) Montrer que $(1\,2)$ et $(1\,2\,\cdots\,n)$ engendrent $S_n$. (c) Montrer que les 3-cycles engendrent $A_n$ pour $n\ge3$. (d) Les éléments $(1\,3)$ et $(1\,2\,3\,4)$ engendrent-ils $S_4$ ?
+\begin{indication}
+(a) Conjuguer $(i+1\,j)$ par $(i\,i+1)$. (b) Calculer $c(i\,i+1)c^{-1}$ avec $c=(1\,2\,\cdots\,n)$. (c) Écrire un produit de deux transpositions comme produit de 3-cycles, selon qu'elles ont 2, 1 ou 0 point commun.
+\end{indication}
+\begin{corrige}
+(a) Toute permutation est produit de transpositions (\voir{prop-transpositions}). Pour $i<j$, par récurrence sur $j-i$ : $(i\,j)=(i\,i+1)(i+1\,j)(i\,i+1)$ (formule de conjugaison, $j\neq i,i+1$).
+(b) $c(i\,i+1)c^{-1}=(c(i)\,c(i+1))=(i+1\,i+2)$ : en conjuguant $(1\,2)$ par les puissances de $c$, on obtient toutes les $(i\,i+1)$, puis (a).
+(c) Un 3-cycle est pair. Un élément de $A_n$ est produit d'un nombre pair de transpositions, qu'on groupe deux par deux : $(a\,b)(a\,b)=\id$ ; $(a\,b)(b\,c)=(a\,b\,c)$ ; et pour $a,b,c,d$ distincts, $(a\,b)(c\,d)=(a\,b\,c)(b\,c\,d)$ (vérifier sur chacun des quatre points).
+(d) Non. Avec les sommets d'un carré numérotés $1,2,3,4$, $(1\,2\,3\,4)$ est le quart de tour et $(1\,3)$ la réflexion d'axe la diagonale $\ens{2,4}$ ; ils engendrent le groupe des symétries du carré, d'ordre 8. C'est le fait que $(1\,2)$ relie deux sommets \emph{voisins} du cycle qui fait marcher (b).
+\end{corrige}
+\end{exo}
+
+\begin{exo}[A][Groupe dérivé]
+Le \textbf{commutateur} de $x,y$ est $[x,y]=xyx^{-1}y^{-1}$ ; le \textbf{groupe dérivé} $D(G)$ est le sous-groupe engendré par les commutateurs. (a) Montrer que $\varphi([x,y])=[\varphi(x),\varphi(y)]$ pour tout homomorphisme $\varphi$, et en déduire que $D(G)\lhd G$. (b) Montrer que $G/D(G)$ est abélien, et que pour $N\lhd G$ : $G/N$ abélien $\iff D(G)\subset N$. (c) Montrer que $[(a\,b),(a\,c)]=(a\,b\,c)$, puis que $D(S_n)=A_n$ pour $n\ge3$. (d) Montrer que $D(A_4)=V$ et $D(Q_8)=\ens{\pm I_2}$.
+\begin{indication}
+(b) $G/N$ abélien signifie $xyN=yxN$, c'est-à-dire $[x,y]\in N$. (d) Utiliser la liste des sous-groupes normaux de $A_4$ (exercice \voir{exo-classes-s4}).
+\end{indication}
+\begin{corrige}
+(a) $\varphi(xyx^{-1}y^{-1})=\varphi(x)\varphi(y)\varphi(x)^{-1}\varphi(y)^{-1}$. Avec $\varphi=c_g$ : l'ensemble des commutateurs est stable par conjugaison, donc le sous-groupe qu'il engendre aussi ($c_g$ envoie un produit de commutateurs et d'inverses de commutateurs sur un produit du même genre).
+(b) Pour $N\lhd G$ : $xNyN=yNxN\iff xy(yx)^{-1}=xyx^{-1}y^{-1}\in N$. Donc $G/N$ est abélien si et seulement si $N$ contient tous les commutateurs, c'est-à-dire $D(G)\subset N$. Avec $N=D(G)$ (normal par (a)), $G/D(G)$ est abélien.
+(c) De droite à gauche : $(a\,b)(a\,c)(a\,b)(a\,c)$ envoie $a\mapsto c\mapsto c\mapsto a\mapsto b$, $b\mapsto b\mapsto a\mapsto c\mapsto c$, $c\mapsto a\mapsto b\mapsto b\mapsto a$ : c'est $(a\,b\,c)$. Donc $D(S_n)$ contient les 3-cycles, donc $A_n$ (exercice précédent). Et $S_n/A_n\simeq\ens{\pm1}$ est abélien, donc $D(S_n)\subset A_n$ par (b).
+(d) $A_4/V$ est d'ordre 3, abélien : $D(A_4)\subset V$. $D(A_4)$ est normal dans $A_4$ et non trivial ($A_4$ n'est pas abélien) ; les sous-groupes normaux de $A_4$ contenus dans $V$ sont $\ens{\id}$ et $V$ : $D(A_4)=V$. Pour $Q_8$ : $[\mathbf i,\mathbf j]=\mathbf i\mathbf j(-\mathbf i)(-\mathbf j)=\mathbf k\,\mathbf i\mathbf j=\mathbf k^2=-I_2$, et $Q_8/\ens{\pm I_2}$ est abélien : $D(Q_8)=\ens{\pm I_2}$.
+\end{corrige}
+\end{exo}
+
+\rubrique{C}
+\begin{exo}[S][La réciproque de Lagrange est fausse]\label{exo-a4}
+Montrer que $A_4$, d'ordre 12, n'a pas de sous-groupe d'ordre 6, de deux façons : (a) avec les sous-groupes normaux de $A_4$ ; (b) en montrant qu'un sous-groupe $H$ d'ordre 6 contiendrait les carrés de tous les éléments de $A_4$.
+\begin{indication}
+Un sous-groupe d'indice 2 est normal, et le quotient est d'ordre 2. Pour un 3-cycle $c$, $c=c^4=(c^2)^2$.
+\end{indication}
+\begin{corrige}
+(a) Un sous-groupe d'ordre 6 serait d'indice 2, donc normal ; or les sous-groupes normaux de $A_4$ sont d'ordres 1, 4, 12 (exercice \voir{exo-classes-s4}).
+(b) $H$ serait normal et $A_4/H$ d'ordre 2, donc $(gH)^2=H$, soit $g^2\in H$, pour tout $g\in A_4$. Pour un 3-cycle $c$ : $c^3=\id$, donc $c=c^4=(c^2)^2\in H$. Les 8 three-cycles seraient dans $H$, qui n'a que 6 éléments : contradiction.
+\end{corrige}
+\end{exo}
+
+\begin{exo}[S][Vrai ou faux : structure des groupes]\label{exo-vf-groupes}
+Justifier par une preuve ou un contre-exemple. (a) Un groupe dont tous les sous-groupes sont normaux est abélien. (b) Si $H\lhd K$ et $K\lhd G$, alors $H\lhd G$. (c) Si $G/Z(G)$ est abélien, $G$ est abélien. (d) Deux groupes finis qui ont, pour chaque $k$, le même nombre d'éléments d'ordre $k$ sont isomorphes. (e) Un groupe d'ordre 35 est cyclique. (f) Si $G$ est fini et $p$ premier, le nombre de $p$-Sylow divise $\abs G$.
+\begin{indication}
+(a), (c) : $Q_8$. (b) Dans $S_4$, prendre $K=V$. (d) Comparer $\Z/4\Z\times\Z/4\Z$ et $\Z/2\Z\times Q_8$.
+\end{indication}
+\begin{corrige}
+(a) Faux : $Q_8$ (exercice \voir{exo-q8}).
+(b) Faux : $V\lhd S_4$ et $H=\ens{\id,(1\,2)(3\,4)}\lhd V$ ($V$ abélien), mais $(1\,3)(1\,2)(3\,4)(1\,3)^{-1}=(3\,2)(1\,4)\notin H$.
+(c) Faux : $Q_8/Z(Q_8)\simeq\Z/2\Z\times\Z/2\Z$.
+(d) Faux. Dans $\Z/4\Z\times\Z/4\Z$ : 1 élément d'ordre 1, 3 d'ordre 2 ($(2,0),(0,2),(2,2)$), 12 d'ordre 4. Dans $\Z/2\Z\times Q_8$ : l'ordre de $(a,q)$ est le ppcm des ordres ; les $12$ éléments avec $q\in\ens{\pm\mathbf i,\pm\mathbf j,\pm\mathbf k}$ sont d'ordre 4, et $(1,I_2)$, $(0,-I_2)$, $(1,-I_2)$ sont d'ordre 2. Mêmes statistiques, mais le premier est abélien et pas le second.
+(e) Vrai : $n_5\mid7$ et $n_5\equiv1\pmod5$ donnent $n_5=1$ ; $n_7\mid5$ et $n_7\equiv1\pmod7$ donnent $n_7=1$ ; produit direct interne, $G\simeq\Z/5\Z\times\Z/7\Z\simeq\Z/35\Z$.
+(f) Vrai, et mieux : $n_p=[G:N_G(P)]$ divise $\abs G$, et même $m$ (\voir{thm-sylow}).
+\end{corrige}
+\end{exo}
+
+\begin{exo}[S][Vrai ou faux : actions]
+(a) Si un groupe fini agit transitivement sur $X$, $\abs X$ divise $\abs G$. (b) Si l'action est transitive, tous les points ont le même stabilisateur. (c) Une action d'un groupe d'ordre 8 sur un ensemble à 6 éléments a un point fixe. (d) Une action d'un $p$-groupe sur un ensemble dont le cardinal n'est pas divisible par $p$ a un point fixe. (e) Si $G$ agit fidèlement sur un ensemble à $n$ éléments, $\abs G$ divise $n!$.
+\begin{indication}
+(c) Les orbites ont 1, 2, 4 ou 8 éléments ; $6=2+4$. Chercher une permutation d'ordre 4 de type $(4,2)$.
+\end{indication}
+\begin{corrige}
+(a) Vrai : $\abs X=\abs{G\cdot x}=[G:G_x]$.
+(b) Faux : $D_4$ sur les sommets du carré ; $G_1=\ens{e,\tau}$ et $G_2=rG_1r^{-1}=\ens{e,r\tau r^{-1}}=\ens{e,r^2\tau}\neq G_1$.
+(c) Faux : $\sigma=(1\,2)(3\,4\,5\,6)$ est d'ordre 4, et $\cl k\cdot x=\sigma^k(x)$ est une action de $\Z/8\Z$ (bien définie car $\sigma^8=\id$) dont les orbites $\ens{1,2}$ et $\ens{3,4,5,6}$ n'ont pas de point fixe.
+(d) Vrai : $\abs{X^P}\equiv\abs X\not\equiv0\pmod p$, donc $X^P\neq\varnothing$ (\voir{lem-points-fixes}).
+(e) Vrai : $\rho:G\to S_n$ est injectif, $G$ est isomorphe à un sous-groupe de $S_n$ (Lagrange).
+\end{corrige}
+\end{exo}
+
+\begin{exo}[S][Vrai ou faux : Sylow]
+(a) Tout groupe d'ordre 20 a un sous-groupe normal d'ordre 5. (b) Tout groupe d'ordre 6 a un sous-groupe normal d'ordre 2. (c) Tout groupe d'ordre 100 a un sous-groupe normal d'ordre 25. (d) Deux $p$-Sylow distincts ne se rencontrent qu'en $e$. (e) Si $n_p=1$ pour tout premier $p$ divisant $\abs G$, alors $G$ est abélien. (f) Un groupe d'ordre $p^2q$ ($p,q$ premiers distincts) n'est jamais simple.
+\begin{indication}
+(d) Regarder les 2-Sylow de $S_4$. (f) Si $n_q\neq1$, $n_q\in\ens{p,p^2}$ et $n_q\equiv1\pmod q$ ; distinguer $p>q$ et $p<q$, et compter les éléments d'ordre $q$ dans le cas $n_q=p^2$.
+\end{indication}
+\begin{corrige}
+(a) Vrai : $n_5\mid4$, $n_5\equiv1\pmod5$, donc $n_5=1$.
+(b) Faux : $S_3$ a trois sous-groupes d'ordre 2, aucun normal.
+(c) Vrai : $100=25\cdot4$, $n_5\mid4$ et $n_5\equiv1\pmod5$, donc $n_5=1$.
+(d) Faux : les 2-Sylow de $S_4$ (d'ordre 8) contiennent tous $V$ (QCM, série 2). C'est vrai pour des sous-groupes d'ordre $p$.
+(e) Faux : $Q_8$, avec le seul premier $2$ et $n_2=1$.
+(f) Vrai. Supposons $n_q\neq1$ et $n_p\neq1$. Si $p>q$ : $n_p\mid q$ et $n_p\equiv1\pmod p$ imposent $n_p=1$ (car $q<p$ ne vaut pas $1$ modulo $p$). Donc $p<q$. Alors $n_q\in\ens{p,p^2}$ et $n_q\equiv1\pmod q$ ; $n_q=p$ est impossible ($1<p<q$), donc $n_q=p^2$, d'où $q\mid p^2-1=(p-1)(p+1)$, donc $q\mid p+1$ (car $q>p-1$), et $q=p+1$, soit $p=2$, $q=3$, $\abs G=12$. Dans ce cas, $n_3=4$ donne 8 éléments d'ordre 3, et les 4 autres forment l'unique 2-Sylow, normal : contradiction avec $n_2\neq1$. Ainsi un Sylow au moins est normal ; il est propre et non trivial, donc $G$ n'est pas simple.
+\end{corrige}
+\end{exo}
+
+\rubrique{D}
+\begin{exo}[D][Groupes d'ordre $pq$]\label{exo-pq}
+Soient $p<q$ deux nombres premiers et $G$ un groupe d'ordre $pq$. (a) Montrer que le $q$-Sylow est normal. (b) Montrer que si $p\nmid q-1$, $G$ est cyclique. Lister les ordres $pq<100$ pour lesquels tout groupe est cyclique. (c) Soit $G_{21}$ l'ensemble des applications $x\mapsto ax+b$ de $\Z/7\Z$ dans lui-même avec $a\in\ens{\cl1,\cl2,\cl4}$ et $b\in\Z/7\Z$. Montrer que c'est un groupe non abélien d'ordre 21 pour la composition.
+\begin{indication}
+(c) $\ens{\cl1,\cl2,\cl4}$ est le sous-groupe d'ordre 3 de $(\Z/7\Z)^\times$. Composer $x\mapsto ax+b$ et $x\mapsto a'x+b'$.
+\end{indication}
+\begin{corrige}
+(a) $n_q\mid p$ et $n_q\equiv1\pmod q$ ; comme $1<p<q$, $p\not\equiv1\pmod q$, donc $n_q=1$.
+(b) $n_p\mid q$ et $n_p\equiv1\pmod p$ : $n_p\in\ens{1,q}$, et $n_p=q$ est exclu car $p\nmid q-1$. Les deux Sylow $P$, $Q$ sont normaux, $P\cap Q=\ens e$ (ordres premiers entre eux) et $\abs{PQ}=pq$ : $G\simeq\Z/p\Z\times\Z/q\Z\simeq\Z/pq\Z$. Ordres $pq<100$ avec $p<q$ et $p\nmid q-1$ : $15,33,35,51,65,69,77,85,87,91,95$. (Pour $p=2$, $2\mid q-1$ toujours, et $D_q$ n'est pas cyclique.)
+(c) $(a,b)\circ(a',b'):x\mapsto a(a'x+b')+b=aa'x+(ab'+b)$, avec $aa'\in\ens{\cl1,\cl2,\cl4}$ (car $\cl2^2=\cl4$, $\cl2\cdot\cl4=\cl1$, $\cl4^2=\cl2$) : la composition est interne et associative (composition d'applications). Neutre $x\mapsto x$ ; inverse de $x\mapsto ax+b$ : $x\mapsto a^{-1}x-a^{-1}b$, encore dans l'ensemble. $3\cdot7=21$ éléments distincts. $x\mapsto\cl2x$ et $x\mapsto x+\cl1$ ne commutent pas : $\cl2(x+\cl1)=\cl2x+\cl2$ et $\cl2x+\cl1$.
+\end{corrige}
+\end{exo}
+
+\begin{exo}[D][Ordres qui interdisent la simplicité]
+Montrer qu'aucun groupe d'ordre $12$, $30$, $56$ ou $200$ n'est simple.
+\begin{indication}
+Pour $12$ et $56$, si le Sylow d'ordre premier n'est pas normal, compter ses éléments : il ne reste de la place que pour un seul Sylow de l'autre premier.
+\end{indication}
+\begin{corrige}
+$12$ : $n_3\in\ens{1,4}$. Si $n_3=4$, les quatre sous-groupes d'ordre 3 apportent $4\cdot2=8$ éléments d'ordre 3. Un 2-Sylow (ordre 4) ne contient aucun élément d'ordre 3, donc est inclus dans les $4$ éléments restants : il n'y en a qu'un, $n_2=1$. Un Sylow est normal.
+$30$ : $n_3\in\ens{1,10}$, $n_5\in\ens{1,6}$. Si $n_3=10$ et $n_5=6$ : $20$ éléments d'ordre 3 et $24$ d'ordre 5, soit $44>30$. Donc $n_3=1$ ou $n_5=1$.
+$56=8\cdot7$ : $n_7\in\ens{1,8}$. Si $n_7=8$ : $48$ éléments d'ordre 7 ; les $8$ restants contiennent un 2-Sylow (d'ordre 8, sans élément d'ordre 7), qui est donc unique.
+$200=8\cdot25$ : $n_5\mid8$ et $n_5\equiv1\pmod5$ ; parmi $1,2,4,8$, seul $1$ convient. Le 5-Sylow est normal.
+Dans chaque cas, ce Sylow normal est propre et non trivial.
+\end{corrige}
+\end{exo}
+
+\begin{exo}[D][Groupes d'ordre $2p$]
+Soit $p$ un nombre premier impair et $G$ d'ordre $2p$. Montrer que $G\simeq\Z/2p\Z$ ou $G\simeq D_p$.
+\begin{indication}
+Cauchy donne $a$ d'ordre $p$ et $b$ d'ordre 2 ; $\langle a\rangle$ est d'indice 2. Écrire $bab^{-1}=a^k$ et calculer $b^2ab^{-2}$.
+\end{indication}
+\begin{corrige}
+Par Cauchy, il existe $a$ d'ordre $p$ et $b$ d'ordre 2. $A=\langle a\rangle$ est d'indice 2, donc normal, et $b\notin A$ (ordre 2 ne divise pas $p$), donc $G=A\cup bA=\ens{a^i,ba^i\mid 0\le i<p}$. Normalité : $bab^{-1}=a^k$ pour un $k$. Alors $a=b^2ab^{-2}=b\,a^k\,b^{-1}=(bab^{-1})^k=a^{k^2}$, donc $k^2\equiv1\pmod p$, et $k\equiv\pm1\pmod p$ ($\Z/p\Z$ est un corps). Si $k\equiv1$, $a$ et $b$ commutent, $ab$ est d'ordre $\mathrm{ppcm}(p,2)=2p$, et $G$ est cyclique. Si $k\equiv-1$ : $bab^{-1}=a^{-1}$, avec $a^p=b^2=e$ ; ce sont les relations de $D_p$ ($r\leftrightarrow a$, $\tau\leftrightarrow b$). Tout élément s'écrit de façon unique $a^ib^j$ ($0\le i<p$, $j\in\ens{0,1}$), et les relations déterminent tous les produits ($b a^i=a^{-i}b$) ; la bijection $r^i\tau^j\mapsto a^ib^j$ respecte donc les lois : $G\simeq D_p$.
+\end{corrige}
+\end{exo}
+
+\begin{exo}[D][Les groupes d'ordre 8]
+Montrer que tout groupe d'ordre 8 est isomorphe à l'un des cinq groupes $\Z/8\Z$, $\Z/4\Z\times\Z/2\Z$, $(\Z/2\Z)^3$, $D_4$, $Q_8$, et que ces cinq groupes sont deux à deux non isomorphes.
+\begin{indication}
+Discuter selon l'ordre maximal d'un élément. Si $G$ est d'exposant 2, c'est un espace vectoriel sur $\mathbb F_2$. Si $G$ n'est pas abélien, prendre $a$ d'ordre 4 et $b\notin\langle a\rangle$ : déterminer $bab^{-1}$ puis $b^2$.
+\end{indication}
+\begin{corrige}
+\emph{Non-isomorphie.} Nombres d'éléments d'ordre 2 : $\Z/8\Z$ : 1 ; $\Z/4\Z\times\Z/2\Z$ : 3 ; $(\Z/2\Z)^3$ : 7 ; $D_4$ : 5 ; $Q_8$ : 1. Seuls $\Z/8\Z$ et $Q_8$ coïncident, et le premier est abélien, pas le second.
+\emph{Classification.} Si $G$ a un élément d'ordre 8, $G\simeq\Z/8\Z$. Si tout élément non neutre est d'ordre 2, $G$ est abélien (chapitre 4) ; noté additivement, c'est un $\mathbb F_2$-espace vectoriel ($\cl1\cdot x=x$, $\cl0\cdot x=0$) de cardinal 8, donc de dimension 3 : $G\simeq(\Z/2\Z)^3$. Reste le cas où l'ordre maximal est 4. Si $G$ est abélien, soient $a$ d'ordre 4 et $b\notin\langle a\rangle$ ; $b^2\in\langle a\rangle$ car $G/\langle a\rangle$ est d'ordre 2. Si $b$ est d'ordre 4, $b^2$ est l'unique élément d'ordre 2 de $\langle a\rangle$, soit $b^2=a^2$, et $c=ab$ vérifie $c^2=a^2b^2=a^4=e$, $c\notin\langle a\rangle$ : quitte à remplacer $b$ par $c$, $b$ est d'ordre 2. Alors $\langle a\rangle\cap\langle b\rangle=\ens e$, $\abs{\langle a\rangle\langle b\rangle}=8$ et $G\simeq\Z/4\Z\times\Z/2\Z$ (\voir{thm-produit-direct}). Si $G$ n'est pas abélien : $a$ d'ordre 4, $A=\langle a\rangle$ d'indice 2 normal, $b\notin A$, $G=A\cup bA$. $bab^{-1}\in A$ est d'ordre 4, donc $a$ ou $a^{-1}$ ; ce n'est pas $a$, sinon $a$ et $b$ commuteraient et $G=\langle a,b\rangle$ serait abélien. Donc $bab^{-1}=a^{-1}$. $b^2\in A$ ($G/A$ d'ordre 2), et $b^2$ n'est ni $a$ ni $a^{-1}$, sinon $b$ serait d'ordre 8. Donc $b^2=e$ : relations de $D_4$, $G\simeq D_4$ ; ou $b^2=a^2$ : relations $a^4=e$, $b^2=a^2$, $bab^{-1}=a^{-1}$, vérifiées par $a=\mathbf i$, $b=\mathbf j$ dans $Q_8$, et $G\simeq Q_8$. Dans les deux cas, tout élément s'écrit de façon unique $a^ib^j$ et les relations déterminent la table, comme dans l'exercice précédent.
+\end{corrige}
+\end{exo}
+
+\begin{exo}[D][Les rotations du cube forment $S_4$]
+Soit $G$ le groupe des rotations du cube ($\abs G=24$). (a) Montrer que $G$ agit sur l'ensemble des 4 grandes diagonales. (b) Montrer que cette action est fidèle. (c) En déduire $G\simeq S_4$.
+\begin{indication}
+(b) On place le cube $[-1,1]^3$ ; les grandes diagonales sont dirigées par les vecteurs $v_1,\dots,v_4$ de la forme $(1,\pm1,\pm1)$. Une rotation du noyau envoie chaque $v_i$ sur $\pm v_i$. Si elle les envoie tous sur leur opposé, c'est $-\Id$ ; sinon elle fixe un sommet.
+\end{indication}
+\begin{corrige}
+(a) Une rotation préserve le cube, donc l'ensemble de ses sommets, et envoie deux sommets opposés (milieu $O$) sur deux sommets opposés : elle permute les grandes diagonales. On obtient $\rho:G\to S_4$.
+(b) Soit $g\in\Ker\rho$ : $g(v_i)=\varepsilon_iv_i$ avec $\varepsilon_i=\pm1$ (isométrie linéaire qui préserve la droite $\R v_i$). Si tous les $\varepsilon_i$ valent $-1$, $g=-\Id$ sur une base $v_1,v_2,v_3$ (qui sont indépendants) ; or $\det(-\Id)=-1$ et $g$ est une rotation : exclu. Sinon $g$ fixe un $v_i$, donc c'est une rotation d'axe $\R v_i$ qui préserve le cube : d'angle $0$ ou $\pm\frac{2\pi}3$ (stabilisateur d'un sommet, exercice sur les orbites). Par symétrie du cube, on peut supposer $v_i=v_1=(1,1,1)$. Les rotations de $\pm\frac{2\pi}3$ autour de $v_1$ sont les permutations circulaires des coordonnées $(x,y,z)\mapsto(z,x,y)$ et $(x,y,z)\mapsto(y,z,x)$ ; la première envoie $(1,1,-1)$ sur $(-1,1,1)$, la seconde sur $(1,-1,1)$, et aucun des deux n'est $\pm(1,1,-1)$ : elles déplacent une diagonale. Donc $g=\Id$, et l'action est fidèle.
+(c) $\rho$ est un homomorphisme injectif entre deux groupes d'ordre 24 : c'est un isomorphisme.
+\end{corrige}
+\end{exo}
+
+\begin{exo}[D][Ordre $2n$ avec $n$ impair]
+Soit $G$ d'ordre $2n$ avec $n$ impair. (a) Soit $t\in G$ d'ordre 2 (Cauchy). Montrer que la permutation $\lambda_t:x\mapsto tx$ de $G$ est un produit de $n$ transpositions disjointes. (b) En déduire, avec la signature, que $G$ a un sous-groupe d'indice 2. (c) En déduire qu'un groupe d'ordre $2n$, $n$ impair et $n>1$, n'est pas simple.
+\begin{indication}
+(a) $\lambda_t$ n'a pas de point fixe et vérifie $\lambda_t^2=\Id$. (b) Composer le plongement de Cayley $G\to S(G)$ avec la signature.
+\end{indication}
+\begin{corrige}
+(a) $tx=x$ entraîne $t=e$ : pas de point fixe. $\lambda_t^2=\lambda_{t^2}=\Id$ : tous les cycles sont de longueur 2. Les $2n$ éléments sont donc répartis en $n$ transpositions disjointes $(x\ tx)$.
+(b) Numérotons les éléments de $G$ pour identifier $S(G)$ à $S_{2n}$. $\lambda:g\mapsto\lambda_g$ est un homomorphisme (Cayley, \voir{thm-cayley}), et $\sgn\circ\lambda:G\to\ens{\pm1}$ aussi. $\sgn(\lambda_t)=(-1)^n=-1$ : il est surjectif, et son noyau est un sous-groupe d'indice 2 (premier théorème d'isomorphisme).
+(c) Ce noyau est normal, d'ordre $n>1$, et propre.
+\end{corrige}
+\end{exo}
+
+\begin{exo}[D][Sous-groupes d'un $p$-groupe]\label{exo-p-sous-groupes}
+Soit $P$ un groupe d'ordre $p^n$. Montrer que pour tout $0\le k\le n$, $P$ a un sous-groupe \emph{normal} d'ordre $p^k$. En déduire que tout groupe fini a un sous-groupe d'ordre $p^k$ pour toute puissance $p^k$ qui divise son ordre.
+\begin{indication}
+Récurrence sur $n$ : prendre $z\in Z(P)$ d'ordre $p$ et passer au quotient par $\langle z\rangle$. Pour la conclusion, partir d'un $p$-Sylow.
+\end{indication}
+\begin{corrige}
+Récurrence sur $n$, le cas $n=0$ (et $k=0$ en général) étant clair. Soit $n\ge1$ et $1\le k\le n$. $Z(P)$ n'est pas trivial (\voir{thm-centre-p}) ; par Cauchy, il contient $z$ d'ordre $p$. $N=\langle z\rangle$ est central, donc normal. $P/N$ est d'ordre $p^{n-1}$ ; par hypothèse de récurrence, il a un sous-groupe normal $M$ d'ordre $p^{k-1}$. Soit $\pi:P\to P/N$ la projection. $\pi^{-1}(M)$ est un sous-groupe (\voir{prop-hom}), normal : pour $x\in\pi^{-1}(M)$ et $g\in P$, $\pi(gxg^{-1})=\pi(g)\pi(x)\pi(g)^{-1}\in M$. Il est réunion de $p^{k-1}$ classes de $N$, donc d'ordre $p^{k-1}\cdot p=p^k$. Enfin, si $p^k$ divise $\abs G$, un $p$-Sylow $P$ de $G$ (Sylow) a un sous-groupe d'ordre $p^k$.
+\end{corrige}
+\end{exo}
+
+\begin{exo}[D][$A_5$ est simple, et ce qui s'ensuit]
+(a) Rédiger la démonstration du théorème \voir{thm-a5-simple}. (b) Montrer que $A_5$ n'a pas de sous-groupe d'ordre $30$, ni d'ordre $20$, ni d'ordre $15$. (c) Montrer que $A_5$ a des sous-groupes d'ordre $12$ et d'ordre $10$. (d) Montrer que le seul sous-groupe d'indice 2 de $S_5$ est $A_5$.
+\begin{indication}
+(b) Pour 20 : l'action sur les 3 classes donne un homomorphisme $A_5\to S_3$ ; quel est son noyau ? Pour 15 : un groupe d'ordre 15 est cyclique. (d) Un sous-groupe $H$ d'indice 2 est normal ; regarder $H\cap A_5$, normal dans $A_5$.
+\end{indication}
+\begin{corrige}
+(a) Voir le cours.
+(b) Ordre 30 : indice 2, donc normal, contraire à la simplicité. Ordre 20 : l'action sur les 3 classes donne $\rho:A_5\to S_3$, de noyau $N\subset H$ normal dans $A_5$ ; $N=A_5$ est exclu ($N\subset H$), et $N=\ens{\id}$ aussi, car alors $A_5$ (60 éléments) s'injecterait dans $S_3$ (6 éléments). Ordre 15 : un tel sous-groupe serait cyclique (exemple du cours), mais les éléments de $A_5$ sont d'ordre 1, 2, 3 ou 5.
+(c) $A_4$ (permutations paires fixant 5) est d'ordre 12. Le groupe diédral $D_5$, vu dans $S_5$ comme groupe des symétries d'un pentagone de sommets $1,\dots,5$, est d'ordre 10 ; ses rotations sont des 5-cycles et ses réflexions des doubles transpositions, toutes paires : $D_5<A_5$.
+(d) Soit $H$ d'indice 2 dans $S_5$, donc normal. $H\cap A_5\lhd A_5$, donc $H\cap A_5\in\ens{\ens{\id},A_5}$. Comme $\abs{HA_5}\le120$, $\abs{H\cap A_5}=\frac{60\cdot60}{\abs{HA_5}}\ge30$ : donc $H\cap A_5=A_5$, et $H=A_5$ par égalité des ordres.
+\end{corrige}
+\end{exo}
+
+\begin{bilan}
+\item Calculer centres, centralisateurs, normalisateurs ; énoncer et prouver $G/Z(G)\simeq\Inn(G)$ et \og $G/Z(G)$ cyclique $\Rightarrow$ $G$ abélien \fg.
+\item Calculer $\abs{HK}$ ; reconnaître un produit direct interne.
+\item Définir une action, trouver orbites et stabilisateurs ; rédiger orbite-stabilisateur et Burnside ; dénombrer des coloriages.
+\item Écrire l'équation aux classes ; prouver que le centre d'un $p$-groupe n'est pas trivial et que les groupes d'ordre $p^2$ sont abéliens.
+\item Démontrer Cauchy (McKay) et Sylow ; appliquer la méthode de Sylow pour classer ou montrer qu'un groupe n'est pas simple.
+\item Décrire les classes de $S_n$ et de $A_n$ ; démontrer la simplicité de $A_5$.
+\end{bilan}
