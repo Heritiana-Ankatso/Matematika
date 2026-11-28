@@ -1,0 +1,72 @@
+/* Design v8, Musée: solemn night and gold; placards ("Salle I" to "Salle VIII"), a cartel on each exhibit, soft 14 px
+   corners (docs/DESIGN_V8.md section 3). Loaded by js/v8.js enterWorld('musee'). */
+:root[data-world="musee"] body { background: radial-gradient(90% 60% at 70% 0%, rgba(217,178,95,.08), transparent 70%) no-repeat, var(--w-bg); }
+:root[data-world="musee"] .v8 h1, :root[data-world="musee"] .v8 h2 { letter-spacing: -.01em; }
+.v8-placard { display: inline-block; font: 600 .72rem var(--w-ui); letter-spacing: .14em; text-transform: uppercase; color: var(--w-accent); border: 1px solid color-mix(in srgb, var(--w-accent) 45%, transparent); padding: 3px 8px; border-radius: 2px; }
+.v8-cartel { margin: 1.6em 0 0; padding: 14px 18px; border-left: 2px solid var(--w-accent); background: var(--w-accent-soft); font: 400 .95rem/1.5 var(--w-text); }
+.v8-cartel b { display: block; margin-bottom: .3em; font: 600 .72rem var(--w-ui); letter-spacing: .12em; text-transform: uppercase; color: var(--w-accent); }
+:root[data-world="musee"] .v8-btn { border-radius: 22px; }
+/* the figures of the exhibits read the current token names (object-kit.js palette): in the Musée they take its ground,
+   its ink and its gold for the object studied; data colours stay those of the night theme (tokens.css) */
+:root[data-world="musee"] {
+  --bg: var(--w-bg); --surface: var(--w-surface); --sunken: var(--w-raise); --ink: var(--w-ink); --ink-2: var(--w-muted); --muted: var(--w-muted);
+  --line: var(--w-rule); --accent: var(--w-accent2); --accent-ink: var(--w-bg); --focus: var(--w-accent);
+  --object-ink: var(--w-accent); --object: var(--w-accent); --object-soft: var(--w-accent-soft); --object-on: var(--w-accent-ink);
+}
+
+/* the hall: hero with the exhibit of the day, "Là où on ne les attend pas", the eight rooms */
+.v8-hall-hero { border-bottom: 1px solid var(--w-rule); background-image: radial-gradient(rgba(232,230,223,.07) 1px, transparent 1.4px); background-size: 28px 28px; }
+.v8-hall-grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); gap: 40px; align-items: center; padding-block: clamp(32px, 7vh, 84px); }
+@media (max-width: 860px) { .v8-hall-grid { grid-template-columns: minmax(0, 1fr); gap: 28px; } }
+.v8-hall-grid h1 { margin-top: .4em; font-size: clamp(2rem, 5.2vw, 3.4rem); line-height: 1.08; max-width: 18ch; }
+.v8-today { margin: 0; padding: 18px; border: 1px solid var(--w-rule); border-radius: 20px; background: linear-gradient(170deg, var(--w-surface), var(--w-bg)); }
+.v8-today-link { display: block; aspect-ratio: 4 / 3; border-radius: 12px; overflow: hidden; background: var(--w-bg); }
+.v8-today canvas { display: block; width: 100%; height: 100%; }
+.v8-today figcaption { margin-top: 12px; font: 400 .95rem/1.5 var(--w-text); color: var(--w-muted); }
+.v8-today figcaption b { display: block; margin: .1em 0 .2em; font: 500 1.25rem var(--w-head); color: var(--w-ink); }
+.v8-unexp { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-top: 1.4em; }
+@media (max-width: 1000px) { .v8-unexp { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 520px) { .v8-unexp { grid-template-columns: minmax(0, 1fr); } }
+.v8-uq { display: flex; flex-direction: column; gap: 10px; min-height: 150px; padding: 18px; border: 1px solid var(--w-rule); border-radius: 16px; background: var(--w-surface); color: var(--w-ink) !important; text-decoration: none; transition: border-color var(--w-t), transform var(--w-t); }
+.v8-uq:hover { border-color: var(--w-accent); transform: translateY(-2px); }
+.v8-q { flex: 1; font: 400 1.3rem/1.2 var(--w-head); }
+.v8-open { font: 600 .85rem var(--w-ui); color: var(--w-accent); }
+.v8-rooms { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-top: 1.4em; }
+@media (max-width: 1000px) { .v8-rooms { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 520px) { .v8-rooms { grid-template-columns: minmax(0, 1fr); } }
+.v8-room { border: 1px solid var(--w-rule); border-radius: 16px; background: var(--w-surface); overflow: hidden; }
+.v8-room[open] { grid-column: 1 / -1; border-color: var(--w-accent); }
+.v8-room > summary { list-style: none; display: flex; flex-direction: column; align-items: flex-start; gap: 10px; min-height: 100%; padding: 16px 18px 18px; cursor: pointer; }
+.v8-room > summary::-webkit-details-marker { display: none; }
+.v8-room[open] > summary { flex-direction: row; align-items: center; gap: 20px; min-height: 0; }
+@media (max-width: 520px) { .v8-room > summary { flex-direction: row; align-items: center; gap: 16px; } }
+.v8-room > summary:hover .v8-room-name { color: var(--w-accent); }
+.v8-art { width: 96px; height: auto; flex: none; }
+@media (max-width: 520px) { .v8-art { width: 72px; } }
+.v8-art path, .v8-art circle, .v8-art line, .v8-art polyline, .v8-art polygon, .v8-art rect { fill: none; stroke: var(--w-accent); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
+.v8-art .faint { stroke: var(--w-muted); stroke-width: 1; opacity: .55; }
+.v8-art .dot { fill: var(--w-accent); stroke: none; }
+.v8-art .box { fill: var(--w-accent-soft); }
+.v8-room-t { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.v8-room-t .v8-placard { align-self: flex-start; margin-bottom: 6px; }
+.v8-room-name { font: 500 1.35rem/1.15 var(--w-head); transition: color var(--w-t); }
+.v8-room-count { font: 600 .8rem var(--w-ui); letter-spacing: .03em; color: var(--w-accent); }
+.v8-room-promise { font-size: .95rem; line-height: 1.45; color: var(--w-muted); }
+.v8-room-body { padding: 0 18px 16px; }
+.v8-room-body .v8-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 2px 20px; padding-top: 10px; border-top: 1px solid var(--w-rule); }
+
+/* the exhibit page: hook, live figure, the mathematics, where it is found, the courses, the same room */
+.v8 .v8-ex-w { max-width: 48rem; padding-block: 32px 100px; }
+.v8-crumbs { font: 500 .9rem var(--w-ui); color: var(--w-muted); }
+.v8-crumbs a { color: var(--w-muted); text-decoration: none; }
+.v8-crumbs a:hover { color: var(--w-ink); }
+.v8-exhibit h1 { margin: .35em 0 .4em; font-size: clamp(2.1rem, 5.5vw, 3.3rem); line-height: 1.06; }
+.v8-exhibit h2 { margin: 2.2em 0 .5em; font-size: 1.6rem; }
+.v8-exhibit h3 { margin: 1.6em 0 .4em; font-size: 1.2rem; font-weight: 500; }
+.v8-exhibit .v8-lede { color: var(--w-ink); font-size: 1.15rem; }
+.v8-stage { margin: 1.6em 0; padding: 12px; border: 1px solid var(--w-rule); border-radius: var(--w-r); background: var(--w-surface); }
+.v8-cartel dl { margin: 0; display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 4px 14px; }
+.v8-cartel dt { font: 600 .85rem var(--w-ui); color: var(--w-muted); }
+.v8-cartel dd { margin: 0; }
+@media (max-width: 520px) { .v8-cartel dl { grid-template-columns: minmax(0, 1fr); } .v8-cartel dd { margin-bottom: 6px; } }
+.v8-source { margin-top: 2.4em; font: 500 .9rem var(--w-ui); }

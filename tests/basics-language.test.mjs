@@ -16,7 +16,8 @@ test('Foundations iframe follows website language',async()=>{
  assert.ok(page.includes('lesson.id + (lang === "en" ? ".en" : "")'));
  assert.ok(page.includes('<iframe id="basics-frame" lang='));
  const app=await read('../site/js/app.js');
- assert.ok(app.includes('from "./basics-page.js"')&&!app.includes('const basicsLessons'));
+ // app.js loads the module when the page is opened (docs/REBUILD_PLAN.md stage 1)
+ assert.ok(app.includes('import("./basics-page.js")')&&!app.includes('const basicsLessons'));
 });
 for(const [id,[enTitle,frTitle]] of Object.entries(lessons)){
  test(id+' both language editions are published and integrated',async()=>{

@@ -1,7 +1,8 @@
 // Self-hosted exam exercises share the bank's cards, folded solutions, maths and print path.
-import {annalsBank} from './catalogue-data.js';
-import {assetHref,fetchJSON} from './data-loader.js';
-import {typeset,printMarkup} from './exercises/ui-kit.js';
+import {annalsBank,annalsVersions} from './annals-data.js';
+import {assetHref,fetchJSON,addVersions} from './data-loader.js';
+addVersions(annalsVersions);
+import {typeset,printMarkup} from './mathjax.js';
 const E=x=>String(x).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const fold=x=>String(x).normalize('NFD').replace(/\p{Diacritic}/gu,'').toLowerCase();
 export const ANNALS=annalsBank.records;

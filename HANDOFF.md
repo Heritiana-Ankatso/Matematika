@@ -1,5 +1,97 @@
 # Handoff
 
+## Algèbre 1: group theory complement and QCM (28 November 2026, owner request)
+
+Owner request: expand Algèbre 1 with classical exercises and problems, especially in group theory (some created, with
+care), and a QCM feature with feedback, instant or after a series, at university level.
+
+- New lesson `content/university/algebre-1/04b-groupes-actions.tex` (« Complément au chapitre 4 », prefix 4C, page
+  `ch4-actions.html`, manifest sequence `algebre-1-actions`): centre, conjugation, Aut and Inn, products HK and internal
+  direct products, group actions (orbit-stabiliser, Burnside), class equation, p-groups and groups of order p², Cauchy
+  (McKay's proof), Sylow (Wielandt's existence proof, full proofs of conjugacy and counting), classes of S_n and A_n,
+  simplicity of A_5. 31 graded exercises (rubrics A to D) with hints and full solutions: centres, classes of S_4 and A_4,
+  orbits (cube, GL_2(F_2)), Burnside counting (necklaces, cube colourings, Fermat), Sylow counts, automorphism groups,
+  Q_8, Cauchy and consequences, finite subgroups of K* cyclic, Wilson, conjugation and generators of S_n and A_n,
+  derived subgroup, A_4 without subgroup of order 6, true/false sets, groups of order pq, 2p and 8, non-simplicity of
+  orders 12, 30, 56, 200 and p²q, rotations of the cube ≅ S_4, order 2n with n odd, subgroups of p-groups, A_5.
+- QCM: dialect `qcm` / `question[plusieurs]` / `\choix` / `\bonchoix` / `explication` (README of the folder); 40
+  questions: 12 for chapter 4, 20 for the complement (two series), 8 for chapter 5. Web: instant or end-of-series
+  correction, exact-set grading, per-choice feedback and explanation, reshuffle, best score on the device; PDF: questions
+  in `exercices.pdf`, explained answers in `corriges.pdf`.
+- Builder: long inline formulas now break after relations from 24 characters (was 48) and inside `\ens{...}` after
+  commas and `\mid`: the new lesson has no horizontal scroll at 320 px. Still overflowing at 320 px, all from before:
+  a few inline matrices (chapter 2 exercise 2 and 28, chapter 3 exercises 2 and 32, synthesis exercise 4) and the
+  Cayley widget's select in chapter 4. References: « le théorème \voir{x} » now prints « le théorème 4.7 » (the kind
+  word was doubled before, about seventy places).
+- Every count quoted by the new material is recomputed by brute force in `tests/algebra1.test.mjs`.
+- Owner to review before class use: the whole complement, in particular the D exercises (groups of order 8, p²q, cube).
+- 28 November 2026, second round (owner: « go ahead »): QCM series for chapters 1 (10 questions), 2 (8), 3 (10) and the
+  synthesis (6), 74 questions in all; figure `burnside` in the complement (necklaces, bracelets, cube faces; Burnside
+  table by type of symmetry, cycles shown on the figure, the visitor's colouring with its orbit and stabiliser,
+  brute-force check and one representative per orbit).
+- 28 November 2026, third round (owner: banks of more than 60 QCM per chapter, randomised whenever possible, and quizzes
+  with simple, reliably checkable inputs): `site/js/algebra1-qbank.js` (engine) and one bank per chapter
+  `site/js/algebra1-bank-c1|c2|c3|c4|c4c|c5.js`, mounted by `\banque{<key>}` after `\exercices`. QCM per chapter (generators +
+  fixed): 55+10, 57+8, 53+10, 52+12, 42+20, 55+8; quiz generators: 15, 16, 14, 15, 15, 15. Series of 10, 20 or 30, theme
+  filter, instant or end-of-series correction, replayable code (seed). Quiz answers: integer, residue, fraction, set,
+  tuple, permutation in cycles, matrix. Every generator checked over 150 seeds (`tests/algebra1-bank.test.mjs`), and
+  about 2,200 drawn questions rendered by MathJax in Chromium without an error. Review by hand found and fixed: two
+  « right conclusion, bad reason » distractors patterns (now always the opposite conclusion), a question with two right
+  answers, a « wrong » class equation that was a reordering of the right one, the order-30 3-Sylow (always normal), and
+  (a+b)^3 = a^3 + b^3 in Z/6Z (true, removed as a « false » statement).
+- Owner to review: the generators of each bank (each file reads as a list of questions), above all the pools of
+  statements (`fromPool`), whose truth values are written by hand; the numerical ones are computed.
+- Next candidates: Sylow applications to the classification of groups of order 12; a bank for the synthesis.
+
+## Competition archive (23 November 2026, owner request)
+
+New page `#contests` (Résoudre > Concours; linked from the Olympiad arena and index), files in `site/js/contests/`
+(index in `site/CLAUDE.md`), tests `tests/contests.test.mjs`. Owner rules of 23 November 2026: an Olympiad's solutions
+live on their own page (`#contests/<c>/<paper>/<n>`), never on the paper; other contests fold the solution under the
+problem; a task whose answer is a sequence of commands is played and checked on the page; interactive figures where
+they help.
+
+- 24 November 2026 (owner): the IMO section is NOT published. No open licence found (imo-official.org footer "© International Mathematical Olympiad", the regulations and the official PDFs carry no reuse terms); owner rule: verbatim or not at all. Files in `content/held-back/imo/` (README: how to restore after written permission from the IMO Board). The notes below on the IMO are history. Open question: the IOI (`ioi.js`) and the Olympiad strategy problems (`olympiad-content.js`) are also restated, not verbatim.
+- On the site (before that decision): IMO 2023, 2024, 2025 (18 problems restated FR/EN, official papers fetched from imo-official.org;
+  "© International Mathematical Olympiad", no open licence, so our wording and a link). Written solutions: 2023 P1,
+  2024 P1, P2, P5, 2025 P1, each recomputed in the tests. Figures: sunny lines, sums of floors, gcd, divisor chain,
+  Turbo's board (played, and replayed by the strategy on the solution page). Beaver Computing Challenge 2023, grades 9
+  and 10 (CEMC, CC BY-NC 4.0, read on cemc.uwaterloo.ca/copyright): five tasks translated and adapted, official
+  answers, folded solutions; video game and trains accept and check the visitor's own sequence; buttons, carrots and
+  lockers are played step by step.
+- Listed with "papers to come": PAMO (no official archive found), EGMO, OFM, Olympiades de Première, Concours général,
+  Euclid, Castor, Algoréa, Prologin, CCC, USACO, IOI. Terms not found on their sites on 23 November 2026 [VERIFY with
+  each organiser before importing verbatim]; CEMC (Euclid, CCC) is CC BY-NC 4.0. Whether the BCC tasks that come from
+  the international Bebras pool are covered by the CEMC licence [VERIFY].
+- Added 23 November 2026 (second round): IMO 2023 P4 and 2025 P5 solutions; Euclid 2025 (CEMC, CC BY-NC 4.0),
+  questions 5 to 10 (parts chosen), typed answers checked, coin game of question 10 played and checked on a board.
+  Olympiad strategy pages: each solution moved to `#olympiad/<id>/<n>` (owner decision), the arena links to it.
+- Queue: (1) solutions for the 11 IMO problems marked "in preparation" (2023 P2, P3, P5, P6, 2024 P3, P4, P6, 2025 P2,
+  P3, P4, P6), each with a computed check; Euclid questions 1 to 4 (figures to redraw) and 9 (c); (2) earlier IMO years (2019 to 2022 already fetched, not yet restated); (3) PAMO and
+  the Malagasy olympiad once the owner supplies or locates papers; (4) Euclid and CCC (open licence); (5) the others
+  after the organisers' answers. Owner question: should the existing Olympiad strategy pages also move their folded
+  solutions to separate pages, as the new rule says for the Olympiad section?
+- Not tested: the CI browser job (Python Playwright missing in the session container; the pages were driven instead
+  with Node Playwright: every figure, the validators, phone width 320 px without horizontal scroll, no console error),
+  a light-theme visual pass, a screen reader, real phones. `make check` failures in the container are environmental
+  (no xelatex, no Python Playwright, git-ignored lecture build, an untouched Terminale PDF).
+
+## Design v8 rebuild: stages 0 and 1 (22 November 2026)
+
+Stage 0: `tests/budget_browser.mjs` (`npm run test:budget`, CI `browser`) measures six pages against `tests/budgets.json`.
+Stage 1: the shell (`site/js/app.js`) imports only itself; each page's code is loaded with `import()` from the groups
+named in `site/js/routes.js` (`LOADERS` in `app.js`). Light generated data for pages that only name entries:
+`catalogue-lines.js`, `discovery-context-data.js` (`scripts/catalogue-lines.mjs`), the catalogue split into
+`catalogue-data.js`, `asset-versions.js`, `annals-data.js`. MathJax is in `site/js/mathjax.js`. Measurements and what is
+left (gallery exhibits, laboratory index, service worker precache) in `docs/REBUILD_PLAN.md` section 2. No visible change.
+Stage 2 (behind `?v8`): `site/js/v8.js`, `--w-*` tokens and faces (`site/fonts/v8/`), the shared frame (`site/js/v8/kit.js`,
+end of `controls.css`), `world-<id>.css`, review page `#v8/<world>`.
+Stage 3 (behind `?v8`): threshold `site/js/v8/threshold.js`, hall `#musee` `site/js/v8/musee.js`, exhibit template
+`site/js/v8/exhibit.js`, curated ids `site/js/museum-data.js`, generated `site/js/world-lines.js`. Then report to the
+owner and wait: stages 4 to 8 need the owner's feedback. Owner decisions of 22 November 2026: smaller offline copy
+(service worker precaches the shell only: PR #67), Lycée hover panel `#f4f6fd` approved. Merged branches the session
+cannot delete: `v8-stage0-budget`, `v8-stage1-lazy`.
+
 ## Organisation and commands (21 November 2026)
 
 Four menu sections named by what the visitor does: Apprendre, Explorer (Domaines, Laboratoire, Curiosités, Fractales,

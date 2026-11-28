@@ -12,7 +12,8 @@
     "test:dom": "node tests/dom-smoke.mjs",
     "test:offline": "node tests/offline_browser.mjs",
     "check:prerequisites": "node scripts/check-prerequisites.mjs",
-    "check:prerequisites:strict": "node scripts/check-prerequisites.mjs --strict"
+    "check:prerequisites:strict": "node scripts/check-prerequisites.mjs --strict",
+    "test:budget": "node tests/budget_browser.mjs"
   },
   "engines": {
     "node": ">=18"

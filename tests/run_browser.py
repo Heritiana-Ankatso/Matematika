@@ -31,8 +31,12 @@ try:
     # The live site is French-curriculum only. Standalone collection and other-curriculum
     # scripts remain in tests/ alongside their source modules; their unit suites still run.
     for script in ['ergonomics_browser.py', 'live_curriculum_browser.py', 'slides_lab_browser.py',
-                   'generators_browser.py', 'chapter_destinations_browser.py', 'teacher_browser.py', 'search_browser.py', 'related_browser.py', 'exercise_link_browser.py', 'challenge_browser.py', 'hover_browser.py']:
-        result = subprocess.run([sys.executable, 'tests/' + script], cwd=root)
+                   'generators_browser.py', 'chapter_destinations_browser.py', 'teacher_browser.py', 'search_browser.py', 'related_browser.py', 'exercise_link_browser.py', 'challenge_browser.py', 'hover_browser.py', 'v8_foundation_browser.py', 'v8_musee_browser.py', 'v8_worlds_browser.py', 'v8_lycee_browser.py', 'v8_addresses_browser.py']:
+        # the checks of the previous look open it with ?v8=off remembered (tests/current-look/sitecustomize.py)
+        env = dict(os.environ)
+        if not script.startswith('v8_'):
+            env['PYTHONPATH'] = os.pathsep.join(filter(None, [str(root / 'tests' / 'current-look'), env.get('PYTHONPATH', '')]))
+        result = subprocess.run([sys.executable, 'tests/' + script], cwd=root, env=env)
         if result.returncode:
             break
 finally:

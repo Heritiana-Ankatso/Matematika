@@ -341,6 +341,117 @@ Soit $f:E\to\parties(E)$ quelconque. Posons $A=\ens{u\in E\mid u\notin f(u)}$. S
 \end{erreurs}
 
 \exercices
+
+\banque{c1}
+
+\begin{qcm}[Ensembles, applications, relations, dénombrabilité]
+Dix questions sur le chapitre. Une question n'est comptée juste que si exactement les bonnes réponses sont cochées.
+\begin{question}[plusieurs]
+Soit $E=\ens{1,\ens1}$. Lesquelles de ces affirmations sont vraies ?
+\bonchoix{$1\in E$}{Oui : $1$ est l'un des deux éléments de $E$.}
+\bonchoix{$\ens1\in E$}{Oui : $\ens1$ est l'autre élément de $E$.}
+\bonchoix{$\ens1\subset E$}{Oui : le seul élément de $\ens1$, à savoir $1$, est dans $E$.}
+\bonchoix{$\ens{\ens1}\subset E$}{Oui : le seul élément de $\ens{\ens1}$, à savoir $\ens1$, est dans $E$.}
+\choix{$\ens{\ens1}\in E$}{Non : les éléments de $E$ sont $1$ et $\ens1$, pas $\ens{\ens1}$.}
+\choix{$\varnothing\in E$}{Non : $\varnothing\subset E$ est vrai pour tout $E$, mais $\varnothing$ n'est pas un élément de $E$.}
+\begin{explication}
+$\in$ relie un élément à un ensemble, $\subset$ relie deux ensembles ; ici $\ens1$ est à la fois élément et partie de $E$. Voir la définition \voir{def-inclusion} et l'encadré qui la suit.
+\end{explication}
+\end{question}
+\begin{question}
+Combien d'éléments a $\parties(\parties(\ens{a,b}))$ ?
+\choix{4}{C'est le cardinal de $\parties(\ens{a,b})$.}
+\choix{8}{On a calculé $2^3$ ; le bon exposant est le cardinal de $\parties(\ens{a,b})$, soit 4.}
+\bonchoix{16}{Oui : $\parties(\ens{a,b})$ a $2^2=4$ éléments, donc $\parties(\parties(\ens{a,b}))$ en a $2^4=16$.}
+\choix{65536}{C'est $2^{16}$, le cardinal de l'ensemble des parties de l'ensemble demandé.}
+\begin{explication}
+Si $\Card E=n$, $\Card\parties(E)=2^n$ (\voir{prop-parties}) : on applique la formule deux fois, $2^{2^2}=16$.
+\end{explication}
+\end{question}
+\begin{question}
+Soit $f:\R\to\R$, $x\mapsto x^2$, $A=[-1,0]$ et $A'=[0,2]$. Que valent $f(A\cap A')$ et $f(A)\cap f(A')$ ?
+\bonchoix{$\ens0$ et $[0,1]$}{Oui : $A\cap A'=\ens0$, alors que $f(A)=[0,1]$ et $f(A')=[0,4]$.}
+\choix{$[0,1]$ et $[0,1]$}{On a supposé $f(A\cap A')=f(A)\cap f(A')$, qui est faux en général.}
+\choix{$\ens0$ et $\ens0$}{$f(A)\cap f(A')=[0,1]\cap[0,4]=[0,1]$.}
+\choix{$[0,4]$ et $[0,1]$}{$A\cap A'=\ens0$, dont l'image est $\ens0$.}
+\begin{explication}
+On a toujours $f(A\cap A')\subset f(A)\cap f(A')$, avec égalité pour tous $A,A'$ si et seulement si $f$ est injective : ici $y=\frac14$ a l'antécédent $-\frac12\in A$ et l'antécédent $\frac12\in A'$, mais aucun dans $A\cap A'$ (\voir{prop-images}).
+\end{explication}
+\end{question}
+\begin{question}[plusieurs]
+Soient $f:E\to F$ et $g:F\to G$. Lesquelles de ces implications sont vraies pour tous $E,F,G,f,g$ ?
+\bonchoix{$g\circ f$ injective $\Rightarrow$ $f$ injective.}{Oui : si $f(x)=f(x')$, alors $g(f(x))=g(f(x'))$, donc $x=x'$.}
+\choix{$g\circ f$ injective $\Rightarrow$ $g$ injective.}{Non : $f:\ens0\to\ens{0,1}$ l'inclusion et $g:\ens{0,1}\to\ens0$ constante ; $g\circ f=\Id_{\ens0}$ est injective, $g$ ne l'est pas.}
+\bonchoix{$g\circ f$ surjective $\Rightarrow$ $g$ surjective.}{Oui : un antécédent $x$ de $z$ par $g\circ f$ fournit l'antécédent $f(x)$ par $g$.}
+\choix{$g\circ f$ surjective $\Rightarrow$ $f$ surjective.}{Non : même contre-exemple, $g\circ f=\Id_{\ens0}$ est surjective, mais $f$ n'atteint pas $1$.}
+\begin{explication}
+Proposition \voir{prop-composition} : l'injectivité \og remonte \fg{} vers la première application, la surjectivité vers la seconde. Un seul contre-exemple, de petite taille, réfute les deux autres implications.
+\end{explication}
+\end{question}
+\begin{question}
+Combien y a-t-il d'injections d'un ensemble à 3 éléments dans un ensemble à 5 éléments ?
+\choix{125}{C'est $5^3$, le nombre de toutes les applications.}
+\bonchoix{60}{Oui : $5\cdot4\cdot3=\frac{5!}{2!}=60$.}
+\choix{10}{C'est $\binom53$, le nombre de parties à 3 éléments de l'ensemble d'arrivée : il faut encore choisir quel élément va où ($3!$ façons).}
+\choix{243}{C'est $3^5$, le nombre d'applications dans l'autre sens.}
+\begin{explication}
+$f(x_1)$ a 5 choix, $f(x_2)$ doit éviter $f(x_1)$ (4 choix), $f(x_3)$ en évite deux (3 choix) : \voir{prop-denombrement}.
+\end{explication}
+\end{question}
+\begin{question}[plusieurs]
+Lesquelles de ces relations sur $\Z$ sont des relations d'équivalence ?
+\bonchoix{$x\,\mathcal R\,y\iff3\mid x-y$}{Oui : c'est la congruence modulo 3.}
+\choix{$x\,\mathcal R\,y\iff\abs{x-y}\le1$}{Non : elle n'est pas transitive ($0\,\mathcal R\,1$ et $1\,\mathcal R\,2$, mais pas $0\,\mathcal R\,2$).}
+\choix{$x\,\mathcal R\,y\iff x\mid y$}{Non : elle n'est pas symétrique ($1\mid2$ mais $2\nmid1$).}
+\bonchoix{$x\,\mathcal R\,y\iff x^2=y^2$}{Oui : \og même image par $x\mapsto x^2$ \fg{} ; les classes sont les $\ens{-n,n}$.}
+\choix{$x\,\mathcal R\,y\iff xy>0$}{Non : elle n'est pas réflexive en $0$ ($0\cdot0=0$).}
+\begin{explication}
+Toute relation \og même image par une application \fg{} est une relation d'équivalence (\voir{thm-factorisation}). Pour réfuter, un seul axiome en défaut suffit, avec des valeurs explicites.
+\end{explication}
+\end{question}
+\begin{question}
+Quel est l'inverse de $\cl7$ dans $\Z/30\Z$ ?
+\bonchoix{$\cl{13}$}{Oui : $7\cdot13=91=3\cdot30+1$.}
+\choix{$\cl{23}$}{C'est l'opposé $-\cl7$, inverse pour l'addition et non pour la multiplication.}
+\choix{$\cl7$}{$7^2=49\equiv19\pmod{30}$.}
+\choix{$\cl7$ n'est pas inversible.}{$\pgcd(7,30)=1$, donc $\cl7$ est inversible (\voir{thm-inversibles}).}
+\begin{explication}
+Euclide étendu : $30=4\cdot7+2$, $7=3\cdot2+1$, donc $1=7-3\cdot2=7-3(30-4\cdot7)=13\cdot7-3\cdot30$.
+\end{explication}
+\end{question}
+\begin{question}[plusieurs]
+Lesquelles de ces formules définissent bien une application ?
+\bonchoix{$\Z/6\Z\to\Z/3\Z$, $\cl k\mapsto\cl k$}{Oui : $3\mid6$, donc $k\equiv k'\pmod6$ entraîne $k\equiv k'\pmod3$.}
+\choix{$\Z/6\Z\to\Z/4\Z$, $\cl k\mapsto\cl k$}{Non : $\cl0=\cl6$ dans $\Z/6\Z$, mais $0\not\equiv6\pmod4$.}
+\choix{$\Z/3\Z\to\Z/3\Z$, $\cl a\mapsto\cl{2^a}$ ($a\ge0$)}{Non : $\cl1=\cl4$ mais $2\not\equiv16\pmod3$ (exemple du cours).}
+\bonchoix{$\Z/5\Z\to\Z/5\Z$, $\cl a\mapsto\cl{a^2+1}$}{Oui : si $a\equiv a'$, alors $a^2+1\equiv a'^2+1$ (somme et produit passent au quotient).}
+\begin{explication}
+Une formule sur des classes est bien définie si sa valeur ne dépend pas du représentant (\voir{prop-zn-operations}). Les polynômes à coefficients entiers passent au quotient ; les exposants, non.
+\end{explication}
+\end{question}
+\begin{question}
+Soit $A=\ens{1-\frac1n\mid n\in\N^*}\subset\R$. Alors :
+\bonchoix{$\sup A=1$ et $A$ n'a pas de plus grand élément.}{Oui : $1$ majore $A$, tout $M<1$ est dépassé par un $1-\frac1n$, et $1\notin A$.}
+\choix{$\max A=1$.}{$1=1-\frac1n$ n'a pas de solution : $1\notin A$.}
+\choix{$A$ n'a pas de borne supérieure car elle n'a pas de maximum.}{Le sup existe même sans maximum ; c'est toute la différence entre les deux notions.}
+\choix{$\sup A=\frac12$.}{$\frac12$ est atteint pour $n=2$, mais $\frac23\in A$ le dépasse.}
+\begin{explication}
+Le sup est le plus petit majorant ; il appartient à $A$ exactement quand $A$ a un plus grand élément (\voir{def-sup}).
+\end{explication}
+\end{question}
+\begin{question}[plusieurs]
+Lesquels de ces ensembles sont dénombrables ?
+\bonchoix{$\Q$}{Oui : il s'injecte dans $\Z\times\N^*$, qui est dénombrable.}
+\bonchoix{$\Z\times\Z$}{Oui : produit de deux dénombrables.}
+\choix{$\parties(\N)$}{Non : pas de surjection de $\N$ sur $\parties(\N)$ (\voir{thm-cantor-parties}).}
+\bonchoix{L'ensemble des parties finies de $\N$}{Oui : c'est une réunion dénombrable (sur le cardinal $k$) d'ensembles dénombrables ; ou bien $A\mapsto\sum_{a\in A}2^a$ est une bijection sur $\N$.}
+\choix{$\R\setminus\Q$}{Non : si les irrationnels étaient dénombrables, $\R$ le serait aussi, réunion de deux dénombrables (\voir{thm-cantor-R}).}
+\begin{explication}
+Dénombrable signifie \og s'injecte dans $\N$ \fg. Les deux théorèmes de Cantor fournissent les ensembles qui ne le sont pas : $\R$ (argument diagonal) et $\parties(\N)$.
+\end{explication}
+\end{question}
+\end{qcm}
+
 \rubrique{A}
 \begin{exo}[S][Appartenance ou inclusion]
 Soit $E=\ens{1,\ens{1},\varnothing}$. Dire si chaque affirmation est vraie ou fausse : (a) $1\in E$ ; (b) $\ens{1}\in E$ ; (c) $\ens{1}\subset E$ ; (d) $\ens{\ens{1}}\subset E$ ; (e) $\varnothing\in E$ ; (f) $\varnothing\subset E$ ; (g) $\ens{\varnothing}\subset E$ ; (h) $\ens{\ens{\varnothing}}\subset E$. Combien $\parties(E)$ a-t-il d'éléments ?

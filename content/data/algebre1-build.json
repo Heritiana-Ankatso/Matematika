@@ -1,5 +1,5 @@
 {
-  "sourceDigest": "db954dfa1c2dd48221846a517ffcb7a9613b95a51f87665eb92d3e3a428a4542",
+  "sourceDigest": "71065353286d928d1187b8a2830a79d5df701769ae6a8fe2102c9e76a056f313",
   "sequences": {
     "algebre-1-guide": {
       "title": [
@@ -42,7 +42,8 @@
         "Relations binaires",
         "Ensembles infinis et dénombrabilité"
       ],
-      "exercises": 27
+      "exercises": 27,
+      "mcq": 10
     },
     "algebre-1-matrices": {
       "title": [
@@ -67,7 +68,8 @@
         "Transposition et permutations",
         "Élimination et factorisation LU"
       ],
-      "exercises": 29
+      "exercises": 29,
+      "mcq": 8
     },
     "algebre-1-espaces": {
       "title": [
@@ -93,7 +95,8 @@
         "Déterminants",
         "Applications linéaires"
       ],
-      "exercises": 33
+      "exercises": 33,
+      "mcq": 10
     },
     "algebre-1-groupes": {
       "title": [
@@ -119,7 +122,32 @@
         "Le groupe diédral Dₙ",
         "Groupes de matrices"
       ],
-      "exercises": 37
+      "exercises": 37,
+      "mcq": 12
+    },
+    "algebre-1-actions": {
+      "title": [
+        "Groupes : conjugaison, actions et problèmes classiques",
+        "Groups: conjugation, actions and classical problems"
+      ],
+      "summary": [
+        "La suite du chapitre 4, pour aborder les problèmes classiques : centre et conjugaison, produits de sous-groupes, actions de groupe et formule des classes, p-groupes, théorèmes de Cauchy et de Sylow, conjugaison dans Sₙ et simplicité de A₅ ; puis une banque de problèmes classiques gradués et deux séries de QCM corrigés.",
+        "The sequel to chapter 4, aimed at the classical problems: centre and conjugation, products of subgroups, group actions and the class equation, p-groups, the theorems of Cauchy and Sylow, conjugation in S_n and the simplicity of A_5; then a graded bank of classical problems and two series of multiple-choice questions with explained answers."
+      ],
+      "prerequisites": [
+        "Tout le chapitre 4 : sous-groupes, ordre, Lagrange, sous-groupes normaux, quotients et premier théorème d'isomorphisme, Sₙ (cycles, signature), Dₙ. Du chapitre 5 : l'anneau (ℤ/pℤ)[X] et, pour un exercice, le fait qu'un polynôme non nul de degré d sur un corps a au plus d racines.",
+        "Chapter 4: groups, subgroups, homomorphisms, Lagrange, normal subgroups, quotients, S_n, D_n."
+      ],
+      "outline": [
+        "Centre, conjugaison, automorphismes",
+        "Produits de sous-groupes",
+        "Actions de groupe",
+        "Équation aux classes et p-groupes",
+        "Théorèmes de Cauchy et de Sylow",
+        "Conjugaison dans Sₙ ; simplicité de A₅"
+      ],
+      "exercises": 31,
+      "mcq": 20
     },
     "algebre-1-anneaux": {
       "title": [
@@ -141,7 +169,8 @@
         "Homomorphismes d'anneaux",
         "Exemples d'anneaux"
       ],
-      "exercises": 21
+      "exercises": 21,
+      "mcq": 8
     },
     "algebre-1-synthese": {
       "title": [
@@ -160,20 +189,22 @@
         "Le schéma des quotients",
         "Les autres fils"
       ],
-      "exercises": 8
+      "exercises": 8,
+      "mcq": 6
     }
   },
   "outputs": {
-    "dist/resources/university/algebre-1/corriges.pdf": "d5185942625d3ea4de7d9352b0f12c94c1df49adcd5fc07c141ad8063a53e7d5",
-    "dist/resources/university/algebre-1/cours.pdf": "4b144f11d889e1cf5994594d87ca524bb3258ed62b8a7fb146d1b4ce610c2c1f",
-    "dist/resources/university/algebre-1/exercices.pdf": "94c8a40d9da265ed834bf9cf31417bc38746bceaf6648333edebe538879d64f2",
-    "dist/resources/university/algebre-1/lecons/ch1-ensembles.html": "9102e4a723484aa20a89df93341975736e2b6cf2c4997cd1970bdd82870a4cc0",
-    "dist/resources/university/algebre-1/lecons/ch2-matrices.html": "0686bfa29aca568d5c042b7ec70111525438ed4c3bb05a0e24236cd3f6472de7",
-    "dist/resources/university/algebre-1/lecons/ch3-espaces-vectoriels.html": "a4533544e19563e5769c7a8e6a1ddbc8915cee335d328389d7c5c5db5b625ed8",
-    "dist/resources/university/algebre-1/lecons/ch4-groupes.html": "ce708731aabc252a03df6da704de91c041c0f679e3ed14c53b789fd771c42a33",
-    "dist/resources/university/algebre-1/lecons/ch5-anneaux.html": "0dd161c6d7a6b661524355e65c8054f92ee4af0e8e0d678ca97d27bab3374121",
-    "dist/resources/university/algebre-1/lecons/index.html": "1e383d241537422eefca2b8ebf1900416db5d3f160e86d97e0ce89498829403b",
-    "dist/resources/university/algebre-1/lecons/synthese.html": "529bc7d6e654e84dec6f8d1c1142468965c40b5ca14803b0aee02f7553737223",
-    "dist/resources/university/algebre-1/sources-latex.zip": "726760160df58f633aeca7eac237d748ffed5df39705812ad51060a3004433bb"
+    "dist/resources/university/algebre-1/corriges.pdf": "6e1b46380931a845ea771b4f7b1ccdbc652ab17915a10eb6bc5b8f7c8de9995c",
+    "dist/resources/university/algebre-1/cours.pdf": "0a276e9dba9476e4df09311a8b51182ca8fad0e405ccf6e4020046b94f1752a7",
+    "dist/resources/university/algebre-1/exercices.pdf": "e3641cb5a1497f60f840a9b453d3d00bdc42ec15f514f3b732c38dc0a712c026",
+    "dist/resources/university/algebre-1/lecons/ch1-ensembles.html": "1eded83f7330ac572328811cfe45069d0c8deaf60e99491ee02c0407fc58598c",
+    "dist/resources/university/algebre-1/lecons/ch2-matrices.html": "f2c0807a028c1a5b266949b8f91e14e91b0d6dcd6e3661e8b94031af2f9949e1",
+    "dist/resources/university/algebre-1/lecons/ch3-espaces-vectoriels.html": "83c0ff03bad9bd9f53c90d21ce81abef52d21d8c551c87e3b728ef4e08dce407",
+    "dist/resources/university/algebre-1/lecons/ch4-actions.html": "26613daaa9dced0d197694724af814f1ae101066c35714d15c211d84f9177571",
+    "dist/resources/university/algebre-1/lecons/ch4-groupes.html": "8d76f5ae52900e781fd9e01ba0147e3b8358806f6a823a4fa23225782d7827c1",
+    "dist/resources/university/algebre-1/lecons/ch5-anneaux.html": "96f668c2a0838bbbd34f357150979408fb5c7328f762bf799829a7a0c5217a80",
+    "dist/resources/university/algebre-1/lecons/index.html": "6fe4c1eec158673c781752174a1aff00450f097501a855eca680ce8ea94a1da7",
+    "dist/resources/university/algebre-1/lecons/synthese.html": "efbfd53026f7fdfcae2157a151ff3c2758e3b6057421a0372b9177de03d9f630",
+    "dist/resources/university/algebre-1/sources-latex.zip": "601845762ab803ecc5580f353ab0c8b62ac98369dd2e40920fa75dcc7e4871ae"
   }
 }

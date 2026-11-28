@@ -4,7 +4,7 @@ export const css = (name) => getComputedStyle(document.documentElement).getPrope
 // The palette is read from the CSS tokens once per theme (getComputedStyle on a dozen custom properties every frame forces a style
 // recalculation); it is rebuilt when the theme attribute or the system colour scheme changes.
 let paletteKey = "", paletteValue = null;
-const themeKey = () => `${document.documentElement.dataset.theme || ""}|${globalThis.matchMedia?.("(prefers-color-scheme: dark)").matches ? 1 : 0}|${document.documentElement.dataset.contrast || ""}`;
+const themeKey = () => `${document.documentElement.dataset.world || ""}|${document.documentElement.dataset.theme || ""}|${globalThis.matchMedia?.("(prefers-color-scheme: dark)").matches ? 1 : 0}|${document.documentElement.dataset.contrast || ""}`;
 export const palette = () => { const k = themeKey(); if (paletteValue && k === paletteKey) return paletteValue; paletteKey = k; return (paletteValue = buildPalette()); };
 const buildPalette = () => ({ ink: css("--ink"), muted: css("--muted"), line: css("--line-strong"), surface: css("--surface"), sunken: css("--sunken"), object: css("--object-ink"), objectFill: css("--object"), objectSoft: css("--object-soft"), obj2: css("--obj2"), obj3: css("--obj3"), pos: css("--pos"), neg: css("--neg"), grid: css("--grid"), c: [1, 2, 3, 4, 5, 6, 7, 8].map((i) => css(`--c${i}`)) });
 import { animationLoop } from './visible-loop.js';
