@@ -37,7 +37,7 @@ RUBRIQUES = {'A': 'Techniques', 'B': 'Preuves types', 'C': 'Décisions et contre
 LEVELS = {'S': 'Socle', 'A': 'Approfondissement', 'D': 'Défi'}
 WIDGET_TITLES = {'venn': 'Opérations ensemblistes et diagrammes de Venn', 'maps': 'Injective, surjective, bijective ?',
                  'zn': 'Calculer dans ℤ/nℤ', 'lu': 'Élimination pas à pas : PA = LU', 'cayley': 'Tables de Cayley',
-                 'perms': 'Atelier des permutations', 'dihedral': 'Le groupe diédral Dₙ'}
+                 'perms': 'Atelier des permutations', 'dihedral': 'Le groupe diédral Dₙ', 'burnside': 'Compter les coloriages à symétrie près'}
 MATH_ENVS = ('align*', 'gather*', 'equation*')
 
 # ------------------------------------------------------------------ parsing

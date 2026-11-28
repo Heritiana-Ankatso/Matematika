@@ -410,6 +410,67 @@ function dihedral(root) {
   draw();
 }
 
+// ------------------------------------------------------------------ 8. colourings up to symmetry (Burnside)
+function burnside(root) {
+  const body = frame(root, 'Compter les coloriages à symétrie près',
+    'Choisis un objet, ses symétries et un nombre de couleurs. Chaque ligne du tableau est une sorte de symétrie : un coloriage qu’elle fixe est constant sur chacun de ses cycles, d’où k<sup>c(g)</sup> coloriages fixes. Clique une ligne pour voir les cycles sur la figure, et clique les positions pour colorier : la figure donne l’orbite et le stabilisateur de ton coloriage.');
+  const id = 'b' + (++uid), COLOURS = ['#f4f1ea', '#18181b', '#c98b1e', '#2c3d8f'] /* fixed: the names below must stay true in both themes */, NAMES = ['blanc', 'noir', 'ocre', 'indigo'];
+  const LETTERS = 'ABCDEFGH';
+  let kind = 'rotations', n = 6, k = 2, G, col, pick = null;
+  body.innerHTML = `<div class="a1w-row a1w-burnrow">
+      <label>Objet <select id="${id}-o"><option value="rotations">Collier (rotations)</option><option value="dihedral">Bracelet (rotations et retournements)</option><option value="cube">Faces d’un cube (rotations)</option></select></label>
+      <label class="${id}-nl">Perles <input type="number" id="${id}-n" min="3" max="8" value="6"></label>
+      <label>Couleurs <input type="number" id="${id}-k" min="2" max="4" value="2"></label></div>
+    <div class="a1w-grid"><div><svg class="a1w-burn" viewBox="-120 -120 240 240" role="group" aria-label="Figure à colorier"></svg><div class="a1w-out a1w-mine" aria-live="polite"></div></div>
+    <div class="a1w-controls"><div class="a1w-out a1w-btab"></div></div></div>
+    <div class="a1w-out a1w-reps"></div>`;
+  const svg = body.querySelector('svg'), tab = body.querySelector('.a1w-btab'), mine = body.querySelector('.a1w-mine'), reps = body.querySelector('.a1w-reps');
+  const pos = () => kind === 'cube'
+    ? [[2, 1], [0, 1], [1, 1], [3, 1], [1, 0], [1, 2]].map(([c, r]) => [-110 + c * 55 + 27.5, -82.5 + r * 55 + 27.5]) // +x, −x, +y (front), −y, +z, −z: an unfolded cube
+    : [...Array(n).keys()].map(i => [85 * Math.sin(2 * Math.PI * i / n), -85 * Math.cos(2 * Math.PI * i / n)]);
+  const cycleOf = () => { if (!pick) return null; const lab = Array(G.n); M.cycles(pick.perm, true).forEach((c, j) => c.forEach(x => { lab[x] = j; })); return lab; };
+  function mini(c) {
+    const P = kind === 'cube' ? [[2, 1], [0, 1], [1, 1], [3, 1], [1, 0], [1, 2]].map(([x, y]) => [x * 9 + 4.5, y * 9 + 4.5]) : [...Array(n).keys()].map(i => [18 + 13 * Math.sin(2 * Math.PI * i / n), 18 - 13 * Math.cos(2 * Math.PI * i / n)]);
+    const shapes = c.map((v, i) => kind === 'cube' ? `<rect x="${P[i][0] - 4.5}" y="${P[i][1] - 4.5}" width="9" height="9" style="fill:${COLOURS[v]}"/>` : `<circle cx="${P[i][0]}" cy="${P[i][1]}" r="4" style="fill:${COLOURS[v]}"/>`).join('');
+    return `<svg class="a1w-mini" viewBox="0 0 36 ${kind === 'cube' ? 27 : 36}" aria-hidden="true">${kind === 'cube' ? '' : '<circle cx="18" cy="18" r="13" class="a1w-ghost"/>'}${shapes}</svg>`;
+  }
+  function draw() {
+    const P = pos(), lab = cycleOf(), cyc = pick ? M.cycles(pick.perm, true) : [];
+    svg.innerHTML = (kind === 'cube' ? '' : '<circle cx="0" cy="0" r="85" class="a1w-ghost"/>') + P.map(([x, y], i) => {
+      const shape = kind === 'cube' ? `<rect x="${x - 25}" y="${y - 25}" width="50" height="50" style="fill:${COLOURS[col[i]]}"/>` : `<circle cx="${x}" cy="${y}" r="17" style="fill:${COLOURS[col[i]]}"/>`;
+      const tag = lab ? `<text x="${x}" y="${y + 5}" text-anchor="middle" class="a1w-tag${col[i] === 1 || col[i] === 3 ? ' is-dark' : ''}">${LETTERS[lab[i]]}</text>` : '';
+      const name = kind === 'cube' ? ['+x', '−x', 'avant', 'arrière', 'haut', 'bas'][i] : `perle ${i + 1}`;
+      return `<g class="a1w-cell" tabindex="0" role="button" data-i="${i}" aria-label="${name} : ${NAMES[col[i]]}${lab ? `, cycle ${LETTERS[lab[i]]}` : ''}">${shape}${tag}</g>`;
+    }).join('');
+    const T = M.burnsideTable(G, k);
+    tab.innerHTML = `<table class="a1w-table"><thead><tr><th scope="col">Symétrie</th><th scope="col">Nombre</th><th scope="col">c(g)</th><th scope="col">k<sup>c(g)</sup></th></tr></thead><tbody>${T.rows.map((r, j) =>
+      `<tr><td><button type="button" class="a1w-rowbtn" data-r="${j}" aria-pressed="${pick === r.sample}">${esc(r.type)}</button></td><td>${r.count}</td><td>${r.cycles}</td><td>${k}${sup(r.cycles)} = ${r.fixed}</td></tr>`).join('')}</tbody></table>
+      <p>Somme des coloriages fixes : ${T.rows.map(r => `${r.count}·${r.fixed}`).join(' + ')} = <strong>${T.total}</strong>.</p>
+      <p>Nombre d’orbites = ${T.total} / |G| = ${T.total} / ${T.order} = <strong>${T.orbits}</strong>.</p>
+      ${pick ? `<p class="a1w-small">Cycles de l’élément choisi sur les positions : ${cyc.map((c, j) => LETTERS[j] + ' = {' + c.map(x => kind === 'cube' ? ['+x', '−x', 'avant', 'arrière', 'haut', 'bas'][x] : x + 1).join(', ') + '}').join(' ; ')}. Un coloriage fixé par cet élément a une seule couleur par lettre.</p>` : ''}`;
+    tab._rows = T.rows;
+    const orb = M.orbitOf(G, col), stab = M.stabiliser(G, col);
+    mine.innerHTML = `<p>Ton coloriage : orbite de <strong>${orb.length}</strong> coloriage${orb.length > 1 ? 's' : ''}, stabilisateur de <strong>${stab.length}</strong> élément${stab.length > 1 ? 's' : ''} ; ${orb.length} × ${stab.length} = ${orb.length * stab.length} = |G| ${status(orb.length * stab.length === T.order, 'orbite-stabilisateur')}</p>${pick ? `<p class="a1w-small">L’élément choisi ${String(M.actOn(pick.perm, col)) === String(col) ? 'fixe' : 'ne fixe pas'} ton coloriage.</p>` : ''}`;
+    const R = M.orbitRepresentatives(G, k);
+    reps.innerHTML = R === null ? `<p class="a1w-small">${k}${sup(G.n)} coloriages : trop pour les énumérer ici, la formule suffit.</p>`
+      : `<p>Vérification par énumération des ${k ** G.n} coloriages : <strong>${R.length}</strong> orbites ${status(R.length === T.orbits, 'accord avec la formule')}</p>`
+        + (R.length <= 60 ? `<p class="a1w-small">Un représentant par orbite :</p><div class="a1w-minis">${R.map(mini).join('')}</div>` : '');
+  }
+  function reset() {
+    kind = body.querySelector(`#${id}-o`).value;
+    n = Math.max(3, Math.min(8, Number(body.querySelector(`#${id}-n`).value) || 6));
+    k = Math.max(2, Math.min(4, Number(body.querySelector(`#${id}-k`).value) || 2));
+    body.querySelector(`.${id}-nl`).style.display = kind === 'cube' ? 'none' : '';
+    G = M.symmetryGroup(kind, n); col = Array(G.n).fill(0); pick = null; draw();
+  }
+  const paint = el => { const i = Number(el.dataset.i); col[i] = (col[i] + 1) % k; draw(); svg.querySelector(`[data-i="${i}"]`)?.focus(); };
+  svg.addEventListener('click', e => { const g = e.target.closest('[data-i]'); if (g) paint(g); });
+  svg.addEventListener('keydown', e => { const g = e.target.closest('[data-i]'); if (g && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); paint(g); } });
+  tab.addEventListener('click', e => { const b = e.target.closest('[data-r]'); if (!b) return; const r = tab._rows[Number(b.dataset.r)]; pick = pick === r.sample ? null : r.sample; draw(); });
+  body.querySelectorAll('select, input').forEach(x => x.addEventListener('change', reset));
+  reset();
+}
+
 // ------------------------------------------------------------------ QCM series ([data-a1-qcm], built by scripts/build-algebre1.py)
 // Two modes, remembered for the visitor: instant correction (one "Valider" per question) or correction at the end of the
 // series. A series can be restarted with its choices in a new order; the best score is kept in the browser only.
@@ -489,7 +550,7 @@ function qcm(root) {
   reset();
 }
 
-const WIDGETS = { venn, maps, zn, lu, cayley, perms, dihedral };
+const WIDGETS = { venn, maps, zn, lu, cayley, perms, dihedral, burnside };
 export function mountAll(scope = document) {
   for (const el of scope.querySelectorAll('[data-a1-qcm]')) {
     if (el.dataset.mounted) continue;

@@ -20,7 +20,7 @@ rubrics (A techniques, B proofs, C decisions and counterexamples, D synthesis) a
 | `\begin{definition}[titre] ... \end{definition}` | also `theoreme`, `proposition`, `lemme`, `corollaire`, `exemple` (numbered), `methode`, `remarque`, `attention`, `intuition`, `essentiel`, `histoire` (unnumbered) |
 | `\label{key}` inside a box or an exercise, `\voir{key}` anywhere | cross-reference, rendered "Théorème 4.7" with a link |
 | `\begin{preuve}[titre] ... \end{preuve}` | proof (open by default on the web) |
-| `\widget{venn}`, `\widget[ring]{zn}` | interactive figure (`site/js/algebra1-widgets.js`): `venn`, `maps`, `zn`, `lu`, `cayley`, `perms`, `dihedral`; a note in the PDFs |
+| `\widget{venn}`, `\widget[ring]{zn}` | interactive figure (`site/js/algebra1-widgets.js`): `venn`, `maps`, `zn`, `lu`, `cayley`, `perms`, `dihedral`, `burnside` (colourings up to symmetry); a note in the PDFs |
 | `\exercices` | starts the exercise part of the lesson |
 | `\rubrique{A}` | rubric A, B, C or D |
 | `\begin{exo}[S][titre] ... \begin{indication} ... \end{indication} \begin{corrige} ... \end{corrige} \end{exo}` | exercise, level S, A or D |

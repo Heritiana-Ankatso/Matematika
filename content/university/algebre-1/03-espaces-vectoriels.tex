@@ -335,6 +335,113 @@ Une homothétie $v\mapsto kv$ et une rotation de centre l'origine sont linéaire
 \end{erreurs}
 
 \exercices
+
+\begin{qcm}[Espaces vectoriels, rang, déterminants]
+Dix questions sur le chapitre.
+\begin{question}[plusieurs]
+Lesquelles de ces parties de $\R^3$ sont des sous-espaces vectoriels ?
+\bonchoix{$\ens{(x,y,z)\mid x+y+z=0}$}{Oui : c'est l'espace nul de $\begin{pmatrix}1&1&1\end{pmatrix}$.}
+\choix{$\ens{(x,y,z)\mid x+y+z=1}$}{Non : $\mathbf 0$ n'y est pas.}
+\choix{$\ens{(x,y,z)\mid xy=0}$}{Non : c'est la réunion des plans $x=0$ et $y=0$ ; $(1,0,0)+(0,1,0)$ n'y est pas.}
+\bonchoix{$\ens{(t,2t,3t)\mid t\in\R}$}{Oui : c'est la droite $\Vect((1,2,3))$.}
+\choix{$\ens{(x,y,z)\mid x\ge0}$}{Non : pas stable par multiplication par $-1$.}
+\begin{explication}
+Critère de sous-espace (\voir{thm-critere-sev}) ; une réunion de deux sous-espaces n'en est un que si l'un contient l'autre (\voir{prop-inter-sev}).
+\end{explication}
+\end{question}
+\begin{question}
+Quelle est la dimension de l'espace des matrices symétriques réelles $3\times3$ ?
+\choix{9}{C'est la dimension de $\Mat_3(\R)$ tout entier.}
+\bonchoix{6}{Oui : $\frac{3\cdot4}2=6$ ; une matrice symétrique est déterminée par ses coefficients sur et au-dessus de la diagonale.}
+\choix{3}{C'est la dimension des matrices antisymétriques (ou des diagonales).}
+\choix{4}{Il y a 3 coefficients diagonaux et 3 au-dessus.}
+\begin{explication}
+Dimensions dans $\Mat_n$ : symétriques $\frac{n(n+1)}2$, antisymétriques $\frac{n(n-1)}2$, et $\Mat_n=\mathcal S_n\oplus\mathcal A_n$ donne bien $6+3=9$.
+\end{explication}
+\end{question}
+\begin{question}
+$U$ et $W$ sont deux plans vectoriels distincts de $\R^3$. Quelle est la dimension de $U\cap W$ ?
+\choix{0}{Grassmann donne $\dim(U\cap W)=2+2-\dim(U+W)\ge1$.}
+\bonchoix{1}{Oui : $U+W$ contient strictement $U$, donc $U+W=\R^3$, et $\dim(U\cap W)=2+2-3=1$.}
+\choix{2}{Ce serait le cas si $U=W$.}
+\choix{On ne peut pas savoir.}{La formule de Grassmann le détermine.}
+\begin{explication}
+Formule de Grassmann (\voir{prop-grassmann}) : $\dim(U+W)+\dim(U\cap W)=\dim U+\dim W$. Deux plans distincts de l'espace se coupent selon une droite.
+\end{explication}
+\end{question}
+\begin{question}
+$A$ est une matrice $3\times5$ de rang 2. Quelle est la dimension de son espace nul $N(A)$ ?
+\bonchoix{3}{Oui : $\dim N(A)=n-r=5-2$.}
+\choix{1}{C'est $\dim N(A\tr)=m-r=3-2$.}
+\choix{2}{C'est le rang, dimension de $C(A)$ et de $R(A)$.}
+\choix{0}{Ce serait le cas pour des colonnes libres, impossible ici : 5 vecteurs de $\R^3$ sont liés.}
+\begin{explication}
+Théorème fondamental (\voir{thm-fondamental}) : pour $A$ de taille $m\times n$ et de rang $r$, $\dim N(A)=n-r$ et $\dim N(A\tr)=m-r$.
+\end{explication}
+\end{question}
+\begin{question}[plusieurs]
+Une famille de 4 vecteurs de $\R^3$ :
+\bonchoix{est toujours liée.}{Oui : une famille libre de $\R^3$ a au plus 3 vecteurs (\voir{thm-steinitz}).}
+\choix{est toujours génératrice.}{Non : quatre vecteurs colinéaires n'engendrent qu'une droite.}
+\bonchoix{contient une base de $\R^3$ si elle est génératrice.}{Oui : on extrait une base de toute famille génératrice finie (\voir{cor-extraire}).}
+\choix{contient forcément le vecteur nul.}{Non : $e_1,e_2,e_3,e_1+e_2$ est liée sans contenir $\mathbf 0$.}
+\begin{explication}
+Dans un espace de dimension $n$ : libre $\Rightarrow$ au plus $n$ vecteurs ; génératrice $\Rightarrow$ au moins $n$ (\voir{cor-compter}).
+\end{explication}
+\end{question}
+\begin{question}
+Quelle est la dimension de $\C^2$ vu comme espace vectoriel sur $\R$ ?
+\choix{2}{C'est la dimension sur $\C$.}
+\bonchoix{4}{Oui : une base sur $\R$ est $(e_1,ie_1,e_2,ie_2)$.}
+\choix{1}{$\C^2$ n'est pas une droite, sur aucun des deux corps.}
+\choix{Infinie}{Quatre vecteurs engendrent $\C^2$ sur $\R$.}
+\begin{explication}
+Le même ensemble porte deux structures : $\dim_{\C}\C^n=n$ et $\dim_{\R}\C^n=2n$. Les scalaires font partie de la donnée d'un espace vectoriel.
+\end{explication}
+\end{question}
+\begin{question}
+Dans $\R^2$, on passe de la base canonique $B=(e_1,e_2)$ à $B'=(e_1+e_2,\ e_2)$. Quelles sont les coordonnées de $v=(1,1)$ dans $B'$ ?
+\bonchoix{$(1,0)$}{Oui : $v=1\cdot(e_1+e_2)+0\cdot e_2$.}
+\choix{$(1,2)$}{C'est $Px$ : on a appliqué la matrice de passage dans le mauvais sens.}
+\choix{$(1,1)$}{Ce sont ses coordonnées dans $B$.}
+\choix{$(0,1)$}{$0\cdot(e_1+e_2)+1\cdot e_2=e_2\neq v$.}
+\begin{explication}
+La matrice de passage $P=\begin{pmatrix}1&0\\1&1\end{pmatrix}$ a pour colonnes les nouveaux vecteurs dans l'ancienne base, et $x'=P^{-1}x$ (\voir{prop-passage}). Contrôle sur un vecteur : toujours.
+\end{explication}
+\end{question}
+\begin{question}
+$A\in\Mat_3(\R)$ a pour déterminant 2. Que vaut $\det(2A)$ ?
+\choix{4}{On a multiplié une seule ligne par 2 ; $2A$ multiplie les trois.}
+\choix{8}{C'est $2^3$, le facteur ; il faut encore multiplier par $\det A$.}
+\bonchoix{16}{Oui : $\det(2A)=2^3\det A=16$, par linéarité en chacune des trois lignes.}
+\choix{6}{Le déterminant n'est pas linéaire en $A$.}
+\begin{explication}
+P3 (linéarité par rapport à chaque ligne) appliquée trois fois : $\det(kA)=k^n\det A$ pour $A$ d'ordre $n$ (\voir{def-det}).
+\end{explication}
+\end{question}
+\begin{question}[plusieurs]
+Lesquelles de ces applications sont linéaires ?
+\bonchoix{$\R[X]\to\R[X]$, $P\mapsto P'$}{Oui : la dérivée d'une combinaison est la combinaison des dérivées.}
+\choix{$\R^2\to\R^2$, $v\mapsto v+(1,0)$}{Non : elle n'envoie pas $\mathbf 0$ sur $\mathbf 0$.}
+\bonchoix{$\Mat_n(\R)\to\Mat_n(\R)$, $A\mapsto A\tr$}{Oui (\voir{prop-transposee}).}
+\choix{$\Mat_2(\R)\to\R$, $A\mapsto\det A$}{Non : $\det(2I_2)=4\neq2\det I_2$.}
+\choix{$\R\to\R$, $x\mapsto\abs x$}{Non : $\abs{-1}\neq-\abs1$.}
+\begin{explication}
+Une application linéaire envoie $\mathbf 0$ sur $\mathbf 0$ et respecte combinaisons linéaires (\voir{prop-lineaire}). Le déterminant est linéaire par rapport à \emph{chaque ligne}, pas par rapport à la matrice.
+\end{explication}
+\end{question}
+\begin{question}[plusieurs]
+Soit $A$ une matrice et $U$ la matrice échelonnée obtenue par élimination ($PA=LU$). Lesquelles de ces données sont les mêmes pour $A$ et pour $U$ ?
+\bonchoix{L'espace ligne $R$.}{Oui (\voir{thm-espace-ligne}).}
+\bonchoix{L'espace nul $N$.}{Oui : $Ax=\mathbf 0\iff Ux=\mathbf 0$, car $P$ et $L$ sont inversibles.}
+\choix{L'espace colonne $C$.}{Non : pour $A=\begin{pmatrix}1&1\\1&1\end{pmatrix}$, $C(A)=\Vect((1,1))$ et $C(U)=\Vect((1,0))$.}
+\bonchoix{Le rang.}{Oui : $\dim R(A)=\dim R(U)$.}
+\begin{explication}
+Les opérations sur les lignes ne changent ni l'espace ligne ni l'espace nul ; elles changent l'espace colonne, dont elles conservent seulement la dimension. On lit dans $U$ les \emph{positions} des colonnes pivots, mais la base de $C(A)$ se prend dans $A$.
+\end{explication}
+\end{question}
+\end{qcm}
+
 \rubrique{A}
 \begin{exo}[S][Sous-espace ou non ?]
 Dire, en justifiant, si chaque partie est un sous-espace vectoriel. Dans $\R^3$ : (a) $\ens{x+2y-z=0}$ ; (b) $\ens{x+y+z=1}$ ; (c) $\ens{x\ge0}$ ; (d) $\ens{xy=0}$ ; (e) $\ens{x=2y \text{ et } z=0}$. Dans $\R[X]$ : (f) $\ens{P\mid P(1)=0}$ ; (g) $\ens{P\mid P(0)=1}$. Dans $\Mat_2(\R)$ : (h) les matrices inversibles ; (i) les matrices de trace nulle.

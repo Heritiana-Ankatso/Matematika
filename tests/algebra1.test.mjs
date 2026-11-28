@@ -131,7 +131,7 @@ test('published lessons: every page, widget and cross-reference resolves, no das
     const text = html.replace(/<script[\s\S]*?<\/script>|<style[\s\S]*?<\/style>/g, '');
     assert.ok(!/[–—]/.test(text), `${seq.id}: em or en dash`);
   }
-  assert.deepEqual([...widgets].sort(), ['cayley', 'dihedral', 'lu', 'maps', 'perms', 'venn', 'zn']);
+  assert.deepEqual([...widgets].sort(), ['burnside', 'cayley', 'dihedral', 'lu', 'maps', 'perms', 'venn', 'zn']);
 });
 
 // ------------------------------------------------------------------ group theory complement and QCM: every number recomputed
@@ -321,4 +321,22 @@ test('QCM: grading is exact-set, and every published question is well formed', (
     }
   }
   assert.ok(total >= 40, `${total} questions`);
+});
+
+test('Burnside figure model: formula, brute-force orbits and orbit-stabiliser agree for every setting it offers', () => {
+  const known = { 'rotations,6,2': 14, 'dihedral,6,2': 13, 'rotations,4,2': 6, 'cube,6,2': 10, 'cube,6,3': 57, 'dihedral,5,3': 39, 'rotations,8,4': 8230 };
+  for (const kind of ['rotations', 'dihedral', 'cube']) for (const n of kind === 'cube' ? [6] : [3, 4, 5, 6, 7, 8]) for (let k = 2; k <= 4; k++) {
+    const G = M.symmetryGroup(kind, n), T = M.burnsideTable(G, k), R = M.orbitRepresentatives(G, k);
+    assert.equal(G.elements.length, kind === 'cube' ? 24 : kind === 'dihedral' ? 2 * n : n);
+    assert.equal(new Set(G.elements.map(e => String(e.perm))).size, G.elements.length, 'distinct elements');
+    assert.ok(Number.isInteger(T.orbits), `${kind} ${n} ${k}`);
+    if (R) {
+      assert.equal(R.length, T.orbits, `${kind} ${n} ${k}`);
+      for (const c of R.slice(0, 40)) assert.equal(M.orbitOf(G, c).length * M.stabiliser(G, c).length, G.elements.length);
+    }
+    if (known[[kind, n, k]]) assert.equal(T.orbits, known[[kind, n, k]]);
+  }
+  // the cycle counts of the table are those of the course: 6, 3 (quarter turns), 4 (face half turns), 2, 3
+  const cube = M.burnsideTable(M.symmetryGroup('cube', 6), 2).rows.map(r => [r.type, r.count, r.cycles]);
+  assert.deepEqual(cube.sort(), [['demi-tour (axe d’arêtes)', 6, 3], ['demi-tour (axe de faces)', 3, 4], ['identité', 1, 6], ['quart de tour (axe de faces)', 6, 3], ['rotation de 2π/3 (grande diagonale)', 8, 2]].sort());
 });

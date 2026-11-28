@@ -279,6 +279,92 @@ Si $A$ est inversible, $A^{-1}=U^{-1}L^{-1}P$ : les inverses de matrices triangu
 \end{erreurs}
 
 \exercices
+
+\begin{qcm}[Vecteurs, matrices, élimination]
+Huit questions sur le chapitre.
+\begin{question}
+$A$ est une matrice $2\times3$ et $B$ une matrice $3\times4$. Que peut-on dire de $AB$ et de $BA$ ?
+\bonchoix{$AB$ est $2\times4$ ; $BA$ n'est pas défini.}{Oui : le nombre de colonnes de $B$ (4) diffère du nombre de lignes de $A$ (2).}
+\choix{$AB$ est $3\times3$ ; $BA$ est $4\times2$.}{Le produit d'une $m\times n$ par une $n\times p$ est $m\times p$.}
+\choix{$AB$ et $BA$ sont définis, de tailles différentes.}{$BA$ demanderait 4 lignes à $A$.}
+\choix{$AB$ n'est pas défini.}{$A$ a 3 colonnes et $B$ 3 lignes : $AB$ est défini.}
+\begin{explication}
+Définition \voir{def-produit} : $AB$ existe si et seulement si le nombre de colonnes de $A$ égale le nombre de lignes de $B$.
+\end{explication}
+\end{question}
+\begin{question}[plusieurs]
+Pour des matrices carrées $A,B$ de même taille, lesquelles de ces égalités ou implications sont toujours vraies ?
+\choix{$(A+B)^2=A^2+2AB+B^2$}{Non : $(A+B)^2=A^2+AB+BA+B^2$, et $AB\neq BA$ en général.}
+\bonchoix{$(AB)\tr=B\tr A\tr$}{Oui : l'ordre s'inverse (\voir{prop-transposee}).}
+\bonchoix{$A\tr A$ est symétrique.}{Oui : $(A\tr A)\tr=A\tr(A\tr)\tr=A\tr A$.}
+\choix{$AB=0\Rightarrow A=0$ ou $B=0$.}{Non : $\begin{pmatrix}0&1\\0&0\end{pmatrix}^2=0$.}
+\bonchoix{$AB=I_n\Rightarrow BA=I_n$.}{Oui, pour des matrices \emph{carrées} : $Bx=\mathbf 0$ entraîne $x=ABx=\mathbf 0$, donc $B$ est inversible (\voir{thm-caract-inv}), et $A=B^{-1}$.}
+\begin{explication}
+Le produit matriciel n'est ni commutatif ni intègre. Pour les matrices carrées, un inverse d'un seul côté est un inverse des deux côtés ; c'est faux pour des matrices rectangulaires.
+\end{explication}
+\end{question}
+\begin{question}
+$A$ et $B$ sont inversibles. Que vaut $(AB)^{-1}$ ?
+\choix{$A^{-1}B^{-1}$}{$(AB)(A^{-1}B^{-1})$ ne se simplifie pas : il faudrait que $B$ et $A^{-1}$ commutent.}
+\bonchoix{$B^{-1}A^{-1}$}{Oui : $(AB)(B^{-1}A^{-1})=AIA^{-1}=I$.}
+\choix{$(BA)^{-1}$}{$(BA)^{-1}=A^{-1}B^{-1}$, différent en général.}
+\choix{$AB$ n'est pas forcément inversible.}{Un produit d'inversibles est inversible (\voir{prop-produit-inverse}) ; c'est la \emph{somme} qui peut ne pas l'être.}
+\begin{explication}
+Comme pour mettre puis enlever chaussettes et chaussures : on défait dans l'ordre inverse.
+\end{explication}
+\end{question}
+\begin{question}
+Dans $\R^3$, $\norm u=3$ et $\norm v=2$. Laquelle de ces valeurs le produit scalaire $u\cdot v$ ne peut-il \emph{pas} prendre ?
+\choix{6}{Possible : $v=\frac23u$ donne $u\cdot v=\frac23\cdot9=6$ (cas d'égalité, vecteurs colinéaires de même sens).}
+\choix{$-6$}{Possible : $v=-\frac23u$.}
+\choix{0}{Possible : deux vecteurs orthogonaux de normes 3 et 2.}
+\bonchoix{7}{Oui : $\abs{u\cdot v}\le\norm u\norm v=6$ (Cauchy, Schwarz).}
+\begin{explication}
+Théorème \voir{thm-cs} : $\abs{u\cdot v}\le\norm u\,\norm v$, avec égalité exactement pour des vecteurs colinéaires. Toutes les valeurs de $[-6,6]$ sont atteintes.
+\end{explication}
+\end{question}
+\begin{question}
+Dans $\C^2$, avec le produit $z\cdot w=\sum z_i\overline{w_i}$, que vaut $\norm z^2$ pour $z=(1,i)$ ?
+\choix{0}{C'est $1^2+i^2$, calculé sans conjugué : c'est précisément ce que le conjugué évite.}
+\bonchoix{2}{Oui : $z\cdot z=1\cdot\overline1+i\cdot\overline i=1+1=2$.}
+\choix{$1+i$}{Une norme au carré est un réel positif.}
+\choix{$2i$}{Une norme au carré est un réel positif.}
+\begin{explication}
+$z\cdot z=\sum\abs{z_i}^2$ est un réel positif, nul seulement pour $z=\mathbf 0$ : c'est pour cela que le produit scalaire complexe conjugue le second facteur.
+\end{explication}
+\end{question}
+\begin{question}
+L'élimination appliquée à $A=\begin{pmatrix}2&1\\6&8\end{pmatrix}$ donne $A=LU$. Quelle est $L$ ?
+\bonchoix{$\begin{pmatrix}1&0\\3&1\end{pmatrix}$}{Oui : le multiplicateur est $\ell_{21}=\frac62=3$, et $U=\begin{pmatrix}2&1\\0&5\end{pmatrix}$.}
+\choix{$\begin{pmatrix}1&0\\-3&1\end{pmatrix}$}{C'est la matrice d'élimination $E_{21}$, qui transforme $A$ en $U$ ; $L$ est son inverse.}
+\choix{$\begin{pmatrix}2&0\\6&5\end{pmatrix}$}{$L$ est à diagonale de 1 ; les pivots sont dans $U$.}
+\choix{$\begin{pmatrix}1&3\\0&1\end{pmatrix}$}{$L$ est triangulaire \emph{inférieure}.}
+\begin{explication}
+$E_{21}A=U$ avec $E_{21}=\begin{pmatrix}1&0\\-3&1\end{pmatrix}$, donc $A=E_{21}^{-1}U$ et $L=E_{21}^{-1}$ contient le multiplicateur avec son signe (\voir{prop-elim-inverse}). Vérification : $\begin{pmatrix}1&0\\3&1\end{pmatrix}\begin{pmatrix}2&1\\0&5\end{pmatrix}=\begin{pmatrix}2&1\\6&8\end{pmatrix}$.
+\end{explication}
+\end{question}
+\begin{question}[plusieurs]
+$A\in\Mat_3(\R)$ et le système $Ax=b$ a deux solutions distinctes. Que peut-on en déduire ?
+\bonchoix{$A$ n'est pas inversible.}{Oui : une matrice inversible donne une solution unique.}
+\bonchoix{Le système a une infinité de solutions.}{Oui : si $x\neq y$ sont solutions, toutes les $x+t(y-x)$ le sont.}
+\choix{$b=\mathbf 0$.}{Non : $\begin{pmatrix}1&0&0\\0&0&0\\0&0&0\end{pmatrix}x=e_1$ a pour solutions $e_1+te_2$.}
+\choix{Les colonnes de $A$ sont libres.}{Non : $y-x\neq\mathbf 0$ vérifie $A(y-x)=\mathbf 0$, une relation de dépendance entre les colonnes.}
+\begin{explication}
+Proposition \voir{prop-singuliere} : la différence de deux solutions est une solution non nulle de $Ax=\mathbf 0$.
+\end{explication}
+\end{question}
+\begin{question}[plusieurs]
+Soit $P\in\Mat_4(\R)$ une matrice de permutation. Lesquelles de ces affirmations sont vraies ?
+\bonchoix{$P^{-1}=P\tr$.}{Oui (\voir{prop-permutation}).}
+\bonchoix{$PA$ a les mêmes lignes que $A$, dans un autre ordre.}{Oui : multiplier à gauche permute les lignes.}
+\choix{$AP$ a les mêmes lignes que $A$, dans un autre ordre.}{Non : multiplier à droite permute les \emph{colonnes}.}
+\choix{Il y a 16 matrices de permutation d'ordre 4.}{Il y en a $4!=24$, une par permutation de $\ens{1,2,3,4}$.}
+\begin{explication}
+Une matrice de permutation a un seul 1 par ligne et par colonne ; ses colonnes forment une base orthonormée, d'où $P\tr P=I$.
+\end{explication}
+\end{question}
+\end{qcm}
+
 \rubrique{A}
 \begin{exo}[S][Produit scalaire, norme, angle]
 Soient $u=(1,2,2)$, $v=(3,0,-4)$ et $w=(2,-1,0)$. Calculer $u\cdot v$, $\norm u$, $\norm v$, l'angle de $u$ et $v$, la distance $d(u,v)$, un vecteur unitaire de même direction que $u$. Les vecteurs $u$ et $w$ sont-ils orthogonaux ? Vérifier Pythagore pour $u$ et $w$.

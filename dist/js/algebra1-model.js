@@ -317,3 +317,55 @@ export function shuffled(list, rand = Math.random) {
   for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(rand() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; }
   return a;
 }
+
+// ------------------------------------------------------------------ colourings up to symmetry (Burnside's formula)
+// A symmetry group is a list of permutations of the coloured positions; g sends position i to g[i], and acts on a
+// colouring c (an array of colour indices) by (g·c)[g[i]] = c[i].
+const CUBE_TYPES = { '111111': 'identité', '411': 'quart de tour (axe de faces)', '2211': 'demi-tour (axe de faces)', '33': 'rotation de 2π/3 (grande diagonale)', '222': 'demi-tour (axe d’arêtes)' };
+export function symmetryGroup(kind, n) {
+  const els = [];
+  if (kind === 'cube') {
+    // faces 0..5 = +x, −x, +y, −y, +z, −z; quarter turns about z and about x generate the 24 rotations
+    const gens = [[2, 3, 1, 0, 4, 5], [0, 1, 4, 5, 3, 2]], seen = new Map([['0,1,2,3,4,5', permIdentity(6)]]), todo = [permIdentity(6)];
+    while (todo.length) { const x = todo.pop(); for (const g of gens) { const y = compose(g, x); if (!seen.has(String(y))) { seen.set(String(y), y); todo.push(y); } } }
+    for (const p of seen.values()) { const t = cycleType(p); els.push({ perm: p, type: CUBE_TYPES[t], kind: 'rotation' }); }
+    return { kind, n: 6, elements: els };
+  }
+  for (let k = 0; k < n; k++) {
+    const ord = n / gcd(k, n);
+    els.push({ perm: dihedralPerm(n, { k, s: 0 }), name: k ? (k === 1 ? 'r' : `r^${k}`) : 'e', kind: 'rotation', type: k ? `rotation d’ordre ${ord}` : 'identité' });
+  }
+  if (kind === 'dihedral') for (let k = 0; k < n; k++) {
+    const perm = dihedralPerm(n, { k, s: 1 }), fixed = perm.filter((y, x) => y === x).length;
+    els.push({ perm, name: dihedralName({ k, s: 1 }), kind: 'réflexion',
+      type: fixed === 2 ? 'réflexion d’axe passant par deux positions' : fixed === 1 ? 'réflexion d’axe passant par une position' : 'réflexion d’axe passant entre les positions' });
+  }
+  return { kind, n, elements: els };
+}
+export const cycleType = p => cycles(p, true).map(c => c.length).sort((a, b) => b - a).join('');
+export const actOn = (g, c) => { const y = Array(c.length); g.forEach((gi, i) => { y[gi] = c[i]; }); return y; };
+/** Rows of Burnside's formula, grouped by type: number of elements, cycles c(g) on the positions, k^c(g) fixed colourings. */
+export function burnsideTable(G, k) {
+  const rows = new Map();
+  for (const e of G.elements) {
+    const c = cycles(e.perm, true).length, key = e.type + '|' + c;
+    if (!rows.has(key)) rows.set(key, { type: e.type, count: 0, cycles: c, fixed: k ** c, sample: e });
+    rows.get(key).count++;
+  }
+  const list = [...rows.values()], total = list.reduce((s, r) => s + r.count * r.fixed, 0);
+  return { rows: list, total, order: G.elements.length, orbits: total / G.elements.length };
+}
+const lexLess = (a, b) => { for (let i = 0; i < a.length; i++) if (a[i] !== b[i]) return a[i] < b[i]; return false; };
+/** Every colouring with k colours, kept when it is the smallest of its orbit (lexicographic order): one per orbit. */
+export function orbitRepresentatives(G, k, limit = 70000) {
+  const N = G.n, total = k ** N;
+  if (total > limit) return null;
+  const reps = [];
+  for (let m = 0; m < total; m++) {
+    const c = [...Array(N).keys()].map(i => Math.floor(m / k ** i) % k);
+    if (G.elements.every(e => !lexLess(actOn(e.perm, c), c))) reps.push(c);
+  }
+  return reps;
+}
+export function orbitOf(G, c) { const seen = new Set(); for (const e of G.elements) seen.add(String(actOn(e.perm, c))); return [...seen].map(s => s.split(',').map(Number)); }
+export const stabiliser = (G, c) => G.elements.filter(e => String(actOn(e.perm, c)) === String(c));

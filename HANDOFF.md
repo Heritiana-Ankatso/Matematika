@@ -25,8 +25,11 @@ care), and a QCM feature with feedback, instant or after a series, at university
   word was doubled before, about seventy places).
 - Every count quoted by the new material is recomputed by brute force in `tests/algebra1.test.mjs`.
 - Owner to review before class use: the whole complement, in particular the D exercises (groups of order 8, p²q, cube).
-- Next candidates: QCM series for chapters 1 to 3 and the synthesis; Sylow applications to order 12 classification;
-  group actions widget (orbits of colourings).
+- 28 November 2026, second round (owner: « go ahead »): QCM series for chapters 1 (10 questions), 2 (8), 3 (10) and the
+  synthesis (6), 74 questions in all; figure `burnside` in the complement (necklaces, bracelets, cube faces; Burnside
+  table by type of symmetry, cycles shown on the figure, the visitor's colouring with its orbit and stabiliser,
+  brute-force check and one representative per orbit).
+- Next candidates: Sylow applications to the classification of groups of order 12.
 
 ## Competition archive (23 November 2026, owner request)
 
