@@ -4,6 +4,7 @@ Builders called by `build/mxbuild` (see `pipeline.py` `COURSES`) or by `make`. E
 
 | Script | Builds or does | Called by |
 |---|---|---|
+| `catalogue-lines.mjs` | `site/js/catalogue-lines.js`, `site/js/discovery-context-data.js` and `site/js/world-lines.js` from the experiment, gallery and challenge modules and the site index (`--print`: JSON of both) | `build/mxbuild/content_index.py` (`make site`) |
 | `build-tex-resources.py` | Seconde, Première, Terminale PDFs | `make tex COURSE=...` |
 | `build-expertes.py`, `build-stmg.py`, `build-automatismes.py` | Maths expertes, STMG, automatismes PDFs | `make tex` |
 | `build-enrichment.py`, `enrichment_sections.py` | enrichment PDFs, HTML and site data | `make tex COURSE=enrichment` |
@@ -26,7 +27,7 @@ Builders called by `build/mxbuild` (see `pipeline.py` `COURSES`) or by `make`. E
 | `optimise-gomboc.py` | the visibly shaped Gömböc: support-function polynomial found by sequential linear programming (`site/js/gomboc-support-data.js`) | by hand |
 | `build-gallery-data.py` | Gerver's sofa from Romik's equations (`site/js/gallery/gallery-sofa-gerver.js`); best known square packings from a checkout of github.com/jlevy/squares (`site/js/gallery/gallery-squares-data.js`); needs numpy, scipy, shapely, pyyaml | by hand |
 
-`build-algebre1.py`: the Algèbre 1 course from `content/university/algebre-1/*.tex` (one parse, two renderers): seven web lessons with interactives, three XeLaTeX editions (cours, exercices, corrigés), source bundle, receipt `content/data/algebre1-build.json` (also feeds titles, summaries and outlines to `content_index.py`); `--check` verifies it, `--web` rebuilds only the pages while drafting. Called by `make site` (job `algebre-1`).
+`build-algebre1.py`: the Algèbre 1 course from `content/university/algebre-1/*.tex` (one parse, two renderers): eight web lessons with interactives and QCM series, three XeLaTeX editions (cours, exercices, corrigés), source bundle, receipt `content/data/algebre1-build.json` (also feeds titles, summaries and outlines to `content_index.py`); `--check` verifies it, `--web` rebuilds only the pages while drafting. Called by `make site` (job `algebre-1`).
 
 `build-fourier.py`: six web lessons, four XeLaTeX PDF editions, source bundle and checked build receipt.
 

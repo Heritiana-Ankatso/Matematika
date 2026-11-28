@@ -10,7 +10,7 @@ import { liveCourses as primaryCourses } from './live-curriculum.js';
 import { AUTHORED, TEMPLATES, instance } from './exercises/bank.js';
 import { exercisesOf, LEVEL as LEVEL_PAIRS } from './exercises/bank-select.js';
 import { rng } from './exercises/engine.js';
-import { typeset, printMarkup } from './exercises/ui-kit.js';
+import { typeset, printMarkup } from './mathjax.js';
 import { html as H } from './exercises/export.js';
 import { icon } from './icons.js';
 import { levelRail, curriculumChooser, chosenLevelNote, SHORT } from './curriculum-picker.js';

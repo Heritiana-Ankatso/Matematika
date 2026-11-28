@@ -26,6 +26,8 @@ let stop;
 const {mountObject}=await import('../site/js/lab-objects.js');const solidRoot=document.createElement('div');document.body.append(solidRoot);stop=mountObject('platonic',solidRoot,{lang:'fr',reduced:true});
 for(const id of ['tetrahedron','cube','octahedron','dodecahedron','icosahedron']){solidRoot.querySelector(`[data-solid="${id}"]`).click();solidRoot.querySelector('#pl-open').click();assert.equal(solidRoot.querySelector('#pl-fold').value,'0');solidRoot.querySelector('#pl-play').click();assert.equal(solidRoot.querySelector('#pl-fold').value,'100');}
 solidRoot.querySelector('#pl-p').value=6;solidRoot.querySelector('#pl-p').dispatchEvent(new Event('input'));solidRoot.querySelector('#pl-q').value=3;solidRoot.querySelector('#pl-q').dispatchEvent(new Event('input'));assert.equal(solidRoot.querySelector('#pl-build-case').disabled,true);stop();solidRoot.remove();
+// these checks cover the previous look: design v8 is on by default (stage 8), ?v8=off is remembered as mx-v8 = '0'
+window.localStorage.setItem('mx-v8','0');
 await import('../dist/js/app.js');
 // Laboratory v2: a mounted experiment. Frames are run by hand; a drag must add or remove no element, the camera is
 // independent of the state, missions change the address, keyboard handles move by one grid step. Exploration is free: every

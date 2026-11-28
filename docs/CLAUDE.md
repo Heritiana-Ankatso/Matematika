@@ -14,8 +14,9 @@ Read one only when the task router in `MAP.md` sends you here.
 | `SLIDES.md` | where each deck comes from, slide checks |
 | `DESIGN_V3.md`, `DESIGN_V4.md` | design reasoning (v4 amends v3) |
 | `DESIGN_V6.md` | the previous look, "Grille" (31 October 2026); its grid stays under v7 |
-| `DESIGN_V7.md` | the current look, "Pavage" (chosen 15 November 2026): rules, what is done, what is next. Supersedes the palette, type and mark of v6 |
-| `DESIGN_V8.md` | brief of the rebuild agreed with the owner (21 November 2026): teacher-first, chapter page at the centre, per-page loading; three prototype directions, none chosen yet (v7 stays current until then) |
+| `DESIGN_V7.md` | the previous look, "Pavage" (15 November 2026): still the look of the pages framed in a v8 world and of `?v8=off`. Supersedes the palette, type and mark of v6 |
+| `DESIGN_V8.md` | the current look, "four worlds" (Musée, Université, Lycée, Olympiades), direction approved 22 November 2026, on by default since stage 8 of `REBUILD_PLAN.md`: brief, tokens, copybook rules, owner decisions |
+| `REBUILD_PLAN.md` | technical plan of the v8 rebuild: baseline measurements, the `?v8` switch, eight stages (loading first), tests, risks |
 | `design-v6/prototype.html` | clickable redesign prototype (home, chapter, laboratory, notes); not part of the site |
 | `REDESIGN_PROPOSAL_2026-10-27.md` | proposed illustrated catalogue, practical tools, chapter redesign and content completion |
 | `IMPROVEMENT_GOALS.md` | owner-approved learning, visualization, interactive slides, error-investigation, and Grand Oral goals with acceptance criteria |

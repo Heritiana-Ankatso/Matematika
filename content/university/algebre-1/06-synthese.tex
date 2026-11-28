@@ -31,6 +31,70 @@ Anneaux (ch. 5) & les classes $x+\Ker f$ & $\Ker f$ idéal : $A/\Ker f\simeq\Img
 \end{itemize}
 
 \exercices
+
+\begin{qcm}[Les fils du cours]
+Six questions qui obligent à passer d'un chapitre à l'autre.
+\begin{question}[plusieurs]
+Pour définir une structure quotient, que faut-il exiger de la partie par laquelle on quotiente ?
+\bonchoix{Pour un groupe $G/H$ : $H$ sous-groupe normal.}{Oui : c'est ce qui rend $(xH)(yH)=xyH$ bien défini.}
+\bonchoix{Pour un anneau $A/I$ : $I$ idéal.}{Oui : un sous-groupe additif stable par multiplication par tout élément de $A$.}
+\choix{Pour un anneau $A/I$ : $I$ sous-anneau.}{Non : un sous-anneau contient $1$, et un idéal qui contient $1$ est $A$ tout entier. Il faut un idéal, stable par multiplication par n'importe quel élément de $A$.}
+\choix{Pour un groupe $G/H$ : $H$ abélien.}{Non : c'est $H$ \emph{normal} qu'il faut, abélien ou pas ; $\langle(1\,2)\rangle$ est abélien et non normal dans $S_3$.}
+\begin{explication}
+À chaque étage, le quotient hérite des lois exactement quand la partie est un noyau possible : sous-groupe normal pour les groupes, idéal pour les anneaux.
+\end{explication}
+\end{question}
+\begin{question}[plusieurs]
+Lesquelles de ces affirmations sur $\Z/n\Z$ sont vraies ?
+\bonchoix{$(\Z/n\Z,+)$ a un unique sous-groupe d'ordre $d$ pour chaque diviseur $d$ de $n$.}{Oui (\voir{prop-sg-Zn}).}
+\bonchoix{$\cl a$ est inversible pour la multiplication si et seulement si $\cl a$ engendre le groupe additif.}{Oui : les deux conditions équivalent à $\pgcd(a,n)=1$.}
+\choix{$\Z/n\Z$ est intègre dès que $n$ est impair.}{Non : $\cl3\cdot\cl3=\cl0$ dans $\Z/9\Z$.}
+\bonchoix{$\Z/n\Z$ est un corps si et seulement si $n$ est premier.}{Oui (\voir{prop-integre}).}
+\begin{explication}
+$\pgcd(a,n)=1$ est la condition commune : générateur du groupe cyclique (ch. 4) et inversible de l'anneau (ch. 1 et 5, Bézout).
+\end{explication}
+\end{question}
+\begin{question}
+Quel est le noyau de $\det:\GL_n(\R)\to\R^*$, et à quoi le quotient est-il isomorphe ?
+\bonchoix{$\SL_n(\R)$, et $\GL_n(\R)/\SL_n(\R)\simeq\R^*$.}{Oui : $\det$ est un homomorphisme surjectif (premier théorème d'isomorphisme).}
+\choix{$\ens{I_n}$, et $\det$ est un isomorphisme.}{$\det$ n'est pas injectif pour $n\ge2$ : $\det\begin{pmatrix}2&0\\0&\frac12\end{pmatrix}=1$.}
+\choix{$O_n(\R)$, et le quotient est $\R_+^*$.}{Une matrice orthogonale peut avoir déterminant $-1$ ; et le noyau est l'ensemble des matrices de déterminant 1.}
+\choix{$\SL_n(\R)$, et le quotient est $\ens{\pm1}$.}{L'image de $\det$ est $\R^*$ tout entier : $\det\mathrm{diag}(t,1,\dots,1)=t$.}
+\begin{explication}
+Le déterminant est multiplicatif (ch. 3), donc un homomorphisme de groupes (ch. 4) ; son noyau est par définition $\SL_n$.
+\end{explication}
+\end{question}
+\begin{question}
+$\sigma\in S_n$ et $P_\sigma$ est sa matrice de permutation. Que vaut $\det P_\sigma$ ?
+\choix{Toujours 1.}{Une transposition donne $\det P_{ij}=-1$ (échange de deux lignes de $I_n$).}
+\bonchoix{La signature $\sgn(\sigma)$.}{Oui : $\sigma\mapsto P_\sigma$ et $\det$ sont des homomorphismes, et une transposition donne $-1$ des deux côtés.}
+\choix{Le nombre de points fixes de $\sigma$.}{Le déterminant d'une matrice de permutation vaut $\pm1$.}
+\choix{$(-1)^n$}{Il dépend de $\sigma$, pas seulement de $n$ : $\det P_{\id}=1$.}
+\begin{explication}
+Un même objet lu dans trois chapitres : matrice de permutation (ch. 2), déterminant et règle P2 (ch. 3), signature homomorphisme (ch. 4).
+\end{explication}
+\end{question}
+\begin{question}[plusieurs]
+Soit $f:G\to H$ un homomorphisme de groupes. Lesquelles de ces affirmations ont un analogue exact pour les applications linéaires et pour les homomorphismes d'anneaux ?
+\bonchoix{$f$ est injectif si et seulement si son noyau est trivial.}{Oui, aux trois étages : seul le neutre (le zéro) s'envoie sur le neutre.}
+\bonchoix{Le quotient par le noyau est isomorphe à l'image.}{Oui : premier théorème d'isomorphisme pour les groupes et les anneaux, théorème du rang (version dimension) en algèbre linéaire.}
+\choix{L'image est toujours un sous-groupe normal de $H$.}{Non, déjà pour les groupes : l'inclusion de $\langle(1\,2)\rangle$ dans $S_3$. Pour les anneaux, l'image n'est pas un idéal en général ($\Z\subset\Q$).}
+\begin{explication}
+Le schéma \og même image \fg, quotient, factorisation est le même aux trois étages ; seule change la structure requise pour que le quotient hérite des lois.
+\end{explication}
+\end{question}
+\begin{question}
+L'élimination de $A\in\Mat_4(\R)$ fait apparaître $PA=LU$ avec une seule permutation de deux lignes et les pivots $1,2,-1,3$. Que vaut $\det A$ ?
+\choix{$-6$, sans tenir compte de $P$.}{Il faut tenir compte de l'échange de lignes, qui change le signe.}
+\bonchoix{$6$}{Oui : $\det P\det A=\det L\det U$, avec $\det P=-1$, $\det L=1$, $\det U=1\cdot2\cdot(-1)\cdot3=-6$.}
+\choix{$5$}{C'est la somme des pivots ; le déterminant d'une matrice triangulaire est le produit des coefficients diagonaux.}
+\choix{On ne peut pas savoir sans connaître $L$.}{$L$ est à diagonale de 1, donc $\det L=1$ quel que soit $L$.}
+\begin{explication}
+Élimination (ch. 2) plus déterminant (ch. 3) : $\det A=\pm$ produit des pivots, avec le signe $\det P=\sgn$ de la permutation des lignes (ch. 4).
+\end{explication}
+\end{question}
+\end{qcm}
+
 \rubrique{D}
 \begin{exo}[S][Quotients partout]
 (a) Énoncer et démontrer la factorisation canonique pour une application quelconque. (b) Pour un homomorphisme de groupes $f$, montrer que la relation \og même image \fg{} est exactement $x\,\mathcal R_g\,y\iff y^{-1}x\in\Ker f$, puis en déduire le premier théorème d'isomorphisme à partir de (a) en ajoutant seulement la compatibilité avec les lois. (c) Même travail pour un homomorphisme d'anneaux. (d) Appliquer aux trois exemples : $\det$ sur $\GL_2(\R)$, $z\mapsto\abs z$ sur $\C^*$, la réduction $\Z\to\Z/n\Z$ (comme groupe, puis comme anneau).

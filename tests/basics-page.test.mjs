@@ -85,7 +85,9 @@ for (const lang of ['fr', 'en']) {
 
 test('app.js only imports the module; no lesson list or hard-coded chain remains there', () => {
   const app = readFileSync(new URL('../site/js/app.js', import.meta.url), 'utf8');
-  assert.match(app, /import \{ basicsPage, bindBasics, isBasicsRoute \} from "\.\/basics-page\.js"/);
+  // loaded on demand by the shell (routes.js group "basics")
+  assert.match(app, /import\("\.\/basics-page\.js"\)/);
+  assert.match(app, /\(\{ basicsPage, bindBasics, isBasicsRoute \} = b\)/);
   assert.doesNotMatch(app, /Leçon suivante|Next lesson|r\.id === "sets"|const basicsLessons/);
 });
 

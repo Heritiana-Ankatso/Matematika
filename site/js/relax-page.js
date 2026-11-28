@@ -35,7 +35,7 @@ ${day.length ? `<div class="rx-grid" id="rx-today">${day.map(it => card(it)).joi
 <section class="td-section rx-section" aria-labelledby="rx-more-h"><h2 id="rx-more-h">${L('Pour aller plus loin', 'Going further')}</h2>
 <ul class="rx-more">${more.map(([h, fr, en]) => `<li><a href="${h}">${L(fr, en)}</a></li>`).join('')}</ul></section>`;
 
- const typeset = () => import('./exercises/ui-kit.js').then(m => m.typeset(main)).catch(() => {});
+ const typeset = () => import('./mathjax.js').then(m => m.typeset(main)).catch(() => {});
  if (day.some(it => it.problem)) typeset();
  const draw = main.querySelector('#rx-draw');
  const onDraw = () => {

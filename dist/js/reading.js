@@ -3,7 +3,7 @@
 // declares them and, reversed, on every page they point to (challenges, gallery, laboratory, other texts).
 import { BIOGRAPHIES, STORIES } from "./reading-content.js";
 import { withEntryNav } from "./entry-nav.js";
-import { labs, challenges } from "./content.js";
+import { LAB_LINES as labs, CHALLENGE_LINES as challenges } from "./catalogue-lines.js";
 import {PEOPLE,ADVANCES,historyRecord,historyLinks,historyRoute} from './history-data.js';
 import {discoveryChapters} from './catalogue-data.js';
 

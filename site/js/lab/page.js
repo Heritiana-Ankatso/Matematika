@@ -2,7 +2,7 @@
 // experiment page (heading, the host that mount.js fills, previous / next experiment, related lessons, history). No drawing and
 // no state here.
 import { EXPERIMENTS, TEMPLATE_INFO, SECTION_INFO, INDEX_ORDER, groupOf, labRef } from "./registry.js";
-import { relatedChapters } from "../resource-library.js";
+import { relatedChapters } from "../related-chapters.js";
 import { fourierLinks } from "../fourier-links.js";
 import { TOPICS, membershipsFor } from "../topic-registry.js";
 

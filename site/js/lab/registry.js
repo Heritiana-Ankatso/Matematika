@@ -85,11 +85,8 @@ export const groupOf = (e) => e.section || e.template;
 
 export const experimentById = (id) => EXPERIMENTS.find((e) => e.id === id) || null;
 
-// "quadratic" or "quadratic/vertex" -> { id, mission }
-export function parseRef(ref) {
-  const [id, mission] = String(ref || "").split("/");
-  return { id, mission: mission || null };
-}
+import { parseRef } from "./refs.js";
+export { parseRef, labRef } from "./refs.js";
 // THE resolver of a lab reference (lab page, chapter pages, slides, tests): { experiment, mission, index, ref } or null when it
 // does not resolve. `mission` is the mission object ("quadratic/vertex") or the first mission when the reference names only the
 // experiment; `ref` is the normal form "<experiment>/<mission>"; `explicit` says whether the reference named a mission.
@@ -102,7 +99,6 @@ export function resolveRef(ref) {
   if (index < 0) return null;
   return { experiment, mission: experiment.missions[index], index, ref: `${experiment.id}/${experiment.missions[index].id}`, explicit: !!mission };
 }
-export const labRef = (id, mission) => (mission ? `${id}/${mission}` : id);
 export const allRefs = () => EXPERIMENTS.flatMap((e) => [e.id, ...e.missions.map((m) => `${e.id}/${m.id}`)]);
 
 // Entries of the shared catalogue (content.js `labs`): what the home page, the library and the pathways need to name a lab.

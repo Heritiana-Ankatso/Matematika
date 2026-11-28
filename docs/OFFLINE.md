@@ -4,10 +4,13 @@ Contract of `site/sw.js` (service worker), `site/js/offline.js` (page side) and 
 
 ## What works offline
 
-- **The application shell**, precached on the first visit: `index.html`, every stylesheet, font and JavaScript module,
-  and MathJax (`vendor/mathjax-tex-svg.js`), plus the small slide indexes. A page built from shell code alone works
-  offline even if it was never opened (checked by the browser test on the worksheet generator `#sheets`). Shell size:
-  about 9 MB, 480 files at the time of writing; `npm run test:offline` prints the current size).
+- **The application shell**, precached on the first visit (owner, 22 November 2026: a smaller offline copy):
+  `index.html`, the stylesheets, the current look's fonts, the modules `js/app.js` imports statically and the small slide
+  indexes. About 60 files and 1 MB; `npm run test:offline` prints the current size. A page's own code, MathJax and the
+  v8 fonts are cached when a page first uses them, so a page never opened online shows "Page indisponible" offline.
+- **Versions never mix.** The manifest also lists every other module with its hash (`known`). When a page fetches one of
+  them, the worker checks the content against that hash: a copy of another version (the site was updated since the worker
+  installed) is never kept, and the worker looks for the new version, whose notice follows.
 - **What was opened online**: chapter data, slide decks, foundation lessons, PDFs (whole and by `Range`) are copied in a
   runtime cache when first opened, then served offline. Limits: 400 entries, 150 MB, 40 MB per item.
 - **What was never opened** (a chapter page's data, a PDF) is not available offline. A PDF answers with a page

@@ -120,3 +120,108 @@ details > summary:hover::after { color: var(--ink); }
 .audience-menu > summary::after { content: none; }
 /* hint and solution buttons of the exercise bank are full touch targets */
 .bank-hint > summary, .bank-sol > summary { min-height: 44px; }
+
+/* ================================================================== design v8 (behind ?v8): the shared frame
+   docs/DESIGN_V8.md section 4, docs/REBUILD_PLAN.md stage 2. Inert without `data-world` on the root (js/v8.js). Every
+   colour, face and radius comes from the world's --w-* tokens (tokens.css); a world stylesheet (world-<id>.css) adds
+   only its signature. Markup: js/v8/kit.js. */
+:root[data-world] body { background: var(--w-bg); color: var(--w-ink); font-family: var(--w-text); }
+:root[data-world] .v8 { font-family: var(--w-text); font-size: 1.0625rem; line-height: 1.6; color: var(--w-ink); }
+.v8 *, .v8 *::before, .v8 *::after { box-sizing: border-box; }
+.v8 h1, .v8 h2, .v8 h3 { font-family: var(--w-head); font-weight: 400; line-height: 1.15; text-wrap: balance; margin: 0; color: var(--w-ink); }
+.v8 p { margin: .6em 0; }
+.v8 section > h2 { margin: var(--w-s7) 0 var(--w-s3); }
+.v8 a { color: var(--w-accent2); text-underline-offset: 3px; }
+.v8 :focus-visible { outline: 2px solid var(--w-accent); outline-offset: 3px; }
+.v8 .v8-wrap { max-width: var(--w-max); margin: 0 auto; padding-inline: max(var(--w-gutter), env(safe-area-inset-left, 0px)) max(var(--w-gutter), env(safe-area-inset-right, 0px)); }
+.v8 .v8-muted { color: var(--w-muted); }
+.v8 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* top bar: brand, one folded world menu, search; nothing else is unfolded by default */
+.v8-bar { position: sticky; top: 0; z-index: 20; background: color-mix(in srgb, var(--w-bg) 90%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--w-rule); font-family: var(--w-ui); }
+.v8-bar .v8-wrap { display: flex; align-items: center; gap: var(--w-s2); min-height: var(--w-bar); }
+.v8-brand { display: inline-flex; align-items: center; gap: 10px; min-height: var(--w-target); color: var(--w-ink) !important; text-decoration: none; font: 500 1.2rem/1 var(--w-head); }
+.v8-brand svg { width: 26px; height: 26px; flex: none; }
+.v8-brand svg .bm-bg { fill: none; } .v8-brand svg .bm-arc { fill: none; stroke: var(--w-accent); stroke-width: 6; }
+.v8-spacer { flex: 1; }
+.v8-worlds { position: relative; }
+.v8-worlds > summary { list-style: none; display: inline-flex; align-items: center; gap: .5em; min-height: var(--w-target); padding: 0 .9em; border: 1px solid var(--w-rule); border-radius: 22px; cursor: pointer; font: 600 .95rem var(--w-ui); color: var(--w-ink); }
+.v8-worlds > summary::-webkit-details-marker { display: none; }
+.v8-worlds > summary::after { content: ""; width: .45em; height: .45em; border: solid var(--w-accent); border-width: 0 2px 2px 0; transform: rotate(45deg) translateY(-2px); transition: transform var(--w-t); }
+.v8-worlds[open] > summary::after { transform: rotate(-135deg); }
+.v8-worlds-list { position: absolute; left: 0; top: calc(100% + 8px); width: min(280px, calc(100vw - 2 * var(--w-gutter))); padding: 6px; background: var(--w-surface); border: 1px solid var(--w-rule); border-radius: var(--w-r); box-shadow: 0 18px 40px rgba(0,0,0,.35); }
+.v8-worlds-list a { display: flex; flex-direction: column; gap: 2px; min-height: var(--w-target); justify-content: center; padding: 8px 12px; border-radius: calc(var(--w-r) * .7); color: var(--w-ink); text-decoration: none; font: 600 1rem var(--w-ui); }
+.v8-worlds-list a small { font-weight: 500; font-size: .82rem; color: var(--w-muted); }
+.v8-worlds-list a:hover, .v8-worlds-list a[aria-current="page"] { background: var(--w-accent-soft); }
+.v8-icon { display: inline-grid; place-items: center; min-width: var(--w-target); min-height: var(--w-target); border-radius: 50%; color: var(--w-ink) !important; }
+.v8-icon:hover { background: var(--w-raise); }
+
+/* actions */
+.v8-btn { display: inline-flex; align-items: center; justify-content: center; gap: .45em; min-height: var(--w-target); padding: 0 1.1em; border: 1px solid var(--w-rule); border-radius: 22px; background: transparent; color: var(--w-ink); font: 600 .95rem var(--w-ui); text-decoration: none; cursor: pointer; }
+.v8-btn:hover { background: var(--w-raise); }
+.v8-btn.is-accent { background: var(--w-accent); border-color: var(--w-accent); color: var(--w-accent-ink); }
+.v8-btn[aria-pressed="true"] { background: var(--w-accent); border-color: var(--w-accent); color: var(--w-accent-ink); }
+.v8-btn:disabled { opacity: .5; cursor: not-allowed; }
+
+/* folded lists: rooms, notebooks, levels, chapter lists, courses; closed until clicked, one open at a time
+   (<details name> where supported; js/v8/kit.js foldGroup elsewhere) */
+.v8-fold { border-top: 1px solid var(--w-rule); }
+.v8-fold > details { border-bottom: 1px solid var(--w-rule); }
+.v8-fold > details > summary { list-style: none; display: flex; align-items: center; gap: var(--w-s3); min-height: 54px; padding: var(--w-s2) var(--w-s2); cursor: pointer; font: 500 1.15rem var(--w-head); color: var(--w-ink); }
+.v8-fold > details > summary::-webkit-details-marker { display: none; }
+.v8-fold > details > summary .v8-count { margin-left: auto; font: 500 .85rem var(--w-ui); color: var(--w-muted); white-space: nowrap; }
+.v8-fold > details > summary::after { content: ""; flex: none; width: .5em; height: .5em; border: solid var(--w-accent); border-width: 0 2px 2px 0; transform: rotate(-45deg); transition: transform var(--w-t); }
+.v8-fold > details[open] > summary::after { transform: rotate(45deg); }
+.v8-fold .v8-fold-body { padding: 0 var(--w-s2) var(--w-s4); }
+.v8-list { list-style: none; margin: 0; padding: 0; }
+.v8-list a, .v8-list span { display: flex; gap: var(--w-s3); align-items: baseline; min-height: var(--w-target); padding: 8px; border-radius: calc(var(--w-r) * .6); color: var(--w-ink); text-decoration: none; line-height: 1.35; }
+.v8-list a:hover { background: var(--w-accent-soft); }
+.v8-list .v8-num { flex: none; min-width: 1.8em; text-align: right; font: italic 500 1rem var(--w-head); color: var(--w-accent); }
+
+/* side sheet (Exercices, chapter information): from the right on a laptop, the whole screen on a phone */
+.v8-sheet { position: fixed; inset: 0 0 0 auto; width: min(600px, 100vw); max-width: 100vw; height: 100%; max-height: none; margin: 0; padding: 0; border: 0; border-left: 1px solid var(--w-rule); background: var(--w-surface); color: var(--w-ink); }
+.v8-sheet::backdrop { background: rgba(5,8,15,.55); }
+.v8-sheet[open] { display: flex; flex-direction: column; animation: v8-slide .22s ease; }
+@keyframes v8-slide { from { transform: translateX(24px); opacity: .6; } to { transform: none; opacity: 1; } }
+.v8-sheet-head { display: flex; align-items: center; gap: var(--w-s2); padding: var(--w-s3) var(--w-s3) var(--w-s3) var(--w-s5); border-bottom: 1px solid var(--w-rule); }
+.v8-sheet-head h2 { flex: 1; font-size: 1.5rem; }
+.v8-sheet-body { flex: 1; overflow: auto; padding: var(--w-s4) var(--w-s5) var(--w-s7); }
+
+/* chapter outline: slim, follows the reading; a folded bar on a phone */
+.v8-outline { font: 500 .9rem/1.35 var(--w-ui); }
+.v8-outline > summary { list-style: none; display: flex; align-items: center; gap: var(--w-s2); min-height: var(--w-target); cursor: pointer; color: var(--w-ink); }
+.v8-outline > summary::-webkit-details-marker { display: none; }
+.v8-outline ol { list-style: none; margin: 0; padding: 0; border-left: 1px solid var(--w-rule); }
+.v8-outline li a { display: flex; gap: 10px; min-height: 36px; align-items: center; padding: 4px 0 4px 14px; margin-left: -1px; border-left: 2px solid transparent; color: var(--w-muted); text-decoration: none; }
+.v8-outline li a:hover { color: var(--w-ink); }
+.v8-outline li a[aria-current="location"] { color: var(--w-ink); border-left-color: var(--w-accent); }
+
+/* deck controls (projection): previous, step counter, next, "Tout", Fond clair / Fond sombre */
+.v8-deck-bar { display: flex; flex-wrap: wrap; align-items: center; gap: var(--w-s2); padding: var(--w-s2) var(--w-s3); border-top: 1px solid var(--w-rule); font-family: var(--w-ui); }
+.v8-deck-bar output { min-width: 5ch; text-align: center; font-variant-numeric: tabular-nums; color: var(--w-muted); }
+.v8-deck-bar .v8-spacer { min-width: var(--w-s2); }
+
+@media (prefers-reduced-motion: reduce) {
+  :root[data-world] *, :root[data-world] *::before, :root[data-world] *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
+/* the current look's summary chevron, weight and hyphenation stay out of the v8 frame (its folds draw their own) */
+.v8 summary { font-weight: inherit; }
+.v8 details > summary::after { content: none; }
+.v8 .v8-fold > details > summary::after, .v8 .v8-worlds > summary::after { content: ""; }
+.v8 h1, .v8 h2, .v8 h3, .v8 summary { hyphens: manual; overflow-wrap: break-word; }
+.v8-lang { display: inline-flex; border: 1px solid var(--w-rule); border-radius: 22px; overflow: hidden; }
+.v8-lang button { min-width: var(--w-target); min-height: var(--w-target); padding: 0 .6em; border: 0; background: transparent; color: var(--w-muted); font: 600 .85rem var(--w-ui); cursor: pointer; }
+.v8-lang button[aria-pressed="true"] { background: var(--w-accent); color: var(--w-accent-ink); }
+@media (max-width: 420px) { .v8-bar .v8-brand span { display: none; } }
+/* a page of the current look framed in its world (app.js v8Frame): only the bar is v8 */
+.v8-frame { position: sticky; top: 0; z-index: 30; }
+/* shared by the worlds: section bands, eyebrow line, lead paragraph, chips of links */
+.v8-eyebrow, .v8-where { font: 600 .72rem var(--w-ui); letter-spacing: .09em; text-transform: uppercase; color: var(--w-accent); }
+.v8-band { padding-block: clamp(40px, 8vh, 80px) 0; }
+.v8-band:last-child { padding-bottom: 80px; }
+.v8-band h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); }
+.v8-chips { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.v8-chips a { display: inline-flex; align-items: center; min-height: var(--w-target); padding: 6px 14px; border: 1px solid var(--w-rule); border-radius: 20px; color: var(--w-ink); text-decoration: none; font: 500 .92rem var(--w-ui); }
+.v8-chips a:hover { border-color: var(--w-accent); }
+.v8-lede { font-size: 1.1rem; color: var(--w-muted); max-width: 52ch; margin: .7em 0 1.4em; }
+.v8 main:focus:not(:focus-visible), .v8 main:focus { outline: none; }
