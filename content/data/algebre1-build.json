@@ -194,9 +194,9 @@
     }
   },
   "outputs": {
-    "dist/resources/university/algebre-1/corriges.pdf": "aa5e3896ac454a1c0a70e6a84f38b73cd141dad12a9dd278591f422981e97f4b",
-    "dist/resources/university/algebre-1/cours.pdf": "4011f227a3bea250d1770dec0ab95ad2c7c575f5b75946c93d33bcf4e92c24b6",
-    "dist/resources/university/algebre-1/exercices.pdf": "60e38f72c14dba472c68315832343df4f028677c13984598557ee756db3930fc",
+    "dist/resources/university/algebre-1/corriges.pdf": "b4d3d20881dd441522879b066e86147297339ce978ec475f9feeafd8324b04dd",
+    "dist/resources/university/algebre-1/cours.pdf": "d4597d1f83020bc9b47d6e59d078d12bdab22d07de11436ae3e27b5efd1e32d0",
+    "dist/resources/university/algebre-1/exercices.pdf": "d2e1af03f5b64af24e2f7bb1bfa00b91cb0ef82cacdc11565c09dff30e0becc1",
     "dist/resources/university/algebre-1/lecons/ch1-ensembles.html": "51783c024f09414abcfffe0fcaf3c53b3a98790afd19d8e83da94bab102741ff",
     "dist/resources/university/algebre-1/lecons/ch2-matrices.html": "8b0b9d2a3bf3d47627f7eb4e0b293418484dc19b4e976fabb382eb86a46929c8",
     "dist/resources/university/algebre-1/lecons/ch3-espaces-vectoriels.html": "9fa261c79e739fe08f796f75050d1e166cea97f1027c23ced9917eefcd3acff1",
@@ -205,6 +205,6 @@
     "dist/resources/university/algebre-1/lecons/ch5-anneaux.html": "b9fbba07010c976186e97ae60153089139c77884017b82ef78337b09c01ca32e",
     "dist/resources/university/algebre-1/lecons/index.html": "bc8f871b9ab417fa383601b0c5dcb1b2fa5cab96c78ed5b505a4b9099fb9d234",
     "dist/resources/university/algebre-1/lecons/synthese.html": "a637726fe4f2c12184c794a67753e3a6e82b440ff4decf485b296f13d1c1708e",
-    "dist/resources/university/algebre-1/sources-latex.zip": "9434ff1ab784874935d0d6bf2eef0a8a5685eef3f99924f1e20441e5db970d38"
+    "dist/resources/university/algebre-1/sources-latex.zip": "a3ec94cd5d9080aa74a0a9c9a14b2abeccb08f1bdc15a585a038cc208e9c8739"
   }
 }
